@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나이브 베이즈 분류기 | Chapter 2 · Section 04</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:#1f2328;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.78;overflow-x:hidden;}
+.hero{padding:76px 40px 84px;text-align:center;border-bottom:1px solid #d0d7de;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);}
+.chapter-badge{display:inline-block;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#0969da;background:#ddf4ff;border:1px solid #54aeff;border-radius:20px;padding:4px 12px;}
+.hero h1{font-size:clamp(31px,5.4vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.12;margin-bottom:14px;}
+.hero-sub{font-size:16px;color:#57606a;max-width:760px;margin:0 auto 34px;}
+.hero-sub strong{color:#0969da;}
+.toc{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:920px;margin:0 auto;}
+.toc-btn{background:#f6f8fa;border:1px solid #d0d7de;border-radius:999px;padding:7px 14px;font-size:12px;font-family:'JetBrains Mono',monospace;color:#57606a;cursor:pointer;transition:all .15s;}
+.toc-btn:hover{background:#ddf4ff;border-color:#54aeff;color:#0969da;transform:translateY(-1px);}
+.scroll-arrow{display:flex;flex-direction:column;align-items:center;gap:5px;color:#8c959f;font-size:11px;font-family:'JetBrains Mono',monospace;margin-top:34px;animation:bob 2.2s ease-in-out infinite;}
+.scroll-arrow svg{width:17px;height:17px;stroke:#8c959f;fill:none;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.divider{width:100%;height:1px;background:#d0d7de;}
+.sec{max-width:980px;margin:0 auto;padding:68px 32px;}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#0969da;margin-bottom:6px;}
+h2{font-size:clamp(22px,3.7vw,34px);font-weight:800;letter-spacing:-.025em;line-height:1.22;margin-bottom:16px;color:#1f2328;}
+h3{font-size:17px;font-weight:700;color:#1f2328;margin-bottom:8px;}
+p{margin-bottom:12px;color:#1f2328;}
+strong{font-weight:700;}
+em{font-style:normal;color:#0969da;font-weight:700;}
+.lead{font-size:16px;color:#424a53;max-width:850px;}
+.keyline{margin:18px 0 24px;padding:14px 18px;border:1px solid #b6e3ff;border-left:4px solid #0969da;border-radius:9px;background:#f1f8ff;font-size:15px;}
+.callout{background:#f6f8fa;border-left:3px solid #0969da;border-radius:0 8px 8px 0;padding:14px 17px;margin:18px 0;font-size:14px;}
+.callout.warn{background:#fff8c5;border-left-color:#9a6700;}
+.callout.good{background:#f0fff4;border-left-color:#1a7f37;}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.tb{background:#ddf4ff;color:#0969da;border:1px solid #54aeff;}.tr{background:#fff0f0;color:#cf222e;border:1px solid #ffcecb;}.tg{background:#dafbe1;color:#1a7f37;border:1px solid #82cfff;}.to{background:#fff8c5;color:#9a6700;border:1px solid #eac54f;}.tp{background:#fbefff;color:#8250df;border:1px solid #d8b4fe;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+@media(max-width:820px){.two-col,.three-col{grid-template-columns:1fr;}.sec{padding:56px 22px;}.hero{padding-left:22px;padding-right:22px;}}
+.card{background:#f6f8fa;border:1px solid #d0d7de;border-radius:12px;padding:20px;}
+.card p{font-size:14px;color:#57606a;margin-bottom:0;}
+.stage{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:18px;align-items:stretch;margin-top:22px;}
+@media(max-width:880px){.stage{grid-template-columns:1fr;}}
+.visual-card{background:#ffffff;border:1px solid #d0d7de;border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(140,149,159,.12);}
+.side-panel{display:flex;flex-direction:column;gap:12px;}
+.panel-box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:12px;padding:16px;}
+.panel-box h3{font-size:15px;margin-bottom:8px;}
+.panel-box p,.panel-box li{font-size:14px;color:#57606a;}
+.panel-box ul{padding-left:18px;line-height:1.65;}
+.panel-box li{margin-bottom:6px;}
+.canvas-wrap{background:#fff;border:1px solid #d0d7de;border-radius:10px;overflow:hidden;margin-top:12px;}
+canvas{display:block;width:100%;}
+.ctrl-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;}
+.mode-btn,.reset-btn{padding:6px 13px;border-radius:999px;font-size:12px;font-family:'JetBrains Mono',monospace;border:1px solid #d0d7de;background:#fff;color:#57606a;cursor:pointer;transition:all .15s;}
+.mode-btn:hover,.reset-btn:hover{transform:translateY(-1px);}
+.mode-btn.active-b{background:#ddf4ff;border-color:#0969da;color:#0969da;font-weight:600;}
+.mode-btn.active-r{background:#fff0f0;border-color:#cf222e;color:#cf222e;font-weight:600;}
+.mode-btn.active-g{background:#dafbe1;border-color:#1a7f37;color:#1a7f37;font-weight:600;}
+.mode-btn.active-p{background:#fbefff;border-color:#8250df;color:#8250df;font-weight:600;}
+.reset-btn:hover{border-color:#cf222e;color:#cf222e;}
+.slider-row{display:flex;align-items:center;gap:12px;margin:12px 0 4px;}
+.sl-lbl{font-family:'JetBrains Mono',monospace;font-size:12px;color:#57606a;white-space:nowrap;}
+input[type=range]{-webkit-appearance:none;flex:1;height:4px;border-radius:2px;background:#d0d7de;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#0969da;cursor:pointer;border:2px solid #fff;box-shadow:0 0 0 2px #0969da;}
+.num-val{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:#0969da;min-width:42px;text-align:center;}
+.hint{font-size:11px;color:#656d76;font-family:'JetBrains Mono',monospace;margin-top:7px;margin-bottom:0;}
+.mini-title{font-family:'JetBrains Mono',monospace;font-size:11px;color:#0969da;text-transform:uppercase;letter-spacing:.09em;margin-bottom:6px;}
+.score-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
+.score-badge{background:#fff;border:1px solid #d0d7de;border-radius:9px;padding:9px 13px;min-width:108px;}
+.score-lbl{font-size:10px;color:#656d76;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:2px;}
+.score-val{font-size:21px;font-weight:600;font-family:'JetBrains Mono',monospace;}
+.matrix{display:grid;grid-template-columns:68px repeat(4,1fr);gap:6px;margin-top:14px;align-items:stretch;}
+.cell{border:1px solid #d0d7de;border-radius:8px;min-height:46px;padding:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;background:#fff;}
+.cell.head{background:#f6f8fa;color:#57606a;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+.cell.label0{background:#ddf4ff;border-color:#54aeff;color:#0969da;font-weight:700;}
+.cell.label1{background:#fff0f0;border-color:#ffcecb;color:#cf222e;font-weight:700;}
+.cell.bit{cursor:pointer;transition:all .12s;}
+.cell.bit.one{background:#f0fff4;border-color:#1a7f37;color:#1a7f37;font-weight:700;}
+.cell.bit:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(140,149,159,.16);}
+.word-bank{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+.word-btn{font-family:'JetBrains Mono',monospace;border:1px solid #d0d7de;background:#fff;border-radius:999px;padding:7px 12px;cursor:pointer;color:#57606a;transition:all .15s;}
+.word-btn:hover{transform:translateY(-1px);border-color:#0969da;color:#0969da;background:#f1f8ff;}
+.word-btn.active{background:#ddf4ff;border-color:#0969da;color:#0969da;font-weight:600;}
+.token-box{min-height:42px;background:#f6f8fa;border:1px dashed #d0d7de;border-radius:10px;padding:10px 12px;color:#57606a;font-size:13px;}
+pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 18px;margin:16px 0;white-space:pre-wrap;word-break:break-word;overflow-x:hidden;}
+pre code{font-family:'JetBrains Mono',monospace;font-size:12.2px;line-height:1.72;color:#1f2328;}
+.hl{color:#0969da;font-weight:600;}.cm{color:#6e7781;}.st{color:#0a3069;}.kw{color:#8250df;font-weight:600;}
+.summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+@media(max-width:820px){.summary-strip{grid-template-columns:1fr 1fr;}.matrix{grid-template-columns:54px repeat(4,1fr);}.cell{font-size:12px;min-height:40px;padding:6px;}}
+@media(max-width:520px){.summary-strip{grid-template-columns:1fr;}.matrix{grid-template-columns:44px repeat(4,1fr);gap:4px;}.cell.head{font-size:9px;}.cell{border-radius:6px;}}
+.summary-item{border:1px solid #d0d7de;border-radius:10px;padding:14px;background:#fff;}
+.summary-item strong{display:block;margin-bottom:4px;}
+.summary-item span{font-size:13px;color:#57606a;}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="chapter-badge">Chapter 2 · Section 04</div>
+  <h1>나이브 베이즈 분류기</h1>
+  <p class="hero-sub"><strong>각 특성을 따로 보고, 클래스별 간단한 통계</strong>를 모아 빠르게 예측합니다. 텍스트처럼 특성이 많고 희소한 데이터에서 특히 좋은 기준 모델이 됩니다.</p>
+  <div class="toc">
+    <div class="toc-btn" onclick="goto('s1')">01 · 핵심 직관</div>
+    <div class="toc-btn" onclick="goto('s2')">02 · 세 가지 모델</div>
+    <div class="toc-btn" onclick="goto('s3')">03 · BernoulliNB</div>
+    <div class="toc-btn" onclick="goto('s4')">04 · MultinomialNB</div>
+    <div class="toc-btn" onclick="goto('s5')">05 · GaussianNB</div>
+    <div class="toc-btn" onclick="goto('s6')">06 · alpha와 장단점</div>
+  </div>
+  <div class="scroll-arrow">
+    <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    scroll
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s1">
+  <div class="sec-num">01 / 06</div>
+  <h2>핵심 질문: 각 증거가 어느 클래스 쪽을 더 가리키는가?</h2>
+  <p class="lead">나이브 베이즈 분류기는 선형 모델과 비슷한 형태의 빠른 분류기입니다. 교재는 이 모델들이 <strong>각 특성을 개별적으로 살펴보고, 클래스마다 단순한 통계</strong>를 수집하기 때문에 학습이 매우 빠르다고 설명합니다.</p>
+  <p>여기서 “나이브”라는 말은 모델이 어리석다는 뜻이 아닙니다. 복잡한 관계를 모두 추적하지 않고, 특성들을 상당히 단순하게 다룬다는 뜻에 가깝습니다. 예를 들어 이메일을 분류할 때 “free”라는 단어, “meeting”이라는 단어, “winner”라는 단어를 각각 하나의 증거처럼 보고, 이 증거들이 스팸 쪽에 더 자주 나타났는지 정상 메일 쪽에 더 자주 나타났는지를 따로따로 모읍니다.</p>
+  <p>비유하면 나이브 베이즈는 탐정이 사건 현장의 모든 증거 사이의 복잡한 상호작용을 먼저 분석하는 방식이 아닙니다. 대신 증거 하나하나에 대해 “이 증거는 과거에 어느 사건 유형에서 더 자주 보였나?”를 빠르게 세어봅니다. 그래서 정교한 모델보다 성능이 약간 낮을 수 있지만, 대신 엄청나게 빠르고 이해하기 쉽습니다.</p>
+  <div class="keyline">핵심 흐름은 단순합니다. <strong>훈련 단계에서는 클래스별 통계를 모으고, 예측 단계에서는 새 데이터가 각 클래스의 통계와 얼마나 잘 맞는지 비교합니다.</strong></div>
+
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · 증거가 쌓이는 점수판</div>
+      <p style="font-size:14px;color:#57606a;margin-bottom:8px;">단어 버튼을 눌러 문서를 만들어 보세요. 아래 막대는 선택된 단어들이 어느 클래스의 통계와 더 잘 맞는지를 단순화해서 보여줍니다.</p>
+      <div class="word-bank" id="quickWords"></div>
+      <div class="token-box" id="quickDoc">선택된 단어가 없습니다.</div>
+      <div class="canvas-wrap"><canvas id="quickC" data-lh="260"></canvas></div>
+      <button class="reset-btn" onclick="resetQuick()">↺ 단어 초기화</button>
+      <p class="hint">교재의 개념을 단순화한 예시입니다. 실제 모델은 로그 확률과 smoothing 등을 사용하지만, 발표에서는 “특성별 증거가 클래스 점수로 쌓인다”는 직관이 중요합니다.</p>
+    </div>
+    <div class="side-panel">
+      <div class="panel-box">
+        <h3>관찰 포인트</h3>
+        <ul>
+          <li>각 단어는 독립적인 증거처럼 점수에 기여합니다.</li>
+          <li>스팸 쪽 단어가 많으면 Spam 점수가 올라갑니다.</li>
+          <li>업무 메일 쪽 단어가 많으면 Ham 점수가 올라갑니다.</li>
+          <li>복잡한 상호작용보다 클래스별 단순 통계가 중심입니다.</li>
+        </ul>
+      </div>
+      <div class="panel-box">
+        <h3>발표 멘트</h3>
+        <p>“나이브 베이즈는 모든 특성의 관계망을 정교하게 그리는 모델이 아닙니다. 각 특성을 따로 보고, 클래스마다 얼마나 자주 나타나는지 같은 단순한 통계를 모아 빠르게 판단합니다.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s2">
+  <div class="sec-num">02 / 06</div>
+  <h2>scikit-learn의 세 가지 나이브 베이즈</h2>
+  <p class="lead">교재는 scikit-learn에 구현된 나이브 베이즈 분류기를 <strong>GaussianNB, BernoulliNB, MultinomialNB</strong> 세 가지로 정리합니다. 차이는 “각 특성을 어떤 종류의 데이터로 볼 것인가”에 있습니다.</p>
+  <p>이 세 모델은 같은 이름 아래 묶이지만, 바라보는 데이터의 모양이 다릅니다. 어떤 모델은 연속적인 측정값을 다루고, 어떤 모델은 0/1처럼 켜짐과 꺼짐만 있는 특성을 다루며, 어떤 모델은 단어가 몇 번 등장했는지처럼 카운트 데이터를 다룹니다.</p>
+  <p>따라서 나이브 베이즈를 처음 배울 때는 수식보다 먼저 “내 특성의 의미가 무엇인가?”를 묻는 것이 좋습니다. 특성이 연속값인지, 이진값인지, 개수인지에 따라 선택하는 모델이 달라집니다.</p>
+  <div class="three-col">
+    <div class="card">
+      <span class="tag tb">GaussianNB</span>
+      <h3 style="margin-top:12px;">연속값 특성</h3>
+      <p>각 클래스에서 특성의 평균과 표준편차를 저장합니다. 예를 들어 측정값, 길이, 무게, 농도처럼 연속적인 숫자 특성에 적용할 수 있습니다.</p>
+    </div>
+    <div class="card">
+      <span class="tag tr">BernoulliNB</span>
+      <h3 style="margin-top:12px;">0/1 이진 특성</h3>
+      <p>각 특성이 0이 아닌 경우가 클래스별로 얼마나 자주 나타나는지 셉니다. 단어가 등장했는지 여부만 보는 텍스트 표현에 사용할 수 있습니다.</p>
+    </div>
+    <div class="card">
+      <span class="tag tg">MultinomialNB</span>
+      <h3 style="margin-top:12px;">카운트 특성</h3>
+      <p>특성값의 평균적인 크기를 클래스별로 고려합니다. 단어가 몇 번 등장했는지 세는 문서 분류에서 널리 사용됩니다.</p>
+    </div>
+  </div>
+  <div class="callout warn"><strong>정리:</strong> BernoulliNB와 MultinomialNB는 텍스트 데이터 분류에서 자주 사용됩니다. 특히 텍스트는 단어 수가 많고 대부분의 문서에서 대부분의 단어가 등장하지 않는 희소한 형태가 되기 때문에, 나이브 베이즈의 빠른 학습과 예측이 강점으로 작동합니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s3">
+  <div class="sec-num">03 / 06</div>
+  <h2>BernoulliNB: 0이 아닌 특성을 클래스별로 센다</h2>
+  <p class="lead">BernoulliNB는 각 특성이 <strong>나타났는가, 나타나지 않았는가</strong>를 봅니다. 교재의 예시처럼 이진 특성 행렬이 주어지면, 클래스마다 각 특성이 몇 번 1로 나타났는지 세는 방식으로 통계를 만듭니다.</p>
+  <p>아래 표는 교재의 작은 예제를 시각화한 것입니다. 행은 데이터 포인트이고, 열은 네 개의 이진 특성입니다. 셀을 클릭하면 0과 1이 바뀌고, 오른쪽 통계가 즉시 갱신됩니다. 여기서 봐야 할 것은 모델이 복잡한 경계를 먼저 만드는 것이 아니라, 클래스별로 단순한 카운트를 모은다는 점입니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · 교재 예제 행렬 바꿔보기</div>
+      <div class="matrix" id="bernMatrix"></div>
+      <div class="canvas-wrap"><canvas id="bernC" data-lh="300"></canvas></div>
+      <button class="reset-btn" onclick="resetBern()">↺ 교재 예제로 초기화</button>
+      <p class="hint">초록색 1은 해당 특성이 “0이 아님”을 뜻합니다. 막대는 클래스별 feature count입니다.</p>
+    </div>
+    <div class="side-panel">
+      <div class="panel-box">
+        <h3>교재 예제의 핵심</h3>
+        <p>교재는 네 개의 데이터 포인트와 네 개의 이진 특성으로 BernoulliNB의 카운팅 방식을 설명합니다. 클래스 0에 속한 행들만 모아 각 열의 1을 세고, 클래스 1에 대해서도 같은 작업을 합니다.</p>
+      </div>
+      <div class="panel-box">
+        <h3>무엇을 관찰할 것인가</h3>
+        <ul>
+          <li>클래스 0의 행을 바꾸면 파란 막대가 변합니다.</li>
+          <li>클래스 1의 행을 바꾸면 빨간 막대가 변합니다.</li>
+          <li>예측은 새 데이터가 어느 클래스의 카운트 패턴과 더 잘 맞는지 비교하는 방향으로 이루어집니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<pre><code><span class="hl">import</span> numpy <span class="hl">as</span> np
+
+X = np.array([[<span class="st">0</span>, <span class="st">1</span>, <span class="st">0</span>, <span class="st">1</span>],
+              [<span class="st">1</span>, <span class="st">0</span>, <span class="st">1</span>, <span class="st">1</span>],
+              [<span class="st">0</span>, <span class="st">0</span>, <span class="st">0</span>, <span class="st">1</span>],
+              [<span class="st">1</span>, <span class="st">0</span>, <span class="st">1</span>, <span class="st">0</span>]])
+y = np.array([<span class="st">0</span>, <span class="st">1</span>, <span class="st">0</span>, <span class="st">1</span>])
+
+counts = {}
+<span class="kw">for</span> label <span class="kw">in</span> np.unique(y):
+    counts[label] = X[y == label].sum(axis=<span class="st">0</span>)</code></pre>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s4">
+  <div class="sec-num">04 / 06</div>
+  <h2>MultinomialNB: 단어가 몇 번 등장했는지를 본다</h2>
+  <p class="lead">MultinomialNB는 특성값이 카운트일 때 잘 맞습니다. 텍스트 분류에서는 각 단어가 문서 안에 몇 번 등장했는지가 특성이 될 수 있으므로, 이 모델이 특히 자연스럽게 연결됩니다.</p>
+  <p>BernoulliNB가 “단어가 등장했는가?”를 묻는다면, MultinomialNB는 “단어가 몇 번 등장했는가?”를 묻습니다. 짧은 메일에 “winner”가 한 번 나온 것과, 긴 메일에서 “winner, free, prize”가 반복해서 나온 것은 같은 증거 강도가 아닙니다. 카운트 기반 모델은 이런 반복 정보를 사용할 수 있습니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · 문서 카운트로 분류하기</div>
+      <div class="word-bank" id="multiWords"></div>
+      <div class="token-box" id="multiDoc">단어를 클릭하면 문서 카운트가 쌓입니다.</div>
+      <div class="slider-row">
+        <span class="sl-lbl">alpha smoothing</span>
+        <input type="range" id="multiAlpha" min="0" max="20" value="4" oninput="drawMulti()">
+        <span class="num-val" id="multiAlphaVal">1.0</span>
+      </div>
+      <div class="canvas-wrap"><canvas id="multiC" data-lh="330"></canvas></div>
+      <button class="reset-btn" onclick="resetMulti()">↺ 문서 초기화</button>
+      <p class="hint">alpha는 교재의 설명처럼 모든 특성에 양의 값을 가진 가상 데이터 포인트를 더해 통계를 부드럽게 만드는 효과로 생각할 수 있습니다.</p>
+    </div>
+    <div class="side-panel">
+      <div class="panel-box">
+        <h3>관찰 포인트</h3>
+        <ul>
+          <li>같은 단어를 여러 번 누르면 해당 단어의 카운트가 증가합니다.</li>
+          <li>카운트가 커질수록 그 단어가 자주 나타나는 클래스 쪽 점수가 강해집니다.</li>
+          <li>alpha가 커지면 클래스별 통계가 더 부드러워져 극단적인 차이가 줄어듭니다.</li>
+        </ul>
+      </div>
+      <div class="panel-box">
+        <h3>발표 멘트</h3>
+        <p>“텍스트 분류에서 문서는 거대한 단어 카운트 벡터가 됩니다. 대부분의 단어는 0이고 일부 단어만 양수입니다. 나이브 베이즈는 이런 희소 카운트 데이터에서 매우 빠르게 작동합니다.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s5">
+  <div class="sec-num">05 / 06</div>
+  <h2>GaussianNB: 평균과 표준편차로 연속값을 본다</h2>
+  <p class="lead">GaussianNB는 연속적인 숫자 특성에 사용할 수 있습니다. 교재는 GaussianNB가 클래스별로 각 특성의 <strong>평균과 표준편차</strong>를 저장한다고 설명합니다.</p>
+  <p>이 모델을 직관적으로 보면, 각 클래스가 자기만의 종 모양 분포를 가지고 있다고 생각할 수 있습니다. 새 값이 들어오면 “이 값은 어느 클래스의 분포에서 더 그럴듯한가?”를 비교합니다. 아래 시각화는 하나의 특성만 있는 상황을 단순화해 보여줍니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · 새 값은 어느 분포에 더 가까운가?</div>
+      <div class="slider-row">
+        <span class="sl-lbl">새 데이터 x</span>
+        <input type="range" id="gaussX" min="0" max="100" value="42" oninput="drawGauss()">
+        <span class="num-val" id="gaussXVal">4.2</span>
+      </div>
+      <div class="canvas-wrap"><canvas id="gaussC" data-lh="330"></canvas></div>
+      <div class="score-row">
+        <div class="score-badge"><span class="score-lbl">Class 0 density</span><span class="score-val" id="g0" style="color:#0969da;">—</span></div>
+        <div class="score-badge"><span class="score-lbl">Class 1 density</span><span class="score-val" id="g1" style="color:#cf222e;">—</span></div>
+        <div class="score-badge"><span class="score-lbl">prediction</span><span class="score-val" id="gPred">—</span></div>
+      </div>
+      <p class="hint">한 특성만 있는 단순 예시입니다. 실제 데이터에서는 여러 특성의 클래스별 통계를 함께 비교합니다.</p>
+    </div>
+    <div class="side-panel">
+      <div class="panel-box">
+        <h3>어떻게 읽을 것인가</h3>
+        <p>파란 곡선은 Class 0의 연속값 분포, 빨간 곡선은 Class 1의 분포를 나타냅니다. 초록 세로선이 새 데이터입니다. 세로선 위치에서 더 높은 곡선을 가진 클래스가 더 그럴듯한 후보가 됩니다.</p>
+      </div>
+      <div class="panel-box">
+        <h3>교재 연결</h3>
+        <p>GaussianNB는 모든 연속 데이터에 적용할 수 있습니다. 단, 이 절에서 교재는 세부 수식보다 “각 클래스마다 평균과 표준편차를 저장한다”는 통계 관점을 강조합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s6">
+  <div class="sec-num">06 / 06</div>
+  <h2>alpha, 강점, 약점: 빠른 기준 모델로서의 가치</h2>
+  <p class="lead">교재는 MultinomialNB와 BernoulliNB의 주요 파라미터로 <strong>alpha</strong>를 설명합니다. alpha는 모델 복잡도를 조절하며, 통계를 smoothing하는 역할을 합니다.</p>
+  <p>alpha는 데이터에 가상의 양수 특성을 가진 데이터 포인트를 더하는 것처럼 작동합니다. 그 결과 특정 클래스에서 어떤 특성이 우연히 한 번도 나타나지 않았다고 해서 통계가 지나치게 극단적으로 굳어지는 것을 완화합니다. alpha가 크면 smoothing이 강해지고 모델은 덜 복잡해집니다. alpha가 작으면 실제 훈련 데이터의 카운트가 더 직접적으로 반영됩니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · alpha가 카운트를 부드럽게 만드는 방식</div>
+      <div class="slider-row">
+        <span class="sl-lbl">alpha</span>
+        <input type="range" id="smoothAlpha" min="0" max="20" value="4" oninput="drawSmooth()">
+        <span class="num-val" id="smoothAlphaVal">1.0</span>
+      </div>
+      <div class="canvas-wrap"><canvas id="smoothC" data-lh="300"></canvas></div>
+      <p class="hint">실제 학습 절차 전체를 재현한 것이 아니라, 교재의 “가상 데이터 포인트를 더해 통계를 smoothing한다”는 개념을 단순화한 시각화입니다.</p>
+    </div>
+    <div class="side-panel">
+      <div class="panel-box">
+        <h3>강점</h3>
+        <ul>
+          <li>학습과 예측이 매우 빠릅니다.</li>
+          <li>훈련 절차를 이해하기 쉽습니다.</li>
+          <li>고차원 sparse data에서 잘 작동합니다.</li>
+          <li>큰 데이터셋에서 좋은 baseline이 됩니다.</li>
+        </ul>
+      </div>
+      <div class="panel-box">
+        <h3>약점</h3>
+        <ul>
+          <li>효율성의 대가로 선형 분류기보다 일반화 성능이 조금 낮을 수 있습니다.</li>
+          <li>낮은 차원의 복잡한 구조에서는 다른 모델이 더 나을 수 있습니다.</li>
+          <li>coef_가 선형 모델의 w와 같은 의미는 아니므로 해석에 주의해야 합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<pre><code><span class="hl">from</span> sklearn.model_selection <span class="hl">import</span> train_test_split
+<span class="hl">from</span> sklearn.naive_bayes <span class="hl">import</span> BernoulliNB, MultinomialNB, GaussianNB
+
+<span class="cm"># X가 0/1 이진 특성이라면</span>
+model = BernoulliNB(alpha=<span class="st">1.0</span>)
+model.fit(X_train, y_train)
+print(<span class="st">"test accuracy:"</span>, model.score(X_test, y_test))
+
+<span class="cm"># X가 단어 등장 횟수 같은 count 특성이라면</span>
+text_model = MultinomialNB(alpha=<span class="st">1.0</span>)
+text_model.fit(X_train_counts, y_train)
+
+<span class="cm"># X가 연속적인 측정값이라면</span>
+gaussian_model = GaussianNB()
+gaussian_model.fit(X_train_continuous, y_train)</code></pre>
+  <div class="summary-strip">
+    <div class="summary-item"><strong>GaussianNB</strong><span>연속값. 클래스별 평균과 표준편차를 저장합니다.</span></div>
+    <div class="summary-item"><strong>BernoulliNB</strong><span>0/1 특성. 클래스별 nonzero 등장 여부를 셉니다.</span></div>
+    <div class="summary-item"><strong>MultinomialNB</strong><span>카운트 특성. 텍스트 분류에서 특히 자주 쓰입니다.</span></div>
+    <div class="summary-item"><strong>alpha</strong><span>통계를 부드럽게 하며, 클수록 덜 복잡한 모델이 됩니다.</span></div>
+  </div>
+  <div class="callout good"><strong>발표용 결론:</strong> 나이브 베이즈는 복잡한 상호작용을 정교하게 잡는 모델이라기보다, 클래스별 단순 통계를 빠르게 모아 예측하는 모델입니다. 그래서 아주 큰 고차원 희소 데이터에서 좋은 첫 기준점이 됩니다.</div>
+</section>
+
+<script>
+function goto(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
+function setupCanvas(c){const dpr=window.devicePixelRatio||1;const rect=c.getBoundingClientRect();const h=parseInt(c.dataset.lh||300,10);c.width=Math.max(1,Math.floor(rect.width*dpr));c.height=Math.floor(h*dpr);const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx,w:rect.width,h};}
+function clear(ctx,w,h){ctx.clearRect(0,0,w,h);ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);}
+function axis(ctx,w,h,pad=38){ctx.strokeStyle='#d0d7de';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad,h-pad);ctx.lineTo(w-pad,h-pad);ctx.moveTo(pad,pad);ctx.lineTo(pad,h-pad);ctx.stroke();ctx.fillStyle='#8c959f';ctx.font='11px JetBrains Mono';}
+function round(v,n=2){return Number(v).toFixed(n);}
+
+const quickVocabulary=[
+  {word:'free', spam:2.4, ham:.25},{word:'winner', spam:2.2, ham:.2},{word:'prize', spam:2.0, ham:.15},{word:'urgent', spam:1.3, ham:.7},
+  {word:'meeting', spam:.25, ham:2.0},{word:'project', spam:.35, ham:1.8},{word:'schedule', spam:.45, ham:1.6},{word:'report', spam:.5, ham:1.4}
+];
+let quickSelected=[];
+function initQuick(){const box=document.getElementById('quickWords');box.innerHTML='';quickVocabulary.forEach((v,i)=>{const b=document.createElement('button');b.className='word-btn';b.textContent=v.word;b.onclick=()=>{const k=quickSelected.indexOf(i);if(k>=0){quickSelected.splice(k,1);}else{quickSelected.push(i);}drawQuick();};box.appendChild(b);});drawQuick();}
+function drawQuick(){document.querySelectorAll('#quickWords .word-btn').forEach((b,i)=>b.classList.toggle('active',quickSelected.includes(i)));const doc=document.getElementById('quickDoc');doc.textContent=quickSelected.length?quickSelected.map(i=>quickVocabulary[i].word).join(' · '):'선택된 단어가 없습니다.';const c=document.getElementById('quickC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);let spam=1,ham=1;quickSelected.forEach(i=>{spam+=quickVocabulary[i].spam;ham+=quickVocabulary[i].ham;});const max=Math.max(spam,ham,4);const pad=42;ctx.font='12px JetBrains Mono';ctx.fillStyle='#57606a';ctx.fillText('class score (단순화)',pad,25);function bar(y,val,color,label){ctx.fillStyle='#f6f8fa';ctx.fillRect(pad,y,w-2*pad,36);ctx.fillStyle=color;ctx.fillRect(pad,y,(w-2*pad)*val/max,36);ctx.fillStyle='#1f2328';ctx.font='13px JetBrains Mono';ctx.fillText(label+'  '+round(val,2),pad+8,y+23);}bar(70,spam,'rgba(207,34,46,.72)','Spam');bar(128,ham,'rgba(9,105,218,.72)','Ham');ctx.fillStyle='#1a7f37';ctx.font='700 16px Noto Sans KR';ctx.fillText(spam>ham?'예측: Spam':'예측: Ham',pad,205);}
+function resetQuick(){quickSelected=[];drawQuick();}
+
+let bernX=[[0,1,0,1],[1,0,1,1],[0,0,0,1],[1,0,1,0]];const bernY=[0,1,0,1];
+function initBern(){renderBernMatrix();drawBern();}
+function renderBernMatrix(){const m=document.getElementById('bernMatrix');m.innerHTML='';m.appendChild(cell('class','head'));for(let j=0;j<4;j++)m.appendChild(cell('f'+j,'head'));for(let i=0;i<4;i++){m.appendChild(cell('y='+bernY[i],bernY[i]===0?'label0':'label1'));for(let j=0;j<4;j++){const el=cell(bernX[i][j],'bit '+(bernX[i][j]?'one':''));el.onclick=()=>{bernX[i][j]=1-bernX[i][j];renderBernMatrix();drawBern();};m.appendChild(el);}}}
+function cell(txt,cls){const d=document.createElement('div');d.className='cell '+cls;d.textContent=txt;return d;}
+function drawBern(){const c=document.getElementById('bernC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const pad=46;axis(ctx,w,h,pad);let counts={0:[0,0,0,0],1:[0,0,0,0]};bernX.forEach((row,i)=>row.forEach((v,j)=>counts[bernY[i]][j]+=v));const max=2;const groupW=(w-2*pad)/4;for(let j=0;j<4;j++){const x=pad+j*groupW+groupW*.18;const bw=groupW*.24;const h0=(h-2*pad)*counts[0][j]/max;const h1=(h-2*pad)*counts[1][j]/max;ctx.fillStyle='rgba(9,105,218,.75)';ctx.fillRect(x,h-pad-h0,bw,h0);ctx.fillStyle='rgba(207,34,46,.72)';ctx.fillRect(x+bw+6,h-pad-h1,bw,h1);ctx.fillStyle='#57606a';ctx.font='12px JetBrains Mono';ctx.fillText('f'+j,x+3,h-pad+20);ctx.fillStyle='#1f2328';ctx.font='11px JetBrains Mono';ctx.fillText(counts[0][j],x+5,h-pad-h0-6);ctx.fillText(counts[1][j],x+bw+11,h-pad-h1-6);}ctx.fillStyle='#0969da';ctx.fillRect(w-150,24,12,12);ctx.fillStyle='#57606a';ctx.fillText('Class 0 count',w-132,35);ctx.fillStyle='#cf222e';ctx.fillRect(w-150,44,12,12);ctx.fillStyle='#57606a';ctx.fillText('Class 1 count',w-132,55);}
+function resetBern(){bernX=[[0,1,0,1],[1,0,1,1],[0,0,0,1],[1,0,1,0]];renderBernMatrix();drawBern();}
+
+const multiVocabulary=[
+  {word:'free', spam:16, ham:1},{word:'winner', spam:11, ham:0},{word:'prize', spam:9, ham:0},{word:'urgent', spam:7, ham:3},
+  {word:'meeting', spam:1, ham:13},{word:'project', spam:2, ham:14},{word:'schedule', spam:2, ham:10},{word:'report', spam:3, ham:9}
+];
+let multiCounts={};
+function initMulti(){const box=document.getElementById('multiWords');box.innerHTML='';multiVocabulary.forEach(v=>{const b=document.createElement('button');b.className='word-btn';b.textContent=v.word;b.onclick=()=>{multiCounts[v.word]=(multiCounts[v.word]||0)+1;drawMulti();};box.appendChild(b);});drawMulti();}
+function resetMulti(){multiCounts={};drawMulti();}
+function drawMulti(){const alpha=(+document.getElementById('multiAlpha').value)/4;document.getElementById('multiAlphaVal').textContent=round(alpha,1);const parts=Object.keys(multiCounts).filter(k=>multiCounts[k]>0).map(k=>k+'×'+multiCounts[k]);document.getElementById('multiDoc').textContent=parts.length?parts.join(' · '):'단어를 클릭하면 문서 카운트가 쌓입니다.';const c=document.getElementById('multiC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const vocabN=multiVocabulary.length;const spamTotal=multiVocabulary.reduce((s,v)=>s+v.spam,0)+alpha*vocabN;const hamTotal=multiVocabulary.reduce((s,v)=>s+v.ham,0)+alpha*vocabN;let spamLog=Math.log(.5),hamLog=Math.log(.5);multiVocabulary.forEach(v=>{const k=multiCounts[v.word]||0;if(k>0){spamLog+=k*Math.log((v.spam+alpha)/spamTotal);hamLog+=k*Math.log((v.ham+alpha)/hamTotal);}});let spamScore=Math.exp(spamLog),hamScore=Math.exp(hamLog);const norm=spamScore+hamScore || 1;spamScore/=norm;hamScore/=norm;const pad=42;ctx.font='12px JetBrains Mono';ctx.fillStyle='#57606a';ctx.fillText('normalized class score',pad,25);function bar(y,val,color,label){ctx.fillStyle='#f6f8fa';ctx.fillRect(pad,y,w-2*pad,38);ctx.fillStyle=color;ctx.fillRect(pad,y,(w-2*pad)*val,38);ctx.fillStyle='#1f2328';ctx.font='13px JetBrains Mono';ctx.fillText(label+'  '+Math.round(val*100)+'%',pad+8,y+25);}bar(62,spamScore,'rgba(207,34,46,.72)','Spam');bar(116,hamScore,'rgba(9,105,218,.72)','Ham');ctx.fillStyle=spamScore>hamScore?'#cf222e':'#0969da';ctx.font='700 16px Noto Sans KR';ctx.fillText(spamScore>hamScore?'예측: Spam':'예측: Ham',pad,188);const x0=pad,y0=226,cellW=(w-2*pad)/vocabN;multiVocabulary.forEach((v,i)=>{const count=multiCounts[v.word]||0;ctx.fillStyle=count?'#dafbe1':'#f6f8fa';ctx.fillRect(x0+i*cellW,y0,cellW-4,34);ctx.fillStyle=count?'#1a7f37':'#8c959f';ctx.font='11px JetBrains Mono';ctx.fillText(v.word.slice(0,5),x0+i*cellW+4,y0+13);ctx.fillText('×'+count,x0+i*cellW+4,y0+28);});}
+
+function normalPdf(x,mu,sigma){return Math.exp(-.5*Math.pow((x-mu)/sigma,2))/(sigma*Math.sqrt(2*Math.PI));}
+function drawGauss(){const val=(+document.getElementById('gaussX').value)/10;document.getElementById('gaussXVal').textContent=round(val,1);const c=document.getElementById('gaussC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const pad=42;axis(ctx,w,h,pad);const mu0=3.2,s0=.9,mu1=6.4,s1=1.15;let maxY=0;for(let i=0;i<=200;i++){const x=i/20;maxY=Math.max(maxY,normalPdf(x,mu0,s0),normalPdf(x,mu1,s1));}function sx(x){return pad+(w-2*pad)*x/10;}function sy(y){return h-pad-(h-2*pad)*y/maxY;}function curve(mu,sigma,color){ctx.beginPath();for(let i=0;i<=200;i++){const x=i/20,y=normalPdf(x,mu,sigma);if(i===0)ctx.moveTo(sx(x),sy(y));else ctx.lineTo(sx(x),sy(y));}ctx.strokeStyle=color;ctx.lineWidth=3;ctx.stroke();}
+curve(mu0,s0,'#0969da');curve(mu1,s1,'#cf222e');const d0=normalPdf(val,mu0,s0),d1=normalPdf(val,mu1,s1);ctx.strokeStyle='#1a7f37';ctx.lineWidth=2;ctx.setLineDash([5,4]);ctx.beginPath();ctx.moveTo(sx(val),pad);ctx.lineTo(sx(val),h-pad);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#1a7f37';ctx.beginPath();ctx.arc(sx(val),sy(Math.max(d0,d1)),5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#0969da';ctx.font='12px JetBrains Mono';ctx.fillText('Class 0: μ=3.2, σ=0.9',pad,24);ctx.fillStyle='#cf222e';ctx.fillText('Class 1: μ=6.4, σ=1.15',pad,44);document.getElementById('g0').textContent=round(d0,3);document.getElementById('g1').textContent=round(d1,3);document.getElementById('gPred').textContent=d0>d1?'Class 0':'Class 1';document.getElementById('gPred').style.color=d0>d1?'#0969da':'#cf222e';}
+
+function drawSmooth(){const alpha=(+document.getElementById('smoothAlpha').value)/4;document.getElementById('smoothAlphaVal').textContent=round(alpha,1);const raw=[0,1,0,2];const smooth=raw.map(v=>v+alpha);const c=document.getElementById('smoothC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const pad=48;axis(ctx,w,h,pad);const max=Math.max(...smooth,2.1);const groupW=(w-2*pad)/4;for(let i=0;i<4;i++){const x=pad+i*groupW+groupW*.25;const bw=groupW*.22;const rh=(h-2*pad)*raw[i]/max;const sh=(h-2*pad)*smooth[i]/max;ctx.fillStyle='rgba(140,149,159,.55)';ctx.fillRect(x,h-pad-rh,bw,rh);ctx.fillStyle='rgba(9,105,218,.75)';ctx.fillRect(x+bw+8,h-pad-sh,bw,sh);ctx.fillStyle='#57606a';ctx.font='12px JetBrains Mono';ctx.fillText('f'+i,x+4,h-pad+20);ctx.font='11px JetBrains Mono';ctx.fillText(round(smooth[i],1),x+bw+8,h-pad-sh-6);}ctx.fillStyle='rgba(140,149,159,.55)';ctx.fillRect(w-180,22,12,12);ctx.fillStyle='#57606a';ctx.fillText('raw count',w-162,33);ctx.fillStyle='rgba(9,105,218,.75)';ctx.fillRect(w-180,44,12,12);ctx.fillStyle='#57606a';ctx.fillText('count + alpha',w-162,55);ctx.fillStyle='#1f2328';ctx.font='13px Noto Sans KR';ctx.fillText('alpha가 커질수록 0이었던 특성도 양의 통계를 갖습니다.',pad, h-12);}
+
+function initAll(){initQuick();initBern();initMulti();drawGauss();drawSmooth();}
+window.addEventListener('resize',()=>{drawQuick();drawBern();drawMulti();drawGauss();drawSmooth();});
+window.addEventListener('load',initAll);
+</script>
+</body>
+</html>
