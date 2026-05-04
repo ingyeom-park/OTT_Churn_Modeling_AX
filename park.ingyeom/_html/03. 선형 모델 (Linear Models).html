@@ -56,7 +56,7 @@ pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 
 <section class="hero">
   <div class="chapter-badge">Chapter 2 · Section 03</div>
   <h1>선형 모델 (Linear Models)</h1>
-  <p class="hero-sub"><strong>입력 특성에 가중치를 곱해 더하고, 그 결과로 예측합니다.</strong> 회귀에서는 선·평면·초평면으로 값을 예측하고, 분류에서는 선형 결정 경계로 클래스를 나눕니다.</p>
+  <p class="hero-sub"><strong>입력 특성에 가중치를 곱해 더하고, 그 결과로 예측합니다.</strong><br>회귀에서는 선·평면·초평면으로 값을 예측하고, 분류에서는 선형 결정 경계로 클래스를 나눕니다.</p>
   <div class="toc">
     <div class="toc-btn" onclick="goto('s1')">01 · 선형식의 직관</div>
     <div class="toc-btn" onclick="goto('s2')">02 · 선형 회귀</div>
@@ -81,7 +81,7 @@ pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 
     <div class="visual-card">
       <div class="mini-title">Interactive demo · 기울기와 절편</div>
       <div class="slider-row"><span class="sl-lbl">slope w[0]</span><input type="range" id="lineW" min="-20" max="20" value="6" oninput="drawLineIntro()"><span class="num-val" id="lineWVal">0.6</span></div>
-      <div class="slider-row"><span class="sl-lbl">intercept b</span><input type="range" id="lineB" min="-20" max="20" value="-2" oninput="drawLineIntro()"><span class="num-val" id="lineBVal">-0.2</span></div>
+      <div class="slider-row"><span class="sl-lbl">intercept b(가중치 편향)</span><input type="range" id="lineB" min="-20" max="20" value="-2" oninput="drawLineIntro()"><span class="num-val" id="lineBVal">-0.2</span></div>
       <div class="canvas-wrap"><canvas id="lineIntroC" data-lh="330"></canvas></div>
       <p class="hint">슬라이더를 움직이면 같은 x값에 대한 예측 ŷ가 어떻게 바뀌는지 볼 수 있습니다.</p>
     </div>
