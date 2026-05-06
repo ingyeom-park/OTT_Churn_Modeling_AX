@@ -1,0 +1,2 @@
+False
+[WindowsPath('.claude'), WindowsPath('.git'), WindowsPath('.gitignore'), WindowsPath('kim.kwangil'), WindowsPath('kim.nahyun'), WindowsPath('kwon.donggeun'), WindowsPath('park.ingyeom'), WindowsPath('README.md'), WindowsPath('requirements.txt'), WindowsPath('_data')]
