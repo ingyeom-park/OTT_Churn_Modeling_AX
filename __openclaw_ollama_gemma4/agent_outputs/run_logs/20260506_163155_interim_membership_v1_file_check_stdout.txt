@@ -1,0 +1,3 @@
+target_count: 1
+TARGET: _data\02_interim\260430_membership_v1(�̻�ġ, �̸�����)
+items: ['260430_membership_v1.ipynb', 'Membership_v1.csv', 'Movie_Master_v1.csv', 'User_Mapping_v1.csv', 'View_History_v1.csv']

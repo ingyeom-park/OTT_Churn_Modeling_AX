@@ -1,0 +1,3 @@
+exists: True
+is_dir: True
+items: ['01_raw', '02_interim', '03_processed', 'README.md']
