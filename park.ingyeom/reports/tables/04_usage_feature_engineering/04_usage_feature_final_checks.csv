@@ -1,0 +1,17 @@
+﻿check,value,pass
+project_root_is_repo_root,c:\Code\ott-churn-prediction,True
+data_root_is_repo_data,c:\Code\ott-churn-prediction\_data,True
+reports_dir_is_park_reports,c:\Code\ott-churn-prediction\park.ingyeom\reports,True
+input_data_dir_is_02_reports_data,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\02_preprocessing_policy,True
+output_data_dir_under_reports_data_04,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\04_usage_feature_engineering,True
+output_table_dir_under_reports_tables_04,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\04_usage_feature_engineering,True
+only_expected_04_report_csvs,"['04_usage_feature_behavior_segment_flag_rates.csv', '04_usage_feature_final_checks.csv', '04_usage_feature_input_file_summary.csv', '04_usage_feature_numeric_summary.csv', '04_usage_feature_observation_input_check.csv', '04_usage_feature_summary_by_100won.csv', '04_usage_feature_summary_by_100won_maxscreen.csv', '04_usage_feature_watch_flag_check.csv']",True
+membership_rows_preserved,14922,True
+membership_row_id_unique,True,True
+usage_features_rows_match_has_watch_obs,12302,True
+has_usage_feature_matches_has_watch_obs,"{0: {0: 2620, 1: 0}, 1: {0: 0, 1: 12302}}",True
+obs_watch_rel_day_min,0,True
+obs_watch_rel_day_max,20,True
+usage_features_output_exists,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\04_usage_feature_engineering\usage_features.csv,True
+modeling_usage_output_exists,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\04_usage_feature_engineering\modeling_feature_table_usage.csv,True
+summary_json_output_exists,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\04_usage_feature_engineering\usage_feature_summary.json,True

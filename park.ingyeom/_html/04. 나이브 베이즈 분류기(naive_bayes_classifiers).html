@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나이브 베이즈 분류기 | Chapter 2 · Section 04</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>나이브 베이즈 분류기 | Chapter 2 · Section 04 · 발표용</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -96,121 +98,108 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:12.2px;line-height:1.7
 </head>
 <body>
 <section class="hero">
-  <div class="chapter-badge">Chapter 2 · Section 04</div>
-  <h1>나이브 베이즈 분류기</h1>
-  <p class="hero-sub"><strong>각 특성을 따로 보고, 클래스별 간단한 통계</strong>를 모아 빠르게 예측합니다. 텍스트처럼 특성이 많고 희소한 데이터에서 특히 좋은 기준 모델이 됩니다.</p>
-  <div class="toc">
-    <div class="toc-btn" onclick="goto('s1')">01 · 핵심 직관</div>
-    <div class="toc-btn" onclick="goto('s2')">02 · 세 가지 모델</div>
-    <div class="toc-btn" onclick="goto('s3')">03 · BernoulliNB</div>
-    <div class="toc-btn" onclick="goto('s4')">04 · MultinomialNB</div>
-    <div class="toc-btn" onclick="goto('s5')">05 · GaussianNB</div>
-    <div class="toc-btn" onclick="goto('s6')">06 · alpha와 장단점</div>
-  </div>
-  <div class="scroll-arrow">
-    <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+<div class="chapter-badge">Chapter 2 · Section 04</div>
+<h1>나이브 베이즈 분류기</h1>
+<p class="hero-sub">이번 장에서 잡을 핵심은 간단합니다. <strong>나이브 베이즈는 특성을 하나씩 떼어 보고, 클래스별 통계를 모아 빠르게 분류하는 모델</strong>입니다. 특히 텍스트처럼 단어 수는 많고 대부분의 값은 0인 데이터에서 좋은 기준 모델이 됩니다.</p>
+<div class="toc">
+<div class="toc-btn" onclick="goto('s1')">01 · 핵심 직관</div>
+<div class="toc-btn" onclick="goto('s2')">02 · 세 가지 모델</div>
+<div class="toc-btn" onclick="goto('s3')">03 · BernoulliNB</div>
+<div class="toc-btn" onclick="goto('s4')">04 · MultinomialNB</div>
+<div class="toc-btn" onclick="goto('s5')">05 · GaussianNB</div>
+<div class="toc-btn" onclick="goto('s6')">06 · alpha와 장단점</div>
+</div>
+<div class="scroll-arrow">
+<svg stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
     scroll
   </div>
 </section>
 <div class="divider"></div>
-
 <section class="sec" id="s1">
-  <div class="sec-num">01 / 06</div>
-  <h2>핵심 질문: 각 증거가 어느 클래스 쪽을 더 가리키는가?</h2>
-  <p class="lead">나이브 베이즈 분류기는 선형 모델과 비슷한 형태의 빠른 분류기입니다. 교재는 이 모델들이 <strong>각 특성을 개별적으로 살펴보고, 클래스마다 단순한 통계</strong>를 수집하기 때문에 학습이 매우 빠르다고 설명합니다.</p>
-  <p>본래 "나이브"라는 단어는 <strong>(경험·지식 부족 등으로) 순진해 빠진, (모자랄 정도로) 순진한</strong> 이라는 뜻이지만, 여기서의 “나이브”는 모델이 어리석다는 뜻이 아닙니다. 오히려 복잡한 관계를 모두 추적하지 않고, 특성들을 상당히 단순하게 다룬다는 뜻에 가깝습니다.</p>
-  <p>예를 들어 이메일을 분류할 때 “free”라는 단어, “meeting”이라는 단어, “winner”라는 단어를 각각 하나의 증거처럼 보고, 이 증거들이 스팸 쪽에 더 자주 나타났는지 정상 메일 쪽에 더 자주 나타났는지를 따로따로 모으는 것입니다.</p>
-  <p>사건 현장의 탐정으로 비유를 하자면, 나이브 베이즈는 현장의 모든 증거들 사이의 복잡한 상호작용을 분석하는 방식이 아닙니다. 대신 증거 하나하나에 대해 “이 증거는 과거에 어느 사건 유형에서 더 자주 보였나?”를 빠르게 세어보는 식입니다. 그래서 정교한 모델보다 성능이 약간 낮을 수 있지만, 대신 엄청나게 빠르고 이해하기 쉽습니다.</p>
-  <div class="keyline">핵심 흐름은 단순합니다. <strong>훈련 단계에서는 클래스별 통계를 모으고, 예측 단계에서는 새 데이터가 각 클래스의 통계와 얼마나 잘 맞는지 비교합니다. 정리하자면, 모든 특성의 관계망을 정교하게 그리는 모델이 아닌, 각 특성을 따로 보고 클래스마다 얼마나 자주 나타나는지 같은 단순한 통계를 모아 빠르게 판단하는 방식!</strong></div>
-
-  <div class="stage">
-    <div class="visual-card">
-      <div class="mini-title">Interactive demo · 증거가 쌓이는 점수판</div>
-      <p style="font-size:14px;color:#57606a;margin-bottom:8px;">선택된 단어들이 어느 클래스의 통계와 더 잘 맞는지를 단순화해서 보여주기</p>
-      <div class="word-bank" id="quickWords"></div>
-      <div class="token-box" id="quickDoc">선택된 단어가 없습니다.</div>
-      <div class="canvas-wrap"><canvas id="quickC" data-lh="260"></canvas></div>
-      <button class="reset-btn" onclick="resetQuick()">↺ 단어 초기화</button>
-      <p class="hint">교재의 개념을 단순화한 예시. 실제 모델은 로그 확률과 smoothing 등을 사용하지만, 발표에서는 “특성별 증거가 클래스 점수로 쌓인다”는 직관이 중요합니다.</p>
-    </div>
-    <div class="side-panel">
-      <div class="panel-box">
-        <h3>관찰 포인트</h3>
-        <ul>
-          <li>각 단어는 독립적인 증거처럼 점수에 기여합니다.</li>
-          <li>스팸 쪽 단어가 많으면 Spam 점수가 올라갑니다.</li>
-          <li>업무 메일 쪽 단어가 많으면 Ham 점수가 올라갑니다.</li>
-          <li>복잡한 상호작용보다 클래스별 단순 통계가 중심입니다.</li>
-        </ul>
-      </div>
-      <div class="panel-box">
-        <h3>발표 멘트</h3>
-        <p>“나이브 베이즈는 모든 특성의 관계망을 정교하게 그리는 모델이 아닙니다. 각 특성을 따로 보고, 클래스마다 얼마나 자주 나타나는지 같은 단순한 통계를 모아 빠르게 판단합니다.”</p>
-      </div>
-    </div>
-  </div>
+<div class="sec-num">01 / 06</div>
+<h2>먼저 질문 하나: 이 단어는 어느 쪽 증거인가?</h2>
+<p class="lead">스팸 메일을 하나 분류한다고 해보겠습니다. 메일 안에 <strong>free</strong>, <strong>winner</strong>, <strong>meeting</strong> 같은 단어가 들어 있습니다. 나이브 베이즈는 이 단어들을 한꺼번에 복잡하게 묶어 보지 않고, 하나씩 떼어 놓고 “이 단어는 과거에 어느 클래스에서 더 자주 나왔나?”를 봅니다.</p>
+<p>여기서 <strong>나이브</strong>라는 말 때문에 모델이 허술하다는 느낌을 받을 수 있습니다. 그런데 이 말은 모델이 멍청하다는 뜻이라기보다, 특성들 사이의 복잡한 관계를 일단 과감하게 단순화한다는 뜻에 가깝습니다. 다시 말해, 단어들이 서로 어떤 조합으로 등장했는지까지 깊게 파고들기보다는, 단어 하나하나의 증거력을 따로 계산하는 방식입니다.</p>
+<p>예를 들어 <strong>free</strong>라는 단어가 스팸 메일에서 훨씬 자주 나왔다면, 이 단어는 스팸 쪽 증거가 됩니다. 반대로 <strong>meeting</strong>이나 <strong>project</strong> 같은 단어가 정상 메일에서 자주 나왔다면, 이 단어들은 정상 메일 쪽 증거가 됩니다. 이 증거들이 하나씩 점수판에 쌓이고, 마지막에 어느 쪽 점수가 더 높은지를 보는 식입니다.</p>
+<p>탐정으로 비유하면, 나이브 베이즈는 사건 현장의 모든 단서가 서로 어떤 관계를 맺는지까지 정교하게 추적하는 탐정은 아닙니다. 대신 단서 하나하나를 보면서 “이 단서는 과거에 어떤 사건에서 많이 나왔지?”를 빠르게 세는 탐정에 가깝습니다. 그래서 아주 정교한 모델보다 성능이 낮을 수는 있지만, 대신 학습이 빠르고 설명하기 쉽다는 장점이 생깁니다.</p>
+<div class="keyline">여기서 잡고 갈 포인트는 하나입니다. <strong>훈련 단계에서는 클래스별 통계를 모으고, 예측 단계에서는 새 데이터가 어느 클래스의 통계와 더 잘 맞는지 비교합니다. 나이브 베이즈는 복잡한 관계망을 그리는 모델이 아니라, 각 특성을 증거처럼 쌓아 올려 빠르게 판단하는 모델입니다.</strong></div>
+<div class="stage">
+<div class="visual-card">
+<div class="mini-title">Interactive demo · 증거가 쌓이는 점수판</div>
+<p style="font-size:14px;color:#57606a;margin-bottom:8px;">단어를 눌러보면, 선택된 단어들이 Spam과 Ham 점수판에 어떻게 쌓이는지 볼 수 있습니다.</p>
+<div class="word-bank" id="quickWords"></div>
+<div class="token-box" id="quickDoc">선택된 단어가 없습니다.</div>
+<div class="canvas-wrap"><canvas data-lh="260" id="quickC"></canvas></div>
+<button class="reset-btn" onclick="resetQuick()">↺ 단어 초기화</button>
+<p class="hint">실제 모델은 로그 확률과 smoothing을 사용합니다. 여기서는 “특성별 증거가 클래스 점수로 쌓인다”는 직관을 먼저 잡기 위한 단순화된 화면입니다.</p>
+</div>
+<div class="side-panel">
+<div class="panel-box">
+<h3>관찰 포인트</h3>
+<ul><li>각 단어는 독립적인 증거처럼 점수에 기여합니다.</li><li>스팸 쪽에서 자주 보인 단어를 누르면 Spam 점수가 올라갑니다.</li><li>정상 메일 쪽에서 자주 보인 단어를 누르면 Ham 점수가 올라갑니다.</li><li>중요한 건 복잡한 조합이 아니라, 클래스별 단순 통계가 점수로 쌓인다는 구조입니다.</li></ul>
+</div>
+<div class="panel-box">
+<h3>점수판 읽는 법</h3>
+<p>단어 하나하나가 Spam과 Ham 점수판에 따로 올라갑니다. 이 화면에서는 모든 단어의 조합을 복잡하게 해석하기보다, 각 단어가 어느 클래스에서 더 자주 나왔는지를 모아 최종 판단한다는 흐름을 보면 됩니다.</p>
+</div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
-
 <section class="sec" id="s2">
-  <div class="sec-num">02 / 06</div>
-  <h2>scikit-learn의 세 가지 나이브 베이즈</h2>
-  <p class="lead">교재는 scikit-learn에 구현된 나이브 베이즈 분류기를 <strong>GaussianNB(가우시안), BernoulliNB(베르누이), MultinomialNB(다항분포)</strong> 세 가지로 정리합니다. 차이는 “각 특성을 어떤 종류의 데이터로 볼 것인가”에 있습니다.</p>
-  <p>이 세 모델은 같은 이름 아래 묶이지만, 바라보는 데이터의 모양이 다릅니다. 가우시안은 연속적인 측정값을 다루고, 베르누이는 0/1처럼 켜짐과 꺼짐만 있는 특성을 다루며, 다항 분포은 단어가 몇 번 등장했는지처럼 카운트 데이터를 다룹니다.</p>
-  <p>따라서 나이브 베이즈를 처음 배울 때는 수식보다 먼저 “내 특성의 의미가 무엇인가?”를 묻는 것이 좋습니다. 특성이 연속값인지, 이진값인지, 개수인지에 따라 선택하는 모델이 달라집니다.</p>
-  <div class="three-col">
-    <div class="card">
-      <span class="tag tb">GaussianNB(가우시안 나이브베이즈)</span>
-      <h3 style="margin-top:12px;">연속값 특성</h3>
-      <p>각 클래스에서 특성의 평균과 표준편차를 저장합니다. 예를 들어 측정값, 길이, 무게, 농도처럼 연속적인 숫자 특성에 적용할 수 있습니다.</p>
-    </div>
-    <div class="card">
-      <span class="tag tr">BernoulliNB(베르누이 나이브베이즈)</span>
-      <h3 style="margin-top:12px;">0/1 이진 특성</h3>
-      <p>각 특성이 0이 아닌 경우가 클래스별로 얼마나 자주 나타나는지 셉니다. 단어가 등장했는지 여부만 보는 텍스트 표현에 사용할 수 있습니다.</p>
-    </div>
-    <div class="card">
-      <span class="tag tg">MultinomialNB(다항분포 나이브베이즈)</span>
-      <h3 style="margin-top:12px;">카운트 특성</h3>
-      <p>특성값의 평균적인 크기를 클래스별로 고려합니다. 단어가 몇 번 등장했는지 세는 문서 분류에서 널리 사용됩니다.</p>
-    </div>
-  </div>
-  <div class="callout warn"><strong>정리:</strong> BernoulliNB와 MultinomialNB는 텍스트 데이터 분류에서 자주 사용됩니다. 특히 텍스트는 단어 수가 많고 대부분의 문서에서 대부분의 단어가 등장하지 않는 희소한 형태가 되기 때문에, 나이브 베이즈의 빠른 학습과 예측이 강점으로 작동합니다.</div>
-  <p>내가 잘 모르겠어서 붙이는 설명!</p>
-  <p><strong>가우시안 분포(Gaussian Distribution)</strong>:평균을 중심으로 좌우 대칭인 종 모양을 가진 연속 확률 분포, 정규분포(Normal Distribution)와 같은 의미</p>
-  <p><strong>베르누이 분포(Bernoulli Distribution)</strong>: 1회 시행에서 결과가 '성공(1)' 또는 '실패(0)'로만 나뉘는 이산확률분포.</p>
-  <p><strong>다항 분포(Multinomial Distribution)</strong>: 베르누이 분포의 확장, 결과가 세 가지 이상인 시행으로 확장한 것. <br>예를 들어 주사위는 결과가 1~6까지 여섯 가지. 이 주사위를 10번 던졌을 때 1이 몇 번, 2가 몇 번, ... 6이 몇 번 나올지의 확률 분포가 다항 분포이다.</p>
+<div class="sec-num">02 / 06</div>
+<h2>세 가지 나이브 베이즈: 데이터 모양이 다르면 모델도 달라진다</h2>
+<p class="lead">이제 모델 이름을 세 개로 나눠보겠습니다. scikit-learn에는 <strong>GaussianNB</strong>, <strong>BernoulliNB</strong>, <strong>MultinomialNB</strong>가 있습니다. 이름은 비슷하지만, 핵심 차이는 “이 특성을 어떤 종류의 숫자로 볼 것인가?”에 있습니다.</p>
+<p>연속적인 측정값이면 GaussianNB가 자연스럽고, 0과 1처럼 등장 여부만 보면 BernoulliNB가 맞습니다. 단어가 몇 번 나왔는지처럼 개수를 세는 데이터라면 MultinomialNB가 더 잘 맞습니다. 결국 모델 선택은 멋있어 보이는 이름을 고르는 문제가 아니라, 내 데이터의 모양을 먼저 확인하는 문제입니다.</p>
+<p>그래서 이 부분은 수식보다 질문이 먼저입니다. “내 특성은 연속값인가, 등장 여부인가, 아니면 카운트인가?” 이 질문에 답하면 세 모델의 구분이 훨씬 쉬워집니다.</p>
+<div class="three-col">
+<div class="card">
+<span class="tag tb">GaussianNB(가우시안 나이브베이즈)</span>
+<h3 style="margin-top:12px;">연속값 특성</h3>
+<p>길이, 무게, 점수, 농도처럼 연속적으로 변하는 숫자를 다룹니다. 클래스마다 평균과 표준편차를 저장해 두고, 새 값이 어느 클래스의 분포에서 더 그럴듯한지 봅니다.</p>
+</div>
+<div class="card">
+<span class="tag tr">BernoulliNB(베르누이 나이브베이즈)</span>
+<h3 style="margin-top:12px;">0/1 이진 특성</h3>
+<p>값이 0 또는 1인 상황에 잘 맞습니다. 텍스트에서는 “이 단어가 등장했는가, 등장하지 않았는가?”만 보는 방식으로 이해하면 됩니다.</p>
+</div>
+<div class="card">
+<span class="tag tg">MultinomialNB(다항분포 나이브베이즈)</span>
+<h3 style="margin-top:12px;">카운트 특성</h3>
+<p>단어 등장 횟수처럼 카운트 데이터에 잘 맞습니다. “등장했는가?”에서 한 걸음 더 나아가 “몇 번 등장했는가?”까지 반영합니다.</p>
+</div>
+</div>
+<div class="callout warn"><strong>정리:</strong> BernoulliNB와 MultinomialNB는 텍스트 데이터에서 자주 등장합니다. 텍스트는 단어 종류는 많은데, 한 문서 안에서는 대부분의 단어가 0인 희소한 형태가 되기 쉽기 때문입니다. 이럴 때 나이브 베이즈의 빠른 학습과 예측이 꽤 강한 기준점이 됩니다.</div>
+<p>용어를 잠깐 정리하고 가겠습니다.</p>
+<p><strong>가우시안 분포(Gaussian Distribution)</strong>: 평균을 중심으로 좌우 대칭인 종 모양의 연속 확률 분포입니다. 흔히 말하는 정규분포와 같은 의미로 보면 됩니다.</p>
+<p><strong>베르누이 분포(Bernoulli Distribution)</strong>: 한 번의 시행 결과가 성공(1) 또는 실패(0)처럼 두 가지로만 나뉘는 이산 확률 분포입니다.</p>
+<p><strong>다항 분포(Multinomial Distribution)</strong>: 베르누이 분포를 여러 범주로 확장한 형태입니다. 예를 들어 주사위를 여러 번 던졌을 때 1이 몇 번, 2가 몇 번, 3이 몇 번 나왔는지를 함께 세는 상황을 생각하면 됩니다.</p>
 </section>
 <div class="divider"></div>
-
 <section class="sec" id="s3">
-  <div class="sec-num">03 / 06</div>
-  <h2>BernoulliNB: 0이 아닌 특성을 클래스별로 센다</h2>
-  <p class="lead">BernoulliNB는 각 특성이 <strong>나타났는가(1), 나타나지 않았는가(0)</strong>를 봅니다. 이진 특성 행렬이 주어지면, 클래스마다 각 특성이 몇 번 1로 나타났는지 세는 방식으로 통계를 만듭니다.</p>
-  <p>아래 표는 교재의 작은 예제를 시각화한 것입니다. <br>행은 데이터 포인트이고, 열은 네 개의 이진 특성입니다. 셀을 클릭하면 0과 1이 바뀌고, 오른쪽 통계가 즉시 갱신됩니다.<br>여기서 봐야 할 것은 모델이 복잡한 경계를 먼저 만드는 것이 아니라, 클래스별로 단순한 카운트를 모은다는 점입니다.</p>
-  <div class="stage">
-    <div class="visual-card">
-      <div class="mini-title">Interactive demo · 교재 예제 행렬 바꿔보기</div>
-      <div class="matrix" id="bernMatrix"></div>
-      <div class="canvas-wrap"><canvas id="bernC" data-lh="300"></canvas></div>
-      <button class="reset-btn" onclick="resetBern()">↺ 교재 예제로 초기화</button>
-      <p class="hint">초록색 1은 해당 특성이 “0이 아님”을 뜻합니다. 막대는 클래스별 feature count입니다.</p>
-    </div>
-    <div class="side-panel">
-      <div class="panel-box">
-        <h3>교재 예제의 핵심</h3>
-        <p>교재는 네 개의 데이터 포인트와 네 개의 이진 특성으로 BernoulliNB의 카운팅 방식을 설명합니다.클래스 0에 속한 행들만 모아 각 열의 1을 세고, 클래스 1에 대해서도 같은 작업을 합니다.</p>
-      </div>
-      <div class="panel-box">
-        <h3>무엇을 관찰할 것인가</h3>
-        <ul>
-          <li>클래스 0의 행을 바꾸면 파란 막대가 변합니다.</li>
-          <li>클래스 1의 행을 바꾸면 빨간 막대가 변합니다.</li>
-          <li>예측은 새 데이터가 어느 클래스의 카운트 패턴과 더 잘 맞는지 비교하는 방향으로 이루어집니다.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="sec-num">03 / 06</div>
+<h2>BernoulliNB: 일단 나왔는지, 안 나왔는지만 본다</h2>
+<p class="lead">BernoulliNB는 특성의 크기보다 <strong>등장 여부</strong>를 봅니다. 값이 1이면 나타난 것이고, 0이면 나타나지 않은 것입니다. 그러면 모델은 클래스별로 각 특성이 몇 번 1로 등장했는지를 세면서 통계를 만듭니다.</p>
+<p>아래 표에서 행은 데이터 포인트이고, 열은 네 개의 이진 특성입니다. 셀을 눌러 0과 1을 바꿔보면 오른쪽 막대도 같이 바뀝니다. 여기서 봐야 할 건 예측 경계가 아닙니다. 먼저 클래스 0끼리 모아 세고, 클래스 1끼리 모아 세는 방식 자체입니다.</p>
+<div class="stage">
+<div class="visual-card">
+<div class="mini-title">Interactive demo · 교재 예제 행렬 바꿔보기</div>
+<div class="matrix" id="bernMatrix"></div>
+<div class="canvas-wrap"><canvas data-lh="300" id="bernC"></canvas></div>
+<button class="reset-btn" onclick="resetBern()">↺ 교재 예제로 초기화</button>
+<p class="hint">초록색 1은 해당 특성이 등장했다는 뜻입니다. 막대는 클래스별로 각 feature가 몇 번 등장했는지를 보여줍니다.</p>
+</div>
+<div class="side-panel">
+<div class="panel-box">
+<h3>이 예제에서 봐야 할 것</h3>
+<p>이 작은 행렬은 BernoulliNB가 통계를 어떻게 모으는지 보여주는 예제입니다. 클래스 0인 행들만 따로 모아 각 열의 1을 세고, 클래스 1에 대해서도 같은 일을 합니다.</p>
+</div>
+<div class="panel-box">
+<h3>무엇을 관찰할 것인가</h3>
+<ul><li>클래스 0의 행을 바꾸면 파란 막대가 바뀝니다.</li><li>클래스 1의 행을 바꾸면 빨간 막대가 바뀝니다.</li><li>새 데이터가 들어오면 이 카운트 패턴과 비교해서 어느 클래스 쪽 증거가 더 강한지 보게 됩니다.</li></ul>
+</div>
+</div>
+</div>
 <pre><code><span class="hl">import</span> numpy <span class="hl">as</span> np
 
 X = np.array([[<span class="st">0</span>, <span class="st">1</span>, <span class="st">0</span>, <span class="st">1</span>],
@@ -224,111 +213,95 @@ counts = {}
     counts[label] = X[y == label].sum(axis=<span class="st">0</span>)</code></pre>
 </section>
 <div class="divider"></div>
-
 <section class="sec" id="s4">
-  <div class="sec-num">04 / 06</div>
-  <h2>MultinomialNB: 단어가 몇 번 등장했는지를 본다</h2>
-  <p class="lead">MultinomialNB는 특성값이 count일 때 잘 맞습니다. <br>텍스트 분류에서는 각 단어가 문서 안에 몇 번 등장했는지가 특성이 될 수 있으므로, 이 모델이 특히 자연스럽게 연결됩니다. 위에서 보았던 스팸인가 아닌가의 분류기가 예시로 쓰일 수 있습니다. </p>
-  <p>BernoulliNB가 “단어가 등장했는가?”를 묻는다면, MultinomialNB는 “단어가 몇 번 등장했는가?”를 묻습니다. <br>짧은 메일에 “winner”가 한 번 나온 것과, 긴 메일에서 “winner, free, prize”가 반복해서 나온 것은 <strong>증거의 강도가 같을 수 없습니다.</strong><br>텍스트 분류에서 문서는 거대한 단어 카운트 벡터가 됩니다. 대부분의 단어는 0이고 일부 단어만 양수입니다. 나이브 베이즈는 이런 희소 카운트 데이터에서 매우 빠르게 작동합니다.</p>
-  <div class="stage">
-    <div class="visual-card">
-      <div class="mini-title">Interactive demo · 문서 카운트로 분류하기</div>
-      <div class="word-bank" id="multiWords"></div>
-      <div class="token-box" id="multiDoc">단어를 클릭하면 문서 카운트가 쌓입니다.</div>
-      <div class="slider-row">
-        <span class="sl-lbl">alpha smoothing</span>
-        <input type="range" id="multiAlpha" min="0" max="20" value="4" oninput="drawMulti()">
-        <span class="num-val" id="multiAlphaVal">1.0</span>
-      </div>
-      <div class="canvas-wrap"><canvas id="multiC" data-lh="330"></canvas></div>
-      <button class="reset-btn" onclick="resetMulti()">↺ 문서 초기화</button>
-      <p class="hint">alpha는 교재의 설명처럼 모든 특성에 양의 값을 가진 가상 데이터 포인트를 더해 통계를 부드럽게 만드는 효과로 생각할 수 있습니다.</p>
-    </div>
-    <div class="side-panel">
-      <div class="panel-box">
-        <h3>관찰 포인트</h3>
-        <ul>
-          <li>같은 단어를 여러 번 누르면 해당 단어의 카운트가 증가합니다.</li>
-          <li>카운트가 커질수록 그 단어가 자주 나타나는 클래스 쪽 점수가 강해집니다.</li>
-          <li>alpha가 커지면 클래스별 통계가 더 부드러워져 극단적인 차이가 줄어듭니다.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="sec-num">04 / 06</div>
+<h2>MultinomialNB: 단어가 몇 번 나왔는지까지 본다</h2>
+<p class="lead">이제 질문이 조금 바뀝니다. BernoulliNB가 “이 단어가 나왔나?”를 물었다면, MultinomialNB는 <strong>“몇 번 나왔나?”</strong>까지 봅니다. 텍스트 분류에서는 각 단어의 등장 횟수가 그대로 특성이 될 수 있기 때문에 이 모델이 자연스럽게 연결됩니다.</p>
+<p>예를 들어 메일에 <strong>winner</strong>가 한 번 나온 경우와, <strong>winner</strong>, <strong>free</strong>, <strong>prize</strong>가 여러 번 반복되는 경우를 같다고 보기는 어렵습니다. 등장 여부만 보면 둘 다 “나왔다”로 끝나지만, 카운트를 보면 증거의 강도가 달라집니다. MultinomialNB는 바로 이 차이를 반영합니다.</p>
+<div class="stage">
+<div class="visual-card">
+<div class="mini-title">Interactive demo · 문서 카운트로 분류하기</div>
+<div class="word-bank" id="multiWords"></div>
+<div class="token-box" id="multiDoc">단어를 클릭하면 문서 카운트가 쌓입니다.</div>
+<div class="slider-row">
+<span class="sl-lbl">alpha smoothing</span>
+<input id="multiAlpha" max="20" min="0" oninput="drawMulti()" type="range" value="4"/>
+<span class="num-val" id="multiAlphaVal">1.0</span>
+</div>
+<div class="canvas-wrap"><canvas data-lh="330" id="multiC"></canvas></div>
+<button class="reset-btn" onclick="resetMulti()">↺ 문서 초기화</button>
+<p class="hint">alpha는 모든 특성에 작은 가상의 카운트를 더해 통계를 부드럽게 만드는 값입니다. 특정 단어가 우연히 한 번도 안 나왔다고 해서 확률이 극단적으로 0에 가까워지는 상황을 완화합니다.</p>
+</div>
+<div class="side-panel">
+<div class="panel-box">
+<h3>관찰 포인트</h3>
+<ul><li>같은 단어를 여러 번 누르면 해당 단어의 카운트가 증가합니다.</li><li>카운트가 커질수록 그 단어가 자주 등장한 클래스 쪽 점수가 더 강해집니다.</li><li>alpha가 커지면 클래스별 차이가 조금 완만해지고, 극단적인 판단이 줄어듭니다.</li></ul>
+</div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
-
 <section class="sec" id="s5">
-  <div class="sec-num">05 / 06</div>
-  <h2>GaussianNB: 평균과 표준편차로 연속값을 본다</h2>
-  <p class="lead">GaussianNB는 연속적인 숫자 특성에 사용할 수 있습니다. 위에서 우리는 가우시안 분포가 <strong>정규분포</strong>와 비슷한 형태를 띈다고 언급했습니다. 교재는 GaussianNB가 클래스별로 각 특성의 <strong>평균과 표준편차</strong>를 저장한다고 설명합니다.</p>
-  <p>이 모델을 직관적으로 보면, 각 클래스가 자기만의 종 모양 분포를 가지고 있다고 생각할 수 있습니다. 새 값이 들어오면 “이 값은 어느 클래스의 분포에서 더 그럴듯한가?”를 비교합니다. 아래 시각화는 하나의 특성만 있는 상황을 단순화해 보여줍니다.</p>
-  <div class="stage">
-    <div class="visual-card">
-      <div class="mini-title">Interactive demo · 새 값은 어느 분포에 더 가까운가?</div>
-      <div class="slider-row">
-        <span class="sl-lbl">새 데이터 x</span>
-        <input type="range" id="gaussX" min="0" max="100" value="42" oninput="drawGauss()">
-        <span class="num-val" id="gaussXVal">4.2</span>
-      </div>
-      <div class="canvas-wrap"><canvas id="gaussC" data-lh="330"></canvas></div>
-      <div class="score-row">
-        <div class="score-badge"><span class="score-lbl">Class 0 density</span><span class="score-val" id="g0" style="color:#0969da;">—</span></div>
-        <div class="score-badge"><span class="score-lbl">Class 1 density</span><span class="score-val" id="g1" style="color:#cf222e;">—</span></div>
-        <div class="score-badge"><span class="score-lbl">prediction</span><span class="score-val" id="gPred">—</span></div>
-      </div>
-      <p class="hint">한 특성만 있는 단순 예시입니다. 실제 데이터에서는 여러 특성의 클래스별 통계를 함께 비교합니다.</p>
-    </div>
-    <div class="side-panel">
-      <div class="panel-box">
-        <h3>어떻게 읽을 것인가</h3>
-        <p>파란 곡선은 Class 0의 연속값 분포, 빨간 곡선은 Class 1의 분포를 나타냅니다. 초록 세로선이 새 데이터입니다. 세로선 위치에서 더 높은 곡선을 가진 클래스가 더 그럴듯한 후보가 됩니다.</p>
-      </div>
-      <div class="panel-box">
-        <h3>포인트</h3>
-        <p>GaussianNB는 모든 연속 데이터에 적용할 수 있습니다. 하지만, 교재는 세부 수식보다 “각 클래스마다 평균과 표준편차를 저장한다”는 통계 관점을 강조하고 있습니다.</p>
-      </div>
-    </div>
-  </div>
+<div class="sec-num">05 / 06</div>
+<h2>GaussianNB: 연속값은 평균과 표준편차로 본다</h2>
+<p class="lead">이번에는 텍스트가 아니라 연속적인 숫자라고 생각해보겠습니다. 키, 길이, 점수, 농도처럼 값이 쭉 이어지는 데이터라면 0/1이나 카운트로 보는 방식이 어색합니다. 이럴 때 GaussianNB는 클래스마다 각 특성의 <strong>평균과 표준편차</strong>를 저장합니다.</p>
+<p>직관적으로는 각 클래스가 자기만의 종 모양 분포를 가지고 있다고 보면 됩니다. 새 값이 들어오면 “이 값은 어느 클래스의 분포에서 더 그럴듯한가?”를 비교합니다. 아래 그래프에서는 초록색 세로선이 새 데이터이고, 그 위치에서 더 높은 곡선을 가진 클래스가 더 그럴듯한 후보가 됩니다.</p>
+<div class="stage">
+<div class="visual-card">
+<div class="mini-title">Interactive demo · 새 값은 어느 분포에 더 가까운가?</div>
+<div class="slider-row">
+<span class="sl-lbl">새 데이터 x</span>
+<input id="gaussX" max="100" min="0" oninput="drawGauss()" type="range" value="42"/>
+<span class="num-val" id="gaussXVal">4.2</span>
+</div>
+<div class="canvas-wrap"><canvas data-lh="330" id="gaussC"></canvas></div>
+<div class="score-row">
+<div class="score-badge"><span class="score-lbl">Class 0 density</span><span class="score-val" id="g0" style="color:#0969da;">—</span></div>
+<div class="score-badge"><span class="score-lbl">Class 1 density</span><span class="score-val" id="g1" style="color:#cf222e;">—</span></div>
+<div class="score-badge"><span class="score-lbl">prediction</span><span class="score-val" id="gPred">—</span></div>
+</div>
+<p class="hint">한 특성만 놓고 본 단순 예시입니다. 실제 데이터에서는 여러 특성의 클래스별 평균과 표준편차를 함께 비교합니다.</p>
+</div>
+<div class="side-panel">
+<div class="panel-box">
+<h3>그래프를 어떻게 읽을 것인가</h3>
+<p>파란 곡선은 Class 0, 빨간 곡선은 Class 1의 분포입니다. 초록 세로선을 움직여보면, 같은 값이라도 어느 분포에 가까운지에 따라 예측 후보가 바뀝니다.</p>
+</div>
+<div class="panel-box">
+<h3>여기서의 포인트</h3>
+<p>GaussianNB의 핵심은 연속값을 클래스별 분포로 본다는 점입니다. 수식보다 먼저 “각 클래스마다 평균과 표준편차를 저장해 두고 새 값을 비교한다”는 구조를 잡으면 됩니다.</p>
+</div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
-
 <section class="sec" id="s6">
-  <div class="sec-num">06 / 06</div>
-  <h2>alpha, 강점, 약점: 빠른 기준 모델로서의 가치</h2>
-  <p class="lead">교재는 MultinomialNB와 BernoulliNB의 주요 파라미터로 <strong>alpha</strong>를 언급합니다.<br> alpha는 모델 복잡도를 조절하며, 통계를 일부 다듬는 smoothing하는 역할을 합니다.</p>
-  <p>alpha는 데이터에 가상의 양수 특성을 가진 데이터 포인트를 더하는 것처럼 작동합니다. 그 결과 특정 클래스에서 어떤 특성이 우연히 한 번도 나타나지 않았다고 해서 통계가 지나치게 극단적으로 굳어지는 것을 완화합니다. alpha가 크면 smoothing이 강해지고 모델은 덜 복잡해집니다. alpha가 작으면 실제 훈련 데이터의 카운트가 더 직접적으로 반영됩니다.</p>
-  <div class="stage">
-    <div class="visual-card">
-      <div class="mini-title">Interactive demo · alpha가 카운트를 부드럽게 만드는 방식</div>
-      <div class="slider-row">
-        <span class="sl-lbl">alpha</span>
-        <input type="range" id="smoothAlpha" min="0" max="20" value="4" oninput="drawSmooth()">
-        <span class="num-val" id="smoothAlphaVal">1.0</span>
-      </div>
-      <div class="canvas-wrap"><canvas id="smoothC" data-lh="300"></canvas></div>
-      <p class="hint">실제 학습 절차 전체를 재현한 것이 아니라, 교재의 “가상 데이터 포인트를 더해 통계를 smoothing한다”는 개념을 단순화한 시각화입니다.</p>
-    </div>
-    <div class="side-panel">
-      <div class="panel-box">
-        <h3>강점</h3>
-        <ul>
-          <li>학습과 예측이 매우 빠릅니다.</li>
-          <li>훈련 절차를 이해하기 쉽습니다.</li>
-          <li>고차원 sparse data에서 잘 작동합니다.</li>
-          <li>큰 데이터셋에서 좋은 baseline이 됩니다.</li>
-        </ul>
-      </div>
-      <div class="panel-box">
-        <h3>약점</h3>
-        <ul>
-          <li>효율성의 대가로 선형 분류기보다 일반화 성능이 조금 낮을 수 있습니다.</li>
-          <li>낮은 차원의 복잡한 구조에서는 다른 모델이 더 나을 수 있습니다.</li>
-          <li>coef_가 선형 모델의 w와 같은 의미는 아니므로 해석에 주의해야 합니다.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="sec-num">06 / 06</div>
+<h2>alpha와 장단점: 빠르지만, 단순화의 대가도 있다</h2>
+<p class="lead">마지막으로 <strong>alpha</strong>를 보겠습니다. BernoulliNB와 MultinomialNB에서 alpha는 통계를 조금 부드럽게 만드는 값입니다. 쉽게 말하면, 실제 데이터에만 너무 딱 달라붙지 않도록 작은 완충재를 넣는 역할을 합니다.</p>
+<p>어떤 단어가 특정 클래스에서 한 번도 등장하지 않았다고 해보겠습니다. 그러면 모델이 “이 단어가 나오면 이 클래스일 가능성은 거의 없다”처럼 너무 극단적으로 반응할 수 있습니다. alpha는 여기에 작은 가상의 카운트를 더해서, 통계가 한쪽으로 과하게 굳는 것을 막아줍니다. alpha가 크면 더 부드러워지고, alpha가 작으면 실제 훈련 데이터의 카운트가 더 직접적으로 반영됩니다.</p>
+<div class="stage">
+<div class="visual-card">
+<div class="mini-title">Interactive demo · alpha가 카운트를 부드럽게 만드는 방식</div>
+<div class="slider-row">
+<span class="sl-lbl">alpha</span>
+<input id="smoothAlpha" max="20" min="0" oninput="drawSmooth()" type="range" value="4"/>
+<span class="num-val" id="smoothAlphaVal">1.0</span>
+</div>
+<div class="canvas-wrap"><canvas data-lh="300" id="smoothC"></canvas></div>
+<p class="hint">실제 학습 전체를 재현한 화면은 아닙니다. 여기서는 alpha가 0이었던 카운트에도 작은 값을 더해 통계를 덜 극단적으로 만든다는 느낌을 보여줍니다.</p>
+</div>
+<div class="side-panel">
+<div class="panel-box">
+<h3>강점</h3>
+<ul><li>학습과 예측이 매우 빠릅니다.</li><li>훈련 절차가 비교적 단순해서 설명하기 쉽습니다.</li><li>단어 수가 많은 고차원 희소 데이터에서 좋은 기준 모델이 됩니다.</li><li>큰 데이터셋에서 처음 비교할 baseline으로 쓰기 좋습니다.</li></ul>
+</div>
+<div class="panel-box">
+<h3>약점</h3>
+<ul><li>특성 사이의 복잡한 상호작용은 잘 잡지 못합니다.</li><li>데이터 구조가 복잡하면 선형 모델이나 다른 모델보다 성능이 낮을 수 있습니다.</li><li>coef_가 선형 모델의 가중치와 같은 의미는 아니므로 해석할 때 조심해야 합니다.</li></ul>
+</div>
+</div>
+</div>
 <pre><code><span class="hl">from</span> sklearn.model_selection <span class="hl">import</span> train_test_split
 <span class="hl">from</span> sklearn.naive_bayes <span class="hl">import</span> BernoulliNB, MultinomialNB, GaussianNB
 
@@ -344,15 +317,14 @@ text_model.fit(X_train_counts, y_train)
 <span class="cm"># X가 연속적인 측정값이라면</span>
 gaussian_model = GaussianNB()
 gaussian_model.fit(X_train_continuous, y_train)</code></pre>
-  <div class="summary-strip">
-    <div class="summary-item"><strong>GaussianNB</strong><span>연속값. 클래스별 평균과 표준편차를 저장합니다.</span></div>
-    <div class="summary-item"><strong>BernoulliNB</strong><span>0/1 특성. 클래스별 nonzero 등장 여부를 셉니다.</span></div>
-    <div class="summary-item"><strong>MultinomialNB</strong><span>카운트 특성. 텍스트 분류에서 특히 자주 쓰입니다.</span></div>
-    <div class="summary-item"><strong>alpha</strong><span>통계를 부드럽게 하며, 클수록 덜 복잡한 모델이 됩니다.</span></div>
-  </div>
-  <div class="callout good"><strong>짧은 결론:</strong> 나이브 베이즈는 복잡한 상호작용을 정교하게 잡는 모델이라기보다, 클래스별 단순 통계를 빠르게 모아 예측하는 모델입니다. 그래서 아주 큰 고차원 희소 데이터에서 좋은 첫 기준점이 됩니다.</div>
+<div class="summary-strip">
+<div class="summary-item"><strong>GaussianNB</strong><span>연속값을 다룹니다. 클래스별 평균과 표준편차를 저장합니다.</span></div>
+<div class="summary-item"><strong>BernoulliNB</strong><span>0/1 특성을 다룹니다. 등장했는지 여부를 클래스별로 셉니다.</span></div>
+<div class="summary-item"><strong>MultinomialNB</strong><span>카운트 특성을 다룹니다. 단어 등장 횟수를 반영합니다.</span></div>
+<div class="summary-item"><strong>alpha</strong><span>통계를 부드럽게 만듭니다. 클수록 판단이 덜 극단적입니다.</span></div>
+</div>
+<div class="callout good"><strong>짧은 결론:</strong> 나이브 베이즈는 모든 관계를 정교하게 파고드는 모델은 아닙니다. 대신 각 특성을 증거처럼 따로 세고, 클래스별 통계를 빠르게 비교합니다. 그래서 텍스트처럼 크고 희소한 데이터에서 좋은 첫 기준점이 됩니다.</div>
 </section>
-
 <script>
 function goto(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
 function setupCanvas(c){const dpr=window.devicePixelRatio||1;const rect=c.getBoundingClientRect();const h=parseInt(c.dataset.lh||300,10);c.width=Math.max(1,Math.floor(rect.width*dpr));c.height=Math.floor(h*dpr);const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx,w:rect.width,h};}

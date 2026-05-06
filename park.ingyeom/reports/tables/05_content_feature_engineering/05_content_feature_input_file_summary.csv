@@ -1,0 +1,4 @@
+﻿name,path,rows,cols
+view_history_observation_window,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\02_preprocessing_policy\view_history_observation_window.csv,85066,14
+movie_metadata_unified_v2,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\03_movie_metadata_unification\movie_metadata_unified_v2.csv,14018,70
+modeling_feature_table_usage,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\04_usage_feature_engineering\modeling_feature_table_usage.csv,14922,96

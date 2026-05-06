@@ -1,0 +1,31 @@
+{
+  "inputs": {
+    "membership_preprocessed": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\02_preprocessing_policy\\membership_preprocessed.csv",
+    "membership_with_usernum": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\02_preprocessing_policy\\membership_with_usernum.csv",
+    "obs_view": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\02_preprocessing_policy\\view_history_observation_window.csv"
+  },
+  "outputs": {
+    "usage_features": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\04_usage_feature_engineering\\usage_features.csv",
+    "modeling_feature_table_usage": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\04_usage_feature_engineering\\modeling_feature_table_usage.csv",
+    "usage_feature_summary": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\04_usage_feature_engineering\\usage_feature_summary.json"
+  },
+  "rows": {
+    "membership_preprocessed": 14922,
+    "obs_view": 85066,
+    "usage_features": 12302,
+    "modeling_usage": 14922
+  },
+  "feature_counts": {
+    "usage_feature_columns": 64,
+    "modeling_usage_columns": 96
+  },
+  "watch_presence": {
+    "has_usage_feature_rows": 12302,
+    "no_usage_feature_rows": 2620
+  },
+  "key_rates": {
+    "overall_repurchase_rate": 0.6752446052807934,
+    "100won_repurchase_rate": 0.6317488589558055,
+    "non_100won_repurchase_rate": 0.7410338440814952
+  }
+}

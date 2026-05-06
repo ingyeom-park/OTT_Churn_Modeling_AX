@@ -1,0 +1,8 @@
+﻿metric,value
+view_base_rows,106205
+obs_view_rows_day0_20,85066
+obs_membership_row_id_nunique,12302
+obs_user_num_nunique,12303
+obs_movie_num_nunique,4765
+watch_rel_day_min,0
+watch_rel_day_max,20

@@ -53,10 +53,11 @@ pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 
 </style>
 </head>
 <body>
+
 <section class="hero">
   <div class="chapter-badge">Chapter 2 · Section 03</div>
   <h1>선형 모델 (Linear Models)</h1>
-  <p class="hero-sub"><strong>입력 특성에 가중치를 곱해 더하고, 그 결과로 예측합니다.</strong><br>회귀에서는 선·평면·초평면으로 값을 예측하고, 분류에서는 선형 결정 경계로 클래스를 나눕니다.</p>
+  <p class="hero-sub"><strong>각 특성에 영향력을 부여하고, 그 영향력을 더해 예측하는 모델</strong>입니다.<br>회귀에서는 값을 예측하고, 분류에서는 선형 경계를 만들어 클래스를 나눕니다.</p>
   <div class="toc">
     <div class="toc-btn" onclick="goto('s1')">01 · 선형식의 직관</div>
     <div class="toc-btn" onclick="goto('s2')">02 · 선형 회귀</div>
@@ -73,33 +74,36 @@ pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 
 
 <section class="sec" id="s1">
   <div class="sec-num">01 / 08</div>
-  <h2>선형 모델은 무엇을 계산하는가?</h2>
-  <p class="lead">선형 모델의 핵심은 단순합니다. 각 입력 특성에 가중치 <strong>w</strong>를 곱하고, 그것들을 더한 뒤, 절편 <strong>b</strong>를 더해 예측을 만듭니다. 특성이 하나라면 직선이고, 특성이 둘이면 평면이며, 특성이 더 많아지면 사람이 직접 그리기 어려운 초평면이 됩니다.</p>
-  <p>처음 들으면 “직선 하나로 뭘 얼마나 할 수 있나?”라는 생각이 들 수 있습니다. 하지만 교재가 강조하는 지점은 조금 다릅니다. 저차원 그림에서는 선형 모델이 제한적으로 보이지만, 특성이 많아질수록 선형 모델은 훨씬 강력해집니다. 특히 특성 수가 많거나 희소한 데이터에서는 매우 중요한 기본 모델이 됩니다.</p>
+  <h2>선형 모델은 각 특성의 영향력을 더한다</h2>
+  <p class="lead">선형 모델을 처음 볼 때는 “직선 하나 긋는 모델인가?”라고 생각하기 쉽습니다. 그런데 더 정확하게는 <strong>각 특성이 예측에 얼마나 영향을 주는지 숫자로 정하고, 그 영향력을 모두 더하는 모델</strong>이라고 보는 편이 좋습니다.</p>
+  <p>예를 들어 집값을 예측한다고 해보겠습니다. 면적이 넓으면 가격이 올라갈 수 있고, 역과 멀면 가격이 내려갈 수 있고, 연식이 오래되면 다시 낮아질 수 있습니다. 선형 모델은 이런 특성 하나하나에 가중치, 즉 계수 <strong>w</strong>를 붙입니다. 그리고 입력값에 계수를 곱해 모두 더한 뒤, 마지막에 기본 출발점 같은 절편 <strong>b</strong>를 더합니다.</p>
+  <p>특성이 하나라면 이 식은 직선으로 보입니다. 특성이 두 개라면 평면이 됩니다. 특성이 세 개를 넘어가면 우리가 그림으로 직접 그리기는 어려워지지만, 계산 구조는 같습니다. 결국 선형 모델은 “여러 특성의 점수를 합산해서 예측을 만든다”는 방식입니다.</p>
+  <p>그래서 선형 모델을 볼 때 핵심 질문은 이것입니다. <strong>어떤 특성에는 큰 계수를 주고, 어떤 특성에는 작은 계수를 줄 것인가?</strong> 이 계수들이 모델의 판단 기준이 됩니다.</p>
   <div class="formula">ŷ = w[0] × x[0] + w[1] × x[1] + ... + w[p] × x[p] + b</div>
   <div class="stage">
     <div class="visual-card">
       <div class="mini-title">Interactive demo · 기울기와 절편</div>
       <div class="slider-row"><span class="sl-lbl">slope w[0]</span><input type="range" id="lineW" min="-20" max="20" value="6" oninput="drawLineIntro()"><span class="num-val" id="lineWVal">0.6</span></div>
-      <div class="slider-row"><span class="sl-lbl">intercept b(가중치 편향)</span><input type="range" id="lineB" min="-20" max="20" value="-2" oninput="drawLineIntro()"><span class="num-val" id="lineBVal">-0.2</span></div>
+      <div class="slider-row"><span class="sl-lbl">intercept b</span><input type="range" id="lineB" min="-20" max="20" value="-2" oninput="drawLineIntro()"><span class="num-val" id="lineBVal">-0.2</span></div>
       <div class="canvas-wrap"><canvas id="lineIntroC" data-lh="330"></canvas></div>
       <p class="hint">슬라이더를 움직이면 같은 x값에 대한 예측 ŷ가 어떻게 바뀌는지 볼 수 있습니다.</p>
     </div>
     <div class="side-panel">
-      <div class="panel-box"><h3>관찰 포인트</h3><ul><li>w는 선의 기울기입니다. 특성값이 증가할 때 예측값이 얼마나 변하는지를 나타냅니다.</li><li>b는 절편입니다. 모든 특성값이 0일 때 출발점처럼 작동합니다.</li><li>특성이 여러 개라면 이런 기울기가 특성마다 하나씩 생깁니다.</li></ul></div>
-      <div class="panel-box"><h3>발표 멘트</h3><p>“선형 모델은 데이터에서 복잡한 규칙을 문장으로 외우는 모델이 아니라, 각 특성의 영향력을 숫자로 배분하는 모델입니다. 그래서 계수는 모델이 어떤 특성을 얼마나 사용했는지 보는 창이 됩니다.”</p></div>
+      <div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>w는 기울기입니다. x가 커질 때 예측값이 얼마나 움직이는지를 정합니다.</li><li>b는 절편입니다. 선이 어디에서 출발할지를 정하는 기준점입니다.</li><li>특성이 여러 개라면 특성마다 이런 영향력 숫자가 하나씩 생깁니다.</li></ul></div>
+      <div class="panel-box"><h3>계수 읽는 법</h3><p>계수는 모델이 특성에 부여한 영향력입니다. 다만 계수가 크다고 무조건 현실에서 그 특성이 절대적으로 중요하다는 뜻은 아닙니다. 데이터의 스케일, 특성끼리의 상관관계, 정규화 여부에 따라 계수의 모양은 달라질 수 있습니다.</p></div>
     </div>
   </div>
-  <p style="margin-top:22px;">이 절의 모든 모델은 이 기본 구조에서 출발합니다. LinearRegression, Ridge, Lasso는 모두 회귀를 위한 선형 모델입니다. LogisticRegression과 LinearSVC는 분류를 위한 선형 모델입니다. 이름은 다르지만 공통 질문은 같습니다. <strong>어떤 계수 w와 절편 b를 선택할 것인가?</strong></p>
-  <div class="callout good"><strong>한 줄 결론:</strong> 선형 모델은 “각 특성의 영향력을 계수로 정하고, 그 영향력을 더해 예측하는 모델”입니다.</div>
+  <p style="margin-top:22px;">이 절에서 다루는 모델들은 모두 이 구조를 공유합니다. LinearRegression, Ridge, Lasso는 연속적인 숫자값을 예측하는 회귀 모델이고, LogisticRegression과 LinearSVC는 클래스를 나누는 분류 모델입니다. 이름은 다르지만 밑바닥 질문은 같습니다. <strong>어떤 계수 w와 절편 b를 선택해야 새 데이터에도 잘 맞을까?</strong></p>
+  <div class="callout good"><strong>핵심 정리:</strong> 선형 모델은 단순히 직선을 긋는 모델이 아닙니다. 각 특성의 영향력을 숫자로 정하고, 그 영향력을 합산해 예측을 만드는 모델입니다.</div>
 </section>
 <div class="divider"></div>
 
 <section class="sec" id="s2">
   <div class="sec-num">02 / 08</div>
-  <h2>Linear Regression: 훈련 데이터에 가장 잘 맞는 직선 찾기</h2>
-  <p class="lead">선형 회귀, 또는 ordinary least squares는 가장 고전적인 선형 회귀 방법입니다. 목표는 훈련 세트에서 예측값과 실제 타깃값의 차이, 특히 그 차이의 제곱합이 작아지는 계수와 절편을 찾는 것입니다.</p>
-  <p>직관적으로는 흩어진 점들 사이에 직선을 하나 놓는 일입니다. 이 직선은 모든 점을 완벽히 지나가지는 못합니다. 대신 각 점에서 직선까지의 세로 오차를 전체적으로 작게 만들려고 합니다. 아래 데모는 교재의 wave 데이터셋 그림을 단순화한 예시입니다. 점을 추가하거나 제거하면서 직선과 오차가 어떻게 바뀌는지 볼 수 있습니다.</p>
+  <h2>Linear Regression: 점들 사이에 가장 그럴듯한 선을 놓는다</h2>
+  <p class="lead">선형 회귀, 또는 ordinary least squares는 가장 기본적인 선형 회귀 모델입니다. 목표는 간단합니다. 실제 값과 예측값의 차이, 즉 <strong>잔차</strong>가 전체적으로 작아지는 직선을 찾는 것입니다.</p>
+  <p>산점도 위에 점들이 흩어져 있다고 해보겠습니다. 선형 회귀는 그 점들을 모두 완벽히 지나가려 하지 않습니다. 대신 각 점에서 직선까지의 세로 거리, 즉 오차를 계산하고, 그 오차들의 제곱합이 가장 작아지는 선을 찾습니다. 오차를 제곱하는 이유는 양수와 음수가 서로 상쇄되지 않게 하고, 큰 오차를 더 강하게 벌주기 위해서입니다.</p>
+  <p>여기서 중요한 감각은 “가장 잘 맞는 선”이 “모든 점을 지나가는 선”은 아니라는 점입니다. 현실 데이터에는 노이즈가 있고, 우연히 튄 점도 있습니다. 선형 회귀는 그 모든 점을 억지로 통과하기보다 전체적인 경향을 가장 무난하게 설명하는 선을 찾습니다.</p>
   <div class="stage">
     <div class="visual-card">
       <div class="mini-title">Interactive demo · OLS와 잔차</div>
@@ -108,8 +112,9 @@ pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 
       <div class="metric-row"><div class="metric"><span class="metric-lbl">slope w</span><span class="metric-val" id="olsW">—</span></div><div class="metric"><span class="metric-lbl">intercept b</span><span class="metric-val" id="olsB">—</span></div><div class="metric"><span class="metric-lbl">MSE</span><span class="metric-val" id="olsMSE">—</span></div></div>
       <p class="hint">회색 세로선은 잔차입니다. 선형 회귀는 이 잔차들의 제곱 평균을 작게 만드는 선을 찾습니다.</p>
     </div>
-    <div class="side-panel"><div class="panel-box"><h3>무엇을 봐야 하는가</h3><ul><li>점 하나를 멀리 추가하면 선 전체가 끌려갈 수 있습니다.</li><li>선형 회귀에는 모델 복잡도를 직접 제어하는 주요 파라미터가 없습니다.</li><li>저차원에서는 단순해서 과적합 위험이 작아 보이지만, 특성이 많아지면 과적합이 나타날 수 있습니다.</li></ul></div><div class="panel-box"><h3>교재 흐름과 연결</h3><p>교재는 wave 데이터에서는 훈련 점수와 테스트 점수가 모두 낮고 비슷해 과소적합처럼 보이지만, 확장된 Boston Housing 데이터에서는 훈련 점수가 매우 높고 테스트 점수가 낮아 과적합이 나타난다고 설명합니다.</p></div></div>
+    <div class="side-panel"><div class="panel-box"><h3>잔차를 읽는 법</h3><ul><li>점과 선 사이의 세로 거리가 잔차입니다.</li><li>잔차가 전체적으로 작을수록 훈련 데이터에는 잘 맞습니다.</li><li>멀리 떨어진 점 하나가 직선 전체를 끌고 갈 수 있습니다.</li></ul></div><div class="panel-box"><h3>왜 한계가 생기는가</h3><p>선형 회귀는 복잡도를 직접 조절하는 주요 파라미터가 없습니다. 특성이 적을 때는 단순해서 안정적으로 보이지만, 특성이 많아지고 서로 조합된 특성이 늘어나면 훈련 데이터에 지나치게 맞는 문제가 생길 수 있습니다.</p></div></div>
   </div>
+  <p style="margin-top:22px;">이 부분에서 헷갈리면 안 되는 점이 있습니다. 선형 회귀는 단순한 모델이라서 항상 과소적합만 하는 것이 아닙니다. 특성이 하나나 두 개일 때는 표현력이 제한적이지만, 특성이 수십 개, 수백 개로 늘어나면 계수도 그만큼 많아집니다. 그러면 선형 모델도 훈련 데이터의 세부적인 구조에 과하게 맞춰질 수 있습니다.</p>
   <pre><code><span class="hl">from sklearn.linear_model import LinearRegression</span>
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 lr = LinearRegression().fit(X_train, y_train)
@@ -117,17 +122,18 @@ lr = LinearRegression().fit(X_train, y_train)
 print(lr.coef_)       <span class="cm"># 훈련 데이터에서 학습된 계수 w</span>
 print(lr.intercept_)  <span class="cm"># 훈련 데이터에서 학습된 절편 b</span>
 print(lr.score(X_test, y_test))</code></pre>
-  <div class="callout warn"><strong>주의:</strong> 선형 회귀는 단순하고 해석하기 쉽지만, 복잡도를 조절하는 장치가 없습니다. 특성이 많아질 때는 훈련 데이터를 지나치게 잘 맞추는 방향으로 갈 수 있습니다.</div>
+  <div class="callout warn"><strong>주의:</strong> 선형 회귀는 해석하기 쉽고 빠르지만, 계수 크기를 직접 제한하지 않습니다. 그래서 특성이 많아질수록 Ridge나 Lasso처럼 계수를 통제하는 모델이 필요해질 수 있습니다.</div>
 </section>
 <div class="divider"></div>
 
 <section class="sec" id="s3">
   <div class="sec-num">03 / 08</div>
-  <h2>Ridge: 계수를 작게 만들어 과적합을 누르는 모델</h2>
-  <p class="lead">Ridge 회귀는 선형 회귀와 같은 예측 공식을 사용합니다. 차이는 계수를 고르는 기준에 있습니다. 단순히 훈련 데이터를 잘 맞히는 것뿐 아니라, 계수들이 너무 커지지 않도록 제한합니다. 이 제한을 정규화(regularization)라고 합니다.</p>
-  <p>교재의 표현을 직관적으로 바꾸면, Ridge는 각 특성이 결과에 지나치게 큰 목소리를 내지 못하도록 조절하는 모델입니다. 어떤 특성 하나가 “내가 전부 설명할 수 있다”고 과하게 주장하면, Ridge는 그 목소리를 낮춥니다. 그래서 훈련 성능은 조금 낮아질 수 있지만, 새 데이터에 대한 일반화는 좋아질 수 있습니다.</p>
+  <h2>Ridge: 계수가 너무 커지지 않게 브레이크를 건다</h2>
+  <p class="lead">Ridge 회귀는 선형 회귀와 같은 식으로 예측합니다. 차이는 계수를 고르는 기준에 있습니다. 그냥 훈련 데이터를 잘 맞히는 것만 보지 않고, <strong>계수들이 너무 커지지 않도록 제한</strong>합니다.</p>
+  <p>이 제한을 정규화(regularization)라고 부릅니다. 말이 조금 딱딱하지만, 직관은 어렵지 않습니다. 모델이 어떤 특성 하나에 너무 큰 영향력을 주면서 훈련 데이터를 억지로 맞추려 할 때, Ridge는 “그 정도로 세게 믿지는 말자”라고 제동을 거는 방식입니다.</p>
+  <p>그래서 Ridge를 쓰면 훈련 점수는 선형 회귀보다 조금 낮아질 수 있습니다. 하지만 이것이 꼭 나쁜 일은 아닙니다. 우리가 원하는 것은 훈련 데이터에 대한 완벽한 설명이 아니라, 처음 보는 데이터에도 통하는 설명입니다. Ridge는 훈련 데이터에 대한 집착을 조금 줄이는 대신, 더 안정적인 계수 조합을 선택하려고 합니다.</p>
   <div class="stage rev">
-    <div class="side-panel"><div class="panel-box"><h3>alpha의 의미</h3><p><strong>alpha</strong>가 커질수록 계수를 0에 더 가깝게 밀어붙입니다. 즉 모델은 더 단순해집니다. alpha가 작아지면 제한이 약해져 일반 선형 회귀에 가까워집니다.</p></div><div class="panel-box"><h3>관찰 포인트</h3><ul><li>alpha를 키우면 선의 기울기가 완만해집니다.</li><li>계수 막대가 전체적으로 줄어듭니다.</li><li>훈련 데이터를 아주 세게 맞추기보다, 안정적인 설명을 선택하는 방향으로 갑니다.</li></ul></div></div>
+    <div class="side-panel"><div class="panel-box"><h3>alpha의 의미</h3><p><strong>alpha</strong>가 커질수록 계수를 0에 더 가깝게 밀어붙입니다. 즉 규제가 강해지고 모델은 더 단순해집니다. alpha가 작아지면 제한이 약해져 일반 선형 회귀에 가까워집니다.</p></div><div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>alpha를 키우면 선의 기울기가 완만해집니다.</li><li>계수 크기가 줄어들면서 모델의 반응이 덜 날카로워집니다.</li><li>훈련 데이터를 아주 세게 맞추기보다, 새 데이터에도 통할 만한 안정적인 선을 선호합니다.</li></ul></div></div>
     <div class="visual-card">
       <div class="mini-title">Interactive demo · Ridge alpha</div>
       <div class="slider-row"><span class="sl-lbl">alpha</span><input type="range" id="ridgeAlpha" min="0" max="100" value="20" oninput="drawRidge()"><span class="num-val" id="ridgeAlphaVal">1.0</span></div>
@@ -140,16 +146,17 @@ print(lr.score(X_test, y_test))</code></pre>
 ridge = Ridge(alpha=1.0).fit(X_train, y_train)
 ridge10 = Ridge(alpha=10).fit(X_train, y_train)
 ridge01 = Ridge(alpha=0.1).fit(X_train, y_train)</code></pre>
-  <p>여기서 자주 헷갈리는 점은 “훈련 성능이 낮아졌는데 왜 좋아졌다고 말하는가?”입니다. 모델 평가는 훈련 데이터가 아니라 새 데이터에 대한 일반화가 기준입니다. Ridge는 일부러 훈련 세트에 대한 집착을 줄이고, 더 단순한 계수 조합을 선택해 테스트 성능을 개선하려고 합니다.</p>
-  <div class="callout good"><strong>한 줄 결론:</strong> Ridge는 모든 계수를 조금씩 눌러서, 훈련 데이터에 대한 과한 집착을 줄이는 선형 회귀 모델입니다.</div>
+  <p>Ridge를 이해할 때 핵심은 “계수를 작게 만든다”는 말입니다. 하지만 계수를 없애는 것은 아닙니다. 대부분의 특성은 여전히 예측에 참여합니다. 다만 특정 특성이 과하게 큰 목소리를 내지 못하게 전체적으로 눌러주는 것입니다.</p>
+  <div class="callout good"><strong>핵심 정리:</strong> Ridge는 모든 계수를 조금씩 줄여서, 훈련 데이터에 대한 과한 집착을 낮추는 선형 회귀 모델입니다.</div>
 </section>
 <div class="divider"></div>
 
 <section class="sec" id="s4">
   <div class="sec-num">04 / 08</div>
-  <h2>Lasso: 필요 없는 특성의 계수를 0으로 만든다</h2>
-  <p class="lead">Lasso도 계수를 작게 만드는 정규화 모델입니다. 하지만 Ridge와 중요한 차이가 있습니다. Lasso는 일부 계수를 정확히 0으로 만들 수 있습니다. 계수가 0이 된 특성은 예측에 전혀 사용되지 않습니다.</p>
-  <p>이 차이는 발표에서 반드시 강조해야 합니다. Ridge는 여러 특성의 목소리를 전체적으로 낮추는 방식입니다. 반면 Lasso는 “이 특성은 이번 설명에서 제외하겠습니다”라고 말할 수 있습니다. 그래서 특성이 많고 그중 일부만 중요하다고 예상될 때, 또는 어떤 특성이 선택되었는지 해석하고 싶을 때 유용합니다.</p>
+  <h2>Lasso: 일부 특성은 아예 꺼버릴 수 있다</h2>
+  <p class="lead">Lasso도 계수를 작게 만드는 정규화 모델입니다. 그런데 Ridge와 결정적인 차이가 있습니다. Lasso는 일부 계수를 <strong>정확히 0</strong>으로 만들 수 있습니다. 계수가 0이 된 특성은 그 모델 안에서는 예측에 사용되지 않습니다.</p>
+  <p>Ridge가 모든 특성의 목소리를 전체적으로 낮추는 방식이라면, Lasso는 일부 특성에게 “이번 설명에서는 빠져도 됩니다”라고 말하는 방식에 가깝습니다. 그래서 특성이 아주 많고 그중 일부만 중요할 것 같을 때, 또는 어떤 특성이 선택되었는지 보고 싶을 때 Lasso가 유용할 수 있습니다.</p>
+  <p>다만 여기서도 조심해야 합니다. Lasso가 어떤 특성의 계수를 0으로 만들었다고 해서, 그 특성이 현실에서 아무 의미도 없다는 뜻은 아닙니다. 현재 데이터, 현재 전처리, 현재 alpha 값에서 모델이 그 특성을 선택하지 않았다는 뜻입니다. 모델의 선택과 현실의 인과관계를 바로 같은 말로 보면 위험합니다.</p>
   <div class="stage">
     <div class="visual-card">
       <div class="mini-title">Interactive demo · Ridge vs Lasso coefficient paths</div>
@@ -158,22 +165,23 @@ ridge01 = Ridge(alpha=0.1).fit(X_train, y_train)</code></pre>
       <div class="metric-row"><div class="metric"><span class="metric-lbl">Ridge nonzero</span><span class="metric-val" id="ridgeNonzero">8</span></div><div class="metric"><span class="metric-lbl">Lasso nonzero</span><span class="metric-val" id="lassoNonzero">—</span></div><div class="verdict"><span class="verdict-txt" id="coefMsg">—</span></div></div>
       <p class="hint">위쪽은 Ridge, 아래쪽은 Lasso입니다. Lasso에서는 막대가 완전히 사라지는 특성이 생깁니다.</p>
     </div>
-    <div class="side-panel"><div class="panel-box"><h3>Ridge와 Lasso를 나누는 질문</h3><ul><li>대부분의 특성이 조금씩 중요해 보이면 Ridge가 자연스럽습니다.</li><li>특성이 아주 많고 그중 일부만 중요할 것 같으면 Lasso가 후보가 됩니다.</li><li>해석 가능성이 중요하면 Lasso의 0 계수가 도움이 됩니다.</li></ul></div><div class="panel-box"><h3>교재의 정리</h3><p>교재는 보통 Ridge를 먼저 시도하는 경우가 많다고 설명합니다. 다만 특성이 많고 일부만 중요하다고 예상되거나, 모델이 선택한 특성을 해석하고 싶다면 Lasso가 더 적합할 수 있습니다. 두 방식을 결합한 ElasticNet도 있지만 조정할 파라미터가 늘어납니다.</p></div></div>
+    <div class="side-panel"><div class="panel-box"><h3>Ridge와 Lasso를 나누는 질문</h3><ul><li>대부분의 특성이 조금씩 중요해 보이면 Ridge가 자연스럽습니다.</li><li>특성이 아주 많고 그중 일부만 중요할 것 같으면 Lasso가 후보가 됩니다.</li><li>모델이 사용한 특성을 줄여서 해석하고 싶다면 Lasso가 도움이 됩니다.</li></ul></div><div class="panel-box"><h3>ElasticNet은 언제 떠올릴까</h3><p>Ridge와 Lasso를 섞은 방식이 ElasticNet입니다. 계수를 줄이는 효과와 특성을 선택하는 효과를 함께 쓰고 싶을 때 생각할 수 있습니다. 대신 조정해야 할 파라미터가 늘어나므로, 처음에는 Ridge와 Lasso의 차이를 먼저 이해하는 편이 좋습니다.</p></div></div>
   </div>
   <pre><code><span class="hl">from sklearn.linear_model import Lasso</span>
 lasso = Lasso(alpha=0.01, max_iter=100000).fit(X_train, y_train)
 
 print("사용한 특성 수:", np.sum(lasso.coef_ != 0))
 print("테스트 점수:", lasso.score(X_test, y_test))</code></pre>
-  <div class="callout warn"><strong>주의:</strong> Lasso가 계수를 0으로 만든다는 말은 “그 특성이 현실에서 아무 의미도 없다”는 뜻이 아닙니다. 현재 데이터, 현재 전처리, 현재 alpha 설정에서 모델이 그 특성을 사용하지 않았다는 뜻으로 읽어야 합니다.</div>
+  <div class="callout warn"><strong>해석 주의:</strong> Lasso의 0 계수는 “모델이 이 특성을 쓰지 않았다”는 뜻입니다. “이 특성은 현실에서 중요하지 않다”로 바로 확장하면 안 됩니다.</div>
 </section>
 <div class="divider"></div>
 
 <section class="sec" id="s5">
   <div class="sec-num">05 / 08</div>
-  <h2>선형 분류: 직선 하나로 두 클래스를 나눈다</h2>
-  <p class="lead">분류에서 선형 모델은 먼저 선형식을 계산한 뒤, 그 값이 어느 쪽에 있는지 보고 클래스를 정합니다. 이진 분류에서는 선형식의 값이 0보다 큰지 작은지가 기준이 됩니다. 그래서 결정 경계는 선, 평면, 또는 초평면이 됩니다.</p>
-  <p>중요한 점은 LogisticRegression이라는 이름입니다. 이름에는 Regression이 들어가지만, 교재는 이것이 회귀 알고리즘이 아니라 분류 알고리즘임을 분명히 합니다. LinearSVC와 LogisticRegression은 둘 다 선형 결정 경계를 만드는 대표적인 선형 분류 모델입니다.</p>
+  <h2>선형 분류: 점수를 계산하고, 경계의 어느 쪽인지 본다</h2>
+  <p class="lead">분류에서도 선형 모델은 먼저 선형식을 계산합니다. 다만 회귀처럼 그 숫자를 그대로 예측값으로 쓰는 것이 아니라, 그 점수가 <strong>어느 쪽에 있는지</strong>를 보고 클래스를 정합니다.</p>
+  <p>이진 분류에서는 보통 선형식의 값이 0보다 큰지 작은지가 기준이 됩니다. 점수가 0이 되는 지점들이 모이면 결정 경계가 됩니다. 특성이 두 개라면 이 경계는 직선이고, 특성이 더 많아지면 평면이나 초평면이 됩니다. 그림으로는 직선 하나처럼 보이지만, 실제로는 공간을 두 영역으로 나누는 기준입니다.</p>
+  <p>여기서 LogisticRegression이라는 이름이 헷갈릴 수 있습니다. 이름에는 Regression이 들어가지만, 이 모델은 회귀 모델이 아니라 분류 모델입니다. LogisticRegression과 LinearSVC는 세부 학습 방식은 다르지만, 둘 다 선형 결정 경계를 만든다는 공통점이 있습니다.</p>
   <div class="stage">
     <div class="visual-card">
       <div class="mini-title">Interactive demo · linear decision boundary</div>
@@ -184,24 +192,25 @@ print("테스트 점수:", lasso.score(X_test, y_test))</code></pre>
       <div class="metric-row"><div class="metric"><span class="metric-lbl">training accuracy</span><span class="metric-val" id="clsAcc">—</span></div><div class="verdict"><span class="verdict-txt" id="clsMsg">직선 경계로 나누기</span></div></div>
       <p class="hint">직선을 움직이며 두 클래스를 나눠보세요. 곡선 경계가 아니라 직선 경계만 사용할 수 있다는 점이 핵심입니다.</p>
     </div>
-    <div class="side-panel"><div class="panel-box"><h3>무엇을 봐야 하는가</h3><ul><li>선형 분류 모델은 공간을 두 반쪽으로 나눕니다.</li><li>데이터가 선형적으로 잘 분리되면 직선 경계만으로도 충분합니다.</li><li>데이터가 복잡하게 얽혀 있으면 직선 하나로는 한계가 생깁니다.</li></ul></div><div class="panel-box"><h3>교재 흐름과 연결</h3><p>교재는 forge 데이터셋에서 LogisticRegression과 LinearSVC가 만드는 결정 경계를 보여줍니다. 두 모델은 세부 방식은 다르지만, 결과적으로 두 클래스를 가르는 선형 결정 경계를 만든다는 공통점이 있습니다.</p></div></div>
+    <div class="side-panel"><div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>선형 분류 모델은 공간을 두 반쪽으로 나눕니다.</li><li>데이터가 직선 기준으로 잘 갈라지면 선형 모델만으로도 충분할 수 있습니다.</li><li>데이터가 복잡하게 얽혀 있으면 직선 하나로는 한계가 생깁니다.</li></ul></div><div class="panel-box"><h3>점수와 경계</h3><p>모델은 각 점에 대해 선형 점수를 계산합니다. 점수가 양수이면 한쪽 클래스, 음수이면 다른 클래스가 됩니다. 이 점수가 정확히 0이 되는 곳이 결정 경계입니다.</p></div></div>
   </div>
   <pre><code><span class="hl">from sklearn.linear_model import LogisticRegression</span>
 <span class="hl">from sklearn.svm import LinearSVC</span>
 
 logreg = LogisticRegression().fit(X_train, y_train)
 svc = LinearSVC().fit(X_train, y_train)</code></pre>
-  <div class="callout good"><strong>한 줄 결론:</strong> 선형 분류는 “점수가 0이 되는 선”을 기준으로 공간을 나누고, 그 양쪽에 서로 다른 클래스를 배정합니다.</div>
+  <div class="callout good"><strong>핵심 정리:</strong> 선형 분류는 선형 점수가 0이 되는 경계를 만들고, 그 경계의 양쪽에 서로 다른 클래스를 배정합니다.</div>
 </section>
 <div class="divider"></div>
 
 <section class="sec" id="s6">
   <div class="sec-num">06 / 08</div>
-  <h2>C는 alpha와 반대로 생각해야 한다</h2>
-  <p class="lead">회귀의 Ridge와 Lasso에서는 보통 <strong>alpha</strong>가 정규화 강도를 조절합니다. alpha가 커질수록 계수는 더 작아지고 모델은 단순해집니다. 하지만 LogisticRegression과 LinearSVC에서 자주 보는 <strong>C</strong>는 방향이 반대입니다.</p>
-  <p>C가 커지면 정규화가 약해지고, 모델은 훈련 데이터 하나하나를 더 열심히 맞추려 합니다. C가 작아지면 정규화가 강해지고, 개별 데이터 포인트에 덜 민감한 단순한 모델을 선호합니다. 따라서 발표할 때는 “alpha는 클수록 단순, C는 작을수록 단순”이라고 따로 기억시키는 것이 좋습니다.</p>
+  <h2>C는 alpha와 반대 방향으로 움직인다</h2>
+  <p class="lead">Ridge와 Lasso에서는 보통 <strong>alpha</strong>가 정규화 강도를 조절합니다. alpha가 커질수록 계수가 더 작아지고, 모델은 더 단순해집니다. 그런데 LogisticRegression과 LinearSVC에서 자주 보는 <strong>C</strong>는 방향이 반대입니다.</p>
+  <p>C는 규제를 얼마나 풀어줄 것인가에 가까운 값입니다. C가 커지면 정규화가 약해지고, 모델은 훈련 데이터를 더 열심히 맞추려 합니다. 반대로 C가 작아지면 정규화가 강해지고, 개별 훈련 포인트에 덜 흔들리는 단순한 경계를 선호합니다.</p>
+  <p>쉽게 말하면 alpha는 브레이크의 세기이고, C는 브레이크를 얼마나 풀 것인가에 가깝습니다. 그래서 둘을 같은 방향으로 외우면 헷갈립니다. <strong>alpha는 클수록 단순, C는 작을수록 단순</strong>이라고 분리해서 잡는 편이 안전합니다.</p>
   <div class="stage rev">
-    <div class="side-panel"><div class="panel-box"><h3>핵심 대비</h3><table class="small-table"><tr><th>파라미터</th><th>커질 때</th></tr><tr><td>alpha</td><td>규제 강함 → 계수 작아짐 → 모델 단순</td></tr><tr><td>C</td><td>규제 약함 → 훈련 데이터 더 맞춤 → 모델 복잡</td></tr></table></div><div class="panel-box"><h3>해석 주의</h3><p>교재는 계수를 해석할 수 있다는 장점을 말하면서도, 상관된 특성이 많으면 계수의 부호와 크기를 단순하게 믿기 어렵다고 경고합니다. C나 정규화 방식이 바뀌면 계수의 모습도 달라질 수 있습니다.</p></div></div>
+    <div class="side-panel"><div class="panel-box"><h3>핵심 대비</h3><table class="small-table"><tr><th>파라미터</th><th>커질 때</th></tr><tr><td>alpha</td><td>규제 강함 → 계수 작아짐 → 모델 단순</td></tr><tr><td>C</td><td>규제 약함 → 훈련 데이터 더 맞춤 → 모델 복잡</td></tr></table></div><div class="panel-box"><h3>계수 해석 주의</h3><p>계수는 해석에 도움이 되지만, 항상 그대로 믿으면 안 됩니다. 상관된 특성이 많거나 스케일이 다르거나 C 값이 달라지면 계수의 크기와 부호도 달라질 수 있습니다.</p></div></div>
     <div class="visual-card">
       <div class="mini-title">Interactive demo · C and confidence</div>
       <div class="slider-row"><span class="sl-lbl">C</span><input type="range" id="cSlider" min="0" max="100" value="45" oninput="drawCdemo()"><span class="num-val" id="cVal">—</span></div>
@@ -219,9 +228,10 @@ svc = LinearSVC().fit(X_train, y_train)</code></pre>
 
 <section class="sec" id="s7">
   <div class="sec-num">07 / 08</div>
-  <h2>다중 클래스: 여러 개의 선형 분류기가 경쟁한다</h2>
-  <p class="lead">선형 분류 모델은 기본적으로 이진 분류에서 설명하기 쉽습니다. 그런데 클래스가 세 개 이상이면 어떻게 할까요? 교재는 많은 선형 분류 모델이 one-vs.-rest 방식을 사용한다고 설명합니다.</p>
-  <p>one-vs.-rest는 각 클래스를 “나 대 나머지” 문제로 바꿉니다. 클래스가 세 개라면 클래스 0을 나머지와 구분하는 모델, 클래스 1을 나머지와 구분하는 모델, 클래스 2를 나머지와 구분하는 모델을 각각 만듭니다. 새 데이터가 들어오면 세 모델이 각각 점수를 내고, 가장 높은 점수를 낸 클래스가 최종 예측이 됩니다.</p>
+  <h2>다중 클래스: 각 클래스가 자기 점수를 낸다</h2>
+  <p class="lead">선형 분류는 이진 분류에서 가장 이해하기 쉽습니다. 그런데 클래스가 세 개 이상이면 한 번에 어떻게 나눌까요? 많이 쓰이는 방식 중 하나가 <strong>one-vs.-rest</strong>입니다.</p>
+  <p>one-vs.-rest는 문제를 여러 개의 “나 대 나머지” 문제로 쪼갭니다. 클래스가 세 개라면 클래스 0인지 아닌지를 보는 모델, 클래스 1인지 아닌지를 보는 모델, 클래스 2인지 아닌지를 보는 모델을 각각 만듭니다. 새 데이터가 들어오면 세 모델이 각자 점수를 내고, 가장 높은 점수를 낸 클래스가 최종 예측이 됩니다.</p>
+  <p>비유하면 세 명의 후보가 각자 “이 데이터는 내 쪽에 가깝다”는 점수를 제출하는 구조입니다. 최종 선택은 가장 높은 점수를 낸 후보에게 갑니다. 그래서 다중 클래스 선형 분류도 내부적으로는 여러 개의 선형 점수가 경쟁하는 방식으로 이해할 수 있습니다.</p>
   <div class="stage">
     <div class="visual-card">
       <div class="mini-title">Interactive demo · one-vs-rest score competition</div>
@@ -229,16 +239,17 @@ svc = LinearSVC().fit(X_train, y_train)</code></pre>
       <div class="metric-row"><div class="metric"><span class="metric-lbl">Class 0 score</span><span class="metric-val" id="ovr0">—</span></div><div class="metric"><span class="metric-lbl">Class 1 score</span><span class="metric-val" id="ovr1">—</span></div><div class="metric"><span class="metric-lbl">Class 2 score</span><span class="metric-val" id="ovr2">—</span></div><div class="verdict"><span class="verdict-txt" id="ovrPred">화면을 클릭하세요</span></div></div>
       <p class="hint">평면 위를 클릭하면 세 클래스의 선형 점수가 계산되고, 가장 높은 점수의 클래스가 선택됩니다.</p>
     </div>
-    <div class="side-panel"><div class="panel-box"><h3>관찰 포인트</h3><ul><li>클래스마다 자기만의 계수 벡터와 절편이 있다고 생각하면 됩니다.</li><li>각 모델은 “이 점이 내 클래스인가?”라는 점수를 냅니다.</li><li>최종 선택은 세 점수 중 가장 큰 값을 고르는 방식입니다.</li></ul></div><div class="panel-box"><h3>발표 멘트</h3><p>“다중 클래스 선형 분류는 한 번에 복잡한 판단을 하는 것처럼 보이지만, 내부적으로는 여러 개의 이진적 질문이 경쟁하는 구조로 이해할 수 있습니다. 각 클래스가 자기 점수를 내고, 가장 설득력 있는 클래스가 이깁니다.”</p></div></div>
+    <div class="side-panel"><div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>클래스마다 자기만의 계수와 절편이 있다고 생각하면 됩니다.</li><li>각 모델은 “이 점이 내 클래스인가?”에 대한 점수를 냅니다.</li><li>최종 선택은 세 점수 중 가장 큰 값을 고르는 방식입니다.</li></ul></div><div class="panel-box"><h3>왜 여러 경계가 보이는가</h3><p>클래스마다 하나의 선형 기준을 만들기 때문에, 다중 클래스 문제에서는 여러 개의 선형 경계가 함께 작동합니다. 겉으로는 영역이 여러 개로 나뉘지만, 안쪽에서는 각 클래스의 점수 경쟁이 벌어지는 셈입니다.</p></div></div>
   </div>
-  <div class="callout good"><strong>한 줄 결론:</strong> one-vs.-rest에서는 클래스마다 하나의 선형 모델이 있고, 새 데이터는 가장 높은 점수를 준 클래스에 배정됩니다.</div>
+  <div class="callout good"><strong>핵심 정리:</strong> one-vs.-rest에서는 클래스마다 하나의 선형 모델이 있고, 새 데이터는 가장 높은 점수를 준 클래스에 배정됩니다.</div>
 </section>
 <div class="divider"></div>
 
 <section class="sec" id="s8">
   <div class="sec-num">08 / 08</div>
   <h2>선형 모델을 어떻게 기억해야 하는가?</h2>
-  <p class="lead">선형 모델 절 전체를 하나의 그림으로 묶으면, 핵심은 세 가지입니다. 첫째, 예측은 특성들의 가중합으로 만들어집니다. 둘째, 회귀에서는 값을 예측하고 분류에서는 결정 경계를 만듭니다. 셋째, 정규화는 계수를 통제해 일반화를 돕습니다.</p>
+  <p class="lead">선형 모델 절을 하나로 묶으면 핵심은 세 가지입니다. 첫째, 예측은 특성들의 가중합으로 만들어집니다. 둘째, 회귀에서는 숫자값을 예측하고 분류에서는 결정 경계를 만듭니다. 셋째, 정규화는 계수를 통제해서 일반화를 돕습니다.</p>
+  <p>선형 모델은 이름 때문에 단순한 입문용 모델처럼 보일 수 있습니다. 하지만 실제로는 빠르고, 해석 가능성이 있고, 특성이 많은 데이터에서도 강한 기준 모델이 됩니다. 특히 텍스트처럼 특성 수가 많고 대부분의 값이 0인 희소 데이터에서는 선형 모델이 꽤 강력하게 작동하는 경우가 많습니다.</p>
   <div class="three-col"><div class="card"><span class="tag tb">Regression</span><h3>값을 예측한다</h3><p>LinearRegression, Ridge, Lasso는 연속적인 숫자값을 예측합니다. 차이는 계수를 얼마나 제한하는가에 있습니다.</p></div><div class="card"><span class="tag tr">Classification</span><h3>공간을 나눈다</h3><p>LogisticRegression과 LinearSVC는 선형 결정 경계를 사용해 클래스를 나눕니다. 이름과 달리 LogisticRegression은 분류 모델입니다.</p></div><div class="card"><span class="tag tg">Regularization</span><h3>계수를 통제한다</h3><p>Ridge는 계수를 전체적으로 줄이고, Lasso는 일부 계수를 0으로 만들 수 있습니다. C는 alpha와 반대 방향으로 읽어야 합니다.</p></div></div>
   <h3 style="margin-top:30px;">대표 코드 흐름</h3>
   <pre><code><span class="cm"># 회귀: Ridge / Lasso / LinearRegression</span>
@@ -253,8 +264,8 @@ from sklearn.svm import LinearSVC
 clf = LogisticRegression(C=1.0).fit(X_train, y_train)
 print(clf.score(X_test, y_test))</code></pre>
   <h3 style="margin-top:30px;">강점과 약점</h3>
-  <div class="summary-strip"><div class="summary-item"><strong>빠르다</strong><span>학습과 예측이 빠르며 큰 데이터셋에도 잘 맞습니다.</span></div><div class="summary-item"><strong>희소 데이터에 강하다</strong><span>특성이 많고 대부분 0인 데이터에서도 자주 좋은 기준 모델이 됩니다.</span></div><div class="summary-item"><strong>해석 가능하지만 조심</strong><span>계수로 특성의 영향력을 볼 수 있지만, 상관된 특성이 많으면 단순 해석은 위험합니다.</span></div><div class="summary-item"><strong>저차원 복잡 경계는 약함</strong><span>데이터의 실제 경계가 심하게 휘어 있으면 선형 경계만으로는 부족할 수 있습니다.</span></div></div>
-  <div class="callout warn"><strong>발표용 최종 문장:</strong> 선형 모델은 단순해서 약한 모델이 아니라, 계수를 통해 예측 구조를 명확히 만들고 정규화로 일반화를 조절하는 강력한 기본 모델입니다.</div>
+  <div class="summary-strip"><div class="summary-item"><strong>빠르다</strong><span>학습과 예측이 빠르며 큰 데이터셋에도 잘 맞습니다.</span></div><div class="summary-item"><strong>희소 데이터에 강하다</strong><span>특성이 많고 대부분 0인 데이터에서도 자주 좋은 기준 모델이 됩니다.</span></div><div class="summary-item"><strong>해석 가능하지만 조심</strong><span>계수로 특성의 영향력을 볼 수 있지만, 상관된 특성이 많으면 단순 해석은 위험합니다.</span></div><div class="summary-item"><strong>비선형 구조는 약함</strong><span>데이터의 실제 경계가 심하게 휘어 있으면 선형 경계만으로는 부족할 수 있습니다.</span></div></div>
+  <div class="callout warn"><strong>마지막 정리:</strong> 선형 모델은 단순해서 약한 모델이 아닙니다. 계수로 예측 구조를 명확히 만들고, 정규화로 일반화를 조절하는 강력한 기본 모델입니다.</div>
   <div class="next-box"><div class="next-lbl">Next section</div><div class="next-title">Naive Bayes Classifiers</div><div class="next-sub">선형 모델 다음에는 더 빠르고 단순한 확률 기반 분류기로 넘어갑니다.</div></div>
 </section>
 

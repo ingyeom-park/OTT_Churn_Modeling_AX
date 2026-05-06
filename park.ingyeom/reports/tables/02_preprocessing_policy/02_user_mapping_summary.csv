@@ -1,0 +1,6 @@
+﻿metric,value
+membership_preprocessed_rows,14922
+membership_with_usernum_rows,14955
+membership_row_id_nunique_after_join,14922
+missing_USER_NUM_rows,0
+membership_row_id_with_multiple_USER_NUM,32

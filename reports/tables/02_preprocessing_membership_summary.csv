@@ -1,8 +1,0 @@
-﻿metric,value
-membership_base_rows,17876.0
-removed_dummy_demographic_rows,2639.0
-removed_subscription_lt_21_rows,455.0
-membership_preprocessed_rows,14922.0
-preprocessed_100won_rows,8983.0
-preprocessed_non_100won_rows,5939.0
-preprocessed_repurchase_rate,0.6752446052807934

@@ -1,0 +1,13 @@
+﻿version,metadata_source,metadata_quality,use_for_content_features,count
+v1,kobis+movie5171,B_or_C_kobis_unchecked,1,1000
+v1,missing,E_missing,0,8845
+v1,movie5171,M_movie5171_auxiliary_fallback,1,595
+v1,wavve,A_wavve,1,2
+v1,wavve+movie5171,A_wavve,1,3576
+v2,kobis+movie5171,B_kobis_high_confidence,1,121
+v2,kobis+movie5171,C_kobis_medium_confidence,1,852
+v2,kobis+movie5171,M_movie5171_auxiliary_fallback,1,27
+v2,missing,E_missing,0,8845
+v2,movie5171,M_movie5171_auxiliary_fallback,1,595
+v2,wavve,A_wavve,1,2
+v2,wavve+movie5171,A_wavve,1,3576

@@ -1,0 +1,4 @@
+﻿name,path,rows,cols
+membership_preprocessed,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\02_preprocessing_policy\membership_preprocessed.csv,14922,26
+membership_with_usernum,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\02_preprocessing_policy\membership_with_usernum.csv,14955,27
+view_history_observation_window,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\02_preprocessing_policy\view_history_observation_window.csv,85066,14

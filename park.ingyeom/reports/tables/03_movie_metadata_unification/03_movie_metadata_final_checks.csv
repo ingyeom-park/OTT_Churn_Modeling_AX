@@ -1,0 +1,7 @@
+﻿check,value
+v1_rows_equal_movie_master,True
+v2_rows_equal_movie_master,True
+v2_recommended_for_downstream,True
+v2_low_confidence_rows_excluded_from_content_features,True
+movie5171_loaded_as_optional_auxiliary_source,True
+output_dir_under_reports_data_03,True

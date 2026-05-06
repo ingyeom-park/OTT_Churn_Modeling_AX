@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "obs_view": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\02_preprocessing_policy\\view_history_observation_window.csv",
+    "movie_metadata_v2": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\03_movie_metadata_unification\\movie_metadata_unified_v2.csv",
+    "modeling_usage": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\04_usage_feature_engineering\\modeling_feature_table_usage.csv"
+  },
+  "outputs": {
+    "content_features": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\05_content_feature_engineering\\content_features.csv",
+    "modeling_feature_table_with_content": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\05_content_feature_engineering\\modeling_feature_table_with_content.csv",
+    "content_feature_summary": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\05_content_feature_engineering\\content_feature_summary.json"
+  },
+  "rows": {
+    "obs_view": 85066,
+    "movie_metadata_v2": 14018,
+    "modeling_usage": 14922,
+    "view_meta": 85066,
+    "content_features": 12302,
+    "modeling_with_content": 14922
+  },
+  "coverage": {
+    "watch_time_total": 3800349.0,
+    "watch_time_metadata_covered": 3799654.0,
+    "watch_time_usable_for_content_features": 3799654.0
+  },
+  "feature_counts": {
+    "content_feature_columns": 126,
+    "modeling_with_content_columns": 230
+  },
+  "candidate_flags": [
+    "family_content_affinity",
+    "family_2screen_lifestyle",
+    "promo2_family_lifestyle_candidate",
+    "action_sf_thriller_affinity",
+    "premium_action_trial_risk",
+    "age40_2screen_anime_kids_candidate",
+    "promo4_long_recent_trial_candidate"
+  ]
+}

@@ -1,9 +1,0 @@
-﻿metric,value
-view_base_rows,106205
-view_joined_rows,89100
-observation_window_rows_day0_20,85066
-obs_membership_row_id_nunique,12302
-obs_USER_NUM_nunique,12303
-obs_MOVIE_NUM_nunique,4765
-watch_rel_day_min,0
-watch_rel_day_max,20

@@ -1,0 +1,233 @@
+{
+  "input_files": {
+    "movie_master": "c:\\Code\\ott-churn-prediction\\_data\\02_interim\\260430_membership_v1(이상치, 이름변경)\\Movie_Master_v1.csv",
+    "wavve": "c:\\Code\\ott-churn-prediction\\_data\\01_raw\\Wavve_movie(Regex).csv",
+    "kobis": "c:\\Code\\ott-churn-prediction\\_data\\01_raw\\Wavve_movie(KOBIS).csv",
+    "view_history": "c:\\Code\\ott-churn-prediction\\_data\\02_interim\\260430_membership_v1(이상치, 이름변경)\\View_History_v1.csv",
+    "movie_5171": "c:\\Code\\ott-churn-prediction\\_data\\02_interim\\260506_movie(5171)\\movie_5171.csv"
+  },
+  "output_files": {
+    "movie_metadata_unified_v1": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\03_movie_metadata_unification\\movie_metadata_unified_v1.csv",
+    "movie_metadata_unified_v2": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\03_movie_metadata_unification\\movie_metadata_unified_v2.csv",
+    "summary_json": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\03_movie_metadata_unification\\movie_metadata_unified_v1_v2_summary.json"
+  },
+  "input_rows": [
+    {
+      "name": "Movie_Master_v1",
+      "path": "c:\\Code\\ott-churn-prediction\\_data\\02_interim\\260430_membership_v1(이상치, 이름변경)\\Movie_Master_v1.csv",
+      "rows": 14018,
+      "cols": 3,
+      "required": true
+    },
+    {
+      "name": "Wavve_movie(Regex)",
+      "path": "c:\\Code\\ott-churn-prediction\\_data\\01_raw\\Wavve_movie(Regex).csv",
+      "rows": 4060,
+      "cols": 31,
+      "required": true
+    },
+    {
+      "name": "Wavve_movie(KOBIS)",
+      "path": "c:\\Code\\ott-churn-prediction\\_data\\01_raw\\Wavve_movie(KOBIS).csv",
+      "rows": 999,
+      "cols": 13,
+      "required": true
+    },
+    {
+      "name": "View_History_v1",
+      "path": "c:\\Code\\ott-churn-prediction\\_data\\02_interim\\260430_membership_v1(이상치, 이름변경)\\View_History_v1.csv",
+      "rows": 106205,
+      "cols": 5,
+      "required": true
+    },
+    {
+      "name": "movie_5171",
+      "path": "c:\\Code\\ott-churn-prediction\\_data\\02_interim\\260506_movie(5171)\\movie_5171.csv",
+      "rows": 5171,
+      "cols": 5,
+      "required": false
+    }
+  ],
+  "title_key_summary": [
+    {
+      "table": "Movie_Master",
+      "rows": 14018,
+      "unique_title_key": 14012,
+      "duplicate_title_key_rows": 12
+    },
+    {
+      "table": "Wavve",
+      "rows": 4060,
+      "unique_title_key": 3576,
+      "duplicate_title_key_rows": 864
+    },
+    {
+      "table": "KOBIS",
+      "rows": 999,
+      "unique_title_key": 999,
+      "duplicate_title_key_rows": 0
+    },
+    {
+      "table": "movie_5171",
+      "rows": 5171,
+      "unique_title_key": 5170,
+      "duplicate_title_key_rows": 2
+    }
+  ],
+  "movie5171_coverage_summary": [
+    {
+      "scope": "Movie_Master_all",
+      "total_movies": 14018,
+      "movie5171_covered_movies": 5171,
+      "movie5171_missing_movies": 8847,
+      "movie5171_coverage_rate": 0.36888286488800115
+    },
+    {
+      "scope": "View_History_movies_only",
+      "total_movies": 5196,
+      "movie5171_covered_movies": 5171,
+      "movie5171_missing_movies": 25,
+      "movie5171_coverage_rate": 0.9951886066204773
+    }
+  ],
+  "coverage_summary": [
+    {
+      "version": "v1",
+      "scope": "Movie_Master_all",
+      "total_movies": 14018,
+      "primary_metadata_covered": 4578,
+      "movie5171_covered": 5171,
+      "metadata_covered": 5173,
+      "usable_for_content_features": 5173,
+      "primary_metadata_coverage_rate": 0.3265801112854901,
+      "metadata_coverage_rate": 0.3690255385932373,
+      "usable_rate": 0.3690255385932373
+    },
+    {
+      "version": "v1",
+      "scope": "View_History_movies_only",
+      "total_movies": 5196,
+      "primary_metadata_covered": 4576,
+      "movie5171_covered": 5171,
+      "metadata_covered": 5171,
+      "usable_for_content_features": 5171,
+      "primary_metadata_coverage_rate": 0.8806774441878368,
+      "metadata_coverage_rate": 0.9951886066204773,
+      "usable_rate": 0.9951886066204773
+    },
+    {
+      "version": "v2",
+      "scope": "Movie_Master_all",
+      "total_movies": 14018,
+      "primary_metadata_covered": 4578,
+      "movie5171_covered": 5171,
+      "metadata_covered": 5173,
+      "usable_for_content_features": 5173,
+      "primary_metadata_coverage_rate": 0.3265801112854901,
+      "metadata_coverage_rate": 0.3690255385932373,
+      "usable_rate": 0.3690255385932373
+    },
+    {
+      "version": "v2",
+      "scope": "View_History_movies_only",
+      "total_movies": 5196,
+      "primary_metadata_covered": 4576,
+      "movie5171_covered": 5171,
+      "metadata_covered": 5171,
+      "usable_for_content_features": 5171,
+      "primary_metadata_coverage_rate": 0.8806774441878368,
+      "metadata_coverage_rate": 0.9951886066204773,
+      "usable_rate": 0.9951886066204773
+    }
+  ],
+  "quality_counts": [
+    {
+      "version": "v1",
+      "metadata_source": "kobis+movie5171",
+      "metadata_quality": "B_or_C_kobis_unchecked",
+      "use_for_content_features": 1,
+      "count": 1000
+    },
+    {
+      "version": "v1",
+      "metadata_source": "missing",
+      "metadata_quality": "E_missing",
+      "use_for_content_features": 0,
+      "count": 8845
+    },
+    {
+      "version": "v1",
+      "metadata_source": "movie5171",
+      "metadata_quality": "M_movie5171_auxiliary_fallback",
+      "use_for_content_features": 1,
+      "count": 595
+    },
+    {
+      "version": "v1",
+      "metadata_source": "wavve",
+      "metadata_quality": "A_wavve",
+      "use_for_content_features": 1,
+      "count": 2
+    },
+    {
+      "version": "v1",
+      "metadata_source": "wavve+movie5171",
+      "metadata_quality": "A_wavve",
+      "use_for_content_features": 1,
+      "count": 3576
+    },
+    {
+      "version": "v2",
+      "metadata_source": "kobis+movie5171",
+      "metadata_quality": "B_kobis_high_confidence",
+      "use_for_content_features": 1,
+      "count": 121
+    },
+    {
+      "version": "v2",
+      "metadata_source": "kobis+movie5171",
+      "metadata_quality": "C_kobis_medium_confidence",
+      "use_for_content_features": 1,
+      "count": 852
+    },
+    {
+      "version": "v2",
+      "metadata_source": "kobis+movie5171",
+      "metadata_quality": "M_movie5171_auxiliary_fallback",
+      "use_for_content_features": 1,
+      "count": 27
+    },
+    {
+      "version": "v2",
+      "metadata_source": "missing",
+      "metadata_quality": "E_missing",
+      "use_for_content_features": 0,
+      "count": 8845
+    },
+    {
+      "version": "v2",
+      "metadata_source": "movie5171",
+      "metadata_quality": "M_movie5171_auxiliary_fallback",
+      "use_for_content_features": 1,
+      "count": 595
+    },
+    {
+      "version": "v2",
+      "metadata_source": "wavve",
+      "metadata_quality": "A_wavve",
+      "use_for_content_features": 1,
+      "count": 2
+    },
+    {
+      "version": "v2",
+      "metadata_source": "wavve+movie5171",
+      "metadata_quality": "A_wavve",
+      "use_for_content_features": 1,
+      "count": 3576
+    }
+  ],
+  "low_confidence_kobis_count": 0,
+  "recommended_downstream_file": "c:\\Code\\ott-churn-prediction\\park.ingyeom\\reports\\data\\03_movie_metadata_unification\\movie_metadata_unified_v2.csv",
+  "movie5171_policy": "auxiliary fallback only; does not overwrite Wavve or trusted KOBIS fields",
+  "output_policy": "derived analysis outputs are saved under park.ingyeom/reports/data, not under repository-level _data"
+}

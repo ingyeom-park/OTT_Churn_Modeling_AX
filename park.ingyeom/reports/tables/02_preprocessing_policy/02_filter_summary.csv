@@ -1,0 +1,4 @@
+﻿step,rows,removed,remaining
+input_membership_v1,17876,0,17876
+remove_dummy_demographic_genderN_verified0_age40,17876,2639,15237
+remove_subscription_days_lt_21,15237,315,14922

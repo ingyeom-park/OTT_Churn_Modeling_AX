@@ -1,7 +1,0 @@
-﻿dataset,path,loaded,rows,columns
-membership,"c:\Code\ott-churn-prediction\_data\02_interim\260430_membership_v1(이상치, 이름변경)\Membership_v1.csv",True,17876,15
-mapping,"c:\Code\ott-churn-prediction\_data\02_interim\260430_membership_v1(이상치, 이름변경)\User_Mapping_v1.csv",True,19877,2
-view,"c:\Code\ott-churn-prediction\_data\02_interim\260430_membership_v1(이상치, 이름변경)\View_History_v1.csv",True,106205,5
-movie_master,"c:\Code\ott-churn-prediction\_data\02_interim\260430_membership_v1(이상치, 이름변경)\Movie_Master_v1.csv",True,14018,3
-wavve,c:\Code\ott-churn-prediction\_data\01_raw\Wavve_movie(Regex).csv,True,4060,31
-kobis,c:\Code\ott-churn-prediction\_data\01_raw\Wavve_movie(KOBIS).csv,True,999,13

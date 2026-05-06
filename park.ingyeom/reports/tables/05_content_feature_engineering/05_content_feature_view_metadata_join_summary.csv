@@ -1,0 +1,8 @@
+﻿metric,value
+obs_view_rows,85066.0
+view_meta_rows,85066.0
+unique_movies_in_obs,4765.0
+unique_movies_joined_usable,4755.0
+watch_time_total,3800349.0
+watch_time_metadata_covered,3799654.0
+watch_time_usable_for_content_features,3799654.0

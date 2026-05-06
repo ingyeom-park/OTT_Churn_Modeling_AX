@@ -1,0 +1,11 @@
+﻿item,value
+membership_rows,14922
+unique_membership_row_id_membership,14922
+obs_view_rows,85066
+unique_membership_row_id_obs_view,12302
+membership_has_watch_obs_sum,12302
+membership_no_watch_obs_sum,2620
+obs_min_watch_rel_day,0
+obs_max_watch_rel_day,20
+obs_unique_movies,4765
+obs_watch_time_sum,3800349

@@ -1,0 +1,6 @@
+﻿name,path,rows,cols,required
+Movie_Master_v1,"c:\Code\ott-churn-prediction\_data\02_interim\260430_membership_v1(이상치, 이름변경)\Movie_Master_v1.csv",14018,3,True
+Wavve_movie(Regex),c:\Code\ott-churn-prediction\_data\01_raw\Wavve_movie(Regex).csv,4060,31,True
+Wavve_movie(KOBIS),c:\Code\ott-churn-prediction\_data\01_raw\Wavve_movie(KOBIS).csv,999,13,True
+View_History_v1,"c:\Code\ott-churn-prediction\_data\02_interim\260430_membership_v1(이상치, 이름변경)\View_History_v1.csv",106205,5,True
+movie_5171,c:\Code\ott-churn-prediction\_data\02_interim\260506_movie(5171)\movie_5171.csv,5171,5,False

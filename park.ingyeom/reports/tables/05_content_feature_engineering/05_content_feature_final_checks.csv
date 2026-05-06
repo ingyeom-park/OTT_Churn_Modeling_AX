@@ -1,0 +1,21 @@
+﻿check,value,pass
+project_root_is_repo_root,c:\Code\ott-churn-prediction,True
+data_root_is_repo_data,c:\Code\ott-churn-prediction\_data,True
+reports_dir_is_park_reports,c:\Code\ott-churn-prediction\park.ingyeom\reports,True
+input_02_data_dir_is_reports_data_02,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\02_preprocessing_policy,True
+input_03_data_dir_is_reports_data_03,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\03_movie_metadata_unification,True
+input_04_data_dir_is_reports_data_04,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\04_usage_feature_engineering,True
+output_data_dir_under_reports_data_05,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering,True
+output_table_dir_under_reports_tables_05,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\05_content_feature_engineering,True
+only_expected_05_report_csvs,"['05_content_feature_attach_check.csv', '05_content_feature_candidate_segment_rates.csv', '05_content_feature_final_checks.csv', '05_content_feature_input_file_summary.csv', '05_content_feature_input_key_check.csv', '05_content_feature_numeric_summary.csv', '05_content_feature_summary_by_100won.csv', '05_content_feature_summary_by_100won_maxscreen.csv', '05_content_feature_top_genre_counts.csv', '05_content_feature_view_metadata_join_summary.csv']",True
+movie_meta_rows_is_14018,14018,True
+modeling_usage_rows_is_14922,14922,True
+modeling_with_content_rows_is_14922,14922,True
+row_count_preserved_from_04,True,True
+membership_row_id_unique_preserved,True,True
+content_feature_file_exists,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering\content_features.csv,True
+modeling_with_content_file_exists,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering\modeling_feature_table_with_content.csv,True
+summary_json_output_exists,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering\content_feature_summary.json,True
+has_content_feature_rows_gt_zero,12302,True
+view_meta_rows_equals_obs_view_rows,85066,True
+usable_metadata_movie_count_gt_zero,4755,True
