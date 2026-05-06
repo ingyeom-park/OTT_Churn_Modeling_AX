@@ -1,0 +1,4 @@
+﻿membership_rows,after_USER_KEY_mapping_rows,membership_rows_without_USER_NUM,mapped_rows,check_name,mapping_USER_NUM_unique,view_USER_NUM_unique,intersection_USER_NUM,view_USER_NUM_not_in_mapping,movie_master_rows,movie_master_unique_MOVIE_NUM,view_unique_MOVIE_NUM,view_movies_in_master,view_movies_not_in_master
+17876.0,17980.0,0.0,17980.0,membership_to_mapping,,,,,,,,,
+,,,,mapping_to_view,19877.0,14892.0,14892.0,0.0,,,,,
+,,,,view_to_movie_master,,,,,14018.0,14018.0,5196.0,5196.0,0.0

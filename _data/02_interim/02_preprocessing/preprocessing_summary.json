@@ -1,0 +1,18 @@
+{
+  "notebook_id": "02_preprocessing_policy",
+  "input_v1_data_dir": "_data\\02_interim\\260430_membership_v1(이상치, 이름변경)",
+  "output_data_dir": "_data\\02_interim\\02_preprocessing",
+  "membership_base_rows": 17876,
+  "membership_preprocessed_rows": 14922,
+  "removed_dummy_demographic_rows": 2639,
+  "removed_subscription_lt_21_or_missing_rows": 455,
+  "preprocessed_100won_rows": 8983,
+  "preprocessed_non_100won_rows": 5939,
+  "preprocessed_repurchase_rate": 0.6752446052807934,
+  "membership_with_usernum_rows": 14955,
+  "membership_row_id_with_multiple_USER_NUM": 32,
+  "observation_window_rows_day0_20": 85066,
+  "obs_membership_row_id_nunique": 12302,
+  "watch_presence_rows_with_watch": 12302,
+  "watch_presence_rows_without_watch": 2620
+}
