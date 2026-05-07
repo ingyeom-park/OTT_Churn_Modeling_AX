@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>선형 모델 | Chapter 2 · Section 03</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:#1f2328;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.78;overflow-x:hidden;}
+.hero{padding:76px 40px 84px;text-align:center;border-bottom:1px solid #d0d7de;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);}
+.chapter-badge{display:inline-block;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#0969da;background:#ddf4ff;border:1px solid #54aeff;border-radius:20px;padding:4px 12px;}
+.hero h1{font-size:clamp(32px,5.5vw,58px);font-weight:800;letter-spacing:-.035em;line-height:1.12;margin-bottom:14px;}
+.hero-sub{font-size:16px;color:#57606a;max-width:760px;margin:0 auto 34px;}
+.hero-sub strong{color:#0969da;}
+.toc{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:920px;margin:0 auto;}
+.toc-btn{background:#f6f8fa;border:1px solid #d0d7de;border-radius:999px;padding:7px 14px;font-size:12px;font-family:'JetBrains Mono',monospace;color:#57606a;cursor:pointer;transition:all .15s;}
+.toc-btn:hover{background:#ddf4ff;border-color:#54aeff;color:#0969da;transform:translateY(-1px);}
+.scroll-arrow{display:flex;flex-direction:column;align-items:center;gap:5px;color:#8c959f;font-size:11px;font-family:'JetBrains Mono',monospace;margin-top:34px;animation:bob 2.2s ease-in-out infinite;}
+.scroll-arrow svg{width:17px;height:17px;stroke:#8c959f;fill:none;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.divider{width:100%;height:1px;background:#d0d7de;}
+.sec{max-width:980px;margin:0 auto;padding:68px 32px;}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#0969da;margin-bottom:6px;}
+h2{font-size:clamp(22px,3.7vw,34px);font-weight:800;letter-spacing:-.025em;line-height:1.22;margin-bottom:16px;color:#1f2328;}
+h3{font-size:17px;font-weight:700;color:#1f2328;margin-bottom:8px;}
+p{margin-bottom:12px;color:#1f2328;}
+strong{font-weight:700;}
+em{font-style:normal;color:#0969da;font-weight:700;}
+.lead{font-size:16px;color:#424a53;max-width:860px;}
+.keyline{margin:18px 0 24px;padding:14px 18px;border:1px solid #b6e3ff;border-left:4px solid #0969da;border-radius:9px;background:#f1f8ff;font-size:15px;}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.tb{background:#ddf4ff;color:#0969da;border:1px solid #54aeff;}.tr{background:#fff0f0;color:#cf222e;border:1px solid #ffcecb;}.tg{background:#dafbe1;color:#1a7f37;border:1px solid #82cfff;}.to{background:#fff8c5;color:#9a6700;border:1px solid #eac54f;}.tp{background:#fbefff;color:#8250df;border:1px solid #d8b9ff;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+@media(max-width:800px){.two-col,.three-col{grid-template-columns:1fr;}.sec{padding:56px 22px;}.hero{padding-left:22px;padding-right:22px;}}
+.card{background:#f6f8fa;border:1px solid #d0d7de;border-radius:12px;padding:20px;}.card p{font-size:14px;color:#57606a;margin-bottom:0;}.card h3{margin-top:8px;}
+.stage{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:18px;align-items:stretch;margin-top:22px;}
+.stage.rev{grid-template-columns:minmax(280px,.75fr) minmax(0,1.45fr);}
+@media(max-width:900px){.stage,.stage.rev{grid-template-columns:1fr;}}
+.visual-card{background:#ffffff;border:1px solid #d0d7de;border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(140,149,159,.12);}
+.side-panel{display:flex;flex-direction:column;gap:12px;}.panel-box{background:#f6f8fa;border:1px solid #d0d7de;border-radius:12px;padding:16px;}.panel-box h3{font-size:15px;margin-bottom:8px;}.panel-box ul{padding-left:18px;color:#57606a;font-size:14px;line-height:1.65;}.panel-box li{margin-bottom:6px;}.panel-box p{font-size:14px;color:#57606a;margin-bottom:0;}
+.callout{background:#f6f8fa;border-left:3px solid #0969da;border-radius:0 8px 8px 0;padding:14px 17px;margin:18px 0;font-size:14px;}.callout.warn{background:#fff8c5;border-left-color:#9a6700;}.callout.good{background:#f0fff4;border-left-color:#1a7f37;}.callout.danger{background:#fff0f0;border-left-color:#cf222e;}
+.canvas-wrap{background:#fff;border:1px solid #d0d7de;border-radius:10px;overflow:hidden;margin-top:12px;}
+canvas{display:block;width:100%;}
+.ctrl-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 10px;}.ctrl-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#57606a;letter-spacing:.03em;text-transform:uppercase;}
+.mode-btn,.reset-btn{padding:6px 13px;border-radius:999px;font-size:12px;font-family:'JetBrains Mono',monospace;border:1px solid #d0d7de;background:#fff;color:#57606a;cursor:pointer;transition:all .15s;}.mode-btn:hover,.reset-btn:hover{transform:translateY(-1px);}.mode-btn.active{background:#ddf4ff;border-color:#0969da;color:#0969da;font-weight:500;}.mode-btn.red.active{background:#fff0f0;border-color:#cf222e;color:#cf222e;}.mode-btn.green.active{background:#dafbe1;border-color:#1a7f37;color:#1a7f37;}.reset-btn:hover{border-color:#cf222e;color:#cf222e;}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0 4px;}.sl-lbl{font-family:'JetBrains Mono',monospace;font-size:12px;color:#57606a;white-space:nowrap;}input[type=range]{-webkit-appearance:none;flex:1;height:4px;border-radius:2px;background:#d0d7de;outline:none;}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#0969da;cursor:pointer;border:2px solid #fff;box-shadow:0 0 0 2px #0969da;}.num-val{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:500;color:#0969da;min-width:48px;text-align:right;}
+.metric-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}.metric{background:#fff;border:1px solid #d0d7de;border-radius:8px;padding:8px 13px;min-width:96px;}.metric-lbl{font-size:10px;color:#656d76;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:2px;}.metric-val{font-size:21px;font-weight:500;font-family:'JetBrains Mono',monospace;}.verdict{background:#fff;border:1px solid #d0d7de;border-radius:8px;padding:8px 14px;flex:1;display:flex;align-items:center;min-width:170px;}.verdict-txt{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;}
+.hint{font-size:11px;color:#656d76;font-family:'JetBrains Mono',monospace;margin-top:7px;margin-bottom:0;}
+pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:15px 18px;margin:16px 0;white-space:pre-wrap;word-break:break-word;overflow-x:hidden;}pre code{font-family:'JetBrains Mono',monospace;font-size:12.2px;line-height:1.72;color:#1f2328;}.hl{color:#0969da;font-weight:500;}.cm{color:#6e7781;}.st{color:#0a3069;}
+.mini-title{font-family:'JetBrains Mono',monospace;font-size:11px;color:#0969da;text-transform:uppercase;letter-spacing:.09em;margin-bottom:6px;}.formula{background:#f6f8fa;border:1px solid #d0d7de;border-radius:10px;padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:15px;color:#0969da;text-align:center;margin:16px 0;}.summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}@media(max-width:780px){.summary-strip{grid-template-columns:1fr 1fr;}}@media(max-width:480px){.summary-strip{grid-template-columns:1fr;}}.summary-item{border:1px solid #d0d7de;border-radius:10px;padding:14px;background:#fff;}.summary-item strong{display:block;margin-bottom:4px;}.summary-item span{font-size:13px;color:#57606a;}.small-table{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border:1px solid #d0d7de;border-radius:10px;overflow:hidden;}.small-table th,.small-table td{border-bottom:1px solid #d0d7de;padding:11px 13px;text-align:left;font-size:14px;vertical-align:top;}.small-table th{background:#f6f8fa;font-weight:700;}.small-table tr:last-child td{border-bottom:none;}.next-box{text-align:center;margin-top:56px;padding:36px;border:1px dashed #d0d7de;border-radius:10px;}.next-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;color:#656d76;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}.next-title{font-size:20px;font-weight:700;color:#1f2328;}.next-sub{font-size:13px;color:#656d76;margin-top:5px;}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="chapter-badge">Chapter 2 · Section 03</div>
+  <h1>선형 모델 (Linear Models)</h1>
+  <p class="hero-sub"><strong>각 특성에 영향력을 부여하고, 그 영향력을 더해 예측하는 모델</strong>입니다.<br>회귀에서는 값을 예측하고, 분류에서는 선형 경계를 만들어 클래스를 나눕니다.</p>
+  <div class="toc">
+    <div class="toc-btn" onclick="goto('s1')">01 · 선형식의 직관</div>
+    <div class="toc-btn" onclick="goto('s2')">02 · 선형 회귀</div>
+    <div class="toc-btn" onclick="goto('s3')">03 · Ridge</div>
+    <div class="toc-btn" onclick="goto('s4')">04 · Lasso</div>
+    <div class="toc-btn" onclick="goto('s5')">05 · 선형 분류</div>
+    <div class="toc-btn" onclick="goto('s6')">06 · C와 규제</div>
+    <div class="toc-btn" onclick="goto('s7')">07 · 다중 클래스</div>
+    <div class="toc-btn" onclick="goto('s8')">08 · 코드와 정리</div>
+  </div>
+  <div class="scroll-arrow"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>scroll</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s1">
+  <div class="sec-num">01 / 08</div>
+  <h2>선형 모델은 각 특성의 영향력을 더한다</h2>
+  <p class="lead">선형 모델을 처음 볼 때는 “직선 하나 긋는 모델인가?”라고 생각하기 쉽습니다. 그런데 더 정확하게는 <strong>각 특성이 예측에 얼마나 영향을 주는지 숫자로 정하고, 그 영향력을 모두 더하는 모델</strong>이라고 보는 편이 좋습니다.</p>
+  <p>예를 들어 집값을 예측한다고 해보겠습니다. 면적이 넓으면 가격이 올라갈 수 있고, 역과 멀면 가격이 내려갈 수 있고, 연식이 오래되면 다시 낮아질 수 있습니다. 선형 모델은 이런 특성 하나하나에 가중치, 즉 계수 <strong>w</strong>를 붙입니다. 그리고 입력값에 계수를 곱해 모두 더한 뒤, 마지막에 기본 출발점 같은 절편 <strong>b</strong>를 더합니다.</p>
+  <p>특성이 하나라면 이 식은 직선으로 보입니다. 특성이 두 개라면 평면이 됩니다. 특성이 세 개를 넘어가면 우리가 그림으로 직접 그리기는 어려워지지만, 계산 구조는 같습니다. 결국 선형 모델은 “여러 특성의 점수를 합산해서 예측을 만든다”는 방식입니다.</p>
+  <p>그래서 선형 모델을 볼 때 핵심 질문은 이것입니다. <strong>어떤 특성에는 큰 계수를 주고, 어떤 특성에는 작은 계수를 줄 것인가?</strong> 이 계수들이 모델의 판단 기준이 됩니다.</p>
+  <div class="formula">ŷ = w[0] × x[0] + w[1] × x[1] + ... + w[p] × x[p] + b</div>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · 기울기와 절편</div>
+      <div class="slider-row"><span class="sl-lbl">slope w[0]</span><input type="range" id="lineW" min="-20" max="20" value="6" oninput="drawLineIntro()"><span class="num-val" id="lineWVal">0.6</span></div>
+      <div class="slider-row"><span class="sl-lbl">intercept b</span><input type="range" id="lineB" min="-20" max="20" value="-2" oninput="drawLineIntro()"><span class="num-val" id="lineBVal">-0.2</span></div>
+      <div class="canvas-wrap"><canvas id="lineIntroC" data-lh="330"></canvas></div>
+      <p class="hint">슬라이더를 움직이면 같은 x값에 대한 예측 ŷ가 어떻게 바뀌는지 볼 수 있습니다.</p>
+    </div>
+    <div class="side-panel">
+      <div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>w는 기울기입니다. x가 커질 때 예측값이 얼마나 움직이는지를 정합니다.</li><li>b는 절편입니다. 선이 어디에서 출발할지를 정하는 기준점입니다.</li><li>특성이 여러 개라면 특성마다 이런 영향력 숫자가 하나씩 생깁니다.</li></ul></div>
+      <div class="panel-box"><h3>계수 읽는 법</h3><p>계수는 모델이 특성에 부여한 영향력입니다. 다만 계수가 크다고 무조건 현실에서 그 특성이 절대적으로 중요하다는 뜻은 아닙니다. 데이터의 스케일, 특성끼리의 상관관계, 정규화 여부에 따라 계수의 모양은 달라질 수 있습니다.</p></div>
+    </div>
+  </div>
+  <p style="margin-top:22px;">이 절에서 다루는 모델들은 모두 이 구조를 공유합니다. LinearRegression, Ridge, Lasso는 연속적인 숫자값을 예측하는 회귀 모델이고, LogisticRegression과 LinearSVC는 클래스를 나누는 분류 모델입니다. 이름은 다르지만 밑바닥 질문은 같습니다. <strong>어떤 계수 w와 절편 b를 선택해야 새 데이터에도 잘 맞을까?</strong></p>
+  <div class="callout good"><strong>핵심 정리:</strong> 선형 모델은 단순히 직선을 긋는 모델이 아닙니다. 각 특성의 영향력을 숫자로 정하고, 그 영향력을 합산해 예측을 만드는 모델입니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s2">
+  <div class="sec-num">02 / 08</div>
+  <h2>Linear Regression: 점들 사이에 가장 그럴듯한 선을 놓는다</h2>
+  <p class="lead">선형 회귀, 또는 ordinary least squares는 가장 기본적인 선형 회귀 모델입니다. 목표는 간단합니다. 실제 값과 예측값의 차이, 즉 <strong>잔차</strong>가 전체적으로 작아지는 직선을 찾는 것입니다.</p>
+  <p>산점도 위에 점들이 흩어져 있다고 해보겠습니다. 선형 회귀는 그 점들을 모두 완벽히 지나가려 하지 않습니다. 대신 각 점에서 직선까지의 세로 거리, 즉 오차를 계산하고, 그 오차들의 제곱합이 가장 작아지는 선을 찾습니다. 오차를 제곱하는 이유는 양수와 음수가 서로 상쇄되지 않게 하고, 큰 오차를 더 강하게 벌주기 위해서입니다.</p>
+  <p>여기서 중요한 감각은 “가장 잘 맞는 선”이 “모든 점을 지나가는 선”은 아니라는 점입니다. 현실 데이터에는 노이즈가 있고, 우연히 튄 점도 있습니다. 선형 회귀는 그 모든 점을 억지로 통과하기보다 전체적인 경향을 가장 무난하게 설명하는 선을 찾습니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · OLS와 잔차</div>
+      <div class="ctrl-row"><button class="mode-btn active" id="olsAddBtn" onclick="setOlsMode('add')">● 점 추가</button><button class="mode-btn red" id="olsDelBtn" onclick="setOlsMode('del')">× 가까운 점 삭제</button><button class="reset-btn" onclick="resetOls()">↺ 초기화</button></div>
+      <div class="canvas-wrap"><canvas id="olsC" data-lh="350"></canvas></div>
+      <div class="metric-row"><div class="metric"><span class="metric-lbl">slope w</span><span class="metric-val" id="olsW">—</span></div><div class="metric"><span class="metric-lbl">intercept b</span><span class="metric-val" id="olsB">—</span></div><div class="metric"><span class="metric-lbl">MSE</span><span class="metric-val" id="olsMSE">—</span></div></div>
+      <p class="hint">회색 세로선은 잔차입니다. 선형 회귀는 이 잔차들의 제곱 평균을 작게 만드는 선을 찾습니다.</p>
+    </div>
+    <div class="side-panel"><div class="panel-box"><h3>잔차를 읽는 법</h3><ul><li>점과 선 사이의 세로 거리가 잔차입니다.</li><li>잔차가 전체적으로 작을수록 훈련 데이터에는 잘 맞습니다.</li><li>멀리 떨어진 점 하나가 직선 전체를 끌고 갈 수 있습니다.</li></ul></div><div class="panel-box"><h3>왜 한계가 생기는가</h3><p>선형 회귀는 복잡도를 직접 조절하는 주요 파라미터가 없습니다. 특성이 적을 때는 단순해서 안정적으로 보이지만, 특성이 많아지고 서로 조합된 특성이 늘어나면 훈련 데이터에 지나치게 맞는 문제가 생길 수 있습니다.</p></div></div>
+  </div>
+  <p style="margin-top:22px;">이 부분에서 헷갈리면 안 되는 점이 있습니다. 선형 회귀는 단순한 모델이라서 항상 과소적합만 하는 것이 아닙니다. 특성이 하나나 두 개일 때는 표현력이 제한적이지만, 특성이 수십 개, 수백 개로 늘어나면 계수도 그만큼 많아집니다. 그러면 선형 모델도 훈련 데이터의 세부적인 구조에 과하게 맞춰질 수 있습니다.</p>
+  <pre><code><span class="hl">from sklearn.linear_model import LinearRegression</span>
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+lr = LinearRegression().fit(X_train, y_train)
+
+print(lr.coef_)       <span class="cm"># 훈련 데이터에서 학습된 계수 w</span>
+print(lr.intercept_)  <span class="cm"># 훈련 데이터에서 학습된 절편 b</span>
+print(lr.score(X_test, y_test))</code></pre>
+  <div class="callout warn"><strong>주의:</strong> 선형 회귀는 해석하기 쉽고 빠르지만, 계수 크기를 직접 제한하지 않습니다. 그래서 특성이 많아질수록 Ridge나 Lasso처럼 계수를 통제하는 모델이 필요해질 수 있습니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s3">
+  <div class="sec-num">03 / 08</div>
+  <h2>Ridge: 계수가 너무 커지지 않게 브레이크를 건다</h2>
+  <p class="lead">Ridge 회귀는 선형 회귀와 같은 식으로 예측합니다. 차이는 계수를 고르는 기준에 있습니다. 그냥 훈련 데이터를 잘 맞히는 것만 보지 않고, <strong>계수들이 너무 커지지 않도록 제한</strong>합니다.</p>
+  <p>이 제한을 정규화(regularization)라고 부릅니다. 말이 조금 딱딱하지만, 직관은 어렵지 않습니다. 모델이 어떤 특성 하나에 너무 큰 영향력을 주면서 훈련 데이터를 억지로 맞추려 할 때, Ridge는 “그 정도로 세게 믿지는 말자”라고 제동을 거는 방식입니다.</p>
+  <p>그래서 Ridge를 쓰면 훈련 점수는 선형 회귀보다 조금 낮아질 수 있습니다. 하지만 이것이 꼭 나쁜 일은 아닙니다. 우리가 원하는 것은 훈련 데이터에 대한 완벽한 설명이 아니라, 처음 보는 데이터에도 통하는 설명입니다. Ridge는 훈련 데이터에 대한 집착을 조금 줄이는 대신, 더 안정적인 계수 조합을 선택하려고 합니다.</p>
+  <div class="stage rev">
+    <div class="side-panel"><div class="panel-box"><h3>alpha의 의미</h3><p><strong>alpha</strong>가 커질수록 계수를 0에 더 가깝게 밀어붙입니다. 즉 규제가 강해지고 모델은 더 단순해집니다. alpha가 작아지면 제한이 약해져 일반 선형 회귀에 가까워집니다.</p></div><div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>alpha를 키우면 선의 기울기가 완만해집니다.</li><li>계수 크기가 줄어들면서 모델의 반응이 덜 날카로워집니다.</li><li>훈련 데이터를 아주 세게 맞추기보다, 새 데이터에도 통할 만한 안정적인 선을 선호합니다.</li></ul></div></div>
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · Ridge alpha</div>
+      <div class="slider-row"><span class="sl-lbl">alpha</span><input type="range" id="ridgeAlpha" min="0" max="100" value="20" oninput="drawRidge()"><span class="num-val" id="ridgeAlphaVal">1.0</span></div>
+      <div class="canvas-wrap"><canvas id="ridgeC" data-lh="360"></canvas></div>
+      <div class="metric-row"><div class="metric"><span class="metric-lbl">effective slope</span><span class="metric-val" id="ridgeSlope">—</span></div><div class="metric"><span class="metric-lbl">coef size</span><span class="metric-val" id="ridgeSize">—</span></div><div class="verdict"><span class="verdict-txt" id="ridgeMsg">—</span></div></div>
+      <p class="hint">이 데모는 Ridge의 정규화 효과를 단순화한 시각화입니다. alpha가 커질수록 계수 크기가 작아집니다.</p>
+    </div>
+  </div>
+  <pre><code><span class="hl">from sklearn.linear_model import Ridge</span>
+ridge = Ridge(alpha=1.0).fit(X_train, y_train)
+ridge10 = Ridge(alpha=10).fit(X_train, y_train)
+ridge01 = Ridge(alpha=0.1).fit(X_train, y_train)</code></pre>
+  <p>Ridge를 이해할 때 핵심은 “계수를 작게 만든다”는 말입니다. 하지만 계수를 없애는 것은 아닙니다. 대부분의 특성은 여전히 예측에 참여합니다. 다만 특정 특성이 과하게 큰 목소리를 내지 못하게 전체적으로 눌러주는 것입니다.</p>
+  <div class="callout good"><strong>핵심 정리:</strong> Ridge는 모든 계수를 조금씩 줄여서, 훈련 데이터에 대한 과한 집착을 낮추는 선형 회귀 모델입니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s4">
+  <div class="sec-num">04 / 08</div>
+  <h2>Lasso: 일부 특성은 아예 꺼버릴 수 있다</h2>
+  <p class="lead">Lasso도 계수를 작게 만드는 정규화 모델입니다. 그런데 Ridge와 결정적인 차이가 있습니다. Lasso는 일부 계수를 <strong>정확히 0</strong>으로 만들 수 있습니다. 계수가 0이 된 특성은 그 모델 안에서는 예측에 사용되지 않습니다.</p>
+  <p>Ridge가 모든 특성의 목소리를 전체적으로 낮추는 방식이라면, Lasso는 일부 특성에게 “이번 설명에서는 빠져도 됩니다”라고 말하는 방식에 가깝습니다. 그래서 특성이 아주 많고 그중 일부만 중요할 것 같을 때, 또는 어떤 특성이 선택되었는지 보고 싶을 때 Lasso가 유용할 수 있습니다.</p>
+  <p>다만 여기서도 조심해야 합니다. Lasso가 어떤 특성의 계수를 0으로 만들었다고 해서, 그 특성이 현실에서 아무 의미도 없다는 뜻은 아닙니다. 현재 데이터, 현재 전처리, 현재 alpha 값에서 모델이 그 특성을 선택하지 않았다는 뜻입니다. 모델의 선택과 현실의 인과관계를 바로 같은 말로 보면 위험합니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · Ridge vs Lasso coefficient paths</div>
+      <div class="slider-row"><span class="sl-lbl">regularization strength</span><input type="range" id="coefAlpha" min="0" max="100" value="35" oninput="drawCoef()"><span class="num-val" id="coefAlphaVal">—</span></div>
+      <div class="canvas-wrap"><canvas id="coefC" data-lh="380"></canvas></div>
+      <div class="metric-row"><div class="metric"><span class="metric-lbl">Ridge nonzero</span><span class="metric-val" id="ridgeNonzero">8</span></div><div class="metric"><span class="metric-lbl">Lasso nonzero</span><span class="metric-val" id="lassoNonzero">—</span></div><div class="verdict"><span class="verdict-txt" id="coefMsg">—</span></div></div>
+      <p class="hint">위쪽은 Ridge, 아래쪽은 Lasso입니다. Lasso에서는 막대가 완전히 사라지는 특성이 생깁니다.</p>
+    </div>
+    <div class="side-panel"><div class="panel-box"><h3>Ridge와 Lasso를 나누는 질문</h3><ul><li>대부분의 특성이 조금씩 중요해 보이면 Ridge가 자연스럽습니다.</li><li>특성이 아주 많고 그중 일부만 중요할 것 같으면 Lasso가 후보가 됩니다.</li><li>모델이 사용한 특성을 줄여서 해석하고 싶다면 Lasso가 도움이 됩니다.</li></ul></div><div class="panel-box"><h3>ElasticNet은 언제 떠올릴까</h3><p>Ridge와 Lasso를 섞은 방식이 ElasticNet입니다. 계수를 줄이는 효과와 특성을 선택하는 효과를 함께 쓰고 싶을 때 생각할 수 있습니다. 대신 조정해야 할 파라미터가 늘어나므로, 처음에는 Ridge와 Lasso의 차이를 먼저 이해하는 편이 좋습니다.</p></div></div>
+  </div>
+  <pre><code><span class="hl">from sklearn.linear_model import Lasso</span>
+lasso = Lasso(alpha=0.01, max_iter=100000).fit(X_train, y_train)
+
+print("사용한 특성 수:", np.sum(lasso.coef_ != 0))
+print("테스트 점수:", lasso.score(X_test, y_test))</code></pre>
+  <div class="callout warn"><strong>해석 주의:</strong> Lasso의 0 계수는 “모델이 이 특성을 쓰지 않았다”는 뜻입니다. “이 특성은 현실에서 중요하지 않다”로 바로 확장하면 안 됩니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s5">
+  <div class="sec-num">05 / 08</div>
+  <h2>선형 분류: 점수를 계산하고, 경계의 어느 쪽인지 본다</h2>
+  <p class="lead">분류에서도 선형 모델은 먼저 선형식을 계산합니다. 다만 회귀처럼 그 숫자를 그대로 예측값으로 쓰는 것이 아니라, 그 점수가 <strong>어느 쪽에 있는지</strong>를 보고 클래스를 정합니다.</p>
+  <p>이진 분류에서는 보통 선형식의 값이 0보다 큰지 작은지가 기준이 됩니다. 점수가 0이 되는 지점들이 모이면 결정 경계가 됩니다. 특성이 두 개라면 이 경계는 직선이고, 특성이 더 많아지면 평면이나 초평면이 됩니다. 그림으로는 직선 하나처럼 보이지만, 실제로는 공간을 두 영역으로 나누는 기준입니다.</p>
+  <p>여기서 LogisticRegression이라는 이름이 헷갈릴 수 있습니다. 이름에는 Regression이 들어가지만, 이 모델은 회귀 모델이 아니라 분류 모델입니다. LogisticRegression과 LinearSVC는 세부 학습 방식은 다르지만, 둘 다 선형 결정 경계를 만든다는 공통점이 있습니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · linear decision boundary</div>
+      <div class="ctrl-row"><button class="mode-btn active" id="cls0Btn" onclick="setClsMode(0)">● Class 0 추가</button><button class="mode-btn red" id="cls1Btn" onclick="setClsMode(1)">▲ Class 1 추가</button><button class="reset-btn" onclick="resetClsLin()">↺ 초기화</button></div>
+      <div class="slider-row"><span class="sl-lbl">boundary angle</span><input type="range" id="clsAngle" min="-70" max="70" value="-24" oninput="drawClsLin()"><span class="num-val" id="clsAngleVal">-24°</span></div>
+      <div class="slider-row"><span class="sl-lbl">boundary offset</span><input type="range" id="clsOffset" min="-60" max="60" value="0" oninput="drawClsLin()"><span class="num-val" id="clsOffsetVal">0</span></div>
+      <div class="canvas-wrap"><canvas id="clsLinC" data-lh="360"></canvas></div>
+      <div class="metric-row"><div class="metric"><span class="metric-lbl">training accuracy</span><span class="metric-val" id="clsAcc">—</span></div><div class="verdict"><span class="verdict-txt" id="clsMsg">직선 경계로 나누기</span></div></div>
+      <p class="hint">직선을 움직이며 두 클래스를 나눠보세요. 곡선 경계가 아니라 직선 경계만 사용할 수 있다는 점이 핵심입니다.</p>
+    </div>
+    <div class="side-panel"><div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>선형 분류 모델은 공간을 두 반쪽으로 나눕니다.</li><li>데이터가 직선 기준으로 잘 갈라지면 선형 모델만으로도 충분할 수 있습니다.</li><li>데이터가 복잡하게 얽혀 있으면 직선 하나로는 한계가 생깁니다.</li></ul></div><div class="panel-box"><h3>점수와 경계</h3><p>모델은 각 점에 대해 선형 점수를 계산합니다. 점수가 양수이면 한쪽 클래스, 음수이면 다른 클래스가 됩니다. 이 점수가 정확히 0이 되는 곳이 결정 경계입니다.</p></div></div>
+  </div>
+  <pre><code><span class="hl">from sklearn.linear_model import LogisticRegression</span>
+<span class="hl">from sklearn.svm import LinearSVC</span>
+
+logreg = LogisticRegression().fit(X_train, y_train)
+svc = LinearSVC().fit(X_train, y_train)</code></pre>
+  <div class="callout good"><strong>핵심 정리:</strong> 선형 분류는 선형 점수가 0이 되는 경계를 만들고, 그 경계의 양쪽에 서로 다른 클래스를 배정합니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s6">
+  <div class="sec-num">06 / 08</div>
+  <h2>C는 alpha와 반대 방향으로 움직인다</h2>
+  <p class="lead">Ridge와 Lasso에서는 보통 <strong>alpha</strong>가 정규화 강도를 조절합니다. alpha가 커질수록 계수가 더 작아지고, 모델은 더 단순해집니다. 그런데 LogisticRegression과 LinearSVC에서 자주 보는 <strong>C</strong>는 방향이 반대입니다.</p>
+  <p>C는 규제를 얼마나 풀어줄 것인가에 가까운 값입니다. C가 커지면 정규화가 약해지고, 모델은 훈련 데이터를 더 열심히 맞추려 합니다. 반대로 C가 작아지면 정규화가 강해지고, 개별 훈련 포인트에 덜 흔들리는 단순한 경계를 선호합니다.</p>
+  <p>쉽게 말하면 alpha는 브레이크의 세기이고, C는 브레이크를 얼마나 풀 것인가에 가깝습니다. 그래서 둘을 같은 방향으로 외우면 헷갈립니다. <strong>alpha는 클수록 단순, C는 작을수록 단순</strong>이라고 분리해서 잡는 편이 안전합니다.</p>
+  <div class="stage rev">
+    <div class="side-panel"><div class="panel-box"><h3>핵심 대비</h3><table class="small-table"><tr><th>파라미터</th><th>커질 때</th></tr><tr><td>alpha</td><td>규제 강함 → 계수 작아짐 → 모델 단순</td></tr><tr><td>C</td><td>규제 약함 → 훈련 데이터 더 맞춤 → 모델 복잡</td></tr></table></div><div class="panel-box"><h3>계수 해석 주의</h3><p>계수는 해석에 도움이 되지만, 항상 그대로 믿으면 안 됩니다. 상관된 특성이 많거나 스케일이 다르거나 C 값이 달라지면 계수의 크기와 부호도 달라질 수 있습니다.</p></div></div>
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · C and confidence</div>
+      <div class="slider-row"><span class="sl-lbl">C</span><input type="range" id="cSlider" min="0" max="100" value="45" oninput="drawCdemo()"><span class="num-val" id="cVal">—</span></div>
+      <div class="canvas-wrap"><canvas id="cDemoC" data-lh="360"></canvas></div>
+      <div class="metric-row"><div class="metric"><span class="metric-lbl">regularization</span><span class="metric-val" id="regStrength">—</span></div><div class="metric"><span class="metric-lbl">sensitivity</span><span class="metric-val" id="sensitivity">—</span></div><div class="verdict"><span class="verdict-txt" id="cMsg">—</span></div></div>
+      <p class="hint">C를 키우면 경계가 훈련 데이터를 더 맞추려는 쪽으로 이동합니다. 이 그림은 개념을 단순화한 예시입니다.</p>
+    </div>
+  </div>
+  <pre><code><span class="hl">LogisticRegression(C=0.01)</span>  <span class="cm"># 강한 정규화, 더 단순한 모델</span>
+<span class="hl">LogisticRegression(C=1)</span>     <span class="cm"># 기본에 가까운 설정</span>
+<span class="hl">LogisticRegression(C=100)</span>   <span class="cm"># 약한 정규화, 훈련 데이터에 더 민감</span></code></pre>
+  <div class="callout warn"><strong>실수 방지:</strong> alpha와 C는 같은 방향의 손잡이가 아닙니다. Ridge/Lasso의 alpha는 키울수록 단순해지고, LogisticRegression/LinearSVC의 C는 줄일수록 단순해집니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s7">
+  <div class="sec-num">07 / 08</div>
+  <h2>다중 클래스: 각 클래스가 자기 점수를 낸다</h2>
+  <p class="lead">선형 분류는 이진 분류에서 가장 이해하기 쉽습니다. 그런데 클래스가 세 개 이상이면 한 번에 어떻게 나눌까요? 많이 쓰이는 방식 중 하나가 <strong>one-vs.-rest</strong>입니다.</p>
+  <p>one-vs.-rest는 문제를 여러 개의 “나 대 나머지” 문제로 쪼갭니다. 클래스가 세 개라면 클래스 0인지 아닌지를 보는 모델, 클래스 1인지 아닌지를 보는 모델, 클래스 2인지 아닌지를 보는 모델을 각각 만듭니다. 새 데이터가 들어오면 세 모델이 각자 점수를 내고, 가장 높은 점수를 낸 클래스가 최종 예측이 됩니다.</p>
+  <p>비유하면 세 명의 후보가 각자 “이 데이터는 내 쪽에 가깝다”는 점수를 제출하는 구조입니다. 최종 선택은 가장 높은 점수를 낸 후보에게 갑니다. 그래서 다중 클래스 선형 분류도 내부적으로는 여러 개의 선형 점수가 경쟁하는 방식으로 이해할 수 있습니다.</p>
+  <div class="stage">
+    <div class="visual-card">
+      <div class="mini-title">Interactive demo · one-vs-rest score competition</div>
+      <div class="canvas-wrap"><canvas id="ovrC" data-lh="370"></canvas></div>
+      <div class="metric-row"><div class="metric"><span class="metric-lbl">Class 0 score</span><span class="metric-val" id="ovr0">—</span></div><div class="metric"><span class="metric-lbl">Class 1 score</span><span class="metric-val" id="ovr1">—</span></div><div class="metric"><span class="metric-lbl">Class 2 score</span><span class="metric-val" id="ovr2">—</span></div><div class="verdict"><span class="verdict-txt" id="ovrPred">화면을 클릭하세요</span></div></div>
+      <p class="hint">평면 위를 클릭하면 세 클래스의 선형 점수가 계산되고, 가장 높은 점수의 클래스가 선택됩니다.</p>
+    </div>
+    <div class="side-panel"><div class="panel-box"><h3>이 화면에서 볼 것</h3><ul><li>클래스마다 자기만의 계수와 절편이 있다고 생각하면 됩니다.</li><li>각 모델은 “이 점이 내 클래스인가?”에 대한 점수를 냅니다.</li><li>최종 선택은 세 점수 중 가장 큰 값을 고르는 방식입니다.</li></ul></div><div class="panel-box"><h3>왜 여러 경계가 보이는가</h3><p>클래스마다 하나의 선형 기준을 만들기 때문에, 다중 클래스 문제에서는 여러 개의 선형 경계가 함께 작동합니다. 겉으로는 영역이 여러 개로 나뉘지만, 안쪽에서는 각 클래스의 점수 경쟁이 벌어지는 셈입니다.</p></div></div>
+  </div>
+  <div class="callout good"><strong>핵심 정리:</strong> one-vs.-rest에서는 클래스마다 하나의 선형 모델이 있고, 새 데이터는 가장 높은 점수를 준 클래스에 배정됩니다.</div>
+</section>
+<div class="divider"></div>
+
+<section class="sec" id="s8">
+  <div class="sec-num">08 / 08</div>
+  <h2>선형 모델을 어떻게 기억해야 하는가?</h2>
+  <p class="lead">선형 모델 절을 하나로 묶으면 핵심은 세 가지입니다. 첫째, 예측은 특성들의 가중합으로 만들어집니다. 둘째, 회귀에서는 숫자값을 예측하고 분류에서는 결정 경계를 만듭니다. 셋째, 정규화는 계수를 통제해서 일반화를 돕습니다.</p>
+  <p>선형 모델은 이름 때문에 단순한 입문용 모델처럼 보일 수 있습니다. 하지만 실제로는 빠르고, 해석 가능성이 있고, 특성이 많은 데이터에서도 강한 기준 모델이 됩니다. 특히 텍스트처럼 특성 수가 많고 대부분의 값이 0인 희소 데이터에서는 선형 모델이 꽤 강력하게 작동하는 경우가 많습니다.</p>
+  <div class="three-col"><div class="card"><span class="tag tb">Regression</span><h3>값을 예측한다</h3><p>LinearRegression, Ridge, Lasso는 연속적인 숫자값을 예측합니다. 차이는 계수를 얼마나 제한하는가에 있습니다.</p></div><div class="card"><span class="tag tr">Classification</span><h3>공간을 나눈다</h3><p>LogisticRegression과 LinearSVC는 선형 결정 경계를 사용해 클래스를 나눕니다. 이름과 달리 LogisticRegression은 분류 모델입니다.</p></div><div class="card"><span class="tag tg">Regularization</span><h3>계수를 통제한다</h3><p>Ridge는 계수를 전체적으로 줄이고, Lasso는 일부 계수를 0으로 만들 수 있습니다. C는 alpha와 반대 방향으로 읽어야 합니다.</p></div></div>
+  <h3 style="margin-top:30px;">대표 코드 흐름</h3>
+  <pre><code><span class="cm"># 회귀: Ridge / Lasso / LinearRegression</span>
+from sklearn.linear_model import Ridge, Lasso, LinearRegression
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+model = Ridge(alpha=1.0).fit(X_train, y_train)
+print(model.score(X_test, y_test))
+
+<span class="cm"># 분류: LogisticRegression / LinearSVC</span>
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+clf = LogisticRegression(C=1.0).fit(X_train, y_train)
+print(clf.score(X_test, y_test))</code></pre>
+  <h3 style="margin-top:30px;">강점과 약점</h3>
+  <div class="summary-strip"><div class="summary-item"><strong>빠르다</strong><span>학습과 예측이 빠르며 큰 데이터셋에도 잘 맞습니다.</span></div><div class="summary-item"><strong>희소 데이터에 강하다</strong><span>특성이 많고 대부분 0인 데이터에서도 자주 좋은 기준 모델이 됩니다.</span></div><div class="summary-item"><strong>해석 가능하지만 조심</strong><span>계수로 특성의 영향력을 볼 수 있지만, 상관된 특성이 많으면 단순 해석은 위험합니다.</span></div><div class="summary-item"><strong>비선형 구조는 약함</strong><span>데이터의 실제 경계가 심하게 휘어 있으면 선형 경계만으로는 부족할 수 있습니다.</span></div></div>
+  <div class="callout warn"><strong>마지막 정리:</strong> 선형 모델은 단순해서 약한 모델이 아닙니다. 계수로 예측 구조를 명확히 만들고, 정규화로 일반화를 조절하는 강력한 기본 모델입니다.</div>
+  <div class="next-box"><div class="next-lbl">Next section</div><div class="next-title">Naive Bayes Classifiers</div><div class="next-sub">선형 모델 다음에는 더 빠르고 단순한 확률 기반 분류기로 넘어갑니다.</div></div>
+</section>
+
+<script>
+function goto(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function setupCanvas(c){const ratio=window.devicePixelRatio||1;const rect=c.getBoundingClientRect();const h=parseInt(c.dataset.lh||320);c.width=Math.max(300,Math.floor(rect.width*ratio));c.height=Math.floor(h*ratio);c.style.height=h+'px';const ctx=c.getContext('2d');ctx.setTransform(ratio,0,0,ratio,0,0);return {ctx,w:rect.width,h};}
+function clear(ctx,w,h){ctx.clearRect(0,0,w,h);ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);} 
+function axes(ctx,w,h,pad=42,xmin=-3,xmax=3,ymin=-3,ymax=3){ctx.strokeStyle='#d0d7de';ctx.lineWidth=1;ctx.beginPath();ctx.rect(pad,pad,w-2*pad,h-2*pad);ctx.stroke();ctx.strokeStyle='#eaeef2';ctx.lineWidth=1;for(let i=1;i<6;i++){let x=pad+i*(w-2*pad)/6;ctx.beginPath();ctx.moveTo(x,pad);ctx.lineTo(x,h-pad);ctx.stroke();let y=pad+i*(h-2*pad)/6;ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(w-pad,y);ctx.stroke();}function sx(x){return pad+(x-xmin)/(xmax-xmin)*(w-2*pad);}function sy(y){return h-pad-(y-ymin)/(ymax-ymin)*(h-2*pad);}ctx.strokeStyle='#8c959f';ctx.beginPath();ctx.moveTo(pad,sy(0));ctx.lineTo(w-pad,sy(0));ctx.moveTo(sx(0),pad);ctx.lineTo(sx(0),h-pad);ctx.stroke();return {sx,sy,xmin,xmax,ymin,ymax,pad};}
+function drawPoint(ctx,x,y,color,shape='circle',r=5){ctx.fillStyle=color;ctx.strokeStyle='#fff';ctx.lineWidth=1.5;if(shape==='tri'){ctx.beginPath();ctx.moveTo(x,y-r-2);ctx.lineTo(x-r-2,y+r);ctx.lineTo(x+r+2,y+r);ctx.closePath();ctx.fill();ctx.stroke();}else{ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.stroke();}}
+function pointerToData(evt,c,a,w,h){const rect=c.getBoundingClientRect();const px=evt.clientX-rect.left, py=evt.clientY-rect.top;const x=a.xmin+(px-a.pad)/(w-2*a.pad)*(a.xmax-a.xmin);const y=a.ymin+(h-a.pad-py)/(h-2*a.pad)*(a.ymax-a.ymin);return {x:Math.max(a.xmin,Math.min(a.xmax,x)),y:Math.max(a.ymin,Math.min(a.ymax,y)),px,py};}
+
+function drawLineIntro(){const c=document.getElementById('lineIntroC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const a=axes(ctx,w,h);const wv=Number(document.getElementById('lineW').value)/10;const b=Number(document.getElementById('lineB').value)/10;document.getElementById('lineWVal').textContent=wv.toFixed(1);document.getElementById('lineBVal').textContent=b.toFixed(1);ctx.strokeStyle='#0969da';ctx.lineWidth=3;ctx.beginPath();for(let i=0;i<=80;i++){const x=a.xmin+(a.xmax-a.xmin)*i/80;const y=wv*x+b;const px=a.sx(x),py=a.sy(y);if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}ctx.stroke();[-2,-1,0,1,2].forEach(x=>{const y=wv*x+b;ctx.strokeStyle='rgba(9,105,218,.25)';ctx.beginPath();ctx.moveTo(a.sx(x),a.sy(0));ctx.lineTo(a.sx(x),a.sy(y));ctx.stroke();drawPoint(ctx,a.sx(x),a.sy(y),'#0969da','circle',4);});ctx.fillStyle='#57606a';ctx.font='12px JetBrains Mono';ctx.fillText('ŷ = '+wv.toFixed(1)+' × x + '+b.toFixed(1),a.pad+10,a.pad+22);}
+
+let olsMode='add';const olsInit=[[-2.7,-1.2],[-2.2,-1.6],[-1.8,-1.1],[-1.2,-0.7],[-.6,-.45],[.1,.05],[.7,.25],[1.2,.72],[1.8,.92],[2.3,1.35],[2.7,1.1]];let olsPts=olsInit.map(p=>p.slice());function setOlsMode(m){olsMode=m;document.getElementById('olsAddBtn').classList.toggle('active',m==='add');document.getElementById('olsDelBtn').classList.toggle('active',m==='del');}
+function linfit(pts,lambda=0){let n=pts.length,sx=0,sy=0,sxx=0,sxy=0;pts.forEach(p=>{sx+=p[0];sy+=p[1];sxx+=p[0]*p[0];sxy+=p[0]*p[1];});const den=(sxx+lambda)*n-sx*sx;if(Math.abs(den)<1e-9)return {m:0,b:sy/n||0};const m=(sxy*n-sx*sy)/den;const b=(sy-m*sx)/n;return {m,b};}
+function resetOls(){olsPts=olsInit.map(p=>p.slice());drawOls();}
+function drawOls(){const c=document.getElementById('olsC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const a=axes(ctx,w,h);const fit=linfit(olsPts,0);let mse=0;olsPts.forEach(p=>{const yh=fit.m*p[0]+fit.b;mse+=(p[1]-yh)*(p[1]-yh);ctx.strokeStyle='rgba(87,96,106,.35)';ctx.beginPath();ctx.moveTo(a.sx(p[0]),a.sy(p[1]));ctx.lineTo(a.sx(p[0]),a.sy(yh));ctx.stroke();});mse/=olsPts.length;ctx.strokeStyle='#1a7f37';ctx.lineWidth=3;ctx.beginPath();for(let i=0;i<=80;i++){const x=a.xmin+(a.xmax-a.xmin)*i/80,y=fit.m*x+fit.b;const px=a.sx(x),py=a.sy(y);if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}ctx.stroke();olsPts.forEach(p=>drawPoint(ctx,a.sx(p[0]),a.sy(p[1]),'#0969da','circle',5));document.getElementById('olsW').textContent=fit.m.toFixed(2);document.getElementById('olsB').textContent=fit.b.toFixed(2);document.getElementById('olsMSE').textContent=mse.toFixed(2);}
+function olsClick(evt){const c=document.getElementById('olsC');const {w,h}=c.getBoundingClientRect();const a={xmin:-3,xmax:3,ymin:-3,ymax:3,pad:42};const d=pointerToData(evt,c,a,w,h);if(olsMode==='add'&&d.px>42&&d.px<w-42&&d.py>42&&d.py<h-42){olsPts.push([d.x,d.y]);}else if(olsMode==='del'&&olsPts.length>3){let best=0,bd=1e9;olsPts.forEach((p,i)=>{const dx=p[0]-d.x,dy=p[1]-d.y,dist=dx*dx+dy*dy;if(dist<bd){bd=dist;best=i;}});olsPts.splice(best,1);}drawOls();}
+
+const ridgePts=[[-2.8,-1.7],[-2.4,-1.1],[-2.0,-1.2],[-1.6,-.9],[-1.2,-.2],[-.6,-.45],[-.1,.35],[.4,.15],[.9,.9],[1.5,.7],[2.0,1.45],[2.5,1.7],[2.8,2.2]];function drawRidge(){const c=document.getElementById('ridgeC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const a=axes(ctx,w,h);const raw=Number(document.getElementById('ridgeAlpha').value);const alpha=Math.pow(10,raw/50-1);document.getElementById('ridgeAlphaVal').textContent=alpha.toFixed(2);const fit0=linfit(ridgePts,0);const fit=linfit(ridgePts,alpha*8);ridgePts.forEach(p=>drawPoint(ctx,a.sx(p[0]),a.sy(p[1]),'#0969da','circle',5));ctx.strokeStyle='rgba(140,149,159,.55)';ctx.setLineDash([5,4]);ctx.lineWidth=2;ctx.beginPath();for(let i=0;i<=80;i++){const x=a.xmin+(a.xmax-a.xmin)*i/80,y=fit0.m*x+fit0.b;const px=a.sx(x),py=a.sy(y);if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='#1a7f37';ctx.lineWidth=3;ctx.beginPath();for(let i=0;i<=80;i++){const x=a.xmin+(a.xmax-a.xmin)*i/80,y=fit.m*x+fit.b;const px=a.sx(x),py=a.sy(y);if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}ctx.stroke();ctx.fillStyle='#57606a';ctx.font='12px JetBrains Mono';ctx.fillText('gray dashed: alpha≈0 / green: Ridge',a.pad+10,a.pad+22);document.getElementById('ridgeSlope').textContent=fit.m.toFixed(2);document.getElementById('ridgeSize').textContent=Math.abs(fit.m).toFixed(2);let msg=alpha<.35?'규제가 약함: 선형 회귀에 가까움':alpha<3?'균형 영역: 계수 축소와 적합 사이':'규제가 강함: 계수를 많이 줄임';document.getElementById('ridgeMsg').textContent=msg;}
+
+const baseCoef=[1.35,-.95,.72,.46,-.34,.28,-.18,.12];function drawCoef(){const c=document.getElementById('coefC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const strength=Number(document.getElementById('coefAlpha').value)/100;document.getElementById('coefAlphaVal').textContent=strength.toFixed(2);const pad=44,mid=h/2;ctx.fillStyle='#57606a';ctx.font='12px JetBrains Mono';ctx.fillText('Ridge: 전체 계수를 부드럽게 축소',pad,28);ctx.fillText('Lasso: 작은 계수를 0으로 제거 가능',pad,mid+24);function barset(y0,type){const maxv=1.4,bw=(w-2*pad)/baseCoef.length*.62;let non=0;baseCoef.forEach((v,i)=>{let vv;if(type==='ridge'){vv=v/(1+strength*4);}else{const s=Math.max(0,Math.abs(v)-strength*.9);vv=Math.sign(v)*s;if(Math.abs(vv)>0.001)non++;}if(type==='ridge'&&Math.abs(vv)>0.001)non++;const cx=pad+(i+.5)*(w-2*pad)/baseCoef.length;const zero=y0+70;ctx.strokeStyle='#d0d7de';ctx.beginPath();ctx.moveTo(cx-bw/2,zero);ctx.lineTo(cx+bw/2,zero);ctx.stroke();const bh=vv/maxv*58;ctx.fillStyle=vv>=0?'#0969da':'#cf222e';ctx.fillRect(cx-bw/2,zero-bh,bw,bh);ctx.fillStyle='#6e7781';ctx.font='10px JetBrains Mono';ctx.textAlign='center';ctx.fillText('x'+(i+1),cx,zero+18);ctx.textAlign='left';});return non;}const rn=barset(34,'ridge');const ln=barset(mid+30,'lasso');document.getElementById('ridgeNonzero').textContent=rn;document.getElementById('lassoNonzero').textContent=ln;document.getElementById('coefMsg').textContent=ln<baseCoef.length?'Lasso가 일부 특성을 제외했습니다.':'아직 모든 특성이 남아 있습니다.';}
+
+let clsMode=0;const clsInit=[[-2.4,-1.7,0],[-2.1,-.9,0],[-1.4,-1.2,0],[-1.1,-.3,0],[-.5,-.7,0],[.4,.4,0],[1.2,.2,0],[1.8,.8,0],[-1.4,1.6,1],[-.7,1.1,1],[.1,1.7,1],[.7,1.2,1],[1.3,1.8,1],[2.0,1.4,1],[2.4,2.2,1]];let clsPts=clsInit.map(p=>p.slice());function setClsMode(m){clsMode=m;document.getElementById('cls0Btn').classList.toggle('active',m===0);document.getElementById('cls1Btn').classList.toggle('active',m===1);}function resetClsLin(){clsPts=clsInit.map(p=>p.slice());drawClsLin();}
+function clsScore(x,y){const ang=Number(document.getElementById('clsAngle').value)*Math.PI/180;const off=Number(document.getElementById('clsOffset').value)/20;return Math.cos(ang)*x+Math.sin(ang)*y+off;}
+function drawClsLin(){const c=document.getElementById('clsLinC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const a=axes(ctx,w,h);const ang=Number(document.getElementById('clsAngle').value);const off=Number(document.getElementById('clsOffset').value);document.getElementById('clsAngleVal').textContent=ang+'°';document.getElementById('clsOffsetVal').textContent=off;const step=14;for(let px=a.pad;px<w-a.pad;px+=step){for(let py=a.pad;py<h-a.pad;py+=step){const x=a.xmin+(px-a.pad)/(w-2*a.pad)*(a.xmax-a.xmin);const y=a.ymin+(h-a.pad-py)/(h-2*a.pad)*(a.ymax-a.ymin);ctx.fillStyle=clsScore(x,y)>0?'rgba(207,34,46,.08)':'rgba(9,105,218,.08)';ctx.fillRect(px,py,step,step);}}let acc=0;clsPts.forEach(p=>{const pred=clsScore(p[0],p[1])>0?1:0;if(pred===p[2])acc++;});ctx.strokeStyle='#1f2328';ctx.lineWidth=3;ctx.beginPath();let first=true;for(let i=0;i<=100;i++){const x=a.xmin+(a.xmax-a.xmin)*i/100;const theta=Number(document.getElementById('clsAngle').value)*Math.PI/180;const b=Number(document.getElementById('clsOffset').value)/20;let y=-(Math.cos(theta)*x+b)/(Math.sin(theta)||0.0001);if(y<a.ymin-1||y>a.ymax+1)continue;const px=a.sx(x),py=a.sy(y);if(first){ctx.moveTo(px,py);first=false;}else ctx.lineTo(px,py);}ctx.stroke();clsPts.forEach(p=>drawPoint(ctx,a.sx(p[0]),a.sy(p[1]),p[2]?'#cf222e':'#0969da',p[2]?'tri':'circle',5));document.getElementById('clsAcc').textContent=(acc/clsPts.length).toFixed(2);document.getElementById('clsMsg').textContent=acc===clsPts.length?'훈련점 모두 분류됨':'오분류 '+(clsPts.length-acc)+'개';}
+function clsClick(evt){const c=document.getElementById('clsLinC');const {w,h}=c.getBoundingClientRect();const a={xmin:-3,xmax:3,ymin:-3,ymax:3,pad:42};const d=pointerToData(evt,c,a,w,h);if(d.px>42&&d.px<w-42&&d.py>42&&d.py<h-42){clsPts.push([d.x,d.y,clsMode]);drawClsLin();}}
+
+function drawCdemo(){const c=document.getElementById('cDemoC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const a=axes(ctx,w,h);const s=Number(document.getElementById('cSlider').value)/100;const C=Math.pow(10,s*4-2);document.getElementById('cVal').textContent=C.toFixed(C<1?2:1);const pts=[[-2.5,-1.4,0],[-1.9,-.8,0],[-1.3,-1.0,0],[-.7,-.4,0],[.2,.2,0],[.8,-.1,0],[-.9,1.1,1],[-.2,1.6,1],[.5,1.1,1],[1.2,1.7,1],[1.9,1.4,1],[2.4,2.0,1],[1.3,.25,1]];const angle=(-28 + s*28)*Math.PI/180;const offset=(-.05 + s*.32);function score(x,y){return Math.cos(angle)*x+Math.sin(angle)*y+offset;}const step=14;for(let px=a.pad;px<w-a.pad;px+=step){for(let py=a.pad;py<h-a.pad;py+=step){const x=a.xmin+(px-a.pad)/(w-2*a.pad)*(a.xmax-a.xmin);const y=a.ymin+(h-a.pad-py)/(h-2*a.pad)*(a.ymax-a.ymin);ctx.fillStyle=score(x,y)>0?'rgba(207,34,46,.08)':'rgba(9,105,218,.08)';ctx.fillRect(px,py,step,step);}}ctx.strokeStyle='#1f2328';ctx.lineWidth=3;ctx.beginPath();let first=true;for(let i=0;i<=100;i++){const x=a.xmin+(a.xmax-a.xmin)*i/100;let y=-(Math.cos(angle)*x+offset)/(Math.sin(angle)||0.0001);if(y<a.ymin-1||y>a.ymax+1)continue;const px=a.sx(x),py=a.sy(y);if(first){ctx.moveTo(px,py);first=false;}else ctx.lineTo(px,py);}ctx.stroke();pts.forEach(p=>drawPoint(ctx,a.sx(p[0]),a.sy(p[1]),p[2]?'#cf222e':'#0969da',p[2]?'tri':'circle',5));document.getElementById('regStrength').textContent=(1-s).toFixed(2);document.getElementById('sensitivity').textContent=s.toFixed(2);document.getElementById('cMsg').textContent=s<.33?'작은 C: 단순한 경계 선호':s<.7?'중간 C: 균형 영역':'큰 C: 훈련점에 더 민감';}
+
+let ovrPoint=[.2,.2];function ovrScores(x,y){return [0.9*(-x)-0.25*y+.15,0.8*x-0.15*y+.05,0.75*y-.15];}
+function drawOvr(){const c=document.getElementById('ovrC');const {ctx,w,h}=setupCanvas(c);clear(ctx,w,h);const a=axes(ctx,w,h);const step=12;for(let px=a.pad;px<w-a.pad;px+=step){for(let py=a.pad;py<h-a.pad;py+=step){const x=a.xmin+(px-a.pad)/(w-2*a.pad)*(a.xmax-a.xmin);const y=a.ymin+(h-a.pad-py)/(h-2*a.pad)*(a.ymax-a.ymin);const sc=ovrScores(x,y);let k=sc.indexOf(Math.max(...sc));ctx.fillStyle=k===0?'rgba(9,105,218,.10)':k===1?'rgba(207,34,46,.09)':'rgba(26,127,55,.09)';ctx.fillRect(px,py,step,step);}}[[ -2.0,-.7,0],[-1.5,.3,0],[-2.3,1.0,0],[1.4,-.6,1],[2.2,.1,1],[1.7,1.0,1],[-.4,2.0,2],[.3,1.7,2],[.9,2.4,2]].forEach(p=>drawPoint(ctx,a.sx(p[0]),a.sy(p[1]),p[2]===0?'#0969da':p[2]===1?'#cf222e':'#1a7f37',p[2]===1?'tri':'circle',5));drawPoint(ctx,a.sx(ovrPoint[0]),a.sy(ovrPoint[1]),'#8250df','circle',7);const sc=ovrScores(ovrPoint[0],ovrPoint[1]);const pred=sc.indexOf(Math.max(...sc));document.getElementById('ovr0').textContent=sc[0].toFixed(2);document.getElementById('ovr1').textContent=sc[1].toFixed(2);document.getElementById('ovr2').textContent=sc[2].toFixed(2);document.getElementById('ovrPred').textContent='예측: Class '+pred;}
+function ovrClick(evt){const c=document.getElementById('ovrC');const {w,h}=c.getBoundingClientRect();const a={xmin:-3,xmax:3,ymin:-3,ymax:3,pad:42};const d=pointerToData(evt,c,a,w,h);if(d.px>42&&d.px<w-42&&d.py>42&&d.py<h-42){ovrPoint=[d.x,d.y];drawOvr();}}
+
+function init(){drawLineIntro();drawOls();drawRidge();drawCoef();drawClsLin();drawCdemo();drawOvr();document.getElementById('olsC').addEventListener('click',olsClick);document.getElementById('clsLinC').addEventListener('click',clsClick);document.getElementById('ovrC').addEventListener('click',ovrClick);}window.addEventListener('load',init);window.addEventListener('resize',()=>{drawLineIntro();drawOls();drawRidge();drawCoef();drawClsLin();drawCdemo();drawOvr();});
+</script>
+
+	<!-- ── HIGHLIGHT ── -->
+	<style>
+		mark.hl {
+			background: #ffe066;
+			color: inherit;
+			border-radius: 2px;
+			padding: 0 1px;
+			cursor: pointer;
+		}
+		#hl-toast {
+			position: fixed;
+			bottom: 28px;
+			right: 28px;
+			background: #1f2328;
+			color: #fff;
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 12px;
+			padding: 8px 14px;
+			border-radius: 8px;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity .25s;
+			z-index: 9999;
+		}
+		#hl-toast.show { opacity: 1; }
+	</style>
+
+	<div id="hl-toast">형광펜 적용됨 · 더블클릭으로 제거</div>
+
+	<script>
+		(function () {
+			const toast = document.getElementById('hl-toast');
+			let toastTimer = null;
+
+			function showToast() {
+				toast.classList.add('show');
+				clearTimeout(toastTimer);
+				toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+			}
+
+			document.addEventListener('keydown', function (e) {
+				if (e.key !== 'h' && e.key !== 'H') return;
+				const tag = document.activeElement.tagName;
+				if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+				const sel = window.getSelection();
+				if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+
+				const range = sel.getRangeAt(0);
+
+				const anc = range.commonAncestorContainer;
+				if (anc.nodeType === 1 && anc.closest && anc.closest('canvas')) return;
+				if (anc.nodeType === 3 && anc.parentElement && anc.parentElement.closest('canvas')) return;
+
+				const mark = document.createElement('mark');
+				mark.className = 'hl';
+
+				try {
+					range.surroundContents(mark);
+				} catch (err) {
+					const frag = range.extractContents();
+					mark.appendChild(frag);
+					range.insertNode(mark);
+				}
+
+				sel.removeAllRanges();
+				showToast();
+			});
+
+			document.addEventListener('dblclick', function (e) {
+				const el = e.target.closest && e.target.closest('mark.hl');
+				if (!el) return;
+				const parent = el.parentNode;
+				while (el.firstChild) parent.insertBefore(el.firstChild, el);
+				parent.removeChild(el);
+				parent.normalize();
+			});
+		})();
+	</script>
+
+</body>
+</html>

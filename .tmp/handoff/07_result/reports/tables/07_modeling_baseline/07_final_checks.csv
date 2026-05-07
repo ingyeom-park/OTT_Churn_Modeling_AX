@@ -1,0 +1,23 @@
+﻿check,value,pass
+project_root_is_repo_root,c:\Code\ott-churn-prediction,True
+data_root_is_repo_data,c:\Code\ott-churn-prediction\_data,True
+reports_dir_is_park_reports,c:\Code\ott-churn-prediction\park.ingyeom\reports,True
+input_05_data_dir_is_reports_data_05,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering,True
+input_rows_is_14922_or_smoke,14922,True
+membership_row_id_unique,True,True
+target_is_binary_0_1,"[0, 1]",True
+feature_sets_not_empty,"[{'feature_set': 'content_added', 'n_features': 97}, {'feature_set': 'core_reduced', 'n_features': 25}, {'feature_set': 'promotion_plan_focused', 'n_features': 21}, {'feature_set': 'tree_candidate', 'n_features': 56}, {'feature_set': 'without_churn_prevention', 'n_features': 55}]",True
+no_duplicate_features_in_each_set,[],True
+no_fourth_week_feature_detected,[],True
+manual_drop_features_not_used,[],True
+manual_keep_features_present,[],True
+train_test_no_membership_row_overlap,"[{'dataset': 'overall', 'train_test_id_overlap': 0}, {'dataset': 'promotion_only', 'train_test_id_overlap': 0}]",True
+models_trained_gt_zero,90,True
+metrics_file_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\07_modeling_baseline\07_model_metrics.csv,True
+prediction_scores_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\07_modeling_baseline\07_prediction_scores.csv,True
+decile_table_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\07_modeling_baseline\07_risk_decile_table.csv,True
+feature_importance_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\07_modeling_baseline\07_feature_importance.csv,True
+best_model_config_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\07_modeling_baseline\07_best_model_config.json,True
+figures_created_if_enabled,8,True
+data_outputs_exist,"['07_feature_sets.json', '07_model_metrics.csv', '07_risk_decile_table.csv', '07_prediction_scores.csv', '07_feature_importance.csv', '07_best_model_config.json']",True
+table_outputs_exist,"['07_environment_summary.csv', '07_font_config.csv', '07_input_file_summary.csv', '07_input_basic_summary.csv', '07_feature_sets_long.csv', '07_feature_set_summary.csv', '07_dataset_split_summary.csv', '07_model_availability.csv', '07_model_metrics_summary.csv', '07_model_comparison_for_report.csv', '07_best_model_by_dataset.csv', '07_decile_summary.csv', '07_failed_models.csv', '07_figure_summary.csv', '07_optuna_status.csv']",True

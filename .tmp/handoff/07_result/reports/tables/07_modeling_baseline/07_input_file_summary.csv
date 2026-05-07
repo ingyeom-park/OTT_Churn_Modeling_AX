@@ -1,0 +1,7 @@
+﻿name,path,rows,cols,required
+modeling_feature_table_with_content,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering\modeling_feature_table_with_content.csv,14922,230,True
+06_candidate_features_for_modeling,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_candidate_features_for_modeling.csv,39,33,True
+06_significance_all_results_with_decision,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_significance_all_results_with_decision.csv,1656,32,False
+06_feature_modeling_candidate_refined,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_feature_redundancy_audit\06_feature_modeling_candidate_refined.csv,39,12,True
+06_feature_modeling_candidate_redundancy_review,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_feature_redundancy_audit\06_feature_modeling_candidate_redundancy_review.csv,54,34,False
+06_feature_multicollinearity_summary,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_feature_redundancy_audit\06_feature_multicollinearity_summary.csv,12,6,False

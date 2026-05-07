@@ -1,0 +1,13 @@
+﻿package,status,version
+python,OK,"3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]"
+pandas,OK,2.3.3
+numpy,OK,1.26.4
+sklearn,OK,1.7.2
+matplotlib,OK,3.8.4
+joblib,OK,1.5.3
+scipy,OK,1.15.3
+lightgbm,OK,4.6.0
+catboost,OK,1.2.10
+xgboost,OK,3.2.0
+shap,OK,0.49.1
+optuna,OK,4.8.0
