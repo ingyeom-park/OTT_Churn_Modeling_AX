@@ -1,0 +1,13 @@
+﻿focus_feature,max_vif,max_vif_severity,related_feature_count,related_features,relation_types
+price,31.968265825804952,HIGH,0,,NO_DIRECT_PAIR_FOUND
+age_band,30.178025560201654,HIGH,0,,NO_DIRECT_PAIR_FOUND
+age,20.316658747066146,HIGH,0,,NO_DIRECT_PAIR_FOUND
+payment_device,11.844353994983836,HIGH,0,,NO_DIRECT_PAIR_FOUND
+total_sessions,10.812597658447396,HIGH,3,"unique_contents, unique_days, total_watch_time",HIGH_CORR_PAIR
+promo_x_4screen,7.8839663389914945,WARN,1,screen_4_flag,HIGH_CORR_PAIR
+unique_contents,7.713262937535945,WARN,2,"total_sessions, unique_days",HIGH_CORR_PAIR
+tag_dur_코미디,6.327225901987381,WARN,1,alloc_dur_코미디,HIGH_CORR_PAIR
+is_100won,5.954611543257197,WARN,2,is_promotion,"EXACT_DUPLICATE, HIGH_CORR_PAIR"
+is_promotion,5.954611543257195,WARN,2,is_100won,"EXACT_DUPLICATE, HIGH_CORR_PAIR"
+alloc_dur_코미디,5.951876270673994,WARN,1,tag_dur_코미디,HIGH_CORR_PAIR
+unique_days,5.874191375625605,WARN,3,"total_sessions, unique_contents, total_watch_time",HIGH_CORR_PAIR

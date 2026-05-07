@@ -1,0 +1,14 @@
+{
+  "notebook_id": "06_feature_redundancy_audit",
+  "input_rows": 14922,
+  "input_columns": 230,
+  "candidate_features_from_06": 39,
+  "audit_feature_count": 54,
+  "high_corr_pairs": 46,
+  "structural_duplicate_or_complement_pairs": 17,
+  "redundancy_cluster_count": 11,
+  "vif_rows": 63,
+  "vif_high_rows": 9,
+  "vif_warn_or_high_rows": 16,
+  "multicollinearity_related_rows": 19
+}

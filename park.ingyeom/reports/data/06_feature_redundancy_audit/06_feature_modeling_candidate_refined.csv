@@ -1,0 +1,40 @@
+﻿feature,decision,feature_family,feature_type,proposed_action,high_corr_pair_count,structural_relation_count,max_abs_corr,max_vif,max_vif_severity,cluster_representative,audit_note
+is_100won,INSUFFICIENT_DATA,membership,binary,DROP_CANDIDATE,1,1,1.0,5.954611543257197,WARN,is_100won,구조적 duplicate/complement 관계 존재; VIF WARN
+is_promotion,INSUFFICIENT_DATA,membership,binary,DROP_CANDIDATE,1,1,1.0,5.954611543257195,WARN,is_100won,구조적 duplicate/complement 관계 존재; VIF WARN; cluster 대표 변수는 is_100won
+has_prior_churn_prevention_benefit,KEEP_CORE,membership,binary,DROP_CANDIDATE,1,1,1.0,1.0,OK,has_prior_churn_prevention_benefit,구조적 duplicate/complement 관계 존재
+is_churn_prevented,KEEP_CORE,membership,binary,DROP_CANDIDATE,1,1,1.0,1.0,OK,has_prior_churn_prevention_benefit,구조적 duplicate/complement 관계 존재; cluster 대표 변수는 has_prior_churn_prevention_benefit
+daily_watch_slope,NEEDS_REVIEW_WEAK_EFFECT,weekly_recency_binge,numeric,KEEP,1,0,1.0,1.0,OK,daily_watch_slope,특이 중복 신호 없음
+alloc_dur_코미디,MODEL_ONLY,content,numeric,KEEP,1,0,0.9912573121528229,5.951876270673994,WARN,alloc_dur_코미디,VIF WARN
+max_screen,INSUFFICIENT_DATA,membership,numeric,KEEP,1,0,0.971779334901306,1.4220271366631752,OK,max_screen,특이 중복 신호 없음
+promo_x_4screen,INSUFFICIENT_DATA,membership,binary,KEEP,1,0,0.8682256364272328,7.8839663389914945,WARN,promo_x_4screen,VIF WARN
+days_since_last_watch_to_obs_end,KEEP_CORE,usage,numeric,KEEP,0,0,,4.929834757462595,OK,,특이 중복 신호 없음
+only_week1_flag,MODEL_ONLY,weekly_recency_binge,binary,KEEP,0,0,,3.5526991015314335,OK,,특이 중복 신호 없음
+promo_x_2screen,INSUFFICIENT_DATA,membership,binary,KEEP,0,0,,2.9893198561622136,OK,,특이 중복 신호 없음
+family_2screen_lifestyle,INSUFFICIENT_DATA,interaction_segment,binary,KEEP,0,0,,2.090366050300281,OK,,특이 중복 신호 없음
+promo2_family_lifestyle_candidate,INSUFFICIENT_DATA,interaction_segment,binary,KEEP,0,0,,2.088158571543044,OK,,특이 중복 신호 없음
+stable_2screen_active,INSUFFICIENT_DATA,interaction_segment,binary,KEEP,0,0,,1.934905732366959,OK,,특이 중복 신호 없음
+screen_2_flag,INSUFFICIENT_DATA,membership,binary,KEEP,0,0,,1.7120461368377369,OK,,특이 중복 신호 없음
+premium_action_trial_risk,INSUFFICIENT_DATA,interaction_segment,binary,KEEP,0,0,,1.6984129216468287,OK,,특이 중복 신호 없음
+discount_sensitive_risk,INSUFFICIENT_DATA,interaction_segment,binary,KEEP,0,0,,1.6022315965161185,OK,,특이 중복 신호 없음
+is_user_verified,INSUFFICIENT_DATA,membership,binary,KEEP,0,0,,1.5493017819857964,OK,,특이 중복 신호 없음
+country_entropy_norm,MODEL_ONLY,content,numeric,KEEP,0,0,,1.5306839800003649,OK,,특이 중복 신호 없음
+alloc_ratio_액션,MODEL_ONLY,content,numeric,KEEP,0,0,,1.209703807683391,OK,,특이 중복 신호 없음
+promo_x_1screen,INSUFFICIENT_DATA,membership,binary,KEEP,0,0,,1.1800350896655487,OK,,특이 중복 신호 없음
+rating_ratio_12세,MODEL_ONLY,content,numeric,KEEP,0,0,,1.146833774837744,OK,,특이 중복 신호 없음
+gender,KEEP_CORE,membership,categorical,KEEP,0,0,,1.108495068420429,OK,,특이 중복 신호 없음
+billing_method,KEEP_CORE,membership,numeric,KEEP,0,0,,1.0694779786667183,OK,,특이 중복 신호 없음
+rating_dur_국민학생관람불가,KEEP_CORE,content,numeric,KEEP,0,0,,1.0132901321307504,OK,,특이 중복 신호 없음
+total_sessions,REJECT,usage,numeric,REVIEW,3,0,0.9471520387010586,10.812597658447396,HIGH,total_sessions,고상관 연결이 많음; VIF HIGH
+unique_days,REJECT,usage,numeric,REVIEW,3,0,0.9258726130107923,5.874191375625605,WARN,total_sessions,고상관 연결이 많음; VIF WARN; cluster 대표 변수는 total_sessions
+week1_ratio,NEEDS_REVIEW_WEAK_EFFECT,weekly_recency_binge,numeric,REVIEW,2,0,1.0,1.0,OK,front_loaded_ratio,고상관 연결이 많음; cluster 대표 변수는 front_loaded_ratio
+week3_ratio,REJECT,weekly_recency_binge,numeric,REVIEW,2,0,1.0,1.0,OK,late_ratio,고상관 연결이 많음; cluster 대표 변수는 late_ratio
+unique_contents,REJECT,usage,numeric,REVIEW,2,0,0.9471520387010586,7.713262937535945,WARN,total_sessions,고상관 연결이 많음; VIF WARN; cluster 대표 변수는 total_sessions
+total_watch_time,REJECT,usage,numeric,REVIEW,2,0,0.8703086479643499,1.0,OK,total_sessions,고상관 연결이 많음; cluster 대표 변수는 total_sessions
+w3_minus_w1_watch_time,NEEDS_REVIEW_WEAK_EFFECT,weekly_recency_binge,numeric,REVIEW,1,0,1.0,1.0,OK,daily_watch_slope,cluster 대표 변수는 daily_watch_slope
+tag_dur_코미디,MODEL_ONLY,content,numeric,REVIEW,1,0,0.9912573121528229,6.327225901987381,WARN,alloc_dur_코미디,VIF WARN; cluster 대표 변수는 alloc_dur_코미디
+screen_1_flag,INSUFFICIENT_DATA,membership,binary,REVIEW,1,0,0.971779334901306,1.2624668582716667,OK,max_screen,cluster 대표 변수는 max_screen
+screen_4_flag,INSUFFICIENT_DATA,membership,binary,REVIEW,1,0,0.8682256364272328,1.664738603178472,OK,promo_x_4screen,cluster 대표 변수는 promo_x_4screen
+price,INSUFFICIENT_DATA,membership,numeric,REVIEW,0,0,,31.968265825804952,HIGH,,VIF HIGH
+age_band,KEEP_CORE,membership,categorical,REVIEW,0,0,,30.178025560201654,HIGH,,VIF HIGH
+age,KEEP_CORE,membership,numeric,REVIEW,0,0,,20.316658747066146,HIGH,,VIF HIGH
+payment_device,KEEP_CORE,membership,categorical,REVIEW,0,0,,11.844353994983836,HIGH,,VIF HIGH

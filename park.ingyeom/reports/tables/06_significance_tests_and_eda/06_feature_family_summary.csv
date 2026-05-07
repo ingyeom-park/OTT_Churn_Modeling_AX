@@ -1,0 +1,6 @@
+﻿feature_family,n_features,features_preview
+membership,20,"is_100won, is_promotion, price, billing_method, max_screen, screen_1_flag, screen_2_flag, screen_4_flag, promo_x_1screen, promo_x_2screen, promo_x_4screen, age, age_band, gender, is_user_verified"
+usage,18,"total_watch_time, total_sessions, unique_contents, unique_days, first_watch_rel_day, last_watch_rel_day, avg_session_time, median_session_time, max_session_time, active_span_days, days_since_first_watch_from_reg, days_since_last_watch_to_obs_end, watch_days_ratio, sessions_per_active_day, max_daily_watch_time"
+weekly_recency_binge,29,"week1_watch_time, week2_watch_time, week3_watch_time, week1_sessions, week2_sessions, week3_sessions, week1_unique_contents, week2_unique_contents, week3_unique_contents, week1_active_days, week2_active_days, week3_active_days, week1_ratio, week2_ratio, week3_ratio"
+content,112,"metadata_covered_watch_time, usable_metadata_watch_time, metadata_covered_watch_ratio, usable_metadata_watch_ratio, metadata_missing_watch_time, metadata_missing_watch_ratio, tag_dur_SF_판타지, tag_dur_가족, tag_dur_공포, tag_dur_기타, tag_dur_다큐_교양, tag_dur_드라마, tag_dur_로맨스, tag_dur_모험_어드벤처, tag_dur_스릴러_범죄"
+interaction_segment,5,"stable_2screen_active, discount_sensitive_risk, family_2screen_lifestyle, promo2_family_lifestyle_candidate, premium_action_trial_risk"

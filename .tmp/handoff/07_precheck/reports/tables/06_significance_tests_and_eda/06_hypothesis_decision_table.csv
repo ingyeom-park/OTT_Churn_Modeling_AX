@@ -1,0 +1,40 @@
+﻿hypothesis,analysis_group,feature,feature_family,feature_type,n_total,rate_or_mean_diff,effect_size,p_value,p_value_fdr_by_group,decision,interpretation_note,test_type,n_feature_0,n_feature_1,target_rate_feature_0,target_rate_feature_1,abs_diff,odds_ratio,secondary_p_value,test_used,decision_pre_fdr,n_target_0,n_target_1,mean_target_0,mean_target_1,median_target_0,median_target_1,n_levels,top_level,bottom_level,p_value_fdr_global,p_value_fdr_by_group_family,group_priority
+H1_100won_vs_non100won,100won,is_100won,membership,binary,8983.0,,,,,INSUFFICIENT_DATA,무작위 배정이 아니므로 인과효과로 단정하지 않는다. 100원딜 고객군의 재구독 행동 차이로 해석한다.,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,1.0
+H1_100won_vs_non100won,100won,is_promotion,membership,binary,8983.0,,,,,INSUFFICIENT_DATA,무작위 배정이 아니므로 인과효과로 단정하지 않는다. 100원딜 고객군의 재구독 행동 차이로 해석한다.,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,1.0
+H2_plan_screen_structure,100won_screen2,max_screen,membership,numeric,1528.0,,,,,INSUFFICIENT_DATA,,welch_t_and_mannwhitney,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H2_plan_screen_structure,100won_screen2,screen_1_flag,membership,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H2_plan_screen_structure,100won_screen2,screen_2_flag,membership,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H2_plan_screen_structure,100won_screen2,screen_4_flag,membership,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H3_promo_screen_interaction,100won_screen2,promo_x_1screen,membership,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H3_promo_screen_interaction,100won_screen2,promo_x_2screen,membership,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H3_promo_screen_interaction,100won_screen2,promo_x_4screen,membership,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H4_prior_churn_prevention_history,all,is_churn_prevented,membership,binary,14922.0,0.06952554962712232,0.05907053778326374,5.361810659943157e-13,6.577154409530273e-12,KEEP_CORE,과거 해지방어 혜택 수혜 이력으로 해석한다. 이번 구독 이벤트 이후 발생한 개입이 섞이면 누수 위험이 있다.,chi_square_or_fisher_2x2,11956.0,2966.0,0.6614252258280361,0.7309507754551584,0.06952554962712232,1.3902231965962923,,chi_square,TESTED,,,,,,,,,,1.2178969927585171e-11,8.248939476835626e-13,0.0
+H4_prior_churn_prevention_history,all,has_prior_churn_prevention_benefit,membership,binary,14922.0,0.06952554962712232,0.05907053778326374,5.361810659943157e-13,6.577154409530273e-12,KEEP_CORE,,chi_square_or_fisher_2x2,11956.0,2966.0,0.6614252258280361,0.7309507754551584,0.06952554962712232,1.3902231965962923,,chi_square,TESTED,,,,,,,,,,1.2178969927585171e-11,8.248939476835626e-13,0.0
+H5_early_routine_vs_late_trial,no_watch_obs,week1_ratio,weekly_recency_binge,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H5_early_routine_vs_late_trial,no_watch_obs,week3_ratio,weekly_recency_binge,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H5_early_routine_vs_late_trial,no_watch_obs,w3_minus_w1_watch_time,weekly_recency_binge,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H5_early_routine_vs_late_trial,no_watch_obs,daily_watch_slope,weekly_recency_binge,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H6_total_usage_volume,no_watch_obs,total_watch_time,usage,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H6_total_usage_volume,no_watch_obs,total_sessions,usage,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H6_total_usage_volume,no_watch_obs,unique_contents,usage,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H6_total_usage_volume,no_watch_obs,unique_days,usage,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H7_family_lifestyle,no_watch_obs,family_content_affinity,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H7_family_lifestyle,100won_screen4,family_2screen_lifestyle,interaction_segment,binary,2042.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,3.0
+H7_family_lifestyle,100won_screen4,promo2_family_lifestyle_candidate,interaction_segment,binary,2042.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,3.0
+H7_family_lifestyle,not_found,tag_ratio_애니메이션/키즈,,,,,,,,MISSING,,,,,,,,,,,,,,,,,,,,,,,
+H7_family_lifestyle,no_watch_obs,tag_ratio_가족,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H7_family_lifestyle,no_watch_obs,rating_ratio_전체,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H8_premium_action_trial,not_found,premium_action_content_affinity,,,,,,,,MISSING,,,,,,,,,,,,,,,,,,,,,,,
+H8_premium_action_trial,100won_screen2,premium_action_trial_risk,interaction_segment,binary,1528.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,2.0
+H8_premium_action_trial,not_found,promo4_action_trial_candidate,,,,,,,,MISSING,,,,,,,,,,,,,,,,,,,,,,,
+H8_premium_action_trial,no_watch_obs,tag_ratio_액션,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H8_premium_action_trial,not_found,tag_ratio_SF/판타지,,,,,,,,MISSING,,,,,,,,,,,,,,,,,,,,,,,
+H8_premium_action_trial,no_watch_obs,is_long_movie_ratio,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H9_content_diversity,no_watch_obs,genre_tag_entropy_norm,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H9_content_diversity,no_watch_obs,country_entropy_norm,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H9_content_diversity,no_watch_obs,genre_tag_count,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H9_content_diversity,not_found,country_count,,,,,,,,MISSING,,,,,,,,,,,,,,,,,,,,,,,
+H10_content_recency_runtime,no_watch_obs,is_recent_content_ratio,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H10_content_recency_runtime,no_watch_obs,is_old_content_ratio,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H10_content_recency_runtime,no_watch_obs,avg_runtime_weighted,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
+H10_content_recency_runtime,no_watch_obs,avg_release_year_weighted,content,binary,2620.0,,,,,INSUFFICIENT_DATA,,chi_square_or_fisher_2x2,,,,,,,,,INSUFFICIENT_DATA,,,,,,,,,,,,999.0
