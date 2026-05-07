@@ -50,7 +50,6 @@
 |------|------|-----------|
 | `is_family_plan` | 공유 계정 여부 | max_screen > 1이면 1 |
 | `device_group` | 기기 그룹 | mobile(ios/android/mobile) / pc / tv(smarttv/ott) |
-| `is_basic` | 1화면 요금제 여부 | max_screen == 1 |
 | `is_standard` | 2화면 요금제 여부 | max_screen == 2 |
 | `is_premium` | 4화면 요금제 여부 | max_screen == 4 |
 
@@ -89,7 +88,6 @@ View History + Movie 데이터를 유저 단위로 집계한 피처
 
 | 변수 | 설명 | 계산 방법 |
 |------|------|-----------|
-| `total_watch_time` | 총 시청 시간 (분) | SUM(watch_time) |
 | `total_sessions` | 총 시청 횟수 | COUNT |
 | `unique_movies` | 고유 영화 수 | NUNIQUE(MOVIE_NUM) |
 | `active_days` | 시청한 일수 | NUNIQUE(watch_date) |
@@ -139,3 +137,60 @@ View History + Movie 데이터를 유저 단위로 집계한 피처
 | `is_apple_ecosystem` | iOS + billing_method=151 동시 충족 유저 수 적음 |
 | `is_long_sub` | duration_days와 중복 |
 | `hour_x_weekend` | reg_hour와 중복, 실제 효과 미미 |
+| `is_promotion` | promotion_0 그룹은 전원 0 → 상수, 분산 없음 |
+| `plan_promotion` | is_promotion=0으로 고정이라 항상 0 → 상수 |
+| `max_screen` | is_standard/is_premium으로 대체 (완전 중복, VIF=inf) |
+| `is_basic` | 더미 함정 기준 범주 — is_standard=0, is_premium=0이면 자동으로 basic (VIF=inf) |
+| `is_family_plan` | = 1 - is_basic = is_standard + is_premium, 완전 중복 (VIF=inf) |
+| `total_watch_time` | ≈ dur_w1 + dur_w2 + dur_w3 합산값, 거의 동일한 정보 (VIF=300) |
+
+---
+
+## 분석 진행 기록
+
+### 전처리 파이프라인
+| 파일 | 컬럼 수 | 설명 |
+|------|---------|------|
+| `promotion_0_membership_v2.csv` | 15개 | 원본 |
+| `promotion_0_membership_v3.csv` | 59개 | 파생변수 추가 후 |
+| `promotion_0_membership_v4.csv` | 49개 | SHAP 하위 20% 제거 후 최종 |
+
+### 제거 단계별 요약
+1. **기획 단계 제거** (13개) — 중복/상수/무의미 변수
+2. **VIF 검토 제거** (3개) — is_basic, is_family_plan, total_watch_time
+3. **SHAP 하위 20% 제거** (10개) — binge_day_count, is_user_verified, is_young_unverified, is_premium, retention_w2, retention_w3, has_watch_history, is_senior_unverified, is_usd, korean_ratio
+
+### 최종 모델 성능 (v4, 39개 피처)
+| 지표 | 값 |
+|------|-----|
+| AUC-ROC | 0.6638 |
+| F1 (재구매 기준) | 0.7708 |
+| F1 (이탈 기준) | 0.4270 |
+| 최적 임계값 | 0.6 |
+
+### SHAP 상위 5개 이탈 요인 (v4)
+1. `duration_days` — 구독 기간 (압도적 1위, 0.31)
+2. `price` — 결제 금액 (0.20)
+3. `billing_method` — 결제 방식
+4. `recency` — 마지막 시청 ~ 종료일
+5. `avg_showtime` — 평균 영화 러닝타임
+
+### 세그먼트 분석 결과
+| 세그먼트 | 이탈률 | 정의 |
+|---------|--------|------|
+| 단기+달러 | **100.0%** | 구독 31일 미만 + 달러 결제 |
+| 단기구독 | **99.5%** | 구독 31일 미만 |
+| 장기+활성 | 40.9% | 구독 31일 이상 + 최근 5일 내 시청 |
+| 일반 | 27.0% | 그 외 |
+
+### LIME 분석 결과
+| 구분 | 이탈/재구매 확률 | 주요 기여 변수 |
+|------|----------------|----------------|
+| 이탈 예측 고객 | 이탈 99.7% | duration_days(↑이탈), recency(↑이탈), price 고가(↓이탈) |
+| 재구매 예측 고객 | 재구매 95.0% | price 중가(↑재구매), recency 높음(↑재구매), completion_rate(↑재구매) |
+
+**핵심 인사이트**
+- `duration_days <= 31` — 단기 구독이 이탈의 가장 강력한 신호
+- `recency` — 마지막 시청 시점이 종료일에 가까울수록 이탈 위험
+- `completion_rate > 0.55` — 영화를 끝까지 보는 유저는 재구매 경향
+- 고가 요금제(7900~10900원) 유저는 상대적으로 충성도 높음
