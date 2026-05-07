@@ -1,8 +1,8 @@
 # Membership v3 파생변수 설명서
 
 - **원본 파일**: `promotion_0_membership_v2.csv` (15개 컬럼)
-- **생성 파일**: `promotion_0_membership_v3.csv` (48개 컬럼)
-- **추가 파생변수**: 33개
+- **생성 파일**: `promotion_0_membership_v3.csv` (68개 컬럼)
+- **추가 파생변수**: 53개
 
 ---
 
@@ -28,36 +28,34 @@
 
 ---
 
-## 파생변수 (33개)
+## 파생변수 (53개)
 
-### 📅 날짜/시간 (5개)
+### 📅 날짜/시간 (2개)
 
 | 변수 | 설명 | 계산 방법 |
 |------|------|-----------|
 | `duration_days` | 구독 기간 (일) | end_date - reg_date |
-| `reg_weekday` | 가입 요일 | 0=월요일 ~ 6=일요일 |
-| `is_weekend_reg` | 주말 가입 여부 | reg_weekday가 5 또는 6이면 1 |
-| `is_month_start_reg` | 월초(1~10일) 가입 여부 | 급여일 이후 충동 구매 가설 |
 | `reg_hour_group` | 가입 시간대 | 0=새벽(0~5시), 1=오전(6~11시), 2=오후(12~17시), 3=저녁(18~23시) |
 
-### 💰 가격 (4개)
+### 💰 가격 (3개)
 
 | 변수 | 설명 | 계산 방법 |
 |------|------|-----------|
 | `is_usd` | 달러 결제 여부 | price < 100이면 1 (9.99달러, 13.49달러 등) |
 | `price_per_day` | 하루당 비용 | price / duration_days |
 | `price_per_screen` | 화면당 비용 | price / max_screen (실질 1인 체감 비용) |
-| `price_tier` | 가격 티어 | 달러 / 저가(~5000) / 중가(~9000) / 고가(~12000) / 프리미엄(12000+) |
 
-### 📦 상품/기기/결제 (5개)
+### 📦 상품/기기 (4개) + 요금제 Tier (3개)
 
 | 변수 | 설명 | 계산 방법 |
 |------|------|-----------|
 | `is_new_product` | 신규 상품 여부 | product_code가 pk_2xxx이면 1 (pk_1xxx는 구상품) |
 | `is_family_plan` | 공유 계정 여부 | max_screen > 1이면 1 |
 | `device_group` | 기기 그룹 | mobile(ios/android/mobile) / pc / tv(smarttv/ott) |
-| `billing_group` | 결제 방식 그룹 | apple / google / onestore / card / mobile_pay / paypal / other |
-| `is_apple_ecosystem` | 애플 생태계 유저 여부 | iOS 기기 + Apple Pay 동시 사용 (해지가 쉬운 환경) |
+| `is_apple_ecosystem` | 애플 생태계 유저 여부 | iOS 기기 + Apple Pay(billing_method=151) 동시 사용 |
+| `is_basic` | 1화면 요금제 여부 | max_screen == 1 |
+| `is_standard` | 2화면 요금제 여부 | max_screen == 2 |
+| `is_premium` | 4화면 요금제 여부 | max_screen == 4 |
 
 ### 👤 인구통계 (8개)
 
@@ -70,7 +68,7 @@
 | `is_senior_unverified` | 50대+ 미인증 여부 | 이탈 위험군 가설 |
 | `is_young_unverified` | 25세 이하 미인증 여부 | 체험 후 이탈 가설 |
 | `is_long_sub` | 장기 구독 여부 | duration_days >= 31이면 1 |
-| `hour_x_weekend` | 가입 시간 × 주말 여부 | 새벽 주말 충동 구매 패턴 |
+| `hour_x_weekend` | 가입 시간 × 주말 여부 | 새벽 시간대 충동 구매 패턴 |
 
 ### 🎬 장르/콘텐츠 (11개)
 
@@ -91,3 +89,55 @@ View History + Movie 데이터를 유저 단위로 집계한 피처
 | `genre_SF_ratio` | SF 장르 시청 비율 (0~1) |
 
 > 시청 이력이 없는 유저의 장르 관련 피처는 모두 0으로 처리
+
+### 📺 View History 기반 (16개) — park.ingyeom, kim.nahyun 참고
+
+| 변수 | 설명 | 계산 방법 |
+|------|------|-----------|
+| `total_watch_time` | 총 시청 시간 (분) | SUM(watch_time) |
+| `total_sessions` | 총 시청 횟수 | COUNT |
+| `unique_movies` | 고유 영화 수 | NUNIQUE(MOVIE_NUM) |
+| `active_days` | 시청한 일수 | NUNIQUE(watch_date) |
+| `avg_session_time` | 평균 시청 시간 (분) | MEAN(watch_time) |
+| `activity_rate` | 활동률 | active_days / duration_days |
+| `first_watch_day` | 첫 시청까지 걸린 일수 | MIN(days_since_reg) |
+| `recency_days` | 마지막 시청 시점 | MAX(days_since_reg) |
+| `weekend_watch_ratio` | 주말 시청 비율 | 주말 시청 세션 / 전체 세션 |
+| `max_gap_between_watch_days` | 최대 연속 미시청 기간 (일) | MAX(시청일 간격) |
+| `dur_w1` | 1주차(0~6일) 시청 시간 | SUM(watch_time) in week 1 |
+| `dur_w2` | 2주차(7~13일) 시청 시간 | SUM(watch_time) in week 2 |
+| `dur_w3` | 3주차(14~20일) 시청 시간 | SUM(watch_time) in week 3 |
+| `retention_w2` | 2주차 시청 여부 | dur_w2 > 0이면 1 |
+| `retention_w3` | 3주차 시청 여부 | dur_w3 > 0이면 1 |
+| `binge_day_count` | 폭식 시청일 수 | 하루 3회 이상 시청한 날 수 |
+| `watch_per_day` | 하루 평균 시청 횟수 | total_sessions / active_days |
+| `avg_rewatch_ratio` | 재시청 비율 | (total_sessions - unique_movies) / total_sessions |
+| `signup_to_first_watch` | 첫 시청까지 걸린 일수 | MIN(days_since_reg) |
+| `recency` | 마지막 시청 ~ 구독 종료까지 남은 일수 | (end_date - last_watch_date).days |
+| `completion_rate` | 완주율 | MEAN(watch_time / showtime_min), 0~1 클리핑 |
+| `weekday_watch_ratio` | 평일 시청 비율 | 1 - weekend_watch_ratio |
+| `retention_w2_ratio` | 1주차 대비 2주차 시청 시간 비율 | dur_w2 / dur_w1 |
+| `retention_w3_ratio` | 2주차 대비 3주차 시청 시간 비율 | dur_w3 / dur_w2 |
+| `is_new_movie` | 신작 의존도 | 21년 3월 신작 시청 비율 |
+| `has_watch_history` | 시청 이력 여부 | 1이면 시청 기록 있음, 0이면 없음 |
+
+### 🔗 교호작용 변수 (2개)
+
+| 변수 | 설명 | 계산 방법 |
+|------|------|-----------|
+| `stream_watch_interaction` | 요금제 × 총 시청량 | max_screen × total_watch_time |
+| `plan_promotion` | 요금제 × 프로모션 여부 | max_screen × is_promotion |
+
+> 시청 이력이 없는 유저의 View History 피처는 모두 0으로 처리
+
+---
+
+## ❌ 검토 후 제외된 파생변수
+
+| 변수 | 제외 이유 |
+|------|-----------|
+| `reg_weekday` | 데이터가 2021년 3월 한 달에 집중되어 요일 효과 미미 |
+| `is_weekend_reg` | 동일 이유 |
+| `is_month_start_reg` | 급여일 효과 가설 약함 + 데이터 특성상 무의미 |
+| `billing_group` | `is_usd`와 onestore 완전 중복, 나머지 채널도 불확실 |
+| `price_tier` | `price`, `is_usd`, `price_per_day`로 이미 충분히 표현됨 |
