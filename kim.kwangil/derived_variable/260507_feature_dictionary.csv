@@ -1,0 +1,19 @@
+feature_name,category,formula,description,high_value_meaning,recommended_usage,age_focus
+vh_event_count,activity,"N_u",사용자 전체 시청 row 수,시청 행동 기록이 많음,기본 활동량 변수,common
+vh_title_count,activity,"M_u",사용자 유니크 콘텐츠 수,본 작품 수가 많음,기본 다양성 변수,common
+vh_event_per_tenure_day,activity,"N_u / T_u",가입 유지 일수 대비 시청 row 빈도,일평균 시청 빈도가 높음,활동 강도 핵심 변수,"30s, common"
+vh_watch_min_per_tenure_day,activity,"sum(w_{u,i}) / T_u",가입 유지 일수 대비 평균 시청시간,기간 대비 소비량이 큼,활동 강도 핵심 변수,"30s, common"
+vh_last_watch_gap,recency,"end_date_u - L_u",마지막 시청일과 만기일 사이 공백 일수,만기와 멀리 떨어져 있음,만기 근접 패턴 변수,"20s, 30s, 50s"
+vh_last_watch_gap_ratio,recency,"vh_last_watch_gap / T_u",만기 전 공백의 정규화 비율,만기 직전 시청이 적음,만기 근접 패턴 변수,"20s, 30s"
+vh_last_7d_watch_ratio,recency,"sum(w_{u,i} * 1[end_date_u-d_{u,i}<=7]) / sum(w_{u,i})",전체 시청시간 중 마지막 7일 비중,만기 직전 시청 집중도가 높음,churn 구분 핵심 변수,"20s, 30s, 50s"
+vh_last_14d_watch_ratio,recency,"sum(w_{u,i} * 1[end_date_u-d_{u,i}<=14]) / sum(w_{u,i})",전체 시청시간 중 마지막 14일 비중,만기 직전 2주 집중도가 높음,보조 recency 변수,"20s, 30s"
+vh_mean_event_completion,completion,"mean(min(w_{u,i}/r_{u,i}, 2))",row 단위 평균 완주율,한 번 볼 때 길게 보는 성향,완주 성향 변수,50s
+vh_high_completion_event_ratio,completion,"mean(1[w_{u,i}/r_{u,i}>=0.7])",70퍼센트 이상 본 row 비율,높은 완주 row 비중이 큼,완주 성향 보조 변수,50s
+vh_low_completion_event_ratio,completion,"mean(1[w_{u,i}/r_{u,i}<=0.1])",10퍼센트 이하만 본 row 비율,초반 이탈 row 비중이 큼,churn 구분 핵심 변수,50s
+vh_short_sample_ratio,completion,"mean(1[w_{u,i}<=5])",5분 이하 시청 row 비율,짧게 찍어보는 행동이 많음,churn 구분 핵심 변수,50s
+vh_completed_title_ratio_80,completion,"mean(1[title_watch_min_{u,j}/title_runtime_{u,j}>=0.8])",작품 단위 80퍼센트 이상 완주 비율,작품 완주 성향이 강함,그룹 분리 보조 변수,20s
+vh_rewatch_event_ratio,completion,"(N_u-M_u) / N_u",전체 row 중 재시청 row 비율,같은 작품을 여러 번 나누어 봄,churn 구분 보조 변수,50s
+vh_recent_release_180d_ratio,content_recency,"mean(1[0<=R_{u,i}<=180])",공개 후 180일 이내 콘텐츠 시청 비율,최신작 선호가 강함,최신작 선호 변수,50s
+vh_recent_release_365d_ratio,content_recency,"mean(1[0<=R_{u,i}<=365])",공개 후 1년 이내 콘텐츠 시청 비율,최신작 선호가 강함,최신작 선호 핵심 변수,50s
+genre_share__X,genre,"sum(w_{u,i} * 1[X in genre_i]) / sum(w_{u,i})",전체 시청시간 중 특정 장르 비중,해당 장르 선호가 강함,연령대별 상호작용 변수,"20s, 30s, 50s"
+country_share__X,country,"sum(w_{u,i} * 1[X in country_i]) / sum(w_{u,i})",전체 시청시간 중 특정 국가 콘텐츠 비중,해당 국가 제작물 선호가 강함,희소성 점검 후 보조 사용,optional
