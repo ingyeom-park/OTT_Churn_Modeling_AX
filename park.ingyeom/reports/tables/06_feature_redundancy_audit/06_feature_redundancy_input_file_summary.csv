@@ -1,0 +1,5 @@
+﻿name,path,rows,cols,required
+modeling_feature_table_with_content,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering\modeling_feature_table_with_content.csv,14922,230,True
+06_candidate_features_for_modeling,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_candidate_features_for_modeling.csv,39,33,True
+06_significance_all_results_with_decision,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_significance_all_results_with_decision.csv,1656,32,False
+06_final_checks,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_final_checks.csv,32,3,False

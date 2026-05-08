@@ -1,0 +1,25 @@
+﻿check,value,pass
+project_root_is_repo_root,c:\Code\ott-churn-prediction,True
+data_root_is_repo_data,c:\Code\ott-churn-prediction\_data,True
+reports_dir_is_park_reports,c:\Code\ott-churn-prediction\park.ingyeom\reports,True
+input_05_data_dir_is_reports_data_05,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering,True
+input_06_data_dir_is_reports_data_06,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda,True
+output_data_dir_under_reports_data_redundancy,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_feature_redundancy_audit,True
+output_table_dir_under_reports_tables_redundancy,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_feature_redundancy_audit,True
+output_figure_dir_under_reports_figures_redundancy,c:\Code\ott-churn-prediction\park.ingyeom\reports\figures\06_feature_redundancy_audit,True
+modeling_rows_is_14922,14922,True
+membership_row_id_unique,True,True
+target_is_binary_0_1,"[0, 1]",True
+candidate_features_from_06_gt_zero,39,True
+audit_feature_count_ge_candidate_count,54,True
+high_corr_pairs_file_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_feature_redundancy_audit\06_feature_redundancy_high_corr_pairs.csv,True
+clusters_file_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_feature_redundancy_audit\06_feature_redundancy_clusters.csv,True
+vif_candidates_file_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_feature_redundancy_audit\06_feature_vif_candidates.csv,True
+multicollinearity_related_file_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_feature_redundancy_audit\06_feature_multicollinearity_related_features.csv,True
+refined_candidate_file_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_feature_redundancy_audit\06_feature_modeling_candidate_refined.csv,True
+summary_json_created,c:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_feature_redundancy_audit\06_feature_redundancy_summary.json,True
+vif_rows_gt_zero_if_enabled,63,True
+multicollinearity_related_rows_gt_zero_if_vif_warn_high_exists,19,True
+data_outputs_exist,"['06_feature_redundancy_corr_matrix.csv', '06_feature_redundancy_vif_feature_map.csv', '06_feature_modeling_candidate_redundancy_review.csv', '06_feature_modeling_candidate_refined.csv', '06_feature_redundancy_summary.json']",True
+table_outputs_exist,"['06_feature_redundancy_font_config.csv', '06_feature_redundancy_input_file_summary.csv', '06_feature_redundancy_feature_presence.csv', '06_feature_redundancy_feature_inventory.csv', '06_feature_redundancy_feature_family_summary.csv', '06_feature_redundancy_structural_duplicates.csv', '06_feature_redundancy_high_corr_pairs.csv', '06_feature_redundancy_clusters.csv', '06_feature_redundancy_cluster_summary.csv', '06_feature_vif_candidates.csv', '06_feature_multicollinearity_related_features.csv', '06_feature_multicollinearity_summary.csv', '06_feature_redundancy_high_corr_summary.csv', '06_feature_redundancy_vif_summary.csv', '06_feature_redundancy_action_summary.csv', '06_feature_redundancy_decision_notes.csv']",True
+figure_outputs_exist_if_enabled,"['06_feature_redundancy_top_high_corr_pairs.png', '06_feature_redundancy_top_vif.png', '06_feature_redundancy_top_corr_heatmap.png', '06_feature_redundancy_cluster_sizes.png', '06_feature_redundancy_high_vif_related_heatmap.png', '06_feature_redundancy_action_counts.png', '06_feature_redundancy_top_pair_details.png']",True

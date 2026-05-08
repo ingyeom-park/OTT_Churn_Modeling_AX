@@ -1,0 +1,12 @@
+﻿cluster_id,cluster_size,cluster_representative,features
+1,8,has_content_feature,"has_content_feature, has_usage_feature, has_watch_obs, metadata_covered_watch_ratio, no_content_feature_flag, no_usage_feature_flag, no_watch_obs_flag, usable_metadata_watch_ratio"
+2,4,total_sessions,"total_sessions, total_watch_time, unique_contents, unique_days"
+3,3,front_loaded_ratio,"front_loaded_ratio, week1_ratio, week1_watch_time"
+4,3,late_ratio,"late_ratio, week3_ratio, week3_watch_time"
+5,2,alloc_dur_코미디,"alloc_dur_코미디, tag_dur_코미디"
+6,2,daily_watch_slope,"daily_watch_slope, w3_minus_w1_watch_time"
+7,2,has_prior_churn_prevention_benefit,"has_prior_churn_prevention_benefit, is_churn_prevented"
+8,2,is_100won,"is_100won, is_promotion"
+9,2,max_screen,"max_screen, screen_1_flag"
+10,2,promo_x_4screen,"promo_x_4screen, screen_4_flag"
+11,2,week2_ratio,"week2_ratio, week2_watch_time"

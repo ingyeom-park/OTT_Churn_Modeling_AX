@@ -1,0 +1,10 @@
+﻿feature_family,feature_type,features,numeric_features,binary_features
+,,15,15,6
+membership,binary,11,11,11
+content,numeric,6,6,0
+interaction_segment,binary,5,5,5
+usage,numeric,5,5,0
+membership,numeric,4,4,0
+weekly_recency_binge,numeric,4,4,0
+membership,categorical,3,0,0
+weekly_recency_binge,binary,1,1,1

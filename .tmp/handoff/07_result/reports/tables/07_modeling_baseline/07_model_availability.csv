@@ -1,0 +1,10 @@
+﻿model_name,available,note
+dummy,True,registered
+logistic,True,registered
+random_forest,True,registered
+extra_trees,True,registered
+hist_gradient_boosting,True,registered
+gradient_boosting,True,registered
+lightgbm,True,registered
+xgboost,True,registered
+catboost,True,registered

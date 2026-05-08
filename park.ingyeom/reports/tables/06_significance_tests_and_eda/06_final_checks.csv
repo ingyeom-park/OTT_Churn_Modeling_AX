@@ -1,0 +1,33 @@
+﻿check,value,pass
+project_root_is_repo_root,C:\Code\ott-churn-prediction,True
+data_root_is_repo_data,C:\Code\ott-churn-prediction\_data,True
+reports_dir_is_park_reports,C:\Code\ott-churn-prediction\park.ingyeom\reports,True
+input_data_dir_is_05_reports_data,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering,True
+output_data_dir_under_reports_data_06,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda,True
+output_table_dir_under_reports_tables_06,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda,True
+figure_dir_under_reports_figures_06_core_or_all,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\06_significance_tests_and_eda\all,True
+input_rows_is_14922,14922,True
+membership_row_id_unique,True,True
+target_is_binary_0_1,"[0, 1]",True
+required_analysis_groups_exist,"['100won', '100won_screen1', '100won_screen2', '100won_screen4', 'all', 'has_content_feature', 'has_watch_obs', 'no_watch_obs', 'non_100won']",True
+all_results_rows_gt_zero,1656,True
+tested_results_rows_gt_zero,1431,True
+p_value_nonnull_rows_gt_zero,1431,True
+decision_column_exists,True,True
+candidate_features_gt_zero,39,True
+figures_created_if_enabled,75,True
+no_legacy_top_level_figures,[],True
+no_family_cache_files_in_tables,[],True
+cache_family_files_created_or_cache_used,45,True
+data_output_exists::06_significance_all_results.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_significance_all_results.csv,True
+data_output_exists::06_significance_all_results_with_decision.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_significance_all_results_with_decision.csv,True
+data_output_exists::06_significance_significant_or_model_candidates.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_significance_significant_or_model_candidates.csv,True
+data_output_exists::06_rejected_or_weak_hypotheses.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_rejected_or_weak_hypotheses.csv,True
+data_output_exists::06_candidate_features_for_modeling.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_candidate_features_for_modeling.csv,True
+data_output_exists::06_candidate_feature_list_for_modeling.txt,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\06_significance_tests_and_eda\06_candidate_feature_list_for_modeling.txt,True
+table_output_exists::06_input_basic_summary.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_input_basic_summary.csv,True
+table_output_exists::06_analysis_group_summary.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_analysis_group_summary.csv,True
+table_output_exists::06_feature_family_summary.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_feature_family_summary.csv,True
+table_output_exists::06_decision_counts_by_group.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_decision_counts_by_group.csv,True
+table_output_exists::06_hypothesis_decision_table.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_hypothesis_decision_table.csv,True
+final_checks_output_exists,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\06_significance_tests_and_eda\06_final_checks.csv,True

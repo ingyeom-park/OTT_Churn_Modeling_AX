@@ -1,0 +1,8 @@
+﻿metric,value
+corr_method,spearman
+corr_features,51
+high_corr_threshold,0.85
+high_corr_pairs,46
+near_duplicate_corr_threshold,0.98
+near_duplicate_pairs,34
+redundancy_cluster_count,11

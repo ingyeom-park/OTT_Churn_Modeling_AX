@@ -1,0 +1,9 @@
+﻿metric,value
+input_path,C:\Code\ott-churn-prediction\park.ingyeom\reports\data\05_content_feature_engineering\modeling_feature_table_with_content.csv
+rows,14922
+columns,230
+target_mean_repurchase_rate,0.6752446052807934
+target_repurchase_count_1,10076
+target_repurchase_count_0,4846
+is_100won_count_1,8983
+is_100won_count_0,5939

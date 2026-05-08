@@ -1,0 +1,20 @@
+﻿focus_feature,max_vif,max_vif_severity,related_feature,relation_type,relation_strength,relation_detail,evidence_source,rank_within_feature
+price,31.968265825804952,HIGH,,NO_DIRECT_PAIR_FOUND,,VIF는 높지만 HIGH_CORR_THRESHOLD 이상 pair는 확인되지 않음,vif_only,1
+age_band,30.178025560201654,HIGH,,NO_DIRECT_PAIR_FOUND,,VIF는 높지만 HIGH_CORR_THRESHOLD 이상 pair는 확인되지 않음,vif_only,1
+age,20.316658747066146,HIGH,,NO_DIRECT_PAIR_FOUND,,VIF는 높지만 HIGH_CORR_THRESHOLD 이상 pair는 확인되지 않음,vif_only,1
+payment_device,11.844353994983836,HIGH,,NO_DIRECT_PAIR_FOUND,,VIF는 높지만 HIGH_CORR_THRESHOLD 이상 pair는 확인되지 않음,vif_only,1
+total_sessions,10.812597658447396,HIGH,unique_contents,HIGH_CORR_PAIR,0.9471520387010586,corr=0.9472,high_corr_pairs,1
+total_sessions,10.812597658447396,HIGH,unique_days,HIGH_CORR_PAIR,0.9258726130107923,corr=0.9259,high_corr_pairs,2
+total_sessions,10.812597658447396,HIGH,total_watch_time,HIGH_CORR_PAIR,0.8703086479643499,corr=0.8703,high_corr_pairs,3
+promo_x_4screen,7.8839663389914945,WARN,screen_4_flag,HIGH_CORR_PAIR,0.8682256364272328,corr=0.8682,high_corr_pairs,1
+unique_contents,7.713262937535945,WARN,total_sessions,HIGH_CORR_PAIR,0.9471520387010586,corr=0.9472,high_corr_pairs,1
+unique_contents,7.713262937535945,WARN,unique_days,HIGH_CORR_PAIR,0.8810355547626998,corr=0.8810,high_corr_pairs,2
+tag_dur_코미디,6.327225901987381,WARN,alloc_dur_코미디,HIGH_CORR_PAIR,0.9912573121528229,corr=0.9913,high_corr_pairs,1
+is_100won,5.954611543257197,WARN,is_promotion,EXACT_DUPLICATE,1.0,EXACT_DUPLICATE,structural_duplicates,1
+is_100won,5.954611543257197,WARN,is_promotion,HIGH_CORR_PAIR,1.0,corr=1.0000,high_corr_pairs,2
+is_promotion,5.954611543257195,WARN,is_100won,EXACT_DUPLICATE,1.0,EXACT_DUPLICATE,structural_duplicates,1
+is_promotion,5.954611543257195,WARN,is_100won,HIGH_CORR_PAIR,1.0,corr=1.0000,high_corr_pairs,2
+alloc_dur_코미디,5.951876270673994,WARN,tag_dur_코미디,HIGH_CORR_PAIR,0.9912573121528229,corr=0.9913,high_corr_pairs,1
+unique_days,5.874191375625605,WARN,total_sessions,HIGH_CORR_PAIR,0.9258726130107923,corr=0.9259,high_corr_pairs,1
+unique_days,5.874191375625605,WARN,unique_contents,HIGH_CORR_PAIR,0.8810355547626998,corr=0.8810,high_corr_pairs,2
+unique_days,5.874191375625605,WARN,total_watch_time,HIGH_CORR_PAIR,0.8632138888050259,corr=0.8632,high_corr_pairs,3

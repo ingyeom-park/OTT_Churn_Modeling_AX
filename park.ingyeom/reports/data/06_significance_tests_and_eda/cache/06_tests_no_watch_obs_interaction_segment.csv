@@ -1,0 +1,6 @@
+﻿analysis_group,feature_family,feature,feature_type,test_type,n_total,p_value,effect_size,decision_pre_fdr
+no_watch_obs,interaction_segment,stable_2screen_active,binary,chi_square_or_fisher_2x2,2620,,,INSUFFICIENT_DATA
+no_watch_obs,interaction_segment,discount_sensitive_risk,binary,chi_square_or_fisher_2x2,2620,,,INSUFFICIENT_DATA
+no_watch_obs,interaction_segment,family_2screen_lifestyle,binary,chi_square_or_fisher_2x2,2620,,,INSUFFICIENT_DATA
+no_watch_obs,interaction_segment,promo2_family_lifestyle_candidate,binary,chi_square_or_fisher_2x2,2620,,,INSUFFICIENT_DATA
+no_watch_obs,interaction_segment,premium_action_trial_risk,binary,chi_square_or_fisher_2x2,2620,,,INSUFFICIENT_DATA

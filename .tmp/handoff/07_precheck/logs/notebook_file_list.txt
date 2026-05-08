@@ -1,0 +1,14 @@
+﻿
+Name                                        Length  LastWriteTime         
+----                                        ------  -------------         
+legacy                                              2026-05-06 오후 12:26:16
+00_project_plan.ipynb                       28987   2026-05-06 오후 12:50:14
+01_data_overview.ipynb                      75215   2026-05-06 오후 8:32:39 
+02_preprocessing_policy_fixed_minimal.ipynb 59790   2026-05-06 오후 8:37:12 
+03_movie_metadata_unification.ipynb         117836  2026-05-06 오후 8:20:49 
+04_usage_feature_engineering.ipynb          113973  2026-05-06 오후 10:24:13
+05_content_feature_engineering.ipynb        149584  2026-05-06 오후 10:38:57
+06_feature_redundancy_audit.ipynb           87742   2026-05-07 오후 2:24:19 
+06_significance_tests_and_eda.ipynb         5606262 2026-05-07 오후 1:27:53 
+
+

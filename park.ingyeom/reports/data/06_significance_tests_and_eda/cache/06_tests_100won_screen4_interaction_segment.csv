@@ -1,0 +1,6 @@
+﻿analysis_group,feature_family,feature,feature_type,test_type,n_total,p_value,effect_size,decision_pre_fdr,n_feature_0,n_feature_1,target_rate_feature_0,target_rate_feature_1,rate_or_mean_diff,abs_diff,odds_ratio,secondary_p_value,test_used
+100won_screen4,interaction_segment,stable_2screen_active,binary,chi_square_or_fisher_2x2,2042,,,INSUFFICIENT_DATA,,,,,,,,,
+100won_screen4,interaction_segment,discount_sensitive_risk,binary,chi_square_or_fisher_2x2,2042,0.405047316463904,0.018425948030866106,TESTED,1527.0,515.0,0.4865749836280288,0.4640776699029126,-0.022497313725116208,0.022497313725116208,0.913949831633044,,chi_square
+100won_screen4,interaction_segment,family_2screen_lifestyle,binary,chi_square_or_fisher_2x2,2042,,,INSUFFICIENT_DATA,,,,,,,,,
+100won_screen4,interaction_segment,promo2_family_lifestyle_candidate,binary,chi_square_or_fisher_2x2,2042,,,INSUFFICIENT_DATA,,,,,,,,,
+100won_screen4,interaction_segment,premium_action_trial_risk,binary,chi_square_or_fisher_2x2,2042,0.13605186139221775,0.032987509844433306,TESTED,1315.0,727.0,0.4935361216730038,0.4580467675378267,-0.03548935413517712,0.03548935413517712,0.8675006903038411,,chi_square

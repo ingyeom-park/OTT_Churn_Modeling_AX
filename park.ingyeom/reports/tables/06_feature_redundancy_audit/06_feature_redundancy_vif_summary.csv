@@ -1,0 +1,8 @@
+﻿metric,value
+run_vif,True
+vif_matrix_rows,14922
+vif_matrix_cols,63
+vif_warn_threshold,5.0
+vif_high_threshold,10.0
+vif_warn_or_high_rows,16
+vif_high_rows,9

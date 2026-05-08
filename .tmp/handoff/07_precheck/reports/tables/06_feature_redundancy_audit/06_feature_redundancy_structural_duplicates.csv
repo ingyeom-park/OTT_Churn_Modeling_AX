@@ -1,0 +1,18 @@
+﻿feature_a,feature_b,relation,non_null_pair_n,recommendation
+has_content_feature,no_content_feature_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_content_feature,no_usage_feature_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_content_feature,no_watch_obs_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_usage_feature,no_content_feature_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_usage_feature,no_usage_feature_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_usage_feature,no_watch_obs_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_watch_obs,no_content_feature_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_watch_obs,no_usage_feature_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_watch_obs,no_watch_obs_flag,EXACT_COMPLEMENT,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_content_feature,has_usage_feature,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_content_feature,has_watch_obs,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_prior_churn_prevention_benefit,is_churn_prevented,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+has_usage_feature,has_watch_obs,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+is_100won,is_promotion,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+no_content_feature_flag,no_usage_feature_flag,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+no_content_feature_flag,no_watch_obs_flag,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
+no_usage_feature_flag,no_watch_obs_flag,EXACT_DUPLICATE,14922,선형 모델 또는 SHAP 해석에서는 둘 중 하나만 유지하는 것을 우선 검토
