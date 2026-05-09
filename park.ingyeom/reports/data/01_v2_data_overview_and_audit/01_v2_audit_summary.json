@@ -1,0 +1,64 @@
+{
+  "raw_row_counts": {
+    "Membership": 24074,
+    "User_Mapping": 26366,
+    "View_History": 175301,
+    "Movie_Master": 14502
+  },
+  "target_distribution": {
+    "Y": 17325,
+    "N": 6749
+  },
+  "strict_target_conflict_groups": 35,
+  "strict_target_conflict_rows": 73,
+  "core_event_conflict_groups": 35,
+  "movie_master_duplicate_movie_id_count": 380,
+  "expected_moviemaster_join_extra_rows": 48443,
+  "temporal_total": {
+    "total_view_log_count": 180001,
+    "watch_date_eq_reg_date": 8875,
+    "reg_date_le_watch_date_le_end_date": 174153,
+    "watch_date_lt_reg_date": 108,
+    "watch_date_gt_end_date": 5740,
+    "watch_date_eq_end_date": 260,
+    "membership_rows_without_view_logs": 2
+  },
+  "output_files": [
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_raw_file_inventory.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_schema_summary.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_target_summary.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_duplicate_audit.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_target_conflict_rows.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_duration_distribution.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_value_anomaly_summary.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_usermapping_cardinality_audit.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_viewhistory_basic_audit.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_viewhistory_duplicate_audit.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_view_temporal_audit.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_moviemaster_duplicate_audit.csv",
+    "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_audit_final_checks.csv",
+    "park.ingyeom/reports/data/01_v2_data_overview_and_audit/01_v2_data_audit_report.md",
+    "park.ingyeom/reports/data/01_v2_data_overview_and_audit/01_v2_audit_summary.json"
+  ],
+  "join_expansion_summary": {
+    "raw_View_History_rows": 175301,
+    "joined_Membership_UserMapping_ViewHistory_rows_used_in_temporal_audit": 180001,
+    "temporal_total_total_view_log_count_from_existing_temporal_audit": 180001,
+    "expansion_rows": 4700,
+    "expansion_ratio": 1.026811,
+    "raw_view_rows_attached_to_multiple_membership_row_id": 2577,
+    "membership_row_id_attached_to_multiple_USER_NUM": 205,
+    "USER_KEY_values_with_multiple_Membership_events": 261,
+    "raw_view_rows_attached_to_zero_membership_row_id": 0,
+    "extra_rows_from_multiple_membership_event_attachment": 4700,
+    "watch_date_gt_end_date": {
+      "count": 5740,
+      "count_level": "joined_membership_event_level_not_raw_ViewHistory_level"
+    },
+    "watch_date_eq_end_date": {
+      "count": 260,
+      "count_level": "joined_membership_event_level_not_raw_ViewHistory_level"
+    },
+    "output_file": "park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_join_expansion_summary.csv"
+  }
+}

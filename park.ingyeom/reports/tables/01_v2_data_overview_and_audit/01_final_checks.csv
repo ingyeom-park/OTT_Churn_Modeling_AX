@@ -1,0 +1,7 @@
+﻿check,status,detail
+raw_files_exist,True,All expected raw files were found.
+raw_row_counts_recorded,True,All raw files have at least one data row.
+strict_conflict_audited,True,strict_conflict_groups=35
+core_event_conflict_audited,True,core_event_conflict_groups=35
+date_relationship_audited,True,duration_groups=21
+no_interim_output_written_by_notebook,True,Notebook writes only to park.ingyeom/reports/tables and park.ingyeom/reports/data stage folders.
