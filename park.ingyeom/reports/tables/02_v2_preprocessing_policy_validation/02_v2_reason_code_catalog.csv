@@ -1,0 +1,26 @@
+﻿reason_code,source_rule_id,domain,definition,default_decision_candidate
+STRICT_TARGET_CONFLICT,R_LABEL_01,target_label,Do not choose labels for performance; exclude or flag only after mentor/business rule.,ask_mentor
+EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,duplicates,Exact duplicate extras are plausible dedupe candidates after target conflict handling is fixed.,defer
+CORE_EVENT_AMBIGUOUS,R_DUP_02,duplicates,"Flag, sample, and review; do not drop silently.",flag
+DURATION_POLICY_EXCLUSION_CANDIDATE,DUR_KEEP_ALL_PARSEABLE,duration,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,defer
+DURATION_POLICY_EXCLUSION_CANDIDATE,DUR_POSITIVE_ONLY,duration,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,defer
+DURATION_POLICY_EXCLUSION_CANDIDATE,DUR_31_OR_32_ONLY,duration,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,defer
+DURATION_POLICY_EXCLUSION_CANDIDATE,DUR_28_TO_35_ONLY,duration,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,defer
+USER_KEY_TO_MULTIPLE_USER_NUM,R_MAP_01,UserMapping,Flag and aggregate logs back to membership_row_id in later stages.,flag
+USER_NUM_TO_MULTIPLE_USER_KEY,R_MAP_02,UserMapping,"If present, ask mentor before USER_NUM grouping.",ask_mentor
+AGE_MISSING_OR_NON_NUMERIC,R_AGE_01,age,flag; do not impute silently,flag
+AGE_OUTSIDE_0_100,R_AGE_02,age,ask mentor if age range is encoded or true age,ask_mentor
+MAX_SCREEN_MISSING_OR_NON_NUMERIC,R_SCREEN_01,max_screen,flag; do not impute silently,flag
+MAX_SCREEN_OUTSIDE_EXPECTED_1_4,R_SCREEN_02,max_screen,ask mentor whether values outside 1-4 are valid products,ask_mentor
+GENDER_MISSING,R_GENDER_01,gender,flag missing demographic; do not exclude by default,flag
+GENDER_UNEXPECTED_CATEGORY,R_GENDER_02,gender,ask mentor for codebook,ask_mentor
+VERIFICATION_MISSING,R_VERIFY_01,is_user_verified,flag missing verification; do not exclude by default,flag
+VERIFICATION_UNEXPECTED_CATEGORY,R_VERIFY_02,is_user_verified,ask mentor for codebook,ask_mentor
+PRICE_MISSING_OR_NON_NUMERIC,R_PRICE_01,price,ask mentor; price is likely core subscription field,ask_mentor
+PRICE_NEGATIVE,R_PRICE_02,price,ask mentor before excluding,ask_mentor
+PROMOTION_MISSING,R_PROMO_01,is_promotion,flag as non-explicit promotion status until codebook confirms blank meaning,flag
+PROMOTION_UNEXPECTED_CATEGORY,R_PROMO_02,is_promotion,ask mentor for codebook,ask_mentor
+PRICE_100_PROMOTION_MISMATCH,R_PROMO_03,is_promotion,ask mentor whether price=100 defines promotion,ask_mentor
+CHURN_PREVENTED_MISSING,R_CHURNPREVENT_01,is_churn_prevented,flag; do not use to correct target without business rule,flag
+CHURN_PREVENTED_UNEXPECTED_CATEGORY,R_CHURNPREVENT_02,is_churn_prevented,ask mentor for codebook,ask_mentor
+NO_ROWS_EXCLUDED_IN_STAGE02,APPLIED_NONE_01,scope_guard,Stage 02 validates policy only; no preprocessing dataset is created.,keep

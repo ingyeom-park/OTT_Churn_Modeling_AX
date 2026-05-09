@@ -1,0 +1,26 @@
+﻿rule_id,domain,rule_status,decision_candidate,before_rows,affected_rows,after_rows_if_applied,reason_code,recommendation,evidence_file
+R_LABEL_01,target_label,candidate_not_applied,ask_mentor,24074,73,24001,STRICT_TARGET_CONFLICT,Do not choose labels for performance; exclude or flag only after mentor/business rule.,02_v2_strict_conflict_group_audit.csv
+R_DUP_01,duplicates,candidate_not_applied,defer,24074,71,24003,EXACT_DUPLICATE_EXTRA_ROW,Exact duplicate extras are plausible dedupe candidates after target conflict handling is fixed.,02_v2_duplicate_group_audit.csv
+R_DUP_02,duplicates,candidate_not_applied,flag,24074,73,24074,CORE_EVENT_AMBIGUOUS,"Flag, sample, and review; do not drop silently.",02_v2_duplicate_group_sample_rows.csv
+DUR_KEEP_ALL_PARSEABLE,duration,candidate_not_applied,defer,24074,0,24074,DURATION_POLICY_EXCLUSION_CANDIDATE,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,02_v2_duration_policy_comparison.csv
+DUR_POSITIVE_ONLY,duration,candidate_not_applied,defer,24074,498,23576,DURATION_POLICY_EXCLUSION_CANDIDATE,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,02_v2_duration_policy_comparison.csv
+DUR_31_OR_32_ONLY,duration,candidate_not_applied,defer,24074,650,23424,DURATION_POLICY_EXCLUSION_CANDIDATE,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,02_v2_duration_policy_comparison.csv
+DUR_28_TO_35_ONLY,duration,candidate_not_applied,defer,24074,650,23424,DURATION_POLICY_EXCLUSION_CANDIDATE,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,02_v2_duration_policy_comparison.csv
+R_MAP_01,UserMapping,candidate_not_applied,flag,26366,50,26366,USER_KEY_TO_MULTIPLE_USER_NUM,Flag and aggregate logs back to membership_row_id in later stages.,02_v2_usermapping_one_to_many_audit.csv
+R_MAP_02,UserMapping,candidate_not_applied,ask_mentor,26366,0,26366,USER_NUM_TO_MULTIPLE_USER_KEY,"If present, ask mentor before USER_NUM grouping.",02_v2_usermapping_many_to_one_audit.csv
+R_AGE_01,age,candidate_not_applied,flag,24074,207,24074,AGE_MISSING_OR_NON_NUMERIC,flag; do not impute silently,02_v2_value_anomaly_audit.csv
+R_AGE_02,age,candidate_not_applied,ask_mentor,24074,2,24074,AGE_OUTSIDE_0_100,ask mentor if age range is encoded or true age,02_v2_value_anomaly_audit.csv
+R_SCREEN_01,max_screen,candidate_not_applied,flag,24074,84,24074,MAX_SCREEN_MISSING_OR_NON_NUMERIC,flag; do not impute silently,02_v2_value_anomaly_audit.csv
+R_SCREEN_02,max_screen,candidate_not_applied,ask_mentor,24074,0,24074,MAX_SCREEN_OUTSIDE_EXPECTED_1_4,ask mentor whether values outside 1-4 are valid products,02_v2_value_anomaly_audit.csv
+R_GENDER_01,gender,candidate_not_applied,flag,24074,207,24074,GENDER_MISSING,flag missing demographic; do not exclude by default,02_v2_value_anomaly_audit.csv
+R_GENDER_02,gender,candidate_not_applied,ask_mentor,24074,3817,24074,GENDER_UNEXPECTED_CATEGORY,ask mentor for codebook,02_v2_value_anomaly_audit.csv
+R_VERIFY_01,is_user_verified,candidate_not_applied,flag,24074,775,24074,VERIFICATION_MISSING,flag missing verification; do not exclude by default,02_v2_value_anomaly_audit.csv
+R_VERIFY_02,is_user_verified,candidate_not_applied,ask_mentor,24074,0,24074,VERIFICATION_UNEXPECTED_CATEGORY,ask mentor for codebook,02_v2_value_anomaly_audit.csv
+R_PRICE_01,price,candidate_not_applied,ask_mentor,24074,0,24074,PRICE_MISSING_OR_NON_NUMERIC,ask mentor; price is likely core subscription field,02_v2_value_anomaly_audit.csv
+R_PRICE_02,price,candidate_not_applied,ask_mentor,24074,0,24074,PRICE_NEGATIVE,ask mentor before excluding,02_v2_value_anomaly_audit.csv
+R_PROMO_01,is_promotion,candidate_not_applied,flag,24074,11896,24074,PROMOTION_MISSING,flag as non-explicit promotion status until codebook confirms blank meaning,02_v2_value_anomaly_audit.csv
+R_PROMO_02,is_promotion,candidate_not_applied,ask_mentor,24074,0,24074,PROMOTION_UNEXPECTED_CATEGORY,ask mentor for codebook,02_v2_value_anomaly_audit.csv
+R_PROMO_03,is_promotion,candidate_not_applied,ask_mentor,24074,0,24074,PRICE_100_PROMOTION_MISMATCH,ask mentor whether price=100 defines promotion,02_v2_value_anomaly_audit.csv
+R_CHURNPREVENT_01,is_churn_prevented,candidate_not_applied,flag,24074,19767,24074,CHURN_PREVENTED_MISSING,flag; do not use to correct target without business rule,02_v2_value_anomaly_audit.csv
+R_CHURNPREVENT_02,is_churn_prevented,candidate_not_applied,ask_mentor,24074,0,24074,CHURN_PREVENTED_UNEXPECTED_CATEGORY,ask mentor for codebook,02_v2_value_anomaly_audit.csv
+APPLIED_NONE_01,scope_guard,applied,keep,24074,0,24074,NO_ROWS_EXCLUDED_IN_STAGE02,Stage 02 validates policy only; no preprocessing dataset is created.,02_v2_final_checks.csv
