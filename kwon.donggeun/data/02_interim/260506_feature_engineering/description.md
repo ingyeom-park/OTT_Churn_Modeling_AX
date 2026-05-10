@@ -50,6 +50,7 @@
 |------|------|-----------|
 | `is_family_plan` | 공유 계정 여부 | max_screen > 1이면 1 |
 | `device_group` | 기기 그룹 | mobile(ios/android/mobile) / pc / tv(smarttv/ott) |
+| `is_basic` | 1화면 요금제 여부 | max_screen == 1 |
 | `is_standard` | 2화면 요금제 여부 | max_screen == 2 |
 | `is_premium` | 4화면 요금제 여부 | max_screen == 4 |
 
@@ -194,3 +195,20 @@ View History + Movie 데이터를 유저 단위로 집계한 피처
 - `recency` — 마지막 시청 시점이 종료일에 가까울수록 이탈 위험
 - `completion_rate > 0.55` — 영화를 끝까지 보는 유저는 재구매 경향
 - 고가 요금제(7900~10900원) 유저는 상대적으로 충성도 높음
+
+### 신규 데이터 EDA 결과 (Movies.csv Category 기반)
+| 장르 | 이탈률 | 비고 |
+|------|--------|------|
+| Horror | 29.4% | 가장 높음 — 충동적 시청 후 이탈 패턴 |
+| Action/Adventure | 27.2% | 높음 |
+| Thriller/Crime | 26.8% | 높음 |
+| Animation/Family | 12.0% | 가장 낮음 — 가족 단위 장기 구독 |
+| Drama | 13.0% | 낮음 — 시리즈 연속 시청 유도 |
+
+### 📝 추후 추가 예정 파생변수 (신규 데이터 기반)
+- `max_consecutive_days` — 최대 연속 시청 일수
+- `avg_sessions_per_day` — 하루 평균 시청 횟수
+- `max_daily_sessions` — 하루 최대 시청 횟수
+- `horror_ratio` — 공포 장르 시청 비율 (이탈 신호)
+- `family_ratio` — Animation/Family 비율 (재구매 신호)
+- `genre_consistency` — 장르 일관성 (매번 같은 장르만 보는지)
