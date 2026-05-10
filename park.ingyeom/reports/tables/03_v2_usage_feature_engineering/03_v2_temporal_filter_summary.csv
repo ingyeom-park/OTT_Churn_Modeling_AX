@@ -1,0 +1,9 @@
+﻿scope,metric,count,note
+joined_membership_event_level,watch_date_eq_end_date,218,Audited only; not silently ignored.
+joined_membership_event_level,watch_date_gt_end_date,4482,Audited only; not silently ignored.
+joined_membership_event_level,rel_day_gt_27,1780,Audited only; not silently ignored.
+joined_membership_event_level,watch_date_lt_reg_date,45,Audited only; not silently ignored.
+w1_3,included_logs,159557,Window inclusion uses watch_date >= reg_date and rel_day bounds.
+w1_3,excluded_logs,18258,Window inclusion uses watch_date >= reg_date and rel_day bounds.
+w1_4,included_logs,175990,Window inclusion uses watch_date >= reg_date and rel_day bounds.
+w1_4,excluded_logs,1825,Window inclusion uses watch_date >= reg_date and rel_day bounds.

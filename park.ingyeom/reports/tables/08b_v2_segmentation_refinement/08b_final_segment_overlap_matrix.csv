@@ -1,0 +1,7 @@
+﻿final_flag,final_flag_top_decile_high_churn_risk,final_flag_risk_10_30_low_engagement,final_flag_risk_10_30_other_review,final_flag_late_week3_engaged_retention_candidate,final_flag_genre_affinity_content_recommendation_pool,final_flag_low_risk_or_general_maintenance
+final_flag_top_decile_high_churn_risk,478,0,0,0,0,478
+final_flag_risk_10_30_low_engagement,0,478,0,0,0,478
+final_flag_risk_10_30_other_review,0,0,478,0,0,478
+final_flag_late_week3_engaged_retention_candidate,0,0,0,1174,995,1174
+final_flag_genre_affinity_content_recommendation_pool,0,0,0,995,2491,2491
+final_flag_low_risk_or_general_maintenance,478,478,478,1174,2491,4777

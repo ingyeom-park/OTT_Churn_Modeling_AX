@@ -1,0 +1,21 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 10 writes only under park.ingyeom/reports
+stage01_through_stage09_outputs_not_overwritten,PASS,Stage 01-09 snapshots unchanged
+all_expected_stage10_outputs_created,PASS,all required outputs exist
+row_count_lineage_created,PASS,lineage table
+key_metric_registry_created,PASS,metric registry
+claim_registry_created,PASS,claim registry
+contradiction_audit_created,PASS,wording audit
+presentation_outline_created,PASS,outline md
+team_handoff_summary_created,PASS,handoff md
+final_issue_register_created,PASS,issue register
+readiness_verdict_created,PASS,verdict md
+stage07r_true_shap_marked_final_xai,PASS,Stage 07r final XAI
+stage07_fallback_marked_audit_only,PASS,Stage 07 fallback audit-only
+stage08b_marked_final_segment_basis,PASS,Stage 08b final segment basis
+stage09_marked_scenario_only,PASS,Stage 09 scenario only
+no_causal_claims_made,PASS,claim registry forbids causal wording
+no_financial_claims_without_cost_margin,PASS,ROI/profit blocked
+w1_4_labeled_late_period,PASS,w1_4 timing caution
+no_forbidden_features_approved_as_model_features,PASS,violations=0

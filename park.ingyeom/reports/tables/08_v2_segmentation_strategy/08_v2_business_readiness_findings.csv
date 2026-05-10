@@ -1,0 +1,5 @@
+﻿classification,finding,note
+safe_to_report,w1_3 conservative churn-risk bands and holdout segment outcomes,Prediction/descriptive only
+plausible_but_cautioned,usage and genre SHAP-informed segments,Do not claim causality
+do_not_claim_yet,financial impact or action lift,Reserved for Stage 09 simulation or future experiment
+do_not_claim_yet,w1_4 as early-warning evidence,w1_4 is late-period only

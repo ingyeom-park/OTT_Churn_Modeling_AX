@@ -1,0 +1,6 @@
+﻿feature_family,early_w1_3_importance,late_w1_4_importance,late_minus_early,interpretation
+content,0.0001683000000000545,-7.655921034688262e-06,-0.00017595592103474277,w1_4 is late-period/end-of-period and must not be presented as early intervention.
+genre,0.06080170000000191,0.061994914281026804,0.0011932142810248958,w1_4 is late-period/end-of-period and must not be presented as early intervention.
+membership,0.01192540000000053,0.012775544800809483,0.0008501448008089527,w1_4 is late-period/end-of-period and must not be presented as early intervention.
+release_month,0.0003400000000002734,0.0002482705821233999,-9.172941787687349e-05,w1_4 is late-period/end-of-period and must not be presented as early intervention.
+usage,0.15772710000000142,0.1102917452765702,-0.04743535472343123,w1_4 is late-period/end-of-period and must not be presented as early intervention.

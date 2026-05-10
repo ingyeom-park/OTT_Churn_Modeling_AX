@@ -1,0 +1,14 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,Movie_Master and View_History unchanged
+no_project_root_data_output_created,PASS,Stage 04 writes only under park.ingyeom/reports
+raw_duplicated_Movie_Master_not_directly_joined,PASS,content join used deduped_movie lookup
+Movie_Master_deduplicated_before_content_join,PASS,deduped_rows=14018
+genre_conflicts_audited,PASS,conflict_rows=32
+one_row_per_membership_row_id_w1_3,PASS,rows=23933
+one_row_per_membership_row_id_w1_4,PASS,rows=23933
+no_unavailable_metadata_features_created,PASS,none
+no_join_identifier_or_title_model_features,PASS,none
+no_end_date_derived_features_created,PASS,none
+no_model_trained,PASS,No model training code or output
+stage02_stage03_and_feasibility_inputs_not_overwritten,PASS,Input snapshots unchanged
+all_required_outputs_created,PASS,required_outputs=12

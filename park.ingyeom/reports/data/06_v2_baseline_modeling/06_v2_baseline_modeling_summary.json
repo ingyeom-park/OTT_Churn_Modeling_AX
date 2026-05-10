@@ -1,0 +1,22 @@
+{
+  "scope": "Stage 06 baseline modeling only. No SHAP, segmentation, business simulation, Optuna, or broad tuning.",
+  "target_mapping": {
+    "Y": 1,
+    "N": 0
+  },
+  "row_counts": {
+    "w1_3": 23933,
+    "w1_4": 23933
+  },
+  "feature_set_count": 14,
+  "evaluation_spec_count": 16,
+  "holdout_metric_rows": 96,
+  "cv_metric_rows": 192,
+  "best_observed_auc": 0.9037410062390436,
+  "conservative_recommended_auc": 0.8704640371627193,
+  "outputs": {
+    "data_dir": "park.ingyeom/reports/data/06_v2_baseline_modeling",
+    "table_dir": "park.ingyeom/reports/tables/06_v2_baseline_modeling",
+    "figure_dir": "park.ingyeom/reports/figures/06_v2_baseline_modeling"
+  }
+}

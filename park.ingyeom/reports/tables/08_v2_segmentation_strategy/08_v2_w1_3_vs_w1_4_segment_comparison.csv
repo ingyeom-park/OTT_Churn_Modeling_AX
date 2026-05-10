@@ -1,0 +1,2 @@
+﻿comparison,w1_3_label,w1_4_label,spearman_corr,top_decile_overlap_count,w1_3_top_decile_count,w1_4_top_decile_count,interpretation
+risk_ranking,early-observation primary segmentation basis,late-period/end-of-period comparison only,0.8796084837933847,371,478,478,Do not use w1_4 as early-warning evidence.

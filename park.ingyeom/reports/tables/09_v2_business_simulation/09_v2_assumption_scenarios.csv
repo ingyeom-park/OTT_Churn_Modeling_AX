@@ -1,0 +1,7 @@
+﻿final_segment_key,final_segment_name_ko,reachable_rate,treatment_rate,response_rate,incremental_retention_lift_low,incremental_retention_lift_base,incremental_retention_lift_high,cost_per_contact,gross_margin_per_retained_user,contact_fatigue_penalty_rate,max_contact_capacity,action_type,action_description,assumption_source
+top_decile_high_churn_risk,최상위 이탈위험군,0.85,0.85,0.12,0.01,0.03,0.05,,,0.02,,high-risk targeted retention,"고위험 모니터링, 개인화 리텐션 메시지, 초기 콘텐츠 재추천",editable_placeholder_assumption_not_fact
+risk_10_30_low_engagement,초기 저관여 고위험군,0.85,0.8,0.15,0.01,0.03,0.05,,,0.02,,onboarding and activation,"온보딩, 첫 시청 유도, 개인화 콘텐츠 추천",editable_placeholder_assumption_not_fact
+risk_10_30_other_review,상위위험 관찰/추천 후보군,0.8,0.7,0.1,0.01,0.03,0.05,,,0.02,,risk-score guided recommendation,"위험 점수 기반 모니터링, 장르/이용 패턴별 후속 추천",editable_placeholder_assumption_not_fact
+late_week3_engaged_retention_candidate,3주차 집중 시청 안정/전환 후보군,0.75,0.5,0.08,0.005,0.015,0.025,,,0.01,,maintenance continuation cue,"이어보기, 시리즈 연속 추천, 종료 전 유지 메시지",editable_placeholder_assumption_not_fact
+genre_affinity_content_recommendation_pool,장르 선호 기반 콘텐츠 추천군,0.75,0.5,0.08,0.005,0.015,0.025,,,0.01,,genre-based recommendation,"장르별 이어보기, 신작/유사작 추천, 취향 기반 큐레이션",editable_placeholder_assumption_not_fact
+low_risk_or_general_maintenance,저위험/일반 유지군,0.7,0.2,0.05,0.0,0.0,0.005,,,0.005,,monitoring only,과도한 개입보다 기본 추천과 모니터링 유지,editable_placeholder_assumption_not_fact

@@ -1,0 +1,6 @@
+﻿input_name,path,row_count,column_count
+membership_v2_preprocessed,park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv,23933,23
+usage_features_v2_w1_3,park.ingyeom/reports/data/03_v2_usage_feature_engineering/usage_features_v2_w1_3.csv,23933,28
+usage_features_v2_w1_4,park.ingyeom/reports/data/03_v2_usage_feature_engineering/usage_features_v2_w1_4.csv,23933,33
+content_features_v2_w1_3,park.ingyeom/reports/data/04_v2_content_feature_engineering/content_features_v2_w1_3.csv,23933,45
+content_features_v2_w1_4,park.ingyeom/reports/data/04_v2_content_feature_engineering/content_features_v2_w1_4.csv,23933,45

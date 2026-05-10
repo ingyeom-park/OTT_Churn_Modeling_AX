@@ -1,0 +1,5 @@
+﻿metric,count,action,note
+raw_usermapping_rows,26366,kept_policy_checked,No rows removed.
+USER_KEY_one_to_many_cases,50,audit_flag_only,Direct join can multiply rows.
+USER_NUM_many_to_one_cases,0,audit_flag_only,"If nonzero, ask mentor before USER_NUM grouping."
+retained_membership_rows_with_multi_USER_NUM,64,audit_flag_only,No usage aggregation created in Stage 02.

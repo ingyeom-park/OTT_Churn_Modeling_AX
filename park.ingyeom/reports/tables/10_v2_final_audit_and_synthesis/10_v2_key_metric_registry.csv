@@ -1,0 +1,11 @@
+﻿metric_id,metric,stage,source_file,interpretation
+raw_membership_rows,24074,01,park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_raw_file_inventory.csv,Active v2 raw Membership row count.
+retained_membership_rows,23933,02,park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv,Rows retained after strict conflict and duplicate exclusions.
+excluded_strict_target_conflict,73,02,park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_excluded_membership_rows.csv,Rows excluded because all non-target fields were identical but is_repurchase differed.
+excluded_exact_duplicate_extra,68,02,park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_excluded_membership_rows.csv,Extra exact duplicate Membership rows removed after keeping one representative.
+conservative_auc,0.8704640371627193,06,park.ingyeom/reports/data/06_v2_baseline_modeling/06_v2_best_model_config.json,w1_3 timing-defensible baseline ROC AUC for repurchase prediction.
+best_observed_auc,0.9037410062390436,06,park.ingyeom/reports/data/06_v2_baseline_modeling/06_v2_best_model_config.json,"Best observed model, w1_4 late-period LGBM, not early-warning."
+target_shuffle_auc,0.4671643938936437,06b,park.ingyeom/reports/data/06b_v2_baseline_sanity_audit/06b_sanity_audit_summary.json,Sanity test should be near random; passed in Stage 06b.
+repeated_group_split_auc_mean,0.8751460721146183,06b,park.ingyeom/reports/data/06b_v2_baseline_sanity_audit/06b_sanity_audit_summary.json,Repeated USER_KEY group split stability mean AUC.
+shap_version,0.51.0,07r,park.ingyeom/reports/data/07r_v2_true_shap_interpretation/07r_true_shap_summary.json,TRUE SHAP environment version.
+stage08b_final_segment_count,6,08b,park.ingyeom/reports/tables/08b_v2_segmentation_refinement/08b_final_segment_summary_holdout.csv,Final presentation segment count after pruning.

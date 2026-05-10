@@ -1,0 +1,15 @@
+{
+  "scope": "Stage 06b baseline sanity audit only. Diagnostic retraining only; no production model, SHAP, segmentation, or business simulation.",
+  "split_source": "park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv",
+  "best_observed_auc": 0.9037410062390436,
+  "conservative_baseline_auc": 0.8704640371627193,
+  "target_shuffle_auc": 0.4671643938936437,
+  "target_shuffle_status": "PASS",
+  "repeated_group_split_auc_mean": 0.8751460721146183,
+  "repeated_group_split_auc_std": 0.0017657761283179595,
+  "naive_random_split_auc": 0.8778090452696082,
+  "naive_random_split_group_overlap": 79,
+  "largest_auc_drop_vs_full": 0.046397612999413695,
+  "conservative_baseline_decision": "cautioned",
+  "conservative_baseline_reason": "Leakage smoke tests passed, but AUC is high and behavior/content features require business review before final claims."
+}

@@ -1,0 +1,14 @@
+﻿stage,artifact,row_count,explanation,status
+raw,Membership.csv,24074,Active v2 raw Membership rows.,fact
+02,membership_v2_preprocessed.csv,23933,24074 minus strict target conflicts 73 and exact duplicate extra rows 68. Same-target duplicate rule affected 0 rows.,fact
+03,usage_features_v2_w1_3.csv,23933,One row per retained membership_row_id for w1_3 usage features.,fact
+03,usage_features_v2_w1_4.csv,23933,One row per retained membership_row_id for w1_4 usage features.,fact
+04,content_features_v2_w1_3.csv,23933,One row per retained membership_row_id for w1_3 content features.,fact
+04,content_features_v2_w1_4.csv,23933,One row per retained membership_row_id for w1_4 content features.,fact
+05,modeling_dataset_v2_w1_3.csv,23933,Final modeling table for early observation window; one row per membership_row_id.,fact
+05,modeling_dataset_v2_w1_4.csv,23933,Final modeling table for late/end-period comparison; one row per membership_row_id.,fact
+06,GroupShuffleSplit train,19156,Canonical USER_KEY group-aware train split.,fact
+06,GroupShuffleSplit test,4777,Canonical USER_KEY group-aware holdout split; no USER_KEY overlap.,fact
+08,08_v2_segment_assignments_holdout.csv,4777,Stage 08 holdout-first segment evaluation matched Stage 06 holdout rows.,fact
+08b,08b_final_segment_assignments_holdout.csv,4777,Refined segment assignments remain on Stage 06 holdout rows.,fact
+09,segment simulation unique segments,6,"Simulation scenarios are segment-level, not row-level new modeling data.",fact

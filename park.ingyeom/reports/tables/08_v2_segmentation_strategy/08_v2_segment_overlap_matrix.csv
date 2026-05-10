@@ -1,0 +1,12 @@
+﻿segment_flag,seg_top_decile_high_churn_risk,seg_low_or_no_early_engagement,seg_late_heavy_week3_intensive,seg_delayed_start,seg_early_routine_stable,seg_week2_surge_users,seg_genre_affinity_thriller_crime,seg_genre_affinity_animation_family,seg_genre_affinity_drama,seg_genre_affinity_action_adventure,seg_high_price_or_promotion_sensitive
+seg_top_decile_high_churn_risk,478.0,382.0,2.0,134.0,234.0,10.0,148.0,40.0,59.0,119.0,420.0
+seg_low_or_no_early_engagement,382.0,1655.0,47.0,646.0,360.0,121.0,225.0,228.0,316.0,196.0,1346.0
+seg_late_heavy_week3_intensive,2.0,47.0,1196.0,340.0,56.0,377.0,431.0,375.0,353.0,425.0,946.0
+seg_delayed_start,134.0,646.0,340.0,1261.0,0.0,452.0,239.0,261.0,301.0,254.0,1029.0
+seg_early_routine_stable,234.0,360.0,56.0,0.0,1013.0,0.0,279.0,260.0,249.0,265.0,816.0
+seg_week2_surge_users,10.0,121.0,377.0,452.0,0.0,1199.0,353.0,361.0,334.0,355.0,962.0
+seg_genre_affinity_thriller_crime,148.0,225.0,431.0,239.0,279.0,353.0,1195.0,201.0,263.0,389.0,968.0
+seg_genre_affinity_animation_family,40.0,228.0,375.0,261.0,260.0,361.0,201.0,1179.0,188.0,227.0,940.0
+seg_genre_affinity_drama,59.0,316.0,353.0,301.0,249.0,334.0,263.0,188.0,1196.0,249.0,967.0
+seg_genre_affinity_action_adventure,119.0,196.0,425.0,254.0,265.0,355.0,389.0,227.0,249.0,1195.0,949.0
+seg_high_price_or_promotion_sensitive,420.0,1346.0,946.0,1029.0,816.0,962.0,968.0,940.0,967.0,949.0,3858.0

@@ -1,0 +1,16 @@
+﻿feature,feature_family,top_churn_risk_mean_shap,low_churn_risk_mean_shap,top_minus_low_mean_shap,interpretation
+w1_3_week3_watch_time,usage,-0.7012160742750758,0.745744523992605,-1.446960598267681,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_w2_minus_w1_watch_time,usage,-0.266508878368887,0.12168186689810982,-0.3881907452669968,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_week1_ratio,usage,-0.09171683968645511,0.1738534077307566,-0.2655702474172117,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+price,membership,-0.10548360842175533,0.09193909967531502,-0.19742270809707035,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_first_watch_rel_day,usage,-0.10975678987969266,0.005414998395951696,-0.11517178827564435,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_ratio_thriller_crime,genre,-0.2204666965170364,0.06373513877284413,-0.2842018352898805,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_ratio_animation_family,genre,-0.10465325440579258,0.014466510977886659,-0.11911976538367924,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_ratio_drama,genre,-0.08513576959507774,0.10141897244015115,-0.18655474203522887,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_session_count_drama,genre,-0.07766463343285585,0.14867638638095854,-0.22634101981381438,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_ratio_action_adventure,genre,-0.046193550909610005,0.05053294428470723,-0.09672649519431724,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_week3_ratio,usage,-0.052337083383046525,0.18310318884446639,-0.2354402722275129,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_w3_minus_w1_watch_time,usage,-0.05719074382370745,0.1376524702500148,-0.19484321407372227,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_last_watch_rel_day,usage,-0.09398858899534922,0.043068364741635966,-0.13705695373698518,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_ratio_romance,genre,-0.06918728431731583,0.07202434171095358,-0.14121162602826942,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk
+w1_3_genre_watch_time_romance,genre,-0.07072723531846244,0.08037591283878218,-0.15110314815724463,negative SHAP in top churn-risk group pushes away from repurchase and toward churn risk

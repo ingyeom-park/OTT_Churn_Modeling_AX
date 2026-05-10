@@ -1,0 +1,6 @@
+﻿step_order,rule_name,reason_code,before_rows,affected_rows,after_rows,action,note
+0,CREATE_MEMBERSHIP_ROW_ID,TRACEABILITY,24074,24074,24074,created_before_filtering,membership_row_id assigned from raw row order before exclusions.
+1,R_LABEL_01_EXCLUDE_STRICT_TARGET_CONFLICT,STRICT_TARGET_CONFLICT,24074,73,24001,exclude,Same USER_KEY alone is not conflict.
+2,R_DUP_01_KEEP_FIRST_EXACT_DUPLICATE,EXACT_DUPLICATE_EXTRA_ROW,24001,68,23933,exclude_extra_duplicate_rows,Representative is lowest membership_row_id after prior exclusions.
+3,R_DUP_02_KEEP_FIRST_SAME_NON_TARGET_SAME_TARGET,SAME_NON_TARGET_SAME_TARGET_DUPLICATE_EXTRA_ROW,23933,0,23933,exclude_extra_duplicate_rows,Representative is lowest membership_row_id after prior exclusions.
+4,DURATION_POLICY,DURATION_POLICY_DEFERRED,23933,0,23933,deferred_no_filter,duration_days computed for audit only.

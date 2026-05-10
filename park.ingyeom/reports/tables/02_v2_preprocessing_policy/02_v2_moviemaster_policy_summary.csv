@@ -1,0 +1,5 @@
+﻿metric,count,action,note
+raw_moviemaster_rows,14502,kept_policy_checked,No rows removed.
+MOVIE_NUM_cardinality,14018,audit,Movie id cardinality.
+duplicate_MOVIE_NUM_count,380,defer_final_deduplication,Stage 04 should deduplicate before content join.
+duplicate_MOVIE_NUM_rows,864,audit_flag_only,Policy-checked file retains rows with flags.

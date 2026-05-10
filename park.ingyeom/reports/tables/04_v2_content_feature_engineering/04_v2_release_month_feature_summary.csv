@@ -1,0 +1,4 @@
+﻿window,metric,count,note
+raw_movie_joined_view_level,release_month_parse_ok,175301,Parse status counted on metadata-covered raw view rows.
+w1_3,rows_with_release_month_covered_watch,22435,Release-month features created because parsing was reliable for used metadata.
+w1_4,rows_with_release_month_covered_watch,23749,Release-month features created because parsing was reliable for used metadata.

@@ -1,0 +1,20 @@
+﻿rule_id,field,reason_code,raw_affected_rows,retained_affected_rows,action,recommendation
+V_AGE_01,age,AGE_MISSING_OR_NON_NUMERIC,207,203,audit_flag_only_no_delete,flag; do not impute silently
+V_AGE_02,age,AGE_OUTSIDE_0_100,2,2,audit_flag_only_no_delete,ask mentor before correction
+V_SCREEN_01,max_screen,MAX_SCREEN_MISSING_OR_NON_NUMERIC,84,74,audit_flag_only_no_delete,flag; do not impute silently
+V_SCREEN_02,max_screen,MAX_SCREEN_OUTSIDE_EXPECTED_1_4,0,0,audit_flag_only_no_delete,ask mentor whether value is valid product
+V_GENDER_01,gender,GENDER_MISSING,207,203,audit_flag_only_no_delete,flag missing demographic
+V_GENDER_02,gender,GENDER_UNEXPECTED_CATEGORY,3817,3776,audit_flag_only_no_delete,ask mentor for codebook
+V_VERIFY_01,is_user_verified,VERIFICATION_MISSING,775,768,audit_flag_only_no_delete,flag missing verification
+V_VERIFY_02,is_user_verified,VERIFICATION_UNEXPECTED_CATEGORY,0,0,audit_flag_only_no_delete,ask mentor for codebook
+V_PROMO_01,is_promotion,PROMOTION_MISSING,11896,11768,audit_flag_only_no_delete,flag blank promotion until codebook confirms meaning
+V_PROMO_02,is_promotion,PROMOTION_UNEXPECTED_CATEGORY,0,0,audit_flag_only_no_delete,ask mentor for codebook
+V_PROMO_03,is_promotion,PRICE_100_PROMOTION_MISMATCH,0,0,audit_flag_only_no_delete,ask mentor whether price=100 defines promotion
+V_PRICE_01,price,PRICE_MISSING_OR_NON_NUMERIC,0,0,audit_flag_only_no_delete,ask mentor; price is core subscription field
+V_PRICE_02,price,PRICE_NEGATIVE,0,0,audit_flag_only_no_delete,ask mentor before exclusion
+V_CHURNPREVENT_01,is_churn_prevented,CHURN_PREVENTED_MISSING,19767,19634,audit_flag_only_no_delete,flag; do not use to correct target
+V_CHURNPREVENT_02,is_churn_prevented,CHURN_PREVENTED_UNEXPECTED_CATEGORY,0,0,audit_flag_only_no_delete,ask mentor for codebook
+V_PAYMENT_DEVICE_01,payment_device,PAYMENT_DEVICE_MISSING,0,0,audit_flag_only_no_delete,flag missing payment device
+V_PAYMENT_DEVICE_02,payment_device,PAYMENT_DEVICE_RARE,3,3,audit_flag_only_no_delete,rare category audit only
+V_BILLING_METHOD_01,billing_method,BILLING_METHOD_MISSING,0,0,audit_flag_only_no_delete,flag missing billing method
+V_BILLING_METHOD_02,billing_method,BILLING_METHOD_RARE,3,3,audit_flag_only_no_delete,rare category audit only

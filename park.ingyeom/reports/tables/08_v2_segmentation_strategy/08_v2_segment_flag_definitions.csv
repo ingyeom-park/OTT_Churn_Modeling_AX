@@ -1,0 +1,12 @@
+﻿segment_flag,definition,threshold_basis,target_used
+seg_top_decile_high_churn_risk,churn_risk_score top 10% within the evaluated population,risk score percentile,N
+seg_low_or_no_early_engagement,no watch flag or bottom-quartile total watch time/sessions,holdout Q25 usage,N
+seg_late_heavy_week3_intensive,week3 watch time top quartile,holdout Q75 usage,N
+seg_delayed_start,first_watch_rel_day top quartile among watchers,holdout Q75 usage,N
+seg_early_routine_stable,week1 ratio top quartile and first_watch_rel_day <= median,holdout usage quantiles,N
+seg_week2_surge_users,w2_minus_w1_watch_time top quartile,holdout Q75 usage,N
+seg_genre_affinity_thriller_crime,thriller/crime genre ratio top quartile and positive,holdout Q75 genre ratio,N
+seg_genre_affinity_animation_family,animation/family genre ratio top quartile and positive,holdout Q75 genre ratio,N
+seg_genre_affinity_drama,drama genre ratio top quartile and positive,holdout Q75 genre ratio,N
+seg_genre_affinity_action_adventure,action/adventure genre ratio top quartile and positive,holdout Q75 genre ratio,N
+seg_high_price_or_promotion_sensitive,"price top quartile, price == 100, or promotion flag",holdout price Q75 plus explicit promotion flags,N

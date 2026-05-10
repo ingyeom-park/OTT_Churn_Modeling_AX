@@ -1,0 +1,19 @@
+{
+  "scope": "Stage 05 modeling dataset construction only. No model training.",
+  "row_counts": {
+    "w1_3": 23933,
+    "w1_4": 23933
+  },
+  "target_column": "is_repurchase",
+  "metadata_columns": [
+    "membership_row_id",
+    "USER_KEY"
+  ],
+  "feature_set_count": 14,
+  "outputs": [
+    "park.ingyeom/reports/data/05_v2_modeling_dataset/modeling_dataset_v2_w1_3.csv",
+    "park.ingyeom/reports/data/05_v2_modeling_dataset/modeling_dataset_v2_w1_4.csv",
+    "park.ingyeom/reports/data/05_v2_modeling_dataset/feature_sets_v2.json",
+    "park.ingyeom/reports/data/05_v2_modeling_dataset/modeling_dataset_summary.json"
+  ]
+}

@@ -1,0 +1,11 @@
+﻿metric,count,note
+raw_View_History_rows,175301,Raw view logs.
+view_rows_with_movie_metadata_after_dedup,175301,After deduplicated Movie_Master lookup.
+view_rows_missing_movie_metadata_after_dedup,0,Should be zero if all viewed MOVIE_NUM values are covered.
+temporary_joined_membership_event_rows,177815,Audit-only expansion before aggregation to membership_row_id.
+attachment_count_0,149,Raw view row attachment count to retained membership_row_id.
+attachment_count_1,172839,Raw view row attachment count to retained membership_row_id.
+attachment_count_2,2088,Raw view row attachment count to retained membership_row_id.
+attachment_count_3,178,Raw view row attachment count to retained membership_row_id.
+attachment_count_4,21,Raw view row attachment count to retained membership_row_id.
+attachment_count_7,26,Raw view row attachment count to retained membership_row_id.

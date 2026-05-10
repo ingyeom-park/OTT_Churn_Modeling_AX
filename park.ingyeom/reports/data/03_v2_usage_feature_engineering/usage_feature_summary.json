@@ -1,0 +1,47 @@
+{
+  "scope": "Stage 03 usage feature engineering only.",
+  "membership_rows": 23933,
+  "raw_viewhistory_rows": 175301,
+  "temporary_joined_rows": 177815,
+  "windows": {
+    "w1_3": {
+      "start_rel_day": 0,
+      "end_rel_day": 20,
+      "rows": 23933
+    },
+    "w1_4": {
+      "start_rel_day": 0,
+      "end_rel_day": 27,
+      "rows": 23933
+    }
+  },
+  "data_outputs": [
+    "park.ingyeom/reports/data/03_v2_usage_feature_engineering/usage_features_v2_w1_3.csv",
+    "park.ingyeom/reports/data/03_v2_usage_feature_engineering/usage_features_v2_w1_4.csv",
+    "park.ingyeom/reports/data/03_v2_usage_feature_engineering/usage_feature_summary.json"
+  ],
+  "audit_outputs": [
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_usage_input_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_join_expansion_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_temporal_filter_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_window_row_count_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_no_watch_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_short_watch_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_usage_feature_numeric_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_usage_feature_missing_summary.csv",
+    "park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_final_checks.csv"
+  ],
+  "forbidden_feature_tokens": [
+    "USER_KEY",
+    "USER_NUM",
+    "MOVIE_NUM",
+    "reg_date",
+    "end_date",
+    "duration_days",
+    "watch_date",
+    "watch_day",
+    "is_repurchase",
+    "days_to_end",
+    "days_since_last_watch_to_end"
+  ]
+}

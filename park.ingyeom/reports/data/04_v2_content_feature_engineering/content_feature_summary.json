@@ -1,0 +1,36 @@
+{
+  "scope": "Stage 04 content feature engineering only.",
+  "allowed_movie_master_columns": [
+    "MOVIE_NUM",
+    "movie_title",
+    "ott_release_month",
+    "genre"
+  ],
+  "membership_rows": 23933,
+  "content_feature_rows": {
+    "w1_3": 23933,
+    "w1_4": 23933
+  },
+  "major_genres": [
+    "Drama",
+    "Thriller/Crime",
+    "SF/Fantasy",
+    "Action/Adventure",
+    "Animation/Family",
+    "Romance",
+    "Comedy",
+    "Historical/War",
+    "Horror",
+    "Other"
+  ],
+  "deduplication": {
+    "raw_rows": 14502,
+    "deduped_rows": 14018,
+    "genre_conflict_groups": 9
+  },
+  "data_outputs": [
+    "park.ingyeom/reports/data/04_v2_content_feature_engineering/content_features_v2_w1_3.csv",
+    "park.ingyeom/reports/data/04_v2_content_feature_engineering/content_features_v2_w1_4.csv",
+    "park.ingyeom/reports/data/04_v2_content_feature_engineering/content_feature_summary.json"
+  ]
+}

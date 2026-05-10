@@ -1,0 +1,173 @@
+{
+  "scope": "Stage 07r TRUE SHAP interpretation only. No segmentation or business simulation.",
+  "python_executable": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "shap_version": "0.51.0",
+  "true_shap_computed_primary": true,
+  "target_mapping": {
+    "Y": 1,
+    "N": 0
+  },
+  "score_direction": {
+    "repurchase_score": "P(is_repurchase = Y)",
+    "churn_risk_score": "1 - repurchase_score"
+  },
+  "primary_model": {
+    "role": "primary_conservative",
+    "window": "w1_3",
+    "feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+    "model_name": "HistGradientBoostingClassifier",
+    "timing_label": "early-observation"
+  },
+  "secondary_model": {
+    "role": "business_interpretable",
+    "window": "w1_3",
+    "feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+    "model_name": "LogisticRegression",
+    "timing_label": "early-observation"
+  },
+  "optional_late_period_shap_success": true,
+  "reconstruction_status": [
+    {
+      "role": "primary_conservative",
+      "window": "w1_3",
+      "feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+      "model_name": "HistGradientBoostingClassifier",
+      "timing_label": "early-observation",
+      "n_train": 19156,
+      "n_test": 4777,
+      "feature_count": 80,
+      "roc_auc_repurchase_rebuilt": 0.8704640371627193,
+      "average_precision_repurchase_rebuilt": 0.9429893996359336,
+      "average_precision_churn_risk_rebuilt": 0.7046106053253485,
+      "stage06_recorded_roc_auc": 0.8704640371627193,
+      "roc_auc_difference": 0.0,
+      "reconstruction_status": "PASS",
+      "reconstruction_note": "same Stage 06 split and fixed Stage 06 baseline hyperparameters"
+    },
+    {
+      "role": "business_interpretable",
+      "window": "w1_3",
+      "feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+      "model_name": "LogisticRegression",
+      "timing_label": "early-observation",
+      "n_train": 19156,
+      "n_test": 4777,
+      "feature_count": 80,
+      "roc_auc_repurchase_rebuilt": 0.841532812263766,
+      "average_precision_repurchase_rebuilt": 0.9278655973766161,
+      "average_precision_churn_risk_rebuilt": 0.65516830890339,
+      "stage06_recorded_roc_auc": 0.841532812263766,
+      "roc_auc_difference": 0.0,
+      "reconstruction_status": "PASS",
+      "reconstruction_note": "same Stage 06 split and fixed Stage 06 baseline hyperparameters"
+    },
+    {
+      "role": "optional_late_period",
+      "window": "w1_4",
+      "feature_set": "membership_plus_usage_content_w1_4_without_churn_prevented",
+      "model_name": "LGBMClassifier",
+      "timing_label": "late-period/end-of-period",
+      "n_train": 19156,
+      "n_test": 4777,
+      "feature_count": 85,
+      "roc_auc_repurchase_rebuilt": 0.9037410062390436,
+      "average_precision_repurchase_rebuilt": 0.9563479282288644,
+      "average_precision_churn_risk_rebuilt": 0.7669299908741294,
+      "stage06_recorded_roc_auc": 0.9037410062390436,
+      "roc_auc_difference": 0.0,
+      "reconstruction_status": "PASS",
+      "reconstruction_note": "same Stage 06 split and fixed Stage 06 baseline hyperparameters"
+    }
+  ],
+  "top10_shap_features": [
+    {
+      "original_feature": "w1_3_week3_watch_time",
+      "feature_family": "usage",
+      "mean_abs_shap": 0.6197008105835925
+    },
+    {
+      "original_feature": "w1_3_w2_minus_w1_watch_time",
+      "feature_family": "usage",
+      "mean_abs_shap": 0.26476309975935214
+    },
+    {
+      "original_feature": "w1_3_week1_ratio",
+      "feature_family": "usage",
+      "mean_abs_shap": 0.22719425575785251
+    },
+    {
+      "original_feature": "price",
+      "feature_family": "membership",
+      "mean_abs_shap": 0.19177054787244655
+    },
+    {
+      "original_feature": "w1_3_first_watch_rel_day",
+      "feature_family": "usage",
+      "mean_abs_shap": 0.17388802039053242
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_thriller_crime",
+      "feature_family": "genre",
+      "mean_abs_shap": 0.16492664676675522
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_animation_family",
+      "feature_family": "genre",
+      "mean_abs_shap": 0.1270533185837299
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_drama",
+      "feature_family": "genre",
+      "mean_abs_shap": 0.11367894726759088
+    },
+    {
+      "original_feature": "w1_3_genre_session_count_drama",
+      "feature_family": "genre",
+      "mean_abs_shap": 0.1099604910201125
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_action_adventure",
+      "feature_family": "genre",
+      "mean_abs_shap": 0.10949055717121109
+    }
+  ],
+  "top_feature_families": [
+    {
+      "model_role": "primary_conservative",
+      "window": "w1_3",
+      "model_name": "HistGradientBoostingClassifier",
+      "feature_family": "usage",
+      "mean_abs_shap": 2.154410395235807
+    },
+    {
+      "model_role": "primary_conservative",
+      "window": "w1_3",
+      "model_name": "HistGradientBoostingClassifier",
+      "feature_family": "genre",
+      "mean_abs_shap": 1.3469949306328584
+    },
+    {
+      "model_role": "primary_conservative",
+      "window": "w1_3",
+      "model_name": "HistGradientBoostingClassifier",
+      "feature_family": "membership",
+      "mean_abs_shap": 0.34020614087691914
+    },
+    {
+      "model_role": "primary_conservative",
+      "window": "w1_3",
+      "model_name": "HistGradientBoostingClassifier",
+      "feature_family": "release_month",
+      "mean_abs_shap": 0.040567790355534775
+    },
+    {
+      "model_role": "primary_conservative",
+      "window": "w1_3",
+      "model_name": "HistGradientBoostingClassifier",
+      "feature_family": "content",
+      "mean_abs_shap": 0.0043108254555931005
+    }
+  ],
+  "stage07_fallback_superseded": true
+}

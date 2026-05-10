@@ -1,0 +1,8 @@
+﻿issue,source_stage,conflicting_statement_or_risk,severity,recommended_fix,final_wording
+Stage 07 fallback vs Stage 07r TRUE SHAP,07/07r,Team may accidentally use fallback permutation/coefficient outputs as final XAI.,high,Use Stage 07r only; keep Stage 07 as audit trail.,최종 XAI 근거는 Stage 07r TRUE SHAP이며 Stage 07은 fallback 감사 기록이다.
+w1_4 timing,06/07r,w1_4 has highest AUC but uses later behavior.,high,Label w1_4 late-period/end-of-period; use w1_3 for timing-defensible model.,"w1_3은 조기 관측에 가까운 모델이고, w1_4는 late-period 비교 모델이다."
+repurchase score vs churn risk score,06/08/09,High repurchase_score could be mistaken as high churn risk.,high,Always state churn_risk_score = 1 - repurchase_score.,높은 churn_risk_score가 높은 비재구독 예측 위험을 뜻한다.
+stable segment naming,08/08b,Stage 08 early_routine_stable name conflicted with elevated churn.,medium,Use Stage 08b refined/pruned segments only.,최종 세그먼트는 Stage 08b 정제 버전을 사용한다.
+financial impact,09,Scenario retained-user outputs may be read as ROI/profit.,high,Block ROI/profit until real cost and margin are supplied.,Stage 09는 retained-user scenario이며 비용과 마진 없이는 ROI를 말하지 않는다.
+causal wording,07r/08b/09,SHAP and segmentation may be overstated as intervention effect.,high,Use predictive/descriptive wording and A/B test requirement.,추천 액션의 인과효과는 별도 A/B test가 필요하다.
+content metadata overclaim,04/07r,v2 Movie_Master only supports genre and ott_release_month proxies.,medium,Do not mention country/rating/runtime/actor/director/Wavve/KOBIS metadata.,콘텐츠 설명은 genre와 ott_release_month 기반 proxy로 제한한다.

@@ -1,0 +1,12 @@
+﻿item,value
+python_version,"3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+platform,Windows-10-10.0.26200-SP0
+sklearn_version,1.8.0
+pandas_version,3.0.1
+numpy_version,2.3.5
+matplotlib_version,3.10.8
+project_root,C:\Code\Github Repository\ott-churn-prediction
+run_timestamp,2026-05-10T23:42:12
+xgboost_version,3.2.0
+lightgbm_version,4.6.0
+onehot_sparse_parameter,sparse_output

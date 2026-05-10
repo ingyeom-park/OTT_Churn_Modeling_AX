@@ -1,0 +1,5 @@
+﻿window,metric,value,count,note
+w1_3,major_genres,Drama|Thriller/Crime|SF/Fantasy|Action/Adventure|Animation/Family|Romance|Comedy|Historical/War|Horror|Other,10,Top genres selected by w1_4 watch time among included logs.
+w1_3,rows_with_nonempty_top_genre,,22435,Membership rows with at least one genre-covered watch.
+w1_4,major_genres,Drama|Thriller/Crime|SF/Fantasy|Action/Adventure|Animation/Family|Romance|Comedy|Historical/War|Horror|Other,10,Top genres selected by w1_4 watch time among included logs.
+w1_4,rows_with_nonempty_top_genre,,23749,Membership rows with at least one genre-covered watch.

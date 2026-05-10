@@ -1,0 +1,4 @@
+﻿input_name,path,row_count,column_count,role
+membership_v2_preprocessed,park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv,23933,23,Stage 02 retained Membership events
+usermapping_v2_policy_checked,park.ingyeom/reports/data/02_v2_preprocessing_policy/usermapping_v2_policy_checked.csv,26366,7,USER_KEY to USER_NUM mapping for audit aggregation
+View_History,_data/01_raw/View_History.csv,175301,5,Raw view logs

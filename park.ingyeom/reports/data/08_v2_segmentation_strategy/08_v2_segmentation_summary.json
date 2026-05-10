@@ -1,0 +1,160 @@
+{
+  "scope": "Stage 08 segmentation strategy only. No business simulation.",
+  "primary_model": "HistGradientBoostingClassifier",
+  "primary_window": "w1_3",
+  "primary_feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+  "score_direction": {
+    "repurchase_score": "P(is_repurchase=Y)",
+    "churn_risk_score": "1 - repurchase_score"
+  },
+  "stage07r_true_shap_used": true,
+  "stage07_fallback_used_as_final_evidence": false,
+  "holdout_rows": 4777,
+  "full_descriptive_rows": 23933,
+  "risk_band_holdout": [
+    {
+      "population": "holdout",
+      "risk_band": "bottom_40_lowest_risk",
+      "n": 1910,
+      "share": 0.3998325308771195,
+      "repurchase_rate": 0.9664921465968587,
+      "churn_rate": 0.033507853403141365,
+      "lift_vs_overall_churn_rate": 0.11675201729161656,
+      "captured_churners": 64,
+      "churner_capture_rate": 0.046681254558716266,
+      "avg_repurchase_score": 0.9494092785856316,
+      "avg_churn_risk_score": 0.05059072141436833,
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "risk_band": "risk_10_30",
+      "n": 956,
+      "share": 0.20012560184216036,
+      "repurchase_rate": 0.4089958158995816,
+      "churn_rate": 0.5910041841004184,
+      "lift_vs_overall_churn_rate": 2.0592465262200577,
+      "captured_churners": 565,
+      "churner_capture_rate": 0.41210795040116704,
+      "avg_repurchase_score": 0.4468223486674136,
+      "avg_churn_risk_score": 0.5531776513325863,
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "risk_band": "risk_30_60",
+      "n": 1433,
+      "share": 0.29997906635963995,
+      "repurchase_rate": 0.743893928820656,
+      "churn_rate": 0.25610607117934403,
+      "lift_vs_overall_churn_rate": 0.8923549978291222,
+      "captured_churners": 367,
+      "churner_capture_rate": 0.26768781911013856,
+      "avg_repurchase_score": 0.7519869141727819,
+      "avg_churn_risk_score": 0.24801308582721804,
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "risk_band": "top_10_highest_risk",
+      "n": 478,
+      "share": 0.10006280092108018,
+      "repurchase_rate": 0.21548117154811716,
+      "churn_rate": 0.7845188284518828,
+      "lift_vs_overall_churn_rate": 2.733513087902731,
+      "captured_churners": 375,
+      "churner_capture_rate": 0.2735229759299781,
+      "avg_repurchase_score": 0.2244546360358832,
+      "avg_churn_risk_score": 0.7755453639641167,
+      "descriptive_only": "N"
+    }
+  ],
+  "validation_passes": [
+    {
+      "pass_no": 1,
+      "pass_name": "initial_segment_definitions_and_thresholds",
+      "status": "completed",
+      "note": "Quantile thresholds created without target labels."
+    },
+    {
+      "pass_no": 2,
+      "pass_name": "overlap_hierarchy_threshold_stability",
+      "status": "completed",
+      "note": "Overlap matrix and hierarchy assignment created; quantile thresholds recorded."
+    },
+    {
+      "pass_no": 3,
+      "pass_name": "segment_eval_holdout_and_full_descriptive",
+      "status": "completed",
+      "note": "Holdout-first evaluation and full descriptive profiles created."
+    },
+    {
+      "pass_no": 4,
+      "pass_name": "map_segments_to_stage07r_true_shap",
+      "status": "completed",
+      "note": "All action segments mapped to Stage 07r true SHAP families; Stage 07 fallback not used."
+    },
+    {
+      "pass_no": 5,
+      "pass_name": "action_recommendations_and_readiness",
+      "status": "completed",
+      "note": "Each action mapped to evidence; weak mappings marked."
+    },
+    {
+      "pass_no": 6,
+      "pass_name": "leakage_small_segment_overlap_internal_critique",
+      "status": "completed",
+      "note": "Small n, overlap, threshold arbitrariness, weak actions, and presentation readiness reviewed."
+    },
+    {
+      "pass_no": 7,
+      "pass_name": "team_share_tables_and_figures",
+      "status": "completed",
+      "note": "Team-share-ready figures, report, and summary generated."
+    }
+  ],
+  "internal_critique": {
+    "segments_n_lt_100_holdout": [
+      "early_routine_stable",
+      "general_other",
+      "week2_surge_users"
+    ],
+    "high_overlap_pairs": [
+      "seg_low_or_no_early_engagement x seg_top_decile_high_churn_risk: 0.80",
+      "seg_delayed_start x seg_high_price_or_promotion_sensitive: 0.82",
+      "seg_early_routine_stable x seg_high_price_or_promotion_sensitive: 0.81",
+      "seg_genre_affinity_thriller_crime x seg_high_price_or_promotion_sensitive: 0.81",
+      "seg_genre_affinity_animation_family x seg_high_price_or_promotion_sensitive: 0.80",
+      "seg_genre_affinity_drama x seg_high_price_or_promotion_sensitive: 0.81",
+      "seg_genre_affinity_action_adventure x seg_high_price_or_promotion_sensitive: 0.79",
+      "seg_high_price_or_promotion_sensitive x seg_top_decile_high_churn_risk: 0.88",
+      "seg_high_price_or_promotion_sensitive x seg_low_or_no_early_engagement: 0.81",
+      "seg_high_price_or_promotion_sensitive x seg_late_heavy_week3_intensive: 0.79",
+      "seg_high_price_or_promotion_sensitive x seg_week2_surge_users: 0.80"
+    ],
+    "threshold_notes": [
+      "All thresholds are quantile-based, but quartile cutoffs are still heuristic business rules.",
+      "Risk bands are percentile bands and should not be interpreted as calibrated probability tiers."
+    ],
+    "weak_actions": [
+      "general_other"
+    ],
+    "presentation_ready_segments": [
+      "top_decile_high_churn_risk",
+      "low_or_no_early_engagement",
+      "late_heavy_week3_intensive",
+      "delayed_start",
+      "genre_affinity_thriller_crime",
+      "genre_affinity_animation_family",
+      "genre_affinity_drama",
+      "genre_affinity_action_adventure",
+      "early_routine_stable",
+      "high_price_or_promotion_sensitive",
+      "week2_surge_users"
+    ],
+    "exclude_from_final_reporting": [
+      "general_other"
+    ]
+  },
+  "stage09_guidance": "Use holdout segment sizes, churn rates, and proposed actions as inputs to business simulation; do not calculate financial impact in Stage 08."
+}

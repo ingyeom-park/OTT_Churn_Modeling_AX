@@ -1,0 +1,6 @@
+﻿model_role,window,model_name,feature_family,mean_abs_shap_or_fallback_importance
+primary_conservative,w1_3,HistGradientBoostingClassifier,usage,0.15772710000000142
+primary_conservative,w1_3,HistGradientBoostingClassifier,genre,0.06080170000000191
+primary_conservative,w1_3,HistGradientBoostingClassifier,membership,0.01192540000000053
+primary_conservative,w1_3,HistGradientBoostingClassifier,release_month,0.0003400000000002734
+primary_conservative,w1_3,HistGradientBoostingClassifier,content,0.0001683000000000545

@@ -1,0 +1,6 @@
+﻿feature_family,early_w1_3_mean_abs_shap,late_w1_4_mean_abs_shap,late_minus_early,interpretation
+content,0.0043108254555931005,0.003686480051651496,-0.0006243454039416047,w1_4 is late-period/end-of-period and must not be presented as early-warning.
+genre,1.3469949306328584,1.5198402843971814,0.17284535376432308,w1_4 is late-period/end-of-period and must not be presented as early-warning.
+membership,0.34020614087691914,0.3577640616619766,0.017557920785057468,w1_4 is late-period/end-of-period and must not be presented as early-warning.
+release_month,0.040567790355534775,0.042360556932199,0.0017927665766642245,w1_4 is late-period/end-of-period and must not be presented as early-warning.
+usage,2.154410395235807,2.3447726188177813,0.1903622235819742,w1_4 is late-period/end-of-period and must not be presented as early-warning.
