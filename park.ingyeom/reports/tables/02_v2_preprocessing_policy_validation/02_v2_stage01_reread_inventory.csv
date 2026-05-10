@@ -1,0 +1,16 @@
+﻿relative_path,exists,file_size_bytes,last_write_time,role
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_raw_file_inventory.csv,True,1823,2026-05-10T01:41:05.181257,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_schema_summary.csv,True,7062,2026-05-10T01:41:05.182761,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_duplicate_audit.csv,True,677,2026-05-10T01:41:05.185270,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_target_conflict_rows.csv,True,15368,2026-05-10T01:41:05.186271,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_duration_distribution.csv,True,428,2026-05-10T01:41:05.187271,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_value_anomaly_summary.csv,True,956,2026-05-10T01:41:05.188273,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_usermapping_cardinality_audit.csv,True,10668,2026-05-10T01:41:05.189273,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_membership_view_temporal_audit.csv,True,1375,2026-05-10T01:41:05.190274,stage01_input_reference
+park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_join_expansion_summary.csv,True,8703,2026-05-10T01:54:20.465006,stage01_input_reference
+park.ingyeom/reports/data/01_v2_data_overview_and_audit/01_v2_data_audit_report.md,True,6082,2026-05-10T01:54:20.466017,stage01_input_reference
+park.ingyeom/reports/data/01_v2_data_overview_and_audit/01_v2_audit_summary.json,True,3287,2026-05-10T01:54:20.465006,stage01_input_reference
+_data/01_raw/Membership.csv,True,4505958,2026-05-08T22:59:14.687067,active_v2_raw_truth
+_data/01_raw/User_Mapping.csv,True,3576038,2026-05-08T22:59:33.205055,active_v2_raw_truth
+_data/01_raw/View_History.csv,True,4498990,2026-05-08T22:59:41.873311,active_v2_raw_truth
+_data/01_raw/Movie_Master.csv,True,636505,2026-05-08T22:59:25.391180,active_v2_raw_truth

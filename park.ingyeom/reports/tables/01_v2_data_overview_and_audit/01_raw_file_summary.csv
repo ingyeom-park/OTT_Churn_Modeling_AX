@@ -1,0 +1,5 @@
+﻿dataset,relative_path,file_size_bytes,row_count,column_count,columns
+Membership,_data/01_raw/Membership.csv,4505958,24074,15,USER_KEY|product_code|price|billing_method|max_screen|is_promotion|is_churn_prevented|payment_device|is_user_verified|gender|age|reg_date|reg_hour|end_date|is_repurchase
+User_Mapping,_data/01_raw/User_Mapping.csv,3576038,26366,2,USER_KEY|USER_NUM
+View_History,_data/01_raw/View_History.csv,4498990,175301,5,USER_NUM|MOVIE_NUM|watch_time(min)|watch_day|watch_seq
+Movie_Master,_data/01_raw/Movie_Master.csv,636505,14502,4,MOVIE_NUM|movie_title|ott_release_month|genre

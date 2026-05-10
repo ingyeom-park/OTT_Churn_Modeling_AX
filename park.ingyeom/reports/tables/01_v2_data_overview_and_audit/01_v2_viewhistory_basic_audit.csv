@@ -1,0 +1,18 @@
+﻿section,metric,value,count,note
+summary,row_count,all,175301,Audit only.
+summary,USER_NUM_cardinality,unique_USER_NUM,23720,Identifier only.
+summary,MOVIE_NUM_cardinality,unique_MOVIE_NUM,5411,Identifier only.
+watch_day,watch_day_range,2021-03-01 to 2021-04-12,175301,Parsed from YYYYMMDD.
+watch_time,min,1.0,,watch_time(min).
+watch_time,max,200.0,,watch_time(min).
+watch_time,mean,44.511115,,watch_time(min).
+watch_time,median,24.0,,watch_time(min).
+watch_time,p01,1.0,,watch_time(min).
+watch_time,p05,1.0,,watch_time(min).
+watch_time,p25,2.0,,watch_time(min).
+watch_time,p75,85.0,,watch_time(min).
+watch_time,p95,130.0,,watch_time(min).
+watch_time,p99,179.0,,watch_time(min).
+watch_time,watch_time_le_0_count,<=0,0,Do not delete here.
+watch_time,watch_time_eq_1_count,1,38667,Very short watch candidate.
+watch_time,watch_time_le_5_count,<=5,56911,Very short watch candidate.

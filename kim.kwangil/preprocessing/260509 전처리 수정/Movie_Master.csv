@@ -1,4 +1,4 @@
-﻿MOVIE_ID,TITLE,RELEASE_MONTH,Category
+﻿MOVIE_NUM,movie_title,ott_release_month,genre
 0,걸어서하늘까지(1992),202103,Romance
 1,너와극장에서,201807,Drama
 2,가려진시간[가치봄],202010,SF/Fantasy
@@ -10888,7 +10888,7 @@
 10948,레디액션청춘,201411,Drama
 10949,더캡틴,201904,Historical/War
 10951,멕시칸잡,201705,Action/Adventure
-10952,2:22,201905,Romance
+10952,02:22,201905,Romance
 10953,아들에게가는길,201712,Animation/Family
 10953,아들에게가는길,201712,Animation/Family
 10954,아인,201804,Drama

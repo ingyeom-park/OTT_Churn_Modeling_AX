@@ -1,0 +1,9 @@
+﻿check,status,detail
+raw_files_found,PASS,All expected files under _data/01_raw found.
+no_raw_files_modified,PASS,Raw file size and mtime unchanged during notebook execution.
+all_required_csvs_created,PASS,All required CSV outputs except final_checks exist before final_checks write.
+target_conflict_audit_created,PASS,strict_conflict_groups=35
+duration_distribution_created,PASS,duration_groups=21
+temporal_audit_created,PASS,end_date inclusiveness labeled unresolved.
+MovieMaster_duplicate_audit_created,PASS,duplicate_MOVIE_NUM_count=380
+markdown_report_created,PASS,park.ingyeom/reports/data/01_v2_data_overview_and_audit/01_v2_data_audit_report.md

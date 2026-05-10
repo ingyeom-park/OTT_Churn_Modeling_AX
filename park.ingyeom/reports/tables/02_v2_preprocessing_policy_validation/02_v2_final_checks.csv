@@ -1,0 +1,16 @@
+﻿check,status,detail
+stage01_outputs_reread,PASS,checked=11
+raw_files_unchanged,PASS,raw file size and mtime unchanged
+no_interim_dataset_created,PASS,Stage 02 validation writes reports only
+no_usage_features_created,PASS,No usage feature table is written
+no_model_trained,PASS,No modeling library or training routine is used
+strict_target_conflicts_validated,PASS,groups=35
+duration_policies_compared,PASS,policies=4
+join_expansion_recomputed,PASS,policies=6
+decision_matrix_created,PASS,rules=25
+decision_values_are_allowed,PASS,allowed=apply|flag|keep|defer|ask_mentor
+candidate_and_applied_rules_separated,PASS,applied scope guard is separate from candidate preprocessing rules
+every_candidate_row_exclusion_has_reason_code,PASS,candidate_reason_rows=144
+all_required_outputs_created,PASS,required_csvs=18
+markdown_report_created,PASS,park.ingyeom/reports/data/02_v2_preprocessing_policy_validation/02_v2_preprocessing_policy_validation_report.md
+json_summary_created,PASS,park.ingyeom/reports/data/02_v2_preprocessing_policy_validation/02_v2_policy_validation_summary.json

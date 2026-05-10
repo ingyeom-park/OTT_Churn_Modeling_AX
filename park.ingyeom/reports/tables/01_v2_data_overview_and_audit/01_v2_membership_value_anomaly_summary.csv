@@ -1,0 +1,13 @@
+﻿section,metric,count,rate,note
+max_screen,missing_or_non_numeric,84,0.003489,Audit only.
+max_screen,outside_1_to_4,0,0.0,Potential invalid/rare values; do not correct here.
+max_screen,rare_or_invalid_value_3,9,0.000374,"Rare threshold: <=0.1% or <=5 rows, or outside expected 1-4."
+age,missing_or_non_numeric,207,0.008598,Audit only.
+age,obvious_invalid_age_lt_0,0,0.0,Obvious invalid candidate.
+age,obvious_invalid_age_gt_100,2,8.3e-05,Obvious invalid candidate.
+gender,missing,207,0.008598,Audit only.
+gender,not_M_or_F,3817,0.158553,Unexpected category candidate.
+is_user_verified,missing,775,0.032192,Audit only.
+is_user_verified,not_Y_or_N,0,0.0,Unexpected category candidate.
+gender_is_user_verified_age,any_missing_in_combo,775,0.032192,Suspicious combination candidate: at least one of gender/is_user_verified/age is missing.
+gender_is_user_verified_age,combo_gender=|verified=|age=,207,0.008598,Top suspicious missing combination.

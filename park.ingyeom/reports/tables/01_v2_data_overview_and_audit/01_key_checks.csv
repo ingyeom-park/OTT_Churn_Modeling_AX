@@ -1,0 +1,7 @@
+﻿dataset,column,row_count,unique_count,duplicate_key_count,duplicate_extra_row_count,missing_count
+Membership,USER_KEY,24074,23679,261,395,0
+User_Mapping,USER_KEY,26366,26315,50,51,0
+User_Mapping,USER_NUM,26366,26366,0,0,0
+View_History,USER_NUM,175301,23720,21027,151581,0
+View_History,MOVIE_NUM,175301,5411,4409,169890,0
+Movie_Master,MOVIE_NUM,14502,14018,380,484,0

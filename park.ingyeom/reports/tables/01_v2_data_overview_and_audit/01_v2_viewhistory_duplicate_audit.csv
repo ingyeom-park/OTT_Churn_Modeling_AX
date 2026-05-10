@@ -1,0 +1,4 @@
+﻿audit_item,definition,group_count,row_count,extra_row_count,recommendation
+exact_duplicate_view_rows,all View_History columns identical,4014,8721,4707,Classify and count only.
+duplicate_like_by_user_movie_day_seq,"USER_NUM, MOVIE_NUM, watch_day, watch_seq identical",5702,12428,6726,Classify and count only.
+repeated_same_user_same_movie_same_day_logs,"USER_NUM, MOVIE_NUM, watch_day identical",23712,54356,30644,May represent multiple sessions; do not delete without policy.

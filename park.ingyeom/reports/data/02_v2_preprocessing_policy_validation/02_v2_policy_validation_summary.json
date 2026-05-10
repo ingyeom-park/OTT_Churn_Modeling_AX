@@ -1,0 +1,94 @@
+{
+  "scope": "Stage 02 preprocessing policy validation only; no preprocessing dataset created.",
+  "raw_row_counts": {
+    "Membership": 24074,
+    "User_Mapping": 26366,
+    "View_History": 175301,
+    "Movie_Master": 14502
+  },
+  "strict_target_conflict_groups": 35,
+  "strict_target_conflict_rows": 73,
+  "exact_duplicate_groups": 67,
+  "core_event_ambiguous_groups": 35,
+  "duration_policy_count": 4,
+  "decision_rule_count": 25,
+  "candidate_row_exclusion_reason_rows": 144,
+  "all_candidate_row_exclusions_have_reason_code": true,
+  "final_checks": [
+    {
+      "check": "stage01_outputs_reread",
+      "status": "PASS",
+      "detail": "checked=11"
+    },
+    {
+      "check": "raw_files_unchanged",
+      "status": "PASS",
+      "detail": "raw file size and mtime unchanged"
+    },
+    {
+      "check": "no_interim_dataset_created",
+      "status": "PASS",
+      "detail": "Stage 02 validation writes reports only"
+    },
+    {
+      "check": "no_usage_features_created",
+      "status": "PASS",
+      "detail": "No usage feature table is written"
+    },
+    {
+      "check": "no_model_trained",
+      "status": "PASS",
+      "detail": "No modeling library or training routine is used"
+    },
+    {
+      "check": "strict_target_conflicts_validated",
+      "status": "PASS",
+      "detail": "groups=35"
+    },
+    {
+      "check": "duration_policies_compared",
+      "status": "PASS",
+      "detail": "policies=4"
+    },
+    {
+      "check": "join_expansion_recomputed",
+      "status": "PASS",
+      "detail": "policies=6"
+    },
+    {
+      "check": "decision_matrix_created",
+      "status": "PASS",
+      "detail": "rules=25"
+    },
+    {
+      "check": "decision_values_are_allowed",
+      "status": "PASS",
+      "detail": "allowed=apply|flag|keep|defer|ask_mentor"
+    },
+    {
+      "check": "candidate_and_applied_rules_separated",
+      "status": "PASS",
+      "detail": "applied scope guard is separate from candidate preprocessing rules"
+    },
+    {
+      "check": "every_candidate_row_exclusion_has_reason_code",
+      "status": "PASS",
+      "detail": "candidate_reason_rows=144"
+    },
+    {
+      "check": "all_required_outputs_created",
+      "status": "PASS",
+      "detail": "required_csvs=18"
+    },
+    {
+      "check": "markdown_report_created",
+      "status": "PASS",
+      "detail": "park.ingyeom/reports/data/02_v2_preprocessing_policy_validation/02_v2_preprocessing_policy_validation_report.md"
+    },
+    {
+      "check": "json_summary_created",
+      "status": "PASS",
+      "detail": "park.ingyeom/reports/data/02_v2_preprocessing_policy_validation/02_v2_policy_validation_summary.json"
+    }
+  ]
+}

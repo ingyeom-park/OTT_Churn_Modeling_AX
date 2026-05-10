@@ -1,0 +1,5 @@
+﻿audit_item,definition,group_count,row_count,extra_row_count,recommendation
+exact_duplicate_rows,all Membership columns identical,67,138,71,Audit before any deduplication.
+duplicate_rows_excluding_is_repurchase,all non-target fields identical,99,205,106,Only rows with conflicting target require special label-policy review.
+target_conflict_groups_strict,all non-target fields identical but is_repurchase differs,35,73,,Do not choose Y or N for performance. Exclude or flag until business rule is documented.
+core_event_conflict_groups,"core subscription fields identical, target or secondary attributes differ",35,73,,Review as ambiguous subscription-event candidates.

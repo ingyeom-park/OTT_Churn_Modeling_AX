@@ -1,0 +1,16 @@
+﻿rule_id,field,reason_code,affected_rows,affected_rate,decision_candidate,recommendation
+R_AGE_01,age,AGE_MISSING_OR_NON_NUMERIC,207,0.008598,flag,flag; do not impute silently
+R_AGE_02,age,AGE_OUTSIDE_0_100,2,8.3e-05,ask_mentor,ask mentor if age range is encoded or true age
+R_SCREEN_01,max_screen,MAX_SCREEN_MISSING_OR_NON_NUMERIC,84,0.003489,flag,flag; do not impute silently
+R_SCREEN_02,max_screen,MAX_SCREEN_OUTSIDE_EXPECTED_1_4,0,0.0,ask_mentor,ask mentor whether values outside 1-4 are valid products
+R_GENDER_01,gender,GENDER_MISSING,207,0.008598,flag,flag missing demographic; do not exclude by default
+R_GENDER_02,gender,GENDER_UNEXPECTED_CATEGORY,3817,0.158553,ask_mentor,ask mentor for codebook
+R_VERIFY_01,is_user_verified,VERIFICATION_MISSING,775,0.032192,flag,flag missing verification; do not exclude by default
+R_VERIFY_02,is_user_verified,VERIFICATION_UNEXPECTED_CATEGORY,0,0.0,ask_mentor,ask mentor for codebook
+R_PRICE_01,price,PRICE_MISSING_OR_NON_NUMERIC,0,0.0,ask_mentor,ask mentor; price is likely core subscription field
+R_PRICE_02,price,PRICE_NEGATIVE,0,0.0,ask_mentor,ask mentor before excluding
+R_PROMO_01,is_promotion,PROMOTION_MISSING,11896,0.494143,flag,flag as non-explicit promotion status until codebook confirms blank meaning
+R_PROMO_02,is_promotion,PROMOTION_UNEXPECTED_CATEGORY,0,0.0,ask_mentor,ask mentor for codebook
+R_PROMO_03,is_promotion,PRICE_100_PROMOTION_MISMATCH,0,0.0,ask_mentor,ask mentor whether price=100 defines promotion
+R_CHURNPREVENT_01,is_churn_prevented,CHURN_PREVENTED_MISSING,19767,0.821093,flag,flag; do not use to correct target without business rule
+R_CHURNPREVENT_02,is_churn_prevented,CHURN_PREVENTED_UNEXPECTED_CATEGORY,0,0.0,ask_mentor,ask mentor for codebook

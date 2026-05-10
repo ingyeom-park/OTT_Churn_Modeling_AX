@@ -1,0 +1,145 @@
+﻿membership_row_id,reason_code,source_rule_id,severity,detail
+709,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+710,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+1362,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+1363,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+3218,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+3219,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+3414,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+3415,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+4101,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+4102,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+4474,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+4475,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+4729,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+4730,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+5863,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+5864,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6068,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6069,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6073,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6074,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6389,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6390,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6872,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6873,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6972,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6973,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6981,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+6982,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+7131,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+7132,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+7206,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+7207,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9181,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9182,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9199,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9200,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9516,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9517,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9629,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+9630,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+10231,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+10232,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12298,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12299,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12549,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12550,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12831,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12832,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12902,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+12903,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13730,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13731,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13733,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13734,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13735,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13774,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13775,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13834,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13835,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13907,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+13908,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14050,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14051,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14052,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14468,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14469,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14470,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14933,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+14934,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+15037,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+15038,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+15909,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+15910,STRICT_TARGET_CONFLICT,R_LABEL_01,exclude_candidate,All non-target Membership fields are identical but is_repurchase differs.
+49,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+649,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+769,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+1110,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+1338,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+1719,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+1749,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+1907,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+1972,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+2029,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+2245,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+3367,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+4881,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+5193,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+5607,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+5777,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+5838,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+6369,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+6604,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7183,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7184,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7319,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7458,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7598,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7623,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7752,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+7784,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+8548,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+8788,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+8847,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+9228,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+9337,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+9366,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+9462,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+9561,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+9876,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+10285,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+10693,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+10694,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+10760,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+10761,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+11494,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+11650,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+12035,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+12483,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+12655,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+12767,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+13376,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+13377,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+13735,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+14052,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+14224,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+14381,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+14470,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+14644,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+15756,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+15893,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+16066,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+16681,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+17575,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+17839,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+19216,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+19418,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+19535,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+19802,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+20156,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+21697,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+22107,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+22322,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+22630,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
+23059,EXACT_DUPLICATE_EXTRA_ROW,R_DUP_01,deduplicate_candidate,Exact duplicate extra row after retaining first observed row within duplicate group.
