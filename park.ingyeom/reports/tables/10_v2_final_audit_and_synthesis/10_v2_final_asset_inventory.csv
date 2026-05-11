@@ -1,0 +1,5 @@
+﻿asset_group,asset,path,use_in_presentation,caution
+XAI,TRUE SHAP team summary,park.ingyeom/reports/data/07r_v2_true_shap_interpretation/07r_team_share_summary.md,Y,"Use Stage 07r, not Stage 07 fallback."
+XAI,red-blue SHAP beeswarm,park.ingyeom/reports/figures/07r_v2_true_shap_interpretation/07r_shap_beeswarm_red_blue_conservative_w1_3.png,Y,"Positive SHAP is toward repurchase_score, not churn_risk_score."
+Segmentation,08b final segment summary,park.ingyeom/reports/data/08b_v2_segmentation_refinement/08b_team_share_final_segment_summary.md,Y,"Use Stage 08b refined segments, not raw Stage 08 exploratory hierarchy."
+Simulation,09 scenario simulation team summary,park.ingyeom/reports/data/09_v2_business_simulation/09_v2_team_share_business_simulation_summary.md,Y,Scenario only; no ROI or causal effect claim.

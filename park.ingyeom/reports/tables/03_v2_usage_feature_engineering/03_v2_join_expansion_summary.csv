@@ -1,0 +1,12 @@
+﻿metric,count,ratio,note
+raw_View_History_rows,175301,1.0,Raw rows before temporary join expansion.
+temporary_joined_rows,177815,1.014341,Membership-event-level temporary rows used only for aggregation.
+expansion_rows,2514,0.014341,temporary_joined_rows - raw_View_History_rows.
+raw_view_rows_attached_to_multiple_memberships,2313,0.013194,"Allowed temporarily, then aggregated back to membership_row_id."
+raw_view_rows_with_no_membership_attachment,149,0.00085,Raw logs not attached to retained Membership rows.
+attachment_count_0,149,0.00085,Number of membership_row_id attachments per raw view row.
+attachment_count_1,172839,0.985956,Number of membership_row_id attachments per raw view row.
+attachment_count_2,2088,0.011911,Number of membership_row_id attachments per raw view row.
+attachment_count_3,178,0.001015,Number of membership_row_id attachments per raw view row.
+attachment_count_4,21,0.00012,Number of membership_row_id attachments per raw view row.
+attachment_count_7,26,0.000148,Number of membership_row_id attachments per raw view row.

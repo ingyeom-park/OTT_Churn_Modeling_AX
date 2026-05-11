@@ -1,0 +1,17 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 09 writes only under park.ingyeom/reports
+stage01_through_stage08b_outputs_not_overwritten,PASS,Stage 01-08b snapshots unchanged
+stage07r_true_shap_used_as_xai_basis,PASS,Stage 07r TRUE SHAP tables read
+stage07_fallback_not_used_as_final_evidence,PASS,No Stage 07 fallback files read
+no_model_training_performed,PASS,No model libraries or fit calls used
+no_shap_run,PASS,No shap import or computation used
+no_optuna_run,PASS,No Optuna import or tuning used
+no_segmentation_redefinition_beyond_stage08b_final_segments,PASS,genre_affinity_content_recommendation_pool|late_week3_engaged_retention_candidate|low_risk_or_general_maintenance|risk_10_30_low_engagement|risk_10_30_other_review|top_decile_high_churn_risk
+financial_impact_not_claimed_without_cost_margin,PASS,cost/margin blank; financial outputs marked assumption_required
+lift_response_cost_margin_values_labeled_assumptions,PASS,editable_placeholder_assumption_not_fact
+low_base_high_scenarios_created,PASS,base|high|low
+portfolio_scenarios_created,PASS,broad_risk|high_risk_only|high_risk_plus_low_engagement|maintenance_light
+internal_critique_created,PASS,report contains required section
+final_report_and_team_share_summary_created,PASS,report and team-share summary
+all_required_outputs_created,PASS,all required outputs exist

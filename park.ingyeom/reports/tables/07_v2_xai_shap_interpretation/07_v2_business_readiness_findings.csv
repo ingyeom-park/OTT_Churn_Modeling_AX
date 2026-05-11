@@ -1,0 +1,7 @@
+﻿classification,finding,claim_boundary
+safe_to_report,Stage 06 split was reused; no train/test USER_KEY overlap; target mapping Y=1/N=0 was preserved.,"Report as validation of interpretation setup, not as causal proof."
+safe_to_report,The conservative w1_3 model reconstruction matched Stage 06 within tolerance.,Report as reproducible model explanation basis.
+plausible_but_cautioned,Usage and content proxy features dominate importance in the conservative model.,Treat as predictive association; review business timing before intervention claims.
+plausible_but_cautioned,Content features are genre and ott_release_month-derived proxies only.,"Do not imply country, rating, runtime, actor, director, Wavve, or KOBIS metadata."
+do_not_claim_yet,"SHAP package is unavailable, so fallback permutation importance was used.",Do not call fallback tables true SHAP values.
+do_not_claim_yet,"w1_4 explanations, if used, are late-period/end-of-period.",Do not present w1_4 as early-warning evidence.

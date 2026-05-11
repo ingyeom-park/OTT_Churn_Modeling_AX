@@ -1,0 +1,19 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw file size and mtime unchanged
+stage01_outputs_not_overwritten,PASS,Stage 01 snapshots unchanged
+stage02_validation_outputs_not_overwritten,PASS,Stage 02 validation snapshots unchanged
+membership_row_id_created_before_filtering,PASS,membership_row_id assigned from raw order before exclusions
+every_excluded_membership_row_has_reason_code,PASS,excluded_rows=141
+strict_target_conflict_rows_excluded,PASS,strict_conflict_rows=73
+duplicate_membership_rows_resolved,PASS,No exact duplicate Membership rows remain in preprocessed Membership
+duration_days_filter_not_applied,PASS,duration policy status is DEFERRED and affected_rows=0 in filter summary
+no_usage_features_created,PASS,No usage feature table or Stage 03 output was created
+no_content_features_created,PASS,No content feature table or Stage 04 output was created
+no_model_trained,PASS,No model training code or model output created
+final_membership_count_matches_documented_exclusions,PASS,24074 - 141 = 23933
+final_membership_one_row_per_retained_membership_row_id,PASS,retained_rows=23933 unique_ids=23933
+forbidden_model_features_not_treated_as_model_features,PASS,Stage 02 creates no modeling dataset; forbidden columns remain identifiers/audit fields only
+required_interim_outputs_created,PASS,required_interim=4
+required_audit_outputs_created,PASS,required_audit=9
+markdown_report_created,PASS,park.ingyeom/reports/data/02_v2_preprocessing_policy/02_v2_preprocessing_policy_report.md
+json_summary_created,PASS,park.ingyeom/reports/data/02_v2_preprocessing_policy/02_v2_preprocessing_summary.json

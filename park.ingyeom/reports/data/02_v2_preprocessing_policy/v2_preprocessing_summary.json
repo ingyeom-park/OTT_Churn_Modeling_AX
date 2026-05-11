@@ -1,0 +1,40 @@
+{
+  "scope": "Stage 02 applied preprocessing only. No usage/content features or modeling.",
+  "raw_membership_rows": 24074,
+  "retained_membership_rows": 23933,
+  "excluded_membership_rows": 141,
+  "exclusion_counts_by_reason": {
+    "EXACT_DUPLICATE_EXTRA_ROW": 68,
+    "STRICT_TARGET_CONFLICT": 73
+  },
+  "duration_policy": "DEFERRED",
+  "duration_filter_applied": false,
+  "forbidden_model_features_not_used_in_stage02": [
+    "USER_KEY",
+    "USER_NUM",
+    "MOVIE_NUM",
+    "reg_date",
+    "end_date",
+    "duration_days",
+    "watch_date",
+    "is_repurchase"
+  ],
+  "interim_outputs": [
+    "park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv",
+    "park.ingyeom/reports/data/02_v2_preprocessing_policy/usermapping_v2_policy_checked.csv",
+    "park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv",
+    "park.ingyeom/reports/data/02_v2_preprocessing_policy/v2_preprocessing_summary.json"
+  ],
+  "audit_outputs": [
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_filter_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_excluded_membership_rows.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_duplicate_resolution_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_target_conflict_resolution_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_duration_policy_deferred_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_value_anomaly_flag_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_usermapping_policy_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_moviemaster_policy_summary.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_join_expansion_after_membership_cleaning.csv",
+    "park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_final_checks.csv"
+  ]
+}

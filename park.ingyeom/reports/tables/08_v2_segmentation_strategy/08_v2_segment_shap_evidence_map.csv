@@ -1,0 +1,15 @@
+﻿segment,shap_feature_family,stage07r_mean_abs_shap,evidence_strength,evidence_note
+top_decile_high_churn_risk,usage,2.154410395235807,strong,Stage 07r true SHAP feature-family evidence.
+top_decile_high_churn_risk,genre,1.3469949306328584,strong,Stage 07r true SHAP feature-family evidence.
+top_decile_high_churn_risk,membership,0.3402061408769191,strong,Stage 07r true SHAP feature-family evidence.
+low_or_no_early_engagement,usage,2.154410395235807,strong,Stage 07r true SHAP feature-family evidence.
+late_heavy_week3_intensive,usage,2.154410395235807,strong,Stage 07r true SHAP feature-family evidence.
+delayed_start,usage,2.154410395235807,strong,Stage 07r true SHAP feature-family evidence.
+early_routine_stable,usage,2.154410395235807,strong,Stage 07r true SHAP feature-family evidence.
+week2_surge_users,usage,2.154410395235807,strong,Stage 07r true SHAP feature-family evidence.
+genre_affinity_thriller_crime,genre,1.3469949306328584,strong,Stage 07r true SHAP feature-family evidence.
+genre_affinity_animation_family,genre,1.3469949306328584,strong,Stage 07r true SHAP feature-family evidence.
+genre_affinity_drama,genre,1.3469949306328584,strong,Stage 07r true SHAP feature-family evidence.
+genre_affinity_action_adventure,genre,1.3469949306328584,strong,Stage 07r true SHAP feature-family evidence.
+high_price_or_promotion_sensitive,membership,0.3402061408769191,strong,Stage 07r true SHAP feature-family evidence.
+general_other,,,weak,No specific SHAP family; residual segment.

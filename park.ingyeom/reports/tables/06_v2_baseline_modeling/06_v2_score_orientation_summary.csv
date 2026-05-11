@@ -1,0 +1,6 @@
+﻿item,description
+target_mapping,Y -> 1 means repurchase; N -> 0 means non-repurchase / churn risk.
+repurchase_score,P(is_repurchase = Y). Higher score means higher estimated repurchase probability.
+churn_risk_score,1 - repurchase_score. Higher score means higher estimated churn risk.
+threshold_policy,"Threshold 0.5 is used only as a diagnostic threshold, not as an optimal business threshold."
+business_orientation,ROC AUC is reported for repurchase prediction; churn targeting uses churn_risk_score and churn-risk PR/capture metrics.

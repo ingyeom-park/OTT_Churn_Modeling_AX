@@ -1,0 +1,17 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw file snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 05 writes only under park.ingyeom/reports
+stage02_stage03_stage04_outputs_not_overwritten,PASS,input snapshots unchanged
+w1_3_row_count_23933,PASS,rows=23933
+w1_4_row_count_23933,PASS,rows=23933
+one_row_per_membership_row_id_w1_3,PASS,membership_row_id unique
+one_row_per_membership_row_id_w1_4,PASS,membership_row_id unique
+is_repurchase_target_not_feature,PASS,target excluded from feature_sets
+USER_KEY_group_metadata_not_feature,PASS,USER_KEY excluded from feature_sets
+membership_row_id_id_metadata_not_feature,PASS,membership_row_id excluded from feature_sets
+no_forbidden_columns_in_feature_sets,PASS,see forbidden column audit
+w1_3_feature_sets_contain_no_w1_4_features,PASS,cross-window prefix audit
+w1_4_feature_sets_contain_no_w1_3_features,PASS,cross-window prefix audit
+feature_sets_json_created,PASS,park.ingyeom/reports/data/05_v2_modeling_dataset/feature_sets_v2.json
+no_model_trained,PASS,No model training code or output
+all_required_outputs_created,PASS,required_outputs=12

@@ -1,0 +1,22 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 07r writes only under park.ingyeom/reports
+stage01_through_stage07_fallback_outputs_not_overwritten,PASS,Stage 01-07 snapshots unchanged
+shap_import_succeeded,PASS,0.51.0
+true_shap_values_computed_for_primary_model,PASS,"(1819, 166)"
+red_blue_shap_beeswarm_created,PASS,classic SHAP summary dot plot
+no_forbidden_feature_used,PASS,violations=0
+target_mapping_documented,PASS,"Y=1, N=0"
+score_direction_documented,PASS,repurchase_score and churn_risk_score documented
+stage06_split_reused,PASS,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv
+train_test_USER_KEY_overlap_zero,PASS,overlap=0
+model_reconstruction_check_completed,PASS,reconstruction table
+global_shap_table_created,PASS,global SHAP table
+grouped_shap_table_created,PASS,grouped SHAP table
+local_explanation_cases_created,PASS,local cases
+visualization_inventory_created,PASS,visual inventory
+team_share_summary_created,PASS,team summary
+no_segmentation_created,PASS,No segmentation outputs created
+no_business_simulation_created,PASS,No business simulation outputs created
+no_optuna_run,PASS,No Optuna imports or tuning used
+all_required_core_outputs_created,PASS,core_required_outputs=21

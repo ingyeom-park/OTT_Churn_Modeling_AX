@@ -1,0 +1,14 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 06b writes only under park.ingyeom/reports
+stage01_through_stage06_outputs_not_overwritten,PASS,Stage 01-06 snapshots unchanged
+no_shap_run,PASS,No SHAP imports or outputs used
+no_optuna_run,PASS,No Optuna imports or tuning used
+no_segmentation_created,PASS,No segmentation outputs created
+no_business_simulation_created,PASS,No business simulation outputs created
+target_shuffle_auc_checked,PASS,shuffle_auc=0.4672
+repeated_group_split_stability_checked,PASS,repeats=3
+conservative_baseline_decision_recorded,PASS,cautioned
+no_forbidden_feature_detected,PASS,violations=0
+same_stage06_holdout_split_reused,PASS,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv
+all_required_outputs_created,PASS,required_outputs=9

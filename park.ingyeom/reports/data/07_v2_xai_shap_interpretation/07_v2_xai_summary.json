@@ -1,0 +1,100 @@
+{
+  "scope": "Stage 07 SHAP/XAI interpretation only. No segmentation or business simulation.",
+  "shap_available": false,
+  "shap_status": "unavailable: No module named 'shap'",
+  "fallback_used": true,
+  "target_mapping": {
+    "Y": 1,
+    "N": 0
+  },
+  "score_direction": {
+    "repurchase_score": "P(is_repurchase = Y)",
+    "churn_risk_score": "1 - repurchase_score"
+  },
+  "primary_model": {
+    "role": "primary_conservative",
+    "window": "w1_3",
+    "feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+    "model_name": "HistGradientBoostingClassifier",
+    "timing_label": "early-observation"
+  },
+  "secondary_model": {
+    "role": "business_interpretable",
+    "window": "w1_3",
+    "feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+    "model_name": "LogisticRegression",
+    "timing_label": "early-observation"
+  },
+  "optional_late_period_model_explained": true,
+  "reconstruction_status": [
+    {
+      "role": "primary_conservative",
+      "reconstruction_status": "PASS",
+      "roc_auc_difference": 0.0
+    },
+    {
+      "role": "business_interpretable",
+      "reconstruction_status": "PASS",
+      "roc_auc_difference": 0.0
+    },
+    {
+      "role": "optional_late_period",
+      "reconstruction_status": "PASS",
+      "roc_auc_difference": 0.0
+    }
+  ],
+  "top_global_features": [
+    {
+      "original_feature": "w1_3_week3_watch_time",
+      "feature_family": "usage",
+      "mean_abs_shap_or_fallback_importance": 0.06625750000000008
+    },
+    {
+      "original_feature": "w1_3_w2_minus_w1_watch_time",
+      "feature_family": "usage",
+      "mean_abs_shap_or_fallback_importance": 0.026662300000000073
+    },
+    {
+      "original_feature": "w1_3_week1_ratio",
+      "feature_family": "usage",
+      "mean_abs_shap_or_fallback_importance": 0.01717150000000005
+    },
+    {
+      "original_feature": "w1_3_first_watch_rel_day",
+      "feature_family": "usage",
+      "mean_abs_shap_or_fallback_importance": 0.013690100000000083
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_thriller_crime",
+      "feature_family": "genre",
+      "mean_abs_shap_or_fallback_importance": 0.01122770000000004
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_animation_family",
+      "feature_family": "genre",
+      "mean_abs_shap_or_fallback_importance": 0.00965210000000003
+    },
+    {
+      "original_feature": "w1_3_max_day_share",
+      "feature_family": "usage",
+      "mean_abs_shap_or_fallback_importance": 0.008153200000000083
+    },
+    {
+      "original_feature": "price",
+      "feature_family": "membership",
+      "mean_abs_shap_or_fallback_importance": 0.00697020000000006
+    },
+    {
+      "original_feature": "w1_3_week2_ratio",
+      "feature_family": "usage",
+      "mean_abs_shap_or_fallback_importance": 0.005987200000000059
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_drama",
+      "feature_family": "genre",
+      "mean_abs_shap_or_fallback_importance": 0.005124900000000076
+    }
+  ],
+  "stage06b_conservative_decision": "cautioned",
+  "stage08_recommendation": "Use conservative w1_3 churn-risk scores and top usage/content proxy findings as candidate segmentation inputs, but keep all segments framed as predictive, not causal."
+}

@@ -1,0 +1,13 @@
+﻿stage08_segment,decision,refined_role,new_key,new_korean_name,reason
+top_decile_high_churn_risk,keep,primary_targeting_segment,top_decile_high_churn_risk,최상위 이탈위험군,Risk score top decile has the strongest holdout churn lift and capture rate.
+low_or_no_early_engagement,keep_refine,primary_targeting_segment_inside_high_risk_band,risk_10_30_low_engagement,초기 저관여 고위험군,Useful when paired with high-risk bands; not used as a standalone replacement for risk score.
+late_heavy_week3_intensive,rename_keep,low_risk_retention_candidate,late_week3_engaged_retention_candidate,3주차 집중 시청 안정/전환 후보군,"Observed churn is low, so this is reframed as engaged or retained behavior."
+delayed_start,modifier_only,explanatory_modifier,modifier_delayed_start,시작 지연 modifier,Useful for explanation but not strong enough as a standalone final segment.
+early_routine_stable,rename_downplay,explanatory_modifier_only,modifier_early_routine_review,초기 루틴 재검토 modifier,Stable wording conflicts with observed elevated churn in the hierarchical segment.
+week2_surge_users,drop_from_presentation,audit_only_modifier,modifier_week2_surge_small_sample,2주차 상승 소표본 modifier,"Hierarchy holdout n is below 100, so it is unstable for presentation."
+genre_affinity_thriller_crime,merge,explanatory_modifier_or_content_action_layer,genre_affinity_content_recommendation_pool,장르 선호 기반 콘텐츠 추천군,Merged with other genre affinities to avoid many small final groups.
+genre_affinity_animation_family,merge,explanatory_modifier_or_content_action_layer,genre_affinity_content_recommendation_pool,장르 선호 기반 콘텐츠 추천군,Merged with other genre affinities to avoid many small final groups.
+genre_affinity_drama,merge,explanatory_modifier_or_content_action_layer,genre_affinity_content_recommendation_pool,장르 선호 기반 콘텐츠 추천군,Merged with other genre affinities to avoid many small final groups.
+genre_affinity_action_adventure,merge,explanatory_modifier_or_content_action_layer,genre_affinity_content_recommendation_pool,장르 선호 기반 콘텐츠 추천군,Merged with other genre affinities to avoid many small final groups.
+high_price_or_promotion_sensitive,modifier_only,membership_context_modifier,modifier_price_promotion_context,가격/프로모션 맥락 modifier,Broad and highly overlapping attribute; not a clean standalone segment.
+general_other,drop_from_presentation,residual_audit_only,low_risk_or_general_maintenance,저위험/일반 유지군,Residual group has weak actionability; only retained through final risk-band based maintenance assignment.

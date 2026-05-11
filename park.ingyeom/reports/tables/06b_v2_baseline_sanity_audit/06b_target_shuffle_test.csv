@@ -1,0 +1,2 @@
+﻿test_name,window,feature_set,model_name,roc_auc_repurchase,average_precision_churn_risk,expected_auc,status
+target_shuffle_conservative_baseline,w1_3,membership_plus_usage_content_w1_3_without_churn_prevented,HistGradientBoostingClassifier,0.4671643938936437,0.26660852687393877,near 0.5,PASS

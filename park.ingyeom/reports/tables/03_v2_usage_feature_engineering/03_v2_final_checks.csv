@@ -1,0 +1,12 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,View_History size and mtime unchanged
+stage02_outputs_not_overwritten,PASS,Stage 02 membership/usermapping inputs unchanged
+no_project_root_data_output_created,PASS,Stage 03 writes only under park.ingyeom/reports
+one_row_per_membership_row_id_w1_3,PASS,rows=23933
+one_row_per_membership_row_id_w1_4,PASS,rows=23933
+w1_3_and_w1_4_features_separated,PASS,window prefixes checked
+no_end_date_derived_feature_created,PASS,none
+no_forbidden_identifier_or_date_feature_columns,PASS,none
+no_content_feature_created,PASS,Movie_Master not used; no content output created
+no_model_trained,PASS,No model training code or output
+all_required_outputs_created,PASS,required_outputs=12
