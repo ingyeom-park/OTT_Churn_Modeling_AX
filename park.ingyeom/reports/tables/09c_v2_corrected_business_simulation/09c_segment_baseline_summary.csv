@@ -1,0 +1,7 @@
+﻿final_segment_key,final_segment_en,segment_priority,simulation_role,use_in_stage09c_simulation,n,share,repurchase_rate,churn_rate,expected_churners,expected_repurchasers,avg_repurchase_score,avg_churn_risk_score,lift_vs_overall_churn_rate,baseline_source,population,descriptive_note
+최상위_이탈위험군,top_highest_risk,1,primary_target,Y,463,0.1001,0.1749,0.8251,382.0,81.0,0.2204,0.7796,2.8371,Stage 08c holdout observed outcomes (corrected official model AUC=0.8629),holdout,
+초기중기_저관여_고위험군,low_engagement_high_risk,2,primary_target,Y,434,0.0938,0.424,0.576,250.0,184.0,0.4466,0.5534,1.9808,Stage 08c holdout observed outcomes (corrected official model AUC=0.8629),holdout,
+주차별이용패턴_고위험군,weekly_pattern_high_risk,3,primary_target,Y,1084,0.2344,0.6245,0.3755,407.0,677.0,0.6307,0.3693,1.2911,Stage 08c holdout observed outcomes (corrected official model AUC=0.8629),holdout,
+장르비율_추천후보군,genre_affinity_recommendation_pool,4,secondary_recommendation,Y,2209,0.4776,0.8818,0.1182,261.1,1947.9,0.8804,0.1196,0.4063,Stage 08c holdout observed outcomes (corrected official model AUC=0.8629),holdout,
+안정유지_후보군,stable_maintenance_candidates,5,maintenance_only,N,354,0.0765,0.9492,0.0508,18.0,336.0,0.9587,0.0413,0.1748,Stage 08c holdout observed outcomes (corrected official model AUC=0.8629),holdout,descriptive_context_only
+일반관찰군,general_observation,6,residual_monitoring,N,81,0.0175,0.6667,0.3333,27.0,54.0,0.7597,0.2403,1.1462,Stage 08c holdout observed outcomes (corrected official model AUC=0.8629),holdout,descriptive_context_only

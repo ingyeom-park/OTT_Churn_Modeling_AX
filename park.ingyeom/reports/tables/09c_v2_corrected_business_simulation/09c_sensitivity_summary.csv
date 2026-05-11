@@ -1,0 +1,11 @@
+﻿parameter,direction,delta,base_incremental_retained,modified_incremental_retained,absolute_change,relative_change_pct,portfolio_scope,scenario
+lift_base,decrease,-0.01,38.4,25.6,-12.8,-33.3,broad_high_risk,base
+lift_base,increase,0.01,38.4,51.2,12.8,33.3,broad_high_risk,base
+reachable_rate,decrease,-0.1,38.4,33.8,-4.6,-12.0,broad_high_risk,base
+reachable_rate,increase,0.1,38.4,43.1,4.7,12.2,broad_high_risk,base
+treatment_rate,decrease,-0.1,38.4,33.5,-4.9,-12.8,broad_high_risk,base
+treatment_rate,increase,0.1,38.4,43.3,4.9,12.8,broad_high_risk,base
+response_rate,decrease,-0.03,38.4,38.4,0.0,0.0,broad_high_risk,base
+response_rate,increase,0.03,38.4,38.4,0.0,0.0,broad_high_risk,base
+fatigue_penalty,decrease,-0.01,38.4,38.4,0.0,0.0,broad_high_risk,base
+fatigue_penalty,increase,0.01,38.4,38.4,0.0,0.0,broad_high_risk,base

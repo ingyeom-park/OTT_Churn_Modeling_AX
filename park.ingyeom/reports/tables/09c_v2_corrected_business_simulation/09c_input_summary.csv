@@ -1,0 +1,12 @@
+﻿input,path,status
+08c final checks,park.ingyeom/reports/tables/08c_v2_corrected_segmentation_strategy/08c_final_checks.csv,found
+08c holdout assignments,park.ingyeom/reports/data/08c_v2_corrected_segmentation_strategy/08c_segment_assignments_holdout.csv,found
+08c full descriptive assignments,park.ingyeom/reports/data/08c_v2_corrected_segmentation_strategy/08c_segment_assignments_full_descriptive.csv,found
+08c holdout segment summary,park.ingyeom/reports/tables/08c_v2_corrected_segmentation_strategy/08c_hierarchical_segment_summary_holdout.csv,found
+08c segmentation summary json,park.ingyeom/reports/data/08c_v2_corrected_segmentation_strategy/08c_segmentation_summary.json,found
+08c action recommendations,park.ingyeom/reports/tables/08c_v2_corrected_segmentation_strategy/08c_segment_action_recommendations.csv,found
+08c SHAP evidence map,park.ingyeom/reports/tables/08c_v2_corrected_segmentation_strategy/08c_segment_shap_evidence_map.csv,found
+07c SHAP summary json,park.ingyeom/reports/data/07c_v2_corrected_true_shap_interpretation/07c_true_shap_summary.json,found
+06c2 baseline summary json,park.ingyeom/reports/data/06c2_v2_corrected_baseline_modeling/06c2_corrected_baseline_summary.json,found
+08c all checks PASS,park.ingyeom/reports/tables/08c_v2_corrected_segmentation_strategy/08c_final_checks.csv,PASS
+old Stage 09 not used as official,park.ingyeom/reports/tables/09_v2_business_simulation/ (read-only for comparison only),CONFIRMED
