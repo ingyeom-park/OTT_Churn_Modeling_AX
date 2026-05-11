@@ -1,0 +1,8 @@
+﻿dataset,column,raw_value,count,share,standardized_column,unknown_count
+stage02_retained,is_promotion_raw,O,12165,0.5082939873814398,is_promotion_bin,11768
+stage02_retained,is_promotion_raw,,11768,0.4917060126185602,is_promotion_bin,11768
+stage02_retained,is_churn_prevented_raw,,19634,0.8203735428070029,is_churn_prevented_bin,19634
+stage02_retained,is_churn_prevented_raw,O,4299,0.1796264571929971,is_churn_prevented_bin,19634
+stage02_retained,is_user_verified_raw,Y,17750,0.7416537834788786,is_user_verified_bin,768
+stage02_retained,is_user_verified_raw,N,5415,0.22625663310073957,is_user_verified_bin,768
+stage02_retained,is_user_verified_raw,,768,0.0320895834203819,is_user_verified_bin,768

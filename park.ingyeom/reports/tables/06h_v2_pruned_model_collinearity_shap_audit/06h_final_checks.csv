@@ -1,0 +1,56 @@
+﻿check,status,evidence
+raw files unchanged,PASS,Compared _data snapshots.
+no _data output created,PASS,Compared _data file set.
+Stage 01 through Stage 09 outputs not overwritten,PASS,Compared protected Stage 01-09 snapshots excluding 06h.
+original Stage 05 datasets not overwritten,PASS,06h read Stage 05/05e only.
+Stage 05e/06g outputs not overwritten if present,PASS,Compared Stage 05e and 06g snapshots.
+no Optuna run,PASS,No optuna import or tuning loop.
+no segmentation created,PASS,No segmentation output produced.
+no business simulation created,PASS,No simulation output produced.
+Stage 06 split reused,PASS,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv
+train/test USER_KEY overlap equals 0,PASS,0
+forbidden features excluded,PASS,Checked official feature list.
+target mapping documented,PASS,Y -> 1 repurchase; N -> 0 non-repurchase/churn risk.
+w1_3/w1_4 separated,PASS,Checked prefixes.
+w1_4 labeled late-period only,PASS,w1_4 comparison only.
+product_code excluded from default official candidate,PASS,product_code not in official feature list.
+watch-presence flag excluded from default official candidate,PASS,watch-presence flags absent.
+first/last rel day excluded from official candidate,PASS,first/last timing absent.
+ratios/deltas excluded from official candidate,PASS,week ratios/deltas absent; genre composition ratios retained intentionally.
+genre watch_time/session_count excluded from official candidate,PASS,genre volume/session proxies absent.
+multicollinearity audit completed on actual used feature set,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_multicollinearity_summary_by_feature_set.csv
+Logistic coefficient table created,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_logistic_coefficient_importance.csv
+TRUE SHAP attempted for final HGB candidate,PASS,succeeded
+red-blue SHAP beeswarm created if SHAP succeeded,PASS,Conditional SHAP figure check.
+official model recommendation created,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_final_model_recommendation.md
+mentor response update created,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_mentor_response_update.md
+team share summary created,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_team_share_model_summary.md
+required output exists: 06h_integrated_audit_report.md,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_integrated_audit_report.md
+required output exists: 06h_integrated_audit_summary.json,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_integrated_audit_summary.json
+required output exists: 06h_final_model_recommendation.md,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_final_model_recommendation.md
+required output exists: 06h_mentor_response_update.md,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_mentor_response_update.md
+required output exists: 06h_team_share_model_summary.md,PASS,park.ingyeom/reports/data/06h_v2_pruned_model_collinearity_shap_audit/06h_team_share_model_summary.md
+required output exists: 06h_candidate_feature_set_inventory.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_candidate_feature_set_inventory.csv
+required output exists: 06h_model_metrics.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_model_metrics.csv
+required output exists: 06h_top_decile_lift_summary.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_top_decile_lift_summary.csv
+required output exists: 06h_multicollinearity_summary_by_feature_set.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_multicollinearity_summary_by_feature_set.csv
+required output exists: 06h_high_corr_pairs_pearson.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_high_corr_pairs_pearson.csv
+required output exists: 06h_high_corr_pairs_spearman.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_high_corr_pairs_spearman.csv
+required output exists: 06h_vif_results.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_vif_results.csv
+required output exists: 06h_structural_redundancy_check.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_structural_redundancy_check.csv
+required output exists: 06h_feature_risk_classification.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_feature_risk_classification.csv
+required output exists: 06h_logistic_coefficient_importance.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_logistic_coefficient_importance.csv
+required output exists: 06h_logistic_grouped_coefficient_summary.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_logistic_grouped_coefficient_summary.csv
+required output exists: 06h_true_shap_global_importance.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_true_shap_global_importance.csv
+required output exists: 06h_true_shap_feature_family_importance.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_true_shap_feature_family_importance.csv
+required output exists: 06h_true_shap_direction_summary.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_true_shap_direction_summary.csv
+required output exists: 06h_official_metric_ladder.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_official_metric_ladder.csv
+required output exists: 06h_claim_update_recommendation.csv,PASS,park.ingyeom/reports/tables/06h_v2_pruned_model_collinearity_shap_audit/06h_claim_update_recommendation.csv
+required output exists: 06h_auc_vs_interpretability.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_auc_vs_interpretability.png
+required output exists: 06h_top_decile_lift_comparison.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_top_decile_lift_comparison.png
+required output exists: 06h_final_candidate_corr_heatmap.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_final_candidate_corr_heatmap.png
+required output exists: 06h_final_candidate_vif_bar.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_final_candidate_vif_bar.png
+required output exists: 06h_logistic_top_coefficients.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_logistic_top_coefficients.png
+required output exists: 06h_shap_beeswarm_red_blue_final_candidate.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_shap_beeswarm_red_blue_final_candidate.png
+required output exists: 06h_shap_global_bar_final_candidate.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_shap_global_bar_final_candidate.png
+required output exists: 06h_shap_feature_family_importance_final_candidate.png,PASS,park.ingyeom/reports/figures/06h_v2_pruned_model_collinearity_shap_audit/06h_shap_feature_family_importance_final_candidate.png

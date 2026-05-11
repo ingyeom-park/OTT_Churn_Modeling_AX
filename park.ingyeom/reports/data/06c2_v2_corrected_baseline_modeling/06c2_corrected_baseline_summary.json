@@ -1,0 +1,24 @@
+{
+  "stage": "06c2_v2_corrected_baseline_modeling",
+  "membership_rows": 23115,
+  "target_distribution": {
+    "repurchase_count": 16591,
+    "non_repurchase_count": 6524,
+    "repurchase_rate": 0.7177590309322951
+  },
+  "old_pre_02c_official_auc": 0.8046508435579209,
+  "old_pre_02c_official_model": "HistGradientBoostingClassifier",
+  "official_corrected_recommendation": {
+    "recommended_model": "HistGradientBoostingClassifier",
+    "recommended_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+    "recommended_window": "w1_3",
+    "roc_auc_repurchase": 0.8629394097379637,
+    "reason": "Corrected strict-core pipeline, pruned interpretable features, no product_code, no watch-presence shortcuts, no SHAP/Optuna.",
+    "caution": "Observational ranking only; no causality or ROI claim. w1_4 remains late-period comparison only."
+  },
+  "groupkfold_status": "not_run_holdout_only_to_keep_corrected_rebuild_lightweight",
+  "no_shap": true,
+  "no_optuna": true,
+  "no_segmentation": true,
+  "no_simulation": true
+}

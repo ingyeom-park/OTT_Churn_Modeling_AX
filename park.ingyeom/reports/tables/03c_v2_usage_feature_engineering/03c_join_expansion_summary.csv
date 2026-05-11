@@ -1,0 +1,8 @@
+﻿metric,count,ratio_to_raw_rows,note
+raw_Views_train_rows,175301,1.0,Raw usage rows before temporary membership attachment.
+valid_temporary_membership_log_rows,170856,0.974644,"Temporary attached rows after reg_date and end_date policy, before window filters."
+raw_view_rows_attached_to_multiple_memberships,235,0.001341,Expected when the same USER_KEY has multiple Membership events. Aggregated back to membership_row_id.
+raw_view_rows_with_no_strict_core_membership_attachment,4647,0.026509,Raw usage rows that could not attach to 02c strict-core Membership rows.
+attachment_count_0,4647,0.026509,Number of strict-core membership_row_id attachments for one raw usage row.
+attachment_count_1,170419,0.972151,Number of strict-core membership_row_id attachments for one raw usage row.
+attachment_count_2,235,0.001341,Number of strict-core membership_row_id attachments for one raw usage row.

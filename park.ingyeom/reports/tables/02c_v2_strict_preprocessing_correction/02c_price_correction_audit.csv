@@ -1,0 +1,6 @@
+﻿metric,count
+price_missing_or_parse_failure_rows,0
+price_negative_rows,0
+price_rare_positive_rows_not_removed_by_rarity,45
+removed_by_invalid_price_any_reason_overlap,0
+remaining_invalid_price_rows,0

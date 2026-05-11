@@ -1,0 +1,20 @@
+﻿scope,metric,count,note,source,stage02c_action,window,one_minute_watch_count,short_watch_count_le5,short_watch_time_le5,action
+joined_membership_event_level,watch_date_eq_end_date,218,Audited only; not silently ignored.,stage03_usage,audit_only_raw_not_modified,,,,,
+joined_membership_event_level,watch_date_gt_end_date,4482,Audited only; not silently ignored.,stage03_usage,audit_only_raw_not_modified,,,,,
+joined_membership_event_level,rel_day_gt_27,1780,Audited only; not silently ignored.,stage03_usage,audit_only_raw_not_modified,,,,,
+joined_membership_event_level,watch_date_lt_reg_date,45,Audited only; not silently ignored.,stage03_usage,audit_only_raw_not_modified,,,,,
+w1_3,included_logs,159557,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,audit_only_raw_not_modified,,,,,
+w1_3,excluded_logs,18258,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,audit_only_raw_not_modified,,,,,
+w1_4,included_logs,175990,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,audit_only_raw_not_modified,,,,,
+w1_4,excluded_logs,1825,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,audit_only_raw_not_modified,,,,,
+,,,,stage03_short_watch,audit_only_raw_not_modified,w1_3,35075,51582,86933.0,kept_as_features_not_deleted
+,,,,stage03_short_watch,audit_only_raw_not_modified,w1_4,38815,57135,96281.0,kept_as_features_not_deleted
+joined_membership_event_level,rel_day_gt_27,1780,Audited only.,stage04_content,audit_only_raw_not_modified,,,,,
+joined_membership_event_level,watch_date_lt_reg_date,45,Audited only.,stage04_content,audit_only_raw_not_modified,,,,,
+w1_3,included_logs,159557,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,audit_only_raw_not_modified,,,,,
+w1_3,excluded_logs,18258,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,audit_only_raw_not_modified,,,,,
+w1_4,included_logs,175990,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,audit_only_raw_not_modified,,,,,
+w1_4,excluded_logs,1825,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,audit_only_raw_not_modified,,,,,
+,raw_ViewHistory_modified,0,,stage02c_conclusion,not_modified,,,,,
+,watch_date_after_end_date_feature_policy,,,stage02c_conclusion,must_not_use_inside_feature_windows,,,,,
+,end_date_derived_features,,,stage02c_conclusion,must_not_create_direct_model_features,,,,,

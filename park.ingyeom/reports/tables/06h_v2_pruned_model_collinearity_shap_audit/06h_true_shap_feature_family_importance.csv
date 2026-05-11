@@ -1,0 +1,6 @@
+﻿feature_family,mean_abs_shap_for_repurchase_score,mean_shap_for_repurchase_score,transformed_feature_count
+weekly_usage_pattern,1.4756266200598116,-0.005378837222916684,6
+genre_ratio_proxy,1.2878604936009357,-0.022294644322155683,11
+membership_context,0.47198801546269264,-0.0009982268708650993,29
+simple_usage_volume,0.31763599498464945,-0.038704006398812434,3
+release_month_proxy,0.030413516035170108,-0.0019658133963127824,1

@@ -1,0 +1,6 @@
+﻿metric,count,note
+stage02_retained_rows,23933,
+duration_zero_rows,452,
+duration_not_31_32_rows,568,Includes missing and zero.
+removed_by_nonstandard_duration_any_reason_overlap,568,Scope change to standard monthly-subscription events; non-31/32 is not asserted impossible.
+remaining_nonstandard_duration_rows,0,

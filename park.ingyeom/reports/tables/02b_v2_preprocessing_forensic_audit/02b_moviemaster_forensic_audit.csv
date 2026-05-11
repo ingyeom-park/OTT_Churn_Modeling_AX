@@ -1,0 +1,9 @@
+﻿metric,count,status
+raw_rows,14502,observed
+policy_checked_rows,14502,observed
+row_count_changed,0,flag_only
+any_core_value_changed,1,changed
+duplicate_MOVIE_NUM_count,380,flag_only_in_stage02
+genre_conflict_count,32,deduped_in_stage04
+policy_checked_file_deduped_or_flagged,0,only_flagged_not_deduped
+stage04_used_deduped_moviemaster,1,confirmed

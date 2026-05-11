@@ -1,0 +1,10 @@
+﻿metric,count,status
+raw_rows,26366,observed
+policy_checked_rows,26366,observed
+row_count_changed,0,flag_only
+USER_KEY_value_changed,0,none
+USER_NUM_value_changed,0,none
+one_to_many_USER_KEY_count,50,flag_only
+many_to_one_USER_NUM_count,0,flag_only
+retained_membership_event_count_max,7,flag_only
+mapping_removed_or_only_flagged,0,only_flagged_no_rows_removed

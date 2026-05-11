@@ -1,0 +1,7 @@
+﻿population,final_segment_key,final_segment_en,n,share,repurchase_rate,churn_rate,lift_vs_overall_churn_rate,captured_churners,churner_capture_rate,avg_repurchase_score,avg_churn_risk_score,stability_note
+full_descriptive,최상위_이탈위험군,top_highest_risk,2436,0.1054,0.1502,0.8498,3.0107,2070,0.3173,0.2199,0.7801,stable
+full_descriptive,초기중기_저관여_고위험군,low_engagement_high_risk,2104,0.091,0.4197,0.5803,2.0561,1221,0.1872,0.4499,0.5501,stable
+full_descriptive,주차별이용패턴_고위험군,weekly_pattern_high_risk,5299,0.2292,0.6386,0.3614,1.2804,1915,0.2935,0.6299,0.3701,stable
+full_descriptive,장르비율_추천후보군,genre_affinity_recommendation_pool,10999,0.4758,0.8953,0.1047,0.3711,1152,0.1766,0.883,0.117,stable
+full_descriptive,안정유지_후보군,stable_maintenance_candidates,1920,0.0831,0.9828,0.0172,0.0609,33,0.0051,0.9598,0.0402,stable
+full_descriptive,일반관찰군,general_observation,357,0.0154,0.6275,0.3725,1.32,133,0.0204,0.7338,0.2662,stable

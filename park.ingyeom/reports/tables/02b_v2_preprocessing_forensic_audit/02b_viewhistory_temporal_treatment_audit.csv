@@ -1,0 +1,23 @@
+﻿scope,metric,count,note,source,window,one_minute_watch_count,short_watch_count_le5,short_watch_time_le5,action
+joined_membership_event_level,watch_date_eq_end_date,218.0,Audited only; not silently ignored.,stage03_usage,,,,,
+joined_membership_event_level,watch_date_gt_end_date,4482.0,Audited only; not silently ignored.,stage03_usage,,,,,
+joined_membership_event_level,rel_day_gt_27,1780.0,Audited only; not silently ignored.,stage03_usage,,,,,
+joined_membership_event_level,watch_date_lt_reg_date,45.0,Audited only; not silently ignored.,stage03_usage,,,,,
+w1_3,included_logs,159557.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,,,,,
+w1_3,excluded_logs,18258.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,,,,,
+w1_4,included_logs,175990.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,,,,,
+w1_4,excluded_logs,1825.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage03_usage,,,,,
+,,,,stage03_short_watch,w1_3,35075.0,51582.0,86933.0,kept_as_features_not_deleted
+,,,,stage03_short_watch,w1_4,38815.0,57135.0,96281.0,kept_as_features_not_deleted
+joined_membership_event_level,rel_day_gt_27,1780.0,Audited only.,stage04_content,,,,,
+joined_membership_event_level,watch_date_lt_reg_date,45.0,Audited only.,stage04_content,,,,,
+w1_3,included_logs,159557.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,,,,,
+w1_3,excluded_logs,18258.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,,,,,
+w1_4,included_logs,175990.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,,,,,
+w1_4,excluded_logs,1825.0,Window inclusion uses watch_date >= reg_date and rel_day bounds.,stage04_content,,,,,
+raw_ViewHistory,raw_modified,0.0,Raw ViewHistory file was not modified by Stage 02b.,forensic_conclusion,,,,,
+raw_ViewHistory,raw_watch_logs_deleted,0.0,Watch logs were not deleted from raw.,forensic_conclusion,,,,,
+feature_windows,watch_date_before_reg_date,45.0,Audited at joined event level and excluded from feature windows by rel-day/window filters.,forensic_conclusion,,,,,
+feature_windows,watch_date_after_end_date,4482.0,Audited at joined event level; window inclusion used reg_date and rel_day bounds.,forensic_conclusion,,,,,
+short_watch,one_min_or_le5_deleted,0.0,"Short watches were featureized, not deleted.",forensic_conclusion,,,,,
+end_date,end_date_inclusiveness,218.0,watch_date == end_date was audited; inclusiveness remains a policy caveat.,forensic_conclusion,,,,,

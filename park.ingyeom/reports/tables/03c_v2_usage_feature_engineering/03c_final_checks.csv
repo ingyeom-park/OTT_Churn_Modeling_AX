@@ -1,0 +1,13 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,_data snapshot and protected input file snapshots unchanged
+no_data_output_created,PASS,No files were created or modified under _data
+old_stage03_outputs_not_overwritten,PASS,Existing 03_v2 output directory snapshots unchanged
+one_row_per_membership_row_id_in_every_window,PASS,w1_1 rows=23115; w1_2 rows=23115; w1_3 rows=23115; w1_4 rows=23115
+row_count_matches_02c_strict_core_membership,PASS,strict_core_membership_rows=23115
+w1_1_w1_2_w1_3_w1_4_separated,PASS,Each window table uses its own prefixed feature columns
+no_model_training,PASS,"No estimator, fit, prediction, or model artifact is created"
+no_shap,PASS,"No SHAP package, explainer, or SHAP artifact is used"
+no_content_features,PASS,none
+no_modeling_dataset,PASS,Only per-window usage feature tables and audit artifacts were created
+no_identifier_or_date_model_features,PASS,none
+all_required_outputs_created,PASS,required_outputs=14

@@ -1,0 +1,8 @@
+﻿metric,count
+stage02_retained_rows,23933
+age_parse_failure_or_missing_rows,203
+age_lt_10_rows,6
+age_gt_100_rows,2
+age_950_rows,1
+removed_by_invalid_age_any_reason_overlap,211
+remaining_invalid_age_rows,0

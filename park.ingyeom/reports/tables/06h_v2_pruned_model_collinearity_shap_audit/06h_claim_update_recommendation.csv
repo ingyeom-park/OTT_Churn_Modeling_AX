@@ -1,0 +1,6 @@
+﻿claim_area,recommendation,status
+Stage 07r SHAP,Use 06h TRUE SHAP family-first wording for the pruned official candidate; do not reuse full-model feature-level causal language.,update_required
+Stage 08b segmentation,"Segments can be described as model-informed risk groups, not causal treatment groups; family-level usage and genre patterns are safer than individual-feature explanations.",update_required
+Stage 09 simulation,Keep scenario-only and assumption-only wording; 06h does not create business simulation or ROI evidence.,no_new_claim
+w1_4,Keep w1_4 as late-period/end-of-period comparison only.,confirmed
+performance,Report pruned official AUC and top-decile lift; do not claim the highest historical AUC as the official early-warning model.,confirmed

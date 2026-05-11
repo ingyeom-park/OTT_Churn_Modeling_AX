@@ -1,0 +1,5 @@
+﻿column,parse_success_count,parse_failure_count,missing_count,failed_raw_value_examples
+age,23730,0,203,
+price,23933,0,0,
+max_screen,23859,0,74,
+reg_hour,23933,0,0,

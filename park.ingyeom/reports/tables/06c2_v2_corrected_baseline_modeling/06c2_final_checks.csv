@@ -1,0 +1,18 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,No files under _data changed.
+no_data_output_created,PASS,No new files under _data.
+old_stage03_04_05_06_outputs_not_overwritten,PASS,Stage 05c inputs unchanged; older stage dirs are read-only in this script.
+stage04c_outputs_created,PASS,04c final checks exist.
+stage05c_outputs_created,PASS,05c final checks exist.
+stage06c2_outputs_created,PASS,required_outputs=18
+corrected_membership_row_count_propagated,PASS,rows=23115
+one_row_per_membership_row_id,PASS,official w1_3 dataset unique by membership_row_id.
+forbidden_features_excluded,PASS,Feature sets inherited from 05c final gate.
+target_mapping_documented,PASS,"is_repurchase_label: 1=repurchase, 0=non-repurchase/churn risk."
+train_test_USER_KEY_overlap_zero,PASS,All model evaluations have zero group overlap.
+w1_4_labeled_late_period_only,PASS,w1_4 is late-period/end-of-period comparison only.
+official_corrected_model_recommendation_created,PASS,Recommendation file created.
+no_optuna,PASS,No Optuna imported or executed.
+no_shap,PASS,No SHAP imported or executed.
+no_segmentation,PASS,No segmentation outputs created.
+no_simulation,PASS,No simulation outputs created.

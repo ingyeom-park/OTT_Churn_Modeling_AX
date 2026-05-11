@@ -1,0 +1,782 @@
+{
+  "stage": "03c_v2_usage_feature_engineering",
+  "scope": "Usage feature engineering only from 02c strict-core corrected Membership.",
+  "inputs": [
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/membership_v2_preprocessed_strict_core.csv",
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/usermapping_v2_policy_checked_strict_core.csv",
+    "_data/01_raw/Views_train.csv"
+  ],
+  "membership_rows": 23115,
+  "views_train_rows": 175301,
+  "windows": {
+    "w1_1": {
+      "rel_day_start": 0,
+      "rel_day_end": 6,
+      "feature_rows": 23115,
+      "available_weeks": [
+        "week1"
+      ]
+    },
+    "w1_2": {
+      "rel_day_start": 0,
+      "rel_day_end": 13,
+      "feature_rows": 23115,
+      "available_weeks": [
+        "week1",
+        "week2"
+      ]
+    },
+    "w1_3": {
+      "rel_day_start": 0,
+      "rel_day_end": 20,
+      "feature_rows": 23115,
+      "available_weeks": [
+        "week1",
+        "week2",
+        "week3"
+      ]
+    },
+    "w1_4": {
+      "rel_day_start": 0,
+      "rel_day_end": 27,
+      "feature_rows": 23115,
+      "available_weeks": [
+        "week1",
+        "week2",
+        "week3",
+        "week4"
+      ]
+    }
+  },
+  "data_outputs": [
+    "park.ingyeom/reports/data/03c_v2_usage_feature_engineering/usage_features_v2c_w1_1.csv",
+    "park.ingyeom/reports/data/03c_v2_usage_feature_engineering/usage_features_v2c_w1_2.csv",
+    "park.ingyeom/reports/data/03c_v2_usage_feature_engineering/usage_features_v2c_w1_3.csv",
+    "park.ingyeom/reports/data/03c_v2_usage_feature_engineering/usage_features_v2c_w1_4.csv",
+    "park.ingyeom/reports/data/03c_v2_usage_feature_engineering/03c_usage_feature_summary.json"
+  ],
+  "audit_outputs": [
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_input_row_count_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_join_expansion_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_temporal_filter_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_window_row_count_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_no_watch_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_short_watch_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_usage_feature_numeric_summary.csv",
+    "park.ingyeom/reports/tables/03c_v2_usage_feature_engineering/03c_final_checks.csv"
+  ],
+  "figure_output_dir": "park.ingyeom/reports/figures/03c_v2_usage_feature_engineering",
+  "derived_redundant_features_for_later_pruning": [
+    "week1_ratio",
+    "week2_ratio",
+    "week3_ratio",
+    "week4_ratio",
+    "w2_minus_w1_watch_time",
+    "w3_minus_w2_watch_time",
+    "w4_minus_w3_watch_time"
+  ],
+  "feature_contract": [
+    {
+      "window": "w1_1",
+      "feature": "w1_1_has_watch_obs",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_total_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_total_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_unique_contents",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_unique_watch_days",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_avg_watch_time_per_session",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_max_daily_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_max_day_share",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_one_minute_watch_count",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_short_watch_count_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_short_watch_time_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_week1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_week1_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_1",
+      "feature": "w1_1_week1_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_has_watch_obs",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_total_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_total_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_unique_contents",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_unique_watch_days",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_avg_watch_time_per_session",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_max_daily_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_max_day_share",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_one_minute_watch_count",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_short_watch_count_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_short_watch_time_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_week1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_week1_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_week2_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_week2_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_week1_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_week2_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_2",
+      "feature": "w1_2_w2_minus_w1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_has_watch_obs",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_total_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_total_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_unique_contents",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_unique_watch_days",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_avg_watch_time_per_session",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_max_daily_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_max_day_share",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_one_minute_watch_count",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_short_watch_count_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_short_watch_time_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week1_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week2_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week2_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week3_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week3_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week1_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week2_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_week3_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_w2_minus_w1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_3",
+      "feature": "w1_3_w3_minus_w2_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_has_watch_obs",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_total_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_total_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_unique_contents",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_unique_watch_days",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_avg_watch_time_per_session",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_max_daily_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_max_day_share",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_one_minute_watch_count",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_short_watch_count_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_short_watch_time_le5",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week1_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week2_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week2_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week3_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week3_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week4_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week4_sessions",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 0,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week1_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week2_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week3_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_week4_ratio",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_w2_minus_w1_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_w3_minus_w2_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    },
+    {
+      "window": "w1_4",
+      "feature": "w1_4_w4_minus_w3_watch_time",
+      "feature_family": "usage",
+      "derived_redundant_for_later_pruning": 1,
+      "uses_identifier_as_feature": 0,
+      "uses_end_date_derived_signal": 0
+    }
+  ],
+  "final_checks": [
+    {
+      "check": "raw_files_unchanged",
+      "status": "PASS",
+      "detail": "_data snapshot and protected input file snapshots unchanged"
+    },
+    {
+      "check": "no_data_output_created",
+      "status": "PASS",
+      "detail": "No files were created or modified under _data"
+    },
+    {
+      "check": "old_stage03_outputs_not_overwritten",
+      "status": "PASS",
+      "detail": "Existing 03_v2 output directory snapshots unchanged"
+    },
+    {
+      "check": "one_row_per_membership_row_id_in_every_window",
+      "status": "PASS",
+      "detail": "w1_1 rows=23115; w1_2 rows=23115; w1_3 rows=23115; w1_4 rows=23115"
+    },
+    {
+      "check": "row_count_matches_02c_strict_core_membership",
+      "status": "PASS",
+      "detail": "strict_core_membership_rows=23115"
+    },
+    {
+      "check": "w1_1_w1_2_w1_3_w1_4_separated",
+      "status": "PASS",
+      "detail": "Each window table uses its own prefixed feature columns"
+    },
+    {
+      "check": "no_model_training",
+      "status": "PASS",
+      "detail": "No estimator, fit, prediction, or model artifact is created"
+    },
+    {
+      "check": "no_shap",
+      "status": "PASS",
+      "detail": "No SHAP package, explainer, or SHAP artifact is used"
+    },
+    {
+      "check": "no_content_features",
+      "status": "PASS",
+      "detail": "none"
+    },
+    {
+      "check": "no_modeling_dataset",
+      "status": "PASS",
+      "detail": "Only per-window usage feature tables and audit artifacts were created"
+    },
+    {
+      "check": "no_identifier_or_date_model_features",
+      "status": "PASS",
+      "detail": "none"
+    },
+    {
+      "check": "all_required_outputs_created",
+      "status": "PASS",
+      "detail": "required_outputs=14"
+    }
+  ]
+}

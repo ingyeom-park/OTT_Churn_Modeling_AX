@@ -1,0 +1,7 @@
+﻿metric,count,evidence
+raw_membership_rows,24074,_data/01_raw/Membership_train.csv
+retained_membership_rows,23933,park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv
+excluded_membership_rows,141,park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_excluded_membership_rows.csv
+source_row_number_mapped_rows,23933,preprocessed file has source_row_number
+membership_row_id_mapped_rows,23933,preprocessed file has membership_row_id
+retained_plus_excluded_equals_raw,1,23933 + 141 = 24074

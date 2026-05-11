@@ -1,0 +1,29 @@
+﻿check,status,evidence
+raw files unchanged,PASS,Compared raw csv snapshots.
+no _data output created,PASS,Compared _data file set.
+Stage 01 through Stage 09 outputs not overwritten,PASS,Compared protected Stage 01-09 snapshots excluding 02b.
+no model training,PASS,No sklearn model import or fit used.
+no SHAP,PASS,No shap import or SHAP computation.
+no Optuna,PASS,No optuna import or tuning.
+raw vs preprocessed comparison completed,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_raw_vs_preprocessed_value_changes.csv
+value replacement count computed,PASS,replacement_count column exists.
+anomaly before/after table created,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_membership_value_anomaly_before_after.csv
+what-if strict cleaning impact created,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_what_if_cleaning_policy_row_counts.csv
+recommended correction policy created,PASS,park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_recommended_correction_policy.md
+required output exists: 02b_preprocessing_forensic_report.md,PASS,park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_preprocessing_forensic_report.md
+required output exists: 02b_preprocessing_forensic_summary.json,PASS,park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_preprocessing_forensic_summary.json
+required output exists: 02b_recommended_correction_policy.md,PASS,park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_recommended_correction_policy.md
+required output exists: 02b_row_lineage_summary.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_row_lineage_summary.csv
+required output exists: 02b_excluded_rows_by_reason.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_excluded_rows_by_reason.csv
+required output exists: 02b_raw_vs_preprocessed_value_changes.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_raw_vs_preprocessed_value_changes.csv
+required output exists: 02b_membership_value_anomaly_before_after.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_membership_value_anomaly_before_after.csv
+required output exists: 02b_policy_status_matrix.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_policy_status_matrix.csv
+required output exists: 02b_duration_policy_impact.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_duration_policy_impact.csv
+required output exists: 02b_value_anomaly_strict_policy_impact.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_value_anomaly_strict_policy_impact.csv
+required output exists: 02b_usermapping_forensic_audit.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_usermapping_forensic_audit.csv
+required output exists: 02b_moviemaster_forensic_audit.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_moviemaster_forensic_audit.csv
+required output exists: 02b_viewhistory_temporal_treatment_audit.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_viewhistory_temporal_treatment_audit.csv
+required output exists: 02b_what_if_cleaning_policy_row_counts.csv,PASS,park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_what_if_cleaning_policy_row_counts.csv
+required output exists: 02b_row_count_policy_comparison.png,PASS,park.ingyeom/reports/figures/02b_v2_preprocessing_forensic_audit/02b_row_count_policy_comparison.png
+required output exists: 02b_duration_distribution_before_after.png,PASS,park.ingyeom/reports/figures/02b_v2_preprocessing_forensic_audit/02b_duration_distribution_before_after.png
+required output exists: 02b_value_anomaly_counts.png,PASS,park.ingyeom/reports/figures/02b_v2_preprocessing_forensic_audit/02b_value_anomaly_counts.png

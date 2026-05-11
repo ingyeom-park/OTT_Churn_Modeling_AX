@@ -1,0 +1,7 @@
+﻿dataset,column,target_value,count,share,repurchase_rate,churn_rate
+Stage 02 retained,is_repurchase_raw,Y,17226.0,0.7197593281243472,,
+Stage 02 retained,is_repurchase_raw,N,6707.0,0.2802406718756529,,
+Stage 02c strict-core,is_repurchase_label,1,16591.0,0.7177590309322951,,
+Stage 02c strict-core,is_repurchase_label,0,6524.0,0.28224096906770496,,
+Stage 02 retained,,,,,0.7197593281243472,0.2802406718756529
+Stage 02c strict-core,,,,,0.7177590309322951,0.28224096906770496

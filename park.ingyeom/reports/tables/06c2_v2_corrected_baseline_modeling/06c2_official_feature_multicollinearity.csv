@@ -1,0 +1,4 @@
+﻿method,feature_a,feature_b,abs_corr
+spearman,w1_3_week1_watch_time,w1_3_week1_sessions,0.908124392532005
+spearman,w1_3_week2_watch_time,w1_3_week2_sessions,0.9113373516363954
+spearman,w1_3_week3_watch_time,w1_3_week3_sessions,0.9074569868855976

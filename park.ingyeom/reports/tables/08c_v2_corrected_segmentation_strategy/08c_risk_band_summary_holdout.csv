@@ -1,0 +1,5 @@
+﻿population,risk_band,n,share,repurchase_rate,churn_rate,lift_vs_overall_churn_rate,captured_churners,churner_capture_rate,avg_repurchase_score,avg_churn_risk_score
+holdout,top_10_highest_risk,463,0.1001,0.1749,0.8251,2.8371,382,0.284,0.2204,0.7796
+holdout,risk_10_30,928,0.2006,0.4289,0.5711,1.9639,530,0.3941,0.452,0.548
+holdout,risk_30_60,1384,0.2992,0.7399,0.2601,0.8944,360,0.2677,0.7531,0.2469
+holdout,bottom_40_lowest_risk,1850,0.4,0.9605,0.0395,0.1357,73,0.0543,0.9521,0.0479

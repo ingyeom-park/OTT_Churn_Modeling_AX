@@ -1,0 +1,61 @@
+{
+  "stage": "04c_v2_content_feature_engineering",
+  "membership_rows": 23115,
+  "active_movie_fields": [
+    "MOVIE_NUM",
+    "movie_title",
+    "ott_release_month",
+    "genre"
+  ],
+  "major_genres": [
+    "Drama",
+    "Thriller/Crime",
+    "Horror",
+    "Comedy",
+    "Action/Adventure",
+    "SF/Fantasy",
+    "Romance",
+    "Documentary",
+    "Animation/Family",
+    "Historical/War",
+    "Other"
+  ],
+  "windows": {
+    "w1_1": {
+      "rel_day_start": 0,
+      "rel_day_end": 6,
+      "late_period_only": false
+    },
+    "w1_2": {
+      "rel_day_start": 0,
+      "rel_day_end": 13,
+      "late_period_only": false
+    },
+    "w1_3": {
+      "rel_day_start": 0,
+      "rel_day_end": 20,
+      "late_period_only": false
+    },
+    "w1_4": {
+      "rel_day_start": 0,
+      "rel_day_end": 27,
+      "late_period_only": true
+    }
+  },
+  "data_outputs": [
+    "park.ingyeom/reports/data/04c_v2_content_feature_engineering/content_features_v2c_w1_1.csv",
+    "park.ingyeom/reports/data/04c_v2_content_feature_engineering/content_features_v2c_w1_2.csv",
+    "park.ingyeom/reports/data/04c_v2_content_feature_engineering/content_features_v2c_w1_3.csv",
+    "park.ingyeom/reports/data/04c_v2_content_feature_engineering/content_features_v2c_w1_4.csv"
+  ],
+  "audit_outputs": [
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_moviemaster_deduplication_summary.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_moviemaster_genre_conflict_rows.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_content_join_coverage_summary.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_content_temporal_filter_summary.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_window_row_count_summary.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_content_feature_numeric_summary.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_content_feature_missing_summary.csv",
+    "park.ingyeom/reports/tables/04c_v2_content_feature_engineering/04c_final_checks.csv"
+  ]
+}

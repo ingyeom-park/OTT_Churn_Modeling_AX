@@ -1,0 +1,975 @@
+(SSD) MX500 512GB 볼륨에 대한 폴더 경로의 목록입니다.
+볼륨 일련 번호는 7812-6B36입니다.
+C:\CODE\GITHUB REPOSITORY\OTT-CHURN-PREDICTION\PARK.INGYEOM
+|   CLAUDE.md
+|   README.md
+|   
++---archive
+|       temp.txt
+|       
++---image
+|       temp.txt
+|       
++---models
+|       temp.txt
+|       
++---notebooks
+|       01_v2_data_overview_and_audit.ipynb
+|       02b_v2_preprocessing_forensic_audit.ipynb
+|       02b_v2_preprocessing_forensic_audit_impl.py
+|       02c_v2_strict_preprocessing_correction.ipynb
+|       02c_v2_strict_preprocessing_correction_impl.py
+|       02_v2_preprocessing_policy.ipynb
+|       02_v2_preprocessing_policy_validation.ipynb
+|       03_v2_usage_feature_engineering.ipynb
+|       04_v2_content_feature_engineering.ipynb
+|       05d_v2_feature_dictionary.ipynb
+|       05d_v2_feature_dictionary_impl.py
+|       05e_v2_final_feature_pruning_policy.ipynb
+|       05e_v2_final_feature_pruning_policy_impl.py
+|       05_v2_modeling_dataset.ipynb
+|       06b_v2_baseline_sanity_audit.ipynb
+|       06b_v2_baseline_sanity_audit_impl.py
+|       06c_v2_overfitting_leakage_adversarial_audit.ipynb
+|       06c_v2_overfitting_leakage_adversarial_audit_impl.py
+|       06d_v2_multicollinearity_redundancy_audit.ipynb
+|       06d_v2_multicollinearity_redundancy_audit_impl.py
+|       06e_v2_exact_early_window_rebuild.ipynb
+|       06e_v2_exact_early_window_rebuild_impl.py
+|       06f_v2_reduced_feature_baseline_audit.ipynb
+|       06f_v2_reduced_feature_baseline_audit_impl.py
+|       06g_v2_pruned_baseline_modeling.ipynb
+|       06g_v2_pruned_baseline_modeling_impl.py
+|       06h_v2_pruned_model_collinearity_shap_audit.ipynb
+|       06h_v2_pruned_model_collinearity_shap_audit_impl.py
+|       06_v2_baseline_modeling.ipynb
+|       06_v2_baseline_modeling_impl.py
+|       07r_v2_true_shap_interpretation.ipynb
+|       07r_v2_true_shap_interpretation_impl.py
+|       07_v2_xai_shap_interpretation.ipynb
+|       07_v2_xai_shap_interpretation_impl.py
+|       08b_v2_segmentation_refinement.ipynb
+|       08b_v2_segmentation_refinement_impl.py
+|       08_v2_segmentation_strategy.ipynb
+|       08_v2_segmentation_strategy_impl.py
+|       09_v2_business_simulation_and_retention_strategy.ipynb
+|       09_v2_business_simulation_and_retention_strategy_impl.py
+|       10_v2_final_audit_and_synthesis_check.ipynb
+|       10_v2_final_audit_and_synthesis_check_impl.py
+|       
++---reports
+|   +---brief
+|   |       ott_churn_project_20260504.docx
+|   |       ott_churn_project_ultra_handoff_20260507.docx
+|   |       ott_churn_project_v2_transition_briefing_20260510.docx
+|   |       
+|   +---data
+|   |   +---01_v2_data_overview_and_audit
+|   |   |       01_audit_summary.json
+|   |   |       01_v2_audit_summary.json
+|   |   |       01_v2_data_audit_report.md
+|   |   |       
+|   |   +---02b_v2_preprocessing_forensic_audit
+|   |   |       02b_preprocessing_forensic_report.md
+|   |   |       02b_preprocessing_forensic_summary.json
+|   |   |       02b_recommended_correction_policy.md
+|   |   |       
+|   |   +---02c_v2_strict_preprocessing_correction
+|   |   |       02c_strict_preprocessing_report.md
+|   |   |       02c_strict_preprocessing_summary.json
+|   |   |       membership_v2_preprocessed_strict_core.csv
+|   |   |       moviemaster_v2_policy_checked_strict_core.csv
+|   |   |       usermapping_v2_policy_checked_strict_core.csv
+|   |   |       
+|   |   +---02_v2_preprocessing_policy
+|   |   |       02_v2_preprocessing_policy_report.md
+|   |   |       02_v2_preprocessing_summary.json
+|   |   |       membership_v2_preprocessed.csv
+|   |   |       moviemaster_v2_policy_checked.csv
+|   |   |       usermapping_v2_policy_checked.csv
+|   |   |       v2_preprocessing_summary.json
+|   |   |       
+|   |   +---02_v2_preprocessing_policy_validation
+|   |   |       02_v2_policy_validation_summary.json
+|   |   |       02_v2_preprocessing_policy_validation_report.md
+|   |   |       
+|   |   +---03_v2_usage_feature_engineering
+|   |   |       03_v2_usage_feature_engineering_report.md
+|   |   |       usage_features_v2_w1_3.csv
+|   |   |       usage_features_v2_w1_4.csv
+|   |   |       usage_feature_summary.json
+|   |   |       
+|   |   +---04_v2_content_feature_engineering
+|   |   |       04_v2_content_feature_engineering_report.md
+|   |   |       content_features_v2_w1_3.csv
+|   |   |       content_features_v2_w1_4.csv
+|   |   |       content_feature_summary.json
+|   |   |       
+|   |   +---04_v2_content_feature_feasibility
+|   |   |       04_v2_content_feature_feasibility_report.md
+|   |   |       
+|   |   +---05d_v2_feature_dictionary
+|   |   |       05d_v2_feature_dictionary_report.md
+|   |   |       05d_v2_feature_dictionary_summary.json
+|   |   |       
+|   |   +---05e_v2_final_feature_pruning_policy
+|   |   |       05e_feature_pruning_policy_report.md
+|   |   |       05e_feature_pruning_summary.json
+|   |   |       modeling_dataset_v2_w1_3_pruned.csv
+|   |   |       modeling_dataset_v2_w1_4_pruned.csv
+|   |   |       pruned_feature_sets_v2.json
+|   |   |       
+|   |   +---05_v2_modeling_dataset
+|   |   |       05_v2_modeling_dataset_report.md
+|   |   |       feature_sets_v2.json
+|   |   |       modeling_dataset_summary.json
+|   |   |       modeling_dataset_v2_w1_3.csv
+|   |   |       modeling_dataset_v2_w1_4.csv
+|   |   |       
+|   |   +---06b_v2_baseline_sanity_audit
+|   |   |       06b_baseline_sanity_audit_report.md
+|   |   |       06b_sanity_audit_summary.json
+|   |   |       
+|   |   +---06c_v2_overfitting_leakage_adversarial_audit
+|   |   |       06c_adversarial_audit_report.md
+|   |   |       06c_adversarial_audit_summary.json
+|   |   |       06c_mentor_response_summary.md
+|   |   |       
+|   |   +---06d_v2_multicollinearity_redundancy_audit
+|   |   |       06d_mentor_facing_multicollinearity_summary.md
+|   |   |       06d_multicollinearity_audit_report.md
+|   |   |       06d_multicollinearity_audit_summary.json
+|   |   |       
+|   |   +---06e_v2_exact_early_window_rebuild
+|   |   |       06e_exact_early_window_rebuild_report.md
+|   |   |       06e_exact_early_window_summary.json
+|   |   |       06e_exact_features_w1_1.csv
+|   |   |       06e_exact_features_w1_2.csv
+|   |   |       06e_exact_features_w1_3.csv
+|   |   |       06e_exact_features_w1_4.csv
+|   |   |       06e_mentor_safe_metric_summary.md
+|   |   |       06e_v2_exact_early_window_rebuild.zip
+|   |   |       
+|   |   +---06f_v2_reduced_feature_baseline_audit
+|   |   |       06f_mentor_safe_model_recommendation.md
+|   |   |       06f_reduced_feature_baseline_report.md
+|   |   |       06f_reduced_feature_baseline_summary.json
+|   |   |       
+|   |   +---06g_v2_pruned_baseline_modeling
+|   |   |       06g_final_pruned_model_recommendation.md
+|   |   |       06g_pruned_baseline_modeling_report.md
+|   |   |       06g_pruned_baseline_summary.json
+|   |   |       06g_v2_pruned_baseline_modeling.zip
+|   |   |       
+|   |   +---06h_v2_pruned_model_collinearity_shap_audit
+|   |   |       06h_final_model_recommendation.md
+|   |   |       06h_integrated_audit_report.md
+|   |   |       06h_integrated_audit_summary.json
+|   |   |       06h_mentor_response_update.md
+|   |   |       06h_team_share_model_summary.md
+|   |   |       
+|   |   +---06_v2_baseline_modeling
+|   |   |       06_v2_baseline_modeling_report.md
+|   |   |       06_v2_baseline_modeling_summary.json
+|   |   |       06_v2_best_model_config.json
+|   |   |       06_v2_feature_importance.csv
+|   |   |       06_v2_model_metrics.csv
+|   |   |       06_v2_prediction_scores.csv
+|   |   |       
+|   |   +---07r_v2_true_shap_interpretation
+|   |   |       07r_local_explanation_cases.csv
+|   |   |       07r_shap_sample_membership_rows.csv
+|   |   |       07r_supersedes_stage07_fallback.md
+|   |   |       07r_team_share_summary.md
+|   |   |       07r_true_shap_interpretation_report.md
+|   |   |       07r_true_shap_summary.json
+|   |   |       
+|   |   +---07_v2_xai_shap_interpretation
+|   |   |       07_v2_local_explanation_cases.csv
+|   |   |       07_v2_shap_sample_membership_rows.csv
+|   |   |       07_v2_xai_shap_interpretation_report.md
+|   |   |       07_v2_xai_summary.json
+|   |   |       
+|   |   +---08b_v2_segmentation_refinement
+|   |   |       08b_final_segment_assignments_full_descriptive.csv
+|   |   |       08b_final_segment_assignments_holdout.csv
+|   |   |       08b_segmentation_refinement_report.md
+|   |   |       08b_segmentation_refinement_summary.json
+|   |   |       08b_team_share_final_segment_summary.md
+|   |   |       
+|   |   +---08_v2_segmentation_strategy
+|   |   |       08_v2_segmentation_strategy_report.md
+|   |   |       08_v2_segmentation_summary.json
+|   |   |       08_v2_segment_assignments_full_descriptive.csv
+|   |   |       08_v2_segment_assignments_holdout.csv
+|   |   |       08_v2_team_share_segment_summary.md
+|   |   |       
+|   |   +---09_v2_business_simulation
+|   |   |       09_v2_business_simulation_report.md
+|   |   |       09_v2_business_simulation_summary.json
+|   |   |       09_v2_editable_assumption_template.csv
+|   |   |       09_v2_team_share_business_simulation_summary.md
+|   |   |       
+|   |   +---10_v2_final_audit_and_synthesis
+|   |   |       10_v2_final_readiness_verdict.md
+|   |   |       10_v2_final_synthesis_report.md
+|   |   |       10_v2_final_synthesis_summary.json
+|   |   |       10_v2_presentation_outline.md
+|   |   |       10_v2_team_handoff_summary.md
+|   |   |       
+|   |   +---99_review_materials
+|   |   |       claim_wording_guardrail_v2.md
+|   |   |       final_audit_checklist_v2.md
+|   |   |       mentor_QA_v2.md
+|   |   |       presentation_storyline_draft_v2.md
+|   |   |       
+|   |   \---__legacy
+|   |       +---02_preprocessing_policy
+|   |       |       membership_preprocessed.csv
+|   |       |       membership_with_usernum.csv
+|   |       |       preprocessing_summary.json
+|   |       |       view_history_observation_window.csv
+|   |       |       
+|   |       +---03_movie_metadata_unification
+|   |       |       movie_metadata_unified_v1.csv
+|   |       |       movie_metadata_unified_v1_v2_summary.json
+|   |       |       movie_metadata_unified_v2.csv
+|   |       |       
+|   |       +---04_usage_feature_engineering
+|   |       |       modeling_feature_table_usage.csv
+|   |       |       usage_features.csv
+|   |       |       usage_feature_summary.json
+|   |       |       
+|   |       +---05_content_feature_engineering
+|   |       |       content_features.csv
+|   |       |       content_feature_summary.json
+|   |       |       modeling_feature_table_with_content.csv
+|   |       |       
+|   |       +---06_feature_redundancy_audit
+|   |       |       06_feature_modeling_candidate_redundancy_review.csv
+|   |       |       06_feature_modeling_candidate_refined.csv
+|   |       |       06_feature_redundancy_corr_matrix.csv
+|   |       |       06_feature_redundancy_summary.json
+|   |       |       06_feature_redundancy_vif_feature_map.csv
+|   |       |       
+|   |       +---06_significance_tests_and_eda
+|   |       |   |   06_candidate_features_for_modeling.csv
+|   |       |   |   06_candidate_feature_list_for_modeling.txt
+|   |       |   |   06_rejected_or_weak_hypotheses.csv
+|   |       |   |   06_significance_all_results.csv
+|   |       |   |   06_significance_all_results_with_decision.csv
+|   |       |   |   06_significance_significant_or_model_candidates.csv
+|   |       |   |   
+|   |       |   \---cache
+|   |       |           06_tests_100won_content.csv
+|   |       |           06_tests_100won_interaction_segment.csv
+|   |       |           06_tests_100won_membership.csv
+|   |       |           06_tests_100won_screen1_content.csv
+|   |       |           06_tests_100won_screen1_interaction_segment.csv
+|   |       |           06_tests_100won_screen1_membership.csv
+|   |       |           06_tests_100won_screen1_usage.csv
+|   |       |           06_tests_100won_screen1_weekly_recency_binge.csv
+|   |       |           06_tests_100won_screen2_content.csv
+|   |       |           06_tests_100won_screen2_interaction_segment.csv
+|   |       |           06_tests_100won_screen2_membership.csv
+|   |       |           06_tests_100won_screen2_usage.csv
+|   |       |           06_tests_100won_screen2_weekly_recency_binge.csv
+|   |       |           06_tests_100won_screen4_content.csv
+|   |       |           06_tests_100won_screen4_interaction_segment.csv
+|   |       |           06_tests_100won_screen4_membership.csv
+|   |       |           06_tests_100won_screen4_usage.csv
+|   |       |           06_tests_100won_screen4_weekly_recency_binge.csv
+|   |       |           06_tests_100won_usage.csv
+|   |       |           06_tests_100won_weekly_recency_binge.csv
+|   |       |           06_tests_all_content.csv
+|   |       |           06_tests_all_interaction_segment.csv
+|   |       |           06_tests_all_membership.csv
+|   |       |           06_tests_all_usage.csv
+|   |       |           06_tests_all_weekly_recency_binge.csv
+|   |       |           06_tests_has_content_feature_content.csv
+|   |       |           06_tests_has_content_feature_interaction_segment.csv
+|   |       |           06_tests_has_content_feature_membership.csv
+|   |       |           06_tests_has_content_feature_usage.csv
+|   |       |           06_tests_has_content_feature_weekly_recency_binge.csv
+|   |       |           06_tests_has_watch_obs_content.csv
+|   |       |           06_tests_has_watch_obs_interaction_segment.csv
+|   |       |           06_tests_has_watch_obs_membership.csv
+|   |       |           06_tests_has_watch_obs_usage.csv
+|   |       |           06_tests_has_watch_obs_weekly_recency_binge.csv
+|   |       |           06_tests_non_100won_content.csv
+|   |       |           06_tests_non_100won_interaction_segment.csv
+|   |       |           06_tests_non_100won_membership.csv
+|   |       |           06_tests_non_100won_usage.csv
+|   |       |           06_tests_non_100won_weekly_recency_binge.csv
+|   |       |           06_tests_no_watch_obs_content.csv
+|   |       |           06_tests_no_watch_obs_interaction_segment.csv
+|   |       |           06_tests_no_watch_obs_membership.csv
+|   |       |           06_tests_no_watch_obs_usage.csv
+|   |       |           06_tests_no_watch_obs_weekly_recency_binge.csv
+|   |       |           
+|   |       \---07_modeling_baseline
+|   |               07_best_model_config.json
+|   |               07_feature_importance.csv
+|   |               07_feature_sets.json
+|   |               07_model_metrics.csv
+|   |               07_prediction_scores.csv
+|   |               07_risk_decile_table.csv
+|   |               
+|   +---figures
+|   |   +---02b_v2_preprocessing_forensic_audit
+|   |   |       02b_duration_distribution_before_after.png
+|   |   |       02b_row_count_policy_comparison.png
+|   |   |       02b_value_anomaly_counts.png
+|   |   |       
+|   |   +---02c_v2_strict_preprocessing_correction
+|   |   |       02c_duration_distribution_before_after.png
+|   |   |       02c_removed_reason_counts.png
+|   |   |       02c_row_count_before_after.png
+|   |   |       02c_target_distribution_before_after.png
+|   |   |       
+|   |   +---06b_v2_baseline_sanity_audit
+|   |   |       06b_drop_suspicious_feature_auc.png
+|   |   |       
+|   |   +---06c_v2_overfitting_leakage_adversarial_audit
+|   |   |       06c_auc_by_time_window.png
+|   |   |       06c_conservative_metric_ladder.png
+|   |   |       06c_risk_decile_churn_rate.png
+|   |   |       06c_single_feature_auc_top_features.png
+|   |   |       06c_top_feature_removal_auc_drop.png
+|   |   |       
+|   |   +---06d_v2_multicollinearity_redundancy_audit
+|   |   |       06d_genre_content_corr_heatmap.png
+|   |   |       06d_primary_numeric_corr_heatmap.png
+|   |   |       06d_shap_redundancy_cluster_map.png
+|   |   |       06d_top_vif_features.png
+|   |   |       06d_usage_corr_heatmap.png
+|   |   |       
+|   |   +---06e_v2_exact_early_window_rebuild
+|   |   |       06e_auc_by_time_window.png
+|   |   |       06e_churn_risk_top_decile_by_window.png
+|   |   |       06e_metric_ladder_for_mentor.png
+|   |   |       
+|   |   +---06f_v2_reduced_feature_baseline_audit
+|   |   |       06f_auc_vs_interpretability.png
+|   |   |       06f_feature_count_vs_auc.png
+|   |   |       06f_metric_ladder.png
+|   |   |       06f_top_decile_lift_comparison.png
+|   |   |       
+|   |   +---06g_v2_pruned_baseline_modeling
+|   |   |       06g_feature_count_vs_auc_pruned.png
+|   |   |       06g_pruned_auc_comparison.png
+|   |   |       06g_pruned_metric_ladder.png
+|   |   |       06g_top_decile_lift_pruned.png
+|   |   |       
+|   |   +---06h_v2_pruned_model_collinearity_shap_audit
+|   |   |       06h_auc_vs_interpretability.png
+|   |   |       06h_final_candidate_corr_heatmap.png
+|   |   |       06h_final_candidate_vif_bar.png
+|   |   |       06h_logistic_top_coefficients.png
+|   |   |       06h_shap_beeswarm_red_blue_final_candidate.png
+|   |   |       06h_shap_feature_family_importance_final_candidate.png
+|   |   |       06h_shap_global_bar_final_candidate.png
+|   |   |       06h_top_decile_lift_comparison.png
+|   |   |       
+|   |   +---06_v2_baseline_modeling
+|   |   |       06_v2_model_auc_comparison.png
+|   |   |       06_v2_pr_curve_best_w1_3.png
+|   |   |       06_v2_pr_curve_best_w1_4.png
+|   |   |       06_v2_roc_curve_best_w1_3.png
+|   |   |       06_v2_roc_curve_best_w1_4.png
+|   |   |       
+|   |   +---07r_v2_true_shap_interpretation
+|   |   |       07r_churn_risk_top_decile_shap_push.png
+|   |   |       07r_feature_family_shap_importance_conservative_w1_3.png
+|   |   |       07r_shap_beeswarm_red_blue_conservative_w1_3.png
+|   |   |       07r_shap_beeswarm_red_blue_late_w1_4.png
+|   |   |       07r_shap_dependence_top01_w1_3_week3_watch_time.png
+|   |   |       07r_shap_dependence_top02_w1_3_w2_minus_w1_watch_time.png
+|   |   |       07r_shap_dependence_top03_w1_3_week1_ratio.png
+|   |   |       07r_shap_dependence_top04_price.png
+|   |   |       07r_shap_dependence_top05_w1_3_first_watch_rel_day.png
+|   |   |       07r_shap_global_bar_conservative_w1_3.png
+|   |   |       07r_w1_3_vs_w1_4_family_importance.png
+|   |   |       07r_waterfall_high_risk_false_positive_1413.png
+|   |   |       07r_waterfall_high_risk_false_positive_5176.png
+|   |   |       07r_waterfall_high_risk_false_positive_5455.png
+|   |   |       07r_waterfall_high_risk_true_N_11369.png
+|   |   |       07r_waterfall_high_risk_true_N_1778.png
+|   |   |       07r_waterfall_high_risk_true_N_3488.png
+|   |   |       07r_waterfall_low_risk_true_Y_2140.png
+|   |   |       07r_waterfall_low_risk_true_Y_7709.png
+|   |   |       07r_waterfall_low_risk_true_Y_7807.png
+|   |   |       07r_waterfall_mid_score_12678.png
+|   |   |       07r_waterfall_mid_score_20379.png
+|   |   |       07r_waterfall_mid_score_5151.png
+|   |   |       
+|   |   +---07_v2_xai_shap_interpretation
+|   |   |       07_v2_churn_risk_top_decile_feature_push.png
+|   |   |       07_v2_feature_family_importance_conservative_w1_3.png
+|   |   |       07_v2_logistic_top_coefficients_w1_3.png
+|   |   |       07_v2_shap_beeswarm_conservative_w1_3.png
+|   |   |       07_v2_shap_global_bar_conservative_w1_3.png
+|   |   |       07_v2_shap_global_bar_late_w1_4.png
+|   |   |       07_v2_w1_3_vs_w1_4_family_importance.png
+|   |   |       
+|   |   +---08b_v2_segmentation_refinement
+|   |   |       08b_final_segment_action_map.png
+|   |   |       08b_final_segment_churn_rate_holdout.png
+|   |   |       08b_final_segment_size_and_lift.png
+|   |   |       08b_modifier_evidence_heatmap.png
+|   |   |       08b_risk_band_capture_curve.png
+|   |   |       
+|   |   +---08_v2_segmentation_strategy
+|   |   |       08_v2_hierarchical_segment_size_and_churn.png
+|   |   |       08_v2_risk_band_churn_lift_holdout.png
+|   |   |       08_v2_risk_band_churn_rate_holdout.png
+|   |   |       08_v2_segment_action_map.png
+|   |   |       08_v2_segment_shap_evidence_heatmap.png
+|   |   |       08_v2_top_decile_churn_capture.png
+|   |   |       
+|   |   +---09_v2_business_simulation
+|   |   |       09_v2_assumption_sensitivity_tornado.png
+|   |   |       09_v2_business_simulation_summary_card.png
+|   |   |       09_v2_incremental_retained_users_by_segment.png
+|   |   |       09_v2_portfolio_incremental_retained_users.png
+|   |   |       09_v2_segment_action_map.png
+|   |   |       
+|   |   \---10_v2_final_audit_and_synthesis
+|   |           10_v2_claim_status_counts.png
+|   |           10_v2_final_storyline_map.png
+|   |           10_v2_pipeline_summary_flow.png
+|   |           
+|   \---tables
+|       +---01_v2_data_overview_and_audit
+|       |       01_basic_value_distributions_top20.csv
+|       |       01_column_summary.csv
+|       |       01_date_parse_errors.csv
+|       |       01_date_relationship_by_duration.csv
+|       |       01_final_checks.csv
+|       |       01_join_coverage_checks.csv
+|       |       01_key_checks.csv
+|       |       01_membership_core_event_conflict_rows.csv
+|       |       01_membership_duplicate_conflict_summary.csv
+|       |       01_membership_strict_conflict_rows.csv
+|       |       01_movie_master_duplicate_movie_num_rows.csv
+|       |       01_raw_file_summary.csv
+|       |       01_user_mapping_duplicate_user_key_rows.csv
+|       |       01_v2_audit_final_checks.csv
+|       |       01_v2_join_expansion_summary.csv
+|       |       01_v2_membership_duplicate_audit.csv
+|       |       01_v2_membership_duration_distribution.csv
+|       |       01_v2_membership_target_conflict_rows.csv
+|       |       01_v2_membership_target_summary.csv
+|       |       01_v2_membership_value_anomaly_summary.csv
+|       |       01_v2_membership_view_temporal_audit.csv
+|       |       01_v2_moviemaster_duplicate_audit.csv
+|       |       01_v2_raw_file_inventory.csv
+|       |       01_v2_schema_summary.csv
+|       |       01_v2_usermapping_cardinality_audit.csv
+|       |       01_v2_viewhistory_basic_audit.csv
+|       |       01_v2_viewhistory_duplicate_audit.csv
+|       |       
+|       +---02b_v2_preprocessing_forensic_audit
+|       |       02b_duration_policy_impact.csv
+|       |       02b_excluded_rows_by_reason.csv
+|       |       02b_final_checks.csv
+|       |       02b_membership_value_anomaly_before_after.csv
+|       |       02b_moviemaster_forensic_audit.csv
+|       |       02b_policy_status_matrix.csv
+|       |       02b_raw_vs_preprocessed_value_changes.csv
+|       |       02b_row_lineage_summary.csv
+|       |       02b_usermapping_forensic_audit.csv
+|       |       02b_value_anomaly_strict_policy_impact.csv
+|       |       02b_viewhistory_temporal_treatment_audit.csv
+|       |       02b_what_if_cleaning_policy_row_counts.csv
+|       |       
+|       +---02c_v2_strict_preprocessing_correction
+|       |       02c_age_correction_audit.csv
+|       |       02c_before_after_row_counts.csv
+|       |       02c_before_after_target_distribution.csv
+|       |       02c_before_after_value_distributions.csv
+|       |       02c_binary_encoding_audit.csv
+|       |       02c_binary_encoding_policy.csv
+|       |       02c_categorical_standardization_audit.csv
+|       |       02c_date_parse_audit.csv
+|       |       02c_downstream_deprecation_status.csv
+|       |       02c_downstream_rerun_requirement.csv
+|       |       02c_duration_correction_audit.csv
+|       |       02c_final_checks.csv
+|       |       02c_max_screen_correction_audit.csv
+|       |       02c_moviemaster_correction_audit.csv
+|       |       02c_numeric_parse_audit.csv
+|       |       02c_price_correction_audit.csv
+|       |       02c_rare_code_audit.csv
+|       |       02c_removed_rows.csv
+|       |       02c_removed_rows_by_reason.csv
+|       |       02c_standardized_column_contract.csv
+|       |       02c_target_encoding_audit.csv
+|       |       02c_unresolved_business_definition_flags.csv
+|       |       02c_usermapping_correction_audit.csv
+|       |       02c_viewhistory_temporal_policy_audit.csv
+|       |       
+|       +---02_v2_preprocessing_policy
+|       |       02_v2_duplicate_resolution_summary.csv
+|       |       02_v2_duration_policy_deferred_summary.csv
+|       |       02_v2_excluded_membership_rows.csv
+|       |       02_v2_filter_summary.csv
+|       |       02_v2_final_checks.csv
+|       |       02_v2_join_expansion_after_membership_cleaning.csv
+|       |       02_v2_moviemaster_policy_summary.csv
+|       |       02_v2_target_conflict_resolution_summary.csv
+|       |       02_v2_usermapping_policy_summary.csv
+|       |       02_v2_value_anomaly_flag_summary.csv
+|       |       
+|       +---02_v2_preprocessing_policy_validation
+|       |       02_v2_candidate_policy_before_after_counts.csv
+|       |       02_v2_candidate_rule_affected_samples.csv
+|       |       02_v2_candidate_rule_summary.csv
+|       |       02_v2_decision_matrix.csv
+|       |       02_v2_duplicate_group_audit.csv
+|       |       02_v2_duplicate_group_sample_rows.csv
+|       |       02_v2_duration_policy_comparison.csv
+|       |       02_v2_duration_policy_samples.csv
+|       |       02_v2_final_checks.csv
+|       |       02_v2_join_expansion_by_membership_policy.csv
+|       |       02_v2_reason_code_catalog.csv
+|       |       02_v2_row_exclusion_reason_candidates.csv
+|       |       02_v2_stage01_reread_inventory.csv
+|       |       02_v2_strict_conflict_group_audit.csv
+|       |       02_v2_strict_conflict_sample_rows.csv
+|       |       02_v2_usermapping_many_to_one_audit.csv
+|       |       02_v2_usermapping_one_to_many_audit.csv
+|       |       02_v2_value_anomaly_audit.csv
+|       |       02_v2_value_anomaly_samples.csv
+|       |       
+|       +---03_v2_usage_feature_engineering
+|       |       03_v2_final_checks.csv
+|       |       03_v2_join_expansion_summary.csv
+|       |       03_v2_no_watch_summary.csv
+|       |       03_v2_short_watch_summary.csv
+|       |       03_v2_temporal_filter_summary.csv
+|       |       03_v2_usage_feature_missing_summary.csv
+|       |       03_v2_usage_feature_numeric_summary.csv
+|       |       03_v2_usage_input_summary.csv
+|       |       03_v2_window_row_count_summary.csv
+|       |       
+|       +---04_v2_content_feature_engineering
+|       |       04_v2_content_feature_missing_summary.csv
+|       |       04_v2_content_feature_numeric_summary.csv
+|       |       04_v2_content_join_coverage_summary.csv
+|       |       04_v2_content_temporal_filter_summary.csv
+|       |       04_v2_final_checks.csv
+|       |       04_v2_genre_feature_summary.csv
+|       |       04_v2_moviemaster_deduplication_summary.csv
+|       |       04_v2_moviemaster_genre_conflict_rows.csv
+|       |       04_v2_release_month_feature_summary.csv
+|       |       
+|       +---04_v2_content_feature_feasibility
+|       |       04_v2_moviemaster_content_feasibility_audit.csv
+|       |       
+|       +---05d_v2_feature_dictionary
+|       |       05d_all_columns_dictionary.csv
+|       |       05d_caution_or_target_adjacent_features.csv
+|       |       05d_content_features.csv
+|       |       05d_data_type_audit.csv
+|       |       05d_feature_sets.csv
+|       |       05d_final_checks.csv
+|       |       05d_forbidden_or_metadata_columns.csv
+|       |       05d_membership_features.csv
+|       |       05d_multicollinearity_interpretation_groups.csv
+|       |       05d_primary_model_features.csv
+|       |       05d_README.csv
+|       |       05d_renaming_suggestions.csv
+|       |       05d_top_true_shap_features.csv
+|       |       05d_usage_features.csv
+|       |       05d_v2_feature_dictionary.xlsx
+|       |       
+|       +---05e_v2_final_feature_pruning_policy
+|       |       05e_dropped_feature_inventory.csv
+|       |       05e_feature_pruning_decision_log.csv
+|       |       05e_final_checks.csv
+|       |       05e_kept_feature_inventory.csv
+|       |       05e_multicollinearity_resolution_summary.csv
+|       |       05e_pruned_feature_set_inventory.csv
+|       |       05e_structural_redundancy_resolution.csv
+|       |       05e_target_adjacent_feature_resolution.csv
+|       |       
+|       +---05_v2_modeling_dataset
+|       |       05_v2_feature_set_summary.csv
+|       |       05_v2_final_checks.csv
+|       |       05_v2_forbidden_column_audit.csv
+|       |       05_v2_input_row_count_summary.csv
+|       |       05_v2_merge_integrity_summary.csv
+|       |       05_v2_missing_value_summary.csv
+|       |       05_v2_modeling_column_inventory.csv
+|       |       05_v2_target_distribution_summary.csv
+|       |       
+|       +---06b_v2_baseline_sanity_audit
+|       |       06b_churn_risk_decile_audit.csv
+|       |       06b_drop_suspicious_feature_test.csv
+|       |       06b_feature_family_ablation_summary.csv
+|       |       06b_final_checks.csv
+|       |       06b_high_auc_review_table.csv
+|       |       06b_repeated_group_split_stability.csv
+|       |       06b_suspicious_feature_audit.csv
+|       |       06b_target_shuffle_test.csv
+|       |       
+|       +---06c_v2_overfitting_leakage_adversarial_audit
+|       |       06c_calibration_decile_stability.csv
+|       |       06c_conservative_metric_recommendation.csv
+|       |       06c_content_proxy_audit.csv
+|       |       06c_duplicate_feature_vector_audit.csv
+|       |       06c_final_checks.csv
+|       |       06c_harder_split_diagnostics.csv
+|       |       06c_single_feature_auc_bins.csv
+|       |       06c_subgroup_generalization.csv
+|       |       06c_temporal_leakage_recheck.csv
+|       |       06c_time_window_shrinkage_test.csv
+|       |       06c_top_feature_removal_test.csv
+|       |       06c_train_test_distribution_shift.csv
+|       |       
+|       +---06d_v2_multicollinearity_redundancy_audit
+|       |       06d_categorical_association_summary.csv
+|       |       06d_corr_cluster_summary.csv
+|       |       06d_exact_duplicate_features.csv
+|       |       06d_feature_inventory.csv
+|       |       06d_final_checks.csv
+|       |       06d_high_corr_pairs_pearson.csv
+|       |       06d_high_corr_pairs_spearman.csv
+|       |       06d_interpretation_grouping_recommendation.csv
+|       |       06d_primary_feature_set_inventory.csv
+|       |       06d_reduced_feature_recommendation.csv
+|       |       06d_shap_redundancy_audit.csv
+|       |       06d_structural_redundancy_notes.csv
+|       |       06d_vif_results.csv
+|       |       
+|       +---06e_v2_exact_early_window_rebuild
+|       |       06e_auc_by_window.csv
+|       |       06e_churn_risk_decile_by_window.csv
+|       |       06e_exact_window_model_metrics.csv
+|       |       06e_final_checks.csv
+|       |       06e_mentor_safe_metric_ladder.csv
+|       |       06e_stage06c_proxy_vs_exact_w1_2.csv
+|       |       06e_timing_interpretation_table.csv
+|       |       06e_view_log_inclusion_summary.csv
+|       |       06e_window_feature_row_summary.csv
+|       |       
+|       +---06f_v2_reduced_feature_baseline_audit
+|       |       06f_churn_risk_decile_summary.csv
+|       |       06f_feature_exclusion_rationale.csv
+|       |       06f_final_checks.csv
+|       |       06f_interpretability_performance_tradeoff.csv
+|       |       06f_metric_ladder.csv
+|       |       06f_multicollinearity_aware_interpretation.csv
+|       |       06f_reduced_feature_set_inventory.csv
+|       |       06f_reduced_model_metrics.csv
+|       |       
+|       +---06g_v2_pruned_baseline_modeling
+|       |       06g_final_checks.csv
+|       |       06g_final_model_recommendation.csv
+|       |       06g_interpretability_performance_tradeoff.csv
+|       |       06g_pruned_churn_risk_decile_summary.csv
+|       |       06g_pruned_metric_ladder.csv
+|       |       06g_pruned_model_metrics.csv
+|       |       06g_pruned_vs_full_comparison.csv
+|       |       
+|       +---06h_v2_pruned_model_collinearity_shap_audit
+|       |       06h_candidate_feature_set_inventory.csv
+|       |       06h_claim_update_recommendation.csv
+|       |       06h_feature_risk_classification.csv
+|       |       06h_final_checks.csv
+|       |       06h_high_corr_pairs_pearson.csv
+|       |       06h_high_corr_pairs_spearman.csv
+|       |       06h_logistic_coefficient_importance.csv
+|       |       06h_logistic_grouped_coefficient_summary.csv
+|       |       06h_model_metrics.csv
+|       |       06h_multicollinearity_summary_by_feature_set.csv
+|       |       06h_official_metric_ladder.csv
+|       |       06h_structural_redundancy_check.csv
+|       |       06h_top_decile_lift_summary.csv
+|       |       06h_true_shap_direction_summary.csv
+|       |       06h_true_shap_feature_family_importance.csv
+|       |       06h_true_shap_global_importance.csv
+|       |       06h_true_shap_local_explanation_sample.csv
+|       |       06h_vif_results.csv
+|       |       
+|       +---06_v2_baseline_modeling
+|       |       06_v2_best_model_by_feature_set.csv
+|       |       06_v2_churn_prevented_sensitivity.csv
+|       |       06_v2_churn_risk_decile_summary.csv
+|       |       06_v2_environment_summary.csv
+|       |       06_v2_failed_models.csv
+|       |       06_v2_feature_set_validation.csv
+|       |       06_v2_final_checks.csv
+|       |       06_v2_fold_assignment.csv
+|       |       06_v2_group_leakage_check.csv
+|       |       06_v2_input_dataset_summary.csv
+|       |       06_v2_model_metrics_summary.csv
+|       |       06_v2_score_orientation_summary.csv
+|       |       06_v2_split_membership_row_ids.csv
+|       |       06_v2_split_summary.csv
+|       |       06_v2_w1_3_vs_w1_4_comparison.csv
+|       |       
+|       +---07r_v2_true_shap_interpretation
+|       |       07r_business_readiness_findings.csv
+|       |       07r_churn_risk_top_decile_shap_explanation.csv
+|       |       07r_fallback_vs_true_shap_comparison.csv
+|       |       07r_feature_family_shap_importance.csv
+|       |       07r_final_checks.csv
+|       |       07r_global_shap_importance.csv
+|       |       07r_grouped_shap_importance.csv
+|       |       07r_local_top_contributors.csv
+|       |       07r_model_reconstruction_check.csv
+|       |       07r_shap_direction_summary.csv
+|       |       07r_team_share_asset_inventory.csv
+|       |       07r_visualization_inventory.csv
+|       |       07r_w1_3_vs_w1_4_xai_comparison.csv
+|       |       
+|       +---07_v2_xai_shap_interpretation
+|       |       07_v2_business_readiness_findings.csv
+|       |       07_v2_churn_risk_top_decile_explanation.csv
+|       |       07_v2_feature_family_importance.csv
+|       |       07_v2_final_checks.csv
+|       |       07_v2_global_shap_importance.csv
+|       |       07_v2_grouped_feature_importance.csv
+|       |       07_v2_local_top_contributors.csv
+|       |       07_v2_model_reconstruction_check.csv
+|       |       07_v2_permutation_importance_comparison.csv
+|       |       07_v2_shap_direction_summary.csv
+|       |       07_v2_w1_3_vs_w1_4_xai_comparison.csv
+|       |       
+|       +---08b_v2_segmentation_refinement
+|       |       08b_business_readiness_findings.csv
+|       |       08b_final_checks.csv
+|       |       08b_final_segment_definitions.csv
+|       |       08b_final_segment_overlap_matrix.csv
+|       |       08b_final_segment_summary_full_descriptive.csv
+|       |       08b_final_segment_summary_holdout.csv
+|       |       08b_modifier_flag_summary.csv
+|       |       08b_preserved_risk_band_summary_holdout.csv
+|       |       08b_segmentation_input_summary.csv
+|       |       08b_segment_keep_merge_drop_decisions.csv
+|       |       08b_stage08_segment_review.csv
+|       |       08b_stage09_simulation_input_candidates.csv
+|       |       
+|       +---08_v2_segmentation_strategy
+|       |       08_v2_business_readiness_findings.csv
+|       |       08_v2_final_checks.csv
+|       |       08_v2_hierarchical_segment_summary_full_descriptive.csv
+|       |       08_v2_hierarchical_segment_summary_holdout.csv
+|       |       08_v2_nonexclusive_segment_flag_summary.csv
+|       |       08_v2_risk_band_summary_full_descriptive.csv
+|       |       08_v2_risk_band_summary_holdout.csv
+|       |       08_v2_segmentation_input_summary.csv
+|       |       08_v2_segment_action_recommendations.csv
+|       |       08_v2_segment_flag_definitions.csv
+|       |       08_v2_segment_overlap_matrix.csv
+|       |       08_v2_segment_shap_evidence_map.csv
+|       |       08_v2_segment_thresholds.csv
+|       |       08_v2_w1_3_vs_w1_4_segment_comparison.csv
+|       |       
+|       +---09_v2_business_simulation
+|       |       09_v2_assumption_scenarios.csv
+|       |       09_v2_business_readiness_findings.csv
+|       |       09_v2_final_checks.csv
+|       |       09_v2_financial_assumption_status.csv
+|       |       09_v2_input_summary.csv
+|       |       09_v2_portfolio_simulation_summary.csv
+|       |       09_v2_segment_action_mapping.csv
+|       |       09_v2_segment_baseline_summary.csv
+|       |       09_v2_segment_simulation_low_base_high.csv
+|       |       09_v2_simulation_sensitivity_summary.csv
+|       |       
+|       +---10_v2_final_audit_and_synthesis
+|       |       10_v2_artifact_inventory.csv
+|       |       10_v2_claim_registry.csv
+|       |       10_v2_contradiction_and_wording_audit.csv
+|       |       10_v2_final_asset_inventory.csv
+|       |       10_v2_final_checks.csv
+|       |       10_v2_final_issue_register.csv
+|       |       10_v2_key_metric_registry.csv
+|       |       10_v2_model_result_registry.csv
+|       |       10_v2_presentation_storyline.csv
+|       |       10_v2_row_count_lineage.csv
+|       |       10_v2_safe_caution_do_not_claim_summary.csv
+|       |       10_v2_segment_registry.csv
+|       |       10_v2_simulation_registry.csv
+|       |       10_v2_xai_result_registry.csv
+|       |       
+|       \---__legacy
+|           +---01_data_overview
+|           |       01_data_overview_column_overview.csv
+|           |       01_data_overview_file_summary.csv
+|           |       01_data_overview_key_checks.csv
+|           |       01_data_overview_membership_basic_summary.csv
+|           |       01_data_overview_metadata_coverage.csv
+|           |       
+|           +---02_preprocessing_policy
+|           |       02_filter_summary.csv
+|           |       02_multi_usernum_membership_rows.csv
+|           |       02_observation_window_summary.csv
+|           |       02_repurchase_by_100won.csv
+|           |       02_repurchase_by_100won_maxscreen.csv
+|           |       02_user_mapping_summary.csv
+|           |       02_watch_presence_summary.csv
+|           |       
+|           +---03_movie_metadata_unification
+|           |       03_low_confidence_kobis_rows.csv
+|           |       03_metadata_coverage_summary.csv
+|           |       03_metadata_quality_counts.csv
+|           |       03_movie5171_coverage_summary.csv
+|           |       03_movie_master_title_key_duplicates.csv
+|           |       03_movie_metadata_final_checks.csv
+|           |       03_movie_metadata_input_file_summary.csv
+|           |       03_title_key_summary.csv
+|           |       03_top_unified_metadata_values_v2.csv
+|           |       
+|           +---04_usage_feature_engineering
+|           |       04_usage_feature_behavior_segment_flag_rates.csv
+|           |       04_usage_feature_final_checks.csv
+|           |       04_usage_feature_input_file_summary.csv
+|           |       04_usage_feature_numeric_summary.csv
+|           |       04_usage_feature_observation_input_check.csv
+|           |       04_usage_feature_summary_by_100won.csv
+|           |       04_usage_feature_summary_by_100won_maxscreen.csv
+|           |       04_usage_feature_watch_flag_check.csv
+|           |       
+|           +---05_content_feature_engineering
+|           |       05_content_feature_attach_check.csv
+|           |       05_content_feature_candidate_segment_rates.csv
+|           |       05_content_feature_final_checks.csv
+|           |       05_content_feature_input_file_summary.csv
+|           |       05_content_feature_input_key_check.csv
+|           |       05_content_feature_numeric_summary.csv
+|           |       05_content_feature_summary_by_100won.csv
+|           |       05_content_feature_summary_by_100won_maxscreen.csv
+|           |       05_content_feature_top_genre_counts.csv
+|           |       05_content_feature_view_metadata_join_summary.csv
+|           |       
+|           +---06_feature_redundancy_audit
+|           |       06_feature_multicollinearity_related_features.csv
+|           |       06_feature_multicollinearity_summary.csv
+|           |       06_feature_redundancy_action_summary.csv
+|           |       06_feature_redundancy_clusters.csv
+|           |       06_feature_redundancy_cluster_summary.csv
+|           |       06_feature_redundancy_decision_notes.csv
+|           |       06_feature_redundancy_feature_family_summary.csv
+|           |       06_feature_redundancy_feature_inventory.csv
+|           |       06_feature_redundancy_feature_presence.csv
+|           |       06_feature_redundancy_final_checks.csv
+|           |       06_feature_redundancy_font_config.csv
+|           |       06_feature_redundancy_high_corr_pairs.csv
+|           |       06_feature_redundancy_high_corr_summary.csv
+|           |       06_feature_redundancy_input_file_summary.csv
+|           |       06_feature_redundancy_structural_duplicates.csv
+|           |       06_feature_redundancy_vif_summary.csv
+|           |       06_feature_vif_candidates.csv
+|           |       
+|           +---06_significance_tests_and_eda
+|           |       06_analysis_group_summary.csv
+|           |       06_decision_counts_by_group.csv
+|           |       06_feature_family_summary.csv
+|           |       06_final_checks.csv
+|           |       06_hypothesis_decision_table.csv
+|           |       06_input_basic_summary.csv
+|           |       
+|           \---07_modeling_baseline
+|                   07_best_model_by_dataset.csv
+|                   07_dataset_split_summary.csv
+|                   07_decile_summary.csv
+|                   07_environment_summary.csv
+|                   07_failed_models.csv
+|                   07_feature_sets_long.csv
+|                   07_feature_set_summary.csv
+|                   07_figure_summary.csv
+|                   07_final_checks.csv
+|                   07_font_config.csv
+|                   07_input_basic_summary.csv
+|                   07_input_file_summary.csv
+|                   07_model_availability.csv
+|                   07_model_comparison_for_report.csv
+|                   07_model_metrics_summary.csv
+|                   07_optuna_status.csv
+|                   
++---src
+|   |   config.py
+|   |   __init__.py
+|   |   
+|   +---reporting
+|   |       generate_age40_report.py
+|   |       __init__.py
+|   |       
+|   \---scraping
+|           waave_scraper.py
+|           __init__.py
+|           
++---_html
+|       01__지도 학습의 기초.html
+|       02__K-최근접_이웃_KNN_.html
+|       03__선형_모델__Linear_Models_.html
+|       04__나이브_베이즈_분류기_naive_bayes_classifiers_.html
+|       05__결정_트리__Decision_Tree_.html
+|       06__트리_기반의_앙상블_ensembles_of_decision_trees_.html
+|       
+\---__legacy
+    \---notebooks
+        |   00_project_plan.ipynb
+        |   01_data_overview.ipynb
+        |   02_preprocessing_policy_fixed_minimal.ipynb
+        |   03_movie_metadata_unification.ipynb
+        |   04_usage_feature_engineering.ipynb
+        |   05_content_feature_engineering.ipynb
+        |   06_feature_redundancy_audit.ipynb
+        |   06_significance_tests_and_eda.ipynb
+        |   07_modeling_baseline.ipynb
+        |   
+        \---legacy
+            +---01_data_check
+            |       temp.txt
+            |       
+            +---02_preprocessing
+            |       260419_Membership_Preprocessing_EDA.ipynb
+            |       260419_Membership_UserMapping_EDA.ipynb
+            |       260419_ViewHistory_Merge.ipynb
+            |       membership_v1(user_no와 user_id 매칭하기).ipynb
+            |       membership_v2(연령 이상치 제거).ipynb
+            |       연령 이상치 제거.ipynb
+            |       
+            +---03_eda
+            |       01_repurchase_overall.png
+            |       02_repurchase_by_promotion.png
+            |       03_repurchase_by_maxscreen.png
+            |       04_heatmap_age_promotion.png
+            |       05_weekly_watch_by_promotion.png
+            |       06_weekly_watch_by_repurchase.png
+            |       07_days_to_end_promotion.png
+            |       08_trend_pattern_by_promotion.png
+            |       260427_EDA.ipynb
+            |       260505_week123.ipynb
+            |       40대 미인증과 iOS의 관계.ipynb
+            |       EDA_Membership.ipynb
+            |       EDA_ViewHistory.ipynb
+            |       EDA_구독해놓고 한 번도 안 본 사람.ipynb
+            |       EDA_인증과 미인증 유저 분포.ipynb
+            |       가격과 동시시청자수의 관계.ipynb
+            |       달러 분석.ipynb
+            |       유저 별 영화시청.ipynb
+            |       
+            +---04_feature_engineering
+            |       260422_다중공선성 확인하기.ipynb
+            |       260422_파생변수만들기.ipynb
+            |       260423_머신러닝용 데이터셋만들기.ipynb
+            |       
+            +---05_modeling
+            |       260426_머신러닝_v3.ipynb
+            |       260427_베이스라인 모델링.ipynb
+            |       model_churn.ipynb
+            |       
+            +---06_tuning
+            |       membership_v2.ipynb
+            |       membership_v3.ipynb
+            |       
+            \---99_temporary
+                    pdf_split.ipynb
+                    temp.txt
+                    

@@ -1,0 +1,5 @@
+﻿metric,count,action,note
+stage02_moviemaster_rows,14502,carried_forward_no_deletion,
+stage02c_moviemaster_rows,14502,carried_forward_no_deletion,
+stage02c_deduplicated_moviemaster,0,not_applied,Stage 02c does not deduplicate MovieMaster.
+stage04_deduplication_reference_exists,1,reference_only,park.ingyeom/reports/tables/04_v2_content_feature_engineering/04_v2_moviemaster_deduplication_summary.csv
