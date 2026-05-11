@@ -1,0 +1,4 @@
+﻿category,count,examples
+safe_to_claim,13,raw row count; retained rows; target mapping; w1_3 conservative AUC; TRUE SHAP computed
+claim_with_caution,2,best observed w1_4 AUC; Stage 09 retained-user scenarios
+do_not_claim,0,"ROI, causal lift, guaranteed repurchase, rich metadata not in v2"

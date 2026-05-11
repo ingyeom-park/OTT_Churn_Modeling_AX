@@ -1,0 +1,15 @@
+﻿feature_set,feature_count,contains_is_churn_prevented,window
+membership_only_with_churn_prevented,10,Y,membership
+membership_only_without_churn_prevented,9,N,membership
+usage_w1_3_only,27,N,w1_3
+usage_w1_4_only,32,N,w1_4
+content_w1_3_only,44,N,w1_3
+content_w1_4_only,44,N,w1_4
+membership_plus_usage_w1_3_with_churn_prevented,37,Y,w1_3
+membership_plus_usage_w1_3_without_churn_prevented,36,N,w1_3
+membership_plus_usage_w1_4_with_churn_prevented,42,Y,w1_4
+membership_plus_usage_w1_4_without_churn_prevented,41,N,w1_4
+membership_plus_usage_content_w1_3_with_churn_prevented,81,Y,w1_3
+membership_plus_usage_content_w1_3_without_churn_prevented,80,N,w1_3
+membership_plus_usage_content_w1_4_with_churn_prevented,86,Y,w1_4
+membership_plus_usage_content_w1_4_without_churn_prevented,85,N,w1_4

@@ -1,0 +1,6 @@
+﻿model_role,window,model_name,feature_family,mean_abs_shap
+primary_conservative,w1_3,HistGradientBoostingClassifier,usage,2.154410395235807
+primary_conservative,w1_3,HistGradientBoostingClassifier,genre,1.3469949306328584
+primary_conservative,w1_3,HistGradientBoostingClassifier,membership,0.34020614087691914
+primary_conservative,w1_3,HistGradientBoostingClassifier,release_month,0.040567790355534775
+primary_conservative,w1_3,HistGradientBoostingClassifier,content,0.0043108254555931005

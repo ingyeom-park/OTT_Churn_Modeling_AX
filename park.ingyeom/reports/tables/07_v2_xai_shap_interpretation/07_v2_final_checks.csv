@@ -1,0 +1,19 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 07 writes only under park.ingyeom/reports
+stage01_through_stage06b_outputs_not_overwritten,PASS,Stage 01-06b snapshots unchanged
+no_optuna_run,PASS,No Optuna imports or tuning used
+no_segmentation_created,PASS,No segmentation outputs created
+no_business_simulation_created,PASS,No business simulation outputs created
+no_forbidden_feature_used_in_explained_X,PASS,violations=0
+target_mapping_documented,PASS,"Y=1, N=0 documented"
+score_direction_documented,PASS,repurchase_score and churn_risk_score documented
+stage06_split_reused,PASS,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv
+no_train_test_USER_KEY_overlap,PASS,overlap=0
+shap_availability_or_fallback_documented,PASS,unavailable: No module named 'shap'
+model_reconstruction_check_completed,PASS,models=3
+global_explanation_tables_created,PASS,global importance table
+local_explanation_cases_created,PASS,local cases created
+business_readiness_findings_created,PASS,business readiness table
+stage08_recommendation_written,PASS,report and summary include Stage 08 guidance
+all_required_outputs_created,PASS,required_outputs=21

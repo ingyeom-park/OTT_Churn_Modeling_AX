@@ -1,0 +1,5 @@
+﻿check_scope,split_id,train_group_count,test_group_count,overlap_group_count,status
+holdout,train_vs_test,18936,4734,0,PASS
+groupkfold,1,15781,7889,0,PASS
+groupkfold,2,15779,7891,0,PASS
+groupkfold,3,15780,7890,0,PASS

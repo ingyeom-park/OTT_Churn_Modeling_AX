@@ -1,0 +1,3 @@
+﻿window,feature_set,model_name,stage,status,reason
+all,all,XGBClassifier,groupkfold,skipped_by_policy,Optional boosters were run on holdout only to protect Stage 06 runtime.
+all,all,LGBMClassifier,groupkfold,skipped_by_policy,Optional boosters were run on holdout only to protect Stage 06 runtime.

@@ -1,0 +1,6 @@
+﻿evaluation_type,seed,roc_auc_repurchase,average_precision_churn_risk,n_train,n_test,group_overlap,roc_auc_repurchase_std,average_precision_churn_risk_std
+repeated_group_shuffle_split,101,0.8776240493092058,0.7096400057780174,19145.0,4788.0,0,,
+repeated_group_shuffle_split,202,0.8736393714138726,0.7026160602897253,19143.0,4790.0,0,,
+repeated_group_shuffle_split,303,0.8741747956207766,0.7007748752495584,19161.0,4772.0,0,,
+naive_random_split_diagnostic,42,0.8778090452696082,0.7065133259750879,19146.0,4787.0,79,,
+repeated_group_shuffle_split_summary,101|202|303,0.8751460721146183,0.704343647105767,19149.666666666668,4783.333333333333,0,0.0017657761283179595,0.0038197776529422097

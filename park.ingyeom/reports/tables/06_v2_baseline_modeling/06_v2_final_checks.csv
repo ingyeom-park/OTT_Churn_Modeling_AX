@@ -1,0 +1,23 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 06 writes only under park.ingyeom/reports
+stage01_through_stage05_outputs_not_overwritten,PASS,Stage 01-05 snapshots unchanged
+target_mapping_documented,PASS,"Y=1, N=0 documented in score orientation and report"
+prediction_scores_include_repurchase_and_churn_risk,PASS,prediction score columns present
+identical_holdout_membership_split_reused,PASS,same test membership_row_id set for w1_3 and w1_4
+no_USER_KEY_overlap_train_test,PASS,overlap=0
+no_forbidden_feature_in_X,PASS,feature set validation
+is_repurchase_target_only,PASS,target excluded from features
+USER_KEY_group_metadata_only,PASS,USER_KEY excluded from features
+membership_row_id_id_metadata_only,PASS,membership_row_id excluded from features
+group_split_used,PASS,GroupShuffleSplit and GroupKFold used with USER_KEY
+w1_3_and_w1_4_evaluated_separately,PASS,separate window metrics saved
+with_and_without_churn_prevented_evaluated,PASS,both variants present
+required_sklearn_baselines_completed_before_optional,PASS,required_core_success=48/48
+optional_boosters_logged_and_nonblocking,PASS,optional boosters smoke-tested and failures/skips logged
+hist_gradient_boosting_passed_or_logged,PASS,"attempted=True, success=True"
+highest_auc_and_conservative_baseline_separate,PASS,best_config contains both roles
+no_optuna_run,PASS,No Optuna imports or tuning code used
+no_shap_run,PASS,No SHAP imports or outputs used
+no_segmentation_or_business_simulation,PASS,Only baseline modeling outputs created
+all_required_outputs_created,PASS,required_outputs=25

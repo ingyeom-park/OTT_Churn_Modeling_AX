@@ -1,0 +1,17 @@
+﻿window,feature_set,feature_family,contains_is_churn_prevented,raw_feature_count,numeric_feature_count,categorical_feature_count,post_transform_feature_count,missing_listed_features,forbidden_feature_violations,cross_window_feature_violations,status
+w1_3,membership_only_with_churn_prevented,membership_only,Y,10,3,7,86,,,,PASS
+w1_4,membership_only_with_churn_prevented,membership_only,Y,10,3,7,86,,,,PASS
+w1_3,membership_only_without_churn_prevented,membership_only,N,9,3,6,85,,,,PASS
+w1_4,membership_only_without_churn_prevented,membership_only,N,9,3,6,85,,,,PASS
+w1_3,usage_w1_3_only,usage_only,N,27,27,0,27,,,,PASS
+w1_4,usage_w1_4_only,usage_only,N,32,32,0,32,,,,PASS
+w1_3,content_w1_3_only,content_only,N,44,43,1,54,,,,PASS
+w1_4,content_w1_4_only,content_only,N,44,43,1,54,,,,PASS
+w1_3,membership_plus_usage_w1_3_with_churn_prevented,membership_plus_usage,Y,37,30,7,113,,,,PASS
+w1_3,membership_plus_usage_w1_3_without_churn_prevented,membership_plus_usage,N,36,30,6,112,,,,PASS
+w1_4,membership_plus_usage_w1_4_with_churn_prevented,membership_plus_usage,Y,42,35,7,118,,,,PASS
+w1_4,membership_plus_usage_w1_4_without_churn_prevented,membership_plus_usage,N,41,35,6,117,,,,PASS
+w1_3,membership_plus_usage_content_w1_3_with_churn_prevented,membership_plus_usage_content,Y,81,73,8,167,,,,PASS
+w1_3,membership_plus_usage_content_w1_3_without_churn_prevented,membership_plus_usage_content,N,80,73,7,166,,,,PASS
+w1_4,membership_plus_usage_content_w1_4_with_churn_prevented,membership_plus_usage_content,Y,86,78,8,172,,,,PASS
+w1_4,membership_plus_usage_content_w1_4_without_churn_prevented,membership_plus_usage_content,N,85,78,7,171,,,,PASS

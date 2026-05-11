@@ -1,0 +1,189 @@
+{
+  "scope": "Stage 08b segmentation refinement and presentation pruning only. No business simulation.",
+  "stage08_needed_refinement_because": [
+    "Several Stage 08 rule segments were unstable, misleadingly named, broad, or better treated as modifiers.",
+    "Risk bands were strong and remain the primary targeting frame."
+  ],
+  "stage07r_true_shap_used": true,
+  "stage07_fallback_used_as_final_evidence": false,
+  "risk_bands_preserved": [
+    "top_10_highest_risk",
+    "risk_10_30",
+    "risk_30_60",
+    "bottom_40_lowest_risk"
+  ],
+  "final_segment_count": 6,
+  "final_segments": [
+    {
+      "final_segment_key": "top_decile_high_churn_risk",
+      "korean_name": "최상위 이탈위험군",
+      "layer": "primary_targeting_group",
+      "use_in_stage09_simulation": "Y"
+    },
+    {
+      "final_segment_key": "risk_10_30_low_engagement",
+      "korean_name": "초기 저관여 고위험군",
+      "layer": "primary_targeting_group",
+      "use_in_stage09_simulation": "Y"
+    },
+    {
+      "final_segment_key": "risk_10_30_other_review",
+      "korean_name": "상위위험 관찰/추천 후보군",
+      "layer": "primary_targeting_group",
+      "use_in_stage09_simulation": "Y"
+    },
+    {
+      "final_segment_key": "late_week3_engaged_retention_candidate",
+      "korean_name": "3주차 집중 시청 안정/전환 후보군",
+      "layer": "low_risk_retention_or_maintenance_group",
+      "use_in_stage09_simulation": "Y"
+    },
+    {
+      "final_segment_key": "genre_affinity_content_recommendation_pool",
+      "korean_name": "장르 선호 기반 콘텐츠 추천군",
+      "layer": "explanatory_modifier_based_action_group",
+      "use_in_stage09_simulation": "Y"
+    },
+    {
+      "final_segment_key": "low_risk_or_general_maintenance",
+      "korean_name": "저위험/일반 유지군",
+      "layer": "maintenance_or_residual_group",
+      "use_in_stage09_simulation": "N"
+    }
+  ],
+  "holdout_summary": [
+    {
+      "population": "holdout",
+      "final_segment_key": "top_decile_high_churn_risk",
+      "final_segment_name_ko": "최상위 이탈위험군",
+      "n": 478,
+      "share": 0.10006280092108018,
+      "repurchase_rate": 0.21548117154811716,
+      "churn_rate": 0.7845188284518828,
+      "lift_vs_overall_churn_rate": 2.733513087902731,
+      "captured_churners": 375,
+      "churner_capture_rate": 0.2735229759299781,
+      "avg_repurchase_score": 0.2244546360358832,
+      "avg_churn_risk_score": 0.7755453639641167,
+      "use_in_stage09_simulation": "Y",
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "final_segment_key": "risk_10_30_low_engagement",
+      "final_segment_name_ko": "초기 저관여 고위험군",
+      "n": 478,
+      "share": 0.10006280092108018,
+      "repurchase_rate": 0.4330543933054393,
+      "churn_rate": 0.5669456066945606,
+      "lift_vs_overall_churn_rate": 1.9754187915243737,
+      "captured_churners": 271,
+      "churner_capture_rate": 0.1976659372720642,
+      "avg_repurchase_score": 0.44715665498061,
+      "avg_churn_risk_score": 0.55284334501939,
+      "use_in_stage09_simulation": "Y",
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "final_segment_key": "risk_10_30_other_review",
+      "final_segment_name_ko": "상위위험 관찰/추천 후보군",
+      "n": 478,
+      "share": 0.10006280092108018,
+      "repurchase_rate": 0.38493723849372385,
+      "churn_rate": 0.6150627615062761,
+      "lift_vs_overall_churn_rate": 2.1430742609157414,
+      "captured_churners": 294,
+      "churner_capture_rate": 0.21444201312910285,
+      "avg_repurchase_score": 0.4464880423542172,
+      "avg_churn_risk_score": 0.5535119576457829,
+      "use_in_stage09_simulation": "Y",
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "final_segment_key": "late_week3_engaged_retention_candidate",
+      "final_segment_name_ko": "3주차 집중 시청 안정/전환 후보군",
+      "n": 1174,
+      "share": 0.24576093782708813,
+      "repurchase_rate": 0.9301533219761499,
+      "churn_rate": 0.06984667802385008,
+      "lift_vs_overall_churn_rate": 0.24336803859951267,
+      "captured_churners": 82,
+      "churner_capture_rate": 0.05981035740335521,
+      "avg_repurchase_score": 0.9294221462714757,
+      "avg_churn_risk_score": 0.07057785372852418,
+      "use_in_stage09_simulation": "Y",
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "final_segment_key": "genre_affinity_content_recommendation_pool",
+      "final_segment_name_ko": "장르 선호 기반 콘텐츠 추천군",
+      "n": 1496,
+      "share": 0.31316725978647686,
+      "repurchase_rate": 0.8556149732620321,
+      "churn_rate": 0.1443850267379679,
+      "lift_vs_overall_churn_rate": 0.5030833499104834,
+      "captured_churners": 216,
+      "churner_capture_rate": 0.1575492341356674,
+      "avg_repurchase_score": 0.846574295598459,
+      "avg_churn_risk_score": 0.153425704401541,
+      "use_in_stage09_simulation": "Y",
+      "descriptive_only": "N"
+    },
+    {
+      "population": "holdout",
+      "final_segment_key": "low_risk_or_general_maintenance",
+      "final_segment_name_ko": "저위험/일반 유지군",
+      "n": 673,
+      "share": 0.14088339962319446,
+      "repurchase_rate": 0.8023774145616642,
+      "churn_rate": 0.1976225854383358,
+      "lift_vs_overall_churn_rate": 0.688579934820518,
+      "captured_churners": 133,
+      "churner_capture_rate": 0.09700948212983224,
+      "avg_repurchase_score": 0.792499590148805,
+      "avg_churn_risk_score": 0.20750040985119497,
+      "use_in_stage09_simulation": "N",
+      "descriptive_only": "N"
+    }
+  ],
+  "small_n_stage08_segments": [
+    "early_routine_stable",
+    "general_other",
+    "week2_surge_users"
+  ],
+  "high_overlap_stage08_segments": [
+    "delayed_start",
+    "early_routine_stable",
+    "genre_affinity_action_adventure",
+    "genre_affinity_animation_family",
+    "genre_affinity_drama",
+    "genre_affinity_thriller_crime",
+    "late_heavy_week3_intensive",
+    "low_or_no_early_engagement",
+    "top_decile_high_churn_risk",
+    "week2_surge_users"
+  ],
+  "misleading_stage08_segments": [
+    "early_routine_stable",
+    "general_other",
+    "high_price_or_promotion_sensitive",
+    "late_heavy_week3_intensive",
+    "week2_surge_users"
+  ],
+  "stage09_candidate_segments": [
+    "top_decile_high_churn_risk",
+    "risk_10_30_low_engagement",
+    "risk_10_30_other_review",
+    "late_week3_engaged_retention_candidate",
+    "genre_affinity_content_recommendation_pool"
+  ],
+  "claims_to_avoid": [
+    "Do not claim that SHAP proves causal retention effects.",
+    "Do not claim financial impact before Stage 09 assumptions are supplied.",
+    "Do not call week3 intensive viewers high risk when their observed churn is low.",
+    "Do not use Stage 07 fallback as final XAI evidence."
+  ]
+}

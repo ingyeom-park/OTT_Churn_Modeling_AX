@@ -1,1 +1,4 @@
 ~$*
+
+# Large generated prediction score files
+**/*prediction_scores*.csv

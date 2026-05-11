@@ -1,0 +1,29 @@
+{
+  "scope": "Stage 10 final audit and synthesis check only. No final deck or submission report.",
+  "ready_for_deck": "Y",
+  "ready_for_submission": "N",
+  "ready_for_mentor_review": "Y",
+  "raw_membership_rows": 24074,
+  "retained_membership_rows": 23933,
+  "excluded_rows_by_reason": {
+    "EXACT_DUPLICATE_EXTRA_ROW": 68,
+    "STRICT_TARGET_CONFLICT": 73
+  },
+  "conservative_w1_3_auc": 0.8704640371627193,
+  "best_observed_w1_4_auc": 0.9037410062390436,
+  "target_shuffle_auc": 0.4671643938936437,
+  "true_shap_final_xai": true,
+  "stage07_fallback_audit_only": true,
+  "stage08b_final_segment_basis": true,
+  "stage09_scenario_only": true,
+  "financial_claims_blocked": true,
+  "final_segment_count": 6,
+  "issue_counts": {
+    "high": 3,
+    "medium": 3
+  },
+  "claim_status_counts": {
+    "safe_to_claim": 13,
+    "claim_with_caution": 2
+  }
+}

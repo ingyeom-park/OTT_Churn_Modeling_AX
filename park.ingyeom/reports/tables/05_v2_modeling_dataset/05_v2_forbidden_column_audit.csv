@@ -1,0 +1,15 @@
+﻿feature_set,feature_count,forbidden_feature_count,forbidden_features,cross_window_feature_count,cross_window_features,status
+membership_only_with_churn_prevented,10,0,,0,,PASS
+membership_only_without_churn_prevented,9,0,,0,,PASS
+usage_w1_3_only,27,0,,0,,PASS
+usage_w1_4_only,32,0,,0,,PASS
+content_w1_3_only,44,0,,0,,PASS
+content_w1_4_only,44,0,,0,,PASS
+membership_plus_usage_w1_3_with_churn_prevented,37,0,,0,,PASS
+membership_plus_usage_w1_3_without_churn_prevented,36,0,,0,,PASS
+membership_plus_usage_w1_4_with_churn_prevented,42,0,,0,,PASS
+membership_plus_usage_w1_4_without_churn_prevented,41,0,,0,,PASS
+membership_plus_usage_content_w1_3_with_churn_prevented,81,0,,0,,PASS
+membership_plus_usage_content_w1_3_without_churn_prevented,80,0,,0,,PASS
+membership_plus_usage_content_w1_4_with_churn_prevented,86,0,,0,,PASS
+membership_plus_usage_content_w1_4_without_churn_prevented,85,0,,0,,PASS

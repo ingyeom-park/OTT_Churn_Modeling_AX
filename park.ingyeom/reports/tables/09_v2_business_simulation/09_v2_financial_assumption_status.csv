@@ -1,0 +1,4 @@
+﻿financial_item,status,business_effect,where_to_fill
+cost_per_contact,missing_editable_assumption,campaign_cost cannot be claimed,park.ingyeom/reports/data/09_v2_business_simulation/09_v2_editable_assumption_template.csv
+gross_margin_per_retained_user,missing_editable_assumption,"gross_retention_value, net_value, and ROI cannot be claimed",park.ingyeom/reports/data/09_v2_business_simulation/09_v2_editable_assumption_template.csv
+response_rate and incremental_retention_lift,placeholder_assumptions_only,"incremental retained users are scenario outputs, not experimental facts",park.ingyeom/reports/data/09_v2_business_simulation/09_v2_editable_assumption_template.csv

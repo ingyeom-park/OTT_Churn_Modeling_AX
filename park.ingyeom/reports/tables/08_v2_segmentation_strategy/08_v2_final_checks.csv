@@ -1,0 +1,20 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no_project_root_data_output_created,PASS,Stage 08 writes only under park.ingyeom/reports
+stage01_through_stage07r_outputs_not_overwritten,PASS,Stage 01-07r snapshots unchanged
+stage07_fallback_not_used_as_final_evidence,PASS,Only Stage 07r true SHAP tables used for evidence
+stage07r_true_shap_used_as_xai_basis,PASS,park.ingyeom/reports/data/07r_v2_true_shap_interpretation/07r_true_shap_summary.json
+is_repurchase_not_used_to_define_segments,PASS,target_used=False
+forbidden_features_not_used_as_segmentation_variables,PASS,
+holdout_first_evaluation_produced,PASS,holdout risk and segment summaries
+full_dataset_summaries_labeled_descriptive,PASS,full_descriptive labels
+w1_3_primary_segmentation_basis,PASS,w1_3
+w1_4_labeled_late_period_only,PASS,w1_4 comparison is late-period only
+no_business_simulation_created,PASS,No financial impact calculations
+no_optuna_run,PASS,No Optuna imports or tuning
+no_model_tuning_run,PASS,Only fixed Stage 06 conservative model reconstructed for full descriptive scoring
+all_required_outputs_created,PASS,required_outputs=24
+segment_action_recommendations_created,PASS,action table
+stage09_business_simulation_guidance_written,PASS,report section
+seven_validation_passes_documented,PASS,passes=7
+internal_critique_section_written,PASS,required report section

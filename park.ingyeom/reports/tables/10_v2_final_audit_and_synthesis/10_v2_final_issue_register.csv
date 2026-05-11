@@ -1,0 +1,7 @@
+﻿issue_id,issue_name,severity,affected_stage,description,action_required,owner_suggestion,must_fix_before_deck,must_fix_before_submission
+I001,Cost and margin missing,high,09,ROI/profit cannot be claimed.,Fill real cost_per_contact and margin only if financial simulation is needed.,business/mentor,Y,Y
+I002,Causal effect unverified,high,08/09,Actions are plausible but not experimentally proven.,Use scenario wording and plan A/B test.,analysis/team,Y,Y
+I003,w1_4 timing risk,high,06/07r,Best AUC is late-period and should not be called early-warning.,Use w1_3 as main timing-defensible model.,presenter,Y,Y
+I004,Stage 07 fallback deprecated,medium,07/07r,Fallback outputs remain as audit trail.,Use Stage 07r TRUE SHAP assets only.,presenter,Y,Y
+I005,Content metadata limited,medium,04/07r,Active v2 Movie_Master only supports limited content proxies.,Do not claim rich metadata or external content features.,presenter,Y,Y
+I006,High AUC requires cautious wording,medium,06b,Sanity checks passed but conservative baseline remains cautioned.,Mention target shuffle and repeated split stability with caution.,analysis/team,Y,N

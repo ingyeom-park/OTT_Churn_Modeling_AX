@@ -1,0 +1,7 @@
+﻿classification,finding,claim_boundary
+safe_to_report,True SHAP was computed for the conservative w1_3 primary model in Python 3.11.,"Report as model explanation, not causal effect."
+safe_to_report,Stage 06 holdout split was reused and train/test USER_KEY overlap was zero.,Use as leakage-control evidence.
+plausible_but_cautioned,Usage features dominate SHAP importance.,Predictive behavioral association only.
+plausible_but_cautioned,Genre/content proxy features contribute after usage.,Content metadata is limited to genre and ott_release_month proxies.
+do_not_claim_yet,w1_4 SHAP comparison is late-period/end-of-period.,Do not present w1_4 as early intervention evidence.
+do_not_claim_yet,SHAP does not prove that changing a feature will change churn.,Do not make causal retention claims.

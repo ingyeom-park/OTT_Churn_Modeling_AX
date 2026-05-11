@@ -1,0 +1,7 @@
+﻿final_segment_key,final_segment_name_ko,n,repurchase_rate,churn_rate,avg_churn_risk_score,use_in_stage09_simulation,expected_churners,expected_repurchasers,segment_priority,baseline_source
+top_decile_high_churn_risk,최상위 이탈위험군,478,0.2154811715481171,0.7845188284518828,0.7755453639641167,Y,375.0,102.99999999999997,1,Stage08b holdout observed outcomes
+risk_10_30_low_engagement,초기 저관여 고위험군,478,0.4330543933054393,0.5669456066945606,0.55284334501939,Y,271.0,207.0,2,Stage08b holdout observed outcomes
+risk_10_30_other_review,상위위험 관찰/추천 후보군,478,0.3849372384937238,0.6150627615062761,0.5535119576457829,Y,294.0,183.99999999999997,3,Stage08b holdout observed outcomes
+late_week3_engaged_retention_candidate,3주차 집중 시청 안정/전환 후보군,1174,0.93015332197615,0.06984667802385,0.0705778537285241,Y,81.9999999999999,1092.0,4,Stage08b holdout observed outcomes
+genre_affinity_content_recommendation_pool,장르 선호 기반 콘텐츠 추천군,1496,0.8556149732620321,0.1443850267379679,0.153425704401541,Y,216.0,1280.0,5,Stage08b holdout observed outcomes
+low_risk_or_general_maintenance,저위험/일반 유지군,673,0.8023774145616642,0.1976225854383358,0.2075004098511949,N,133.0,540.0,9,Stage08b holdout observed outcomes

@@ -1,0 +1,51 @@
+﻿stage,artifact_type,path,exists,missing_class,recommendation
+01_v2_data_overview_and_audit,data_folder,park.ingyeom/reports/data/01_v2_data_overview_and_audit,True,,required stage folder
+01_v2_data_overview_and_audit,tables_folder,park.ingyeom/reports/tables/01_v2_data_overview_and_audit,True,,required stage folder
+02_v2_preprocessing_policy,data_folder,park.ingyeom/reports/data/02_v2_preprocessing_policy,True,,required stage folder
+02_v2_preprocessing_policy,tables_folder,park.ingyeom/reports/tables/02_v2_preprocessing_policy,True,,required stage folder
+02_v2_preprocessing_policy_validation,data_folder,park.ingyeom/reports/data/02_v2_preprocessing_policy_validation,True,,required stage folder
+02_v2_preprocessing_policy_validation,tables_folder,park.ingyeom/reports/tables/02_v2_preprocessing_policy_validation,True,,required stage folder
+03_v2_usage_feature_engineering,data_folder,park.ingyeom/reports/data/03_v2_usage_feature_engineering,True,,required stage folder
+03_v2_usage_feature_engineering,tables_folder,park.ingyeom/reports/tables/03_v2_usage_feature_engineering,True,,required stage folder
+04_v2_content_feature_engineering,data_folder,park.ingyeom/reports/data/04_v2_content_feature_engineering,True,,required stage folder
+04_v2_content_feature_engineering,tables_folder,park.ingyeom/reports/tables/04_v2_content_feature_engineering,True,,required stage folder
+04_v2_content_feature_feasibility,data_folder,park.ingyeom/reports/data/04_v2_content_feature_feasibility,True,,required stage folder
+04_v2_content_feature_feasibility,tables_folder,park.ingyeom/reports/tables/04_v2_content_feature_feasibility,True,,required stage folder
+05_v2_modeling_dataset,data_folder,park.ingyeom/reports/data/05_v2_modeling_dataset,True,,required stage folder
+05_v2_modeling_dataset,tables_folder,park.ingyeom/reports/tables/05_v2_modeling_dataset,True,,required stage folder
+06_v2_baseline_modeling,data_folder,park.ingyeom/reports/data/06_v2_baseline_modeling,True,,required stage folder
+06_v2_baseline_modeling,tables_folder,park.ingyeom/reports/tables/06_v2_baseline_modeling,True,,required stage folder
+06b_v2_baseline_sanity_audit,data_folder,park.ingyeom/reports/data/06b_v2_baseline_sanity_audit,True,,required stage folder
+06b_v2_baseline_sanity_audit,tables_folder,park.ingyeom/reports/tables/06b_v2_baseline_sanity_audit,True,,required stage folder
+07_v2_xai_shap_interpretation,data_folder,park.ingyeom/reports/data/07_v2_xai_shap_interpretation,True,,required stage folder
+07_v2_xai_shap_interpretation,tables_folder,park.ingyeom/reports/tables/07_v2_xai_shap_interpretation,True,,required stage folder
+07r_v2_true_shap_interpretation,data_folder,park.ingyeom/reports/data/07r_v2_true_shap_interpretation,True,,required stage folder
+07r_v2_true_shap_interpretation,tables_folder,park.ingyeom/reports/tables/07r_v2_true_shap_interpretation,True,,required stage folder
+08_v2_segmentation_strategy,data_folder,park.ingyeom/reports/data/08_v2_segmentation_strategy,True,,required stage folder
+08_v2_segmentation_strategy,tables_folder,park.ingyeom/reports/tables/08_v2_segmentation_strategy,True,,required stage folder
+08b_v2_segmentation_refinement,data_folder,park.ingyeom/reports/data/08b_v2_segmentation_refinement,True,,required stage folder
+08b_v2_segmentation_refinement,tables_folder,park.ingyeom/reports/tables/08b_v2_segmentation_refinement,True,,required stage folder
+09_v2_business_simulation,data_folder,park.ingyeom/reports/data/09_v2_business_simulation,True,,required stage folder
+09_v2_business_simulation,tables_folder,park.ingyeom/reports/tables/09_v2_business_simulation,True,,required stage folder
+01_v2_data_overview_and_audit,final_checks,park.ingyeom/reports/tables/01_v2_data_overview_and_audit/01_v2_audit_final_checks.csv,True,,required validation table
+02_v2_preprocessing_policy_validation,final_checks,park.ingyeom/reports/tables/02_v2_preprocessing_policy_validation/02_v2_final_checks.csv,True,,required validation table
+02_v2_preprocessing_policy,final_checks,park.ingyeom/reports/tables/02_v2_preprocessing_policy/02_v2_final_checks.csv,True,,required validation table
+03_v2_usage_feature_engineering,final_checks,park.ingyeom/reports/tables/03_v2_usage_feature_engineering/03_v2_final_checks.csv,True,,required validation table
+04_v2_content_feature_engineering,final_checks,park.ingyeom/reports/tables/04_v2_content_feature_engineering/04_v2_final_checks.csv,True,,required validation table
+05_v2_modeling_dataset,final_checks,park.ingyeom/reports/tables/05_v2_modeling_dataset/05_v2_final_checks.csv,True,,required validation table
+06_v2_baseline_modeling,final_checks,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_final_checks.csv,True,,required validation table
+06b_v2_baseline_sanity_audit,final_checks,park.ingyeom/reports/tables/06b_v2_baseline_sanity_audit/06b_final_checks.csv,True,,required validation table
+07_v2_xai_shap_interpretation,final_checks,park.ingyeom/reports/tables/07_v2_xai_shap_interpretation/07_v2_final_checks.csv,True,,required validation table
+07r_v2_true_shap_interpretation,final_checks,park.ingyeom/reports/tables/07r_v2_true_shap_interpretation/07r_final_checks.csv,True,,required validation table
+08_v2_segmentation_strategy,final_checks,park.ingyeom/reports/tables/08_v2_segmentation_strategy/08_v2_final_checks.csv,True,,required validation table
+08b_v2_segmentation_refinement,final_checks,park.ingyeom/reports/tables/08b_v2_segmentation_refinement/08b_final_checks.csv,True,,required validation table
+09_v2_business_simulation,final_checks,park.ingyeom/reports/tables/09_v2_business_simulation/09_v2_final_checks.csv,True,,required validation table
+final_recommended_asset,recommended_asset,park.ingyeom/reports/data/07r_v2_true_shap_interpretation/07r_team_share_summary.md,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/figures/07r_v2_true_shap_interpretation/07r_shap_beeswarm_red_blue_conservative_w1_3.png,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/figures/07r_v2_true_shap_interpretation/07r_shap_global_bar_conservative_w1_3.png,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/data/08b_v2_segmentation_refinement/08b_team_share_final_segment_summary.md,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/figures/08b_v2_segmentation_refinement/08b_final_segment_churn_rate_holdout.png,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/figures/08b_v2_segmentation_refinement/08b_final_segment_size_and_lift.png,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/data/09_v2_business_simulation/09_v2_team_share_business_simulation_summary.md,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/figures/09_v2_business_simulation/09_v2_portfolio_incremental_retained_users.png,True,,recommended for team sharing or final deck construction
+final_recommended_asset,recommended_asset,park.ingyeom/reports/figures/09_v2_business_simulation/09_v2_assumption_sensitivity_tornado.png,True,,recommended for team sharing or final deck construction
