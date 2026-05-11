@@ -1,0 +1,121 @@
+﻿section,metric,value,count,rate,note
+target,total_row_count,all,24074,1,Membership row is interpreted as subscription event.
+target,is_repurchase_distribution,Y,17325,0.719656,
+target,is_repurchase_distribution,N,6749,0.280344,
+USER_KEY,USER_KEY_cardinality,unique_USER_KEY,23679,0.983592,Same USER_KEY alone is not target conflict.
+USER_KEY,duplicate_USER_KEY_count,keys_with_multiple_rows,261,,May represent multiple subscription events.
+USER_KEY,duplicate_USER_KEY_extra_rows,extra_rows,395,,Not treated as conflict by itself.
+price,price_distribution,100,12178,0.505857,
+price,price_distribution,7900,4432,0.184099,
+price,price_distribution,9.99,2870,0.119216,
+price,price_distribution,10900,2053,0.085279,
+price,price_distribution,13900,808,0.033563,
+price,price_distribution,13.49,773,0.032109,
+price,price_distribution,16.49,304,0.012628,
+price,price_distribution,3950,169,0.00702,
+price,price_distribution,10.99,108,0.004486,
+price,price_distribution,6700,92,0.003822,
+price,price_distribution,6950,61,0.002534,
+price,price_distribution,13750,45,0.001869,
+price,price_distribution,5450,44,0.001828,
+price,price_distribution,6900,35,0.001454,
+price,price_distribution,14.29,30,0.001246,
+price,price_distribution,5900,15,0.000623,
+price,price_distribution,13.19,12,0.000498,
+price,price_distribution,9.89,7,0.000291,
+price,price_distribution,6210,7,0.000291,
+price,price_distribution,3350,6,0.000249,
+price,price_distribution,21.99,3,0.000125,
+price,price_distribution,11800,3,0.000125,
+price,price_distribution,4900,3,0.000125,
+price,price_distribution,18.69,2,8.3e-05,
+price,price_distribution,20.49,1,4.2e-05,
+price,price_distribution,26.39,1,4.2e-05,
+price,price_distribution,16400,1,4.2e-05,
+price,price_distribution,29.69,1,4.2e-05,
+price,price_distribution,10400,1,4.2e-05,
+price,price_distribution,11550,1,4.2e-05,
+price,price_distribution,27.49,1,4.2e-05,
+price,price_distribution,24.19,1,4.2e-05,
+price,price_distribution,8900,1,4.2e-05,
+price,price_distribution,7.69,1,4.2e-05,
+price,price_distribution,9810,1,4.2e-05,
+price,price_distribution,19.79,1,4.2e-05,
+price,price_distribution,5700,1,4.2e-05,
+price,price_distribution,17.59,1,4.2e-05,
+is_promotion,is_promotion_distribution,O,12178,0.505857,
+is_promotion,is_promotion_distribution,,11896,0.494143,
+max_screen,max_screen_distribution,1,15124,0.62823,
+max_screen,max_screen_distribution,2,4952,0.205699,
+max_screen,max_screen_distribution,4,3905,0.162208,
+max_screen,max_screen_distribution,,84,0.003489,
+max_screen,max_screen_distribution,3,9,0.000374,
+age,age_distribution,40,6775,0.281424,
+age,age_distribution,25,4068,0.168979,
+age,age_distribution,30,3603,0.149664,
+age,age_distribution,20,3227,0.134045,
+age,age_distribution,35,2389,0.099236,
+age,age_distribution,45,1346,0.055911,
+age,age_distribution,50,893,0.037094,
+age,age_distribution,55,481,0.01998,
+age,age_distribution,15,443,0.018402,
+age,age_distribution,60,333,0.013832,
+age,age_distribution,,207,0.008598,
+age,age_distribution,65,159,0.006605,
+age,age_distribution,70,80,0.003323,
+age,age_distribution,75,32,0.001329,
+age,age_distribution,80,19,0.000789,
+age,age_distribution,85,6,0.000249,
+age,age_distribution,0,5,0.000208,
+age,age_distribution,90,4,0.000166,
+age,age_distribution,950,1,4.2e-05,
+age,age_distribution,120,1,4.2e-05,
+age,age_distribution,5,1,4.2e-05,
+age,age_distribution,95,1,4.2e-05,
+gender,gender_distribution,F,12607,0.523677,
+gender,gender_distribution,M,7443,0.309172,
+gender,gender_distribution,N,3817,0.158553,
+gender,gender_distribution,,207,0.008598,
+is_user_verified,is_user_verified_distribution,Y,17822,0.740301,
+is_user_verified,is_user_verified_distribution,N,5477,0.227507,
+is_user_verified,is_user_verified_distribution,,775,0.032192,
+is_churn_prevented,is_churn_prevented_distribution,,19767,0.821093,
+is_churn_prevented,is_churn_prevented_distribution,O,4307,0.178907,
+price_vs_is_promotion,price_is_promotion_cross_tab,price=100|is_promotion=O,12178,0.505857,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=7900|is_promotion=,4432,0.184099,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=9.99|is_promotion=,2870,0.119216,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=10900|is_promotion=,2053,0.085279,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=13900|is_promotion=,808,0.033563,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=13.49|is_promotion=,773,0.032109,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=16.49|is_promotion=,304,0.012628,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=3950|is_promotion=,169,0.00702,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=10.99|is_promotion=,108,0.004486,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=6700|is_promotion=,92,0.003822,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=6950|is_promotion=,61,0.002534,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=13750|is_promotion=,45,0.001869,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=5450|is_promotion=,44,0.001828,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=6900|is_promotion=,35,0.001454,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=14.29|is_promotion=,30,0.001246,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=5900|is_promotion=,15,0.000623,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=13.19|is_promotion=,12,0.000498,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=9.89|is_promotion=,7,0.000291,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=6210|is_promotion=,7,0.000291,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=3350|is_promotion=,6,0.000249,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=21.99|is_promotion=,3,0.000125,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=11800|is_promotion=,3,0.000125,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=4900|is_promotion=,3,0.000125,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=18.69|is_promotion=,2,8.3e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=20.49|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=26.39|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=16400|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=29.69|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=10400|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=11550|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=27.49|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=24.19|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=8900|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=7.69|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=9810|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=19.79|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=5700|is_promotion=,1,4.2e-05,Audit only. No rule applied.
+price_vs_is_promotion,price_is_promotion_cross_tab,price=17.59|is_promotion=,1,4.2e-05,Audit only. No rule applied.

@@ -1,0 +1,100 @@
+{
+  "purpose": "Audit active v2 raw data before preprocessing or modeling.",
+  "input_files": {
+    "Membership": "_data/01_raw/Membership.csv",
+    "User_Mapping": "_data/01_raw/User_Mapping.csv",
+    "View_History": "_data/01_raw/View_History.csv",
+    "Movie_Master": "_data/01_raw/Movie_Master.csv"
+  },
+  "stage_rules": [
+    "Stage 01 is audit-only.",
+    "No changed datasets are written under _data/02_interim.",
+    "Same USER_KEY alone is not treated as label conflict.",
+    "No preprocessing, feature engineering, or modeling is performed."
+  ],
+  "row_counts": {
+    "Membership": 24074,
+    "User_Mapping": 26366,
+    "View_History": 175301,
+    "Movie_Master": 14502
+  },
+  "duplicate_conflict_summary": [
+    {
+      "audit_level": "strict",
+      "definition": "all non-target fields identical except is_repurchase",
+      "group_count": 23968,
+      "duplicate_group_count": 99,
+      "duplicate_row_count": 205,
+      "conflict_group_count": 35,
+      "conflict_row_count": 73
+    },
+    {
+      "audit_level": "core_event",
+      "definition": "core subscription fields identical, but target or secondary attributes differ",
+      "group_count": 23968,
+      "duplicate_group_count": 99,
+      "duplicate_row_count": 205,
+      "conflict_group_count": 35,
+      "conflict_row_count": 73
+    }
+  ],
+  "join_coverage": [
+    {
+      "check": "Membership.USER_KEY_not_in_User_Mapping",
+      "count": 0
+    },
+    {
+      "check": "User_Mapping.USER_KEY_not_in_Membership",
+      "count": 2636
+    },
+    {
+      "check": "View_History.USER_NUM_not_in_User_Mapping",
+      "count": 0
+    },
+    {
+      "check": "User_Mapping.USER_NUM_not_in_View_History",
+      "count": 2646
+    },
+    {
+      "check": "View_History.MOVIE_NUM_not_in_Movie_Master",
+      "count": 0
+    },
+    {
+      "check": "Movie_Master.MOVIE_NUM_not_in_View_History",
+      "count": 8607
+    }
+  ],
+  "date_audit_summary": {
+    "watch_date_eq_reg_date": 8875,
+    "reg_date_le_watch_date_lt_end_date": 165221,
+    "watch_date_lt_reg_date": 108,
+    "watch_date_gt_end_date": 5740,
+    "watch_date_eq_end_date": 57,
+    "membership_rows_without_view_logs": 2
+  },
+  "outputs": {
+    "tables": [
+      "01_raw_file_summary.csv",
+      "01_column_summary.csv",
+      "01_basic_value_distributions_top20.csv",
+      "01_key_checks.csv",
+      "01_join_coverage_checks.csv",
+      "01_membership_duplicate_conflict_summary.csv",
+      "01_membership_strict_conflict_rows.csv",
+      "01_membership_core_event_conflict_rows.csv",
+      "01_user_mapping_duplicate_user_key_rows.csv",
+      "01_movie_master_duplicate_movie_num_rows.csv",
+      "01_date_relationship_by_duration.csv",
+      "01_date_parse_errors.csv",
+      "01_final_checks.csv"
+    ],
+    "data": [
+      "01_audit_summary.json"
+    ]
+  },
+  "known_limitations": [
+    "This audit does not choose preprocessing rules.",
+    "This audit does not decide whether end_date is inclusive or exclusive for modeling.",
+    "This audit does not create modeling features or train models."
+  ]
+}

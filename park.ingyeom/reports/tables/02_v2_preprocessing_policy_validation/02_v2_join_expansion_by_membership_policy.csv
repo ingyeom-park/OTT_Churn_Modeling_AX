@@ -1,0 +1,7 @@
+﻿policy_id,policy_type,membership_before_rows,membership_after_rows_candidate,membership_removed_rows_candidate,raw_viewhistory_rows,joined_temporal_rows_candidate,join_expansion_rows_vs_raw_viewhistory,join_expansion_ratio_vs_raw_viewhistory,membership_rows_with_multiple_USER_NUM,membership_rows_without_USER_NUM,recommendation
+M_KEEP_ALL,baseline_no_cleaning,24074,24074,0,175301,180001,4700,1.026811,205,0,compare only; do not apply silently
+M_EXCLUDE_STRICT_TARGET_CONFLICT,candidate_not_applied,24074,24001,73,175301,178906,3605,1.020565,132,0,compare only; do not apply silently
+M_DROP_EXACT_DUPLICATE_EXTRAS_ONLY,candidate_not_applied,24074,24003,71,175301,178853,3552,1.020262,134,0,compare only; do not apply silently
+M_EXCLUDE_STRICT_AND_DROP_EXACT_EXTRAS,candidate_not_applied,24074,23933,141,175301,177815,2514,1.014341,64,0,compare only; do not apply silently
+M_KEEP_DURATION_31_OR_32_ONLY,candidate_not_applied,24074,23424,650,175301,173768,-1533,0.991255,87,0,compare only; do not apply silently
+M_KEEP_DURATION_28_TO_35_ONLY,candidate_not_applied,24074,23424,650,175301,173768,-1533,0.991255,87,0,compare only; do not apply silently

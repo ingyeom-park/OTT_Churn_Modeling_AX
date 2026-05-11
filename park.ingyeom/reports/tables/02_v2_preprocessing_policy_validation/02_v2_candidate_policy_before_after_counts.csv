@@ -1,0 +1,26 @@
+﻿rule_id,rule_status,before_rows,affected_rows,after_rows_if_applied,changed_row_count_explanation,reason_code
+R_LABEL_01,candidate_not_applied,24074,73,24001,Do not choose labels for performance; exclude or flag only after mentor/business rule.,STRICT_TARGET_CONFLICT
+R_DUP_01,candidate_not_applied,24074,71,24003,Exact duplicate extras are plausible dedupe candidates after target conflict handling is fixed.,EXACT_DUPLICATE_EXTRA_ROW
+R_DUP_02,candidate_not_applied,24074,73,24074,"Flag, sample, and review; do not drop silently.",CORE_EVENT_AMBIGUOUS
+DUR_KEEP_ALL_PARSEABLE,candidate_not_applied,24074,0,24074,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,DURATION_POLICY_EXCLUSION_CANDIDATE
+DUR_POSITIVE_ONLY,candidate_not_applied,24074,498,23576,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,DURATION_POLICY_EXCLUSION_CANDIDATE
+DUR_31_OR_32_ONLY,candidate_not_applied,24074,650,23424,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,DURATION_POLICY_EXCLUSION_CANDIDATE
+DUR_28_TO_35_ONLY,candidate_not_applied,24074,650,23424,defer_final_duration_policy_until_end_date_inclusiveness_and_subscription_definition_are_confirmed,DURATION_POLICY_EXCLUSION_CANDIDATE
+R_MAP_01,candidate_not_applied,26366,50,26366,Flag and aggregate logs back to membership_row_id in later stages.,USER_KEY_TO_MULTIPLE_USER_NUM
+R_MAP_02,candidate_not_applied,26366,0,26366,"If present, ask mentor before USER_NUM grouping.",USER_NUM_TO_MULTIPLE_USER_KEY
+R_AGE_01,candidate_not_applied,24074,207,24074,flag; do not impute silently,AGE_MISSING_OR_NON_NUMERIC
+R_AGE_02,candidate_not_applied,24074,2,24074,ask mentor if age range is encoded or true age,AGE_OUTSIDE_0_100
+R_SCREEN_01,candidate_not_applied,24074,84,24074,flag; do not impute silently,MAX_SCREEN_MISSING_OR_NON_NUMERIC
+R_SCREEN_02,candidate_not_applied,24074,0,24074,ask mentor whether values outside 1-4 are valid products,MAX_SCREEN_OUTSIDE_EXPECTED_1_4
+R_GENDER_01,candidate_not_applied,24074,207,24074,flag missing demographic; do not exclude by default,GENDER_MISSING
+R_GENDER_02,candidate_not_applied,24074,3817,24074,ask mentor for codebook,GENDER_UNEXPECTED_CATEGORY
+R_VERIFY_01,candidate_not_applied,24074,775,24074,flag missing verification; do not exclude by default,VERIFICATION_MISSING
+R_VERIFY_02,candidate_not_applied,24074,0,24074,ask mentor for codebook,VERIFICATION_UNEXPECTED_CATEGORY
+R_PRICE_01,candidate_not_applied,24074,0,24074,ask mentor; price is likely core subscription field,PRICE_MISSING_OR_NON_NUMERIC
+R_PRICE_02,candidate_not_applied,24074,0,24074,ask mentor before excluding,PRICE_NEGATIVE
+R_PROMO_01,candidate_not_applied,24074,11896,24074,flag as non-explicit promotion status until codebook confirms blank meaning,PROMOTION_MISSING
+R_PROMO_02,candidate_not_applied,24074,0,24074,ask mentor for codebook,PROMOTION_UNEXPECTED_CATEGORY
+R_PROMO_03,candidate_not_applied,24074,0,24074,ask mentor whether price=100 defines promotion,PRICE_100_PROMOTION_MISMATCH
+R_CHURNPREVENT_01,candidate_not_applied,24074,19767,24074,flag; do not use to correct target without business rule,CHURN_PREVENTED_MISSING
+R_CHURNPREVENT_02,candidate_not_applied,24074,0,24074,ask mentor for codebook,CHURN_PREVENTED_UNEXPECTED_CATEGORY
+APPLIED_NONE_01,applied,24074,0,24074,Stage 02 validates policy only; no preprocessing dataset is created.,NO_ROWS_EXCLUDED_IN_STAGE02

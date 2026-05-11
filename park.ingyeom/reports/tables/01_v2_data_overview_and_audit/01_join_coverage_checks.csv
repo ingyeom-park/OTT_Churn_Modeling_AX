@@ -1,0 +1,7 @@
+﻿check,count
+Membership.USER_KEY_not_in_User_Mapping,0
+User_Mapping.USER_KEY_not_in_Membership,2636
+View_History.USER_NUM_not_in_User_Mapping,0
+User_Mapping.USER_NUM_not_in_View_History,2646
+View_History.MOVIE_NUM_not_in_Movie_Master,0
+Movie_Master.MOVIE_NUM_not_in_View_History,8607
