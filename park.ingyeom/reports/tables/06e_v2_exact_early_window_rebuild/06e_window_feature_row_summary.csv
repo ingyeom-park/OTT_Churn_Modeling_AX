@@ -1,0 +1,5 @@
+﻿window,rel_day_start,rel_day_end,feature_rows,membership_row_id_count,rows_with_no_watch,included_view_logs,genre_coverage_rate,one_row_per_membership_status
+w1_1,0,6,23933,23933,8932,52694,1.0,PASS
+w1_2,0,13,23933,23933,4225,104291,1.0,PASS
+w1_3,0,20,23933,23933,1883,155723,1.0,PASS
+w1_4,0,27,23933,23933,607,171598,1.0,PASS

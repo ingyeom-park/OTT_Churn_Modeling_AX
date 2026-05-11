@@ -1,0 +1,7 @@
+﻿conflict_group,resolution,affected_features
+watch_presence_complement,keep no default flag; has_watch_obs sensitivity only; drop no_watch_obs_flag,has_watch_obs|no_watch_obs_flag
+total_vs_weekly_watch_time,weekly pattern design; drop total_watch_time from pruned feature sets,total_watch_time|week*_watch_time
+weekly_ratios,drop ratios because weekly source variables are kept,week*_ratio
+weekly_deltas,drop deltas because source weekly variables are kept,w*_minus_*
+genre_volume_proxy,keep genre_ratio and genre_entropy; drop genre watch_time/session_count,genre_ratio_*|genre_watch_time_*|genre_session_count_*
+coverage_complements,keep genre_covered_watch_ratio only; drop missing ratio and watch-time coverage totals,genre_covered_watch_ratio|genre_missing_watch_ratio

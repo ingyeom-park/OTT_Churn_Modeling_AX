@@ -1,0 +1,11 @@
+﻿section,content
+purpose,"v2 모델링 컬럼의 의미, 출처, 계산 방식, 해석, 주의사항을 팀 공유용으로 정리합니다."
+modeling_unit,"모델링 단위는 Membership 1행, 즉 구독 이벤트 1건입니다."
+target,"target은 is_repurchase입니다. Y=1은 재구독, N=0은 비재구독입니다."
+score_direction,repurchase_score는 P(is_repurchase=Y)이고 churn_risk_score는 1 - repurchase_score입니다.
+windows,"w1_3은 rel_day 0~20, w1_4는 rel_day 0~27입니다."
+encoding,one-hot encoding은 Stage 06 모델 파이프라인 내부에서 수행됩니다. Stage 05 CSV는 원 컬럼 값을 보존합니다.
+metadata,USER_KEY는 group split metadata이고 membership_row_id는 row tracing ID입니다. 둘 다 모델 feature가 아닙니다.
+xai_basis,TRUE SHAP 근거는 Stage 07r만 사용합니다. Stage 07 fallback은 최종 근거가 아닙니다.
+stage06c_caution,Stage 06c verdict: target_adjacent_but_not_direct_leakage. 개별 변수 해석은 보수적으로 해야 합니다.
+excel_sheet_name_limit,"Excel 시트명은 31자 제한이 있어 caution_or_target_adjacent_features는 caution_target_adjacent로, multicollinearity_interpretation_groups는 multicollinearity_groups로 저장했습니다. CSV 파일명은 긴 원래 이름을 유지합니다."

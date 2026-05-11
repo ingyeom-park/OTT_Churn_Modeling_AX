@@ -1,0 +1,72 @@
+{
+  "scope": "Stage 06c overfitting, leakage, and target-proxy adversarial audit only.",
+  "created_at": "2026-05-11T15:53:15",
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "sklearn_version": "1.7.2",
+  "prediction_scores_input_exists": false,
+  "mentor_concern": "AUC 0.87~0.90 may be overfitting or too-good-to-be-true.",
+  "existing_checks_passed_but_insufficient": {
+    "target_shuffle_auc": 0.4671643938936437,
+    "target_shuffle_status": "PASS",
+    "repeated_group_split_auc_mean": 0.8751460721146183,
+    "repeated_group_split_auc_std": 0.0017657761283179595,
+    "why_insufficient": "These checks reduce direct leakage/split-bug concern but do not prove that late usage behavior is not a target-adjacent proxy."
+  },
+  "full_current_w1_3_auc": 0.8704640371627193,
+  "full_current_w1_3_pr_auc_churn_risk": 0.7046106053253485,
+  "largest_hgb_top_feature_removal_auc_drop": 0.046397612999413695,
+  "ultra_conservative_w1_2_proxy_auc": 0.6505859355759969,
+  "final_verdict": "target_adjacent_but_not_direct_leakage",
+  "recommended_reporting": [
+    {
+      "reporting_level": "A_full_model_result",
+      "feature_set_description": "membership+usage+content",
+      "window": "w1_3",
+      "model": "HistGradientBoostingClassifier",
+      "feature_count": 80,
+      "auc": 0.8704640371627193,
+      "pr_auc_repurchase": 0.9429893996359336,
+      "pr_auc_churn_risk": 0.7046106053253485,
+      "churn_risk_decile_lift": 2.733513087902731,
+      "top_decile_churn_rate": 0.7845188284518828,
+      "interpretation": "Full current allowed Stage 06 feature set; strongest AUC but target-adjacent usage timing remains controversial.",
+      "mentor_safe": "N",
+      "status": "RUN",
+      "blocked_reason": ""
+    },
+    {
+      "reporting_level": "B_conservative_model_result",
+      "feature_set_description": "Removes week3, first/last watch timing, deltas, and no-watch flags; safer but still uses saved w1_3 content proxies.",
+      "window": "w1_3",
+      "model": "HistGradientBoostingClassifier",
+      "feature_count": 70,
+      "auc": 0.86592395193962,
+      "pr_auc_repurchase": 0.940955553679951,
+      "pr_auc_churn_risk": 0.693262438768279,
+      "churn_risk_decile_lift": 2.7043556149651025,
+      "top_decile_churn_rate": 0.7761506276150628,
+      "interpretation": "Removes week3, first/last watch timing, deltas, and no-watch flags; safer but still uses saved w1_3 content proxies.",
+      "mentor_safe": "Y_WITH_CAVEATS",
+      "status": "RUN",
+      "blocked_reason": ""
+    },
+    {
+      "reporting_level": "C_ultra_conservative_model_result",
+      "feature_set_description": "Uses only membership plus derived week1/week2 proxy usage with a simple linear model; not an official production feature table.",
+      "window": "w1_2_proxy",
+      "model": "LogisticRegression",
+      "feature_count": 16,
+      "auc": 0.6505859355759969,
+      "pr_auc_repurchase": 0.8267297757567155,
+      "pr_auc_churn_risk": 0.39316753815157457,
+      "churn_risk_decile_lift": 1.4578736468814566,
+      "top_decile_churn_rate": 0.41841004184100417,
+      "interpretation": "Uses only membership plus derived week1/week2 proxy usage with a simple linear model; not an official production feature table.",
+      "mentor_safe": "Y_FOR_MENTOR_RESPONSE",
+      "status": "RUN",
+      "blocked_reason": ""
+    }
+  ],
+  "final_checks_passed": true
+}

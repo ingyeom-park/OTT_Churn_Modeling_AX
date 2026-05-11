@@ -1,0 +1,13 @@
+{
+  "scope": "Stage 05d v2 feature dictionary documentation only",
+  "workbook_path": "park.ingyeom/reports/tables/05d_v2_feature_dictionary/05d_v2_feature_dictionary.xlsx",
+  "sheet_count": 14,
+  "w1_3_columns": 84,
+  "w1_4_columns": 89,
+  "union_columns": 160,
+  "primary_feature_count": 80,
+  "top_true_shap_feature_count": 30,
+  "target_adjacent_or_redundancy_feature_count": 96,
+  "stage06c_verdict": "target_adjacent_but_not_direct_leakage",
+  "final_checks_passed": true
+}

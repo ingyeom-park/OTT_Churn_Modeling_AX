@@ -1,0 +1,31 @@
+﻿shap_rank,feature_name,family,mean_abs_shap,correlated_top_shap_features_abs_ge_0_80,redundancy_classification,interpretation_action
+1,w1_3_week3_watch_time,usage,0.6197008105835925,,target-adjacent timing feature,Explain at feature-family or grouped-concept level.
+2,w1_3_w2_minus_w1_watch_time,usage,0.2647630997593521,,structural derivative,Explain at feature-family or grouped-concept level.
+3,w1_3_week1_ratio,usage,0.2271942557578525,,structural derivative,Explain at feature-family or grouped-concept level.
+4,price,membership,0.1917705478724465,,presentation-with-caution feature,Explain at feature-family or grouped-concept level.
+5,w1_3_first_watch_rel_day,usage,0.1738880203905324,,target-adjacent timing feature,Explain at feature-family or grouped-concept level.
+6,w1_3_genre_ratio_thriller_crime,genre,0.1649266467667552,,structural derivative,Explain at feature-family or grouped-concept level.
+7,w1_3_genre_ratio_animation_family,genre,0.1270533185837299,,structural derivative,Explain at feature-family or grouped-concept level.
+8,w1_3_genre_ratio_drama,genre,0.1136789472675908,,structural derivative,Explain at feature-family or grouped-concept level.
+9,w1_3_genre_session_count_drama,genre,0.1099604910201125,,redundant proxy,Explain at feature-family or grouped-concept level.
+10,w1_3_genre_ratio_action_adventure,genre,0.109490557171211,,structural derivative,Explain at feature-family or grouped-concept level.
+11,w1_3_week3_ratio,usage,0.1088529268431624,,target-adjacent timing feature,Explain at feature-family or grouped-concept level.
+12,w1_3_w3_minus_w1_watch_time,usage,0.102541538997512,,structural derivative,Explain at feature-family or grouped-concept level.
+13,w1_3_last_watch_rel_day,usage,0.0924686080166058,,target-adjacent timing feature,Explain at feature-family or grouped-concept level.
+14,w1_3_genre_ratio_romance,genre,0.0920390116800067,,structural derivative,Explain at feature-family or grouped-concept level.
+15,w1_3_genre_watch_time_romance,genre,0.0863500757975354,,redundant proxy,Explain at feature-family or grouped-concept level.
+16,w1_3_genre_unique_count,genre,0.0846906631770076,,safe presentation feature,Can be explained individually with standard predictive caveat.
+17,w1_3_max_daily_watch_time,usage,0.0832244467348795,w1_3_total_watch_time:0.815,redundant proxy,Explain at feature-family or grouped-concept level.
+18,w1_3_avg_watch_time_per_session,usage,0.082452738365414,,safe presentation feature,Can be explained individually with standard predictive caveat.
+19,w1_3_week2_ratio,usage,0.0778312643183661,,structural derivative,Explain at feature-family or grouped-concept level.
+20,w1_3_week3_sessions,usage,0.0752554623068768,,target-adjacent timing feature,Explain at feature-family or grouped-concept level.
+21,w1_3_genre_watch_time_animation_family,genre,0.0652122147130651,,redundant proxy,Explain at feature-family or grouped-concept level.
+22,max_screen,membership,0.065080936548259,,presentation-with-caution feature,Explain at feature-family or grouped-concept level.
+23,w1_3_genre_watch_time_drama,genre,0.0560247373929157,,redundant proxy,Explain at feature-family or grouped-concept level.
+24,w1_3_max_day_share,usage,0.0551020486274181,,safe presentation feature,Can be explained individually with standard predictive caveat.
+25,w1_3_genre_session_count_action_adventure,genre,0.0498434435720556,,redundant proxy,Explain at feature-family or grouped-concept level.
+26,w1_3_active_span_days,usage,0.0488356005395315,,safe presentation feature,Can be explained individually with standard predictive caveat.
+27,w1_3_genre_session_count_thriller_crime,genre,0.0469996792481793,,redundant proxy,Explain at feature-family or grouped-concept level.
+28,w1_3_week2_watch_time,usage,0.0442396255948881,,safe presentation feature,Can be explained individually with standard predictive caveat.
+29,w1_3_total_watch_time,usage,0.0300907716019506,w1_3_max_daily_watch_time:0.815,redundant proxy,Explain at feature-family or grouped-concept level.
+30,w1_3_top_genre,genre,0.0298433802035382,,safe presentation feature,Can be explained individually with standard predictive caveat.

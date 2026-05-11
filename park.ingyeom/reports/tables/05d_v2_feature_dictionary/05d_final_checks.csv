@@ -1,0 +1,11 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no__data_output_created,PASS,_data snapshot unchanged
+stage01_through_stage09_outputs_not_overwritten,PASS,Stage 01-09 snapshots unchanged
+excel_workbook_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\tables\05d_v2_feature_dictionary\05d_v2_feature_dictionary.xlsx
+all_required_sheets_created,PASS,"README,all_columns_dictionary,membership_features,usage_features,content_features,feature_sets,primary_model_features,top_true_shap_features,forbidden_or_metadata_columns,renaming_suggestions,caution_or_target_adjacent_features,multicollinearity_interpretation_groups,data_type_audit,final_checks"
+csv_copies_created,PASS,CSV copies for non-final-check sheets created
+covers_every_modeling_column,PASS,"covered=160, union=160"
+target_and_metadata_not_mislabeled,PASS,target and metadata roles checked
+stage07r_true_shap_used_not_stage07_fallback,PASS,Stage 07r global SHAP table read only
+no_model_training_no_new_features,PASS,Only documentation and descriptive dictionary artifacts created

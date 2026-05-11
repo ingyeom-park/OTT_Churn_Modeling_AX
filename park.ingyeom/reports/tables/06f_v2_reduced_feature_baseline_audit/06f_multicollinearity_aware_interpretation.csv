@@ -1,0 +1,10 @@
+﻿feature_set_name,stage06d_available,removes_structural_duplicates,avoids_ratio_delta_redundancy,avoids_genre_volume_duplication,feature_family_level_safe,individual_feature_interpretation_risk,interpretation_note
+full_reference_w1_3,Y,N,partial,N,N,high,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_membership_only,Y,Y,Y,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_membership_simple_usage,Y,Y,Y,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_membership_weekly_usage_no_ratios,Y,Y,Y,Y,Y,medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_membership_week1_2_only,Y,Y,Y,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_membership_genre_ratio_only,Y,Y,partial,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_membership_simple_usage_genre_ratio,Y,Y,partial,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_family_level_interpretable,Y,Y,partial,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.
+reduced_no_target_adjacent_timing,Y,Y,partial,Y,Y,low_to_medium,Stage 06d suggests family-level interpretation; reduced sets remove many redundant derivatives but do not create causal evidence.

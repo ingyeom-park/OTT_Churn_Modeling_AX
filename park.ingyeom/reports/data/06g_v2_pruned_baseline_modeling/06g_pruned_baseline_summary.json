@@ -1,0 +1,25 @@
+{
+  "stage": "06g_v2_pruned_baseline_modeling",
+  "created_at": "2026-05-11T18:45:51",
+  "python": "3.10.0",
+  "target_mapping": "Y -> 1 repurchase; N -> 0 non-repurchase/churn risk",
+  "split_file": "park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv",
+  "train_test_USER_KEY_overlap_max": 0,
+  "recommended_feature_set": "pruned_w1_3_early_safer_week1_2_without_product_code_without_watch_presence_flag",
+  "recommended_model": "HistGradientBoostingClassifier",
+  "recommended_auc": 0.8046508435579209,
+  "recommended_churn_risk_pr_auc": 0.6119470178491723,
+  "recommended_top_decile_lift": 2.587726,
+  "recommended_includes_product_code": "N",
+  "recommended_includes_watch_presence_flag": "N",
+  "recommended_timing_label": "early_safer_w1_3_proxy",
+  "product_code_collapse_rule_triggered": false,
+  "result_classes_separated": [
+    "full_exploratory_model",
+    "timing_sensitive_pruned_w1_3",
+    "early_safer_pruned_or_exact_w1_2",
+    "late_period_w1_4_comparison"
+  ],
+  "final_checks_path": "park.ingyeom/reports/tables/06g_v2_pruned_baseline_modeling/06g_final_checks.csv",
+  "final_check_status": "PASS"
+}

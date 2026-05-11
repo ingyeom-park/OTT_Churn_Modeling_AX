@@ -1,0 +1,3 @@
+﻿audit_type,feature_count,test_rows_with_train_duplicate_vector,duplicate_feature_vectors_with_same_target,duplicate_feature_vectors_with_conflicting_target,share_of_test_rows,inflation_risk,note
+exact_duplicate_feature_vector_train_to_test,80,199,167,142,0.04165794431651664,LOW,Exact hash over current conservative feature vector after removing metadata and target.
+near_duplicate_feature_vector_train_to_test_rounded_numeric_3dp,80,199,,,0.04165794431651664,LOW,Near-duplicate proxy using numeric features rounded to 3 decimals plus categorical strings.

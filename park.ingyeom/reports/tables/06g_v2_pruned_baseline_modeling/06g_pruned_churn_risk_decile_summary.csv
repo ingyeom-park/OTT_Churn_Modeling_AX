@@ -1,0 +1,15 @@
+﻿feature_set_name,model,top_10pct_n,overall_churn_rate,top_10pct_churn_rate,top_decile_lift_vs_overall,captured_churners,total_churners,churner_capture_rate,average_churn_risk_score,average_churn_risk_score_top_decile
+pruned_w1_3_core_interpretable_with_product_code_without_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.776151,2.704356,371,1371,0.270605,0.28196,0.771014
+pruned_w1_3_core_interpretable_with_product_code_without_watch_presence_flag,LogisticRegression,478,0.287,0.732218,2.551279,350,1371,0.255288,0.283512,0.744895
+pruned_w1_3_core_interpretable_without_product_code_with_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.794979,2.76996,380,1371,0.27717,0.281517,0.771145
+pruned_w1_3_core_interpretable_without_product_code_with_watch_presence_flag,LogisticRegression,478,0.287,0.730126,2.54399,349,1371,0.254559,0.283375,0.743957
+pruned_w1_3_core_interpretable_without_product_code_without_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.794979,2.76996,380,1371,0.27717,0.281517,0.771145
+pruned_w1_3_core_interpretable_without_product_code_without_watch_presence_flag,LogisticRegression,478,0.287,0.730126,2.54399,349,1371,0.254559,0.283493,0.744086
+pruned_w1_3_early_safer_week1_2_without_product_code_without_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.742678,2.587726,355,1371,0.258935,0.281582,0.721018
+pruned_w1_3_early_safer_week1_2_without_product_code_without_watch_presence_flag,LogisticRegression,478,0.287,0.562762,1.96084,269,1371,0.196207,0.283352,0.593949
+pruned_w1_3_genre_ratio_only_added_without_product_code_without_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.790795,2.755381,378,1371,0.275711,0.281606,0.760912
+pruned_w1_3_genre_ratio_only_added_without_product_code_without_watch_presence_flag,LogisticRegression,478,0.287,0.723849,2.522121,346,1371,0.252371,0.283091,0.738724
+pruned_w1_3_membership_usage_only_without_product_code_without_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.742678,2.587726,355,1371,0.258935,0.281752,0.731236
+pruned_w1_3_membership_usage_only_without_product_code_without_watch_presence_flag,LogisticRegression,478,0.287,0.573222,1.997287,274,1371,0.199854,0.282975,0.580519
+pruned_w1_4_late_period_comparison_without_product_code_without_watch_presence_flag,HistGradientBoostingClassifier,478,0.287,0.838912,2.923037,401,1371,0.292487,0.281933,0.828462
+pruned_w1_4_late_period_comparison_without_product_code_without_watch_presence_flag,LogisticRegression,478,0.287,0.784519,2.733513,375,1371,0.273523,0.281666,0.785781

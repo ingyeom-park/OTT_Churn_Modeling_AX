@@ -1,0 +1,86 @@
+{
+  "stage": "05e_v2_final_feature_pruning_policy",
+  "created_at": "2026-05-11T18:42:50",
+  "input_rows": {
+    "w1_3": 23933,
+    "w1_4": 23933
+  },
+  "output_columns": {
+    "w1_3_pruned": 36,
+    "w1_4_pruned": 36
+  },
+  "stage06d_status": {
+    "pearson": true,
+    "spearman": true,
+    "vif": true,
+    "structural": true,
+    "reduced_recommendation": true,
+    "grouping": true
+  },
+  "stage06c_verdict": "target_adjacent_but_not_direct_leakage",
+  "stage06e_exact_auc_by_window": {
+    "w1_1": 0.6261327995004311,
+    "w1_2": 0.7401751232325673,
+    "w1_3": 0.8710919247066039,
+    "w1_4": 0.9022499874722302
+  },
+  "stage06f_mentor_safe_feature_set": "reduced_no_target_adjacent_timing",
+  "feature_sets": {
+    "pruned_w1_3_core_interpretable_without_product_code_without_watch_presence_flag": {
+      "window": "w1_3",
+      "feature_count": 31,
+      "timing_label": "timing_sensitive_w1_3",
+      "product_code_policy": "without_product_code_default",
+      "watch_presence_policy": "without_watch_presence_flag_default"
+    },
+    "pruned_w1_3_core_interpretable_with_product_code_without_watch_presence_flag": {
+      "window": "w1_3",
+      "feature_count": 32,
+      "timing_label": "timing_sensitive_w1_3",
+      "product_code_policy": "with_product_code_sensitivity",
+      "watch_presence_policy": "without_watch_presence_flag_default"
+    },
+    "pruned_w1_3_core_interpretable_without_product_code_with_watch_presence_flag": {
+      "window": "w1_3",
+      "feature_count": 32,
+      "timing_label": "timing_sensitive_w1_3",
+      "product_code_policy": "without_product_code_default",
+      "watch_presence_policy": "with_watch_presence_flag_sensitivity"
+    },
+    "pruned_w1_3_membership_usage_only_without_product_code_without_watch_presence_flag": {
+      "window": "w1_3",
+      "feature_count": 18,
+      "timing_label": "timing_sensitive_w1_3",
+      "product_code_policy": "without_product_code_default",
+      "watch_presence_policy": "without_watch_presence_flag_default"
+    },
+    "pruned_w1_3_early_safer_week1_2_without_product_code_without_watch_presence_flag": {
+      "window": "w1_3",
+      "feature_count": 16,
+      "timing_label": "early_safer_w1_3_proxy",
+      "product_code_policy": "without_product_code_default",
+      "watch_presence_policy": "without_watch_presence_flag_default"
+    },
+    "pruned_w1_3_genre_ratio_only_added_without_product_code_without_watch_presence_flag": {
+      "window": "w1_3",
+      "feature_count": 27,
+      "timing_label": "early_cautioned_preference_proxy",
+      "product_code_policy": "without_product_code_default",
+      "watch_presence_policy": "without_watch_presence_flag_default"
+    },
+    "pruned_w1_4_late_period_comparison_without_product_code_without_watch_presence_flag": {
+      "window": "w1_4",
+      "feature_count": 33,
+      "timing_label": "late_period_only",
+      "product_code_policy": "without_product_code_default",
+      "watch_presence_policy": "without_watch_presence_flag_default"
+    }
+  },
+  "data_outputs": [
+    "park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/modeling_dataset_v2_w1_3_pruned.csv",
+    "park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/modeling_dataset_v2_w1_4_pruned.csv",
+    "park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/pruned_feature_sets_v2.json"
+  ],
+  "final_checks_path": "park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_final_checks.csv",
+  "final_check_status": "PASS"
+}

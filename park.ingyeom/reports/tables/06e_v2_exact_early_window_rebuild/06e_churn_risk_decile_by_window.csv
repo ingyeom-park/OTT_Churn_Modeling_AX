@@ -1,0 +1,17 @@
+﻿window,feature_set,model,n_test,top_10pct_n,overall_churn_rate,top_10pct_churn_rate,top_decile_lift_vs_overall,captured_churners,total_churners,churner_capture_rate
+w1_1,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.487448,1.698423,233,1371,0.169949
+w1_1,membership_plus_usage_content_without_churn_prevented,LogisticRegression,4777,478,0.287,0.441423,1.538057,211,1371,0.153902
+w1_1,reduced_interpretable_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.445607,1.552635,213,1371,0.155361
+w1_1,reduced_interpretable_without_churn_prevented,LogisticRegression,4777,478,0.287,0.42887,1.49432,205,1371,0.149526
+w1_2,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.606695,2.113917,290,1371,0.211524
+w1_2,membership_plus_usage_content_without_churn_prevented,LogisticRegression,4777,478,0.287,0.516736,1.800474,247,1371,0.18016
+w1_2,reduced_interpretable_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.543933,1.895236,260,1371,0.189643
+w1_2,reduced_interpretable_without_churn_prevented,LogisticRegression,4777,478,0.287,0.512552,1.785895,245,1371,0.178702
+w1_3,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.805439,2.806407,385,1371,0.280817
+w1_3,membership_plus_usage_content_without_churn_prevented,LogisticRegression,4777,478,0.287,0.732218,2.551279,350,1371,0.255288
+w1_3,reduced_interpretable_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.742678,2.587726,355,1371,0.258935
+w1_3,reduced_interpretable_without_churn_prevented,LogisticRegression,4777,478,0.287,0.723849,2.522121,346,1371,0.252371
+w1_4,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.834728,2.908458,399,1371,0.291028
+w1_4,membership_plus_usage_content_without_churn_prevented,LogisticRegression,4777,478,0.287,0.792887,2.762671,379,1371,0.276441
+w1_4,reduced_interpretable_without_churn_prevented,HistGradientBoostingClassifier,4777,478,0.287,0.805439,2.806407,385,1371,0.280817
+w1_4,reduced_interpretable_without_churn_prevented,LogisticRegression,4777,478,0.287,0.774059,2.697066,370,1371,0.269876

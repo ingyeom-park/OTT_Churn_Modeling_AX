@@ -1,0 +1,6 @@
+﻿level,auc,role,claim_status
+A_full_exploratory_w1_3,0.872458629449125,full exploratory model,exploratory_upper_bound_only
+B_timing_sensitive_pruned_w1_3,0.8618577804732115,timing-sensitive pruned w1_3,presentation_with_timing_caveat
+C_early_safer_pruned_w1_3,0.8046508435579209,early-safer pruned w1_3 proxy,mentor_safe
+D_exact_w1_2,0.7401751232325673,exact early-window context,mentor_safe
+E_late_period_w1_4,0.8969791156722187,late-period comparison model,do_not_claim_as_early_prediction

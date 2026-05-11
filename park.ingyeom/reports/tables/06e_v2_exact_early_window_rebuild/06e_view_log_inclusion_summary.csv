@@ -1,0 +1,5 @@
+﻿window,raw_view_source,raw_movie_source,policy_movie_source,joined_membership_event_view_rows,included_view_logs,excluded_before_reg_date,excluded_after_end_date,excluded_outside_window_but_temporally_valid,missing_user_mapping_memberships,movie_metadata_missing_rows_in_window
+w1_1,_data/01_raw/Views_train.csv,_data/01_raw/Movies.csv,park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv,177815,52694,45,4482,120594,0,0
+w1_2,_data/01_raw/Views_train.csv,_data/01_raw/Movies.csv,park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv,177815,104291,45,4482,68997,0,0
+w1_3,_data/01_raw/Views_train.csv,_data/01_raw/Movies.csv,park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv,177815,155723,45,4482,17565,0,0
+w1_4,_data/01_raw/Views_train.csv,_data/01_raw/Movies.csv,park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv,177815,171598,45,4482,1690,0,0

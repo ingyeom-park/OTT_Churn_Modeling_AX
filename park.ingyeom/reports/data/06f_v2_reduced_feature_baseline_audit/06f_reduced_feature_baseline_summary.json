@@ -1,0 +1,41 @@
+{
+  "stage": "06f_v2_reduced_feature_baseline_audit",
+  "created_at": "2026-05-11T17:58:35",
+  "python": "3.10.0",
+  "stage06d_available": true,
+  "modeling_rows": 23933,
+  "target_mapping": "Y -> 1 repurchase; N -> 0 non-repurchase/churn risk",
+  "split_file": "park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv",
+  "train_test_USER_KEY_overlap_max": 0,
+  "full_reference_w1_3_hgb_auc": 0.872458629449125,
+  "mentor_safe_feature_set": "reduced_no_target_adjacent_timing",
+  "mentor_safe_hgb_auc": 0.8570990481892982,
+  "presentation_safe_feature_set": "reduced_no_target_adjacent_timing",
+  "presentation_safe_hgb_auc": 0.8570990481892982,
+  "auc_loss_full_to_mentor_safe": 0.015359581259826838,
+  "exact_w1_2_auc_context": 0.7401751232325673,
+  "exact_w1_4_auc_late_period_only": 0.9022499874722302,
+  "data_outputs": [
+    "park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_baseline_report.md",
+    "park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_baseline_summary.json",
+    "park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_mentor_safe_model_recommendation.md"
+  ],
+  "table_outputs": [
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_churn_risk_decile_summary.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_feature_exclusion_rationale.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_final_checks.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_interpretability_performance_tradeoff.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_metric_ladder.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_multicollinearity_aware_interpretation.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_set_inventory.csv",
+    "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_reduced_model_metrics.csv"
+  ],
+  "figure_outputs": [
+    "park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_auc_vs_interpretability.png",
+    "park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_feature_count_vs_auc.png",
+    "park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_metric_ladder.png",
+    "park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_top_decile_lift_comparison.png"
+  ],
+  "final_checks_path": "park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_final_checks.csv",
+  "final_check_status": "PASS"
+}
