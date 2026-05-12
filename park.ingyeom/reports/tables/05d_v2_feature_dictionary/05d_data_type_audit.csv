@@ -1,0 +1,161 @@
+﻿column_name,pandas_dtype,semantic_type,missing_values,missing_rate,unique_values,min,max,top_values
+membership_row_id,int64,id_metadata,0,0.0,23933,1,24074,1:2; 16082:2; 16091:2; 16090:2; 16089:2
+USER_KEY,object,group_metadata,0,0.0,23670,,,a02a14ff1ab86edbfe46ad5a6a7fce054dc83c39aa7c362622171c550dcfe7099733a95d986e379eedfcb8edb5adc79c3f2439a56104f63410b83a10131c8ea5:14; 412fe59a8f5ed105d97c6370f0113053f03efb04890b6814370720be519ee6b48803db2cf8ba59dde3825ff1c2d49765a93b31d2aecd81715ae0a392df3cf146:8; 30e3c9509b8d6102f80906a80afcd2a3593d4a69314509227839d972bc051a4c2411cac5aa2fabd6069781c5971ec4eec237a88cad2701712ba7806c533da7b8:8; e5afd0a3b3dec66b07d1a5a270c68414a962a6427f2c14d93d5dc8f173289a467b766da150d768721bbb50d6e4a7815882dfd05e54507a9be5231eeef1591686:6; a3b77971adf730f0206c7e14012f885c1c331cdd724788ef5b26f7e204bf17e34b59509849fb477349bd6802545231b6708a37c287870154aee8edceefc30e81:6
+is_repurchase,object,target,0,0.0,2,,,Y:34452; N:13414
+price,float64,numeric,0,0.0,38,7.69,16400.0,100.0:24330; 7900.0:8800; 9.99:5698; 10900.0:4012; 13900.0:1612
+product_code,object,categorical,0,0.0,60,,,pk_1487:17566; pk_1488:6578; pk_2025:6066; pk_1489:5738; pk_1508:5698
+max_screen,float64,numeric,148,0.003091965069151381,4,1.0,4.0,1.0:30110; 2.0:9798; 4.0:7792; 3.0:18
+is_promotion,object,categorical,23536,0.4917060126185602,1,,,O:24330
+is_user_verified,object,categorical,1536,0.0320895834203819,2,,,Y:35500; N:10830
+gender,object,categorical,406,0.008482012284293653,3,,,F:25140; M:14768; N:7552
+age,float64,numeric,406,0.008482012284293653,21,0.0,950.0,40.0:13412; 25.0:8116; 30.0:7178; 20.0:6446; 35.0:4756
+payment_device,object,categorical,0,0.0,10,,,android:22274; pc:9280; ios:8140; mobile:7362; lgtv:364
+billing_method,int64,numeric,0,0.0,10,121,190,134:12028; 151:9278; 140:8140; 131:4934; 132:4772
+is_churn_prevented,object,categorical,39268,0.8203735428070029,1,,,O:8598
+w1_3_has_watch_obs,int64,boolean,0,0.0,2,0,1,1:22435; 0:1498
+w1_3_no_watch_obs_flag,int64,boolean,0,0.0,2,0,1,0:22435; 1:1498
+w1_3_total_watch_time,float64,numeric,0,0.0,1553,0.0,6474.0,0.0:1498; 1.0:684; 2.0:279; 3.0:174; 4.0:158
+w1_3_total_sessions,int64,numeric,0,0.0,61,0,104,1:2520; 2:2270; 3:2217; 4:2130; 5:1932
+w1_3_unique_contents,int64,numeric,0,0.0,42,0,67,1:3725; 2:3378; 3:3039; 4:2689; 5:2214
+w1_3_unique_watch_days,int64,numeric,0,0.0,20,0,20,1:4205; 2:4202; 3:3669; 4:3163; 5:2337
+w1_3_avg_watch_time_per_session,float64,numeric,0,0.0,5346,0.0,200.0,0.0:1498; 1.0:1038; 2.0:175; 3.0:113; 5.0:93
+w1_3_sessions_per_active_day,float64,numeric,0,0.0,241,0.0,18.0,1.0:5409; 2.0:3051; 1.5:2087; 0.0:1498; 1.333333:1096
+w1_3_active_span_days,int64,numeric,0,0.0,22,0,21,1:4205; 15:1659; 0:1498; 16:1453; 17:1168
+w1_3_first_watch_rel_day,float64,numeric,1498,0.06259140099444283,21,0.0,20.0,0.0:4447; 1.0:2703; 2.0:2064; 3.0:1823; 4.0:1549
+w1_3_last_watch_rel_day,float64,numeric,1498,0.06259140099444283,21,0.0,20.0,20.0:4167; 19.0:2846; 18.0:2133; 17.0:1759; 15.0:1555
+w1_3_week1_watch_time,float64,numeric,0,0.0,863,0.0,4766.0,0.0:8712; 1.0:816; 2.0:319; 3.0:209; 4.0:160
+w1_3_week2_watch_time,float64,numeric,0,0.0,859,0.0,2957.0,0.0:8894; 1.0:902; 2.0:341; 3.0:224; 4.0:161
+w1_3_week3_watch_time,float64,numeric,0,0.0,845,0.0,2691.0,0.0:8693; 1.0:867; 2.0:337; 3.0:206; 4.0:179
+w1_3_week1_sessions,int64,numeric,0,0.0,37,0,70,0:8712; 1:4226; 2:3241; 3:2342; 4:1628
+w1_3_week2_sessions,int64,numeric,0,0.0,36,0,60,0:8894; 1:4151; 2:3174; 3:2328; 4:1674
+w1_3_week3_sessions,int64,numeric,0,0.0,37,0,41,0:8693; 1:4165; 2:3300; 3:2339; 4:1708
+w1_3_week1_ratio,float64,numeric,0,0.0,10087,0.0,1.0,0.0:8712; 1.0:2361; 0.5:116; 0.333333:47; 0.25:40
+w1_3_week2_ratio,float64,numeric,0,0.0,10324,0.0,1.0,0.0:8894; 1.0:1920; 0.5:95; 0.333333:42; 0.25:40
+w1_3_week3_ratio,float64,numeric,0,0.0,10129,0.0,1.0,0.0:8693; 1.0:2399; 0.5:88; 0.333333:49; 0.25:40
+w1_3_w2_minus_w1_watch_time,float64,numeric,0,0.0,1390,-3444.0,2957.0,0.0:3998; 1.0:477; -1.0:456; -2.0:196; 2.0:188
+w1_3_w3_minus_w1_watch_time,float64,numeric,0,0.0,1493,-4380.0,2691.0,0.0:3533; 1.0:461; -1.0:460; 2.0:189; -2.0:171
+w1_3_max_daily_watch_time,float64,numeric,0,0.0,643,0.0,1248.0,0.0:1498; 1.0:815; 2.0:287; 200.0:217; 3.0:180
+w1_3_max_day_share,float64,numeric,0,0.0,12202,0.0,1.0,1.0:4205; 0.0:1498; 0.5:263; 0.666667:115; 0.333333:72
+w1_3_one_minute_watch_count,int64,numeric,0,0.0,33,0,41,0:10567; 1:5676; 2:3033; 3:1740; 4:1074
+w1_3_short_watch_count_le5,int64,numeric,0,0.0,38,0,51,0:7664; 1:5601; 2:3554; 3:2222; 4:1606
+w1_3_short_watch_time_le5,float64,numeric,0,0.0,56,0.0,79.0,0.0:7664; 1.0:3508; 2.0:2305; 3.0:1777; 4.0:1683
+w1_3_content_has_watch_obs,int64,boolean,0,0.0,2,0,1,1:22435; 0:1498
+w1_3_genre_covered_watch_time,float64,numeric,0,0.0,1553,0.0,6474.0,0.0:1498; 1.0:684; 2.0:279; 3.0:174; 4.0:158
+w1_3_genre_missing_watch_time,float64,boolean,0,0.0,1,0.0,0.0,0.0:23933
+w1_3_genre_covered_watch_ratio,float64,boolean,0,0.0,2,0.0,1.0,1.0:22435; 0.0:1498
+w1_3_genre_missing_watch_ratio,float64,boolean,0,0.0,1,0.0,0.0,0.0:23933
+w1_3_genre_unique_count,int64,numeric,0,0.0,12,0,11,2:4980; 1:4761; 3:4483; 4:3598; 5:2243
+w1_3_top_genre,object,categorical,1498,0.06259140099444283,11,,,Drama:4305; Thriller/Crime:2905; SF/Fantasy:2900; Animation/Family:2505; Action/Adventure:2485
+w1_3_top_genre_watch_time,float64,numeric,0,0.0,942,0.0,4388.0,0.0:1498; 1.0:844; 2.0:312; 3.0:187; 109.0:166
+w1_3_top_genre_watch_ratio,float64,numeric,0,0.0,11728,0.0,1.0,1.0:4761; 0.0:1498; 0.5:301; 0.666667:121; 0.75:76
+w1_3_genre_entropy,float64,numeric,0,0.0,15132,0.0,3.050084,0.0:6259; 1.0:154; 0.918296:83; 0.811278:57; 1.5:37
+w1_3_genre_ratio_drama,float64,numeric,0,0.0,8211,0.0,1.0,0.0:12604; 1.0:766; 0.5:76; 0.333333:51; 0.25:45
+w1_3_genre_watch_time_drama,float64,numeric,0,0.0,636,0.0,2275.0,0.0:12604; 1.0:979; 2.0:347; 3.0:208; 4.0:171
+w1_3_genre_session_count_drama,int64,numeric,0,0.0,22,0,24,0:12604; 1:4633; 2:2855; 3:1589; 4:867
+w1_3_genre_ratio_thriller_crime,float64,numeric,0,0.0,6744,0.0,1.0,0.0:15014; 1.0:513; 0.5:49; 0.333333:36; 0.25:30
+w1_3_genre_watch_time_thriller_crime,float64,numeric,0,0.0,544,0.0,1478.0,0.0:15014; 1.0:920; 2.0:300; 3.0:134; 4.0:122
+w1_3_genre_session_count_thriller_crime,int64,numeric,0,0.0,21,0,28,0:15014; 1:4107; 2:2214; 3:1193; 4:628
+w1_3_genre_ratio_sf_fantasy,float64,numeric,0,0.0,5349,0.0,1.0,0.0:16563; 1.0:737; 0.5:48; 0.25:24; 0.166667:24
+w1_3_genre_watch_time_sf_fantasy,float64,numeric,0,0.0,684,0.0,2370.0,0.0:16563; 1.0:858; 2.0:297; 3.0:159; 4.0:119
+w1_3_genre_session_count_sf_fantasy,int64,numeric,0,0.0,27,0,34,0:16563; 1:3261; 2:1650; 3:826; 4:552
+w1_3_genre_ratio_action_adventure,float64,numeric,0,0.0,6179,0.0,1.0,0.0:15681; 1.0:451; 0.5:67; 0.25:32; 0.2:27
+w1_3_genre_watch_time_action_adventure,float64,numeric,0,0.0,519,0.0,1969.0,0.0:15681; 1.0:966; 2.0:330; 3.0:177; 4.0:132
+w1_3_genre_session_count_action_adventure,int64,numeric,0,0.0,21,0,23,0:15681; 1:3972; 2:1893; 3:1075; 4:544
+w1_3_genre_ratio_animation_family,float64,numeric,0,0.0,4160,0.0,1.0,0.0:18021; 1.0:849; 0.5:36; 0.333333:25; 0.666667:15
+w1_3_genre_watch_time_animation_family,float64,numeric,0,0.0,603,0.0,1625.0,0.0:18021; 1.0:637; 2.0:251; 3.0:99; 4.0:95
+w1_3_genre_session_count_animation_family,int64,numeric,0,0.0,34,0,45,0:18021; 1:2389; 2:1384; 3:656; 4:450
+w1_3_genre_ratio_romance,float64,numeric,0,0.0,5518,0.0,1.0,0.0:16519; 1.0:426; 0.5:56; 0.333333:42; 0.25:37
+w1_3_genre_watch_time_romance,float64,numeric,0,0.0,500,0.0,4388.0,0.0:16519; 1.0:849; 2.0:285; 3.0:174; 4.0:127
+w1_3_genre_session_count_romance,int64,numeric,0,0.0,23,0,40,0:16519; 1:3602; 2:1750; 3:957; 4:467
+w1_3_genre_ratio_comedy,float64,numeric,0,0.0,5567,0.0,1.0,0.0:16480; 1.0:430; 0.5:52; 0.333333:37; 0.2:33
+w1_3_genre_watch_time_comedy,float64,numeric,0,0.0,450,0.0,1803.0,0.0:16480; 1.0:1051; 2.0:298; 3.0:155; 109.0:148
+w1_3_genre_session_count_comedy,int64,numeric,0,0.0,15,0,15,0:16480; 1:4153; 2:1858; 3:731; 4:318
+w1_3_genre_ratio_historical_war,float64,numeric,0,0.0,4318,0.0,1.0,0.0:18764; 1.0:226; 0.5:29; 0.333333:17; 0.2:16
+w1_3_genre_watch_time_historical_war,float64,numeric,0,0.0,531,0.0,1631.0,0.0:18764; 1.0:509; 2.0:167; 3.0:88; 5.0:70
+w1_3_genre_session_count_historical_war,int64,numeric,0,0.0,20,0,33,0:18764; 1:2505; 2:1238; 3:592; 4:333
+w1_3_genre_ratio_horror,float64,numeric,0,0.0,2382,0.0,1.0,0.0:21070; 1.0:106; 0.333333:19; 0.25:13; 0.5:13
+w1_3_genre_watch_time_horror,float64,numeric,0,0.0,326,0.0,1038.0,0.0:21070; 1.0:489; 2.0:143; 3.0:70; 87.0:47
+w1_3_genre_session_count_horror,int64,numeric,0,0.0,17,0,27,0:21070; 1:1735; 2:627; 3:214; 4:113
+w1_3_genre_ratio_other,float64,numeric,0,0.0,1956,0.0,1.0,0.0:21402; 1.0:159; 0.5:18; 0.333333:17; 0.666667:9
+w1_3_genre_watch_time_other,float64,numeric,0,0.0,285,0.0,1538.0,0.0:21402; 1.0:509; 2.0:196; 3.0:111; 4.0:60
+w1_3_genre_session_count_other,int64,numeric,0,0.0,20,0,36,0:21402; 1:1501; 2:505; 3:197; 4:124
+w1_3_release_month_covered_watch_ratio,float64,boolean,0,0.0,2,0.0,1.0,1.0:22435; 0.0:1498
+w1_3_avg_ott_release_month_weighted,float64,numeric,1498,0.06259140099444283,18115,200212.0,202103.0,202103.0:503; 202102.0:357; 201701.0:161; 201702.0:136; 202101.0:112
+w1_3_recent_content_watch_ratio,float64,numeric,0,0.0,6962,0.0,1.0,0.0:12367; 1.0:2226; 0.5:95; 0.333333:41; 0.666667:38
+w1_3_old_content_watch_ratio,float64,numeric,0,0.0,8295,0.0,1.0,0.0:12808; 1.0:792; 0.5:59; 0.333333:42; 0.25:34
+w1_4_has_watch_obs,int64,boolean,0,0.0,2,0,1,1:23749; 0:184
+w1_4_no_watch_obs_flag,int64,boolean,0,0.0,2,0,1,0:23749; 1:184
+w1_4_total_watch_time,float64,numeric,0,0.0,1645,0.0,6474.0,1.0:727; 2.0:333; 0.0:184; 3.0:181; 4.0:168
+w1_4_total_sessions,int64,numeric,0,0.0,64,0,104,1:2677; 2:2403; 3:2222; 4:2190; 5:1930
+w1_4_unique_contents,int64,numeric,0,0.0,45,0,67,1:4071; 2:3485; 3:3041; 4:2744; 5:2264
+w1_4_unique_watch_days,int64,numeric,0,0.0,22,0,21,1:4615; 2:4158; 3:3734; 4:3183; 5:2426
+w1_4_avg_watch_time_per_session,float64,numeric,0,0.0,5788,0.0,200.0,1.0:1135; 2.0:197; 0.0:184; 3.0:131; 4.0:99
+w1_4_sessions_per_active_day,float64,numeric,0,0.0,268,0.0,18.0,1.0:5611; 2.0:3262; 1.5:2075; 1.333333:1140; 1.666667:983
+w1_4_active_span_days,int64,numeric,0,0.0,29,0,28,1:4615; 15:1486; 16:1355; 17:1162; 21:1081
+w1_4_first_watch_rel_day,float64,numeric,184,0.0076881293611331634,28,0.0,27.0,0.0:4447; 1.0:2703; 2.0:2064; 3.0:1823; 4.0:1549
+w1_4_last_watch_rel_day,float64,numeric,184,0.0076881293611331634,28,0.0,27.0,21.0:3628; 20.0:2797; 19.0:2165; 18.0:1753; 17.0:1415
+w1_4_week1_watch_time,float64,numeric,0,0.0,863,0.0,4766.0,0.0:8712; 1.0:816; 2.0:319; 3.0:209; 4.0:160
+w1_4_week2_watch_time,float64,numeric,0,0.0,859,0.0,2957.0,0.0:8894; 1.0:902; 2.0:341; 3.0:224; 4.0:161
+w1_4_week3_watch_time,float64,numeric,0,0.0,845,0.0,2691.0,0.0:8693; 1.0:867; 2.0:337; 3.0:206; 4.0:179
+w1_4_week1_sessions,int64,numeric,0,0.0,37,0,70,0:8712; 1:4226; 2:3241; 3:2342; 4:1628
+w1_4_week2_sessions,int64,numeric,0,0.0,36,0,60,0:8894; 1:4151; 2:3174; 3:2328; 4:1674
+w1_4_week3_sessions,int64,numeric,0,0.0,37,0,41,0:8693; 1:4165; 2:3300; 3:2339; 4:1708
+w1_4_week1_ratio,float64,numeric,0,0.0,10384,0.0,1.0,0.0:8712; 1.0:2095; 0.5:120; 0.333333:56; 0.25:41
+w1_4_week2_ratio,float64,numeric,0,0.0,10610,0.0,1.0,0.0:8894; 1.0:1705; 0.5:82; 0.333333:46; 0.25:40
+w1_4_week3_ratio,float64,numeric,0,0.0,10525,0.0,1.0,0.0:8693; 1.0:1904; 0.5:89; 0.333333:52; 0.25:39
+w1_4_w2_minus_w1_watch_time,float64,numeric,0,0.0,1390,-3444.0,2957.0,0.0:3998; 1.0:477; -1.0:456; -2.0:196; 2.0:188
+w1_4_w3_minus_w1_watch_time,float64,numeric,0,0.0,1493,-4380.0,2691.0,0.0:3533; 1.0:461; -1.0:460; 2.0:189; -2.0:171
+w1_4_max_daily_watch_time,float64,numeric,0,0.0,668,0.0,1248.0,1.0:865; 2.0:332; 200.0:237; 114.0:192; 3.0:191
+w1_4_max_day_share,float64,numeric,0,0.0,12853,0.0,1.0,1.0:4615; 0.5:270; 0.0:184; 0.666667:122; 0.333333:78
+w1_4_one_minute_watch_count,int64,numeric,0,0.0,35,0,41,0:9593; 1:5893; 2:3287; 3:1871; 4:1171
+w1_4_short_watch_count_le5,int64,numeric,0,0.0,40,0,57,0:6540; 1:5786; 2:3747; 3:2403; 4:1742
+w1_4_short_watch_time_le5,float64,numeric,0,0.0,60,0.0,109.0,0.0:6540; 1.0:3618; 2.0:2445; 3.0:1849; 4.0:1799
+w1_4_week4_watch_time,float64,numeric,0,0.0,585,0.0,3455.0,0.0:17979; 1.0:454; 2.0:190; 4.0:88; 3.0:82
+w1_4_week4_sessions,int64,numeric,0,0.0,30,0,44,0:17979; 1:2617; 2:1390; 3:653; 4:442
+w1_4_week4_ratio,float64,numeric,0,0.0,4086,0.0,1.0,0.0:17979; 1.0:1314; 0.5:30; 0.333333:15; 0.2:13
+w1_4_w4_minus_w1_watch_time,float64,numeric,0,0.0,1377,-4766.0,3188.0,0.0:6041; -1.0:704; -2.0:273; 1.0:235; -3.0:194
+w1_4_w4_minus_w3_watch_time,float64,numeric,0,0.0,1304,-2297.0,2261.0,0.0:6478; -1.0:738; -2.0:305; 1.0:230; -3.0:189
+w1_4_content_has_watch_obs,int64,boolean,0,0.0,2,0,1,1:23749; 0:184
+w1_4_genre_covered_watch_time,float64,numeric,0,0.0,1645,0.0,6474.0,1.0:727; 2.0:333; 0.0:184; 3.0:181; 4.0:168
+w1_4_genre_missing_watch_time,float64,boolean,0,0.0,1,0.0,0.0,0.0:23933
+w1_4_genre_covered_watch_ratio,float64,boolean,0,0.0,2,0.0,1.0,1.0:23749; 0.0:184
+w1_4_genre_missing_watch_ratio,float64,boolean,0,0.0,1,0.0,0.0,0.0:23933
+w1_4_genre_unique_count,int64,numeric,0,0.0,12,0,11,2:5116; 1:5105; 3:4580; 4:3778; 5:2475
+w1_4_top_genre,object,categorical,184,0.0076881293611331634,11,,,Drama:4550; Thriller/Crime:3095; SF/Fantasy:3074; Animation/Family:2663; Action/Adventure:2604
+w1_4_top_genre_watch_time,float64,numeric,0,0.0,990,0.0,4388.0,1.0:896; 2.0:358; 3.0:203; 0.0:184; 109.0:170
+w1_4_top_genre_watch_ratio,float64,numeric,0,0.0,12343,0.0,1.0,1.0:5105; 0.5:326; 0.0:184; 0.666667:121; 0.75:78
+w1_4_genre_entropy,float64,numeric,0,0.0,15968,0.0,3.058247,0.0:5289; 1.0:171; 0.918296:85; 0.811278:57; 1.5:38
+w1_4_genre_ratio_drama,float64,numeric,0,0.0,8706,0.0,1.0,0.0:11859; 1.0:849; 0.5:76; 0.333333:49; 0.25:49
+w1_4_genre_watch_time_drama,float64,numeric,0,0.0,666,0.0,2275.0,0.0:11859; 1.0:1021; 2.0:360; 3.0:225; 4.0:182
+w1_4_genre_session_count_drama,int64,numeric,0,0.0,25,0,28,0:11859; 1:4833; 2:2960; 3:1715; 4:974
+w1_4_genre_ratio_thriller_crime,float64,numeric,0,0.0,7180,0.0,1.0,0.0:14427; 1.0:540; 0.5:60; 0.333333:44; 0.25:29
+w1_4_genre_watch_time_thriller_crime,float64,numeric,0,0.0,579,0.0,1478.0,0.0:14427; 1.0:974; 2.0:322; 3.0:150; 4.0:122
+w1_4_genre_session_count_thriller_crime,int64,numeric,0,0.0,22,0,28,0:14427; 1:4306; 2:2315; 3:1275; 4:689
+w1_4_genre_ratio_sf_fantasy,float64,numeric,0,0.0,5736,0.0,1.0,0.0:16061; 1.0:787; 0.5:54; 0.166667:26; 0.25:25
+w1_4_genre_watch_time_sf_fantasy,float64,numeric,0,0.0,722,0.0,2727.0,0.0:16061; 1.0:917; 2.0:324; 3.0:168; 4.0:133
+w1_4_genre_session_count_sf_fantasy,int64,numeric,0,0.0,30,0,40,0:16061; 1:3405; 2:1753; 3:888; 4:586
+w1_4_genre_ratio_action_adventure,float64,numeric,0,0.0,6627,0.0,1.0,0.0:15170; 1.0:456; 0.5:69; 0.25:35; 0.166667:30
+w1_4_genre_watch_time_action_adventure,float64,numeric,0,0.0,532,0.0,1969.0,0.0:15170; 1.0:1008; 2.0:353; 3.0:183; 4.0:149
+w1_4_genre_session_count_action_adventure,int64,numeric,0,0.0,22,0,25,0:15170; 1:4177; 2:1993; 3:1144; 4:590
+w1_4_genre_ratio_animation_family,float64,numeric,0,0.0,4442,0.0,1.0,0.0:17578; 1.0:898; 0.5:36; 0.333333:27; 0.25:18
+w1_4_genre_watch_time_animation_family,float64,numeric,0,0.0,626,0.0,1842.0,0.0:17578; 1.0:673; 2.0:290; 4.0:112; 3.0:102
+w1_4_genre_session_count_animation_family,int64,numeric,0,0.0,39,0,47,0:17578; 1:2512; 2:1490; 3:704; 4:481
+w1_4_genre_ratio_romance,float64,numeric,0,0.0,5866,0.0,1.0,0.0:16066; 1.0:443; 0.5:57; 0.333333:47; 0.25:38
+w1_4_genre_watch_time_romance,float64,numeric,0,0.0,513,0.0,4388.0,0.0:16066; 1.0:916; 2.0:303; 3.0:184; 4.0:141
+w1_4_genre_session_count_romance,int64,numeric,0,0.0,24,0,40,0:16066; 1:3767; 2:1863; 3:1014; 4:524
+w1_4_genre_ratio_comedy,float64,numeric,0,0.0,6012,0.0,1.0,0.0:15902; 1.0:458; 0.5:58; 0.333333:36; 0.2:28
+w1_4_genre_watch_time_comedy,float64,numeric,0,0.0,473,0.0,1967.0,0.0:15902; 1.0:1100; 2.0:326; 3.0:170; 109.0:153
+w1_4_genre_session_count_comedy,int64,numeric,0,0.0,18,0,19,0:15902; 1:4364; 2:1990; 3:824; 4:384
+w1_4_genre_ratio_historical_war,float64,numeric,0,0.0,4469,0.0,1.0,0.0:18545; 1.0:235; 0.5:32; 0.333333:17; 0.2:15
+w1_4_genre_watch_time_historical_war,float64,numeric,0,0.0,551,0.0,1795.0,0.0:18545; 1.0:537; 2.0:171; 3.0:91; 5.0:70
+w1_4_genre_session_count_historical_war,int64,numeric,0,0.0,20,0,36,0:18545; 1:2586; 2:1290; 3:618; 4:331
+w1_4_genre_ratio_horror,float64,numeric,0,0.0,2569,0.0,1.0,0.0:20838; 1.0:112; 0.333333:20; 0.5:17; 0.25:16
+w1_4_genre_watch_time_horror,float64,numeric,0,0.0,332,0.0,1038.0,0.0:20838; 1.0:529; 2.0:147; 3.0:75; 87.0:50
+w1_4_genre_session_count_horror,int64,numeric,0,0.0,17,0,27,0:20838; 1:1876; 2:675; 3:229; 4:123
+w1_4_genre_ratio_other,float64,numeric,0,0.0,2198,0.0,1.0,0.0:21046; 1.0:212; 0.5:26; 0.333333:21; 0.25:10
+w1_4_genre_watch_time_other,float64,numeric,0,0.0,325,0.0,2285.0,0.0:21046; 1.0:536; 2.0:248; 3.0:118; 4.0:67
+w1_4_genre_session_count_other,int64,numeric,0,0.0,21,0,46,0:21046; 1:1589; 2:614; 3:229; 4:159
+w1_4_release_month_covered_watch_ratio,float64,boolean,0,0.0,2,0.0,1.0,1.0:23749; 0.0:184
+w1_4_avg_ott_release_month_weighted,float64,numeric,184,0.0076881293611331634,18971,200212.0,202103.0,202103.0:604; 202102.0:365; 201701.0:187; 201702.0:144; 202001.0:127
+w1_4_recent_content_watch_ratio,float64,numeric,0,0.0,7472,0.0,1.0,0.0:11556; 1.0:2384; 0.5:99; 0.666667:51; 0.333333:45
+w1_4_old_content_watch_ratio,float64,numeric,0,0.0,8786,0.0,1.0,0.0:12201; 1.0:829; 0.5:56; 0.333333:44; 0.25:33

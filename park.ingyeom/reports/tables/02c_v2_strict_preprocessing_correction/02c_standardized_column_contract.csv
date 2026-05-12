@@ -1,0 +1,16 @@
+﻿raw_column,standardized_column,role,allowed_downstream_use,forbidden_downstream_use
+is_repurchase,is_repurchase_label,target,model target only,feature use; raw backup use
+is_promotion,is_promotion_bin,binary standardized feature candidate,feature candidate after Stage 05 policy approval,use is_promotion or is_promotion_raw as feature
+is_churn_prevented,is_churn_prevented_bin,binary standardized feature candidate,feature candidate after leakage/policy review,use raw backup as feature
+is_user_verified,is_user_verified_bin,binary standardized feature candidate,feature candidate after Stage 05 policy approval,use raw backup as feature
+age,age_num,numeric standardized feature candidate,feature candidate,use age_raw as feature
+price,price_num,numeric standardized feature candidate,feature candidate,use price_raw as feature
+max_screen,max_screen_num,numeric standardized feature candidate,feature candidate,use max_screen_raw as feature
+reg_hour,reg_hour_num,audit_flag_only,audit only unless explicitly approved,official model feature without explicit approval
+reg_date,reg_date_parsed,date audit or feature construction,audit or upstream feature construction only,direct model feature
+end_date,end_date_parsed,date audit or feature construction,audit or upstream feature construction only,direct model feature; end_date-derived leakage features
+reg_date/end_date,duration_days_recomputed,scope definition audit,official population scope definition,direct official model feature
+gender,gender_clean,categorical standardized feature candidate,feature candidate after Stage 05 policy approval,use gender_raw as feature
+product_code,product_code_clean,categorical audit or optional feature,audit; optional only if approved,over-engineered official feature by default
+payment_device,payment_device_clean,categorical standardized feature candidate,feature candidate after Stage 05 policy approval,use payment_device_raw as feature
+billing_method,billing_method_clean,categorical standardized feature candidate,feature candidate after Stage 05 policy approval,use billing_method_raw as feature

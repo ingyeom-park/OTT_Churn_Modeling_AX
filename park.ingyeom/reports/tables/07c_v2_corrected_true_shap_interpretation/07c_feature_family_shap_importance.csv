@@ -1,0 +1,6 @@
+﻿feature_family,mean_abs_shap,feature_count,rank
+weekly_usage_pattern,1.5066720228188457,6,1
+genre_ratio_proxy,1.4325977860268226,12,2
+membership_context,0.5098408840202002,6,3
+simple_usage_volume,0.32299318654026904,3,4
+release_month_proxy,0.038996161817576466,1,5

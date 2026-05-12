@@ -1,0 +1,5 @@
+﻿metric,count,action
+stage02_usermapping_rows,26366,carried_forward_no_deletion
+stage02c_usermapping_rows,26366,carried_forward_no_deletion
+one_to_many_USER_KEY_flag_rows,101,flag_preserved
+many_to_one_USER_NUM_flag_rows,0,flag_preserved

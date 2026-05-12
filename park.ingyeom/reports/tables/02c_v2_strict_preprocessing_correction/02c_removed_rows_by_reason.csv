@@ -1,0 +1,7 @@
+﻿reason_code,rule_name,removed_rows,reason_detail
+INVALID_TARGET_VALUE,R_TARGET_01_MAP_YN_ONLY,0,is_repurchase could not be mapped to 1/0.
+DATE_PARSE_FAILURE,R_DATE_01_PARSE_REG_END,0,reg_date or end_date could not be parsed.
+NONSTANDARD_DURATION_FOR_MONTHLY_SCOPE,R_DURATION_01_KEEP_31_32_ONLY,568,"duration_days_recomputed is missing, zero, or not in 31/32; excluded from standard monthly-subscription official population."
+INVALID_AGE,R_AGE_01_PLAUSIBLE_10_100_EXCLUDE_950,211,"age is missing, unparsable, <10, >100, or 950."
+INVALID_MAX_SCREEN,R_MAX_SCREEN_01_KEEP_1_2_4,83,"max_screen is missing, unparsable, or not in 1/2/4."
+INVALID_PRICE,R_PRICE_01_NONMISSING_NONNEGATIVE,0,"price is missing, unparsable, or negative."

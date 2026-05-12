@@ -1,0 +1,7 @@
+﻿feature_set_name,numeric_feature_count,pearson_pairs_abs_ge_0_80,pearson_pairs_abs_ge_0_90,pearson_pairs_abs_ge_0_95,spearman_pairs_abs_ge_0_80,spearman_pairs_abs_ge_0_90,spearman_pairs_abs_ge_0_95,max_abs_corr,max_vif,unstable_or_inf_vif_count,interpretation_policy
+pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence,24,1,0,0,5,3,0,0.9116551164522333,6.060558681911423,0,family_level_only
+pruned_w1_3_membership_usage_only_without_product_code_without_watch_presence,12,1,0,0,4,3,0,0.9116551164522333,4.560066910902832,0,family_level_only
+pruned_w1_3_genre_ratio_added_without_product_code_without_watch_presence,23,1,0,0,5,3,0,0.9116551164522333,6.058289790150515,0,family_level_only
+pruned_w1_3_timing_sensitive_all_weeks_reference,24,1,0,0,5,3,0,0.9116551164522333,6.060558681911423,0,family_level_only
+pruned_w1_3_early_safer_week1_2_reference,10,1,0,0,3,2,0,0.9116551164522333,3.897950540744259,0,family_level_only
+pruned_w1_4_late_period_comparison,26,2,0,0,6,4,1,0.9887994894848898,5.501112858908272,0,family_level_only

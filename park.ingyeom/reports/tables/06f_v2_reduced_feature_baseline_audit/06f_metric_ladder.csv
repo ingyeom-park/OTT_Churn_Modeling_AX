@@ -1,0 +1,7 @@
+﻿level,auc,role,claim_status
+A_w1_4_late_period_best_observed,0.9022499874722302,late-period best observed from 06e exact rebuild,do_not_claim_as_early_prediction
+B_w1_3_full_reference,0.872458629449125,full feature internal ranking upper-bound reference,claim_with_caution
+C_w1_3_reduced_interpretation_safe,0.8570990481892982,reduced interpretable model: reduced_no_target_adjacent_timing,presentation_safe
+D_w1_2_exact_early_window,0.7401751232325673,exact early-window mentor-safe reference from 06e,mentor_safe
+E_w1_1_exact_early_window,0.6261327995004311,strictest exact early-window reference from 06e,mentor_safe
+F_ultra_conservative_proxy_if_needed,0.6505859355759969,Stage 06c proxy only; superseded by 06e exact w1_2,internal_reference_only

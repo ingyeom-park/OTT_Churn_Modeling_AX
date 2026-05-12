@@ -1,0 +1,127 @@
+﻿dataset,metric,count
+raw_membership,age missing,207.0
+raw_membership,age < 10,6.0
+raw_membership,age > 100,2.0
+raw_membership,age extreme max,950.0
+raw_membership,max_screen missing,84.0
+raw_membership,max_screen not in 1/2/4,9.0
+raw_membership,gender missing,207.0
+raw_membership,gender N,3817.0
+raw_membership,is_user_verified missing,775.0
+raw_membership,verified Y and gender N,60.0
+raw_membership,price=100 and is_user_verified != Y,608.0
+raw_membership,product_code rare levels rows <=10,122.0
+raw_membership,billing_method rare levels rows <=10,3.0
+raw_membership,payment_device rare levels rows <=10,12.0
+raw_membership,is_promotion missing,11896.0
+raw_membership,is_churn_prevented missing,19767.0
+raw_membership,duration_days min,0.0
+raw_membership,duration_days max,32.0
+raw_membership,duration_days not in 31/32,650.0
+raw_membership,duration_days == 0,498.0
+raw_membership,reg_date parse failures,0.0
+raw_membership,end_date parse failures,0.0
+raw_membership,is_user_verified value: N,5477.0
+raw_membership,is_user_verified value: Y,17822.0
+raw_membership,is_user_verified value: __MISSING__,775.0
+raw_membership,price distribution: 7.69,1.0
+raw_membership,price distribution: 9.89,7.0
+raw_membership,price distribution: 9.99,2870.0
+raw_membership,price distribution: 10.99,108.0
+raw_membership,price distribution: 13.19,12.0
+raw_membership,price distribution: 13.49,773.0
+raw_membership,price distribution: 14.29,30.0
+raw_membership,price distribution: 16.49,304.0
+raw_membership,price distribution: 17.59,1.0
+raw_membership,price distribution: 18.69,2.0
+raw_membership,price distribution: 19.79,1.0
+raw_membership,price distribution: 20.49,1.0
+raw_membership,price distribution: 21.99,3.0
+raw_membership,price distribution: 24.19,1.0
+raw_membership,price distribution: 26.39,1.0
+raw_membership,price distribution: 27.49,1.0
+raw_membership,price distribution: 29.69,1.0
+raw_membership,price distribution: 100.0,12178.0
+raw_membership,price distribution: 3350.0,6.0
+raw_membership,price distribution: 3950.0,169.0
+raw_membership,price distribution: 4900.0,3.0
+raw_membership,price distribution: 5450.0,44.0
+raw_membership,price distribution: 5700.0,1.0
+raw_membership,price distribution: 5900.0,15.0
+raw_membership,price distribution: 6210.0,7.0
+raw_membership,price distribution: 6700.0,92.0
+raw_membership,price distribution: 6900.0,35.0
+raw_membership,price distribution: 6950.0,61.0
+raw_membership,price distribution: 7900.0,4432.0
+raw_membership,price distribution: 8900.0,1.0
+raw_membership,price distribution: 9810.0,1.0
+raw_membership,price distribution: 10400.0,1.0
+raw_membership,price distribution: 10900.0,2053.0
+raw_membership,price distribution: 11550.0,1.0
+raw_membership,price distribution: 11800.0,3.0
+raw_membership,price distribution: 13750.0,45.0
+raw_membership,price distribution: 13900.0,808.0
+raw_membership,price distribution: 16400.0,1.0
+preprocessed_membership,age missing,203.0
+preprocessed_membership,age < 10,6.0
+preprocessed_membership,age > 100,2.0
+preprocessed_membership,age extreme max,950.0
+preprocessed_membership,max_screen missing,74.0
+preprocessed_membership,max_screen not in 1/2/4,9.0
+preprocessed_membership,gender missing,203.0
+preprocessed_membership,gender N,3776.0
+preprocessed_membership,is_user_verified missing,768.0
+preprocessed_membership,verified Y and gender N,57.0
+preprocessed_membership,price=100 and is_user_verified != Y,606.0
+preprocessed_membership,product_code rare levels rows <=10,122.0
+preprocessed_membership,billing_method rare levels rows <=10,3.0
+preprocessed_membership,payment_device rare levels rows <=10,12.0
+preprocessed_membership,is_promotion missing,11768.0
+preprocessed_membership,is_churn_prevented missing,19634.0
+preprocessed_membership,duration_days min,0.0
+preprocessed_membership,duration_days max,32.0
+preprocessed_membership,duration_days not in 31/32,568.0
+preprocessed_membership,duration_days == 0,452.0
+preprocessed_membership,reg_date parse failures,0.0
+preprocessed_membership,end_date parse failures,0.0
+preprocessed_membership,is_user_verified value: N,5415.0
+preprocessed_membership,is_user_verified value: Y,17750.0
+preprocessed_membership,is_user_verified value: __MISSING__,768.0
+preprocessed_membership,price distribution: 7.69,1.0
+preprocessed_membership,price distribution: 9.89,7.0
+preprocessed_membership,price distribution: 9.99,2849.0
+preprocessed_membership,price distribution: 10.99,94.0
+preprocessed_membership,price distribution: 13.19,12.0
+preprocessed_membership,price distribution: 13.49,767.0
+preprocessed_membership,price distribution: 14.29,29.0
+preprocessed_membership,price distribution: 16.49,299.0
+preprocessed_membership,price distribution: 17.59,1.0
+preprocessed_membership,price distribution: 18.69,2.0
+preprocessed_membership,price distribution: 19.79,1.0
+preprocessed_membership,price distribution: 20.49,1.0
+preprocessed_membership,price distribution: 21.99,3.0
+preprocessed_membership,price distribution: 24.19,1.0
+preprocessed_membership,price distribution: 26.39,1.0
+preprocessed_membership,price distribution: 27.49,1.0
+preprocessed_membership,price distribution: 29.69,1.0
+preprocessed_membership,price distribution: 100.0,12165.0
+preprocessed_membership,price distribution: 3350.0,6.0
+preprocessed_membership,price distribution: 3950.0,169.0
+preprocessed_membership,price distribution: 4900.0,3.0
+preprocessed_membership,price distribution: 5450.0,44.0
+preprocessed_membership,price distribution: 5700.0,1.0
+preprocessed_membership,price distribution: 5900.0,15.0
+preprocessed_membership,price distribution: 6210.0,7.0
+preprocessed_membership,price distribution: 6700.0,92.0
+preprocessed_membership,price distribution: 6900.0,35.0
+preprocessed_membership,price distribution: 6950.0,61.0
+preprocessed_membership,price distribution: 7900.0,4400.0
+preprocessed_membership,price distribution: 8900.0,1.0
+preprocessed_membership,price distribution: 9810.0,1.0
+preprocessed_membership,price distribution: 10400.0,1.0
+preprocessed_membership,price distribution: 10900.0,2006.0
+preprocessed_membership,price distribution: 11550.0,1.0
+preprocessed_membership,price distribution: 11800.0,3.0
+preprocessed_membership,price distribution: 13750.0,45.0
+preprocessed_membership,price distribution: 13900.0,806.0
+preprocessed_membership,price distribution: 16400.0,1.0

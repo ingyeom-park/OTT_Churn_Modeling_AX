@@ -1,0 +1,19 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw snapshots unchanged
+no__data_output_created,PASS,Stage 06c writes only under park.ingyeom/reports and park.ingyeom/notebooks
+stage01_through_stage09_outputs_not_overwritten,PASS,Stage 01-09 snapshots unchanged
+no_optuna_run,PASS,No optuna import or study execution in Stage 06c implementation.
+no_shap_run,PASS,Stage 06c only reads Stage 07r SHAP CSV outputs; it does not import or execute shap.
+no_segmentation_created,PASS,No Stage 08/08b outputs created or modified.
+no_business_simulation_created,PASS,No Stage 09 simulation outputs created or modified.
+same_stage06_split_reused_where_applicable,PASS,Official Stage 06 split_membership_row_ids reused for holdout tests.
+target_mapping_checked,PASS,"{'Y': 1, 'N': 0}"
+forbidden_features_checked,PASS,Forbidden feature set checked against conservative feature list.
+time_window_shrinkage_or_blocked_reason_documented,PASS,w1_1/w1_2 proxy rows and blocked content rows written.
+top_feature_removal_test_completed,PASS,rows=20
+content_proxy_audit_completed,PASS,rows=6
+single_feature_auc_audit_completed,PASS,rows=34
+subgroup_generalization_completed,PASS,rows=15
+harder_split_diagnostics_completed_or_blocked_reason_documented,PASS,rows=16
+final_conservative_metric_recommendation_created,PASS,rows=3
+mentor_response_summary_created,PASS,Korean mentor response summary written.

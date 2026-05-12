@@ -1,0 +1,4 @@
+﻿input_name,path,row_count,column_count,role
+membership_v2_preprocessed_strict_core,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/membership_v2_preprocessed_strict_core.csv,23115,70,02c strict-core corrected Membership rows
+usermapping_v2_policy_checked_strict_core,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/usermapping_v2_policy_checked_strict_core.csv,26366,8,USER_KEY to USER_NUM temporary join bridge only
+Views_train,_data/01_raw/Views_train.csv,175301,5,"Raw usage logs, read only"

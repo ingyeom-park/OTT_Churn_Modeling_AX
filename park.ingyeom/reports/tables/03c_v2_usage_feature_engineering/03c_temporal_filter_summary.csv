@@ -1,0 +1,15 @@
+﻿scope,metric,count,note
+membership_log_attachment,excluded_watch_date_gt_end_date,2,watch_rel_day was recomputed as watch_date minus reg_date.
+membership_log_attachment,excluded_watch_date_lt_reg_date,31,watch_rel_day was recomputed as watch_date minus reg_date.
+w1_1,excluded_outside_membership_period,33,Window filters are independent and do not mix rows across windows.
+w1_1,excluded_outside_window,119117,Window filters are independent and do not mix rows across windows.
+w1_1,included_logs,51739,Window filters are independent and do not mix rows across windows.
+w1_2,excluded_outside_membership_period,33,Window filters are independent and do not mix rows across windows.
+w1_2,excluded_outside_window,68213,Window filters are independent and do not mix rows across windows.
+w1_2,included_logs,102643,Window filters are independent and do not mix rows across windows.
+w1_3,excluded_outside_membership_period,33,Window filters are independent and do not mix rows across windows.
+w1_3,excluded_outside_window,17321,Window filters are independent and do not mix rows across windows.
+w1_3,included_logs,153535,Window filters are independent and do not mix rows across windows.
+w1_4,excluded_outside_membership_period,33,Window filters are independent and do not mix rows across windows.
+w1_4,excluded_outside_window,1662,Window filters are independent and do not mix rows across windows.
+w1_4,included_logs,169194,Window filters are independent and do not mix rows across windows.

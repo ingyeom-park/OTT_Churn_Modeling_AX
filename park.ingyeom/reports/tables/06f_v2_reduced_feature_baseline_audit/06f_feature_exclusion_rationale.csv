@@ -1,0 +1,10 @@
+﻿feature_set_name,excluded_feature_families,reason,performance_not_used_for_selection
+full_reference_w1_3,None within current allowed Stage 06 primary feature set.,Reference only. Current Stage 06 primary conservative feature set without is_churn_prevented.,Y
+reduced_membership_only,"All usage, content, genre, release month, is_churn_prevented.",Non-behavioral membership context baseline.,Y
+reduced_membership_simple_usage,"timing, week ratios, deltas, no_watch/has_watch flags, content volume.","Simple engagement volume model without first/last watch timing, week ratios, and deltas.",Y
+reduced_membership_weekly_usage_no_ratios,"total usage duplicate, ratios, deltas, first/last watch timing, content.",Week-level activity pattern while avoiding ratios and deltas.,Y
+reduced_membership_week1_2_only,"week3, week ratios, deltas, first/last watch timing, content.","Early-window approximation inside w1_3 table, excluding week3 and late timing features.",Y
+reduced_membership_genre_ratio_only,"usage volume, genre watch_time, genre session_count, release_month.",Genre preference ratio signal without genre volume/session duplication.,Y
+reduced_membership_simple_usage_genre_ratio,"genre watch_time/session_count, release_month, timing, week ratios, deltas.","Presentation-friendly feature family mix: membership, simple usage volume, and genre ratios.",Y
+reduced_family_level_interpretable,"structural duplicates, first/last watch timing, week ratios, deltas, content volume.",Manual compact family-level feature set with 15 to 30 raw features.,Y
+reduced_no_target_adjacent_timing,"first/last watch, week3, deltas, no_watch/has_watch flags, content volume.","Explicit removal of first/last watch, week3, deltas, no_watch/has_watch, and content volume.",Y

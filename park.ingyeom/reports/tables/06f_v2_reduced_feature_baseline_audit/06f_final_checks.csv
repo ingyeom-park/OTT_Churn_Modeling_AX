@@ -1,0 +1,30 @@
+﻿check,status,evidence
+raw files unchanged,PASS,Compared _data file snapshots.
+no _data output created,PASS,Compared _data file set before and after.
+Stage 01 through Stage 09 outputs not overwritten,PASS,Compared non-06f report artifact snapshots.
+no Optuna run,PASS,No optuna import or tuning loop.
+no SHAP run,PASS,No shap import or SHAP value computation.
+no segmentation created,PASS,No segmentation outputs written.
+no business simulation created,PASS,No simulation outputs written.
+Stage 06 split reused,PASS,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv
+target mapping documented,PASS,"Y -> 1, N -> 0."
+forbidden features excluded,PASS,Feature list checked against forbidden set.
+at least 6 reduced feature sets evaluated or blocked with reason,PASS,9 feature sets evaluated.
+reduced feature set inventory created,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_set_inventory.csv
+metric ladder created,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_metric_ladder.csv
+mentor-safe recommendation created,PASS,park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_mentor_safe_model_recommendation.md
+final report created,PASS,park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_baseline_report.md
+required output exists: 06f_reduced_feature_baseline_report.md,PASS,park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_baseline_report.md
+required output exists: 06f_reduced_feature_baseline_summary.json,PASS,park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_baseline_summary.json
+required output exists: 06f_mentor_safe_model_recommendation.md,PASS,park.ingyeom/reports/data/06f_v2_reduced_feature_baseline_audit/06f_mentor_safe_model_recommendation.md
+required output exists: 06f_reduced_feature_set_inventory.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_reduced_feature_set_inventory.csv
+required output exists: 06f_reduced_model_metrics.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_reduced_model_metrics.csv
+required output exists: 06f_interpretability_performance_tradeoff.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_interpretability_performance_tradeoff.csv
+required output exists: 06f_churn_risk_decile_summary.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_churn_risk_decile_summary.csv
+required output exists: 06f_metric_ladder.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_metric_ladder.csv
+required output exists: 06f_feature_exclusion_rationale.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_feature_exclusion_rationale.csv
+required output exists: 06f_multicollinearity_aware_interpretation.csv,PASS,park.ingyeom/reports/tables/06f_v2_reduced_feature_baseline_audit/06f_multicollinearity_aware_interpretation.csv
+required output exists: 06f_auc_vs_interpretability.png,PASS,park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_auc_vs_interpretability.png
+required output exists: 06f_metric_ladder.png,PASS,park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_metric_ladder.png
+required output exists: 06f_feature_count_vs_auc.png,PASS,park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_feature_count_vs_auc.png
+required output exists: 06f_top_decile_lift_comparison.png,PASS,park.ingyeom/reports/figures/06f_v2_reduced_feature_baseline_audit/06f_top_decile_lift_comparison.png

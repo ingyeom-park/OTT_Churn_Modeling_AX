@@ -1,0 +1,140 @@
+{
+  "stage": "07c_v2_corrected_true_shap_interpretation",
+  "status": "PASS",
+  "created_at": "2026-05-12T00:32:08",
+  "python_version": "3.11.9",
+  "python_executable": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+  "sklearn_version": "1.8.0",
+  "shap_version": "0.51.0",
+  "true_shap_computed": true,
+  "official_model": "HistGradientBoostingClassifier",
+  "official_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+  "official_window": "w1_3",
+  "target_mapping": {
+    "is_repurchase_label": "1=repurchase, 0=non-repurchase/churn risk"
+  },
+  "score_direction": {
+    "repurchase_score": "P(is_repurchase_label = 1)",
+    "churn_risk_score": "1 - repurchase_score",
+    "positive_shap": "pushes toward repurchase_score",
+    "negative_shap": "pushes toward churn risk"
+  },
+  "reconstruction": {
+    "official_model": "HistGradientBoostingClassifier",
+    "official_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+    "official_window": "w1_3",
+    "n_train": 18490,
+    "n_test": 4625,
+    "train_test_USER_KEY_overlap": 0,
+    "reconstructed_auc": 0.8629394097379637,
+    "stage06c2_recorded_auc": 0.8629394097379637,
+    "absolute_auc_difference": 0.0,
+    "auc_difference_threshold": 0.005,
+    "reconstruction_status": "PASS"
+  },
+  "sample_rows": 2000,
+  "top10_shap_features": [
+    {
+      "original_feature": "w1_3_week3_watch_time",
+      "feature_family": "weekly_usage_pattern",
+      "mean_abs_shap": 0.8313802874843351,
+      "mean_shap": -0.040797365469091205
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_drama",
+      "feature_family": "genre_ratio_proxy",
+      "mean_abs_shap": 0.31975422978755313,
+      "mean_shap": -0.00288414375947516
+    },
+    {
+      "original_feature": "w1_3_week1_watch_time",
+      "feature_family": "weekly_usage_pattern",
+      "mean_abs_shap": 0.3002140414236166,
+      "mean_shap": 0.007778997655078161
+    },
+    {
+      "original_feature": "w1_3_week2_watch_time",
+      "feature_family": "weekly_usage_pattern",
+      "mean_abs_shap": 0.28744723741443434,
+      "mean_shap": 0.02704357907012098
+    },
+    {
+      "original_feature": "is_promotion_bin",
+      "feature_family": "membership_context",
+      "mean_abs_shap": 0.2699549164052647,
+      "mean_shap": -0.0008421096004924786
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_animation_family",
+      "feature_family": "genre_ratio_proxy",
+      "mean_abs_shap": 0.2603052366140704,
+      "mean_shap": 0.006039083535326279
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_thriller_crime",
+      "feature_family": "genre_ratio_proxy",
+      "mean_abs_shap": 0.21643027303903403,
+      "mean_shap": -0.004242903667652258
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_romance",
+      "feature_family": "genre_ratio_proxy",
+      "mean_abs_shap": 0.215473502192298,
+      "mean_shap": -0.0077495932513487525
+    },
+    {
+      "original_feature": "w1_3_genre_ratio_action_adventure",
+      "feature_family": "genre_ratio_proxy",
+      "mean_abs_shap": 0.17089408911968418,
+      "mean_shap": -0.005752542073194466
+    },
+    {
+      "original_feature": "w1_3_avg_watch_time_per_session",
+      "feature_family": "simple_usage_volume",
+      "mean_abs_shap": 0.15787972924166252,
+      "mean_shap": -0.02193289813584564
+    }
+  ],
+  "top_feature_families": [
+    {
+      "feature_family": "weekly_usage_pattern",
+      "mean_abs_shap": 1.5066720228188457,
+      "feature_count": 6,
+      "rank": 1
+    },
+    {
+      "feature_family": "genre_ratio_proxy",
+      "mean_abs_shap": 1.4325977860268226,
+      "feature_count": 12,
+      "rank": 2
+    },
+    {
+      "feature_family": "membership_context",
+      "mean_abs_shap": 0.5098408840202002,
+      "feature_count": 6,
+      "rank": 3
+    },
+    {
+      "feature_family": "simple_usage_volume",
+      "mean_abs_shap": 0.32299318654026904,
+      "feature_count": 3,
+      "rank": 4
+    },
+    {
+      "feature_family": "release_month_proxy",
+      "mean_abs_shap": 0.038996161817576466,
+      "feature_count": 1,
+      "rank": 5
+    }
+  ],
+  "recommended_team_figures": [
+    "park.ingyeom/reports/figures/07c_v2_corrected_true_shap_interpretation/07c_churn_risk_top_decile_shap_push.png",
+    "park.ingyeom/reports/figures/07c_v2_corrected_true_shap_interpretation/07c_shap_beeswarm_red_blue_corrected_official.png",
+    "park.ingyeom/reports/figures/07c_v2_corrected_true_shap_interpretation/07c_shap_feature_family_importance_corrected_official.png",
+    "park.ingyeom/reports/figures/07c_v2_corrected_true_shap_interpretation/07c_shap_global_bar_corrected_official.png"
+  ],
+  "previous_shap_outputs_status": "07r and 06h are historical/provisional only.",
+  "no_segmentation": true,
+  "no_business_simulation": true,
+  "no_optuna": true
+}

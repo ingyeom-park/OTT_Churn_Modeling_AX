@@ -1,0 +1,8 @@
+﻿column,observed_value,mapped_value,count,mapping_policy,action,unexpected_value_flag
+is_promotion,O,1,12165,O/X,map,False
+is_promotion,__MISSING__,,11768,O/X,flag_unknown,True
+is_churn_prevented,O,1,4299,O/X,map,False
+is_churn_prevented,__MISSING__,,19634,O/X,flag_unknown,True
+is_user_verified,N,0,5415,Y/N,map,False
+is_user_verified,Y,1,17750,Y/N,map,False
+is_user_verified,__MISSING__,,768,Y/N,flag_unknown,True

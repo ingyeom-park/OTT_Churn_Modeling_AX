@@ -1,0 +1,79 @@
+{
+  "stage": "06e_v2_exact_early_window_rebuild",
+  "created_at": "2026-05-11T17:41:55",
+  "raw_view_source_used": "_data/01_raw/Views_train.csv",
+  "raw_movie_source_used": "_data/01_raw/Movies.csv",
+  "membership_rows": 23933,
+  "major_genres": [
+    "Drama",
+    "Thriller/Crime",
+    "SF/Fantasy",
+    "Action/Adventure",
+    "Animation/Family",
+    "Romance",
+    "Comedy",
+    "Historical/War",
+    "Horror",
+    "Other"
+  ],
+  "default_metric_basis": "HistGradientBoostingClassifier / membership_plus_usage_content_without_churn_prevented",
+  "exact_auc_by_window": {
+    "w1_1": 0.6261327995004311,
+    "w1_2": 0.7401751232325673,
+    "w1_3": 0.8710919247066039,
+    "w1_4": 0.9022499874722302
+  },
+  "top_decile_lift_by_window": {
+    "w1_1": 1.698423,
+    "w1_2": 2.113917,
+    "w1_3": 2.806407,
+    "w1_4": 2.908458
+  },
+  "stage06c_proxy_w1_2_auc": 0.6505859355759969,
+  "stage06e_exact_w1_2_auc": 0.7401751232325673,
+  "stage06c_verdict": "target_adjacent_but_not_direct_leakage",
+  "recommended_mentor_facing_window": "w1_2",
+  "recommended_mentor_facing_auc": 0.7401751232325673,
+  "recommended_presentation_window": "w1_3",
+  "recommended_presentation_auc": 0.8710919247066039,
+  "w1_4_label": "late_period_only",
+  "data_outputs": [
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_features_w1_1.csv",
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_features_w1_2.csv",
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_features_w1_3.csv",
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_features_w1_4.csv",
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_window_prediction_scores.csv",
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_early_window_rebuild_report.md",
+    "park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_mentor_safe_metric_summary.md"
+  ],
+  "table_outputs": [
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_auc_by_window.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_churn_risk_decile_by_window.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_exact_window_model_metrics.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_mentor_safe_metric_ladder.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_stage06c_proxy_vs_exact_w1_2.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_timing_interpretation_table.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_view_log_inclusion_summary.csv",
+    "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_window_feature_row_summary.csv"
+  ],
+  "figure_outputs": [
+    "park.ingyeom/reports/figures/06e_v2_exact_early_window_rebuild/06e_auc_by_time_window.png",
+    "park.ingyeom/reports/figures/06e_v2_exact_early_window_rebuild/06e_churn_risk_top_decile_by_window.png",
+    "park.ingyeom/reports/figures/06e_v2_exact_early_window_rebuild/06e_metric_ladder_for_mentor.png"
+  ],
+  "feature_dictionary_context": {
+    "scope": "Stage 05d v2 feature dictionary documentation only",
+    "workbook_path": "park.ingyeom/reports/tables/05d_v2_feature_dictionary/05d_v2_feature_dictionary.xlsx",
+    "sheet_count": 14,
+    "w1_3_columns": 84,
+    "w1_4_columns": 89,
+    "union_columns": 160,
+    "primary_feature_count": 80,
+    "top_true_shap_feature_count": 30,
+    "target_adjacent_or_redundancy_feature_count": 96,
+    "stage06c_verdict": "target_adjacent_but_not_direct_leakage",
+    "final_checks_passed": true
+  },
+  "final_checks_path": "park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_final_checks.csv",
+  "final_check_status": "PASS"
+}

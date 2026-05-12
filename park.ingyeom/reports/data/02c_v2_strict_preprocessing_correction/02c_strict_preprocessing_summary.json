@@ -1,0 +1,81 @@
+{
+  "stage": "02c_v2_strict_preprocessing_correction",
+  "created_at": "2026-05-11T23:34:56",
+  "python": "3.11.9",
+  "raw_input_files": {
+    "Membership": "_data/01_raw/Membership_train.csv",
+    "UserMapping": "_data/01_raw/mapping.csv",
+    "ViewHistory": "_data/01_raw/Views_train.csv",
+    "MovieMaster": "_data/01_raw/Movies.csv"
+  },
+  "stage02_input_files": {
+    "membership": "park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv",
+    "usermapping": "park.ingyeom/reports/data/02_v2_preprocessing_policy/usermapping_v2_policy_checked.csv",
+    "moviemaster": "park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv",
+    "summary": "park.ingyeom/reports/data/02_v2_preprocessing_policy/v2_preprocessing_summary.json"
+  },
+  "stage02b_summary": "park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_preprocessing_forensic_summary.json",
+  "source_row_reference_note": "source_row_number preserved from Stage 02 preprocessed membership.",
+  "stage02_retained_membership_rows": 23933,
+  "stage02c_corrected_membership_rows": 23115,
+  "stage02c_removed_rows": 818,
+  "removed_counts_by_reason_any_overlap": {
+    "INVALID_TARGET_VALUE": 0,
+    "DATE_PARSE_FAILURE": 0,
+    "NONSTANDARD_DURATION_FOR_MONTHLY_SCOPE": 568,
+    "INVALID_AGE": 211,
+    "INVALID_MAX_SCREEN": 83,
+    "INVALID_PRICE": 0
+  },
+  "repurchase_rate_before": 0.7197593281243472,
+  "repurchase_rate_after": 0.7177590309322951,
+  "duration_scope_policy": "Keep only standard monthly-subscription events with recomputed duration 31/32 days for official modeling population; non-31/32 rows are not asserted impossible.",
+  "reg_hour_policy": "audit_flag_only_not_removal_not_official_feature_without_explicit_approval",
+  "downstream_status": "deprecated_requires_rerun",
+  "viewhistory_raw_modified": false,
+  "model_training_executed": false,
+  "shap_executed": false,
+  "optuna_executed": false,
+  "segmentation_executed": false,
+  "simulation_executed": false,
+  "final_check_status": "PASS",
+  "data_outputs": [
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/membership_v2_preprocessed_strict_core.csv",
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/usermapping_v2_policy_checked_strict_core.csv",
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/moviemaster_v2_policy_checked_strict_core.csv",
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/02c_strict_preprocessing_summary.json",
+    "park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/02c_strict_preprocessing_report.md"
+  ],
+  "table_outputs": [
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_target_encoding_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_binary_encoding_policy.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_binary_encoding_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_date_parse_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_numeric_parse_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_categorical_standardization_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_removed_rows.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_removed_rows_by_reason.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_row_counts.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_target_distribution.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_value_distributions.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_age_correction_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_duration_correction_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_max_screen_correction_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_price_correction_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_unresolved_business_definition_flags.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_rare_code_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_usermapping_correction_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_moviemaster_correction_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_viewhistory_temporal_policy_audit.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_downstream_rerun_requirement.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_downstream_deprecation_status.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_standardized_column_contract.csv",
+    "park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_final_checks.csv"
+  ],
+  "figure_outputs": [
+    "park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_row_count_before_after.png",
+    "park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_target_distribution_before_after.png",
+    "park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_removed_reason_counts.png",
+    "park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_duration_distribution_before_after.png"
+  ]
+}

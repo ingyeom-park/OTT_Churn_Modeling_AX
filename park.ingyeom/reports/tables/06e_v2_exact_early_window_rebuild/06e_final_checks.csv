@@ -1,0 +1,29 @@
+﻿check,status,evidence
+raw files unchanged,PASS,"{""before"": {""_data/01_raw/Views_train.csv"": {""size"": 4323679, ""mtime_ns"": 1778201019521982100}, ""_data/01_raw/Movies.csv"": {""size"": 636496, ""mtime_ns"": 1778201025753632900}}, ""after"": {""_data/01_raw/Views_train.csv"": {""size"": 4323679, ""mtime_ns"": 1778201019521982100}, ""_data/01_raw/Movies.csv"": {""size"": 636496, ""mtime_ns"": 1778201025753632900}}}"
+no _data output created,PASS,Compared _data file set before and after.
+Stage 01 through Stage 09 outputs not overwritten,PASS,Compared non-06e report artifact size and mtime snapshots.
+no Optuna run,PASS,Script imports no optuna and runs no tuning loop.
+no SHAP run,PASS,Script imports no shap and computes no SHAP values.
+no segmentation created,PASS,No segmentation outputs were written.
+no business simulation created,PASS,No simulation outputs were written.
+exact w1_1/w1_2 attempt completed or blocked reason documented,PASS,"Exact windows completed: ['w1_1', 'w1_2', 'w1_3', 'w1_4']."
+same Stage 06 split reused,PASS,park.ingyeom/reports/tables/06_v2_baseline_modeling/06_v2_split_membership_row_ids.csv
+forbidden features excluded,PASS,Feature construction excludes ID/date/target columns from model feature lists.
+target mapping documented,PASS,"Y -> 1 repurchase, N -> 0 non-repurchase/churn risk."
+w1_4 labeled late-period only,PASS,06e_timing_interpretation_table.csv and report label w1_4 late_period_only.
+mentor-safe metric ladder created,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_mentor_safe_metric_ladder.csv
+final report created,PASS,park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_early_window_rebuild_report.md
+required output exists: 06e_exact_early_window_rebuild_report.md,PASS,park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_early_window_rebuild_report.md
+required output exists: 06e_exact_early_window_summary.json,PASS,park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_exact_early_window_summary.json
+required output exists: 06e_mentor_safe_metric_summary.md,PASS,park.ingyeom/reports/data/06e_v2_exact_early_window_rebuild/06e_mentor_safe_metric_summary.md
+required output exists: 06e_window_feature_row_summary.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_window_feature_row_summary.csv
+required output exists: 06e_view_log_inclusion_summary.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_view_log_inclusion_summary.csv
+required output exists: 06e_exact_window_model_metrics.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_exact_window_model_metrics.csv
+required output exists: 06e_auc_by_window.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_auc_by_window.csv
+required output exists: 06e_churn_risk_decile_by_window.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_churn_risk_decile_by_window.csv
+required output exists: 06e_stage06c_proxy_vs_exact_w1_2.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_stage06c_proxy_vs_exact_w1_2.csv
+required output exists: 06e_mentor_safe_metric_ladder.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_mentor_safe_metric_ladder.csv
+required output exists: 06e_timing_interpretation_table.csv,PASS,park.ingyeom/reports/tables/06e_v2_exact_early_window_rebuild/06e_timing_interpretation_table.csv
+required output exists: 06e_auc_by_time_window.png,PASS,park.ingyeom/reports/figures/06e_v2_exact_early_window_rebuild/06e_auc_by_time_window.png
+required output exists: 06e_churn_risk_top_decile_by_window.png,PASS,park.ingyeom/reports/figures/06e_v2_exact_early_window_rebuild/06e_churn_risk_top_decile_by_window.png
+required output exists: 06e_metric_ladder_for_mentor.png,PASS,park.ingyeom/reports/figures/06e_v2_exact_early_window_rebuild/06e_metric_ladder_for_mentor.png

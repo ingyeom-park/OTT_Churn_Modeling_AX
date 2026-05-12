@@ -1,0 +1,24 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,No files under _data changed.
+no_data_output_created,PASS,No 07c output under _data.
+old_stage07_07r_06h_06c2_outputs_not_overwritten,PASS,Protected historical and 06c2 snapshots unchanged.
+shap_import_succeeded,PASS,0.51.0
+true_shap_values_computed,PASS,"(2000, 28)"
+red_blue_shap_beeswarm_created,PASS,park.ingyeom/reports/figures/07c_v2_corrected_true_shap_interpretation/07c_shap_beeswarm_red_blue_corrected_official.png
+official_corrected_model_reconstructed,PASS,auc_diff=0.0000000000
+auc_difference_from_06c2_documented,PASS,reconstruction table created.
+no_forbidden_features_used,PASS,violations=0
+target_mapping_documented,PASS,"is_repurchase_label: 1=repurchase, 0=non-repurchase/churn risk."
+score_direction_documented,PASS,Positive SHAP pushes toward repurchase_score.
+train_test_USER_KEY_overlap_zero,PASS,overlap=0
+feature_family_shap_table_created,PASS,feature-family SHAP table created.
+local_explanation_cases_created,PASS,local cases created.
+previous_shap_comparison_created,PASS,historical comparison created.
+no_segmentation_created,PASS,Stage 07c created no segmentation.
+no_business_simulation_created,PASS,Stage 07c created no business simulation.
+no_optuna_run,PASS,Optuna not imported.
+all_required_tables_created,PASS,required_tables=8
+all_required_data_outputs_created,PASS,required_data=5
+all_required_core_figures_created,PASS,required_figures=4
+dependence_style_top5_created,PASS,files=5
+local_waterfall_plots_created,PASS,files=12

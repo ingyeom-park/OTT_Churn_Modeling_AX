@@ -1,0 +1,46 @@
+{
+  "stage": "05c_v2_modeling_dataset",
+  "membership_rows": 23115,
+  "target_distribution": [
+    {
+      "window": "w1_1",
+      "rows": 23115,
+      "repurchase_count": 16591,
+      "non_repurchase_count": 6524,
+      "repurchase_rate": 0.7177590309322951,
+      "churn_risk_rate": 0.2822409690677049
+    },
+    {
+      "window": "w1_2",
+      "rows": 23115,
+      "repurchase_count": 16591,
+      "non_repurchase_count": 6524,
+      "repurchase_rate": 0.7177590309322951,
+      "churn_risk_rate": 0.2822409690677049
+    },
+    {
+      "window": "w1_3",
+      "rows": 23115,
+      "repurchase_count": 16591,
+      "non_repurchase_count": 6524,
+      "repurchase_rate": 0.7177590309322951,
+      "churn_risk_rate": 0.2822409690677049
+    },
+    {
+      "window": "w1_4",
+      "rows": 23115,
+      "repurchase_count": 16591,
+      "non_repurchase_count": 6524,
+      "repurchase_rate": 0.7177590309322951,
+      "churn_risk_rate": 0.2822409690677049
+    }
+  ],
+  "modeling_outputs": [
+    "park.ingyeom/reports/data/05c_v2_modeling_dataset/modeling_dataset_v2c_w1_1.csv",
+    "park.ingyeom/reports/data/05c_v2_modeling_dataset/modeling_dataset_v2c_w1_2.csv",
+    "park.ingyeom/reports/data/05c_v2_modeling_dataset/modeling_dataset_v2c_w1_3.csv",
+    "park.ingyeom/reports/data/05c_v2_modeling_dataset/modeling_dataset_v2c_w1_4.csv"
+  ],
+  "feature_set_count": 9,
+  "official_candidate": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence"
+}

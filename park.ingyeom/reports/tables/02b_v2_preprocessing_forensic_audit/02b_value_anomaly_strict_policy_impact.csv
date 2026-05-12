@@ -1,0 +1,6 @@
+﻿policy,affected_rows,retained_if_removed,applied_to_official_data
+age_lt10_or_gt100,8,23925,N
+max_screen_invalid_or_missing,83,23850,N
+duration_not_31_32,568,23365,N
+gender_verified_anomaly,3776,20157,N
+price100_verified_mismatch,606,23327,N

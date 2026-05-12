@@ -1,0 +1,2 @@
+﻿official_model,official_feature_set,official_window,n_train,n_test,train_test_USER_KEY_overlap,reconstructed_auc,stage06c2_recorded_auc,absolute_auc_difference,auc_difference_threshold,reconstruction_status
+HistGradientBoostingClassifier,pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence,w1_3,18490,4625,0,0.8629394097379637,0.8629394097379637,0.0,0.005,PASS

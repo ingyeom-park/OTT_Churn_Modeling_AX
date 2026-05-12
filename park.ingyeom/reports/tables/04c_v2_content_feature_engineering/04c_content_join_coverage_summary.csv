@@ -1,0 +1,7 @@
+﻿metric,value
+membership_rows,23115
+views_train_rows,175301
+joined_rows_after_user_mapping,170893
+joined_watch_rows,170889
+movie_metadata_matched_rows,170889
+movie_metadata_missing_rows,0

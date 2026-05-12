@@ -1,0 +1,6 @@
+﻿policy,starting_rows,rows_that_would_drop,remaining_rows,note
+A_current_minimal_cleaning,23933,0,23933,what-if only; not applied
+B_obvious_invalid_only,23933,90,23843,what-if only; not applied
+C_duration_strict,23933,568,23365,what-if only; not applied
+D_value_anomaly_strict,23933,4426,19507,what-if only; not applied
+E_all_strict,23933,4793,19140,what-if only; not applied

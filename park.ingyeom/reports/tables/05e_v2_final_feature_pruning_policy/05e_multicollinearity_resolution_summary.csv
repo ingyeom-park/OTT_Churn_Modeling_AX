@@ -1,0 +1,5 @@
+﻿source,available,rows,use
+06d_structural_redundancy_notes,True,10,"confirmed total-week, session-week, genre-volume, ratio-complement relations"
+06d_high_corr_pairs_pearson,True,46,supporting correlation risk evidence
+06d_vif_results,True,72,supporting multicollinearity evidence
+deterministic_column_rules,True,173,primary implementation rule when model-performance-independent pruning is required

@@ -1,0 +1,19 @@
+﻿finding,status,detail
+Pass 1: All inputs validated,PASS,08c final checks all PASS; all required inputs found.
+Pass 2: Segment baseline from 08c corrected official model,PASS,Stage 06c2 AUC=0.8629; Stage 08c segments used; not 08b.
+Pass 3: All financial fields left NaN (no cost/margin),PASS,cost_per_contact and gross_margin_per_retained_user are NaN. No ROI/profit claim.
+Pass 4: Simulation capped (retained <= treated churners),PASS,incremental_retained_users does not exceed treated_expected_churners.
+Pass 5: Portfolio E (monitoring_only) has no intervention claim,PASS,안정유지_후보군 and 일반관찰군 are context-only; lift=0.
+Pass 6: Action mapping based on Stage 07c TRUE SHAP only,PASS,Old 07r/06h SHAP not used. Caution: observational only.
+Pass 7: Old Stage 09 clearly labeled historical/provisional,PASS,09c_old09_vs_new09c_comparison.csv created with status labels.
+Pass 8: Sensitivity identifies lift_base as top driver,PASS,Tornado analysis completed; lift_base dominates retained-user estimate.
+high_risk_only (A): safe_to_report_with_assumption_caveat,PASS,"Smallest scope, highest churn rate, clearest signal segment."
+high_risk_plus_low_engagement (B): safest_presentation_scenario,PASS,Recommended for final presentation; two well-defined high-risk groups.
+broad_high_risk (C): plausible_but_cautioned,CAUTION,주차별이용패턴 lift assumption less certain; contact fatigue possible.
+recommendation_light (D): assumption_sensitive,CAUTION,장르비율_추천후보군 churn rate=11.8%; retention lift from recommendation uncertain.
+monitoring_only (E): context_only,INFO,No intervention. Use only as descriptive baseline.
+No causality claimed anywhere,PASS,All reports and tables explicitly state observational/assumption-based.
+No ROI/profit/revenue claimed,PASS,Financial fields left blank. No financial simulation run.
+old Stage 09 outputs not overwritten,PASS,All outputs under 09c_ prefix only.
+Stage 08c corrected segments used as official,PASS,08c segment assignments and summaries used; not 08/08b.
+Stage 07c TRUE SHAP used as official XAI basis,PASS,Old 07r/06h SHAP not referenced as final evidence.

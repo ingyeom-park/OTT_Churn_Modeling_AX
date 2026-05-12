@@ -1,0 +1,12 @@
+﻿column_name,classification,reason,final_use_recommendation
+USER_KEY,group_metadata,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",metadata_only
+USER_NUM,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+MOVIE_NUM,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+movie_title,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+membership_row_id,id_metadata,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",metadata_only
+reg_date,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+end_date,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+duration_days,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+watch_date,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+watch_day,forbidden_raw_or_key,"metadata, raw key/date, 또는 target 관련 컬럼입니다. 모델 feature로 해석하지 않습니다.",exclude
+is_repurchase,target,target이므로 feature로 사용 금지.,target_only

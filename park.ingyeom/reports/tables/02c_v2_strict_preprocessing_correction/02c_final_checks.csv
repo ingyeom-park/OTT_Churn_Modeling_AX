@@ -1,0 +1,61 @@
+﻿check,status,evidence
+raw files unchanged,PASS,Compared raw input file snapshots from Stage 02b summary.
+no _data output created,PASS,Compared _data file set before/after Stage 02c.
+Stage 01 through Stage 09 outputs not overwritten,PASS,Compared protected Stage 01-09 snapshots excluding 02c.
+corrected strict-core membership created,PASS,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/membership_v2_preprocessed_strict_core.csv
+every removed row has reason_code,PASS,02c_removed_rows reason_code completeness.
+target encoding policy created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_target_encoding_audit.csv
+is_repurchase_label exists and only contains 0/1,PASS,Strict-core target label verified.
+binary encoding policy created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_binary_encoding_policy.csv
+binary unknown flags created,PASS,Binary unknown flags exist.
+date parse audit created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_date_parse_audit.csv
+duration_days_recomputed created,PASS,duration_days_recomputed exists.
+numeric parse audit created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_numeric_parse_audit.csv
+invalid age rows removed,PASS,No invalid age remains.
+duration_days not in 31/32 removed,PASS,All remaining durations are 31 or 32.
+duration_days == 0 removed,PASS,No zero duration remains.
+invalid/missing max_screen rows removed,PASS,All remaining max_screen values are 1/2/4.
+categorical unknown flags created,PASS,Categorical unknown flags exist.
+price100 verified mismatch flag created,PASS,price100_verified_mismatch_flag exists.
+target distribution before/after created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_target_distribution.csv
+downstream rerun requirement created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_downstream_rerun_requirement.csv
+downstream deprecation status created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_downstream_deprecation_status.csv
+standardized column contract created,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_standardized_column_contract.csv
+raw backup columns forbidden as model features,PASS,Contract forbids raw backup feature use.
+reg_hour issue only did not remove rows,PASS,reg_hour is not a removal reason.
+no model training,PASS,No model fit or training code executed.
+no SHAP,PASS,No shap import or computation.
+no Optuna,PASS,No optuna import or tuning.
+no segmentation,PASS,No segmentation code executed.
+no simulation,PASS,No simulation code executed.
+required output exists: membership_v2_preprocessed_strict_core.csv,PASS,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/membership_v2_preprocessed_strict_core.csv
+required output exists: usermapping_v2_policy_checked_strict_core.csv,PASS,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/usermapping_v2_policy_checked_strict_core.csv
+required output exists: moviemaster_v2_policy_checked_strict_core.csv,PASS,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/moviemaster_v2_policy_checked_strict_core.csv
+required output exists: 02c_strict_preprocessing_report.md,PASS,park.ingyeom/reports/data/02c_v2_strict_preprocessing_correction/02c_strict_preprocessing_report.md
+required output exists: 02c_target_encoding_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_target_encoding_audit.csv
+required output exists: 02c_binary_encoding_policy.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_binary_encoding_policy.csv
+required output exists: 02c_binary_encoding_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_binary_encoding_audit.csv
+required output exists: 02c_date_parse_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_date_parse_audit.csv
+required output exists: 02c_numeric_parse_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_numeric_parse_audit.csv
+required output exists: 02c_categorical_standardization_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_categorical_standardization_audit.csv
+required output exists: 02c_removed_rows.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_removed_rows.csv
+required output exists: 02c_removed_rows_by_reason.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_removed_rows_by_reason.csv
+required output exists: 02c_before_after_row_counts.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_row_counts.csv
+required output exists: 02c_before_after_target_distribution.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_target_distribution.csv
+required output exists: 02c_before_after_value_distributions.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_before_after_value_distributions.csv
+required output exists: 02c_age_correction_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_age_correction_audit.csv
+required output exists: 02c_duration_correction_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_duration_correction_audit.csv
+required output exists: 02c_max_screen_correction_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_max_screen_correction_audit.csv
+required output exists: 02c_price_correction_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_price_correction_audit.csv
+required output exists: 02c_unresolved_business_definition_flags.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_unresolved_business_definition_flags.csv
+required output exists: 02c_rare_code_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_rare_code_audit.csv
+required output exists: 02c_usermapping_correction_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_usermapping_correction_audit.csv
+required output exists: 02c_moviemaster_correction_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_moviemaster_correction_audit.csv
+required output exists: 02c_viewhistory_temporal_policy_audit.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_viewhistory_temporal_policy_audit.csv
+required output exists: 02c_downstream_rerun_requirement.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_downstream_rerun_requirement.csv
+required output exists: 02c_downstream_deprecation_status.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_downstream_deprecation_status.csv
+required output exists: 02c_standardized_column_contract.csv,PASS,park.ingyeom/reports/tables/02c_v2_strict_preprocessing_correction/02c_standardized_column_contract.csv
+required output exists: 02c_row_count_before_after.png,PASS,park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_row_count_before_after.png
+required output exists: 02c_target_distribution_before_after.png,PASS,park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_target_distribution_before_after.png
+required output exists: 02c_removed_reason_counts.png,PASS,park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_removed_reason_counts.png
+required output exists: 02c_duration_distribution_before_after.png,PASS,park.ingyeom/reports/figures/02c_v2_strict_preprocessing_correction/02c_duration_distribution_before_after.png

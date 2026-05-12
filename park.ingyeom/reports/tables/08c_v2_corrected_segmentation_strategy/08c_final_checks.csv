@@ -1,0 +1,16 @@
+﻿check,status,detail
+raw files unchanged,PASS,Modeling dataset and feature set files read-only; no writes to 05c/06c2/07c raw files.
+no _data output created,PASS,All outputs under reports/data/08c_ and reports/tables/08c_ and reports/figures/08c_.
+old 08/08b outputs not overwritten,PASS,New files use 08c_ prefix; old 08_ and 08b_ folders untouched.
+old 07r/06h SHAP not used as final evidence,PASS,Only Stage 07c SHAP tables used. Old SHAP not referenced.
+Stage 07c TRUE SHAP used as official XAI basis,PASS,07c_global_shap_importance.csv and family summary used.
+Stage 06c2 corrected official score used,PASS,"AUC=0.862939, matches expected 0.862939 within 0.005."
+is_repurchase_label not used to define segments,PASS,Segments defined by churn_risk_score and feature thresholds.
+holdout-first evaluation created,PASS,08c_risk_band_summary_holdout.csv and 08c_hierarchical_segment_summary_holdout.csv created.
+full descriptive population labeled descriptive,PASS,Full CSVs include descriptive_note column and split=train/holdout.
+old 08b comparison created,PASS,08c_old08b_vs_new08c_comparison.csv created.
+segment action recommendations created,PASS,08c_segment_action_recommendations.csv created.
+no business simulation,PASS,"No ROI, intervention lift, or treatment cost computed."
+no Optuna,PASS,No Optuna import or hyperparameter search.
+no SHAP,PASS,No SHAP computation. Stage 07c SHAP used as reference only.
+no model tuning,PASS,"Model parameters identical to Stage 06c2/07c reconstruction (max_iter=120, lr=0.06)."

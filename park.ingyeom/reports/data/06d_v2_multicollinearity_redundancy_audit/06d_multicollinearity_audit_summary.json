@@ -1,0 +1,27 @@
+{
+  "scope": "Stage 06d multicollinearity and redundancy audit only.",
+  "primary_feature_set": "membership_plus_usage_content_w1_3_without_churn_prevented",
+  "primary_feature_count": 80,
+  "numeric_primary_feature_count": 72,
+  "pearson_high_corr_pair_count_abs_ge_0_80": 46,
+  "pearson_high_corr_pair_count_abs_ge_0_90": 19,
+  "pearson_high_corr_pair_count_abs_ge_0_95": 15,
+  "correlation_cluster_count_abs_ge_0_90": 3,
+  "vif_ge_5_count": 47,
+  "vif_ge_10_count": 38,
+  "extreme_vif_count": 27,
+  "structural_relationship_count": 10,
+  "top_redundant_groups": [
+    "usage_volume",
+    "usage_timing",
+    "usage_derivatives",
+    "short_watch",
+    "genre_preference_ratio",
+    "genre_volume_proxy",
+    "release_month_proxy",
+    "membership_context"
+  ],
+  "stage06c_verdict": "target_adjacent_but_not_direct_leakage",
+  "final_interpretation_verdict": "severe_redundancy_for_interpretation_tree_prediction_still_possible",
+  "final_checks_passed": true
+}

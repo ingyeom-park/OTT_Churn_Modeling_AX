@@ -1,0 +1,30 @@
+﻿check,status,evidence
+raw files unchanged,PASS,Compared _data file snapshots.
+no _data output created,PASS,Compared _data file set.
+Stage 01 through Stage 09 outputs not overwritten,PASS,Compared non-05e artifact snapshots.
+original Stage 05 datasets not overwritten,PASS,Compared Stage 05 source file snapshots.
+pruned datasets created separately,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy
+forbidden features excluded from feature sets,PASS,Checked all pruned feature sets.
+target mapping documented,PASS,Y -> 1; N -> 0.
+w1_3/w1_4 separated,PASS,Checked feature prefixes.
+w1_4 labeled late-period only,PASS,w1_4 feature-set metadata.
+product_code default exclusion and sensitivity variant created,PASS,Feature set names and metadata.
+watch-presence default exclusion and sensitivity variant created,PASS,Feature set names and metadata.
+week3-containing variants labeled timing_sensitive_w1_3,PASS,Checked week3-containing sets.
+early-safer week1/week2 variant exists,PASS,Feature set exists.
+structural redundancy decisions documented,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_structural_redundancy_resolution.csv
+dropped feature inventory created,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_dropped_feature_inventory.csv
+kept feature inventory created,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_kept_feature_inventory.csv
+pruned feature sets created,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/pruned_feature_sets_v2.json
+required output exists: modeling_dataset_v2_w1_3_pruned.csv,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/modeling_dataset_v2_w1_3_pruned.csv
+required output exists: modeling_dataset_v2_w1_4_pruned.csv,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/modeling_dataset_v2_w1_4_pruned.csv
+required output exists: pruned_feature_sets_v2.json,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/pruned_feature_sets_v2.json
+required output exists: 05e_feature_pruning_summary.json,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/05e_feature_pruning_summary.json
+required output exists: 05e_feature_pruning_policy_report.md,PASS,park.ingyeom/reports/data/05e_v2_final_feature_pruning_policy/05e_feature_pruning_policy_report.md
+required output exists: 05e_feature_pruning_decision_log.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_feature_pruning_decision_log.csv
+required output exists: 05e_pruned_feature_set_inventory.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_pruned_feature_set_inventory.csv
+required output exists: 05e_dropped_feature_inventory.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_dropped_feature_inventory.csv
+required output exists: 05e_kept_feature_inventory.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_kept_feature_inventory.csv
+required output exists: 05e_structural_redundancy_resolution.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_structural_redundancy_resolution.csv
+required output exists: 05e_target_adjacent_feature_resolution.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_target_adjacent_feature_resolution.csv
+required output exists: 05e_multicollinearity_resolution_summary.csv,PASS,park.ingyeom/reports/tables/05e_v2_final_feature_pruning_policy/05e_multicollinearity_resolution_summary.csv

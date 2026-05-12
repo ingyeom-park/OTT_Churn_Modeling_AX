@@ -1,0 +1,55 @@
+{
+  "stage": "02b_v2_preprocessing_forensic_audit",
+  "created_at": "2026-05-11T23:03:40",
+  "python": "3.11.9",
+  "raw_input_files": {
+    "Membership": "_data/01_raw/Membership_train.csv",
+    "UserMapping": "_data/01_raw/mapping.csv",
+    "ViewHistory": "_data/01_raw/Views_train.csv",
+    "MovieMaster": "_data/01_raw/Movies.csv"
+  },
+  "stage02_input_files": {
+    "membership": "park.ingyeom/reports/data/02_v2_preprocessing_policy/membership_v2_preprocessed.csv",
+    "usermapping": "park.ingyeom/reports/data/02_v2_preprocessing_policy/usermapping_v2_policy_checked.csv",
+    "moviemaster": "park.ingyeom/reports/data/02_v2_preprocessing_policy/moviemaster_v2_policy_checked.csv",
+    "summary": "park.ingyeom/reports/data/02_v2_preprocessing_policy/v2_preprocessing_summary.json"
+  },
+  "raw_membership_rows": 24074,
+  "retained_membership_rows": 23933,
+  "excluded_membership_rows": 141,
+  "excluded_counts_by_reason": {
+    "EXACT_DUPLICATE_EXTRA_ROW": 68,
+    "STRICT_TARGET_CONFLICT": 73
+  },
+  "total_raw_vs_preprocessed_replacement_count_after_normalization": 0,
+  "substantive_non_format_replacement_count": 0,
+  "duration_strict_rows_that_would_drop": 568,
+  "all_strict_rows_that_would_drop": 4793,
+  "viewhistory_raw_modified": false,
+  "stage02c_correction_needed_before_final": true,
+  "final_check_status": "PASS",
+  "data_outputs": [
+    "park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_preprocessing_forensic_report.md",
+    "park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_preprocessing_forensic_summary.json",
+    "park.ingyeom/reports/data/02b_v2_preprocessing_forensic_audit/02b_recommended_correction_policy.md"
+  ],
+  "table_outputs": [
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_row_lineage_summary.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_excluded_rows_by_reason.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_raw_vs_preprocessed_value_changes.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_membership_value_anomaly_before_after.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_policy_status_matrix.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_duration_policy_impact.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_value_anomaly_strict_policy_impact.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_usermapping_forensic_audit.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_moviemaster_forensic_audit.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_viewhistory_temporal_treatment_audit.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_what_if_cleaning_policy_row_counts.csv",
+    "park.ingyeom/reports/tables/02b_v2_preprocessing_forensic_audit/02b_final_checks.csv"
+  ],
+  "figure_outputs": [
+    "park.ingyeom/reports/figures/02b_v2_preprocessing_forensic_audit/02b_row_count_policy_comparison.png",
+    "park.ingyeom/reports/figures/02b_v2_preprocessing_forensic_audit/02b_duration_distribution_before_after.png",
+    "park.ingyeom/reports/figures/02b_v2_preprocessing_forensic_audit/02b_value_anomaly_counts.png"
+  ]
+}

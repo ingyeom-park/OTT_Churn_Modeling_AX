@@ -1,0 +1,19 @@
+﻿check,status,detail
+raw files unchanged,PASS,No writes to 05c/06c2/07c/08c raw files.
+no _data output created,PASS,All outputs under 09c_ prefixed folders only.
+old Stage 09 outputs not overwritten,PASS,09_v2_business_simulation/ folder untouched; 09c_ is new.
+Stage 08c corrected segments used,PASS,08c_hierarchical_segment_summary_holdout.csv used as segment baseline.
+Stage 07c TRUE SHAP used as official XAI basis,PASS,07c TRUE SHAP used for action mapping; old 07r/06h not referenced.
+old 08/08b/09 outputs not used as official evidence,PASS,Old outputs appear only in historical comparison table.
+no model training,PASS,No sklearn model fit/train calls.
+no SHAP,PASS,No shap import or computation.
+no Optuna,PASS,No Optuna import or hyperparameter search.
+no new segmentation,PASS,Segments taken from 08c outputs only.
+all lift/reach/response/treatment/cost/margin labeled as assumptions,PASS,assumption_source = 'editable_placeholder_assumption_not_fact' everywhere.
+no ROI/profit claim without cost/margin,PASS,financial_status = assumption_required_no_profit_claim; cost/margin are NaN.
+low/base/high scenarios created,PASS,09c_segment_simulation_low_base_high.csv contains 3 scenarios per segment.
+portfolio scenarios created,PASS,09c_portfolio_simulation_summary.csv: 5 portfolios × 3 scenarios.
+old09 vs new09c comparison created,PASS,09c_old09_vs_new09c_comparison.csv created.
+internal critique created,PASS,09c_business_simulation_report.md contains Pass 10 internal critique section.
+final report created,PASS,09c_business_simulation_report.md created.
+team share summary created,PASS,09c_team_share_business_simulation_summary.md created.

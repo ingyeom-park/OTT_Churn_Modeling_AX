@@ -1,0 +1,11 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,No files under _data changed.
+no_data_output_created,PASS,No new files under _data.
+stage02c_stage03c_stage04c_inputs_not_overwritten,PASS,Corrected upstream inputs unchanged.
+corrected_membership_row_count_propagated,PASS,rows=23115
+one_row_per_membership_row_id,PASS,All windows are unique by membership_row_id.
+forbidden_features_excluded,PASS,No forbidden columns in feature sets.
+pruned_policy_enforced,PASS,Pruned feature sets exclude requested shortcut and volume features.
+target_mapping_documented,PASS,"is_repurchase_label: 1=repurchase, 0=non-repurchase/churn risk."
+w1_4_labeled_late_period_only,PASS,w1_4 is late-period comparison only.
+all_required_outputs_created,PASS,required_outputs=14

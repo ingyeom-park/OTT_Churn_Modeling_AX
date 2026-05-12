@@ -32,7 +32,10 @@ FORBIDDEN_SUBSTRINGS = ["raw_calendar", "calendar_date", "days_to_end", "days_si
 def find_project_root(start):
     for candidate in [start, *start.parents]:
         if (
-            (candidate / "_data" / "01_raw" / "Membership.csv").exists()
+            (
+                (candidate / "_data" / "01_raw" / "Membership.csv").exists()
+                or (candidate / "_data" / "01_raw" / "Membership_train.csv").exists()
+            )
             and (
                 candidate
                 / "park.ingyeom"
@@ -54,10 +57,10 @@ for directory in [DATA_DIR, TABLE_DIR, FIGURE_DIR]:
     directory.mkdir(parents=True, exist_ok=True)
 
 RAW_FILES = [
-    PROJECT_ROOT / "_data" / "01_raw" / "Membership.csv",
-    PROJECT_ROOT / "_data" / "01_raw" / "User_Mapping.csv",
-    PROJECT_ROOT / "_data" / "01_raw" / "View_History.csv",
-    PROJECT_ROOT / "_data" / "01_raw" / "Movie_Master.csv",
+    PROJECT_ROOT / "_data" / "01_raw" / "Membership_train.csv",
+    PROJECT_ROOT / "_data" / "01_raw" / "mapping.csv",
+    PROJECT_ROOT / "_data" / "01_raw" / "Views_train.csv",
+    PROJECT_ROOT / "_data" / "01_raw" / "Movies.csv",
 ]
 
 STAGE_PREFIXES = [

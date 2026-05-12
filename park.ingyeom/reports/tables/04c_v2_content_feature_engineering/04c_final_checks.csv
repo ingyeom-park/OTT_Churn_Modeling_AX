@@ -1,0 +1,13 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,No files under _data changed.
+no_data_output_created,PASS,No new files under _data.
+stage02c_stage03c_inputs_not_overwritten,PASS,Protected corrected inputs unchanged.
+moviemaster_deduplicated_before_join,PASS,deduped_rows=14018
+genre_conflicts_audited,PASS,conflict_rows=32
+one_row_per_membership_row_id_w1_1,PASS,rows=23115
+one_row_per_membership_row_id_w1_2,PASS,rows=23115
+one_row_per_membership_row_id_w1_3,PASS,rows=23115
+one_row_per_membership_row_id_w1_4,PASS,rows=23115
+w1_4_late_period_labeled,PASS,w1_4 is marked as late-period/end-of-period only.
+no_unavailable_metadata_features_created,PASS,No country/rating/runtime/actor/director/Wavve/KOBIS features created.
+all_required_outputs_created,PASS,required_outputs=13

@@ -1,0 +1,18 @@
+﻿policy_candidate,stage02_status,recommendation_class,rationale
+strict target conflict,applied_remove,safe_to_keep,73 rows removed in Stage 02.
+exact duplicate extra row,applied_remove,safe_to_keep,68 extra rows removed in Stage 02.
+age < 10,applied_flag_only,should_fix_before_final,Obvious invalid demographic value; count impact is small.
+age > 100,applied_flag_only,should_fix_before_final,Includes age 950 style anomaly if present.
+age 950,applied_flag_only,should_fix_before_final,Treat as invalid age and decide remove or set missing in Stage 02c.
+max_screen 3,not_applied,needs_mentor_decision,Unexpected product capacity unless codebook confirms.
+max_screen missing,applied_flag_only,should_fix_before_final,Missing plan capacity affects membership context.
+gender N,applied_flag_only,safe_to_keep,May be unknown or nonresponse category; do not delete blindly.
+verified Y + gender N,applied_flag_only,needs_mentor_decision,Ambiguous business code combination.
+price=100 + verified not Y,applied_flag_only,needs_mentor_decision,Could encode promotion or billing behavior.
+duration 0,deferred,should_fix_before_final,Subscription duration definition needs final decision.
+duration not 31/32,deferred,needs_mentor_decision,Stage 02 intentionally did not filter duration.
+is_churn_prevented missing,applied_flag_only,safe_to_keep,Do not use to correct target.
+is_promotion missing,applied_flag_only,safe_to_keep,Blank may be meaningful until codebook confirms.
+rare product_code,applied_flag_only,needs_mentor_decision,May be real low-frequency product.
+rare billing_method,applied_flag_only,needs_mentor_decision,May be real low-frequency billing code.
+rare payment_device,applied_flag_only,needs_mentor_decision,May be real low-frequency device code.

@@ -1,0 +1,12 @@
+﻿finding,status,detail
+Official model confirmed,PASS,Stage 06c2 HistGBM AUC=0.8629 reconstructed successfully.
+Score direction confirmed,PASS,churn_risk_score = 1 - repurchase_score; high score = high predicted churn risk.
+Holdout-first evaluation,PASS,All primary segment statistics computed on holdout set (n=4625).
+is_repurchase_label not used to define segments,PASS,Segments defined by churn_risk_score and feature thresholds only. Label used only post-hoc for evaluation.
+Stage 07c TRUE SHAP as official XAI basis,PASS,Old 07r/06h SHAP not used. Stage 07c used for segment interpretation and SHAP evidence map.
+No model training/tuning/Optuna/SHAP in 08c,PASS,"Only model reconstruction for scoring. No feature selection, tuning, or SHAP computation."
+No business simulation,PASS,"No ROI, lift, intervention, or retention rate assumptions. Observational ranking only."
+Old 08/08b outputs not overwritten,PASS,All new outputs under 08c_ prefix. Old 08/08b folders untouched.
+Full descriptive population labeled,PASS,Full dataset outputs include split column (holdout/train) and descriptive_note.
+Old 08b comparison created,PASS,08c_old08b_vs_new08c_comparison.csv created.
+Segment action recommendations created,PASS,08c_segment_action_recommendations.csv created. No ROI/lift claims.

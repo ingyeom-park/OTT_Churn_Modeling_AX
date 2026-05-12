@@ -1,0 +1,4 @@
+﻿metric,roc_auc_repurchase,basis,interpretation
+stage06c_proxy_w1_2_auc,0.6505859355759969,Stage 06c proxy from saved w1_3 columns,Proxy was not exact early-window rebuild.
+stage06e_exact_w1_2_auc,0.7401751232325673,Exact rel_day 0-13 rebuild from view logs,Exact early-window audit result.
+difference_exact_minus_proxy,0.08958918765657042,Exact minus proxy,Positive value means Stage 06c proxy was pessimistic.

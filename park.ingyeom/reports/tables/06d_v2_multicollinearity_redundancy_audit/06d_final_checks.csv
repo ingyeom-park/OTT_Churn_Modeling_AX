@@ -1,0 +1,16 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,raw file snapshots unchanged
+no__data_output_created,PASS,_data snapshot unchanged
+stage01_through_stage09_outputs_not_overwritten,PASS,Stage 01-09 snapshots unchanged
+no_model_training_performed,PASS,"Only correlation, VIF, association, and descriptive audits were computed."
+no_optuna_run,PASS,No optuna import or execution.
+no_shap_run,PASS,Read Stage 07r SHAP CSV outputs only; no shap package execution.
+no_segmentation_created,PASS,No Stage 08/08b outputs created.
+no_business_simulation_created,PASS,No Stage 09 outputs created.
+primary_feature_set_audited,PASS,"audited=80, expected=80"
+correlation_audit_completed,PASS,Pearson and Spearman outputs written.
+vif_audit_completed_or_blocked_reason_documented,PASS,rows=72
+structural_redundancy_audit_completed,PASS,rows=10
+shap_redundancy_audit_completed_using_stage07r,PASS,rows=30
+reduced_feature_recommendation_created,PASS,rows=80
+mentor_facing_summary_created,PASS,park.ingyeom/reports/data/06d_v2_multicollinearity_redundancy_audit/06d_mentor_facing_multicollinearity_summary.md

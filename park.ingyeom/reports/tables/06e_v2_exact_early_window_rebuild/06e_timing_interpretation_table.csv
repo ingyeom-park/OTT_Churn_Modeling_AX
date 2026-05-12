@@ -1,0 +1,5 @@
+﻿window,feature_set,model,roc_auc_repurchase,average_precision_repurchase,average_precision_churn_risk,feature_count,post_transform_feature_count,timing_classification,interpretation
+w1_1,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,0.6261327995004311,0.7946024516551551,0.40111202508679394,72,159,early_safe,가입 후 7일 이내만 사용하므로 가장 보수적인 조기 신호입니다.
+w1_2,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,0.7401751232325673,0.8797148861797774,0.510778777214491,76,163,early_cautioned,가입 후 14일 이내 신호라 비교적 조기이지만 이용 지연과 무시청이 이미 반영됩니다.
+w1_3,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,0.8710919247066039,0.9413288028267148,0.7147283416702352,80,167,target_adjacent,가입 후 21일 이내 신호로 현재 보수 후보이나 후반 이용 행태가 성능을 끌어올릴 수 있습니다.
+w1_4,membership_plus_usage_content_without_churn_prevented,HistGradientBoostingClassifier,0.9022499874722302,0.9557384630465129,0.7685860085284303,85,172,late_period_only,가입 후 28일 전체 관찰에 가까워 조기경보 성능으로 제시하면 안 됩니다.

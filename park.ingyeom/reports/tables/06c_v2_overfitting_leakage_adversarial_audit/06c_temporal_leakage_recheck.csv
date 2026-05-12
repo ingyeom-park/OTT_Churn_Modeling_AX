@@ -1,0 +1,8 @@
+﻿check,status,detail
+no_end_date_feature,PASS,end_date not in X
+no_duration_days_feature,PASS,duration_days not in X
+no_watch_date_or_watch_day_raw_feature,PASS,raw watch_date/watch_day not in X
+no_w1_4_feature_in_w1_3_model,PASS,w1_3 conservative feature set contains no w1_4 columns
+no_target_in_X,PASS,is_repurchase not in X
+no_user_or_movie_keys_in_X,PASS,USER/MOVIE keys not in X
+watch_date_after_end_date_not_used,PASS,Saved modeling table has no watch_date/end_date columns; direct raw temporal reconstruction was not rerun in Stage 06c.

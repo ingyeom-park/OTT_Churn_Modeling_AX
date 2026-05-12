@@ -1,0 +1,77 @@
+{
+  "stage": "09c_v2_corrected_business_simulation",
+  "created_at": "2026-05-12T01:23:14",
+  "segment_basis": "Stage 08c corrected (AUC=0.8629)",
+  "shap_basis": "Stage 07c TRUE SHAP (corrected official)",
+  "simulation_type": "assumption_based_scenario_not_causal_not_financial_forecast",
+  "financial_status": "assumption_required_no_profit_claim",
+  "no_roi_claim": true,
+  "no_revenue_claim": true,
+  "no_causality_claim": true,
+  "holdout_n": 4625,
+  "primary_target_segments": [
+    "최상위_이탈위험군",
+    "초기중기_저관여_고위험군",
+    "주차별이용패턴_고위험군"
+  ],
+  "secondary_segment": [
+    "장르비율_추천후보군"
+  ],
+  "excluded_from_targeting": [
+    "안정유지_후보군",
+    "일반관찰군"
+  ],
+  "segment_baseline": {
+    "최상위_이탈위험군": {
+      "n": 463,
+      "churn_rate": 0.8251
+    },
+    "초기중기_저관여_고위험군": {
+      "n": 434,
+      "churn_rate": 0.576
+    },
+    "주차별이용패턴_고위험군": {
+      "n": 1084,
+      "churn_rate": 0.3755
+    },
+    "장르비율_추천후보군": {
+      "n": 2209,
+      "churn_rate": 0.1182
+    },
+    "안정유지_후보군": {
+      "n": 354,
+      "churn_rate": 0.0508
+    },
+    "일반관찰군": {
+      "n": 81,
+      "churn_rate": 0.3333
+    }
+  },
+  "assumption_lift_base": {
+    "최상위_이탈위험군": 0.03,
+    "초기중기_저관여_고위험군": 0.03,
+    "주차별이용패턴_고위험군": 0.03,
+    "장르비율_추천후보군": 0.015,
+    "안정유지_후보군": 0.005,
+    "일반관찰군": 0.0
+  },
+  "segment_incremental_retained_base_assumption": {
+    "최상위_이탈위험군": 10.0,
+    "초기중기_저관여_고위험군": 8.9,
+    "주차별이용패턴_고위험군": 19.5,
+    "장르비율_추천후보군": 13.7,
+    "안정유지_후보군": 0.4,
+    "일반관찰군": 0.0
+  },
+  "portfolio_incremental_retained_base_assumption": {
+    "high_risk_only": 10.0,
+    "high_risk_plus_low_engagement": 18.9,
+    "broad_high_risk": 38.4,
+    "recommendation_light": 52.1,
+    "monitoring_only": 0.4
+  },
+  "safest_presentation_scenario": "high_risk_plus_low_engagement",
+  "top_sensitivity_driver": "lift_base",
+  "old_09_status": "historical_provisional_do_not_use_as_official",
+  "passes_completed": 10
+}

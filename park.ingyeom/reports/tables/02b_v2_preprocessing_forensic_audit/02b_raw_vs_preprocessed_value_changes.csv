@@ -1,0 +1,16 @@
+﻿column,replacement_count,unique_raw_values_changed,unique_preprocessed_values,sample_membership_row_ids,interpretation
+USER_KEY,0,,,,no value replacement detected after semantic normalization
+product_code,0,,,,no value replacement detected after semantic normalization
+price,0,,,,no value replacement detected after semantic normalization
+billing_method,0,,,,no value replacement detected after semantic normalization
+max_screen,0,,,,no value replacement detected after semantic normalization
+is_promotion,0,,,,no value replacement detected after semantic normalization
+is_churn_prevented,0,,,,no value replacement detected after semantic normalization
+payment_device,0,,,,no value replacement detected after semantic normalization
+is_user_verified,0,,,,no value replacement detected after semantic normalization
+gender,0,,,,no value replacement detected after semantic normalization
+age,0,,,,no value replacement detected after semantic normalization
+reg_date,0,,,,no value replacement detected after semantic normalization
+reg_hour,0,,,,no value replacement detected after semantic normalization
+end_date,0,,,,no value replacement detected after semantic normalization
+is_repurchase,0,,,,no value replacement detected after semantic normalization

@@ -1,6 +1,6 @@
 # 10 v2 Final Audit and Synthesis Check
 
-Generated at: 2026-05-11T01:53:43
+Generated at: 2026-05-11T15:34:16
 
 ## 1. Executive Summary
 Stage 01 through Stage 09 artifacts are available for a defensible v2 pipeline. The strongest safe framing is: v2 raw data was audited, preprocessing exclusions are traceable, w1_3 is the timing-defensible model, Stage 07r TRUE SHAP is the final XAI basis, Stage 08b is the final segment basis, and Stage 09 is assumption-based scenario simulation.
