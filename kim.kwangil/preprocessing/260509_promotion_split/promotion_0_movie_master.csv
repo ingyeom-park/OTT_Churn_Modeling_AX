@@ -1,4 +1,4 @@
-﻿MOVIE_NUM,movie_title,ott_release_month,genre
+﻿MOVIE_NUM,movie_title,ott_release_month,category
 3,그링고,202003,Comedy
 5,국도극장,202005,Drama
 5,국도극장,202005,Drama
@@ -3607,7 +3607,7 @@
 10938,킹메이커(2012),202102,Drama
 10943,위선자들[감독판][UHD],201604,Drama
 10944,와일드영,201402,Drama
-10952,02:22,201905,Romance
+10952,2:22,201905,Romance
 10953,아들에게가는길,201712,Animation/Family
 10953,아들에게가는길,201712,Animation/Family
 10954,아인,201804,Drama
