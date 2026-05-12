@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ── 설정 ────────────────────────────────────────────────────────────────────
-BASE      = Path(__file__).parent.parent
+BASE      = Path(__file__).parent.parent.parent
 DATA_PATH  = BASE / '_data/02_interim/260510_features/Membership_features_clean.csv'
 MEM_PATH   = BASE / '_data/02_interim/260510_merged_v2/Membership_v2.csv'
 GROQ_MODEL = 'llama-3.1-8b-instant'
@@ -185,7 +185,7 @@ def generate_recommendation(customer, prob_churn, shap_df, api_key):
 
 # ── Streamlit UI ──────────────────────────────────────────────────────────────
 def main():
-    st.set_page_config(page_title='이탈 방지 AI', page_icon='🛡️', layout='wide')
+    pass
     st.title('🛡️ OTT 이탈 방지 AI')
     st.caption('이탈 위험 고객을 탐지하고 맞춤 개입 전략을 생성합니다')
 
