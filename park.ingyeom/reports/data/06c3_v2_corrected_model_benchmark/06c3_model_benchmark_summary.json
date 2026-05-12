@@ -1,0 +1,116 @@
+{
+  "stage": "06c3_v2_corrected_model_benchmark",
+  "corrected_v2c_data_used": true,
+  "target": "is_repurchase_label",
+  "target_mapping": {
+    "1": "repurchase",
+    "0": "non-repurchase / churn risk"
+  },
+  "repurchase_score": "P(1)",
+  "churn_risk_score": "1 - repurchase_score",
+  "feature_sets_evaluated": [
+    {
+      "requested_feature_set_name": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+      "actual_feature_set_name": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+      "mapping_status": "exact",
+      "window": "w1_3",
+      "feature_set_class": "pruned_official_candidate",
+      "raw_feature_count": 30,
+      "forbidden_feature_count": 0
+    },
+    {
+      "requested_feature_set_name": "pruned_w1_3_membership_usage_only_without_product_code_without_watch_presence",
+      "actual_feature_set_name": "pruned_w1_3_membership_usage_only_without_product_code_without_watch_presence",
+      "mapping_status": "exact",
+      "window": "w1_3",
+      "feature_set_class": "pruned_official_candidate",
+      "raw_feature_count": 17,
+      "forbidden_feature_count": 0
+    },
+    {
+      "requested_feature_set_name": "pruned_w1_3_genre_ratio_added_without_product_code_without_watch_presence",
+      "actual_feature_set_name": "pruned_w1_3_genre_ratio_added_without_product_code_without_watch_presence",
+      "mapping_status": "exact",
+      "window": "w1_3",
+      "feature_set_class": "pruned_official_candidate",
+      "raw_feature_count": 30,
+      "forbidden_feature_count": 0
+    },
+    {
+      "requested_feature_set_name": "pruned_w1_2_early_reference_without_product_code_without_watch_presence",
+      "actual_feature_set_name": "pruned_w1_2_early_reference_without_product_code_without_watch_presence",
+      "mapping_status": "exact",
+      "window": "w1_2",
+      "feature_set_class": "pruned_reference",
+      "raw_feature_count": 28,
+      "forbidden_feature_count": 0
+    },
+    {
+      "requested_feature_set_name": "pruned_w1_4_late_period_comparison_without_product_code_without_watch_presence",
+      "actual_feature_set_name": "pruned_w1_4_late_period_comparison_without_product_code_without_watch_presence",
+      "mapping_status": "exact",
+      "window": "w1_4",
+      "feature_set_class": "pruned_late_period_comparison",
+      "raw_feature_count": 32,
+      "forbidden_feature_count": 0
+    },
+    {
+      "requested_feature_set_name": "full_exploratory_w1_3",
+      "actual_feature_set_name": "full_exploratory_w1_3",
+      "mapping_status": "exact",
+      "window": "w1_3",
+      "feature_set_class": "full_exploratory",
+      "raw_feature_count": 78,
+      "forbidden_feature_count": 0
+    }
+  ],
+  "models_evaluated": [
+    "CatBoostClassifier",
+    "DummyClassifier",
+    "ExtraTreesClassifier",
+    "HistGradientBoostingClassifier",
+    "HistGradientBoostingClassifier_OptunaTuned",
+    "LGBMClassifier",
+    "LGBMClassifier_OptunaTuned",
+    "LogisticRegression",
+    "RandomForestClassifier",
+    "XGBClassifier"
+  ],
+  "optional_unavailable": [],
+  "optuna_status": [
+    {
+      "optuna_available": true,
+      "status": "completed",
+      "model": "LGBMClassifier",
+      "trials_requested": 20,
+      "trials_completed": 20,
+      "timeout_seconds": 900,
+      "detail": "Tuned on corrected official w1_3 pruned feature set only; result marked experimental."
+    },
+    {
+      "optuna_available": true,
+      "status": "completed",
+      "model": "HistGradientBoostingClassifier",
+      "trials_requested": 20,
+      "trials_completed": 20,
+      "timeout_seconds": 900,
+      "detail": "Tuned on corrected official w1_3 pruned feature set only; result marked experimental."
+    }
+  ],
+  "official_recommendation": {
+    "recommended_model": "HistGradientBoostingClassifier",
+    "recommended_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+    "recommended_window": "w1_3",
+    "roc_auc_repurchase": 0.86347345634237,
+    "average_precision_churn_risk": 0.7037166520346589,
+    "lift_vs_overall_churn_rate": 2.8073739230973045,
+    "stage06c2_model": "HistGradientBoostingClassifier",
+    "stage06c2_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+    "official_model_changed_from_06c2": false,
+    "decision_reason": "Stage 06c2 HGB remains the most defensible official model because no fixed challenger cleared a material, stable improvement threshold on the same safe feature set."
+  },
+  "groupkfold_status": "completed_3_fold_for_official_pruned_w1_3_feature_set",
+  "no_shap": true,
+  "no_segmentation": true,
+  "no_simulation": true
+}

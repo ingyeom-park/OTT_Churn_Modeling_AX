@@ -1,0 +1,16 @@
+﻿check,status,detail
+raw_files_unchanged,PASS,No files under _data changed.
+no_data_output_created,PASS,No new files under _data.
+stage04c_05c_06c2_07c_08c_09c_outputs_not_overwritten,PASS,Protected upstream/downstream stage output snapshots unchanged.
+corrected_v2c_data_used,PASS,Inputs came from reports/data/05c_v2_modeling_dataset/modeling_dataset_v2c_*.csv.
+train_test_USER_KEY_overlap_zero,PASS,All evaluated splits have zero USER_KEY overlap.
+multiple_model_families_evaluated,PASS,models=10
+optional_boosters_logged_if_unavailable,PASS,Unavailable optional boosters are recorded in 06c3_failed_models.csv.
+optuna_hpt_status_documented,PASS,HPT status table created.
+w1_4_labeled_late_period_only,PASS,w1_4 rows classified as late_period_only.
+official_model_recommendation_created,PASS,Official recommendation table created.
+downstream_rerun_decision_created,PASS,Downstream rerun decision created.
+no_shap_run,PASS,07c data outputs unchanged.
+no_segmentation_created,PASS,08c data outputs unchanged.
+no_simulation_created,PASS,09c data outputs unchanged.
+all_required_outputs_created,PASS,required_outputs=18

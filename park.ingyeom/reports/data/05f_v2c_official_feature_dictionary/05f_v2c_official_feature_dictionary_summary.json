@@ -1,0 +1,35 @@
+{
+  "stage": "05f_v2c_official_feature_dictionary",
+  "created_at": "2026-05-12T10:25:59",
+  "official_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+  "official_model": "HistGradientBoostingClassifier",
+  "official_auc": 0.8629394097379637,
+  "dataset_rows": 23115,
+  "official_feature_count": 30,
+  "variable_dictionary_rows": 76,
+  "report_length_chars": 3921,
+  "validation": {
+    "workbook_exists": true,
+    "required_3_sheets_exist": true,
+    "variable_sheet_exact_columns": true,
+    "every_official_model_feature_listed": true,
+    "missing_official_features": [],
+    "metadata_and_target_not_model_features": true,
+    "old_07r_06h_shap_not_final_evidence": true,
+    "no_segmentation_output_mixed": true,
+    "final_report_created": true
+  },
+  "inputs_used": {
+    "stage05c": "park.ingyeom/reports/data/05c_v2_modeling_dataset/feature_sets_v2c.json",
+    "stage06c2": "park.ingyeom/reports/data/06c2_v2_corrected_baseline_modeling/06c2_final_model_recommendation.md",
+    "stage07c_true_shap": "park.ingyeom/reports/tables/07c_v2_corrected_true_shap_interpretation/07c_global_shap_importance.csv",
+    "stage05d_reference_available": true,
+    "stage05e_reference_available": true,
+    "stage06h_reference_available_not_final_shap": true
+  },
+  "outputs": {
+    "workbook": "park.ingyeom/reports/tables/05f_v2c_official_feature_dictionary/05f_v2c_official_feature_dictionary.xlsx",
+    "report": "park.ingyeom/reports/data/05f_v2c_official_feature_dictionary/05f_v2c_official_feature_dictionary_report.md",
+    "summary": "park.ingyeom/reports/data/05f_v2c_official_feature_dictionary/05f_v2c_official_feature_dictionary_summary.json"
+  }
+}

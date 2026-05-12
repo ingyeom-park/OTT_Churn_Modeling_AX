@@ -1,0 +1,3 @@
+﻿optuna_available,status,model,trials_requested,trials_completed,timeout_seconds,detail
+True,completed,LGBMClassifier,20,20,900,Tuned on corrected official w1_3 pruned feature set only; result marked experimental.
+True,completed,HistGradientBoostingClassifier,20,20,900,Tuned on corrected official w1_3 pruned feature set only; result marked experimental.

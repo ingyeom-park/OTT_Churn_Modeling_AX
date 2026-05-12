@@ -1,0 +1,3 @@
+﻿model,tuned_model_name,best_trial_number,best_objective_value,best_roc_auc_repurchase,best_average_precision_churn_risk,best_params_json
+LGBMClassifier,LGBMClassifier_OptunaTuned,16,0.8667801032931786,0.866779399764258,0.7035289205632818,"{""colsample_bytree"": 0.822346345575975, ""learning_rate"": 0.057866497355983655, ""min_child_samples"": 45, ""n_estimators"": 240, ""num_leaves"": 35, ""subsample"": 0.854552672932323}"
+HistGradientBoostingClassifier,HistGradientBoostingClassifier_OptunaTuned,12,0.8639634361340917,0.8639627346087587,0.7015253328973757,"{""l2_regularization"": 0.7344816522718276, ""learning_rate"": 0.0548894266931325, ""max_iter"": 180, ""max_leaf_nodes"": 46, ""min_samples_leaf"": 10}"
