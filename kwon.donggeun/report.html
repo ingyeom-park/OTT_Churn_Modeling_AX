@@ -260,7 +260,7 @@
           <p style="font-size:0.88rem;color:#555;margin-bottom:12px">
             <strong>관측창</strong>: 가입일로부터 0~20일 고정<br>
             <strong>타겟</strong>: is_repurchase (0=이탈, 1=재구매)<br>
-            <strong>누수 방지</strong>: coinReceived 제외, end_date 사용 금지
+            <strong>누수 방지</strong>: 이탈 유발 변수 제거, end_date 사용 금지
           </p>
           <div>
             <span class="tag tag-blue">Membership_v2.csv</span>
@@ -364,7 +364,7 @@
         </tr>
         <tr>
           <td>전처리 완료 <span class="tag tag-blue">전체 파생변수</span></td>
-          <td>93개</td>
+          <td>93개 <small style="color:#999">(전체 100개 중 ID·타겟 7개 제외)</small></td>
           <td>0.8845</td>
           <td>0.8557</td>
           <td>0.8978</td>
