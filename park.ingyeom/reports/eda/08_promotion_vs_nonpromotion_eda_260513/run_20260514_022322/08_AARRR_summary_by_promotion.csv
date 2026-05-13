@@ -1,0 +1,6 @@
+﻿AARRR_stage,number_of_features,feature_names,nonpromotion_feature_mean_average_if_meaningful,promotion_feature_mean_average_if_meaningful,average_absolute_standardized_mean_difference_if_computable,key_descriptive_pattern,caution
+acquisition,0,,,,,"Acquisition is represented by is_promotion split metadata, not ordinary conservative features.","Descriptive split only, not causal effect."
+activation,6,is_cold_start_3d;is_cold_start_7d;watch_time(min)_w1;watch_session_w1;is_w1_over_50pct;is_only_w1,17.278911260253544,17.36440132168459,0.008196384573985032,6 conservative feature(s) available; descriptive mean comparison only.,"No p-values, no causal inference."
+retention,16,avg_gap_w1_watch_days;avg_gap_w2_watch_days;avg_gap_w3_watch_days;watch_time(min)_w2;watch_time(min)_w3;watch_session_w2;watch_session_w3;retention_w2_ratio;retention_w3_ratio;diff_between_w2_w1;diff_between_w3_w1;diff_between_w3_w2;is_w2_over_50pct;is_w3_over_50pct;is_only_w2;is_only_w3,16.32958236299217,16.41314443748425,0.007754084762564393,16 conservative feature(s) available; descriptive mean comparison only.,"No p-values, no causal inference."
+revenue_proxy,0,,,,,"Revenue proxy is is_repurchase target, not ordinary feature.",Not actual revenue amount.
+referral,0,,,,,Referral is not observed in current data.,Future experiment proposal only.

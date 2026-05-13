@@ -1,0 +1,12 @@
+﻿cohort_name,row_count,percent_of_source,repurchase_rate,promotion_rate,nonpromotion_count,promotion_count,repurchase_count,nonrepurchase_count,duration_min,duration_max,duration_mean,unique_USER_KEY_count,duplicated_USER_KEY_extra_rows,note
+raw_source_all_rows,23343,1.0,0.7155035770894915,0.5121449685130446,11388,11955,16702,6641,0,32,30.875894272372875,23134,209,All rows from source CSV. Source was not modified.
+duration_lt21_anomaly_rows,238,0.010195776035642376,0.5084033613445378,0.21428571428571427,187,51,121,117,0,20,2.7563025210084033,188,50,Rows excluded from primary main cohort and preserved for reference.
+duration_ge21_eligible_rows,23105,0.9898042239643576,0.7176368751352521,0.5152131573252543,11201,11904,16581,6524,31,32,31.16554858255789,23032,73,Rows satisfying duration >= 21 before duplicate policy and other exclusion checks.
+full_duplicate_rows_total,92,0.003941224349912179,0.8695652173913043,0.021739130434782608,90,2,80,12,0,32,18.26086956521739,29,63,All rows that belong to exact full duplicate groups.
+full_duplicate_rows_excluded_from_main,26,0.0011138242728012681,0.9230769230769231,0.0,26,0,24,2,31,32,31.26923076923077,24,2,Exact full duplicate extra rows excluded after keeping first source row order.
+primary_main_cohort_final,23079,0.9886903996915564,0.717405433510984,0.515793578577928,11175,11904,16557,6522,31,32,31.165431777806663,23032,47,Primary main modeling cohort index after duration and full duplicate policy.
+sensitivity_all_duration_keep_duplicates,23343,1.0,0.7155035770894915,0.5121449685130446,11388,11955,16702,6641,0,32,30.875894272372875,23134,209,Future sensitivity option before exact duplicate removal.
+sensitivity_all_duration_drop_full_duplicates,23295,0.9979437090348284,0.7151749302425413,0.51315732989912,11341,11954,16660,6635,0,32,30.90259712384632,23134,161,Future sensitivity option keeping duration < 21 but dropping exact duplicate extras.
+anomaly_duration_lt21_reference,238,0.010195776035642376,0.5084033613445378,0.21428571428571427,187,51,121,117,0,20,2.7563025210084033,188,50,"Reference-only anomaly cohort, not main modeling input."
+duplicated_USER_KEY_rows_in_main,184,0.007882448699824358,0.7282608695652174,0.05434782608695652,174,10,134,50,31,32,31.391304347826086,137,47,Rows in main cohort whose USER_KEY appears more than once in source.
+cross_promotion_overlap_rows_in_main,49,0.0020991303602793127,0.7346938775510204,0.20408163265306123,39,10,36,13,31,32,31.163265306122447,38,11,Rows in main cohort with USER_KEY appearing in both promotion states in source.

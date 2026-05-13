@@ -1,0 +1,6 @@
+﻿AARRR_stage,project_specific_meaning,directly_measurable,primary_field,candidate_conservative_features,caveat
+Acquisition,promotion/non-promotion inflow distinction,yes,is_promotion,,"Descriptive split only, not causal promotion effect."
+Activation,whether the subscription event converts into early viewing behavior,yes,week1 and cold-start features,avg_gap_w1_watch_days;is_cold_start_3d;is_cold_start_7d;watch_time(min)_w1;watch_session_w1;diff_between_w2_w1;diff_between_w3_w1;is_w1_over_50pct;is_only_w1,No direct satisfaction data.
+Retention,whether viewing behavior is maintained or decays from week1 to week3,yes,w1/w2/w3 retention and change features,avg_gap_w2_watch_days;avg_gap_w3_watch_days;watch_time(min)_w2;watch_time(min)_w3;watch_session_w2;watch_session_w3;retention_w2_ratio;retention_w3_ratio;diff_between_w2_w1;diff_between_w3_w1;diff_between_w3_w2;is_w2_over_50pct;is_w3_over_50pct;is_only_w2;is_only_w3,Observation ends at day20; response period begins day21.
+Revenue proxy,next-month repurchase / continuation proxy,yes as target proxy,is_repurchase,,Not actual revenue amount; do not call it exact monetary revenue.
+Referral,recommendation/sharing/invite behavior,no,none,,"No referral log, invite log, sharing log, or campaign response log. Treat only as post-analysis growth experiment hypothesis."

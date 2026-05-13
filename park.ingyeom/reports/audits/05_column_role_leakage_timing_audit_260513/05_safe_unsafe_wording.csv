@@ -1,0 +1,7 @@
+﻿unsafe_wording,safer_wording,reason
+이 컬럼들은 모두 누수가 없다.,현재 CSV와 컬럼명 기준으로 사용 가능/검토 필요/제외 후보를 보수적으로 분류했다.,Empty output does not prove no leakage.
+total_watch_time은 당연히 1~3주차 전체다.,total_watch_time의 산출 기간이 day 0~20으로 확인되기 전까지는 timing review가 필요하다.,Total/all-period window is ambiguous.
+is_churn_prevented는 그냥 과거 이력이다.,is_churn_prevented가 과거 이력인지 현재 cycle의 사후 개입 결과인지 CSV만으로 확정되지 않으면 review로 둔다.,Could be intervention/outcome proxy.
+end_date로 계산한 duration은 무조건 안전하다.,end_date가 scoring 시점에 알려진 예정 종료일인지 사후 확정 종료일인지 확인 전까지 duration 계열은 review로 둔다.,End-date availability unresolved.
+장르 ratio는 모두 안전하다.,장르 ratio가 1~3주차 관측창에서 산출되었는지 확인되어야 모델 feature로 안전하게 사용할 수 있다.,Content/genre window unresolved.
+프로모션 전용 모델에도 is_promotion을 넣는다.,프로모션 전용 모델과 비프로모션 전용 모델에서는 is_promotion이 split에 사용되었으므로 feature에서 제외한다.,Split variable excluded in groupwise models.

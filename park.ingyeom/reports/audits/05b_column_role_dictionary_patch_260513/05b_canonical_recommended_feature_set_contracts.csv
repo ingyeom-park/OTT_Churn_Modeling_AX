@@ -1,0 +1,551 @@
+﻿feature_set_name,column_name,include_status,reason,required_resolution_if_review
+overall_model_candidate_with_promotion,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+overall_model_candidate_with_promotion,product_code,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,price,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,billing_method,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,max_screen,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,is_promotion,include,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+overall_model_candidate_with_promotion,is_churn_prevented,review,Could be past information or current-cycle intervention/outcome proxy; keep review until source timing is proven.,resolve_intervention_timing_before_modeling
+overall_model_candidate_with_promotion,payment_device,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,is_user_verified,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,gender,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,age,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,reg_date,exclude,"Registration date is an anchor, not a regular model feature.",
+overall_model_candidate_with_promotion,reg_hour,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_with_promotion,end_date,review,End date is unresolved: scheduled-at-scoring vs post-hoc actual end must be confirmed before modeling.,06_common_preprocessing_and_final_cohort_260513
+overall_model_candidate_with_promotion,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,
+overall_model_candidate_with_promotion,is_standard,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,is_premium,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,age_group,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,is_female,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,is_male,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,reg_is_weekend,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_with_promotion,reg_hour_morning,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_with_promotion,reg_hour_afternoon,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_with_promotion,reg_hour_evening,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_with_promotion,reg_hour_night,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_with_promotion,payment_is_mobile,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,payment_is_pc,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,payment_is_android,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,payment_is_ios,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_with_promotion,total_watch_count,review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+overall_model_candidate_with_promotion,unique_movie,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,active_ratio,review,"active_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_with_promotion,total_watch_time(min),review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+overall_model_candidate_with_promotion,watch_per_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,avg_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,median_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,std_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,avg_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,max_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,max_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,max_daily_sessions,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,recency,review,Recency reference date is unresolved; it must be day21 scoring point or earlier.,confirm_recency_reference_date
+overall_model_candidate_with_promotion,avg_gap_between_watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,avg_gap_w1_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,avg_gap_w2_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,avg_gap_w3_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,max_inactive_gap_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,avg_rewatch_ratio,review,"avg_rewatch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_with_promotion,weekend_watch_ratio,review,"weekend_watch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_with_promotion,watch_ratio_under_1m,review,"watch_ratio_under_1m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_with_promotion,watch_ratio_under_5m,review,"watch_ratio_under_5m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_with_promotion,is_cold_start_3d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+overall_model_candidate_with_promotion,is_cold_start_7d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+overall_model_candidate_with_promotion,movie_per_active_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,max_day_share,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,day_count_over_3times,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_with_promotion,watch_time(min)_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,watch_time(min)_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,watch_time(min)_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,watch_session_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,watch_session_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,watch_session_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,retention_w2_ratio,include,"retention_w2_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+overall_model_candidate_with_promotion,retention_w3_ratio,include,"retention_w3_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+overall_model_candidate_with_promotion,diff_between_w2_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+overall_model_candidate_with_promotion,diff_between_w3_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+overall_model_candidate_with_promotion,diff_between_w3_w2,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+overall_model_candidate_with_promotion,is_w1_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,is_w2_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,is_w3_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,is_only_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,is_only_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,is_only_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_with_promotion,new_movie_in_90d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,new_movie_in_180d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,new_movie_in_365d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,old_movie_ratio(5y),review,"genre/content ratio window unresolved. Evidence: content/recency construction window unresolved. Conservative rule: uncertain columns remain review, not approved.",confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,avg_ott_release_year,review,Average release year is content metadata/recency; construction window remains unresolved.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,genre_diversity_count,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,action_adventure_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,family_animation_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,drama_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,thriller_crime_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,sf_fantasy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,comedy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,romance_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,horror_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,documentary_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,historical_war_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_with_promotion,other_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+overall_model_candidate_without_promotion,product_code,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,price,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,billing_method,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,max_screen,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,is_promotion,exclude,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+overall_model_candidate_without_promotion,is_churn_prevented,review,Could be past information or current-cycle intervention/outcome proxy; keep review until source timing is proven.,resolve_intervention_timing_before_modeling
+overall_model_candidate_without_promotion,payment_device,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,is_user_verified,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,gender,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,age,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,reg_date,exclude,"Registration date is an anchor, not a regular model feature.",
+overall_model_candidate_without_promotion,reg_hour,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_without_promotion,end_date,review,End date is unresolved: scheduled-at-scoring vs post-hoc actual end must be confirmed before modeling.,06_common_preprocessing_and_final_cohort_260513
+overall_model_candidate_without_promotion,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,
+overall_model_candidate_without_promotion,is_standard,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,is_premium,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,age_group,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,is_female,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,is_male,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,reg_is_weekend,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_without_promotion,reg_hour_morning,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_without_promotion,reg_hour_afternoon,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_without_promotion,reg_hour_evening,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_without_promotion,reg_hour_night,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+overall_model_candidate_without_promotion,payment_is_mobile,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,payment_is_pc,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,payment_is_android,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,payment_is_ios,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+overall_model_candidate_without_promotion,total_watch_count,review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+overall_model_candidate_without_promotion,unique_movie,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,active_ratio,review,"active_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_without_promotion,total_watch_time(min),review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+overall_model_candidate_without_promotion,watch_per_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,avg_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,median_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,std_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,avg_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,max_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,max_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,max_daily_sessions,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,recency,review,Recency reference date is unresolved; it must be day21 scoring point or earlier.,confirm_recency_reference_date
+overall_model_candidate_without_promotion,avg_gap_between_watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,avg_gap_w1_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,avg_gap_w2_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,avg_gap_w3_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,max_inactive_gap_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,avg_rewatch_ratio,review,"avg_rewatch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_without_promotion,weekend_watch_ratio,review,"weekend_watch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_without_promotion,watch_ratio_under_1m,review,"watch_ratio_under_1m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_without_promotion,watch_ratio_under_5m,review,"watch_ratio_under_5m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+overall_model_candidate_without_promotion,is_cold_start_3d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+overall_model_candidate_without_promotion,is_cold_start_7d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+overall_model_candidate_without_promotion,movie_per_active_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,max_day_share,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,day_count_over_3times,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+overall_model_candidate_without_promotion,watch_time(min)_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,watch_time(min)_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,watch_time(min)_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,watch_session_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,watch_session_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,watch_session_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,retention_w2_ratio,include,"retention_w2_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+overall_model_candidate_without_promotion,retention_w3_ratio,include,"retention_w3_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+overall_model_candidate_without_promotion,diff_between_w2_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+overall_model_candidate_without_promotion,diff_between_w3_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+overall_model_candidate_without_promotion,diff_between_w3_w2,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+overall_model_candidate_without_promotion,is_w1_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,is_w2_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,is_w3_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,is_only_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,is_only_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,is_only_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+overall_model_candidate_without_promotion,new_movie_in_90d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,new_movie_in_180d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,new_movie_in_365d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,old_movie_ratio(5y),review,"genre/content ratio window unresolved. Evidence: content/recency construction window unresolved. Conservative rule: uncertain columns remain review, not approved.",confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,avg_ott_release_year,review,Average release year is content metadata/recency; construction window remains unresolved.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,genre_diversity_count,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,action_adventure_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,family_animation_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,drama_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,thriller_crime_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,sf_fantasy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,comedy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,romance_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,horror_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,documentary_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,historical_war_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+overall_model_candidate_without_promotion,other_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+promotion_only_model_candidate,product_code,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,price,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,billing_method,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,max_screen,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,is_promotion,exclude,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+promotion_only_model_candidate,is_churn_prevented,review,Could be past information or current-cycle intervention/outcome proxy; keep review until source timing is proven.,resolve_intervention_timing_before_modeling
+promotion_only_model_candidate,payment_device,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,is_user_verified,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,gender,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,age,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,reg_date,exclude,"Registration date is an anchor, not a regular model feature.",
+promotion_only_model_candidate,reg_hour,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+promotion_only_model_candidate,end_date,review,End date is unresolved: scheduled-at-scoring vs post-hoc actual end must be confirmed before modeling.,06_common_preprocessing_and_final_cohort_260513
+promotion_only_model_candidate,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,
+promotion_only_model_candidate,is_standard,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,is_premium,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,age_group,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,is_female,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,is_male,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,reg_is_weekend,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+promotion_only_model_candidate,reg_hour_morning,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+promotion_only_model_candidate,reg_hour_afternoon,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+promotion_only_model_candidate,reg_hour_evening,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+promotion_only_model_candidate,reg_hour_night,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+promotion_only_model_candidate,payment_is_mobile,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,payment_is_pc,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,payment_is_android,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,payment_is_ios,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+promotion_only_model_candidate,total_watch_count,review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+promotion_only_model_candidate,unique_movie,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,active_ratio,review,"active_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+promotion_only_model_candidate,total_watch_time(min),review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+promotion_only_model_candidate,watch_per_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,avg_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,median_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,std_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,avg_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,max_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,max_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,max_daily_sessions,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,recency,review,Recency reference date is unresolved; it must be day21 scoring point or earlier.,confirm_recency_reference_date
+promotion_only_model_candidate,avg_gap_between_watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,avg_gap_w1_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,avg_gap_w2_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,avg_gap_w3_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,max_inactive_gap_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,avg_rewatch_ratio,review,"avg_rewatch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+promotion_only_model_candidate,weekend_watch_ratio,review,"weekend_watch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+promotion_only_model_candidate,watch_ratio_under_1m,review,"watch_ratio_under_1m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+promotion_only_model_candidate,watch_ratio_under_5m,review,"watch_ratio_under_5m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+promotion_only_model_candidate,is_cold_start_3d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+promotion_only_model_candidate,is_cold_start_7d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+promotion_only_model_candidate,movie_per_active_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,max_day_share,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,day_count_over_3times,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+promotion_only_model_candidate,watch_time(min)_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,watch_time(min)_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,watch_time(min)_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,watch_session_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,watch_session_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,watch_session_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,retention_w2_ratio,include,"retention_w2_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+promotion_only_model_candidate,retention_w3_ratio,include,"retention_w3_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+promotion_only_model_candidate,diff_between_w2_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+promotion_only_model_candidate,diff_between_w3_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+promotion_only_model_candidate,diff_between_w3_w2,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+promotion_only_model_candidate,is_w1_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,is_w2_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,is_w3_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,is_only_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,is_only_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,is_only_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+promotion_only_model_candidate,new_movie_in_90d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+promotion_only_model_candidate,new_movie_in_180d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+promotion_only_model_candidate,new_movie_in_365d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+promotion_only_model_candidate,old_movie_ratio(5y),review,"genre/content ratio window unresolved. Evidence: content/recency construction window unresolved. Conservative rule: uncertain columns remain review, not approved.",confirm_content_window_before_modeling
+promotion_only_model_candidate,avg_ott_release_year,review,Average release year is content metadata/recency; construction window remains unresolved.,confirm_content_window_before_modeling
+promotion_only_model_candidate,genre_diversity_count,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,action_adventure_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,family_animation_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,drama_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,thriller_crime_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,sf_fantasy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,comedy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,romance_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,horror_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,documentary_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,historical_war_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+promotion_only_model_candidate,other_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+nonpromotion_only_model_candidate,product_code,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,price,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,billing_method,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,max_screen,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,is_promotion,exclude,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+nonpromotion_only_model_candidate,is_churn_prevented,review,Could be past information or current-cycle intervention/outcome proxy; keep review until source timing is proven.,resolve_intervention_timing_before_modeling
+nonpromotion_only_model_candidate,payment_device,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,is_user_verified,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,gender,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,age,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,reg_date,exclude,"Registration date is an anchor, not a regular model feature.",
+nonpromotion_only_model_candidate,reg_hour,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+nonpromotion_only_model_candidate,end_date,review,End date is unresolved: scheduled-at-scoring vs post-hoc actual end must be confirmed before modeling.,06_common_preprocessing_and_final_cohort_260513
+nonpromotion_only_model_candidate,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,
+nonpromotion_only_model_candidate,is_standard,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,is_premium,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,age_group,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,is_female,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,is_male,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,reg_is_weekend,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+nonpromotion_only_model_candidate,reg_hour_morning,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+nonpromotion_only_model_candidate,reg_hour_afternoon,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+nonpromotion_only_model_candidate,reg_hour_evening,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+nonpromotion_only_model_candidate,reg_hour_night,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+nonpromotion_only_model_candidate,payment_is_mobile,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,payment_is_pc,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,payment_is_android,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,payment_is_ios,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+nonpromotion_only_model_candidate,total_watch_count,review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+nonpromotion_only_model_candidate,unique_movie,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,active_ratio,review,"active_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+nonpromotion_only_model_candidate,total_watch_time(min),review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+nonpromotion_only_model_candidate,watch_per_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,avg_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,median_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,std_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,avg_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,max_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,max_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,max_daily_sessions,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,recency,review,Recency reference date is unresolved; it must be day21 scoring point or earlier.,confirm_recency_reference_date
+nonpromotion_only_model_candidate,avg_gap_between_watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,avg_gap_w1_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,avg_gap_w2_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,avg_gap_w3_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,max_inactive_gap_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,avg_rewatch_ratio,review,"avg_rewatch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+nonpromotion_only_model_candidate,weekend_watch_ratio,review,"weekend_watch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+nonpromotion_only_model_candidate,watch_ratio_under_1m,review,"watch_ratio_under_1m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+nonpromotion_only_model_candidate,watch_ratio_under_5m,review,"watch_ratio_under_5m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+nonpromotion_only_model_candidate,is_cold_start_3d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+nonpromotion_only_model_candidate,is_cold_start_7d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+nonpromotion_only_model_candidate,movie_per_active_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,max_day_share,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,day_count_over_3times,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+nonpromotion_only_model_candidate,watch_time(min)_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,watch_time(min)_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,watch_time(min)_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,watch_session_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,watch_session_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,watch_session_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,retention_w2_ratio,include,"retention_w2_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+nonpromotion_only_model_candidate,retention_w3_ratio,include,"retention_w3_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+nonpromotion_only_model_candidate,diff_between_w2_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+nonpromotion_only_model_candidate,diff_between_w3_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+nonpromotion_only_model_candidate,diff_between_w3_w2,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+nonpromotion_only_model_candidate,is_w1_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,is_w2_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,is_w3_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,is_only_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,is_only_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,is_only_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+nonpromotion_only_model_candidate,new_movie_in_90d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,new_movie_in_180d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,new_movie_in_365d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,old_movie_ratio(5y),review,"genre/content ratio window unresolved. Evidence: content/recency construction window unresolved. Conservative rule: uncertain columns remain review, not approved.",confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,avg_ott_release_year,review,Average release year is content metadata/recency; construction window remains unresolved.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,genre_diversity_count,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,action_adventure_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,family_animation_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,drama_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,thriller_crime_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,sf_fantasy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,comedy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,romance_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,horror_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,documentary_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,historical_war_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+nonpromotion_only_model_candidate,other_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+conservative_safe_candidate,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+conservative_safe_candidate,product_code,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,price,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,billing_method,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,max_screen,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,is_promotion,exclude,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+conservative_safe_candidate,is_churn_prevented,exclude,Could be past information or current-cycle intervention/outcome proxy; keep review until source timing is proven.,
+conservative_safe_candidate,payment_device,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,is_user_verified,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,gender,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,age,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,reg_date,exclude,"Registration date is an anchor, not a regular model feature.",
+conservative_safe_candidate,reg_hour,exclude,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,
+conservative_safe_candidate,end_date,exclude,End date is unresolved: scheduled-at-scoring vs post-hoc actual end must be confirmed before modeling.,
+conservative_safe_candidate,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,
+conservative_safe_candidate,is_standard,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,is_premium,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,age_group,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,is_female,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,is_male,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,reg_is_weekend,exclude,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,
+conservative_safe_candidate,reg_hour_morning,exclude,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,
+conservative_safe_candidate,reg_hour_afternoon,exclude,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,
+conservative_safe_candidate,reg_hour_evening,exclude,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,
+conservative_safe_candidate,reg_hour_night,exclude,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,
+conservative_safe_candidate,payment_is_mobile,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,payment_is_pc,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,payment_is_android,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,payment_is_ios,exclude,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,
+conservative_safe_candidate,total_watch_count,exclude,Total usage column remains review until proven to be day0-20 only.,
+conservative_safe_candidate,unique_movie,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,watch_days,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,active_ratio,exclude,"active_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",
+conservative_safe_candidate,total_watch_time(min),exclude,Total usage column remains review until proven to be day0-20 only.,
+conservative_safe_candidate,watch_per_day,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,avg_watch_time(min),exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,median_watch_time(min),exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,std_watch_time(min),exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,avg_daily_watch_time(min),exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,max_watch_time(min),exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,max_daily_watch_time(min),exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,max_daily_sessions,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,recency,exclude,Recency reference date is unresolved; it must be day21 scoring point or earlier.,
+conservative_safe_candidate,avg_gap_between_watch_days,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,avg_gap_w1_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,avg_gap_w2_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,avg_gap_w3_watch_days,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,max_inactive_gap_days,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,avg_rewatch_ratio,exclude,"avg_rewatch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",
+conservative_safe_candidate,weekend_watch_ratio,exclude,"weekend_watch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",
+conservative_safe_candidate,watch_ratio_under_1m,exclude,"watch_ratio_under_1m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",
+conservative_safe_candidate,watch_ratio_under_5m,exclude,"watch_ratio_under_5m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",
+conservative_safe_candidate,is_cold_start_3d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+conservative_safe_candidate,is_cold_start_7d,include,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+conservative_safe_candidate,movie_per_active_day,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,max_day_share,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,day_count_over_3times,exclude,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,
+conservative_safe_candidate,watch_time(min)_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,watch_time(min)_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,watch_time(min)_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,watch_session_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,watch_session_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,watch_session_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,retention_w2_ratio,include,"retention_w2_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+conservative_safe_candidate,retention_w3_ratio,include,"retention_w3_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+conservative_safe_candidate,diff_between_w2_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+conservative_safe_candidate,diff_between_w3_w1,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+conservative_safe_candidate,diff_between_w3_w2,include,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+conservative_safe_candidate,is_w1_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,is_w2_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,is_w3_over_50pct,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,is_only_w1,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,is_only_w2,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,is_only_w3,include,Explicit week1-week3 observation feature under the established day0-20 window.,
+conservative_safe_candidate,new_movie_in_90d_ratio,exclude,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",
+conservative_safe_candidate,new_movie_in_180d_ratio,exclude,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",
+conservative_safe_candidate,new_movie_in_365d_ratio,exclude,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",
+conservative_safe_candidate,old_movie_ratio(5y),exclude,"genre/content ratio window unresolved. Evidence: content/recency construction window unresolved. Conservative rule: uncertain columns remain review, not approved.",
+conservative_safe_candidate,avg_ott_release_year,exclude,Average release year is content metadata/recency; construction window remains unresolved.,
+conservative_safe_candidate,genre_diversity_count,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,action_adventure_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,family_animation_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,drama_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,thriller_crime_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,sf_fantasy_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,comedy_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,romance_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,horror_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,documentary_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,historical_war_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+conservative_safe_candidate,other_ratio,exclude,Actual genre/content preference column. Keep review until the observation window is documented.,
+review_required_candidate,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+review_required_candidate,product_code,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,price,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,billing_method,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,max_screen,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,is_promotion,exclude,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+review_required_candidate,is_churn_prevented,review,Could be past information or current-cycle intervention/outcome proxy; keep review until source timing is proven.,resolve_intervention_timing_before_modeling
+review_required_candidate,payment_device,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,is_user_verified,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,gender,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,age,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,reg_date,review,"Registration date is an anchor, not a regular model feature.",confirm_allowed_date_derivations_only
+review_required_candidate,reg_hour,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+review_required_candidate,end_date,review,End date is unresolved: scheduled-at-scoring vs post-hoc actual end must be confirmed before modeling.,06_common_preprocessing_and_final_cohort_260513
+review_required_candidate,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,
+review_required_candidate,is_standard,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,is_premium,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,age_group,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,is_female,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,is_male,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,reg_is_weekend,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+review_required_candidate,reg_hour_morning,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+review_required_candidate,reg_hour_afternoon,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+review_required_candidate,reg_hour_evening,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+review_required_candidate,reg_hour_night,review,Registration-time derived context; review whether it is appropriate as a feature rather than anchor leakage.,confirm_registration_context_semantics_before_modeling
+review_required_candidate,payment_is_mobile,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,payment_is_pc,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,payment_is_android,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,payment_is_ios,review,Membership/payment/demographic context needs semantic and scoring-time review before modeling.,confirm_metadata_semantics_before_modeling
+review_required_candidate,total_watch_count,review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+review_required_candidate,unique_movie,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,active_ratio,review,"active_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+review_required_candidate,total_watch_time(min),review,Total usage column remains review until proven to be day0-20 only.,confirm_total_usage_window_before_modeling
+review_required_candidate,watch_per_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,avg_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,median_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,std_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,avg_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,max_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,max_daily_watch_time(min),review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,max_daily_sessions,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,recency,review,Recency reference date is unresolved; it must be day21 scoring point or earlier.,confirm_recency_reference_date
+review_required_candidate,avg_gap_between_watch_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,avg_gap_w1_watch_days,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,avg_gap_w2_watch_days,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,avg_gap_w3_watch_days,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,max_inactive_gap_days,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,avg_rewatch_ratio,review,"avg_rewatch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+review_required_candidate,weekend_watch_ratio,review,"weekend_watch_ratio is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+review_required_candidate,watch_ratio_under_1m,review,"watch_ratio_under_1m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+review_required_candidate,watch_ratio_under_5m,review,"watch_ratio_under_5m is a usage/behavior ratio, not a genre ratio. Construction window is not explicit, so it remains review.",confirm_usage_ratio_window_before_modeling
+review_required_candidate,is_cold_start_3d,exclude,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+review_required_candidate,is_cold_start_7d,exclude,"Cold-start flag is early activation/onboarding behavior, not content recency; 3d/7d is inside the allowed observation window.",
+review_required_candidate,movie_per_active_day,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,max_day_share,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,day_count_over_3times,review,Usage summary lacks explicit week/window in the name; keep review until construction window is documented.,confirm_usage_window_before_modeling
+review_required_candidate,watch_time(min)_w1,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,watch_time(min)_w2,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,watch_time(min)_w3,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,watch_session_w1,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,watch_session_w2,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,watch_session_w3,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,retention_w2_ratio,exclude,"retention_w2_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+review_required_candidate,retention_w3_ratio,exclude,"retention_w3_ratio is retention behavior, not genre. Name explicitly references allowed week window; allowed status corrected to yes under the day0-20 observation contract.",
+review_required_candidate,diff_between_w2_w1,exclude,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+review_required_candidate,diff_between_w3_w1,exclude,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+review_required_candidate,diff_between_w3_w2,exclude,Week-to-week difference feature within week1 to week3 observation window; role/family corrected to retention_change.,
+review_required_candidate,is_w1_over_50pct,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,is_w2_over_50pct,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,is_w3_over_50pct,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,is_only_w1,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,is_only_w2,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,is_only_w3,exclude,Explicit week1-week3 observation feature under the established day0-20 window.,
+review_required_candidate,new_movie_in_90d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+review_required_candidate,new_movie_in_180d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+review_required_candidate,new_movie_in_365d_ratio,review,"New-movie ratio is content recency, not genre. Observation window must be confirmed before modeling.",confirm_content_window_before_modeling
+review_required_candidate,old_movie_ratio(5y),review,"genre/content ratio window unresolved. Evidence: content/recency construction window unresolved. Conservative rule: uncertain columns remain review, not approved.",confirm_content_window_before_modeling
+review_required_candidate,avg_ott_release_year,review,Average release year is content metadata/recency; construction window remains unresolved.,confirm_content_window_before_modeling
+review_required_candidate,genre_diversity_count,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,action_adventure_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,family_animation_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,drama_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,thriller_crime_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,sf_fantasy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,comedy_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,romance_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,horror_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,documentary_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,historical_war_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+review_required_candidate,other_ratio,review,Actual genre/content preference column. Keep review until the observation window is documented.,confirm_content_window_before_modeling
+forbidden_drop_columns,USER_KEY,exclude,Identifier; row-level/subscription-event-level analysis is not unique-user-level. Never use as model feature.,
+forbidden_drop_columns,is_promotion,exclude,"Top-level split variable. It may be used only for overall comparison, and must be excluded inside promotion-only/non-promotion-only models.",
+forbidden_drop_columns,reg_date,exclude,"Registration date is an anchor, not a regular model feature.",
+forbidden_drop_columns,is_repurchase,exclude,Target; positive class means repurchase. Never use as model feature.,

@@ -1,0 +1,11 @@
+﻿finding_area,descriptive_finding,strength_of_evidence,safe_claim,forbidden_claim,next_check_needed
+group_size,Promotion rows=11904; non-promotion rows=11175.,strong,Group sizes differ descriptively in the primary main cohort.,Group size difference is caused by promotion.,Use row-level language.
+repurchase_rate,Promotion repurchase rate=0.675151; non-promotion repurchase rate=0.762416.,strong,A descriptive repurchase-rate difference is observed.,Promotion caused the repurchase-rate difference.,Deeper 2x2 EDA in step 09.
+duration_distribution,Duration summaries by promotion are provided in group overview and flag tables.,moderate,Duration can be compared descriptively inside the main cohort.,Duration proves behavioral causality.,Check anomaly context separately.
+activation_features,6 conservative activation features summarized.,moderate,Early viewing proxies are available for descriptive comparison.,Activation quality or satisfaction is fully measured.,Step 10 feature distribution deep dive.
+retention_features,16 conservative retention features summarized.,moderate,Week1-3 retention proxies are available descriptively.,Long-term retention is fully validated.,Step 10 feature distribution deep dive.
+duplicated_USER_KEY/cross-promotion overlap,Flag distribution table preserves duplicate and overlap cautions.,structural,Rows remain subscription-event-level.,Rows are unique users.,Maintain group-aware CV later.
+review_columns_excluded,66 review columns excluded from standard EDA.,structural,Review columns are separated for later resolution.,Excluding review columns means no information loss.,Sensitivity design if needed.
+AARRR_coverage,Conservative features cover activation and retention; acquisition is split metadata; revenue is target proxy; referral is not observed.,structural,AARRR coverage is partial and conservative.,AARRR is fully validated from current data.,Use 07/08 handoff.
+causal_limitations,"No causal inference, A/B testing, p-values, or modeling performed.",structural,Findings are descriptive only.,Promotion caused any observed difference.,Keep safe wording.
+next_step,Proceed to 09_promotion_repurchase_2x2_eda_260513.,structural,Next step deepens promotion x repurchase structure.,Skip directly to modeling without checking 2x2 and feature distributions.,Step 09.

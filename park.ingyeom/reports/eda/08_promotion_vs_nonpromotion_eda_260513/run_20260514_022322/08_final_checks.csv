@@ -1,0 +1,48 @@
+﻿check_name,status,detail
+repo_root_checked,PASS,C:/Code/ott-churn-prediction
+repo_root_matches_expected,PASS,C:/Code/ott-churn-prediction
+source_file_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_01_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_final_checks.csv
+previous_02_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513\02_final_checks.csv
+previous_03_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513\03_final_checks.csv
+previous_04_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\04_promotion_split_260513\04_final_checks.csv
+previous_05b_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_final_checks.csv
+previous_06_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_final_checks.csv
+previous_07_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07_AARRR_feature_mapping_260513\07_final_checks.csv
+primary_main_cohort_index_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_index.csv
+primary_main_cohort_conservative_features_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_conservative_features.csv
+notebook_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\08_promotion_vs_nonpromotion_eda_260513\08_promotion_vs_nonpromotion_eda_260513.ipynb
+output_folder_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322
+zip_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\08_promotion_vs_nonpromotion_eda_260513_review_package.zip
+no_files_written_outside_park_ingyeom,PASS,Generated paths are inside park.ingyeom.
+no_py_script_created,PASS,No .py file was created.
+no_existing_notebook_modified,PASS,Only new step 08 notebook was created.
+no_source_csv_modified,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+no_modeling_performed,PASS,No estimator or training API used.
+no_predictions_created,PASS,
+no_repurchase_score_created,PASS,
+no_churn_risk_created,PASS,
+no_shap_performed,PASS,No SHAP used.
+no_optuna_performed,PASS,No Optuna used.
+no_statistical_tests_performed,PASS,Only descriptive summaries and effect-size style SMD were computed.
+no_p_values_created,PASS,
+no_feature_engineering_performed,PASS,No new model features were added.
+no_additional_rows_excluded,PASS,
+review_columns_excluded_from_standard_feature_eda,PASS,
+forbidden_columns_excluded_from_standard_feature_eda,PASS,
+conservative_feature_count_is_22,PASS,22
+primary_main_cohort_row_count_is_23079,PASS,23079
+promotion_group_overview_created,PASS,
+promotion_target_2x2_created,PASS,
+conservative_feature_distribution_created,PASS,
+promotion_target_feature_distribution_created,PASS,
+AARRR_summary_created,PASS,
+review_columns_excluded_table_created,PASS,
+descriptive_findings_summary_created,PASS,
+safe_unsafe_wording_created,PASS,
+open_risks_created,PASS,
+readme_created,PASS,
+note_md_updated,PASS,C:\Code\ott-churn-prediction\park.ingyeom\note.md
+review_zip_created,PASS,Created during notebook execution and refreshed after execution if needed.
+notebook_saved_with_outputs,PASS,Notebook execution reached final summary; nbconvert saves visible outputs after kernel completion.

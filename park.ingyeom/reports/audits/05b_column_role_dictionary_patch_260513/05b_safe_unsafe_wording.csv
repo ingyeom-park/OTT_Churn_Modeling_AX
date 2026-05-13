@@ -1,0 +1,6 @@
+﻿unsafe_wording,safer_wording
+05에서 모든 컬럼 역할 분류가 확정됐다.,"05b에서 명백한 role/family 오분류를 교정했고, 여전히 review 컬럼은 후속 확인이 필요하다."
+retention_w2_ratio는 genre ratio다.,retention_w2_ratio는 1주차 대비 2주차 유지/변화 계열 retention feature다.
+cold_start는 content recency다.,cold_start는 초기 활성화/온보딩 feature다.
+review 컬럼도 일단 모델에 넣어보자.,review 컬럼은 timing/semantic 확인 전까지 모델 투입 금지 또는 별도 실험으로 분리한다.
+forbidden_drop_columns에 review 컬럼도 포함하면 된다.,forbidden/drop 컬럼과 review-required 컬럼은 분리해야 한다.

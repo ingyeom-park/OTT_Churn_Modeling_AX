@@ -1,0 +1,13 @@
+﻿risk,carry_forward_action
+is_churn_prevented timing unresolved.,Confirm whether it is past information or current-cycle intervention/outcome proxy.
+end_date/duration timing unresolved.,Resolve scheduled-vs-posthoc timing before modeling.
+total/all-period usage timing unresolved.,Do not use until day0-day20 construction is proven.
+recency timing unresolved.,Confirm reference date is day21 scoring point or earlier.
+content/genre ratio observation window unresolved if not documented.,Keep content/genre columns review until source window is documented.
+full duplicate rows remain included for now.,This patch does not remove rows.
+duration < 21 rows remain included for now.,Final cohort policy must decide treatment.
+cross-promotion USER_KEY overlap means user-level promotion language is risky.,Use promotion rows/events wording unless user-level collapse is performed.
+conservative feature set must be used before baseline ladder.,Review columns remain blocked.
+review columns must not enter modeling until resolved.,Review means not approved for modeling yet.
+"downstream must use 05b patched dictionary, not unpatched 05 dictionary.",Use 05b canonical files in step06 and later.
+06 must decide final cohort/preprocessing policy but still must not silently model with review columns.,No model-ready dataset is created here.

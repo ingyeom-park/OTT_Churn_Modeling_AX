@@ -1,0 +1,11 @@
+﻿risk_to_carry_forward
+"promotion/non-promotion differences remain descriptive, not causal"
+review columns remain excluded from standard EDA and modeling
+membership/context L0 baseline may require separate review-resolution or sensitivity design
+content/genre ratio insights are limited until observation window is confirmed
+total/all-period and recency columns remain unresolved
+duplicated USER_KEY and cross-promotion overlap require row-level language
+Referral is not observed
+09 should examine promotion x repurchase 2x2 structure more deeply
+10 should examine feature distributions more deeply before modeling
+11 baseline ladder should not use review columns without explicit decision

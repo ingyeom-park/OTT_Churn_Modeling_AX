@@ -1,0 +1,19 @@
+﻿metric,actual_value,expected_value,matches_expected,detail
+row_count,23343,23343,True,
+column_count,91,91,True,
+total_missing_count,0,0,True,
+duplicated_full_row_count,48,48,True,extra duplicated rows after keeping first
+unique_USER_KEY_count,23134,23134,True,
+duplicated_USER_KEY_extra_rows,209,209,True,
+duplicated_USER_KEY_key_count,143,,,
+cross_promotion_USER_KEY_overlap_count,38,38,True,count of USER_KEY values appearing in both promotion states
+is_promotion_distribution,,,,"{""0"": 11388, ""1"": 11955}"
+is_repurchase_distribution,,,,"{""0"": 6641, ""1"": 16702}"
+promotion_x_is_repurchase_2x2,,,,"[{""0"": 2746, ""1"": 8642, ""is_promotion"": 0}, {""0"": 3895, ""1"": 8060, ""is_promotion"": 1}]"
+reg_date_parse_failures,0,,,
+end_date_parse_failures,0,,,
+duration_days_summary,,,,"{""25%"": 31.0, ""50%"": 31.0, ""75%"": 31.0, ""count"": 23343.0, ""max"": 32.0, ""mean"": 30.875894272372875, ""min"": 0.0, ""std"": 2.908461692658493}"
+duration_lt_21_count,238,238,True,
+duration_eq_0_count,90,90,True,
+duration_21_to_30_count,0,0,True,
+duration_ge_21_count,23105,23105,True,

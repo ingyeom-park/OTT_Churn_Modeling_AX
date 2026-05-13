@@ -380,3 +380,99 @@ duration < 21 행은 1~3주차 관측창을 완성하지 못한 행이다.
 - Risks to carry forward: promotion 차이의 비인과성, groupwise model에서 is_promotion 제외, duration anomaly의 promotion별 차이, duration < 21 포함 상태, duplicated full rows 포함 상태, USER_KEY 중복, overall with/without promotion 비교 필요.
 - Warnings: none.
 - Next step recommendation: 05_column_role_leakage_timing_audit_260513.
+
+## 2026-05-14 01:04:36 | 05_column_role_leakage_timing_audit_260513
+
+- Purpose: classify all 91 source CSV columns by role, leakage risk, timing family, and future modeling eligibility without creating a modeling dataset.
+- Files created: 05_input_consistency_check.csv, 05_full_column_inventory.csv, 05_column_role_dictionary.csv, 05_timing_audit.csv, 05_leakage_suspect_audit.csv, 05_human_review_required_columns.csv, 05_baseline_ladder_feature_family_policy.csv, 05_recommended_feature_set_contracts.csv, 05_forbidden_drop_columns.csv, 05_review_required_columns.csv, 05_conservative_safe_candidate_columns.csv, 05_redundancy_and_naming_risk_audit.csv, 05_safe_unsafe_wording.csv, 05_open_risks_for_next_steps.csv, 05_final_checks.csv, README.md
+- Key decisions: `USER_KEY` is id; `is_repurchase` is target; `is_promotion` is split; groupwise models must exclude `is_promotion`; response-period and target-like columns are excluded; uncertain columns remain review.
+- Checks summary: source file exists, previous folders checked, all 91 columns inventoried, role dictionary and timing audit produced.
+- Counts: conservative safe=16, review-required=72, forbidden/drop=6; overall={'review': 69, 'yes': 17, 'no': 5}; groupwise={'review': 69, 'yes': 16, 'no': 6}.
+- Especially risky columns: `is_churn_prevented` may be intervention/outcome-like; `end_date` and duration logic require scoring-time confirmation; total usage and recency require timing confirmation; content/genre ratio and new movie columns require construction-window confirmation.
+- Interpretation limits: this audit does not prove absence of leakage; `review` means not approved for modeling yet; no rows or duplicate rows were removed.
+- Risks to carry forward: unresolved timing for total/all-period, recency, end_date/duration, content/genre ratio; cross-promotion USER_KEY overlap makes user-level promotion wording risky; final cohort exclusion policy remains future step.
+- Next step recommendation: `06_common_preprocessing_final_cohort_policy_260513` or docx-strict `06_common_preprocessing_and_final_cohort_260513`.
+
+## 2026-05-14 01:19:27 | 05b_column_role_dictionary_patch_260513
+
+- Purpose: patch semantic role/family/timing errors from step 05 and create canonical 05b outputs for downstream use.
+- Files created: 05b_input_validation.csv, 05b_detected_issues_from_05.csv, 05b_canonical_column_role_dictionary.csv, 05b_column_role_patch_log.csv, 05b_canonical_timing_audit.csv, 05b_canonical_leakage_suspect_audit.csv, 05b_true_human_review_required_columns.csv, 05b_human_review_summary.csv, 05b_canonical_recommended_feature_set_contracts.csv, 05b_conservative_safe_candidate_columns.csv, 05b_review_required_columns.csv, 05b_forbidden_drop_columns.csv, 05b_role_and_status_summary.csv, 05b_downstream_handoff_policy.csv, 05b_safe_unsafe_wording.csv, 05b_open_risks_for_next_steps.csv, 05b_final_checks.csv, README.md
+- Key issues corrected: retention ratio columns no longer genre; usage ratio columns no longer genre; cold_start columns are activation/onboarding; diff_between_w*_w* columns are retention_change; review and forbidden contract groups separated.
+- Patched columns: 84; detected issues: 48.
+- Checks summary: source and previous 05 files validated; actual repo root recorded; canonical dictionary and timing audit contain 91 columns.
+- Role/status summary after patch: overall={'review': 65, 'yes': 23, 'no': 3}; groupwise={'review': 65, 'yes': 22, 'no': 4}.
+- Remaining risky columns: is_churn_prevented, end_date/duration logic, total usage, recency, content/genre ratio windows, review-required metadata/context columns.
+- Interpretation limits: 05b corrects dictionary semantics but does not prove no leakage; review remains not approved for modeling.
+- Risks to carry forward: downstream must use 05b canonical files; 06 must decide final cohort/preprocessing policy without silently modeling with review columns.
+- Next step recommendation: 06_common_preprocessing_and_final_cohort_260513.
+
+
+
+## 2026-05-14 01:45:23 | 06_common_preprocessing_and_final_cohort_260513
+
+- Purpose: 공통 전처리 row policy와 최종 primary main cohort를 확정하고, downstream baseline 후보 테이블을 보수적으로 생성했다.
+- Files created: 19 CSV files, README.md, notebook, review package zip.
+- Key row policy decisions: duration < 21 제외, 완전 중복 extra row 제외, duplicated USER_KEY 유지, cross-promotion USER_KEY overlap 유지.
+- Primary main cohort row count: 23079
+- Excluded duration < 21 count: 238
+- Excluded full duplicate extra row count: 26
+- Conservative feature count: 22
+- Checks passed or failed: final checks table 참조.
+- Interpretation limits: 모델 학습, 예측, SHAP, Optuna, causal claim 없음. cohort와 policy 산출물만 생성했다.
+- Risks to carry forward: review 컬럼, is_churn_prevented, end_date/duration feature timing, total/all-period usage, recency, content/genre window 미해결.
+- Next step recommendation: 07_AARRR_feature_mapping_260513 우선. 11_baseline_growth_history_260513는 AARRR/EDA 계획 확인 후 진행.
+
+## 2026-05-14 | 보수적 feature 사용 원칙 및 06 메모 정정
+
+- Context: 06_common_preprocessing_and_final_cohort_260513 검수 이후, 이후 모델링과 EDA 진행 방향을 보수적으로 고정하기로 했다.
+- Decision: 앞으로 baseline ladder, 모델링, SHAP, 세그먼트 설계의 기본 입력은 `06_primary_main_cohort_conservative_features.csv`와 05b canonical 산출물을 기준으로 한다.
+- Conservative principle: 05b/06에서 safe candidate로 확정된 feature를 우선 사용한다. review 컬럼은 timing, semantic, leakage 가능성이 해소되기 전까지 표준 모델링에 넣지 않는다.
+- Review columns policy: membership/context, total/all-period usage, recency, content/genre ratio, `is_churn_prevented`, `end_date/duration` 관련 review 컬럼은 별도 확인 또는 sensitivity 실험으로 분리한다.
+- Modeling implication: 당장 L0 membership-only baseline을 만들기 어렵더라도, review 컬럼을 성급하게 넣어 성능을 올리지 않는다. 표준 baseline은 conservative safe-window feature 기준으로 시작한다.
+- Naming caution: 기존 preliminary full-feature model은 L0 baseline으로 부르지 않는다. 필요하면 `full-feature preliminary model` 또는 `preliminary exploratory model`로만 부른다.
+- Downstream rule: 06 이후 단계는 원본 05가 아니라 `05b_canonical_column_role_dictionary.csv`, `05b_canonical_timing_audit.csv`, `05b_canonical_recommended_feature_set_contracts.csv`를 기준으로 한다.
+- 06 correction: 이전 note.md에는 06 로그가 두 번 기록되어 있었고, full duplicate extra row count가 26과 48로 다르게 적혀 있었다. 중복된 01:47:04 로그는 삭제했다. 정확한 해석은 다음과 같다.
+  - source 전체 기준 exact full duplicate extra rows: 48
+  - duration < 21 제외와 겹친 duplicate extra rows: 22
+  - duration >= 21 eligible cohort 안에서 primary main cohort에서 추가 제외된 exact full duplicate extra rows: 26
+  - 따라서 primary main cohort 계산은 `23,343 - 238 - 26 = 23,079`가 맞다.
+  - `238 + 48 = 286행 제외`라고 말하면 안 된다.
+- Correct 06 main cohort summary:
+  - raw source rows: 23,343
+  - duration < 21 excluded from primary main cohort: 238
+  - additional exact full duplicate extra rows excluded after duration policy: 26
+  - primary main cohort final rows: 23,079
+  - conservative feature count: 22
+- Next recommended step: `07_AARRR_feature_mapping_260513`을 먼저 진행한다. 11_baseline_growth_history로 바로 가지 않는다. AARRR mapping과 EDA 계획을 먼저 잠근 뒤 보수적 baseline ladder로 넘어간다.
+
+
+## 2026-05-14 02:12:59 | 07_AARRR_feature_mapping_260513
+
+- Purpose: 기존 91개 컬럼과 06 conservative feature를 AARRR 단계에 개념적으로 매핑하고, 표준 분석 가능 영역과 review/proposal 영역을 분리했다.
+- Files created: 14 CSV files, README.md, notebook, review package zip.
+- Key AARRR mapping decisions: Acquisition=`is_promotion` descriptive split, Activation=early viewing/cold-start proxy, Retention=week1~3 behavior proxy, Revenue=`is_repurchase` target proxy, Referral=not observed/proposal only.
+- Conservative feature count by AARRR stage: {"activation": 6, "retention": 16}. Acquisition은 split metadata, Revenue는 target proxy, Referral은 observed feature 없음으로 정리했다.
+- Review columns policy: review 컬럼은 개념적으로 AARRR에 매핑되더라도 표준 모델링 승인으로 보지 않는다.
+- Referral boundary: 현재 데이터에 referral/invite/share/campaign response 로그가 없어 측정 claim 금지, 후속 실험 제안만 허용한다.
+- Checks passed or failed: final checks table 참조.
+- Interpretation limits: 모델링, 예측, SHAP, Optuna, 통계검정, 시각화, feature engineering 없음.
+- Risks to carry forward: membership/context L0는 strict conservative 기준에서 제한적이며, review resolution 또는 sensitivity design 필요. Referral, revenue proxy, acquisition causal wording 주의.
+- Next step recommendation: 08_promotion_vs_nonpromotion_eda_260513.
+
+## 2026-05-14 02:23:23 | 08_promotion_vs_nonpromotion_eda_260513
+
+- Purpose: primary main cohort 안에서 promotion/non-promotion 행을 conservative safe feature 기준으로 descriptive EDA 비교했다.
+- Success output folder: `reports/eda/08_promotion_vs_nonpromotion_eda_260513/run_20260514_022322`. 첫 실행 실패 후 최종 성공 산출물은 이 run 폴더 기준이다.
+- Files created: 17 CSV files, README.md, notebook, review package zip.
+- Promotion/non-promotion row counts: {"0": 11175, "1": 11904, "overall": 23079}
+- Repurchase rates by promotion: {"0": 0.7624161073825504, "1": 0.6751512096774194, "overall": 0.717405433510984}
+- Key descriptive findings: primary main cohort에서 프로모션 행의 재구매율이 비프로모션 행보다 약 8.73%p 낮게 관찰되었다. 단, 이는 descriptive difference이며 인과효과가 아니다.
+- Conservative feature count: 22
+- Conservative feature finding: promotion/non-promotion 간 conservative feature 평균 차이는 표준화 평균 차이 기준 모두 negligible bucket이었다. 따라서 08만으로 “프로모션/비프로모션 행동 feature 분포가 크게 다르다”고 주장하면 안 된다.
+- Important interpretation: 08의 결과는 “재구매율 차이는 관찰되지만, 보수적 safe feature 기준의 promotion 간 평균 행동 차이는 약하다”로 해석해야 한다. 09와 10에서 promotion × repurchase 2x2 및 target 내부 차이를 더 깊게 봐야 한다.
+- AARRR summary caution: `08_AARRR_summary_by_promotion.csv`의 stage별 평균값은 서로 단위가 다른 feature를 평균낸 값이므로 해석에 사용하지 않는다. stage별 feature 개수와 목록 확인용으로만 본다.
+- Review columns policy: 05b review columns는 standard conservative EDA feature table에서 제외했다.
+- Checks passed or failed: final checks table 참조. final checks는 47 PASS / 0 FAIL로 검수했다.
+- Interpretation limits: descriptive only, no p-values, no statistical testing, no modeling, no causal claim, no Referral measurement.
+- Risks to carry forward: promotion 차이는 인과가 아니며, duplicated USER_KEY/cross-promotion overlap은 row-level 언어로 유지해야 한다. review columns는 후속 resolution 또는 sensitivity design 필요. 09 이후 단계에서 08 입력을 사용할 경우 반드시 `run_20260514_022322` 기준 산출물을 사용한다.
+- Next step recommendation: 09_promotion_repurchase_2x2_eda_260513.

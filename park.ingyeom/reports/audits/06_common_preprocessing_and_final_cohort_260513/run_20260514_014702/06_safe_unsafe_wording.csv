@@ -1,0 +1,6 @@
+﻿unsafe_wording,safer_wording
+duration < 21 행은 삭제했다.,"duration < 21 행은 원본에서 삭제하지 않고, primary main modeling cohort에서 제외한 뒤 별도 reference로 보존했다."
+완전 중복 48행은 그냥 지웠다.,"완전 중복 행은 source_row_number 기준 첫 행을 유지하고, primary cohort에서 중복분을 제외하며, duplicate audit에 남겼다."
+이제 모든 feature가 모델에 들어갈 준비가 됐다.,"conservative safe candidate만 표준 baseline 후보로 열고, review 컬럼은 후속 확인 전까지 제외한다."
+프로모션 고객과 비프로모션 고객을 따로 전처리했다.,공통 cohort 정책을 먼저 적용한 뒤 promotion/non-promotion split을 적용한다.
+main cohort는 유저 단위 데이터다.,main cohort는 row-level/subscription-event-level 분석 단위다.

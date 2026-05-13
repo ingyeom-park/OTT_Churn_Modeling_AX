@@ -1,0 +1,15 @@
+﻿check_name,actual_value,expected_value,status,detail
+raw source rows,23343,23343,PASS,
+raw source columns,91,91,PASS,
+primary main cohort index rows,23079,23079,PASS,
+conservative feature table rows,23079,23079,PASS,
+conservative actual feature count,22,22,PASS,avg_gap_w1_watch_days;avg_gap_w2_watch_days;avg_gap_w3_watch_days;is_cold_start_3d;is_cold_start_7d;watch_time(min)_w1;watch_time(min)_w2;watch_time(min)_w3;watch_session_w1;watch_session_w2;watch_session_w3;retention_w2_ratio;retention_w3_ratio;diff_between_w2_w1;diff_between_w3_w1;diff_between_w3_w2;is_w1_over_50pct;is_w2_over_50pct;is_w3_over_50pct;is_only_w1;is_only_w2;is_only_w3
+no review columns appear as conservative feature columns,0,0,PASS,
+no forbidden columns appear as conservative feature columns,0,0,PASS,
+is_promotion exists in conservative table as split metadata,yes,yes,PASS,
+is_repurchase exists in conservative table as target,yes,yes,PASS,
+USER_KEY exists as metadata/group key,yes,yes,PASS,
+no repurchase_score column exists,yes,yes,PASS,
+no churn_risk column exists,yes,yes,PASS,
+no model prediction columns exist,0,0,PASS,
+07 conservative mapping summary rows ignored as features,22,22,PASS,Rows with column_name starting __summary were excluded.

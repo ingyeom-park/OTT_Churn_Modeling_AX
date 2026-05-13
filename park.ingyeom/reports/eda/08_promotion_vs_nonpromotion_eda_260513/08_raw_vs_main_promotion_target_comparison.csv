@@ -1,0 +1,27 @@
+﻿dataset,metric,value,difference_caused_by_06_row_policy,interpretation_note
+raw_source,total rows,23343.0,,
+raw_source,promotion count,11955.0,,
+raw_source,promotion rate,0.5121449685130446,,descriptive split only
+raw_source,nonpromotion count,11388.0,,
+raw_source,nonpromotion rate,0.4878550314869554,,
+raw_source,repurchase count,16702.0,,"target proxy, not actual revenue"
+raw_source,repurchase rate,0.7155035770894915,,
+raw_source,nonrepurchase count,6641.0,,
+raw_source,nonrepurchase rate,0.28449642291050853,,
+raw_source,promotion_0_target_0_2x2_count,2746.0,,promotion by target 2x2 count
+raw_source,promotion_0_target_1_2x2_count,8642.0,,promotion by target 2x2 count
+raw_source,promotion_1_target_0_2x2_count,3895.0,,promotion by target 2x2 count
+raw_source,promotion_1_target_1_2x2_count,8060.0,,promotion by target 2x2 count
+primary_main_cohort,total rows,23079.0,-264.0,
+primary_main_cohort,promotion count,11904.0,-51.0,
+primary_main_cohort,promotion rate,0.515793578577928,0.003648610064883373,descriptive split only
+primary_main_cohort,nonpromotion count,11175.0,-213.0,
+primary_main_cohort,nonpromotion rate,0.484206421422072,-0.0036486100648834285,
+primary_main_cohort,repurchase count,16557.0,-145.0,"target proxy, not actual revenue"
+primary_main_cohort,repurchase rate,0.717405433510984,0.0019018564214924316,
+primary_main_cohort,nonrepurchase count,6522.0,-119.0,
+primary_main_cohort,nonrepurchase rate,0.282594566489016,-0.0019018564214925426,
+primary_main_cohort,promotion_0_target_0_2x2_count,2655.0,-91.0,promotion by target 2x2 count
+primary_main_cohort,promotion_0_target_1_2x2_count,8520.0,-122.0,promotion by target 2x2 count
+primary_main_cohort,promotion_1_target_0_2x2_count,3867.0,-28.0,promotion by target 2x2 count
+primary_main_cohort,promotion_1_target_1_2x2_count,8037.0,-23.0,promotion by target 2x2 count

@@ -1,0 +1,4 @@
+﻿is_promotion,row_count,row_rate,unique_USER_KEY_count,duplicated_USER_KEY_extra_rows,cross_promotion_USER_KEY_overlap_rows,repurchase_count,nonrepurchase_count,repurchase_rate,nonrepurchase_rate,duration_min,duration_max,duration_mean,duration_median,duration_q25,duration_q75
+overall,23079,1.0,23032,47,49,16557,6522,0.717405433510984,0.282594566489016,31,32,31.165431777806663,31.0,31.0,31.0
+0,11175,0.484206421422072,11137,38,39,8520,2655,0.7624161073825504,0.23758389261744967,31,32,31.34165548098434,31.0,31.0,32.0
+1,11904,0.515793578577928,11903,1,10,8037,3867,0.6751512096774194,0.3248487903225806,31,31,31.0,31.0,31.0,31.0

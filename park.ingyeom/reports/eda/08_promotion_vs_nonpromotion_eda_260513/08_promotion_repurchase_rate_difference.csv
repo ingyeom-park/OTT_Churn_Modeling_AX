@@ -1,0 +1,2 @@
+﻿nonpromotion_repurchase_rate,promotion_repurchase_rate,absolute_difference_promotion_minus_nonpromotion,percentage_point_difference,relative_difference_descriptive_only,safe_interpretation,unsafe_interpretation
+0.7624161073825504,0.6751512096774194,-0.08726489770513102,-0.08726489770513102,-0.11445836054634262,This is descriptive only. Primary main cohort shows a repurchase-rate difference between promotion and non-promotion rows.,Do not infer causal effect or claim promotion caused the difference.

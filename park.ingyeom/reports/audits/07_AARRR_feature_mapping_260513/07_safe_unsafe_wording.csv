@@ -1,0 +1,7 @@
+﻿unsafe_wording,safer_wording
+AARRR 전체를 데이터로 검증했다.,"AARR 단계는 현재 데이터로 직접 또는 proxy 분석하고, Referral은 후속 실험 제안으로 분리한다."
+Referral 성과를 분석했다.,현재 데이터에는 Referral 로그가 없어 Referral은 실험 설계 제안으로만 다룬다.
+is_promotion이 acquisition 효과를 증명한다.,"is_promotion은 promotion/non-promotion 유입 구분을 제공하지만, 프로모션의 인과효과를 증명하지 않는다."
+is_repurchase는 실제 매출이다.,is_repurchase는 다음 달 재구매/구독 지속의 revenue proxy이며 실제 매출액은 아니다.
+review 컬럼도 AARRR에 매핑됐으니 모델에 넣을 수 있다.,"review 컬럼은 개념적으로 AARRR에 매핑될 수 있어도, timing/semantic 확인 전까지 표준 모델링에는 넣지 않는다."
+보수 feature만 쓰면 모든 정보가 충분하다.,"보수 feature는 누수 위험을 줄인 표준 출발점이며, review 컬럼은 별도 확인 또는 sensitivity 실험으로 분리한다."

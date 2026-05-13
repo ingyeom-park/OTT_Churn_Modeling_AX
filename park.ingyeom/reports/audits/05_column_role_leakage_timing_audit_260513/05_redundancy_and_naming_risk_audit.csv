@@ -1,0 +1,63 @@
+﻿risk_type,column_name,related_columns,reason,recommended_action
+binary_one_hot_or_related_group,is_promotion,is_repurchase; is_standard; is_premium; is_female; is_male,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_repurchase,is_promotion; is_standard; is_premium; is_female; is_male,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_standard,is_promotion; is_repurchase; is_premium; is_female; is_male,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_premium,is_promotion; is_repurchase; is_standard; is_female; is_male,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_female,is_promotion; is_repurchase; is_standard; is_premium; is_male,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_male,is_promotion; is_repurchase; is_standard; is_premium; is_female,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,reg_hour_morning,reg_hour_afternoon; reg_hour_evening; reg_hour_night,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,reg_hour_afternoon,reg_hour_morning; reg_hour_evening; reg_hour_night,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,reg_hour_evening,reg_hour_morning; reg_hour_afternoon; reg_hour_night,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,reg_hour_night,reg_hour_morning; reg_hour_afternoon; reg_hour_evening,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,payment_is_mobile,payment_is_pc; payment_is_android; payment_is_ios,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,payment_is_pc,payment_is_mobile; payment_is_android; payment_is_ios,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,payment_is_android,payment_is_mobile; payment_is_pc; payment_is_ios,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,payment_is_ios,payment_is_mobile; payment_is_pc; payment_is_android,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+unsafe_raw_name,total_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,avg_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,median_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,std_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,avg_daily_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,max_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,max_daily_watch_time(min),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+binary_one_hot_or_related_group,is_cold_start_3d,is_cold_start_7d,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_cold_start_7d,is_cold_start_3d,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+unsafe_raw_name,watch_time(min)_w1,,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,watch_time(min)_w2,,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+unsafe_raw_name,watch_time(min)_w3,,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+binary_one_hot_or_related_group,is_only_w1,is_only_w2; is_only_w3,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_only_w2,is_only_w1; is_only_w3,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+binary_one_hot_or_related_group,is_only_w3,is_only_w1; is_only_w2,binary columns share prefix; possible one-hot/redundant group,redundancy_review_later
+unsafe_raw_name,old_movie_ratio(5y),,punctuation or unsafe modeling-pipeline characters,safe_alias_before_modeling_pipeline
+highly_similar_column_names,is_female,is_male (0.88),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,total_watch_time(min),avg_watch_time(min) (0.85); std_watch_time(min) (0.85); max_watch_time(min) (0.85),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,avg_watch_time(min),median_watch_time(min) (0.83); std_watch_time(min) (0.84); avg_daily_watch_time(min) (0.86); max_watch_time(min) (0.89),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,median_watch_time(min),std_watch_time(min) (0.83); max_watch_time(min) (0.88),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,std_watch_time(min),max_watch_time(min) (0.84),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,avg_daily_watch_time(min),max_daily_watch_time(min) (0.92),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,max_watch_time(min),max_daily_watch_time(min) (0.86),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,avg_gap_between_watch_days,avg_gap_w1_watch_days (0.85); avg_gap_w2_watch_days (0.85); avg_gap_w3_watch_days (0.85),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,avg_gap_w1_watch_days,avg_gap_w2_watch_days (0.95); avg_gap_w3_watch_days (0.95),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,avg_gap_w2_watch_days,avg_gap_w3_watch_days (0.95),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,watch_ratio_under_1m,watch_ratio_under_5m (0.95),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,is_cold_start_3d,is_cold_start_7d (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,watch_time(min)_w1,watch_time(min)_w2 (0.94); watch_time(min)_w3 (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,watch_time(min)_w2,watch_time(min)_w3 (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,watch_session_w1,watch_session_w2 (0.94); watch_session_w3 (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,watch_session_w2,watch_session_w3 (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,retention_w2_ratio,retention_w3_ratio (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,diff_between_w2_w1,diff_between_w3_w1 (0.94); diff_between_w3_w2 (0.89),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,diff_between_w3_w1,diff_between_w3_w2 (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,is_w1_over_50pct,is_w2_over_50pct (0.94); is_w3_over_50pct (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,is_w2_over_50pct,is_w3_over_50pct (0.94),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,is_only_w1,is_only_w2 (0.90); is_only_w3 (0.90),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,is_only_w2,is_only_w3 (0.90),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,new_movie_in_90d_ratio,new_movie_in_180d_ratio (0.93); new_movie_in_365d_ratio (0.89),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+highly_similar_column_names,new_movie_in_180d_ratio,new_movie_in_365d_ratio (0.87),"name similarity only, not correlation",family_grouping_or_redundancy_review_later
+shap_family_grouping_needed_later,content,is_cold_start_3d; is_cold_start_7d; avg_ott_release_year,future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping
+shap_family_grouping_needed_later,content_genre,active_ratio; avg_rewatch_ratio; weekend_watch_ratio; watch_ratio_under_1m; watch_ratio_under_5m; retention_w2_ratio; retention_w3_ratio; new_movie_in_90d_ratio; new_movie_in_180d_ratio; new_movie_in_365d_ratio; old_movie_ratio(5y); genre_diversity_count; action_adventure_ratio; family_animation_ratio; drama_ratio; thriller_crime_ratio; sf_fantasy_ratio; comedy_ratio; romance_ratio; horror_ratio; documentary_ratio; historical_war_ratio; other_ratio,future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping
+shap_family_grouping_needed_later,membership_context,product_code; price; billing_method; max_screen; gender; age; age_group,future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping
+shap_family_grouping_needed_later,subscription_anchor,reg_date; end_date,future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping
+shap_family_grouping_needed_later,unknown_review,payment_device; is_user_verified; reg_hour; is_standard; is_premium; is_female; is_male; reg_is_weekend; reg_hour_morning; reg_hour_afternoon; reg_hour_evening; reg_hour_night; payment_is_mobile; payment_is_pc; payment_is_android; payment_is_ios; unique_movie; watch_days; watch_per_day; avg_watch_time(min); median_watch_time(min); std_watch_time(min); avg_daily_watch_time(min); max_watch_time(min); max_daily_watch_time(min); max_daily_sessions; avg_gap_between_watch_days; max_inactive_gap_days; movie_per_active_day; max_day_share; day_count_over_3times,future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping
+shap_family_grouping_needed_later,usage_aggregate,total_watch_count; total_watch_time(min),future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping
+shap_family_grouping_needed_later,usage_observation,avg_gap_w1_watch_days; avg_gap_w2_watch_days; avg_gap_w3_watch_days; watch_time(min)_w1; watch_time(min)_w2; watch_time(min)_w3; watch_session_w1; watch_session_w2; watch_session_w3; diff_between_w2_w1; diff_between_w3_w1; diff_between_w3_w2; is_w1_over_50pct; is_w2_over_50pct; is_w3_over_50pct; is_only_w1; is_only_w2; is_only_w3,future SHAP should group semantic families,use_dictionary_for_later_xai_family_mapping

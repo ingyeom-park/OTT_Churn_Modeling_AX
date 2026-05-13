@@ -1,0 +1,21 @@
+﻿check_name,value
+expected_repo_root,C:/Code/ott-churn-prediction or C:\Code\ott-churn-prediction
+actual_repo_root,C:/Code/ott-churn-prediction
+repo_root_match,True
+source_file_exists,True
+previous_final_checks_exist_01,True
+previous_final_checks_exist_02,True
+previous_final_checks_exist_03,True
+previous_final_checks_exist_04,True
+previous_final_checks_exist_05b,True
+previous_final_checks_exist_06,True
+previous_final_checks_exist_07,True
+required_06_files_exist,True
+required_05b_files_exist,True
+required_07_files_exist,True
+note_md_exists,True
+source_file_inside_park_ingyeom,True
+output_folder_inside_park_ingyeom,True
+notebook_inside_park_ingyeom,True
+zip_folder_inside_park_ingyeom,True
+can_proceed,True

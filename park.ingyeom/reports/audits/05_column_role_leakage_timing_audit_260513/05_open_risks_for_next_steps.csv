@@ -1,0 +1,13 @@
+﻿risk,why_it_matters,carry_forward_action
+is_churn_prevented timing unresolved,May be past information or post-intervention/outcome proxy.,Keep review/leakage suspect until resolved.
+end_date/duration timing unresolved,Could be scheduled end or post-hoc actual end.,Resolve in final cohort/preprocessing policy.
+total/all-period usage timing unresolved,Could include response-period behavior.,Do not use until day0~20 construction is proven.
+recency timing unresolved,Reference date must be day21 scoring point or earlier.,Confirm reference date.
+content/genre ratio observation window unresolved if not documented,May use all-period or post-day21 behavior.,Keep review until documented.
+full duplicate rows remain included for now,This audit does not remove duplicates.,Handle later if needed.
+duration < 21 rows remain included for now,Short observation windows may violate comparable scoring assumptions.,Resolve in next step.
+cross-promotion USER_KEY overlap means user-level promotion language is risky,Some USER_KEY values appear in both split groups.,Use promotion rows/events wording.
+conservative feature set must be used before baseline ladder,Review features are not approved.,Start with conservative safe candidate.
+review columns must not enter modeling until resolved,Review means not approved.,Block review columns from model-ready sets.
+SHAP feature family grouping should use this dictionary later,Interpretation should aggregate related features.,Use feature_family/sub_family later.
+final cohort exclusion policy remains future step,No rows excluded in step05.,Proceed to step06.

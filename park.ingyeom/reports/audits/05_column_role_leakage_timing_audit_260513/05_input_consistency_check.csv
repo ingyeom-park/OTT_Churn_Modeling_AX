@@ -1,0 +1,19 @@
+﻿metric,current_value,previous_reference,compare_status,warning
+row_count,23343,01_data_contract_summary.csv; 01_final_checks.csv; 01_user_key_duplicate_audit.csv,previous_reference_available_review_manually,
+column_count,91,01_data_contract_summary.csv; 01_final_checks.csv,previous_reference_available_review_manually,
+total_missing_count,0,01_data_contract_summary.csv,previous_reference_available_review_manually,
+unique_USER_KEY_count,23134,01_data_contract_summary.csv,previous_reference_available_review_manually,
+duplicated_USER_KEY_extra_rows,209,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+duplicated_full_row_count,48,01_data_contract_summary.csv,previous_reference_available_review_manually,
+is_repurchase_value_counts,"{""0"": 6641, ""1"": 16702}",,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+is_promotion_value_counts,"{""0"": 11388, ""1"": 11955}",,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+promotion_x_is_repurchase_2x2,"{""0"":{""0"":2746,""1"":3895},""1"":{""0"":8642,""1"":8060}}",,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+cross_promotion_USER_KEY_overlap_count,38,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+reg_date_parse_success,23343,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+reg_date_parse_failure,0,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+end_date_parse_success,23343,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+end_date_parse_failure,0,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+duration_lt_21_count,238,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+duration_eq_0_count,90,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+duration_21_to_30_count,0,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
+duration_gte_21_count,23105,,no_previous_reference_found,No matching prior metric found by generic scan; not a silent pass.
