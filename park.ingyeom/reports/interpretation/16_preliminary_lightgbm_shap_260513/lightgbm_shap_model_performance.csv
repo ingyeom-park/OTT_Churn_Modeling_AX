@@ -1,0 +1,2 @@
+﻿model,train_roc_auc,test_roc_auc,test_pr_auc,test_log_loss,test_brier,n_train,n_test,test_positive_rate
+LightGBM,0.9561454025810052,0.8849343047136166,0.9509128626230975,0.4109245534763786,0.13377278440443194,18674,4669,0.7155707860355537

@@ -1,0 +1,41 @@
+﻿check,status,evidence
+source_file_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_01_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513
+previous_02_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513
+notebook_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\03_observation_window_policy_260513\03_observation_window_policy_260513.ipynb
+output_folder_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513
+no_files_written_outside_park_ingyeom,PASS,all tracked writes are inside park.ingyeom
+no_py_script_created,PASS,no tracked .py files
+no_existing_notebook_modified,PASS,new step 03 notebook only
+no_source_csv_modified,PASS,source size and mtime unchanged
+no_modeling_performed,PASS,no estimator fit/train or model object created
+no_predictions_created,PASS,no prediction column or score output created
+no_shap_performed,PASS,no shap import or computation
+no_optuna_performed,PASS,no optuna import or tuning
+no_feature_engineering_performed,PASS,no new feature columns or model-ready dataset created
+no_rows_excluded,PASS,all source rows retained for audit computations
+no_duplicate_rows_removed,PASS,"duplicates only counted, not removed"
+observation_window_policy_created,PASS,03_observation_window_policy.csv
+week_feature_inventory_created,PASS,03_week_feature_inventory.csv
+explicit_w4_columns_marked_forbidden_if_present,PASS,w4_columns=0
+total_all_period_columns_marked_review_if_present,PASS,total_all_columns=2
+recency_marked_review_if_present,PASS,recency_columns=1
+duration_distribution_created,PASS,03_duration_distribution.csv
+duration_anomaly_by_group_created,PASS,03_duration_anomaly_by_group.csv
+duration_policy_options_created,PASS,03_duration_policy_options.csv
+safe_unsafe_wording_created,PASS,03_safe_unsafe_wording.csv
+open_risks_created,PASS,03_open_risks_for_next_steps.csv
+readme_created,PASS,README.md
+note_md_updated,PASS,C:\Code\ott-churn-prediction\park.ingyeom\note.md
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\03_observation_window_policy_260513_review_package.zip
+required_output_exists::03_input_consistency_check.csv,PASS,03_input_consistency_check.csv
+required_output_exists::03_observation_window_policy.csv,PASS,03_observation_window_policy.csv
+required_output_exists::03_week_feature_inventory.csv,PASS,03_week_feature_inventory.csv
+required_output_exists::03_duration_distribution.csv,PASS,03_duration_distribution.csv
+required_output_exists::03_duration_anomaly_by_group.csv,PASS,03_duration_anomaly_by_group.csv
+required_output_exists::03_duration_policy_options.csv,PASS,03_duration_policy_options.csv
+required_output_exists::03_timing_allowed_for_modeling_policy.csv,PASS,03_timing_allowed_for_modeling_policy.csv
+required_output_exists::03_safe_unsafe_wording.csv,PASS,03_safe_unsafe_wording.csv
+required_output_exists::03_open_risks_for_next_steps.csv,PASS,03_open_risks_for_next_steps.csv
+required_output_exists::README.md,PASS,README.md

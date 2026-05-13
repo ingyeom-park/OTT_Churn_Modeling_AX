@@ -1,0 +1,8 @@
+﻿future_column_name,required,definition,allowed_when
+repurchase_score,Y,model score for P(is_repurchase=1),modeling step after contract
+churn_risk,Y,1 - repurchase_score,operational risk ranking after score creation
+repurchase_score_decile,Y,decile sorted by repurchase_score,future ranking table
+churn_risk_decile,Y,decile sorted by churn_risk,future ranking table
+predicted_repurchase_label,conditional,threshold-based label,only if threshold is explicitly defined later
+final_segment,Y,one representative final segment after priority rule,future segmentation step
+segment_priority_rank,Y,priority rule rank for segment assignment,future segmentation step

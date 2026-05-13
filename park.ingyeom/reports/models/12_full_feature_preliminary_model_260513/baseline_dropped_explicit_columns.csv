@@ -1,0 +1,10 @@
+﻿dropped_explicit_cols
+USER_KEY
+product_code
+billing_method
+payment_device
+gender
+reg_date
+end_date
+price
+max_screen

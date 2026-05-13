@@ -1,0 +1,22 @@
+﻿item,actual_value,previous_value,match_previous,status,note
+source_file_exists,True,,,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_01_folder_exists,True,,,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513
+previous_02_folder_exists,True,,,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513
+previous_03_folder_exists,True,,,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513
+row_count,23343,,,RECORDED,recomputed from source CSV
+column_count,91,,,RECORDED,recomputed from source CSV
+total_missing_count,0,,,RECORDED,recomputed from source CSV
+unique_USER_KEY_count,23134,,,RECORDED,recomputed from source CSV
+duplicated_USER_KEY_extra_rows,209,,,RECORDED,row_count - unique USER_KEY count
+duplicated_full_row_count,48,,,RECORDED,counted only; not removed
+duration_lt_21_count,238,,,RECORDED,computed from end_date - reg_date
+duration_eq_0_count,90,,,RECORDED,computed from end_date - reg_date
+duration_21_30_count,0,,,RECORDED,computed from end_date - reg_date
+duration_gte_21_count,23105,,,RECORDED,computed from end_date - reg_date
+previous_output::01_promotion_target_2x2.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_promotion_target_2x2.csv
+previous_output::01_duration_anomaly_audit.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_duration_anomaly_audit.csv
+previous_output::02_target_contract.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513\02_target_contract.csv
+previous_output::02_score_orientation_policy.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513\02_score_orientation_policy.csv
+previous_output::03_observation_window_policy.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513\03_observation_window_policy.csv
+previous_output::03_duration_anomaly_by_group.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513\03_duration_anomaly_by_group.csv
+previous_output::03_final_checks.csv,FOUND,,,FOUND,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513\03_final_checks.csv

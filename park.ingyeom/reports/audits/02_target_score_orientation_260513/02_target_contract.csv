@@ -1,0 +1,5 @@
+﻿contract_item,decision,meaning,required_wording
+target_column,is_repurchase,model target column,Keep is_repurchase as the target
+positive_class,is_repurchase = 1,repurchase / renewal / next-month continuation proxy,is_repurchase=1 means repurchase
+negative_class,is_repurchase = 0,non-repurchase / churn-like outcome / no next-month continuation proxy,"is_repurchase=0 is an operational churn-like proxy, not confirmed cancellation reason"
+target_name_policy,do not rename target to churn,model evaluation remains against is_repurchase=1 unless explicitly changed later,future churn risk is transformed from repurchase score

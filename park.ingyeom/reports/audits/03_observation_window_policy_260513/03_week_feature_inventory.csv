@@ -1,0 +1,92 @@
+﻿column_name,dtype,timing_family,likely_allowed_by_observation_policy,reason
+USER_KEY,object,id_target_split_date,no,"identifier, target, split variable, or raw date field"
+product_code,object,membership_or_static,review,static/context column; later business/timing review required
+price,float64,membership_or_static,review,static/context column; later business/timing review required
+billing_method,int64,membership_or_static,review,static/context column; later business/timing review required
+max_screen,float64,membership_or_static,review,static/context column; later business/timing review required
+is_promotion,int64,id_target_split_date,no,"identifier, target, split variable, or raw date field"
+is_churn_prevented,int64,membership_or_static,review,static/context column; later business/timing review required
+payment_device,object,membership_or_static,review,static/context column; later business/timing review required
+is_user_verified,int64,membership_or_static,review,static/context column; later business/timing review required
+gender,object,membership_or_static,review,static/context column; later business/timing review required
+age,float64,membership_or_static,review,static/context column; later business/timing review required
+reg_date,object,id_target_split_date,no,"identifier, target, split variable, or raw date field"
+reg_hour,int64,unknown_review_required,review,cannot classify from name alone
+end_date,object,id_target_split_date,no,"identifier, target, split variable, or raw date field"
+is_repurchase,int64,id_target_split_date,no,"identifier, target, split variable, or raw date field"
+is_standard,int64,unknown_review_required,review,cannot classify from name alone
+is_premium,int64,unknown_review_required,review,cannot classify from name alone
+age_group,int64,membership_or_static,review,static/context column; later business/timing review required
+is_female,int64,unknown_review_required,review,cannot classify from name alone
+is_male,int64,unknown_review_required,review,cannot classify from name alone
+reg_is_weekend,int64,unknown_review_required,review,cannot classify from name alone
+reg_hour_morning,int64,unknown_review_required,review,cannot classify from name alone
+reg_hour_afternoon,int64,unknown_review_required,review,cannot classify from name alone
+reg_hour_evening,int64,unknown_review_required,review,cannot classify from name alone
+reg_hour_night,int64,unknown_review_required,review,cannot classify from name alone
+payment_is_mobile,int64,membership_or_static,review,static/context column; later business/timing review required
+payment_is_pc,int64,membership_or_static,review,static/context column; later business/timing review required
+payment_is_android,int64,membership_or_static,review,static/context column; later business/timing review required
+payment_is_ios,int64,membership_or_static,review,static/context column; later business/timing review required
+total_watch_count,int64,total_or_all_period,review,total/all-period name does not prove day 0-20 only
+unique_movie,int64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+watch_days,int64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+active_ratio,float64,unknown_review_required,review,cannot classify from name alone
+total_watch_time(min),int64,total_or_all_period,review,total/all-period name does not prove day 0-20 only
+watch_per_day,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+avg_watch_time(min),float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+median_watch_time(min),float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+std_watch_time(min),float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+avg_daily_watch_time(min),float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+max_watch_time(min),int64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+max_daily_watch_time(min),int64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+max_daily_sessions,int64,unknown_review_required,review,cannot classify from name alone
+recency,int64,recency,review,recency feature needs timing proof
+avg_gap_between_watch_days,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+avg_gap_w1_watch_days,float64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+avg_gap_w2_watch_days,float64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+avg_gap_w3_watch_days,float64,week3_or_w3,yes,explicit week 3 naming; timing-policy candidate only
+max_inactive_gap_days,int64,unknown_review_required,review,cannot classify from name alone
+avg_rewatch_ratio,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+weekend_watch_ratio,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+watch_ratio_under_1m,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+watch_ratio_under_5m,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+is_cold_start_3d,int64,unknown_review_required,review,cannot classify from name alone
+is_cold_start_7d,int64,unknown_review_required,review,cannot classify from name alone
+movie_per_active_day,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+max_day_share,float64,unknown_review_required,review,cannot classify from name alone
+day_count_over_3times,int64,unknown_review_required,review,cannot classify from name alone
+watch_time(min)_w1,int64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+watch_time(min)_w2,int64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+watch_time(min)_w3,int64,week3_or_w3,yes,explicit week 3 naming; timing-policy candidate only
+watch_session_w1,int64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+watch_session_w2,int64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+watch_session_w3,int64,week3_or_w3,yes,explicit week 3 naming; timing-policy candidate only
+retention_w2_ratio,float64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+retention_w3_ratio,float64,week3_or_w3,yes,explicit week 3 naming; timing-policy candidate only
+diff_between_w2_w1,int64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+diff_between_w3_w1,int64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+diff_between_w3_w2,int64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+is_w1_over_50pct,int64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+is_w2_over_50pct,int64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+is_w3_over_50pct,int64,week3_or_w3,yes,explicit week 3 naming; timing-policy candidate only
+is_only_w1,int64,week1_or_w1,yes,explicit week 1 naming; timing-policy candidate only
+is_only_w2,int64,week2_or_w2,yes,explicit week 2 naming; timing-policy candidate only
+is_only_w3,int64,week3_or_w3,yes,explicit week 3 naming; timing-policy candidate only
+new_movie_in_90d_ratio,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+new_movie_in_180d_ratio,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+new_movie_in_365d_ratio,float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+old_movie_ratio(5y),float64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+avg_ott_release_year,float64,unknown_review_required,review,cannot classify from name alone
+genre_diversity_count,int64,content_without_explicit_week,review,content/behavior column has no explicit week in name
+action_adventure_ratio,float64,unknown_review_required,review,cannot classify from name alone
+family_animation_ratio,float64,unknown_review_required,review,cannot classify from name alone
+drama_ratio,float64,unknown_review_required,review,cannot classify from name alone
+thriller_crime_ratio,float64,unknown_review_required,review,cannot classify from name alone
+sf_fantasy_ratio,float64,unknown_review_required,review,cannot classify from name alone
+comedy_ratio,float64,unknown_review_required,review,cannot classify from name alone
+romance_ratio,float64,unknown_review_required,review,cannot classify from name alone
+horror_ratio,float64,unknown_review_required,review,cannot classify from name alone
+documentary_ratio,float64,unknown_review_required,review,cannot classify from name alone
+historical_war_ratio,float64,unknown_review_required,review,cannot classify from name alone
+other_ratio,float64,unknown_review_required,review,cannot classify from name alone

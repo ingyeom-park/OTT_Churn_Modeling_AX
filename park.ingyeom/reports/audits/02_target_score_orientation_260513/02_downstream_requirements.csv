@@ -1,0 +1,7 @@
+﻿requirement,status,detail
+future models must use is_repurchase as target,LOCKED,positive class is is_repurchase=1
+future score column must be repurchase_score or repurchase_probability,LOCKED,higher means higher repurchase probability
+future business churn risk must be churn_risk = 1 - repurchase_score,LOCKED,higher means higher non-repurchase risk
+future decile table must state score orientation,LOCKED,repurchase_score_decile vs churn_risk_decile
+groupwise models must not include is_promotion as a feature,LOCKED,is_promotion is already used as split
+do not create predicted_repurchase_label without explicit threshold,LOCKED,threshold metrics are not part of step 02

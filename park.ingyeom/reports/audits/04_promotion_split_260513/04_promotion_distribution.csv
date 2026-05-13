@@ -1,0 +1,4 @@
+﻿is_promotion,n,rate,unique_USER_KEY_count,duplicated_USER_KEY_extra_rows,duplicated_full_rows
+0,11388,0.4878550314869554,11221,167,47
+1,11955,0.5121449685130446,11951,4,1
+TOTAL_CHECK,23343,1.0,23134,209,48

@@ -1,0 +1,11 @@
+﻿item,actual_value,status,note,previous_file,path,exists
+source_file_exists,True,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv,,,
+previous_01_folder_exists,True,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513,,,
+row_count,23343,RECORDED,recomputed from source CSV,,,
+column_count,91,RECORDED,recomputed from source CSV,,,
+unique_USER_KEY_count,23134,RECORDED,analysis unit warning basis,,,
+duplicated_USER_KEY_extra_rows,209,RECORDED,row_count - unique USER_KEY count,,,
+duplicated_full_row_count,48,RECORDED,policy review later; no removal in this step,,,
+,,FOUND,,01_data_contract_summary.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_data_contract_summary.csv,True
+,,FOUND,,01_expected_vs_actual_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_expected_vs_actual_checks.csv,True
+,,FOUND,,01_final_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_final_checks.csv,True

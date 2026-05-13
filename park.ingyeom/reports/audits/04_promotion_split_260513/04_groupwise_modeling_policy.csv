@@ -1,0 +1,5 @@
+﻿experiment_name,dataset,is_promotion_feature_allowed,purpose,caution
+overall_with_promotion,all rows,yes/review,test whether promotion label adds predictive signal,"descriptive/predictive only, not causal"
+overall_without_promotion,all rows,no,test behavioral/context signal without explicit promotion label,compare against overall_with_promotion later
+promotion_only,is_promotion=1 rows,no,identify signals within promotion rows,is_promotion is constant after split
+nonpromotion_only,is_promotion=0 rows,no,identify signals within non-promotion rows,is_promotion is constant after split

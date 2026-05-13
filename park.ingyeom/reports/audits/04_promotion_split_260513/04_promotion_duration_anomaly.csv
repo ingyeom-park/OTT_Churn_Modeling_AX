@@ -1,0 +1,11 @@
+﻿grouping,group_value,metric,row_count,count,rate_within_group
+is_promotion,is_promotion=0,duration_lt_21,11388,187,0.016420793818054093
+is_promotion,is_promotion=0,duration_eq_0,11388,69,0.006059009483667018
+is_promotion,is_promotion=0,duration_1_20,11388,118,0.010361784334387074
+is_promotion,is_promotion=0,duration_21_30,11388,0,0.0
+is_promotion,is_promotion=0,duration_gte_21,11388,11201,0.9835792061819459
+is_promotion,is_promotion=1,duration_lt_21,11955,51,0.004265997490589712
+is_promotion,is_promotion=1,duration_eq_0,11955,21,0.0017565872020075283
+is_promotion,is_promotion=1,duration_1_20,11955,30,0.002509410288582183
+is_promotion,is_promotion=1,duration_21_30,11955,0,0.0
+is_promotion,is_promotion=1,duration_gte_21,11955,11904,0.9957340025094102

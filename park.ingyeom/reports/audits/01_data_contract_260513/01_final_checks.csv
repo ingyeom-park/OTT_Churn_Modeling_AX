@@ -1,0 +1,34 @@
+﻿check,status,evidence
+source_file_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+output_folder_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513
+notebook_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\01_data_contract_260513\01_data_contract_260513.ipynb
+no_files_written_outside_park_ingyeom,PASS,all tracked written files are inside park.ingyeom
+no_py_script_created,PASS,tracked written files contain no .py script
+no_existing_notebook_modified,PASS,target notebook was newly created for this goal; no existing notebook was edited by notebook code
+no_source_csv_modified,PASS,source file size and mtime unchanged
+no_modeling_performed,PASS,"no estimator, fit, predict, model training, or feature set creation performed"
+no_shap_performed,PASS,no shap import or SHAP computation performed
+row_count_recorded,PASS,23343
+column_count_recorded,PASS,91
+total_missing_recorded,PASS,0
+user_key_duplication_recorded,PASS,01_user_key_duplicate_audit.csv
+target_distribution_recorded,PASS,01_target_distribution.csv
+promotion_distribution_recorded,PASS,01_promotion_distribution.csv
+promotion_target_2x2_recorded,PASS,01_promotion_target_2x2.csv
+date_parse_audit_recorded,PASS,01_date_parse_audit.csv
+duration_anomaly_recorded,PASS,01_duration_anomaly_audit.csv
+expected_vs_actual_checks_created,PASS,01_expected_vs_actual_checks.csv
+readme_created,PASS,README.md
+required_output_exists::01_data_contract_summary.csv,PASS,01_data_contract_summary.csv
+required_output_exists::01_column_inventory.csv,PASS,01_column_inventory.csv
+required_output_exists::01_target_distribution.csv,PASS,01_target_distribution.csv
+required_output_exists::01_promotion_distribution.csv,PASS,01_promotion_distribution.csv
+required_output_exists::01_promotion_target_2x2.csv,PASS,01_promotion_target_2x2.csv
+required_output_exists::01_date_parse_audit.csv,PASS,01_date_parse_audit.csv
+required_output_exists::01_duration_distribution.csv,PASS,01_duration_distribution.csv
+required_output_exists::01_duration_anomaly_audit.csv,PASS,01_duration_anomaly_audit.csv
+required_output_exists::01_user_key_duplicate_audit.csv,PASS,01_user_key_duplicate_audit.csv
+required_output_exists::01_user_key_duplicate_samples.csv,PASS,01_user_key_duplicate_samples.csv
+required_output_exists::01_expected_vs_actual_checks.csv,PASS,01_expected_vs_actual_checks.csv
+required_output_exists::README.md,PASS,README.md

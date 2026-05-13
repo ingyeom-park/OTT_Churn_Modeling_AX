@@ -1,0 +1,4 @@
+﻿contract_item,value,interpretation,allowed_in_overall_model_candidate,allowed_in_promotion_only_model,allowed_in_nonpromotion_only_model,reason
+split_column,is_promotion,top-level analysis split variable,yes/review,no,no,project is promotion-centric; within a split the value is constant
+non_promotion_value,0,non-promotion group,yes/review,no,no,"split indicator, not groupwise feature"
+promotion_value,1,100원딜 / promotion group,yes/review,no,no,"split indicator, not groupwise feature"
