@@ -1,0 +1,5 @@
+﻿unsafe_expression,safer_alternative,reason
+100원딜 때문에 재구매율이 낮아졌다.,프로모션 집단과 비프로모션 집단 사이에 재구매율 차이가 관찰되었다.,descriptive comparison only; no causal inference
+is_promotion은 그냥 feature 하나다.,"is_promotion은 이번 프로젝트의 최상위 분석 split이며, 전체 모델에서는 비교 실험용 feature로 볼 수 있지만 집단별 모델에서는 feature로 넣지 않는다.",top-level split variable
+프로모션 고객은 이탈 성향이 높다.,광일 v2 파일에서 프로모션 집단은 비프로모션 집단보다 낮은 재구매율이 관찰되었다.,avoid trait-like causal wording
+프로모션별 모델은 is_promotion도 같이 넣고 돌린다.,프로모션별로 데이터를 나눈 뒤에는 is_promotion 값이 상수이므로 feature로 넣지 않는다.,constant after split

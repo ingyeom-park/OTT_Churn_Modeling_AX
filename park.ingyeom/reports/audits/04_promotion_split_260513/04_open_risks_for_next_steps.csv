@@ -1,0 +1,9 @@
+﻿risk,carry_forward_to,current_policy
+"promotion/non-promotion difference is descriptive, not causal",all reporting,no causal wording
+is_promotion should be excluded from groupwise models,promotion-only and nonpromotion-only modeling,documented as forbidden in groupwise models
+duration anomaly distribution differs by promotion and needs later cohort policy review,cohort policy,flag and compare only
+duration < 21 rows remain included for now,cohort/final feature step,no exclusion
+duplicated full rows remain included for now,deduplication policy,no duplicate removal
+USER_KEY duplication means analysis unit is not unique-user-level,all reporting,row-level / subscription-event-level wording
+overall model with is_promotion and without is_promotion should be compared later in modeling,modeling experiments,contract only
+promotion split must be combined with target to create 2x2 EDA in step 09,2x2 EDA,basic 2x2 table created here

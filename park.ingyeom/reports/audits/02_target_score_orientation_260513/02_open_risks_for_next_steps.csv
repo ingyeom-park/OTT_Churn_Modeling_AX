@@ -1,0 +1,8 @@
+﻿risk,carry_forward_to,current_policy
+USER_KEY duplication means analysis unit is not unique-user-level,all future reporting,use row-level / subscription-event-level wording
+duplicated_full_row_count was 48 in step 02 recomputation and needs policy review later,deduplication policy,no duplicated rows removed in step 02
+duration < 21 rows remain included and need policy review later,03_observation_window_policy_260513,no duration rows excluded in step 02
+end_date/duration timing still needs review in leakage/timing audit,leakage/timing audit,not audited in step 02
+is_churn_prevented timing still needs review in leakage/timing audit,leakage/timing audit,not audited in step 02
+preliminary full-feature model outputs must not be called L0 baseline,baseline growth history,step 02 creates no model outputs
+groupwise models must not include is_promotion as a feature because is_promotion is already used as split,promotion/non-promotion modeling,documented as downstream requirement

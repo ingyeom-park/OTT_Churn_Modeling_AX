@@ -1,0 +1,10 @@
+﻿policy_item,definition,allowed_use,caution
+anchor_date,reg_date,subscription start anchor,must parse successfully
+day_0,day 0 is reg_date,relative day calculation,absolute dates vary by row
+week_1,day 0 to day 6,timing-policy candidate feature period,not yet feature engineering
+week_2,day 7 to day 13,timing-policy candidate feature period,not yet feature engineering
+week_3,day 14 to day 20,timing-policy candidate feature period,not yet feature engineering
+scoring_point,day 21,future score assignment point,no score created in this step
+response_period,day 21 to before subscription end,business action period,response-period behavior must not become model feature
+target_observation,next-month repurchase proxy through is_repurchase,target only,not a causal outcome
+forbidden_feature_period,4th week / response-period behavior,forbidden for modeling features,timing leakage and operational logic risk

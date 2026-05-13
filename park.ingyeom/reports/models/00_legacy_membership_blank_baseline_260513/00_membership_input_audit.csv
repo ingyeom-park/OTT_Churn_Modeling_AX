@@ -1,0 +1,7 @@
+﻿check_name,value,note
+row_count,24074.0,전체 행 수
+unique_user_count,23679.0,고유 uno 수
+duplicated_user_rows,656.0,중복 uno에 속한 행 수
+duration_lt_21_count,650.0,21일 미만 단기 종료 후보 행 수
+duration_lt_21_rate,0.0270000830771787,21일 미만 단기 종료 후보 비율
+duration_0_count,498.0,duration 0일 행 수

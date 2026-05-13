@@ -1,0 +1,44 @@
+﻿check,status,evidence
+source_file_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_01_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513
+previous_02_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513
+previous_03_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513
+notebook_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\04_promotion_split_260513\04_promotion_split_260513.ipynb
+output_folder_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\04_promotion_split_260513
+no_files_written_outside_park_ingyeom,PASS,all tracked writes are inside park.ingyeom
+no_py_script_created,PASS,no tracked .py files
+no_existing_notebook_modified,PASS,new step 04 notebook only
+no_source_csv_modified,PASS,source size and mtime unchanged
+no_modeling_performed,PASS,no estimator fit/train or model object created
+no_predictions_created,PASS,no prediction column or score output created
+no_shap_performed,PASS,no shap import or computation
+no_optuna_performed,PASS,no optuna import or tuning
+no_feature_engineering_performed,PASS,no new feature columns or model-ready dataset created
+no_rows_excluded,PASS,all source rows retained for audit computations
+no_duplicate_rows_removed,PASS,"duplicates only counted, not removed"
+is_promotion_column_exists,PASS,is_promotion
+is_repurchase_column_exists,PASS,is_repurchase
+promotion_split_contract_created,PASS,04_promotion_split_contract.csv
+promotion_distribution_created,PASS,04_promotion_distribution.csv
+promotion_target_2x2_created,PASS,04_promotion_target_2x2.csv
+promotion_repurchase_rate_comparison_created,PASS,04_promotion_repurchase_rate_comparison.csv
+promotion_duration_anomaly_created,PASS,04_promotion_duration_anomaly.csv
+groupwise_modeling_policy_created,PASS,04_groupwise_modeling_policy.csv
+is_promotion_forbidden_in_groupwise_models_documented,PASS,promotion_only and nonpromotion_only have is_promotion_feature_allowed=no
+safe_unsafe_wording_created,PASS,04_safe_unsafe_wording.csv
+open_risks_created,PASS,04_open_risks_for_next_steps.csv
+readme_created,PASS,README.md
+note_md_updated,PASS,C:\Code\ott-churn-prediction\park.ingyeom\note.md
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\04_promotion_split_260513_review_package.zip
+required_output_exists::04_input_consistency_check.csv,PASS,04_input_consistency_check.csv
+required_output_exists::04_promotion_split_contract.csv,PASS,04_promotion_split_contract.csv
+required_output_exists::04_promotion_distribution.csv,PASS,04_promotion_distribution.csv
+required_output_exists::04_promotion_target_2x2.csv,PASS,04_promotion_target_2x2.csv
+required_output_exists::04_promotion_repurchase_rate_comparison.csv,PASS,04_promotion_repurchase_rate_comparison.csv
+required_output_exists::04_promotion_duration_anomaly.csv,PASS,04_promotion_duration_anomaly.csv
+required_output_exists::04_promotion_duration_target_cross.csv,PASS,04_promotion_duration_target_cross.csv
+required_output_exists::04_groupwise_modeling_policy.csv,PASS,04_groupwise_modeling_policy.csv
+required_output_exists::04_safe_unsafe_wording.csv,PASS,04_safe_unsafe_wording.csv
+required_output_exists::04_open_risks_for_next_steps.csv,PASS,04_open_risks_for_next_steps.csv
+required_output_exists::README.md,PASS,README.md

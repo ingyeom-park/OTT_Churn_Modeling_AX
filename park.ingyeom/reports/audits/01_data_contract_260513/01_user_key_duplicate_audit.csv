@@ -1,0 +1,12 @@
+﻿metric,value,count
+duplicated_USER_KEY_key_count,143,
+rows_belonging_to_duplicated_USER_KEY_values,352,
+duplicated_USER_KEY_row_count_extra_rows,209,
+sample_duplicate_rows_saved,100,
+duplicate_count_distribution,1,22991.0
+duplicate_count_distribution,2,122.0
+duplicate_count_distribution,3,9.0
+duplicate_count_distribution,4,9.0
+duplicate_count_distribution,10,1.0
+duplicate_count_distribution,14,1.0
+duplicate_count_distribution,21,1.0

@@ -1,0 +1,13 @@
+﻿metric,value
+source_file_exists,True
+source_file_path,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_name,(광일)Membership_v2_with_derived_features.csv
+source_file_size_bytes,10524468
+row_count,23343
+column_count,91
+total_missing_count,0
+duplicated_full_row_count,48
+unique_USER_KEY_count,23134
+duplicated_USER_KEY_row_count,209
+duplicated_USER_KEY_key_count,143
+rows_belonging_to_duplicated_USER_KEY_values,352
