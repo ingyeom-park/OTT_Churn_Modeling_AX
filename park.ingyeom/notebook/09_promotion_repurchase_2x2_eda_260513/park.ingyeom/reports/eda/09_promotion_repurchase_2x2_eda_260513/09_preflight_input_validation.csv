@@ -1,0 +1,2 @@
+﻿expected_repo_root,actual_repo_root,repo_root_match,source_file_exists,required_06_files_exist,required_05b_files_exist,required_07_files_exist,required_08_success_files_exist,required_08b_files_exist,note_md_exists,source_file_inside_park_ingyeom,output_folder_inside_park_ingyeom,notebook_inside_park_ingyeom,zip_folder_inside_park_ingyeom,can_proceed
+C:/Code/ott-churn-prediction,C:/Code/ott-churn-prediction,True,False,False,False,False,False,False,False,True,True,True,True,False

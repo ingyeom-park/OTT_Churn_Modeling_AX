@@ -476,3 +476,139 @@ duration < 21 행은 1~3주차 관측창을 완성하지 못한 행이다.
 - Interpretation limits: descriptive only, no p-values, no statistical testing, no modeling, no causal claim, no Referral measurement.
 - Risks to carry forward: promotion 차이는 인과가 아니며, duplicated USER_KEY/cross-promotion overlap은 row-level 언어로 유지해야 한다. review columns는 후속 resolution 또는 sensitivity design 필요. 09 이후 단계에서 08 입력을 사용할 경우 반드시 `run_20260514_022322` 기준 산출물을 사용한다.
 - Next step recommendation: 09_promotion_repurchase_2x2_eda_260513.
+
+## 2026-05-14 11:36:44 - 08b_promotion_vs_nonpromotion_eda_audit_patch_260513
+
+- purpose: 08 해석 위험 패치, 성공 08 run folder source lock, 09 handoff.
+- files created: 08b_preflight_input_validation.csv, 08b_08_run_folder_inventory.csv, 08b_08_source_of_truth_lock.csv, 08b_key_metric_recomputation.csv, 08b_internal_consistency_audit.csv, 08b_conservative_feature_difference_interpretation_audit.csv, 08b_promotion_feature_difference_negative_finding.csv, 08b_promotion_target_signal_preview_from_08.csv, 08b_AARRR_summary_interpretability_audit.csv, 08b_AARRR_summary_safe_replacement.csv, 08b_review_column_exclusion_validation.csv, 08b_interpretation_guardrail.csv, 08b_handoff_to_09_question_design.csv, 08b_decision_summary.csv, 08b_safe_unsafe_wording.csv, 08b_open_risks_for_next_steps.csv, README.md
+- valid 08 run folder: reports/eda/08_promotion_vs_nonpromotion_eda_260513/run_20260514_022322
+- recomputed key metrics: primary=23,079; nonpromotion=11,175; promotion=11,904; nonpromotion repurchase rate=0.762416; promotion repurchase rate=0.675151; max abs SMD=0.026469; SMD buckets={'negligible': 22}
+- final interpretation of 08: 재구매율 차이는 descriptive하게 관찰되지만, conservative feature 평균 차이는 전반적으로 negligible이므로 행동 프로필이 크게 다르다고 주장하지 않는다.
+- restricted 08 outputs: 08_AARRR_summary_by_promotion.csv raw stage mean averages; base-folder 08 artifacts outside run_20260514_022322; review columns as standard feature interpretation.
+- whether 08 should be rerun: no
+- checks passed or failed: audit_fail_count=0; metric_mismatch_count=0; accept_08_structure=yes
+- risks to carry forward: causal language forbidden; referral not observed; review columns excluded; AARRR raw stage averages restricted; 09 must not overclaim.
+- next step recommendation: 09_promotion_repurchase_2x2_eda_260513
+
+
+---
+
+## 2026-05-14 12:07:36 | step: 09_promotion_repurchase_2x2_eda_260513
+
+### purpose
+promotion × repurchase 2x2 구조에서 promotion/non-promotion 각 내부의 재구매/미재구매 행을 구분하는 보수적 행동 신호를 기술적으로 확인했다.
+
+### files created
+- 09_08_vs_09_contrast_summary.csv
+- 09_2x2_cohort_definition.csv
+- 09_2x2_structure_summary.csv
+- 09_AARRR_2x2_interpretation_summary.csv
+- 09_cohort_and_08b_consistency_check.csv
+- 09_conservative_feature_distribution_by_2x2.csv
+- 09_cross_group_target_signal_comparison.csv
+- 09_descriptive_findings_summary.csv
+- 09_open_risks_for_next_steps.csv
+- 09_preflight_input_validation.csv
+- 09_safe_unsafe_wording.csv
+- 09_top_target_signals_by_group.csv
+- 09_week_stage_signal_summary.csv
+- 09_within_nonpromotion_target_difference_summary.csv
+- 09_within_promotion_target_difference_summary.csv
+- README.md
+
+### 2x2 cohort counts
+- nonpromotion_repurchase: 8520
+- nonpromotion_nonrepurchase: 2655
+- promotion_repurchase: 8037
+- promotion_nonrepurchase: 3867
+
+### key within-promotion target signals
+- watch_time(min)_w3 | SMD=0.6913 | large
+- watch_session_w3 | SMD=0.6627 | large
+- is_only_w1 | SMD=-0.5487 | large
+
+### key within-nonpromotion target signals
+- watch_session_w3 | SMD=0.7501 | large
+- watch_time(min)_w3 | SMD=0.7434 | large
+- is_only_w1 | SMD=-0.6689 | large
+
+### 08 vs 09 contrast
+- 09 target-internal signal이 08 promotion-average signal보다 큰 feature 수: 22
+- 해석: 기술적 SMD 비교이며 인과, 유의성, 예측 성능을 뜻하지 않는다.
+
+### checks
+- final check status: PASS
+- primary main cohort rows: 23079
+- conservative feature count: 22
+
+### interpretation limits
+- 모델링, 예측, SHAP, Optuna, p-value, 통계적 유의성 검정은 수행하지 않았다.
+- review columns는 표준 보수 feature 비교에 사용하지 않았다.
+- row-level subscription-event 단위이며 unique-user 분석으로 말하면 안 된다.
+- promotion 효과에 대한 인과 주장은 금지한다.
+
+### risks to carry forward
+- SMD는 descriptive effect size로만 사용해야 한다.
+- duplicated USER_KEY와 cross-promotion overlap 때문에 row-level 언어를 유지해야 한다.
+- step 10에서 분포 모양과 안정성을 더 확인해야 한다.
+
+### next step recommendation
+10_feature_eda_260513
+
+## 2026-05-14 | raw view window validation 사전 검산
+
+- Purpose: 광일 마스터의 행동 feature가 정말 1~3주차(day0~20) 기준인지 확인하기 위해 raw `Membership_train.csv`, `View_History_v2.csv`, `User_Mapping_v2.csv`, `Movie_Master_v2.csv`와 대조했다.
+- Key result: raw `View_History_v2.csv`에는 day21 이후 시청 로그가 존재한다. day21+ matched view rows는 17,621건, 관련 membership rows는 6,044행, watch_time 합계는 767,791분이다.
+- Main validation: master의 `watch_time(min)_w1/w2/w3`, `watch_session_w1/w2/w3`, `total_watch_time(min)`, `total_watch_count`는 raw day0~20 재계산값과 23,343행 전체에서 일치했다.
+- Interpretation: `total_watch_time(min)`과 `total_watch_count`라는 이름은 전체 기간처럼 보일 수 있으나, 실제 계산값은 w1+w2+w3, 즉 day0~20 관측창 기준이다.
+- Additional validation: `unique_movie`, `watch_days`, `active_ratio`, `recency`, `watch_per_day`, 평균/중앙/표준편차 시청시간, 일별 평균/최대 시청시간, 최대 일별 세션도 day0~20 기준 재계산과 일치했다.
+- Content validation: `avg_ott_release_year`는 day0~20 raw view와 Movie_Master_v2를 결합한 watch_time 가중평균과 일치했다. 장르 ratio 대부분도 day0~20 기준으로 일치했다.
+- Remaining caveat: 일부 `action_adventure_ratio`, `family_animation_ratio` 불일치는 4주차 포함 문제가 아니라 Movie_Master_v2의 동일 MOVIE_NUM 다중 category 충돌에서 비롯된 것으로 보인다. `new_movie_in_90d/180d/365d_ratio`는 release-month 기준 convention 확인이 추가로 필요하다.
+- Decision: usage feature 기준으로는 광일 마스터가 1~3주차 관측창을 사용했다는 근거가 강하다. 다만 이 검증은 정식 산출물로 남기기 위해 `09b_raw_view_window_validation_260514` 단계로 공식화하는 것이 좋다.
+
+## 2026-05-14 13:01:52 | 09b_raw_view_window_validation_260514
+
+- purpose: 광일 master의 usage/content feature가 raw view day0~20, 즉 1~3주 관측창 기준인지 공식 검증했다.
+- files created: notebook 1개, audit CSV 20개, README.md, review package zip.
+- raw view day21+ presence: day21+ matched view rows 17,621건, source rows 6,044행, watch_time 합계 767,791분.
+- core usage day0~20 validation result: core usage 8개 비교의 mismatch 합계 0건.
+- day21+ leakage contrast result: day0~20 기준과 day21+ 포함 기준을 분리 비교했으며, 상세 결과는 `09b_day21_plus_leakage_contrast_test.csv`에 저장했다.
+- membership-master alignment result: raw Membership_train과 master의 key/date/target 정렬 검증을 `09b_membership_master_alignment_check.csv`에 저장했다.
+- content validation result: avg release year, genre ratio, new movie ratio를 day0~20 content join 기준으로 검토했다. genre mismatch 합계는 206건이다.
+- unresolved caveats: derived unresolved count 1개, new movie ratio exact formula 확인 여부 False. Movie_Master_v2 중복 MOVIE_NUM/category 충돌 가능성은 계속 관리한다.
+- checks passed or failed: 최종 PASS/FAIL은 `09b_final_checks.csv` 기준으로 확인한다.
+- interpretation limits: 모델링, 예측, SHAP, Optuna, p-value, 통계적 유의성 검정, 인과 주장은 수행하지 않았다.
+- risks to carry forward: raw View_History에는 day21+가 있으므로 raw 자체가 3주 제한 데이터라고 말하면 안 된다. 핵심은 master feature가 day0~20 기준인지다.
+- next step recommendation: core usage window validation이 PASS이면 `10_feature_eda_260513`로 진행한다.
+
+
+## 2026-05-14 13:04:27 | 09b_raw_view_window_validation_260514
+
+- purpose: 광일 master의 usage/content feature가 raw view day0~20, 즉 1~3주 관측창 기준인지 공식 검증했다.
+- files created: notebook 1개, audit CSV 20개, README.md, review package zip.
+- raw view day21+ presence: day21+ matched view rows 17,621건, source rows 6,044행, watch_time 합계 767,791분.
+- core usage day0~20 validation result: core usage 8개 비교의 mismatch 합계 0건.
+- day21+ leakage contrast result: day0~20 기준과 day21+ 포함 기준을 분리 비교했으며, 상세 결과는 `09b_day21_plus_leakage_contrast_test.csv`에 저장했다.
+- membership-master alignment result: raw Membership_train과 master의 key/date/target 정렬 검증을 `09b_membership_master_alignment_check.csv`에 저장했다.
+- content validation result: avg release year, genre ratio, new movie ratio를 day0~20 content join 기준으로 검토했다. genre mismatch 합계는 206건이다.
+- unresolved caveats: derived unresolved count 1개, new movie ratio exact formula 확인 여부 False. Movie_Master_v2 중복 MOVIE_NUM/category 충돌 가능성은 계속 관리한다.
+- checks passed or failed: 최종 PASS/FAIL은 `09b_final_checks.csv` 기준으로 확인한다.
+- interpretation limits: 모델링, 예측, SHAP, Optuna, p-value, 통계적 유의성 검정, 인과 주장은 수행하지 않았다.
+- risks to carry forward: raw View_History에는 day21+가 있으므로 raw 자체가 3주 제한 데이터라고 말하면 안 된다. 핵심은 master feature가 day0~20 기준인지다.
+- next step recommendation: core usage window validation이 PASS이면 `10_feature_eda_260513`로 진행한다.
+
+## 2026-05-14 13:50:02 - 10_feature_eda_260513
+
+- purpose: Step 09 target-internal signal 뒤의 분포 형태를 conservative safe features 기준으로 확인했다.
+- files created: 21 CSV audit outputs, README.md, matplotlib PNG figures, executed notebook, review zip.
+- actual_output_folder: C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513
+- actual_figure_folder: C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+- focus features analyzed: watch_time(min)_w3, watch_session_w3, is_only_w1, is_w1_over_50pct, retention_w3_ratio, retention_w2_ratio, diff_between_w3_w1, diff_between_w3_w2, diff_between_w2_w1, watch_time(min)_w2, watch_session_w2, is_cold_start_3d, is_cold_start_7d
+- key distribution findings: 3주차 시청시간/세션, is_only_w1, retention/diff feature를 중심으로 2x2 분포 차이를 확인했다.
+- zero-inflation/outlier caveats: 일부 feature는 zero/nonzero 비율 또는 상위 tail 영향 가능성이 있어 평균만으로 해석하지 않는다.
+- week3/retention findings: 재구매/미재구매 내부 비교에서 w3 사용량과 1주차만 시청 패턴을 우선 확인할 필요가 있다.
+- supports proceeding to 11: yes, descriptive EDA 기준으로 11_baseline_growth_history_260513 진행 가능. 단 review-column resolution은 별도 선택 사항이다.
+- checks passed or failed: see 10_final_checks.csv.
+- interpretation limits: no causality, no p-value, no modeling, no final segment threshold.
+- risks to carry forward: review columns excluded, content/context signals limited, feature overlap needs later care, USER_KEY duplication requires group-aware CV later.
+- next step recommendation: 11_baseline_growth_history_260513.

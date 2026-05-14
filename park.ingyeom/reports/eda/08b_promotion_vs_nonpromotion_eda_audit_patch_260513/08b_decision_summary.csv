@@ -1,0 +1,2 @@
+﻿accept_08_structure,rerun_08_full,patch_interpretation,proceed_to_09,valid_08_run_folder,whether_08_should_be_accepted,whether_08_should_be_rerun,whether_08_needs_full_replacement,whether_08_needs_interpretation_guardrail,recommended_next_step,reason
+yes,no,yes,yes,run_20260514_022322,yes,no,no,yes,09_promotion_repurchase_2x2_eda_260513,08 structure is consistent and key metrics match; interpretation guardrail is required.

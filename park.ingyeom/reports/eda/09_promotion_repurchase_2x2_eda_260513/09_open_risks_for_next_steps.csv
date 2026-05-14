@@ -1,0 +1,11 @@
+﻿risk_to_carry_forward
+09 is descriptive EDA only.
+No p-values or model validation yet.
+Review columns remain excluded.
+Membership/context L0 remains unresolved under conservative approach.
+Content/genre review columns remain unresolved.
+Referral remains not observed.
+SMD effect sizes are descriptive only.
+Duplicated USER_KEY/cross-promotion overlap require row-level language.
+10 should examine feature distributions more deeply before modeling.
+11 baseline ladder should use 09 findings but not overfit to them.

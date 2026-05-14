@@ -1,0 +1,94 @@
+﻿column_name,category,appeared_in_08_feature_distribution,should_have_appeared,status,note
+USER_KEY,forbidden,no,no,PASS,Standard conservative feature distribution rule checked.
+action_adventure_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+active_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+age,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+age_group,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+avg_daily_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+avg_gap_between_watch_days,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+avg_gap_w1_watch_days,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+avg_gap_w2_watch_days,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+avg_gap_w3_watch_days,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+avg_ott_release_year,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+avg_rewatch_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+avg_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+billing_method,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+comedy_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+day_count_over_3times,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+diff_between_w2_w1,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+diff_between_w3_w1,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+diff_between_w3_w2,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+documentary_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+drama_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+duration_days,metadata,no,no,PASS,Standard conservative feature distribution rule checked.
+end_date,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+family_animation_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+gender,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+genre_diversity_count,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+historical_war_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+horror_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_churn_prevented,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_cold_start_3d,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_cold_start_7d,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_female,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_male,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_only_w1,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_only_w2,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_only_w3,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_premium,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_promotion,split,no,no,PASS,Standard conservative feature distribution rule checked.
+is_repurchase,target,no,no,PASS,Standard conservative feature distribution rule checked.
+is_standard,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_user_verified,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+is_w1_over_50pct,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_w2_over_50pct,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+is_w3_over_50pct,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+max_daily_sessions,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+max_daily_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+max_day_share,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+max_inactive_gap_days,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+max_screen,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+max_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+median_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+movie_per_active_day,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+new_movie_in_180d_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+new_movie_in_365d_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+new_movie_in_90d_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+old_movie_ratio(5y),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+other_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+payment_device,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+payment_is_android,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+payment_is_ios,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+payment_is_mobile,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+payment_is_pc,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+price,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+product_code,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+recency,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+reg_date,forbidden,no,no,PASS,Standard conservative feature distribution rule checked.
+reg_hour,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+reg_hour_afternoon,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+reg_hour_evening,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+reg_hour_morning,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+reg_hour_night,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+reg_is_weekend,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+retention_w2_ratio,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+retention_w3_ratio,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+romance_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+sf_fantasy_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+source_row_number,metadata,no,no,PASS,Standard conservative feature distribution rule checked.
+std_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+thriller_crime_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+total_watch_count,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+total_watch_time(min),review,no,no,PASS,Review columns may appear in review-exclusion table only.
+unique_movie,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+watch_days,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+watch_per_day,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+watch_ratio_under_1m,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+watch_ratio_under_5m,review,no,no,PASS,Review columns may appear in review-exclusion table only.
+watch_session_w1,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+watch_session_w2,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+watch_session_w3,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+watch_time(min)_w1,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+watch_time(min)_w2,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+watch_time(min)_w3,safe,yes,yes,PASS,Standard conservative feature distribution rule checked.
+weekend_watch_ratio,review,no,no,PASS,Review columns may appear in review-exclusion table only.

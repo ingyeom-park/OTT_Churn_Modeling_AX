@@ -1,0 +1,2 @@
+﻿rel_day < 0,day 0 to 6,day 7 to 13,day 14 to 20,day 21 to 30,day 31 to 60,day > 60,invalid watch_day,invalid reg_date,raw matched view row count,day0_20 view row count,day21_plus view row count,day21_plus unique source_row_number count,day21_plus watch_time sum,pre_reg_date view row count,pre_reg_date unique source_row_number count,interpretation
+108,52493,51675,51686,17583,38,0,0,0,173583,155854,17621,6044,767791.0,108,30,raw View_History contains day21+ rows; key question is whether master features include them

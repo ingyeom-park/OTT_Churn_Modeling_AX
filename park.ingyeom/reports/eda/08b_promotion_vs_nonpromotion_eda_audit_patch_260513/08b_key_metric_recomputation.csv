@@ -1,0 +1,15 @@
+﻿metric_name,recomputed_value,value_from_08_if_available,match_status,interpretation
+primary_main_cohort_row_count,23079,23079,match,consistent or not available
+nonpromotion_row_count,11175,11175,match,consistent or not available
+promotion_row_count,11904,11904,match,consistent or not available
+overall_repurchase_rate,0.717405433510984,0.717405433510984,match,consistent or not available
+nonpromotion_repurchase_rate,0.7624161073825504,0.7624161073825504,match,consistent or not available
+promotion_repurchase_rate,0.6751512096774194,0.6751512096774194,match,consistent or not available
+absolute_difference_promotion_minus_nonpromotion,-0.08726489770513102,-0.087264897705131,match,consistent or not available
+percentage_point_difference,-0.08726489770513102,-0.087264897705131,match,consistent or not available
+conservative_feature_count,22,22,match,consistent or not available
+review_columns_in_conservative_table_count,0,0,match,consistent or not available
+forbidden_columns_in_conservative_table_count,0,0,match,consistent or not available
+has_repurchase_score_column,False,False,match,consistent or not available
+has_churn_risk_column,False,False,match,consistent or not available
+has_prediction_column,False,False,match,consistent or not available

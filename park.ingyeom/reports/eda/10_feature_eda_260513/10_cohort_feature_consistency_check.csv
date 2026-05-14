@@ -1,0 +1,15 @@
+﻿check_name,status,value,notes,actual_output_folder,actual_figure_folder
+"primary main cohort row count = 23,079",PASS,23079,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+"conservative feature table row count = 23,079",PASS,23079,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+conservative feature count = 22,PASS,22,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+is_promotion exists,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+is_repurchase exists,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+USER_KEY exists,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no review columns used as conservative feature columns,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no forbidden columns used as conservative feature columns,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no repurchase_score column,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no churn_risk column,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no prediction columns,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+09b core usage validation passed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+09b day21+ contrast exists,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+09 top signal files exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513

@@ -1,0 +1,9 @@
+﻿feature_family,validation_status,evidence,remaining_caveat,can_treat_as_day0_20_for_downstream,recommended_downstream_action
+core_weekly_usage,validated_day0_20,0 total mismatches,none for tested core columns,yes,Proceed to 10_feature_eda only if PASS
+total_usage,validated_day0_20,total columns compared against raw day0~20 and internal week sums,column names can be misleading,yes,Document total_watch_time/count as observation-window totals
+derived_usage,partially_validated_with_caveat,derived mismatch rows=1445,some formulas may use convention not exactly recovered,yes,Use validated usage fields; mark unresolved conventions
+recency,unresolved_formula,recency tested as 20 - max rel_day,document as observation-window recency,yes,Keep wording precise
+avg_ott_release_year,strongly_supported_day0_20,release-year formula tested from day0~20 content rows,movie metadata duplicate policy matters,yes,Carry duplicate movie caveat
+genre_ratio,partially_validated_with_caveat,genre ratio total mismatches=206,Movie_Master_v2 duplicate category conflicts may explain residual mismatches,review,Do not overclaim perfect genre validation
+new_movie_ratio,unresolved_formula,multiple reference date and weighting candidates tested,release-month convention unresolved unless exact candidate matched,review,Separate window safety from exact formula convention
+raw_day21_plus_presence,strongly_supported_day0_20,day21+ views=17621; watch_time=767791.0,raw logs contain response-period behavior,yes,State master core usage matches day0~20 despite day21+ raw views

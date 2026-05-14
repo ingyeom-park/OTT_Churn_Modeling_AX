@@ -1,0 +1,4 @@
+﻿formula,compared_rows,match_count,mismatch_count,max_abs_diff,best_formula,interpretation
+watch_time_weighted,23343,23343,0,4.999999418942025e-07,watch_time_weighted,best day0~20 formula
+unweighted_per_view,23343,6366,16977,6.693713090909114,watch_time_weighted,non-best candidate
+unique_movie_average,23343,6336,17007,7.602804000000106,watch_time_weighted,non-best candidate

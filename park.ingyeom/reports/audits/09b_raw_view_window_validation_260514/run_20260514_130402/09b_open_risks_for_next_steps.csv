@@ -1,0 +1,9 @@
+﻿open_risk
+"raw View_History contains day21+ views, but core master usage features should be day0~20 if validation passes."
+total_watch_time naming is potentially misleading.
+recency must be documented as observation-window recency if validation passes.
+some genre ratio mismatches may reflect movie master duplicate category conflicts.
+new_movie ratio exact formula may remain unresolved.
+User_Mapping join cardinality and repeated USER_KEY require row-level language.
+10_feature_eda may proceed only if core usage window validation passes.
+Do not relax review-column policy merely because core usage window passes.

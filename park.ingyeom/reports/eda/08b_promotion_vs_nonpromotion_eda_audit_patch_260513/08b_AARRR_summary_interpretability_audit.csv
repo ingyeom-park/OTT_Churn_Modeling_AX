@@ -1,0 +1,6 @@
+﻿AARRR_stage,stage_level_feature_mean_averages_combine_heterogeneous_units_or_scales,activation_and_retention_feature_lists_include_mixed_units,stage_average_is_unsafe_to_interpret,safe_to_use_parts,parts_to_ignore,required_action
+acquisition,no,no,yes,feature_names; number_of_features only,raw stage mean averages,Restrict raw stage averages from interpretation.
+activation,yes,yes,yes,feature_names; number_of_features only,raw stage mean averages,Restrict raw stage averages from interpretation.
+retention,yes,yes,yes,feature_names; number_of_features only,raw stage mean averages,Restrict raw stage averages from interpretation.
+revenue_proxy,no,no,yes,feature_names; number_of_features only,raw stage mean averages,Restrict raw stage averages from interpretation.
+referral,no,no,no,feature_names; number_of_features only,raw stage mean averages,Restrict raw stage averages from interpretation.

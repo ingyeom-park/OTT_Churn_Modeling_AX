@@ -1,0 +1,5 @@
+﻿cohort_name,is_promotion,is_repurchase,row_count,percent_of_total,percent_within_promotion_group,percent_within_target_group,unique_USER_KEY_count,duplicated_USER_KEY_extra_rows,interpretation_label,caution
+nonpromotion_repurchase,0,1,8520,0.36916677499025086,0.7624161073825504,0.5145859757202391,8505,15,"promotion=0, repurchase=1 row-level cohort","Rows are subscription-event-level observations, not unique users."
+nonpromotion_nonrepurchase,0,0,2655,0.11503964643182113,0.23758389261744967,0.40708371665133397,2650,5,"promotion=0, repurchase=0 row-level cohort","Rows are subscription-event-level observations, not unique users."
+promotion_repurchase,1,1,8037,0.34823865852073316,0.6751512096774194,0.4854140242797608,8037,0,"promotion=1, repurchase=1 row-level cohort","Rows are subscription-event-level observations, not unique users."
+promotion_nonrepurchase,1,0,3867,0.16755492005719486,0.3248487903225806,0.5929162833486661,3867,0,"promotion=1, repurchase=0 row-level cohort","Rows are subscription-event-level observations, not unique users."

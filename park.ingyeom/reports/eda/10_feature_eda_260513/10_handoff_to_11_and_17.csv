@@ -1,0 +1,23 @@
+﻿feature_name,recommended_for_baseline_ladder,recommended_ladder_stage,recommended_for_segmentation_candidate_later,segmentation_threshold_status,reason,caution
+avg_gap_w1_watch_days,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+avg_gap_w2_watch_days,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+avg_gap_w3_watch_days,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_cold_start_3d,yes,L1_activation,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_cold_start_7d,yes,L1_activation,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+watch_time(min)_w1,yes,L1_activation,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+watch_time(min)_w2,yes,L2_retention_w2,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+watch_time(min)_w3,yes,L3_retention_w3,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+watch_session_w1,yes,L1_activation,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+watch_session_w2,yes,L2_retention_w2,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+watch_session_w3,yes,L3_retention_w3,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+retention_w2_ratio,yes,L2_retention_w2,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+retention_w3_ratio,yes,L3_retention_w3,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+diff_between_w2_w1,yes,L2_retention_w2,review,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+diff_between_w3_w1,yes,L3_retention_w3,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+diff_between_w3_w2,yes,L3_retention_w3,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_w1_over_50pct,yes,L1_activation,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_w2_over_50pct,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_w3_over_50pct,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_only_w1,yes,L1_activation,yes,exploratory_bins_only,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_only_w2,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later
+is_only_w3,review,review_only,review,not_defined,conservative feature; Step 10 descriptive distribution reviewed,no final segment threshold defined; validate in Step 11 or later

@@ -1,0 +1,78 @@
+﻿check_name,status,value,notes,actual_output_folder,actual_figure_folder
+repo_root_checked,PASS,C:/Code/ott-churn-prediction,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+repo_root_matches_expected,PASS,C:/Code/ott-churn-prediction,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+source_file_exists,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+source_file_inside_park_ingyeom,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_06_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_05b_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_07_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_08_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_08b_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_09_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+required_09b_files_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+09b_core_usage_window_validation_passed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+notebook_inside_park_ingyeom,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+output_folder_inside_park_ingyeom,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+figure_folder_inside_park_ingyeom,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+zip_inside_park_ingyeom,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_files_written_outside_park_ingyeom,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_existing_notebook_modified,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_source_csv_modified,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_09_outputs_overwritten,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_09b_outputs_overwritten,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_files_deleted,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_modeling_performed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_predictions_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_shap_performed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_optuna_performed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_statistical_tests_performed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_p_values_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_modeling_feature_engineering_performed,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_py_script_created,PASS,True,"No .py script was created for Step 10; existing unrelated .py files, if any, are not counted.",C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_repurchase_score_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_churn_risk_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_additional_rows_excluded,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_review_columns_used_as_standard_features,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_forbidden_columns_used_as_standard_features,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+primary_main_cohort_row_count_is_23079,PASS,23079,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+conservative_feature_count_is_22,PASS,22,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+feature_catalog_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+global_distribution_profile_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+2x2_distribution_profile_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+focus_deep_dive_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+zero_inflation_binary_audit_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+outlier_influence_audit_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+bin_distribution_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+week_progression_audit_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+activation_audit_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+retention_third_week_audit_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+overlap_preview_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+insight_candidates_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+handoff_to_11_and_17_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+safe_unsafe_wording_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+open_risks_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+readme_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+note_md_updated,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\10_feature_eda_260513_review_package.zip,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+notebook_saved_with_outputs,PASS,True,nbconvert execution completed and saved visible outputs.,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+csv_output_count_is_21,PASS,21,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+matplotlib_only_for_figures,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+seaborn_not_used,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+korean_font_configured,PASS,Malgun Gothic,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+korean_font_found_or_warning_recorded,PASS,Malgun Gothic,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+all_required_figures_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+week_progression_figure_condition_passed,PASS,single combined figure or mean/median pair accepted,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+figure_inventory_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+visualization_warnings_created,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+figures_saved_as_png,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+figure_percent_denominators_documented,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+visualization_bins_marked_exploratory,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+consistent_2x2_order_color_used,PASS,fixed order and colors,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+all_bar_labels_include_n_and_percent,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+figure_inventory_input_tables_are_step10_csv,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+figure_inventory_input_tables_nonempty,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+fig10_required_text_included,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+no_final_segmentation_threshold_defined,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+zip_contains_21_csv_outputs,PASS,21,,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+zip_contains_required_core_files,PASS,True,notebook README final_checks note and all CSV,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513
+zip_contains_required_png_figures,PASS,True,includes required figures and accepted week progression condition,C:\Code\ott-churn-prediction\park.ingyeom\reports\eda\10_feature_eda_260513,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\10_feature_eda_260513

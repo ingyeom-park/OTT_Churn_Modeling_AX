@@ -1,0 +1,32 @@
+# 10_feature_eda_260513
+
+Preflight failed.
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_index.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_conservative_features.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_feature_policy_from_05b.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_final_checks.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_canonical_column_role_dictionary.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_conservative_safe_candidate_columns.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_review_required_columns.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_forbidden_drop_columns.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\07_AARRR_feature_mapping_260513\07_AARRR_mapping_conservative_features.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\07_AARRR_feature_mapping_260513\07_AARRR_feature_mapping_all_columns.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\07_AARRR_feature_mapping_260513\07_final_checks.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_final_checks.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\08b_promotion_vs_nonpromotion_eda_audit_patch_260513\08b_final_checks.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\08b_promotion_vs_nonpromotion_eda_audit_patch_260513\08b_interpretation_guardrail.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\08b_promotion_vs_nonpromotion_eda_audit_patch_260513\08b_decision_summary.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_final_checks.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_2x2_cohort_definition.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_within_promotion_target_difference_summary.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_within_nonpromotion_target_difference_summary.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_cross_group_target_signal_comparison.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_top_target_signals_by_group.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_08_vs_09_contrast_summary.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\eda\09_promotion_repurchase_2x2_eda_260513\09_open_risks_for_next_steps.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\09b_raw_view_window_validation_260514\09b_final_checks.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\09b_raw_view_window_validation_260514\09b_core_usage_recalculation_comparison.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\09b_raw_view_window_validation_260514\09b_day21_plus_leakage_contrast_test.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\09b_raw_view_window_validation_260514\09b_window_validation_decision.csv
+C:\Code\ott-churn-prediction\park.ingyeom\notebook\10_feature_eda_260513\park.ingyeom\reports\audits\09b_raw_view_window_validation_260514\09b_open_risks_for_next_steps.csv
