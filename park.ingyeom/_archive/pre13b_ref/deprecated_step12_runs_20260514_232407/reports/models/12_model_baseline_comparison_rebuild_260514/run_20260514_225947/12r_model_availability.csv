@@ -1,0 +1,9 @@
+﻿model_name,package,import_available,required_or_optional,will_run,unavailable_reason,fixed_parameters,tuning_performed
+LogisticRegression,sklearn,yes,required,yes,,"max_iter=2000, solver=lbfgs",no
+HistGradientBoosting,sklearn,yes,required,yes,,random_state=42,no
+RandomForest,sklearn,yes,required,yes,,"n_estimators=300,max_depth=6,min_samples_leaf=20,n_jobs=-1,random_state=42",no
+GradientBoosting,sklearn,yes,required,yes,,random_state=42,no
+ExtraTrees,sklearn,yes,required,yes,,"n_estimators=300,max_depth=6,min_samples_leaf=20,n_jobs=-1,random_state=42",no
+LightGBM,lightgbm,yes,optional,yes,,"n_estimators=300,learning_rate=0.05,num_leaves=31,subsample=0.9,colsample_bytree=0.9,random_state=42,n_jobs=-1",no
+XGBoost,xgboost,yes,optional,yes,,"n_estimators=300,learning_rate=0.05,max_depth=4,subsample=0.9,colsample_bytree=0.9,eval_metric=logloss,random_state=42,n_jobs=-1",no
+CatBoost,catboost,no,optional,no,No module named 'catboost',fixed optional config if installed,no

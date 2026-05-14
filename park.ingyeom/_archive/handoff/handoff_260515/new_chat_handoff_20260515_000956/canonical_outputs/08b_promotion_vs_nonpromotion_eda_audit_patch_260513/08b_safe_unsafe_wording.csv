@@ -1,0 +1,6 @@
+﻿unsafe_wording,safer_wording
+08에서 프로모션/비프로모션의 행동 차이가 뚜렷하게 드러났다.,"08에서는 재구매율 차이는 뚜렷하게 관찰되었지만, conservative feature 기준 평균 행동 차이는 전반적으로 negligible이었다."
+08 결과가 약하니 다른 방식으로 다시 돌려 강한 차이를 찾아야 한다.,"08의 약한 feature 차이 자체를 결과로 인정하고, 09에서 promotion x repurchase 2x2 구조로 질문의 해상도를 높인다."
+stage 평균값으로 Activation/Retention이 더 높다고 말할 수 있다.,"서로 단위가 다른 feature의 stage 평균값은 해석하지 않고, stage별 feature 목록과 개별 feature 분포를 본다."
+프로모션 때문에 재구매율이 낮다.,"프로모션 행에서 낮은 재구매율이 관찰되었지만, 인과효과는 검증하지 않았다."
+08에서 충분히 설명됐다.,"08은 1차 promotion split 비교이며, 09와 10에서 target 내부 차이와 feature 분포를 더 봐야 한다."

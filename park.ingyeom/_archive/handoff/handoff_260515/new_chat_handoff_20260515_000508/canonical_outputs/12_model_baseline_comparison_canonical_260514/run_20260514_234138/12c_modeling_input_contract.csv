@@ -1,0 +1,9 @@
+﻿contract_item,value
+analysis_unit,row-level / subscription-event-level
+target,is_repurchase
+positive_class,is_repurchase=1 means repurchase
+score_orientation,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score
+group_key,"USER_KEY only for CV grouping, never feature"
+review_columns,excluded
+forbidden_drop_columns,excluded
+modeling_scope,"fixed-parameter family comparison only; no tuning, SHAP, thresholding, segmentation, or causality"

@@ -1,0 +1,12 @@
+﻿risk_or_next_step,caution
+Step 12 is fixed-parameter baseline model comparison only.,carry forward
+No Optuna yet.,carry forward
+No SHAP yet.,carry forward
+No final threshold.,carry forward
+No segmentation.,carry forward
+Optional model availability may vary by environment.,carry forward
+Review columns remain excluded.,carry forward
+Higher AUC may come with overfitting or instability.,carry forward
+Need SHAP later for interpretability.,carry forward
+Need Optuna only after candidate narrowing.,carry forward
+Need group-aware CV maintained.,carry forward

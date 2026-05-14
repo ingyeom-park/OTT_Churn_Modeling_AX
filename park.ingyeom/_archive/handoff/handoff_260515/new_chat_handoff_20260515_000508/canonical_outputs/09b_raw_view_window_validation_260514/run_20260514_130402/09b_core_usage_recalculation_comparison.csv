@@ -1,0 +1,9 @@
+﻿master_column,raw_recomputed_column,compared_row_count,exact_match_count,mismatch_count,max_abs_diff,mean_abs_diff,all_match_boolean,interpretation
+watch_time(min)_w1,raw_watch_time_w1,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+watch_time(min)_w2,raw_watch_time_w2,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+watch_time(min)_w3,raw_watch_time_w3,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+watch_session_w1,raw_watch_session_w1,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+watch_session_w2,raw_watch_session_w2,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+watch_session_w3,raw_watch_session_w3,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+total_watch_time(min),raw_total_watch_time_day0_20,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation
+total_watch_count,raw_total_watch_count_day0_20,23343,23343,0,0.0,0.0,True,PASS: master matches raw day0~20 recomputation

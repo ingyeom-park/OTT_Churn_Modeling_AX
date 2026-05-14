@@ -1,0 +1,4 @@
+﻿input,path,rows,role
+modeling_dataset_v2_w1_3,park.ingyeom/reports/data/05_v2_modeling_dataset/modeling_dataset_v2_w1_3.csv,23933,primary segmentation features
+06_v2_prediction_scores,park.ingyeom/reports/data/06_v2_baseline_modeling/06_v2_prediction_scores.csv,458592,holdout conservative churn-risk scores
+07r_true_shap_summary,park.ingyeom/reports/data/07r_v2_true_shap_interpretation/07r_true_shap_summary.json,1,final true SHAP evidence

@@ -1,0 +1,7 @@
+﻿candidate_type,rule
+highest_auc_candidate,model with highest OOF AUC within dataset scope
+operating_metric_candidate,"highest lift@top10% using churn_risk descending; tie precision@top10%, then OOF AUC"
+stability_aware_candidate,"pool models within 0.005 OOF AUC of best; if empty use 0.010; choose lowest mean_train_valid_gap; tie lowest std_valid_auc, then highest OOF AUC"
+interpretation_candidate,prefer stable lower-gap simpler model if AUC within 0.010 of best; otherwise record review
+recommended_candidate_for_14,candidate to tune only if worthwhile; avoid severe overfit; not chosen only because highest AUC
+recommended_candidate_for_16,candidate to interpret later with SHAP; stable enough and tree/linear family; may differ from Optuna candidate

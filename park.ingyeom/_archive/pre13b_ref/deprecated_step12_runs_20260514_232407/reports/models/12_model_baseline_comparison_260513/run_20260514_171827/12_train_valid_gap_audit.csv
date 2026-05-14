@@ -1,0 +1,29 @@
+﻿dataset_scope,model_name,train_auc,valid_auc,gap,gap_bucket,overfit_warning,interpretation
+overall_without_promotion,LogisticRegression,0.7872999880418572,0.7860976036142333,0.0012023844276238594,low,False,No major gap warning.
+overall_without_promotion,HistGradientBoosting,0.8519187554215322,0.8140052616727749,0.03791349374875723,moderate,False,No major gap warning.
+overall_without_promotion,RandomForest,0.8199251897985652,0.8076680119711858,0.012257177827379496,low,False,No major gap warning.
+overall_without_promotion,GradientBoosting,0.8273986722656334,0.8124581749577333,0.014940497307900147,low,False,No major gap warning.
+overall_without_promotion,ExtraTrees,0.7864965903774515,0.7836841259084805,0.00281246446897101,low,False,No major gap warning.
+overall_without_promotion,LightGBM,0.8949227110965647,0.8136612105564179,0.08126150054014694,high,True,High gap weakens candidate safety.
+overall_without_promotion,XGBoost,0.8476533047672534,0.8155197019138093,0.03213360285344406,moderate,False,No major gap warning.
+overall_with_promotion,LogisticRegression,0.7935410334170425,0.7924071546561919,0.0011338787608506707,low,False,No major gap warning.
+overall_with_promotion,HistGradientBoosting,0.8605375839183033,0.8214091194203693,0.039128464497933835,moderate,False,No major gap warning.
+overall_with_promotion,RandomForest,0.8231500814852936,0.8112184754575157,0.011931606027777963,low,False,No major gap warning.
+overall_with_promotion,GradientBoosting,0.8346463468213644,0.8203476275813945,0.01429871923996997,low,False,No major gap warning.
+overall_with_promotion,ExtraTrees,0.7934632458050757,0.7900114801153209,0.0034517656897547822,low,False,No major gap warning.
+overall_with_promotion,LightGBM,0.9012184268458588,0.8230846855733638,0.07813374127249492,moderate,False,No major gap warning.
+overall_with_promotion,XGBoost,0.8549569630366849,0.8236880001198136,0.03126896291687113,moderate,False,No major gap warning.
+promotion_only,LogisticRegression,0.7733105119370619,0.77108049508726,0.002230016849802019,low,False,No major gap warning.
+promotion_only,HistGradientBoosting,0.8961665701174922,0.7969571606842821,0.09920940943321019,high,True,High gap weakens candidate safety.
+promotion_only,RandomForest,0.8138808426054375,0.7936646599283943,0.020216182677043303,low,False,No major gap warning.
+promotion_only,GradientBoosting,0.825509377295537,0.7985776445264474,0.026931732769089667,low,False,No major gap warning.
+promotion_only,ExtraTrees,0.7776730089098536,0.7726801292549977,0.004992879654855753,low,False,No major gap warning.
+promotion_only,LightGBM,0.9200397093152397,0.7960364909624846,0.12400321835275505,severe,True,High gap weakens candidate safety.
+promotion_only,XGBoost,0.8569854194917748,0.8006693584473343,0.056316061044440445,moderate,False,No major gap warning.
+nonpromotion_only,LogisticRegression,0.8143552765704731,0.8121255286547011,0.002229747915771818,low,False,No major gap warning.
+nonpromotion_only,HistGradientBoosting,0.9251737029420056,0.8284879706682327,0.09668573227377304,high,True,High gap weakens candidate safety.
+nonpromotion_only,RandomForest,0.8505175631335165,0.8307334681338873,0.019784094999629208,low,False,No major gap warning.
+nonpromotion_only,GradientBoosting,0.8612757826292669,0.8330703646793657,0.02820541794990126,low,False,No major gap warning.
+nonpromotion_only,ExtraTrees,0.8098117224022949,0.8053224046768122,0.004489317725483,low,False,No major gap warning.
+nonpromotion_only,LightGBM,0.9447368642468387,0.827370722519678,0.11736614172716056,high,True,High gap weakens candidate safety.
+nonpromotion_only,XGBoost,0.888190734499123,0.8331030756103648,0.05508765888875831,moderate,False,No major gap warning.

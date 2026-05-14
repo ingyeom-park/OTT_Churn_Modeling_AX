@@ -1,0 +1,15 @@
+﻿master_column,formula_attempted,raw_recomputed_column,compared_rows,match_count,mismatch_count,max_abs_diff,all_match_boolean,formula_confidence,interpretation
+unique_movie,unique_movie recomputed from raw day0~20 views,raw_unique_movie,23343,23343,0,0.0,True,exact,PASS day0~20 formula match
+watch_days,watch_days recomputed from raw day0~20 views,raw_watch_days,23343,23343,0,0.0,True,exact,PASS day0~20 formula match
+active_ratio,active_ratio recomputed from raw day0~20 views,raw_active_ratio,23343,23343,0,4.7619047616187515e-07,True,exact,PASS day0~20 formula match
+recency,recency recomputed from raw day0~20 views,raw_recency,23343,21898,1445,21.0,False,unresolved,REVIEW formula convention unresolved
+watch_per_day,watch_per_day recomputed from raw day0~20 views,raw_watch_per_day,23343,23343,0,4.6153846167129586e-07,True,exact,PASS day0~20 formula match
+avg_watch_time(min),avg_watch_time(min) recomputed from raw day0~20 views,raw_avg_watch_time(min),23343,23343,0,4.8979592293108e-07,True,exact,PASS day0~20 formula match
+median_watch_time(min),median_watch_time(min) recomputed from raw day0~20 views,raw_median_watch_time(min),23343,23343,0,0.0,True,exact,PASS day0~20 formula match
+std_watch_time(min),std_watch_time(min) recomputed from raw day0~20 views,raw_std_watch_time(min),23343,23343,0,4.999780642833684e-07,True,exact,PASS day0~20 formula match
+avg_daily_watch_time(min),avg_daily_watch_time(min) recomputed from raw day0~20 views,raw_avg_daily_watch_time(min),23343,23343,0,4.615384625594743e-07,True,exact,PASS day0~20 formula match
+max_watch_time(min),max_watch_time(min) recomputed from raw day0~20 views,raw_max_watch_time(min),23343,23343,0,0.0,True,exact,PASS day0~20 formula match
+max_daily_watch_time(min),max_daily_watch_time(min) recomputed from raw day0~20 views,raw_max_daily_watch_time(min),23343,23343,0,0.0,True,exact,PASS day0~20 formula match
+max_daily_sessions,max_daily_sessions recomputed from raw day0~20 views,raw_max_daily_sessions,23343,23343,0,0.0,True,exact,PASS day0~20 formula match
+avg_gap_w2_watch_days,avg_gap_w2_watch_days recomputed from raw day0~20 views,raw_avg_gap_w2_watch_days,23343,23343,0,3.333333331578814e-07,True,exact,PASS day0~20 formula match
+avg_gap_w3_watch_days,avg_gap_w3_watch_days recomputed from raw day0~20 views,raw_avg_gap_w3_watch_days,23343,23343,0,3.333333331578814e-07,True,exact,PASS day0~20 formula match

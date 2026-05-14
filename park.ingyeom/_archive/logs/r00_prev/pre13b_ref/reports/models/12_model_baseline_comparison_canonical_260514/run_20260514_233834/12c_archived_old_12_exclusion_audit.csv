@@ -1,0 +1,3 @@
+﻿item,status,archive_root_detected,metrics_used_in_12c,reason_excluded,current_canonical_step
+old Step 12,archived/deprecated,True,no,"AUC-centered, lacked operating metrics",12_model_baseline_comparison_canonical_260514
+old Step 12r,archived/deprecated,True,no,candidate-selection logic issue,12_model_baseline_comparison_canonical_260514

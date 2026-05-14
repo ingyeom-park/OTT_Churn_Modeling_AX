@@ -1,0 +1,5 @@
+﻿model_name,sklearn_class,intended_ladder_steps,preprocessing,fixed_parameters,tuning_performed,reason,expected_risk,caution
+DummyPrior,sklearn.dummy.DummyClassifier,L0_dummy_prior,none; formal X only,strategy=prior,no,floor baseline,constant predictions,feature_count recorded as 0
+LogisticRegression,sklearn.linear_model.LogisticRegression,L1-L5,SimpleImputer(median)+StandardScaler,"max_iter=2000,solver=lbfgs",no,stable linear baseline,underfit possible,numeric columns only
+HistGradientBoosting,sklearn.ensemble.HistGradientBoostingClassifier,L1-L5,SimpleImputer(median),random_state=42,no,stable sklearn tree baseline,train-valid gap possible,not tuned
+RandomForest,sklearn.ensemble.RandomForestClassifier,L1-L5,SimpleImputer(median),"n_estimators=300,max_depth=6,min_samples_leaf=20,n_jobs=-1,random_state=42",no,baseline comparison only,overfit gap possible,not final model

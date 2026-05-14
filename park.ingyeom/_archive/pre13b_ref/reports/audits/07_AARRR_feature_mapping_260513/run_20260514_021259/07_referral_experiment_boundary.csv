@@ -1,0 +1,7 @@
+﻿claim_type,allowed_or_forbidden,wording,reason,required_future_data_or_experiment
+direct observation,forbidden,Referral is directly observed in current data.,No referral log exists in current source columns.,Referral/invite/share/campaign response logs.
+data availability,allowed,Referral is not directly observed in current data.,"No referral, invite, share, or campaign response column exists.",Add event logs or experiment tracking.
+validation,forbidden,Referral can be validated in this analysis.,No outcome or exposure field for referral.,Future A/B test or tracked referral campaign.
+future proposal,allowed,Referral may be proposed as a future A/B test only.,Current data can only inform hypotheses after later modeling.,"Experiment assignment, referral exposure, referral conversion."
+segment creation now,forbidden,Create a referral segment now.,This step does not create segments and no referral outcome exists.,Later model score plus experiment design.
+uplift,forbidden,Referral uplift was found.,No referral experiment or causal design exists.,Randomized or credible quasi-experimental referral test.

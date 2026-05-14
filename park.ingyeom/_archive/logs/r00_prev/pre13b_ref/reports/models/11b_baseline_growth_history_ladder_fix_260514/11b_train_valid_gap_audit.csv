@@ -1,0 +1,56 @@
+﻿dataset_scope,ladder_step,model_name,mean_train_auc,mean_valid_auc,gap,gap_bucket,overfit_warning,interpretation
+nonpromotion_only,L0_dummy_prior,DummyPrior,0.5,0.5,0.0,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L1_activation_safe,LogisticRegression,0.7170715690888686,0.7166783862185518,0.00039318287031675503,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L1_activation_safe,HistGradientBoosting,0.7737633662627813,0.700402810573328,0.07336055568945321,moderate,False,No major gap warning for baseline audit.
+nonpromotion_only,L1_activation_safe,RandomForest,0.7327719282926957,0.7176884914997557,0.015083436792939886,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L2_add_week2_retention,LogisticRegression,0.7643833423354051,0.7631740495603591,0.0012092927750460003,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L2_add_week2_retention,HistGradientBoosting,0.8858163847625363,0.7910850611037782,0.09473132365875805,high,True,High gap weakens safety even when AUC is high.
+nonpromotion_only,L2_add_week2_retention,RandomForest,0.8120560319977566,0.791308650253059,0.0207473817446977,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L3_add_week3_retention,LogisticRegression,0.8143299449293707,0.8123043176045865,0.002025627324784285,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L3_add_week3_retention,HistGradientBoosting,0.9233364683959788,0.8288073381632035,0.09452913023277518,high,True,High gap weakens safety even when AUC is high.
+nonpromotion_only,L3_add_week3_retention,RandomForest,0.8504108730874215,0.8306674496012214,0.019743423486200083,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L4_all_conservative_behavior,LogisticRegression,0.8143552765704731,0.8121255286547011,0.002229747915771818,low,False,No major gap warning for baseline audit.
+nonpromotion_only,L4_all_conservative_behavior,HistGradientBoosting,0.9251737029420056,0.8284879706682327,0.09668573227377304,high,True,High gap weakens safety even when AUC is high.
+nonpromotion_only,L4_all_conservative_behavior,RandomForest,0.8505175631335165,0.8307334681338873,0.019784094999629208,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L0_dummy_prior,DummyPrior,0.5,0.5,0.0,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L1_activation_safe,LogisticRegression,0.6945469695524674,0.694216718420537,0.00033025113193041467,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L1_activation_safe,HistGradientBoosting,0.7176318192441119,0.6975556757946217,0.020076143449490026,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L1_activation_safe,RandomForest,0.7064779746707833,0.698881591096036,0.007596383574747412,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L2_add_week2_retention,LogisticRegression,0.7372529828345995,0.7368965996712028,0.00035638316339672296,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L2_add_week2_retention,HistGradientBoosting,0.809061532517877,0.7751298100479175,0.03393172246995955,moderate,False,No major gap warning for baseline audit.
+overall_with_promotion,L2_add_week2_retention,RandomForest,0.7810494002242943,0.7689511136566919,0.012098286567602413,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L3_add_week3_retention,LogisticRegression,0.7872307310722466,0.7862635544567944,0.0009671766154522698,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L3_add_week3_retention,HistGradientBoosting,0.8558747758606577,0.8135578813229172,0.04231689453774048,moderate,False,No major gap warning for baseline audit.
+overall_with_promotion,L3_add_week3_retention,RandomForest,0.8198980379440517,0.8078558059682217,0.012042231975829853,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L4_all_conservative_behavior,LogisticRegression,0.7872999880418572,0.7860976036142333,0.0012023844276238594,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L4_all_conservative_behavior,HistGradientBoosting,0.8519187554215322,0.8140052616727749,0.03791349374875723,moderate,False,No major gap warning for baseline audit.
+overall_with_promotion,L4_all_conservative_behavior,RandomForest,0.8199251897985652,0.8076680119711858,0.012257177827379496,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L5_all_conservative_plus_promotion_indicator,LogisticRegression,0.7935410334170425,0.7924071546561919,0.0011338787608506707,low,False,No major gap warning for baseline audit.
+overall_with_promotion,L5_all_conservative_plus_promotion_indicator,HistGradientBoosting,0.8605375839183033,0.8214091194203693,0.039128464497933835,moderate,False,No major gap warning for baseline audit.
+overall_with_promotion,L5_all_conservative_plus_promotion_indicator,RandomForest,0.8231500814852936,0.8112184754575157,0.011931606027777963,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L0_dummy_prior,DummyPrior,0.5,0.5,0.0,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L1_activation_safe,LogisticRegression,0.6945469695524674,0.694216718420537,0.00033025113193041467,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L1_activation_safe,HistGradientBoosting,0.7176318192441119,0.6975556757946217,0.020076143449490026,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L1_activation_safe,RandomForest,0.7064779746707833,0.698881591096036,0.007596383574747412,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L2_add_week2_retention,LogisticRegression,0.7372529828345995,0.7368965996712028,0.00035638316339672296,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L2_add_week2_retention,HistGradientBoosting,0.809061532517877,0.7751298100479175,0.03393172246995955,moderate,False,No major gap warning for baseline audit.
+overall_without_promotion,L2_add_week2_retention,RandomForest,0.7810494002242943,0.7689511136566919,0.012098286567602413,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L3_add_week3_retention,LogisticRegression,0.7872307310722466,0.7862635544567944,0.0009671766154522698,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L3_add_week3_retention,HistGradientBoosting,0.8558747758606577,0.8135578813229172,0.04231689453774048,moderate,False,No major gap warning for baseline audit.
+overall_without_promotion,L3_add_week3_retention,RandomForest,0.8198980379440517,0.8078558059682217,0.012042231975829853,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L4_all_conservative_behavior,LogisticRegression,0.7872999880418572,0.7860976036142333,0.0012023844276238594,low,False,No major gap warning for baseline audit.
+overall_without_promotion,L4_all_conservative_behavior,HistGradientBoosting,0.8519187554215322,0.8140052616727749,0.03791349374875723,moderate,False,No major gap warning for baseline audit.
+overall_without_promotion,L4_all_conservative_behavior,RandomForest,0.8199251897985652,0.8076680119711858,0.012257177827379496,low,False,No major gap warning for baseline audit.
+promotion_only,L0_dummy_prior,DummyPrior,0.5,0.5,0.0,low,False,No major gap warning for baseline audit.
+promotion_only,L1_activation_safe,LogisticRegression,0.6800083276968094,0.6801651125136147,-0.00015678481680529987,low,False,No major gap warning for baseline audit.
+promotion_only,L1_activation_safe,HistGradientBoosting,0.7419390178557475,0.6767084606710438,0.06523055718470347,moderate,False,No major gap warning for baseline audit.
+promotion_only,L1_activation_safe,RandomForest,0.6984226869784275,0.6876973964702775,0.010725290508149899,low,False,No major gap warning for baseline audit.
+promotion_only,L2_add_week2_retention,LogisticRegression,0.7216454491883372,0.719693146954465,0.0019523022338722607,low,False,No major gap warning for baseline audit.
+promotion_only,L2_add_week2_retention,HistGradientBoosting,0.8484860324728281,0.7549369341028825,0.0935490983699456,high,True,High gap weakens safety even when AUC is high.
+promotion_only,L2_add_week2_retention,RandomForest,0.7740203188396271,0.7549421431663658,0.019078175673261356,low,False,No major gap warning for baseline audit.
+promotion_only,L3_add_week3_retention,LogisticRegression,0.7734520483263099,0.771577488564467,0.001874559761843053,low,False,No major gap warning for baseline audit.
+promotion_only,L3_add_week3_retention,HistGradientBoosting,0.894073197922598,0.7981802476272577,0.0958929502953402,high,True,High gap weakens safety even when AUC is high.
+promotion_only,L3_add_week3_retention,RandomForest,0.8137752512281018,0.7935737807634473,0.02020147046465446,low,False,No major gap warning for baseline audit.
+promotion_only,L4_all_conservative_behavior,LogisticRegression,0.7733105119370619,0.77108049508726,0.002230016849802019,low,False,No major gap warning for baseline audit.
+promotion_only,L4_all_conservative_behavior,HistGradientBoosting,0.8961665701174922,0.7969571606842821,0.09920940943321019,high,True,High gap weakens safety even when AUC is high.
+promotion_only,L4_all_conservative_behavior,RandomForest,0.8138808426054375,0.7936646599283943,0.020216182677043303,low,False,No major gap warning for baseline audit.

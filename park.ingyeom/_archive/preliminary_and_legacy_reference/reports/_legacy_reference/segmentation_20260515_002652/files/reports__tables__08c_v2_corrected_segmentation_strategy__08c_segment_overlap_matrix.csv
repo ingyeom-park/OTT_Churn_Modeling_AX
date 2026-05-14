@@ -1,0 +1,6 @@
+﻿segment_flag,seg_top10_risk,seg_high_risk_low_usage,seg_risky_weekly_pattern,seg_genre_affinity,seg_stable_low_risk
+seg_top10_risk,463.0,0.0,0.0,444.0,0.0
+seg_high_risk_low_usage,0.0,434.0,272.0,341.0,0.0
+seg_risky_weekly_pattern,0.0,272.0,1356.0,941.0,0.0
+seg_genre_affinity,444.0,341.0,941.0,3754.0,1496.0
+seg_stable_low_risk,0.0,0.0,0.0,1496.0,1850.0

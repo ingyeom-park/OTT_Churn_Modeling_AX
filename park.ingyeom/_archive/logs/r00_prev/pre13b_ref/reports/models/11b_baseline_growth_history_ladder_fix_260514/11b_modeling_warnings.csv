@@ -1,0 +1,4 @@
+﻿warning_type,dataset_scope,ladder_step,model_name,fold,severity,message,actual_model_output_folder,actual_figure_output_folder
+sklearn_fit_warning,nonpromotion_only,L1_activation_safe,HistGradientBoosting,1,WARNING,"Could not find the number of physical cores for the following reason:
+[WinError 2] 지정된 파일을 찾을 수 없습니다
+Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.",C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11b_baseline_growth_history_ladder_fix_260514,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\11b_baseline_growth_history_ladder_fix_260514

@@ -1,0 +1,339 @@
+===== 12 CLEANUP INVENTORY =====
+CreatedAt: 2026-05-14 23:21:00
+RepoRoot: C:/Code/ott-churn-prediction
+
+===== GIT STATUS SHORT =====
+ M park.ingyeom/note.md
+ M park.ingyeom/reports/models/11b_baseline_growth_history_ladder_fix_260514/11b_final_checks.csv
+ M park.ingyeom/zip/11b_baseline_growth_history_ladder_fix_260514_review_package.zip
+?? park.ingyeom/notebook/11b_semantic_validation_and_interpretation_patch_260514/
+?? park.ingyeom/notebook/12_model_baseline_comparison_260513/
+?? park.ingyeom/notebook/12_model_baseline_comparison_rebuild_260514/
+?? park.ingyeom/reports/_cleanup_review/
+?? park.ingyeom/reports/audits/11b_semantic_validation_and_interpretation_patch_260514/
+?? park.ingyeom/reports/figures/12_model_baseline_comparison_260513/
+?? park.ingyeom/reports/figures/12_model_baseline_comparison_rebuild_260514/
+?? park.ingyeom/reports/models/12_model_baseline_comparison_260513/
+?? park.ingyeom/reports/models/12_model_baseline_comparison_rebuild_260514/
+?? park.ingyeom/zip/11b_semantic_validation_and_interpretation_patch_260514_review_package.zip
+?? park.ingyeom/zip/12_model_baseline_comparison_260513_review_package.zip
+?? park.ingyeom/zip/12_model_baseline_comparison_rebuild_260514_review_package.zip
+
+===== TARGET EXISTENCE =====
+True	park.ingyeom\notebook\12_model_baseline_comparison_260513
+True	park.ingyeom\notebook\12_model_baseline_comparison_rebuild_260514
+True	park.ingyeom\reports\models\12_model_baseline_comparison_260513
+True	park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514
+True	park.ingyeom\reports\figures\12_model_baseline_comparison_260513
+True	park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514
+True	park.ingyeom\zip\12_model_baseline_comparison_260513_review_package.zip
+True	park.ingyeom\zip\12_model_baseline_comparison_rebuild_260514_review_package.zip
+
+===== TARGET FILE LISTS =====
+
+----- park.ingyeom\notebook\12_model_baseline_comparison_260513 -----
+FILE	231848	26-05-14 17:20:49	C:\Code\ott-churn-prediction\park.ingyeom\notebook\12_model_baseline_comparison_260513\12_model_baseline_comparison_260513.ipynb
+
+----- park.ingyeom\notebook\12_model_baseline_comparison_rebuild_260514 -----
+FILE	326549	26-05-14 23:01:42	C:\Code\ott-churn-prediction\park.ingyeom\notebook\12_model_baseline_comparison_rebuild_260514\12_model_baseline_comparison_rebuild_260514.ipynb
+
+----- park.ingyeom\reports\models\12_model_baseline_comparison_260513 -----
+FILE	1341	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_best_model_candidate_by_scope.csv
+FILE	2326	26-05-14 17:15:43	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_cv_split_audit.csv
+FILE	1408	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_dataset_scope_definition.csv
+FILE	13186	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_feature_set_by_scope.csv
+FILE	2291	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_figure_inventory.csv
+FILE	13028	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_final_checks.csv
+FILE	5051	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_fold_stability_audit.csv
+FILE	1756	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_handoff_to_14_optuna_candidate_tuning.csv
+FILE	892	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_handoff_to_16_shap_candidate_interpretation.csv
+FILE	1021	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_model_availability.csv
+FILE	24791	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_model_comparison_fold_metrics.csv
+FILE	8710	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_model_comparison_summary.csv
+FILE	736	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_modeling_input_contract.csv
+FILE	14552	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_modeling_warnings.csv
+FILE	328	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_old_11_exclusion_audit.csv
+FILE	1870	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_oof_prediction_manifest.csv
+FILE	42023438	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_oof_predictions_selected_candidates.csv
+FILE	571	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_open_risks_for_next_steps.csv
+FILE	10097	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_preflight_input_validation.csv
+FILE	913	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_safe_unsafe_wording.csv
+FILE	3721	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_train_valid_gap_audit.csv
+FILE	186	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_visualization_warnings.csv
+FILE	1314	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_vs_11b_baseline_comparison.csv
+FILE	908	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\README.md
+DIR 		26-05-14 17:20:46	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827
+FILE	1341	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_best_model_candidate_by_scope.csv
+FILE	2326	26-05-14 17:18:46	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_cv_split_audit.csv
+FILE	1408	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_dataset_scope_definition.csv
+FILE	13186	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_feature_set_by_scope.csv
+FILE	2591	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_figure_inventory.csv
+FILE	18670	26-05-14 17:20:47	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_final_checks.csv
+FILE	5051	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_fold_stability_audit.csv
+FILE	1756	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_handoff_to_14_optuna_candidate_tuning.csv
+FILE	892	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_handoff_to_16_shap_candidate_interpretation.csv
+FILE	1021	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_model_availability.csv
+FILE	24794	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_model_comparison_fold_metrics.csv
+FILE	8709	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_model_comparison_summary.csv
+FILE	736	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_modeling_input_contract.csv
+FILE	16272	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_modeling_warnings.csv
+FILE	328	26-05-14 17:18:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_old_11_exclusion_audit.csv
+FILE	1870	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_oof_prediction_manifest.csv
+FILE	42023438	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_oof_predictions_selected_candidates.csv
+FILE	571	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_open_risks_for_next_steps.csv
+FILE	10697	26-05-14 17:18:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_preflight_input_validation.csv
+FILE	913	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_safe_unsafe_wording.csv
+FILE	3721	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_train_valid_gap_audit.csv
+FILE	186	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_visualization_warnings.csv
+FILE	1314	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_vs_11b_baseline_comparison.csv
+FILE	948	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\README.md
+
+----- park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514 -----
+FILE	70050	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_calibration_decile_summary.csv
+FILE	2326	26-05-14 17:58:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_cv_split_audit.csv
+FILE	1227	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_dataset_scope_definition.csv
+FILE	13186	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_feature_set_by_scope.csv
+FILE	5023	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_fold_stability_audit.csv
+FILE	991	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_model_availability.csv
+FILE	24795	26-05-14 18:00:09	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_model_comparison_fold_metrics.csv
+FILE	7928	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_model_comparison_summary.csv
+FILE	814	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_modeling_input_contract.csv
+FILE	581	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_old_11_and_old_12_exclusion_audit.csv
+FILE	6649	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_operating_metrics_at_k.csv
+FILE	10337	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_preflight_input_validation.csv
+FILE	3671	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_train_valid_gap_audit.csv
+FILE	1170	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_vs_11b_baseline_comparison.csv
+DIR 		26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053
+FILE	1482	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_best_model_candidate_by_scope.csv
+FILE	70037	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_calibration_decile_summary.csv
+FILE	5394	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_candidate_selection_policy.csv
+FILE	2326	26-05-14 18:01:11	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_cv_split_audit.csv
+FILE	1227	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_dataset_scope_definition.csv
+FILE	13186	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_feature_set_by_scope.csv
+FILE	5023	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_fold_stability_audit.csv
+FILE	991	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_model_availability.csv
+FILE	24791	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_model_comparison_fold_metrics.csv
+FILE	7928	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_model_comparison_summary.csv
+FILE	814	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_modeling_input_contract.csv
+FILE	581	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_old_11_and_old_12_exclusion_audit.csv
+FILE	6649	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_operating_metrics_at_k.csv
+FILE	10637	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_preflight_input_validation.csv
+FILE	1271	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_stability_aware_candidate_by_scope.csv
+FILE	3671	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_train_valid_gap_audit.csv
+FILE	1170	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_vs_11b_baseline_comparison.csv
+DIR 		26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947
+FILE	1482	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_best_model_candidate_by_scope.csv
+FILE	70034	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_calibration_decile_summary.csv
+FILE	5394	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_candidate_selection_policy.csv
+FILE	2326	26-05-14 23:00:06	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_cv_split_audit.csv
+FILE	1227	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_dataset_scope_definition.csv
+FILE	13186	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_feature_set_by_scope.csv
+FILE	2260	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_figure_inventory.csv
+FILE	21029	26-05-14 23:01:40	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_final_checks.csv
+FILE	5023	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_fold_stability_audit.csv
+FILE	1487	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_handoff_to_14_optuna_candidate_tuning.csv
+FILE	738	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_handoff_to_16_shap_candidate_interpretation.csv
+FILE	991	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_model_availability.csv
+FILE	24792	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_model_comparison_fold_metrics.csv
+FILE	7927	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_model_comparison_summary.csv
+FILE	814	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_modeling_input_contract.csv
+FILE	16074	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_modeling_warnings.csv
+FILE	581	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_old_11_and_old_12_exclusion_audit.csv
+FILE	1176	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_oof_prediction_manifest.csv
+FILE	22985046	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_oof_predictions_selected_candidates.csv
+FILE	732	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_open_risks_for_next_steps.csv
+FILE	6649	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_operating_metrics_at_k.csv
+FILE	10637	26-05-14 22:59:47	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_preflight_input_validation.csv
+FILE	1092	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_safe_unsafe_wording.csv
+FILE	1271	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_stability_aware_candidate_by_scope.csv
+FILE	3671	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_train_valid_gap_audit.csv
+FILE	185	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_visualization_warnings.csv
+FILE	1170	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_vs_11b_baseline_comparison.csv
+FILE	1073	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\README.md
+
+----- park.ingyeom\reports\figures\12_model_baseline_comparison_260513 -----
+FILE	95113	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_01_model_auc_by_scope.png
+FILE	46324	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_02_vs_11b_delta_auc.png
+FILE	98762	26-05-14 17:17:43	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_03_train_valid_gap_by_model.png
+FILE	95754	26-05-14 17:17:43	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_04_fold_stability_by_model.png
+FILE	87096	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_05_best_candidate_summary.png
+DIR 		26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827
+FILE	95113	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_01_model_auc_by_scope.png
+FILE	46324	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_02_vs_11b_delta_auc.png
+FILE	98762	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_03_train_valid_gap_by_model.png
+FILE	95754	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_04_fold_stability_by_model.png
+FILE	87096	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_05_best_candidate_summary.png
+
+----- park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514 -----
+FILE	95113	26-05-14 23:01:37	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_01_model_auc_by_scope.png
+FILE	41602	26-05-14 23:01:37	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_02_vs_11b_delta_auc.png
+FILE	95023	26-05-14 23:01:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_03_train_valid_gap_by_model.png
+FILE	95754	26-05-14 23:01:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_04_fold_stability_by_model.png
+FILE	92618	26-05-14 23:01:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_05_operating_lift_at_10.png
+FILE	100165	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_06_precision_at_top10.png
+FILE	72623	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_07_calibration_decile_example.png
+FILE	93431	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_08_best_candidate_summary.png
+
+----- park.ingyeom\zip\12_model_baseline_comparison_260513_review_package.zip -----
+FILE	14656177	26-05-14 17:20:48	C:\Code\ott-churn-prediction\park.ingyeom\zip\12_model_baseline_comparison_260513_review_package.zip
+
+----- park.ingyeom\zip\12_model_baseline_comparison_rebuild_260514_review_package.zip -----
+FILE	7797843	26-05-14 23:01:41	C:\Code\ott-churn-prediction\park.ingyeom\zip\12_model_baseline_comparison_rebuild_260514_review_package.zip
+
+===== POSSIBLE 12-RELATED FILES UNDER park.ingyeom =====
+DIR 		26-05-14 17:15:10	C:\Code\ott-churn-prediction\park.ingyeom\notebook\12_model_baseline_comparison_260513
+FILE	231848	26-05-14 17:20:49	C:\Code\ott-churn-prediction\park.ingyeom\notebook\12_model_baseline_comparison_260513\12_model_baseline_comparison_260513.ipynb
+DIR 		26-05-14 17:57:07	C:\Code\ott-churn-prediction\park.ingyeom\notebook\12_model_baseline_comparison_rebuild_260514
+FILE	326549	26-05-14 23:01:42	C:\Code\ott-churn-prediction\park.ingyeom\notebook\12_model_baseline_comparison_rebuild_260514\12_model_baseline_comparison_rebuild_260514.ipynb
+FILE	51046	26-05-14 23:20:57	C:\Code\ott-churn-prediction\park.ingyeom\reports\_cleanup_review\12_cleanup_inventory_20260514_232056.txt
+FILE	25198	26-05-14 23:21:00	C:\Code\ott-churn-prediction\park.ingyeom\reports\_cleanup_review\12_cleanup_inventory_20260514_232100.txt
+FILE	650	26-05-14 17:03:06	C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514\11b_handoff_to_12_semantic_requirements.csv
+DIR 		26-05-14 17:18:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513
+FILE	95113	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_01_model_auc_by_scope.png
+FILE	46324	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_02_vs_11b_delta_auc.png
+FILE	98762	26-05-14 17:17:43	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_03_train_valid_gap_by_model.png
+FILE	95754	26-05-14 17:17:43	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_04_fold_stability_by_model.png
+FILE	87096	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\12_fig_05_best_candidate_summary.png
+DIR 		26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827
+FILE	95113	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_01_model_auc_by_scope.png
+FILE	46324	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_02_vs_11b_delta_auc.png
+FILE	98762	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_03_train_valid_gap_by_model.png
+FILE	95754	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_04_fold_stability_by_model.png
+FILE	87096	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_260513\run_20260514_171827\12_fig_05_best_candidate_summary.png
+DIR 		26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514
+FILE	95113	26-05-14 23:01:37	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_01_model_auc_by_scope.png
+FILE	41602	26-05-14 23:01:37	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_02_vs_11b_delta_auc.png
+FILE	95023	26-05-14 23:01:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_03_train_valid_gap_by_model.png
+FILE	95754	26-05-14 23:01:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_04_fold_stability_by_model.png
+FILE	92618	26-05-14 23:01:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_05_operating_lift_at_10.png
+FILE	100165	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_06_precision_at_top10.png
+FILE	72623	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_07_calibration_decile_example.png
+FILE	93431	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12_model_baseline_comparison_rebuild_260514\12r_fig_08_best_candidate_summary.png
+FILE	1718	26-05-14 14:30:38	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11_baseline_growth_history_260513\11_handoff_to_12_model_comparison.csv
+FILE	1718	26-05-14 14:33:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11_baseline_growth_history_260513\run_20260514_143131\11_handoff_to_12_model_comparison.csv
+FILE	1718	26-05-14 14:36:59	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11_baseline_growth_history_260513\run_20260514_143503\11_handoff_to_12_model_comparison.csv
+FILE	1618	26-05-14 16:06:37	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11b_baseline_growth_history_ladder_fix_260514\11b_handoff_to_12_model_comparison.csv
+DIR 		26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513
+FILE	12632	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_cv_fold_results.csv
+FILE	2514	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_cv_summary.csv
+FILE	26	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_dropped_constant_columns.csv
+FILE	129	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_dropped_explicit_columns.csv
+FILE	33	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_dropped_leakage_suspect_columns.csv
+FILE	56461	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_fold_test_auc_line.png
+FILE	2876987	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_oof_predictions.csv
+FILE	39625	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_train_test_auc_bar.png
+FILE	1507	26-05-14 00:50:13	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_full_feature_preliminary_model_260513\baseline_used_columns.csv
+DIR 		26-05-14 17:18:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513
+FILE	1341	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_best_model_candidate_by_scope.csv
+FILE	2326	26-05-14 17:15:43	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_cv_split_audit.csv
+FILE	1408	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_dataset_scope_definition.csv
+FILE	13186	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_feature_set_by_scope.csv
+FILE	2291	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_figure_inventory.csv
+FILE	13028	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_final_checks.csv
+FILE	5051	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_fold_stability_audit.csv
+FILE	1756	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_handoff_to_14_optuna_candidate_tuning.csv
+FILE	892	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_handoff_to_16_shap_candidate_interpretation.csv
+FILE	1021	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_model_availability.csv
+FILE	24791	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_model_comparison_fold_metrics.csv
+FILE	8710	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_model_comparison_summary.csv
+FILE	736	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_modeling_input_contract.csv
+FILE	14552	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_modeling_warnings.csv
+FILE	328	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_old_11_exclusion_audit.csv
+FILE	1870	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_oof_prediction_manifest.csv
+FILE	42023438	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_oof_predictions_selected_candidates.csv
+FILE	571	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_open_risks_for_next_steps.csv
+FILE	10097	26-05-14 17:15:25	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_preflight_input_validation.csv
+FILE	913	26-05-14 17:17:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_safe_unsafe_wording.csv
+FILE	3721	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_train_valid_gap_audit.csv
+FILE	186	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_visualization_warnings.csv
+FILE	1314	26-05-14 17:17:15	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\12_vs_11b_baseline_comparison.csv
+FILE	908	26-05-14 17:17:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\README.md
+DIR 		26-05-14 17:20:46	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827
+FILE	1341	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_best_model_candidate_by_scope.csv
+FILE	2326	26-05-14 17:18:46	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_cv_split_audit.csv
+FILE	1408	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_dataset_scope_definition.csv
+FILE	13186	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_feature_set_by_scope.csv
+FILE	2591	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_figure_inventory.csv
+FILE	18670	26-05-14 17:20:47	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_final_checks.csv
+FILE	5051	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_fold_stability_audit.csv
+FILE	1756	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_handoff_to_14_optuna_candidate_tuning.csv
+FILE	892	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_handoff_to_16_shap_candidate_interpretation.csv
+FILE	1021	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_model_availability.csv
+FILE	24794	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_model_comparison_fold_metrics.csv
+FILE	8709	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_model_comparison_summary.csv
+FILE	736	26-05-14 17:18:28	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_modeling_input_contract.csv
+FILE	16272	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_modeling_warnings.csv
+FILE	328	26-05-14 17:18:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_old_11_exclusion_audit.csv
+FILE	1870	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_oof_prediction_manifest.csv
+FILE	42023438	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_oof_predictions_selected_candidates.csv
+FILE	571	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_open_risks_for_next_steps.csv
+FILE	10697	26-05-14 17:18:27	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_preflight_input_validation.csv
+FILE	913	26-05-14 17:20:44	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_safe_unsafe_wording.csv
+FILE	3721	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_train_valid_gap_audit.csv
+FILE	186	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_visualization_warnings.csv
+FILE	1314	26-05-14 17:20:17	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\12_vs_11b_baseline_comparison.csv
+FILE	948	26-05-14 17:20:45	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513\run_20260514_171827\README.md
+DIR 		26-05-14 22:59:47	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514
+FILE	70050	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_calibration_decile_summary.csv
+FILE	2326	26-05-14 17:58:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_cv_split_audit.csv
+FILE	1227	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_dataset_scope_definition.csv
+FILE	13186	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_feature_set_by_scope.csv
+FILE	5023	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_fold_stability_audit.csv
+FILE	991	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_model_availability.csv
+FILE	24795	26-05-14 18:00:09	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_model_comparison_fold_metrics.csv
+FILE	7928	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_model_comparison_summary.csv
+FILE	814	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_modeling_input_contract.csv
+FILE	581	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_old_11_and_old_12_exclusion_audit.csv
+FILE	6649	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_operating_metrics_at_k.csv
+FILE	10337	26-05-14 17:58:20	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_preflight_input_validation.csv
+FILE	3671	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_train_valid_gap_audit.csv
+FILE	1170	26-05-14 18:00:10	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\12r_vs_11b_baseline_comparison.csv
+DIR 		26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053
+FILE	1482	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_best_model_candidate_by_scope.csv
+FILE	70037	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_calibration_decile_summary.csv
+FILE	5394	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_candidate_selection_policy.csv
+FILE	2326	26-05-14 18:01:11	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_cv_split_audit.csv
+FILE	1227	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_dataset_scope_definition.csv
+FILE	13186	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_feature_set_by_scope.csv
+FILE	5023	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_fold_stability_audit.csv
+FILE	991	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_model_availability.csv
+FILE	24791	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_model_comparison_fold_metrics.csv
+FILE	7928	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_model_comparison_summary.csv
+FILE	814	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_modeling_input_contract.csv
+FILE	581	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_old_11_and_old_12_exclusion_audit.csv
+FILE	6649	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_operating_metrics_at_k.csv
+FILE	10637	26-05-14 18:00:53	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_preflight_input_validation.csv
+FILE	1271	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_stability_aware_candidate_by_scope.csv
+FILE	3671	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_train_valid_gap_audit.csv
+FILE	1170	26-05-14 18:02:42	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_180053\12r_vs_11b_baseline_comparison.csv
+DIR 		26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947
+FILE	1482	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_best_model_candidate_by_scope.csv
+FILE	70034	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_calibration_decile_summary.csv
+FILE	5394	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_candidate_selection_policy.csv
+FILE	2326	26-05-14 23:00:06	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_cv_split_audit.csv
+FILE	1227	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_dataset_scope_definition.csv
+FILE	13186	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_feature_set_by_scope.csv
+FILE	2260	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_figure_inventory.csv
+FILE	21029	26-05-14 23:01:40	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_final_checks.csv
+FILE	5023	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_fold_stability_audit.csv
+FILE	1487	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_handoff_to_14_optuna_candidate_tuning.csv
+FILE	738	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_handoff_to_16_shap_candidate_interpretation.csv
+FILE	991	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_model_availability.csv
+FILE	24792	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_model_comparison_fold_metrics.csv
+FILE	7927	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_model_comparison_summary.csv
+FILE	814	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_modeling_input_contract.csv
+FILE	16074	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_modeling_warnings.csv
+FILE	581	26-05-14 22:59:48	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_old_11_and_old_12_exclusion_audit.csv
+FILE	1176	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_oof_prediction_manifest.csv
+FILE	22985046	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_oof_predictions_selected_candidates.csv
+FILE	732	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_open_risks_for_next_steps.csv
+FILE	6649	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_operating_metrics_at_k.csv
+FILE	10637	26-05-14 22:59:47	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_preflight_input_validation.csv
+FILE	1092	26-05-14 23:01:36	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_safe_unsafe_wording.csv
+FILE	1271	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_stability_aware_candidate_by_scope.csv
+FILE	3671	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_train_valid_gap_audit.csv
+FILE	185	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_visualization_warnings.csv
+FILE	1170	26-05-14 23:01:35	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\12r_vs_11b_baseline_comparison.csv
+FILE	1073	26-05-14 23:01:39	C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_rebuild_260514\run_20260514_225947\README.md
+FILE	14656177	26-05-14 17:20:48	C:\Code\ott-churn-prediction\park.ingyeom\zip\12_model_baseline_comparison_260513_review_package.zip
+FILE	7797843	26-05-14 23:01:41	C:\Code\ott-churn-prediction\park.ingyeom\zip\12_model_baseline_comparison_rebuild_260514_review_package.zip

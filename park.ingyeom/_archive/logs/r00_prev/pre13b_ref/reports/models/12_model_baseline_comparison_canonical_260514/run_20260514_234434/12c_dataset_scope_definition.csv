@@ -1,0 +1,5 @@
+﻿dataset_scope,row_filter,target,positive_class,group_key,analysis_unit
+overall_without_promotion,all rows,is_repurchase,is_repurchase=1 means repurchase,USER_KEY,row-level / subscription-event-level
+overall_with_promotion,all rows,is_repurchase,is_repurchase=1 means repurchase,USER_KEY,row-level / subscription-event-level
+promotion_only,is_promotion=1,is_repurchase,is_repurchase=1 means repurchase,USER_KEY,row-level / subscription-event-level
+nonpromotion_only,is_promotion=0,is_repurchase,is_repurchase=1 means repurchase,USER_KEY,row-level / subscription-event-level

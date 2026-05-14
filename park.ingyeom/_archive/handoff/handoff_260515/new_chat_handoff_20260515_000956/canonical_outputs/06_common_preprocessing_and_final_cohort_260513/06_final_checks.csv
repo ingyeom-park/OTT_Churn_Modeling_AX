@@ -1,0 +1,49 @@
+﻿check_name,status,detail
+repo_root_checked,PASS,C:/Code/ott-churn-prediction
+repo_root_matches_expected,PASS,C:/Code/ott-churn-prediction
+source_file_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_01_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513\01_final_checks.csv
+previous_02_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513\02_final_checks.csv
+previous_03_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\03_observation_window_policy_260513\03_final_checks.csv
+previous_04_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\04_promotion_split_260513\04_final_checks.csv
+previous_05b_final_checks_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_final_checks.csv
+canonical_05b_dictionary_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_canonical_column_role_dictionary.csv
+canonical_05b_timing_audit_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_canonical_timing_audit.csv
+canonical_05b_feature_contract_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513\05b_canonical_recommended_feature_set_contracts.csv
+notebook_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\06_common_preprocessing_and_final_cohort_260513\06_common_preprocessing_and_final_cohort_260513.ipynb
+output_folder_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06_common_preprocessing_and_final_cohort_260513
+zip_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\06_common_preprocessing_and_final_cohort_260513_review_package.zip
+no_files_written_outside_park_ingyeom,PASS,Generated paths are inside park.ingyeom.
+no_py_script_created,PASS,No .py file was created by this step.
+no_existing_notebook_modified,PASS,Only the new step 06 notebook path was used.
+no_source_csv_modified,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+no_original_05_outputs_overwritten,PASS,"This notebook wrote only step 06 output folder, note, notebook, and zip."
+no_original_05b_outputs_overwritten,PASS,05b files were read only.
+no_modeling_performed,PASS,"No estimator, train/test fit, or model API was used."
+no_predictions_created,PASS,No prediction columns or prediction files were created.
+no_repurchase_score_created,PASS,No repurchase_score column.
+no_churn_risk_created,PASS,No churn_risk column.
+no_shap_performed,PASS,No SHAP package or outputs were used.
+no_optuna_performed,PASS,No Optuna package or outputs were used.
+no_row_mutation_of_source,PASS,Source rows were read only.
+duration_lt21_excluded_from_primary_main,PASS,No duration < 21 row in primary main cohort.
+duration_lt21_preserved_in_reference,PASS,All duration < 21 rows in anomaly/reference output.
+full_duplicate_extra_rows_excluded_from_primary_main,PASS,No exact full duplicate extra row in primary main cohort.
+full_duplicate_rows_preserved_in_audit,PASS,All full duplicate group rows are in audit.
+duplicated_USER_KEY_not_collapsed,PASS,Duplicated USER_KEY rows remain flagged in main cohort.
+cross_promotion_USER_KEY_overlap_not_collapsed,PASS,Cross-promotion overlap rows remain flagged in main cohort.
+primary_main_cohort_index_created,PASS,
+primary_main_cohort_conservative_features_created,PASS,
+conservative_features_use_05b_safe_candidates_only,PASS,22 safe features
+review_columns_excluded_from_conservative_features,PASS,
+forbidden_columns_excluded_from_conservative_features,PASS,
+feature_policy_from_05b_created,PASS,
+common_preprocessing_policy_created,PASS,
+downstream_handoff_for_11_created,PASS,
+safe_unsafe_wording_created,PASS,
+open_risks_created,PASS,
+readme_created,PASS,
+note_md_updated,PASS,C:\Code\ott-churn-prediction\park.ingyeom\note.md
+review_zip_created,PASS,Created during notebook execution and refreshed after execution if needed.
+notebook_saved_with_outputs,PASS,Notebook execution reached final summary; nbconvert saves visible outputs after kernel completion.

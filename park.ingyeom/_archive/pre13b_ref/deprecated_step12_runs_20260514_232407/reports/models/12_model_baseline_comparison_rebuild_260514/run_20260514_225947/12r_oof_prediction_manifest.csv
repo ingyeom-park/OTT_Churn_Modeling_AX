@@ -1,0 +1,5 @@
+﻿selected_experiment,row_count,score_orientation,allowed_use,forbidden_use
+nonpromotion_only::XGBoost::highest_auc/operating_metric/stability_aware,11175,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score,"candidate comparison, top-k diagnostics, calibration diagnostics","no campaign target, no final threshold, no segmentation"
+overall_with_promotion::XGBoost::highest_auc/operating_metric/stability_aware,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score,"candidate comparison, top-k diagnostics, calibration diagnostics","no campaign target, no final threshold, no segmentation"
+overall_without_promotion::XGBoost::highest_auc/operating_metric/stability_aware,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score,"candidate comparison, top-k diagnostics, calibration diagnostics","no campaign target, no final threshold, no segmentation"
+promotion_only::XGBoost::highest_auc/operating_metric/stability_aware,11904,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score,"candidate comparison, top-k diagnostics, calibration diagnostics","no campaign target, no final threshold, no segmentation"

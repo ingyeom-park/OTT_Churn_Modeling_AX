@@ -1,0 +1,14 @@
+﻿risk_to_carry_forward
+review columns remain excluded from conservative baseline
+is_churn_prevented timing unresolved
+end_date/duration timing unresolved as feature although duration is used for cohort policy
+total/all-period usage timing unresolved
+recency timing unresolved
+content/genre observation window unresolved
+duration < 21 excluded from primary main cohort but requires sensitivity analysis later
+full duplicate rows excluded from primary main cohort but preserved in audit
+duplicated USER_KEY remains and must be handled with group-aware CV
+cross-promotion USER_KEY overlap remains; avoid unique-user promotion language
+05b canonical dictionary must be used downstream
+preliminary full-feature model must not be called L0 baseline
+"11 baseline ladder should start from conservative feature families, not review columns"

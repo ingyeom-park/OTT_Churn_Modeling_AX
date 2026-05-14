@@ -1,0 +1,7 @@
+﻿policy_id,policy_statement
+use_05b_role_dictionary,"Downstream steps must use 05b_canonical_column_role_dictionary.csv, not original 05_column_role_dictionary.csv."
+use_05b_timing_audit,Downstream steps must use 05b_canonical_timing_audit.csv.
+use_05b_feature_contracts,Downstream steps must use 05b_canonical_recommended_feature_set_contracts.csv.
+retain_original_05_as_evidence,"Original 05 outputs are retained as pre-patch audit evidence, not final dictionary."
+review_columns_blocked,Review columns must not enter modeling unless resolved.
+step06_dependency,06 should use this 05b patch for final cohort/preprocessing policy.

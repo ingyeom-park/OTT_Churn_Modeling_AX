@@ -1,0 +1,15 @@
+﻿segment_flag,flag_value,n,repurchase_rate
+family_content_affinity,0,11352,0.6741543340380549
+family_content_affinity,1,3570,0.6787114845938376
+family_2screen_lifestyle,0,14290,0.6724982505248426
+family_2screen_lifestyle,1,632,0.7373417721518988
+promo2_family_lifestyle_candidate,0,14564,0.6733726998077452
+promo2_family_lifestyle_candidate,1,358,0.7513966480446927
+action_sf_thriller_affinity,0,6672,0.6719124700239808
+action_sf_thriller_affinity,1,8250,0.677939393939394
+premium_action_trial_risk,0,14195,0.6863684395914055
+premium_action_trial_risk,1,727,0.4580467675378267
+age40_2screen_anime_kids_candidate,0,14885,0.6750419885791065
+age40_2screen_anime_kids_candidate,1,37,0.7567567567567568
+promo4_long_recent_trial_candidate,0,14606,0.6797206627413391
+promo4_long_recent_trial_candidate,1,316,0.46835443037974683

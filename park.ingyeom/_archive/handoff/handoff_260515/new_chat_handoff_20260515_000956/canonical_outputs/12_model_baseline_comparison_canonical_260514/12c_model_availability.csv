@@ -1,0 +1,9 @@
+﻿model_name,required_or_optional,import_available,fixed_parameters,will_run,tuning_performed,unavailable_reason
+LogisticRegression,required,True,"SimpleImputer median; StandardScaler; LogisticRegression(max_iter=2000, solver=lbfgs)",yes,no,
+HistGradientBoosting,required,True,SimpleImputer median; HistGradientBoostingClassifier(random_state=42),yes,no,
+RandomForest,required,True,"SimpleImputer median; RandomForestClassifier(n_estimators=300,max_depth=6,min_samples_leaf=20,n_jobs=-1,random_state=42)",yes,no,
+GradientBoosting,required,True,SimpleImputer median; GradientBoostingClassifier(random_state=42),yes,no,
+ExtraTrees,required,True,"SimpleImputer median; ExtraTreesClassifier(n_estimators=300,max_depth=6,min_samples_leaf=20,n_jobs=-1,random_state=42)",yes,no,
+LightGBM,optional,True,"LGBMClassifier fixed 300 trees, lr=0.05",yes,no,
+XGBoost,optional,True,"XGBClassifier fixed 300 trees, lr=0.05, max_depth=4",yes,no,
+CatBoost,optional,False,"CatBoostClassifier(iterations=300, lr=0.05, depth=4)",no,no,module not installed

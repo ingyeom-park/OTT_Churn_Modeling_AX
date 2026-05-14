@@ -1,0 +1,16 @@
+﻿policy_name,policy_statement
+row filtering rule,Apply one common row policy before any promotion/non-promotion split: exclude duration < 21 and invalid date or missing target rows from the primary main modeling cohort.
+duplicate full row rule,Remove exact full duplicate extra rows from the primary main cohort by keeping the first source_row_number; preserve duplicate audit outputs.
+duplicated USER_KEY rule,Do not collapse duplicated USER_KEY rows because the analysis unit is row-level/subscription-event-level.
+cross-promotion USER_KEY overlap rule,Do not collapse cross-promotion USER_KEY overlap rows; keep flags and avoid unique-user promotion language.
+target rule,is_repurchase is the positive class and means repurchase; never use it as a feature.
+split rule,is_promotion is the top-level split variable; do not use it as a feature inside groupwise models.
+score orientation rule,Future model output should be repurchase_score; operational churn risk is later defined as 1 - repurchase_score.
+review column rule,Review columns from 05b remain excluded from conservative baseline candidates until resolved.
+forbidden/drop column rule,Forbidden/drop columns from 05b must not be used as features.
+categorical encoding rule for future steps,Document encoding choices in future modeling steps; do not encode in this gate step.
+numeric scaling rule for future steps,Document scaling choices in future modeling steps; do not scale in this gate step.
+train/test split grouping recommendation,Use USER_KEY as group key for GroupKFold or StratifiedGroupKFold where applicable because duplicated USER_KEY exists.
+stratification recommendation,Preserve target and promotion balance in future evaluation splits when compatible with group-aware splitting.
+leakage/timing review requirement,Use 05b canonical timing files and keep unresolved timing columns out of conservative baselines.
+final artifact usage rule,"Use 06_primary_main_cohort_conservative_features.csv as the conservative downstream candidate table, not the raw source CSV."

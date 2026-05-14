@@ -1,0 +1,6 @@
+﻿type,wording,safer_wording
+Unsafe,View_History에는 4주차가 없었다.,"raw View_History에는 day21+ 시청이 존재하지만, 마스터 핵심 usage feature는 day0~20 기준으로 재계산값과 일치했다."
+Unsafe,total_watch_time은 전체 구독기간 시청시간이다.,"마스터의 total_watch_time(min)은 이름과 달리 w1+w2+w3, 즉 day0~20 관측창 합계로 검증되었다."
+Unsafe,장르 ratio는 전부 완벽히 검증됐다.,"대부분의 장르 ratio는 day0~20 기준으로 검증되지만, 일부 불일치는 Movie_Master_v2의 MOVIE_NUM 중복 category 충돌 가능성과 함께 남긴다."
+Unsafe,new_movie ratio 공식도 완전히 확정됐다.,"new_movie ratio 계열은 window는 day0~20 기반 가능성이 높지만, release-month formula convention은 추가 확인이 필요하다."
+Unsafe,이제 누수 가능성은 전혀 없다.,"핵심 usage window 누수 의심은 크게 해소됐지만, 일부 content formula convention과 review 컬럼은 별도 관리한다."

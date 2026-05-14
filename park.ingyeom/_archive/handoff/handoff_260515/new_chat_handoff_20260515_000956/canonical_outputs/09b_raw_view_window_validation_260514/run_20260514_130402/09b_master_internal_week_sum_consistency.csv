@@ -1,0 +1,10 @@
+﻿check_name,compared_rows,match_count,mismatch_count,formula,interpretation
+total_watch_time_week_sum,23343,23343,0,total_watch_time(min) = w1+w2+w3,PASS
+total_watch_count_week_sum,23343,23343,0,total_watch_count = watch_session_w1+w2+w3,PASS
+active_ratio_watch_days_over_21,23343,23343,0,active_ratio = watch_days / 21,PASS
+is_only_w1_session_presence,23343,23343,0,is_only_w1 = only watch_session_w1 has sessions,PASS
+is_only_w2_session_presence,23343,23343,0,is_only_w2 = only watch_session_w2 has sessions,PASS
+is_only_w3_session_presence,23343,23343,0,is_only_w3 = only watch_session_w3 has sessions,PASS
+is_w1_over_50pct_watch_time_share,23343,23230,113,is_w1_over_50pct = watch_time(min)_w1/total > 0.5,REVIEW
+is_w2_over_50pct_watch_time_share,23343,23250,93,is_w2_over_50pct = watch_time(min)_w2/total > 0.5,REVIEW
+is_w3_over_50pct_watch_time_share,23343,23258,85,is_w3_over_50pct = watch_time(min)_w3/total > 0.5,REVIEW

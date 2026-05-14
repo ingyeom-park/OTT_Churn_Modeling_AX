@@ -1,0 +1,24 @@
+﻿feature_name,abs_SMD_08_promotion_average_difference,abs_SMD_09_within_promotion_target_difference,abs_SMD_09_within_nonpromotion_target_difference,is_09_signal_stronger_than_08,interpretation
+avg_gap_w1_watch_days,0.0042710885479735,0.040341345527741074,0.07119698779225124,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+avg_gap_w2_watch_days,0.0195520714133298,0.22750159424911742,0.28547342294532324,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+avg_gap_w3_watch_days,0.0264694645030762,0.4756795703580846,0.5432113520993123,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_cold_start_3d,0.0118035444719018,0.10724575857511606,0.020331123993626837,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_cold_start_7d,0.0126739896501202,0.043784855771949745,0.10248246461133356,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+watch_time(min)_w1,0.0032938113531343,0.06699148989422397,0.08804995457633281,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+watch_time(min)_w2,0.0031262168500936,0.42662425147130806,0.5042875788643602,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+watch_time(min)_w3,0.0036552716176584,0.6913420634313308,0.7434059086896082,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+watch_session_w1,0.0029511203477421,0.00042570755534786995,0.007919539689057323,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+watch_session_w2,0.0001543297370353,0.3318420630210599,0.4264872592382039,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+watch_session_w3,0.0109764782375087,0.6626744684571563,0.7500986291124194,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+retention_w2_ratio,0.0016612883266608,0.31222955333492197,0.3660803567023025,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+retention_w3_ratio,0.0026464443996136,0.3579795070777067,0.39270660636216587,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+diff_between_w2_w1,0.0003002166112993,0.28536081099433275,0.3171132669501669,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+diff_between_w3_w1,0.0001871048661809,0.43280640300842604,0.4443914059565071,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+diff_between_w3_w2,0.0005005122994051,0.18831283022752407,0.1870891917389487,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_w1_over_50pct,0.002460356878107,0.5091198494649657,0.6529073920253156,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_w2_over_50pct,0.0061316269391235,0.15258412885961023,0.15793207097662842,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_w3_over_50pct,0.0017639569095951,0.3537252022979554,0.4201745690384266,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_only_w1,0.0159954847429046,0.5487347215544293,0.6688643867741991,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_only_w2,0.022759539812692,0.08775217216812371,0.04921404106785046,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+is_only_w3,0.0199097451297839,0.037565581813782875,0.004967216494915848,yes,08 compared promotion-average differences; 09 compares target separation inside each promotion split. No causality is implied.
+SUMMARY,,,,not_computable,08 showed negligible promotion-average feature differences. 09 may show stronger target-internal feature differences if observed. This does not imply causality.

@@ -1,0 +1,6 @@
+﻿AARRR_stage,number_of_conservative_features,feature_names,stage_is_directly_observed_or_proxy,safe_summary,unsafe_summary,use_in_report,reason
+acquisition,0,,split_metadata,is_promotion is split metadata.,Do not interpret acquisition as ordinary feature average.,restricted,Split context only.
+activation,6,is_cold_start_3d;is_cold_start_7d;watch_time(min)_w1;watch_session_w1;is_w1_over_50pct;is_only_w1,proxy_features,Use feature list/count and individual feature distributions only.,Do not interpret heterogeneous raw stage mean averages.,restricted,Raw cross-feature averages are restricted.
+retention,16,avg_gap_w1_watch_days;avg_gap_w2_watch_days;avg_gap_w3_watch_days;watch_time(min)_w2;watch_time(min)_w3;watch_session_w2;watch_session_w3;retention_w2_ratio;retention_w3_ratio;diff_between_w2_w1;diff_between_w3_w1;diff_between_w3_w2;is_w2_over_50pct;is_w3_over_50pct;is_only_w2;is_only_w3,proxy_features,Use feature list/count and individual feature distributions only.,Do not interpret heterogeneous raw stage mean averages.,restricted,Raw cross-feature averages are restricted.
+revenue_proxy,0,,target_proxy,Revenue proxy is target context only.,Do not treat as actual revenue feature.,restricted,"Target proxy, not ordinary feature."
+referral,0,,not_observed,Referral is not observed.,Do not claim referral performance was analyzed.,no,No referral variable.

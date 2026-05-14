@@ -1,0 +1,5 @@
+﻿scope,11b best model,11b best AUC,12c highest AUC candidate,12c highest AUC,12c operating metric candidate,12c stability-aware candidate,lift@10 if available,precision@top10 if available,caution
+nonpromotion_only,RandomForest / L4_all_conservative_behavior,0.8303052527342334,XGBoost,0.8326691599692315,XGBoost,RandomForest,3.09089576827062,0.7343470483005367,"candidate only, not final model or threshold"
+overall_with_promotion,HistGradientBoosting / L5_all_conservative_plus_promotion_indicator,0.8211437468292977,XGBoost,0.8234957455197796,XGBoost,GradientBoosting,2.669310896541608,0.7543327556325823,"candidate only, not final model or threshold"
+overall_without_promotion,HistGradientBoosting / L4_all_conservative_behavior,0.8136740303172799,XGBoost,0.8152121178143351,XGBoost,GradientBoosting,2.663178074263511,0.7525996533795494,"candidate only, not final model or threshold"
+promotion_only,RandomForest / L4_all_conservative_behavior,0.7931624035577116,XGBoost,0.8002004177794328,XGBoost,GradientBoosting,2.367567983043241,0.7691015952980689,"candidate only, not final model or threshold"

@@ -1,0 +1,6 @@
+﻿flag_key,n,share,churn_rate,lift,captured_churners,churner_capture_rate,stability_note
+seg_top10_risk,463,0.1001,0.8251,2.8371,382,0.284,stable
+seg_high_risk_low_usage,434,0.0938,0.576,1.9808,250,0.1859,stable
+seg_risky_weekly_pattern,1356,0.2932,0.413,1.4201,560,0.4164,stable
+seg_genre_affinity,3754,0.8117,0.3034,1.0433,1139,0.8468,stable
+seg_stable_low_risk,1850,0.4,0.0395,0.1357,73,0.0543,stable

@@ -1,0 +1,5 @@
+﻿risk,severity,carry_forward
+Fixed-parameter ranking may change after Optuna tuning.,medium,Compare tuned and untuned candidates before final model selection.
+"Top-k churn-risk metrics are diagnostics, not campaign thresholds.",high,Do not use top-k as execution rule without segment and experiment design.
+Calibration deciles are descriptive and not deployment calibration evidence.,medium,Revisit calibration after candidate finalization.
+Review columns remain excluded; potential information loss is untested.,medium,Optional sensitivity can test review columns later under policy.

@@ -1,0 +1,11 @@
+﻿risk_or_caution
+Step 10 is descriptive only.
+"No p-values, no modeling, no causal inference yet."
+Some signals may be zero-inflation or outlier-driven.
+Review columns remain excluded.
+Content/genre and membership/context signals are limited under conservative approach.
+09b validates core usage window but not all content formulas exactly.
+Feature redundancy/overlap needs care before modeling.
+11 baseline ladder should not overfit to EDA findings.
+Segmentation thresholds are not defined yet.
+Need group-aware CV later because USER_KEY duplication exists.

@@ -1,0 +1,7 @@
+﻿feature_name,current_L1_inclusion,pure_activation,frontloaded_or_early_only_pattern,requires_full_day0_20_window_to_compute,available_at_day21,timing_leakage_under_project_contract,safe_label,unsafe_label,interpretation_note
+is_cold_start_3d,yes,yes,no,no,yes,no,early activation feature,week1-only causal driver,Early-use feature available before day21 and usable in L1 family.
+is_cold_start_7d,yes,yes,no,no,yes,no,early activation feature,week1-only causal driver,Early-use feature available before day21 and usable in L1 family.
+watch_time(min)_w1,yes,yes,no,no,yes,no,early activation feature,week1-only causal driver,Early-use feature available before day21 and usable in L1 family.
+watch_session_w1,yes,yes,no,no,yes,no,early activation feature,week1-only causal driver,Early-use feature available before day21 and usable in L1 family.
+is_only_w1,yes,no,yes,yes,yes,no,early-only/front-loaded pattern,pure activation,Valid at day21; do not describe as pure activation.
+is_w1_over_50pct,yes,no,yes,yes,yes,no,early concentration/front-loaded pattern,pure activation,Valid at day21; do not describe as pure activation.

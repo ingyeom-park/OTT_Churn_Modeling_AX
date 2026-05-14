@@ -1,0 +1,2 @@
+﻿policy_item,target_positive_class,repurchase_score,churn_risk,auc_orientation,high_repurchase_score_means,high_churn_risk_means,threshold_policy
+score_orientation,is_repurchase=1,predicted probability for repurchase,1 - repurchase_score,AUC computed with repurchase as positive class,higher predicted repurchase probability and lower churn risk,higher non-repurchase risk,No final threshold is chosen in this step

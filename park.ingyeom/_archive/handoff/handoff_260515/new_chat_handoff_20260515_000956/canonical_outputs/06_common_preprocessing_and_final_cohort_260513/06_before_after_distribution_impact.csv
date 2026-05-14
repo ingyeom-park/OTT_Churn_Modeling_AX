@@ -1,0 +1,20 @@
+﻿metric,raw_source_value,primary_main_cohort_final_value,absolute_difference,percentage_point_difference,interpretation_note
+row_count,23343.0,23079.0,-264.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+promotion_count,11955.0,11904.0,-51.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+promotion_rate,0.5121449685130446,0.515793578577928,0.003648610064883373,0.003648610064883373,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+nonpromotion_count,11388.0,11175.0,-213.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+nonpromotion_rate,0.4878550314869554,0.484206421422072,-0.0036486100648834285,-0.0036486100648834285,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+repurchase_count,16702.0,16557.0,-145.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+repurchase_rate,0.7155035770894915,0.717405433510984,0.0019018564214924316,0.0019018564214924316,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+nonrepurchase_count,6641.0,6522.0,-119.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+nonrepurchase_rate,0.28449642291050853,0.282594566489016,-0.0019018564214925426,-0.0019018564214925426,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+duration_min,0.0,31.0,31.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+duration_max,32.0,32.0,0.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+duration_mean,30.875894272372875,31.165431777806663,0.2895375054337883,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+USER_KEY_unique_count,23134.0,23032.0,-102.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+duplicated_USER_KEY_extra_rows,209.0,47.0,-162.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+cross_promotion_overlap_USER_KEY_count,38.0,8.0,-30.0,,Primary main cohort after duration >= 21 and exact full duplicate extra-row exclusion.
+promotion_0_target_0_count,2746.0,2655.0,-91.0,,Promotion by target 2x2 cell count.
+promotion_0_target_1_count,8642.0,8520.0,-122.0,,Promotion by target 2x2 cell count.
+promotion_1_target_0_count,3895.0,3867.0,-28.0,,Promotion by target 2x2 cell count.
+promotion_1_target_1_count,8060.0,8037.0,-23.0,,Promotion by target 2x2 cell count.

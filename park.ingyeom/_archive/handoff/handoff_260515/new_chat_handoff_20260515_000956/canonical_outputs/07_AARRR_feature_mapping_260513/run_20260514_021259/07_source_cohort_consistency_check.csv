@@ -1,0 +1,14 @@
+﻿check_name,actual_value,expected_value,status,detail
+raw source row count,23343,23343,PASS,
+raw source column count,91,91,PASS,
+primary main cohort row count,23079,23079,PASS,
+conservative feature table row count,23079,23079,PASS,
+conservative feature count from 06,22,22,PASS,avg_gap_w1_watch_days;avg_gap_w2_watch_days;avg_gap_w3_watch_days;is_cold_start_3d;is_cold_start_7d;watch_time(min)_w1;watch_time(min)_w2;watch_time(min)_w3;watch_session_w1;watch_session_w2;watch_session_w3;retention_w2_ratio;retention_w3_ratio;diff_between_w2_w1;diff_between_w3_w1;diff_between_w3_w2;is_w1_over_50pct;is_w2_over_50pct;is_w3_over_50pct;is_only_w1;is_only_w2;is_only_w3
+source target column exists,yes,yes,PASS,is_repurchase
+source split column exists,yes,yes,PASS,is_promotion
+USER_KEY exists,yes,yes,PASS,USER_KEY
+05b canonical dictionary has 91 rows,91,91,PASS,
+05b timing audit has 91 rows,91,91,PASS,
+06 conservative table has only safe candidate feature columns plus required metadata/flags,yes,yes,PASS,
+no review columns in conservative feature columns,0,0,PASS,
+no forbidden/drop columns in conservative feature columns,0,0,PASS,

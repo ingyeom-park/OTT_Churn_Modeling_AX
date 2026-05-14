@@ -1,0 +1,12 @@
+﻿ratio_column,best_formula,compared_rows,match_count,mismatch_count,max_abs_diff,all_match_boolean,mismatch_rate,likely_issue,interpretation
+family_animation_ratio,watch_time_weighted,23343,23240,103,1.0,False,0.0044124576960973315,movie_master_duplicate_category_conflict,REVIEW mismatch; see duplicate/formula caveats
+drama_ratio,watch_time_weighted,23343,23343,0,5.000000000143778e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+action_adventure_ratio,watch_time_weighted,23343,23240,103,1.0,False,0.0044124576960973315,movie_master_duplicate_category_conflict,REVIEW mismatch; see duplicate/formula caveats
+comedy_ratio,watch_time_weighted,23343,23343,0,5.000000000005e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+romance_ratio,watch_time_weighted,23343,23343,0,5.000000000143778e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+thriller_crime_ratio,watch_time_weighted,23343,23343,0,5.000000000005e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+sf_fantasy_ratio,watch_time_weighted,23343,23343,0,5.000000000143778e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+horror_ratio,watch_time_weighted,23343,23343,0,5.000000000005e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+documentary_ratio,watch_time_weighted,23343,23343,0,5.000000000143778e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+historical_war_ratio,watch_time_weighted,23343,23343,0,5.000000000143778e-07,True,0.0,exact_match,PASS day0~20 genre ratio match
+other_ratio,watch_time_weighted,23343,23343,0,4.999999999996327e-07,True,0.0,exact_match,PASS day0~20 genre ratio match

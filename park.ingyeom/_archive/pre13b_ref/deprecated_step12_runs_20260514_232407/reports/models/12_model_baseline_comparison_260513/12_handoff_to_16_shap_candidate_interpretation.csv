@@ -1,0 +1,5 @@
+﻿dataset_scope,candidate_model_for_SHAP_later,explainer_note,feature_family_grouping_source,groupwise_SHAP_requirement,caution
+nonpromotion_only,XGBoost,tree explainer likely,05b / 07 / 10 mappings,"compare overall, promotion_only, nonpromotion_only later where appropriate","SHAP is model explanation, not cause"
+overall_with_promotion,XGBoost,tree explainer likely,05b / 07 / 10 mappings,"compare overall, promotion_only, nonpromotion_only later where appropriate","SHAP is model explanation, not cause"
+overall_without_promotion,XGBoost,tree explainer likely,05b / 07 / 10 mappings,"compare overall, promotion_only, nonpromotion_only later where appropriate","SHAP is model explanation, not cause"
+promotion_only,XGBoost,tree explainer likely,05b / 07 / 10 mappings,"compare overall, promotion_only, nonpromotion_only later where appropriate","SHAP is model explanation, not cause"

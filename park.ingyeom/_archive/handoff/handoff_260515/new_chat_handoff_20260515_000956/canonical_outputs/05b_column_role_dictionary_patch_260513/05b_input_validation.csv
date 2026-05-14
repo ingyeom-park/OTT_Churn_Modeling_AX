@@ -1,0 +1,11 @@
+﻿check_name,status,detail
+source_csv_exists,PASS,C:\Code\Github Repository\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_05_folder_exists,PASS,C:\Code\Github Repository\ott-churn-prediction\park.ingyeom\reports\audits\05_column_role_leakage_timing_audit_260513
+all_required_05_input_files_exist,PASS,
+05_full_column_inventory_has_91_rows,PASS,rows=91
+05_column_role_dictionary_has_91_rows,PASS,rows=91
+05_timing_audit_has_91_rows,PASS,rows=91
+source_csv_has_23343_rows_91_columns,PASS,"shape=(23343, 91)"
+USER_KEY_duplication_recomputed,PASS,duplicated_USER_KEY_extra_rows=209; duplicated_full_row_count=48; cross_promotion_USER_KEY_overlap=38
+actual_repo_root_recorded,WARNING,C:/Code/Github Repository/ott-churn-prediction
+all_planned_outputs_inside_park_ingyeom,PASS,C:\Code\Github Repository\ott-churn-prediction\park.ingyeom\reports\audits\05b_column_role_dictionary_patch_260513

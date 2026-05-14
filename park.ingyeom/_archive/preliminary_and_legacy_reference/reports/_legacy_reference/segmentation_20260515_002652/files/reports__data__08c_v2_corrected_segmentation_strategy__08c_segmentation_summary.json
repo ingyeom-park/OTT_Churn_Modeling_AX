@@ -1,0 +1,66 @@
+{
+  "stage": "08c_v2_corrected_segmentation_strategy",
+  "created_at": "2026-05-12T00:55:09",
+  "official_model": "HistGradientBoostingClassifier",
+  "official_feature_set": "pruned_w1_3_all_weeks_interpretable_without_product_code_without_watch_presence",
+  "official_auc": 0.8629394097379637,
+  "expected_auc": 0.8629394097379637,
+  "auc_diff": 0.0,
+  "shap_basis": "Stage 07c TRUE SHAP (corrected official)",
+  "score_direction": {
+    "repurchase_score": "P(is_repurchase_label=1)",
+    "churn_risk_score": "1 - repurchase_score",
+    "high_churn_risk_score": "high predicted non-repurchase risk"
+  },
+  "risk_band_thresholds": {
+    "p40": 0.116191,
+    "p70": 0.407511,
+    "p90": 0.699911,
+    "usage_p33": 108.0,
+    "genre_affinity_max_genre_ratio": 0.4
+  },
+  "risk_band_thresholds_rules": {
+    "declining_pattern_rule": "week3_watch_time < week1_watch_time * 0.5 OR total_watch_time == 0"
+  },
+  "holdout_n": 4625,
+  "holdout_segment_counts": {
+    "최상위_이탈위험군": 463,
+    "초기중기_저관여_고위험군": 434,
+    "주차별이용패턴_고위험군": 1084,
+    "장르비율_추천후보군": 2209,
+    "안정유지_후보군": 354,
+    "일반관찰군": 81
+  },
+  "holdout_segment_churn_rates": {
+    "최상위_이탈위험군": 0.8251,
+    "초기중기_저관여_고위험군": 0.576,
+    "주차별이용패턴_고위험군": 0.3755,
+    "장르비율_추천후보군": 0.1182,
+    "안정유지_후보군": 0.0508,
+    "일반관찰군": 0.3333
+  },
+  "high_risk_targeting_segments": [
+    "최상위_이탈위험군",
+    "초기중기_저관여_고위험군",
+    "주차별이용패턴_고위험군"
+  ],
+  "maintenance_recommendation_segments": [
+    "장르비율_추천후보군",
+    "안정유지_후보군",
+    "일반관찰군"
+  ],
+  "use_in_stage09c": {
+    "최상위_이탈위험군": true,
+    "초기중기_저관여_고위험군": true,
+    "주차별이용패턴_고위험군": true,
+    "장르비율_추천후보군": true,
+    "안정유지_후보군": false,
+    "일반관찰군": false
+  },
+  "old_08b_status": "historical_provisional_do_not_use_as_final",
+  "no_business_simulation": true,
+  "no_optuna": true,
+  "no_shap": true,
+  "no_model_tuning": true,
+  "is_repurchase_label_not_used_to_define_segments": true
+}

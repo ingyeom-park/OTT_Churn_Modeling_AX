@@ -1,0 +1,2 @@
+﻿old_step_11_status,old_step_11_reason,old_step_12_path,old_step_12_status,old_step_12_reason,11b_used_as_canonical,11b_semantic_patch_applied,old_step_11_metrics_used,old_step_12_metrics_used,current_12r_status_after_validation
+deprecated,ladder contamination: diff_between_w3_w2 was included in L2,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12_model_baseline_comparison_260513,pre-rebuild/deprecated,AUC-centered comparison lacked required operating top-k and calibration diagnostics,yes,yes,no,"no, exclusion audit only",canonical Step 12 if final checks pass

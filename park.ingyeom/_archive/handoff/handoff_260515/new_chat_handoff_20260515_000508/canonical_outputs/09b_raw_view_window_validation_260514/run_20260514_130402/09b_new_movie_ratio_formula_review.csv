@@ -1,0 +1,25 @@
+﻿master_column,formula_candidate,reference_date_basis,weighting_basis,compared_rows,match_count,mismatch_count,max_abs_diff,best_match_rank,formula_confidence,window_leakage_assessment,interpretation
+new_movie_in_90d_ratio,90_day_threshold,watch_day,view_count_weighted,23343,23279,64,1.0,1,approximate,day0_20_likely,best candidate
+new_movie_in_90d_ratio,90_day_threshold,reg_date,view_count_weighted,23343,23137,206,1.0,2,unresolved,unresolved,non-best candidate
+new_movie_in_90d_ratio,90_day_threshold,end_date,view_count_weighted,23343,21112,2231,1.0,3,unresolved,unresolved,non-best candidate
+new_movie_in_90d_ratio,90_day_threshold,watch_day,watch_time_weighted,23343,16219,7124,1.0,4,unresolved,unresolved,non-best candidate
+new_movie_in_90d_ratio,90_day_threshold,reg_date,watch_time_weighted,23343,16178,7165,1.0,5,unresolved,unresolved,non-best candidate
+new_movie_in_90d_ratio,90_day_threshold,end_date,watch_time_weighted,23343,15968,7375,1.0,6,unresolved,unresolved,non-best candidate
+new_movie_in_180d_ratio,180_day_threshold,reg_date,view_count_weighted,23343,22639,704,1.0,1,approximate,day0_20_likely,best candidate
+new_movie_in_180d_ratio,180_day_threshold,watch_day,view_count_weighted,23343,22607,736,1.0,2,unresolved,unresolved,non-best candidate
+new_movie_in_180d_ratio,180_day_threshold,end_date,view_count_weighted,23343,21823,1520,1.0,3,unresolved,unresolved,non-best candidate
+new_movie_in_180d_ratio,180_day_threshold,reg_date,watch_time_weighted,23343,15496,7847,1.0,4,unresolved,unresolved,non-best candidate
+new_movie_in_180d_ratio,180_day_threshold,watch_day,watch_time_weighted,23343,15493,7850,1.0,5,unresolved,unresolved,non-best candidate
+new_movie_in_180d_ratio,180_day_threshold,end_date,watch_time_weighted,23343,15384,7959,1.0,6,unresolved,unresolved,non-best candidate
+new_movie_in_365d_ratio,365_day_threshold,reg_date,view_count_weighted,23343,22287,1056,1.0,1,approximate,day0_20_likely,best candidate
+new_movie_in_365d_ratio,365_day_threshold,watch_day,view_count_weighted,23343,22121,1222,1.0,2,unresolved,unresolved,non-best candidate
+new_movie_in_365d_ratio,365_day_threshold,end_date,view_count_weighted,23343,21372,1971,1.0,3,unresolved,unresolved,non-best candidate
+new_movie_in_365d_ratio,365_day_threshold,reg_date,watch_time_weighted,23343,14243,9100,1.0,4,unresolved,unresolved,non-best candidate
+new_movie_in_365d_ratio,365_day_threshold,watch_day,watch_time_weighted,23343,14232,9111,1.0,5,unresolved,unresolved,non-best candidate
+new_movie_in_365d_ratio,365_day_threshold,end_date,watch_time_weighted,23343,14148,9195,1.0,6,unresolved,unresolved,non-best candidate
+old_movie_ratio(5y),1825_day_threshold,watch_day,view_count_weighted,23343,23338,5,0.5,1,approximate,day0_20_likely,best candidate
+old_movie_ratio(5y),1825_day_threshold,reg_date,view_count_weighted,23343,23334,9,1.0,2,unresolved,unresolved,non-best candidate
+old_movie_ratio(5y),1825_day_threshold,end_date,view_count_weighted,23343,23185,158,1.0,3,unresolved,unresolved,non-best candidate
+old_movie_ratio(5y),1825_day_threshold,watch_day,watch_time_weighted,23343,13300,10043,0.8321679090909091,4,unresolved,unresolved,non-best candidate
+old_movie_ratio(5y),1825_day_threshold,reg_date,watch_time_weighted,23343,13299,10044,1.0,5,unresolved,unresolved,non-best candidate
+old_movie_ratio(5y),1825_day_threshold,end_date,watch_time_weighted,23343,13255,10088,1.0,6,unresolved,unresolved,non-best candidate

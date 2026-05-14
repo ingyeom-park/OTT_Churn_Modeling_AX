@@ -1,0 +1,7 @@
+﻿threshold_name,threshold_value,derived_from,used_for
+risk_band_p90,0.699911,holdout_churn_risk_score_90th_percentile,top_10_highest_risk band
+risk_band_p70,0.407511,holdout_churn_risk_score_70th_percentile,risk_10_30 band lower bound
+risk_band_p40,0.116191,holdout_churn_risk_score_40th_percentile,risk_30_60 band lower bound
+low_usage_total_watch_p33,108.0,holdout_total_watch_time_33rd_percentile,seg_high_risk_low_usage flag
+genre_affinity_max_genre_ratio,0.4,fixed_interpretable_threshold,seg_genre_affinity flag
+declining_pattern_week3_vs_week1_ratio,0.5,fixed_interpretable_threshold,seg_risky_weekly_pattern flag: week3 < week1 * 0.5

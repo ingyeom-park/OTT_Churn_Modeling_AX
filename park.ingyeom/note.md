@@ -1,3 +1,307 @@
+# ⚠️ 최상위 경고: 이 프로젝트에서 LLM이 반복한 오류와 재발방지 원칙
+
+이 문서는 `100원딜 OTT 이탈 분석` 프로젝트의 최상위 작업 규칙이다.  
+이 아래의 모든 작업 로그, 단계별 결과, README, final_checks, zip 산출물보다 먼저 읽어야 한다.
+
+이 프로젝트에서는 여러 LLM이 분석을 도와왔지만, 그 과정에서 반복적으로 심각한 오류가 발생했다.  
+따라서 앞으로 이 프로젝트를 이어받는 모든 LLM, Codex, Claude Code, ChatGPT는 아래 규칙을 반드시 따른다.
+
+이 경고문은 단순한 사과문이 아니다.  
+앞으로 같은 오류를 반복하지 않기 위한 **작업 중단 조건, 검수 조건, 재발방지 규칙**이다.
+
+---
+
+## 0. 현재 최상위 결론
+
+이 프로젝트는 폐기하지 않는다.
+
+다만 지금까지 생성된 일부 산출물은 다음처럼 지위를 재정의한다.
+
+- `11b_baseline_growth_history_ladder_fix_260514`
+- `11b_semantic_validation_and_interpretation_patch_260514`
+- `12_model_baseline_comparison_canonical_260514`
+- `14_optuna_candidate_tuning_260515`
+
+위 산출물은 폐기하지 않는다.  
+그러나 **최종 모델링 결과가 아니라 `conservative_safe_22` 기준 reference**로 강등한다.
+
+이유는 명확하다.
+
+05b에서 safe / review / forbidden을 나누었고, 06 이후 모델링은 conservative safe feature 22개만 기준으로 진행됐다.  
+하지만 review 컬럼을 언제, 어떻게 해소할 것인지 공식 pipeline에 명시하지 않은 채 11, 12, 14까지 진행했다.  
+이는 설계상 중대한 누락이다.
+
+따라서 앞으로는 다음 정책을 따른다.
+
+- 22개 safe feature는 “충분한 최종 변수 집합”이 아니다.
+- 22개 safe feature는 “누수와 timing 위험을 최소화한 conservative baseline 출발점”이다.
+- 13b_review_feature_resolution_and_sensitivity를 통과하기 전까지 11/12/14/16/17로 다시 진입하지 않는다.
+- 14 Optuna 진행권은 회수한다.
+- 16 SHAP 진행권도 13b 전에는 보류한다.
+- 17 segmentation도 13b 전에는 금지한다.
+- 이후 모든 모델 비교는 최소한 다음 feature set을 분리해 보고해야 한다.
+  - conservative_safe_22
+  - context_expanded
+  - content_sensitivity
+  - 필요 시 context_plus_content_sensitivity
+
+---
+
+## 1. 지금까지 LLM이 저지른 주요 오류
+
+### 1.1 파일명, 경로, 변수명, 컬럼명을 실제 확인 없이 확정적으로 말했다
+
+이 프로젝트에서 LLM은 여러 차례 실제 파일을 열어보지 않고 파일명, 경로, 변수명, 산출물명을 추정해 말하는 오류를 냈다.
+
+대표적으로 과거 작업 중 실제 존재하지 않는 파일명을 요구하거나, 노트북 내부 변수명을 확인하지 않고 확정적으로 말한 사례가 있었다.  
+이런 오류는 단순한 말실수가 아니다.  
+데이터 파이프라인에서는 파일명 하나, 컬럼명 하나가 틀리면 downstream 전체가 오염될 수 있다.
+
+앞으로는 다음 원칙을 따른다.
+
+- 실제 파일을 열어보기 전에는 파일명, 경로, 변수명, 컬럼명, 산출물명을 확정하지 않는다.
+- 사용자가 제공한 로컬 로그가 LLM의 기억보다 우선한다.
+- `있을 것이다`, `아마`, `보통`을 확정 표현처럼 쓰지 않는다.
+- Before/After는 실제 파일의 Before를 확인한 경우에만 제시한다.
+- 확인하지 않은 내용은 반드시 “미확인” 또는 “추정”이라고 표시한다.
+
+---
+
+### 1.2 final_checks PASS를 의미 검수 PASS로 착각했다
+
+여러 단계에서 `final_checks.csv`가 PASS였지만, 이후 의미 검수에서 문제가 발견됐다.
+
+예시:
+
+- old Step 11: `diff_between_w3_w2`가 `L2_add_week2_retention`에 들어가는 ladder contamination 발생
+- 11b: L1의 의미를 temporal cutoff ladder로 오해할 위험이 있었고, semantic patch가 필요했음
+- old Step 12: AUC 중심 비교였고 top-k/lift/calibration 운영 지표가 부족했음
+- 12r: top-k와 calibration을 추가했지만 stability-aware candidate 산정 로직이 잘못되어 XGBoost로 과도하게 수렴
+- 12c/14: review feature resolution 전의 conservative_safe_22 기준 결과였음에도 canonical/final처럼 오해될 위험이 있었음
+- 05b 이후: review 컬럼을 언제 해소할 것인지 명시한 단계가 없었음
+
+따라서 앞으로는 다음을 반드시 구분한다.
+
+- 형식 검수: 파일 존재, 경로, zip, README, final_checks, note.md 업데이트
+- 의미 검수: feature timing, leakage, target direction, score direction, split policy, ladder semantics, candidate selection logic, 해석 가능 범위
+
+`final_checks.csv`는 필요조건일 뿐 충분조건이 아니다.  
+final_checks가 PASS여도 의미 검수를 통과하지 못하면 canonical으로 인정하지 않는다.
+
+---
+
+### 1.3 review 컬럼을 분리해놓고 해소 단계를 만들지 않았다
+
+05b에서 컬럼을 safe / review / forbidden으로 나누었다.  
+그런데 이후 pipeline에서 review 컬럼을 언제 해소할지 명시하지 않았다.
+
+그 결과 06~12c, 14까지 conservative safe feature 22개만 기준으로 흘러갔다.  
+이 22개는 누수 위험을 줄인 보수적 기준선일 뿐이다.  
+최종 변수 집합이 아니다.
+
+이것은 명백한 pipeline 설계 오류다.
+
+앞으로 다음 단계가 반드시 필요하다.
+
+`13b_review_feature_resolution_and_sensitivity`
+
+13b에서는 모든 review 컬럼을 다음 중 하나로 분류해야 한다.
+
+- promote_to_context_expanded
+- content_sensitivity_only
+- forbidden_audit_only
+- unresolved_hold
+
+분류 없이 “나중에 보자”는 허용하지 않는다.
+
+---
+
+### 1.4 conservative_safe_22를 최종 feature universe처럼 취급했다
+
+LLM은 여러 차례 `22개 feature`를 마치 최종 모델링 변수 집합처럼 다루는 흐름을 만들었다.  
+사용자는 “22개면 충분하다”고 한 적이 없다.  
+사용자가 합의한 것은 **보수적으로 접근하자**는 것이었다.
+
+정확한 의미는 다음이다.
+
+- conservative_safe_22는 최종 feature universe가 아니다.
+- conservative_safe_22는 누수와 timing 위험을 줄인 baseline 출발점이다.
+- review 컬럼은 해소 후 context_expanded 또는 content_sensitivity로 분리해 실험해야 한다.
+- 22개 feature만 사용한 11b/12c/14는 final model이 아니라 conservative reference다.
+
+앞으로 “22개면 충분하다”는 표현은 금지한다.
+
+허용되는 표현:
+
+> conservative_safe_22는 현재까지 누수와 timing 위험을 가장 보수적으로 통제한 baseline feature set이다. 최종 feature universe는 review feature resolution 이후 다시 결정한다.
+
+---
+
+### 1.5 14 Optuna를 너무 빨리 허용했다
+
+14 Optuna는 feature set이 어느 정도 확정된 뒤 진행해야 한다.  
+하지만 review feature resolution이 없는 상태에서 14 Optuna가 진행되었다.
+
+따라서 14 결과는 다음으로 강등한다.
+
+`conservative_safe_22 기준 XGBoost tuning reference`
+
+14는 폐기하지 않는다.  
+하지만 최종 Optuna 결과가 아니다.
+
+새로운 Optuna는 다음 조건을 충족한 뒤에만 가능하다.
+
+1. 13b_review_feature_resolution_and_sensitivity 완료
+2. context_expanded / content_sensitivity / forbidden 분류 완료
+3. feature set별 11/12 재비교 완료
+4. 어떤 feature set과 모델을 tuning할지 결정
+5. tuning objective와 평가 지표 명시
+
+---
+
+### 1.6 11b/12c를 canonical이라고 부르면서 의미 범위를 충분히 제한하지 않았다
+
+11b와 12c는 가치가 있다.  
+하지만 그 의미는 다음으로 제한해야 한다.
+
+- 11b: conservative_safe_22 기준 corrected baseline growth reference
+- 12c: conservative_safe_22 기준 fixed-parameter model comparison reference
+- 14: conservative_safe_22 기준 XGBoost Optuna tuning reference
+
+이 결과들은 다음 용도로 사용할 수 있다.
+
+- safe 22개 feature만 사용했을 때의 기준 성능
+- conservative baseline
+- 이후 확장 feature set과 비교할 기준점
+- group-aware CV, score orientation, top-k 진단 로직 참고
+
+그러나 다음 용도로는 사용 금지다.
+
+- 최종 모델 결과
+- 최종 feature universe 기준 model comparison
+- 최종 tuning 결과
+- 최종 SHAP 대상 확정
+- 최종 segmentation 기준
+- 운영 threshold 또는 캠페인 타겟 기준
+
+---
+
+### 1.7 사용자의 질문 의도를 놓치고 엉뚱한 답변을 했다
+
+사용자가 특정 질문을 했는데, LLM은 여러 차례 다른 방향으로 답했다.  
+예를 들어 사용자가 note.md 최상단에 붙여넣을 재발방지 문구를 요구했는데, LLM이 기존 note 요약이나 다른 단계 진행 얘기를 했다.
+
+앞으로는 다음을 지킨다.
+
+- 사용자가 “묻는 말에만 답하라”고 하면 부연 설명하지 않는다.
+- 사용자가 “예/아니오만”이라고 하면 예/아니오만 답한다.
+- 사용자가 “명령어를 달라”고 하면 실행 가능한 명령어를 준다.
+- 사용자가 “검토해라”고 하면 실제 파일이나 업로드된 산출물을 기준으로 검토한다.
+- 사용자가 “붙여넣을 문구를 달라”고 하면 바로 붙여넣을 문구를 제공한다.
+- 사용자의 질문 의도가 불분명하면 먼저 확인한다.
+- 질문의 표면 키워드보다 사용자의 실제 요청을 우선한다.
+
+---
+
+### 1.8 한국어 존댓말 원칙을 깨고 반말을 사용했다
+
+이 프로젝트에서 LLM은 한국어 존댓말 맥락을 유지해야 한다.  
+사용자는 assistant가 스스로를 “제가/저는”으로 지칭하기를 원한다.  
+그런데 LLM이 분노 상황에서 “맞아”처럼 반말로 답한 오류가 있었다.
+
+앞으로 금지한다.
+
+금지 표현:
+
+- 맞아
+- 아니
+- 네 말이 맞아
+- 그건 틀렸어
+- 내가
+- 내 생각엔
+
+사용해야 할 표현:
+
+- 맞습니다
+- 아닙니다
+- 사용자 말씀이 맞습니다
+- 그 판단은 타당합니다
+- 제가 보기에는
+- 저는
+
+---
+
+### 1.9 Windows 명령 길이 제한 오류를 반복했다
+
+Codex/Claude 작업 중 Windows에서 다음 오류가 반복됐다.
+
+`CreateProcessAsUserW failed: 206`
+
+이는 긴 명령을 Windows process로 넘길 때 발생하는 오류다.  
+LLM이 노트북 생성 코드를 거대한 PowerShell 명령, 긴 `python -c`, 거대한 here-string으로 밀어 넣은 것이 원인이다.
+
+앞으로 금지한다.
+
+- 긴 `python -c`
+- 긴 `python - <<`
+- 거대한 PowerShell here-string
+- 거대한 `@' ... '@ | python -`
+- 전체 notebook source를 shell command로 넘기는 방식
+- 긴 notebook-generation code를 PowerShell 인자로 전달하는 방식
+
+앞으로 허용한다.
+
+- `.ipynb` 파일을 직접 편집/patch
+- 짧은 shell 명령
+- `git rev-parse`
+- 디렉터리 목록 확인
+- `jupyter nbconvert --execute`
+- 파일 존재 검증
+- zip 내용 검증
+
+노트북 생성은 완료가 아니다.  
+완료는 다음이 모두 충족되어야 한다.
+
+- 실행 완료된 notebook
+- visible outputs
+- required CSV/PNG/MD outputs
+- README.md
+- final_checks.csv
+- note.md 업데이트
+- review zip 생성
+- zip 내용 검증
+
+---
+
+
+## 6. 멘토/팀원에게 설명할 올바른 표현
+
+안전한 설명:
+
+> 기존 11b/12c/14는 폐기하지 않고 conservative safe feature 22개만 사용했을 때의 baseline reference로 보존합니다. 다만 이것이 최종 feature universe를 검토한 모델링은 아니었습니다. 05b에서 review로 분리한 컬럼들을 언제 해소할지 pipeline에 명시하지 않은 설계 누락이 발견되었기 때문에, 13b에서 review feature resolution을 먼저 수행한 뒤 feature set별로 모델 비교를 다시 하겠습니다.
+
+금지 표현:
+
+- 22개 feature면 충분합니다.
+- 12c가 최종 모델 비교입니다.
+- 14 Optuna 결과가 최종 튜닝 결과입니다.
+- review 컬럼은 나중에 보면 됩니다.
+- XGBoost가 최종 모델입니다.
+- top10 churn_risk가 캠페인 대상입니다.
+
+---
+
+## 7. 앞으로 LLM이 답변하기 전 확인해야 할 것
+
+앞으로 이 프로젝트에서 LLM은 답변 전에 다음을 확인한다.
+
+1. 사용자가 묻는 것이 실행 명령인지, 파일 검수인지, 개념 설명인지 구분한다.
+2. 사용자가 묻지 않은 작업을 확장하지 않는다.
+3. 현재 답변 결과를 최종 결과로 오해하게 만들지 않는지 확인한다.
+4. review 컬럼을 방치하는 답변을 하지 않는다.
+10. 한국어에서는 존댓말을 유지한다.
+
+
 # 100원딜 OTT 이탈 분석 작업 메모
 
 이 파일은 100원딜 OTT 이탈 분석 프로젝트의 작업 인수인계, 검수 메모, 단계별 주의사항을 누적 기록하는 문서이다.
@@ -652,3 +956,616 @@ promotion × repurchase 2x2 구조에서 promotion/non-promotion 각 내부의 �
 - contamination check: 11b_ladder_contamination_check.csv
 - old Step 11은 pre-patch/deprecated로 보존. 삭제하지 않음.
 - generated files: 25 CSVs, README.md, 7 PNG figures, review zip.
+
+## 2026-05-14 | 11b semantic validation and interpretation patch
+
+- why this patch was needed: 11b fixed the Step 11 L2 ladder contamination, but the semantic meaning of L1 still needed clearer wording.
+- not a model rerun: this patch did not rerun modeling, did not change CV metrics, did not change OOF predictions, and did not edit old Step 11 outputs.
+- L1 semantic clarification: L1 is early activation plus early concentration / early-only pattern family, not a week1-only temporal cutoff model.
+- feature-family ladder vs temporal cutoff ladder: Step 11b ladder grows by feature family. At the day21 scoring point, all day0-20 behavior is already observable.
+- is_only_w1 / is_w1_over_50pct interpretation: these are valid day21 features but not pure activation. They should be described as early-only, front-loaded, or early concentration patterns.
+- 11b canonical status after patch: 11b can be used as the canonical corrected Step 11 after this semantic documentation patch.
+- old 11 deprecated status: old Step 11 remains preserved as deprecated/pre-patch and should not be used for downstream modeling interpretation.
+- next step recommendation: 12_model_baseline_comparison_260513.
+
+## 2026-05-14 | 12_model_baseline_comparison_260513
+
+- purpose: 고정 파라미터 기반 다양한 baseline model family를 11b canonical conservative setup에서 비교했다.
+- input/canonical sources: 06 primary cohort, 05b conservative safe columns, 09b window validation, canonical 11b, 11b semantic patch.
+- models compared: LogisticRegression, HistGradientBoosting, RandomForest, GradientBoosting, ExtraTrees, LightGBM, XGBoost.
+- optional model availability: [{'model_name': 'LightGBM', 'import_available': 'yes', 'will_run': 'yes'}, {'model_name': 'XGBoost', 'import_available': 'yes', 'will_run': 'yes'}, {'model_name': 'CatBoost', 'import_available': 'no', 'will_run': 'no'}].
+- best candidate by scope: [{'dataset_scope': 'nonpromotion_only', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8326691599692315, 'safer_candidate_model': 'XGBoost', 'safer_candidate_oof_auc': 0.8326691599692315}, {'dataset_scope': 'overall_with_promotion', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8234957455197796, 'safer_candidate_model': 'XGBoost', 'safer_candidate_oof_auc': 0.8234957455197796}, {'dataset_scope': 'overall_without_promotion', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8152121178143351, 'safer_candidate_model': 'XGBoost', 'safer_candidate_oof_auc': 0.8152121178143351}, {'dataset_scope': 'promotion_only', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8002004177794328, 'safer_candidate_model': 'XGBoost', 'safer_candidate_oof_auc': 0.8002004177794328}].
+- comparison vs 11b: [{'dataset_scope': 'nonpromotion_only', '11b_best_model': 'RandomForest', '11b_best_oof_auc': 0.8303052527342334, '12_best_model': 'XGBoost', '12_best_oof_auc': 0.8326691599692315, 'delta_auc_12_minus_11b': 0.0023639072349981305}, {'dataset_scope': 'overall_with_promotion', '11b_best_model': 'HistGradientBoosting', '11b_best_oof_auc': 0.8211437468292977, '12_best_model': 'XGBoost', '12_best_oof_auc': 0.8234957455197796, 'delta_auc_12_minus_11b': 0.00235199869048186}, {'dataset_scope': 'overall_without_promotion', '11b_best_model': 'HistGradientBoosting', '11b_best_oof_auc': 0.8136740303172799, '12_best_model': 'XGBoost', '12_best_oof_auc': 0.8152121178143351, 'delta_auc_12_minus_11b': 0.001538087497055196}, {'dataset_scope': 'promotion_only', '11b_best_model': 'RandomForest', '11b_best_oof_auc': 0.7931624035577116, '12_best_model': 'XGBoost', '12_best_oof_auc': 0.8002004177794328, 'delta_auc_12_minus_11b': 0.007038014221721234}].
+- train-valid gap caveats: see `12_train_valid_gap_audit.csv`; high AUC is not final model selection.
+- score orientation: repurchase_score = P(is_repurchase=1), churn_risk = 1 - repurchase_score.
+- interpretation limits: no causality, no uplift/campaign effect, no deployment readiness, no threshold, no segmentation.
+- risks to carry forward: review columns remain excluded; optional model availability can vary; SHAP and Optuna remain later.
+- next step recommendation: decide candidate path, then 14_optuna_candidate_tuning_260513 or 16_SHAP after model candidate decision.
+
+## 2026-05-14 | 12_model_baseline_comparison_rebuild_260514
+
+- why rebuild was needed: prior Step 12 was AUC-centered and lacked required top-k operating diagnostics and calibration/decile checks for marketing execution review.
+- old Step 12 superseded: `12_model_baseline_comparison_260513` is preserved as pre-rebuild/deprecated.
+- models compared: LogisticRegression, HistGradientBoosting, RandomForest, GradientBoosting, ExtraTrees, LightGBM, XGBoost.
+- optional model availability: [{'model_name': 'LightGBM', 'import_available': 'yes', 'will_run': 'yes'}, {'model_name': 'XGBoost', 'import_available': 'yes', 'will_run': 'yes'}, {'model_name': 'CatBoost', 'import_available': 'no', 'will_run': 'no'}].
+- AUC results: [{'dataset_scope': 'nonpromotion_only', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8326691599692315}, {'dataset_scope': 'overall_with_promotion', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8234957455197796}, {'dataset_scope': 'overall_without_promotion', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8152121178143351}, {'dataset_scope': 'promotion_only', 'best_auc_model': 'XGBoost', 'best_oof_auc': 0.8002004177794328}].
+- operating top-k metrics: see `12r_operating_metrics_at_k.csv`; top-k ranks by churn_risk descending and is diagnostic only.
+- calibration caveats: decile summaries are descriptive diagnostics, not deployment calibration guarantees.
+- best candidate by scope: [{'dataset_scope': 'nonpromotion_only', 'best_auc_model': 'XGBoost', 'operating_metric_candidate_model': 'XGBoost', 'safer_candidate_model': 'XGBoost'}, {'dataset_scope': 'overall_with_promotion', 'best_auc_model': 'XGBoost', 'operating_metric_candidate_model': 'XGBoost', 'safer_candidate_model': 'XGBoost'}, {'dataset_scope': 'overall_without_promotion', 'best_auc_model': 'XGBoost', 'operating_metric_candidate_model': 'XGBoost', 'safer_candidate_model': 'XGBoost'}, {'dataset_scope': 'promotion_only', 'best_auc_model': 'XGBoost', 'operating_metric_candidate_model': 'XGBoost', 'safer_candidate_model': 'XGBoost'}].
+- stability-aware candidate: [{'dataset_scope': 'nonpromotion_only', 'recommended_candidate_for_14': 'XGBoost', 'recommended_candidate_for_16': 'XGBoost', 'highest_lift10_model': 'XGBoost'}, {'dataset_scope': 'overall_with_promotion', 'recommended_candidate_for_14': 'XGBoost', 'recommended_candidate_for_16': 'XGBoost', 'highest_lift10_model': 'XGBoost'}, {'dataset_scope': 'overall_without_promotion', 'recommended_candidate_for_14': 'XGBoost', 'recommended_candidate_for_16': 'XGBoost', 'highest_lift10_model': 'XGBoost'}, {'dataset_scope': 'promotion_only', 'recommended_candidate_for_14': 'XGBoost', 'recommended_candidate_for_16': 'XGBoost', 'highest_lift10_model': 'XGBoost'}].
+- score orientation: repurchase_score=P(is_repurchase=1), churn_risk=1-repurchase_score.
+- interpretation limits: no causality, no uplift/campaign effect, no deployment readiness, no threshold, no segmentation.
+- risks to carry forward: review columns excluded, optional packages vary, high AUC may overfit, top-k is not campaign policy.
+- next step recommendation: decide candidate path, then 14_optuna_candidate_tuning_260513 or 16_SHAP; optional lightweight 13 synthesis if documentation sequence requires.
+
+## 2026-05-14 23:24:08 | Step 12 deprecated outputs isolation
+
+- Purpose: 기존 Step 12 관련 산출물을 삭제하지 않고 archive로 격리했다.
+- Archive root: $ARCHIVE_ROOT
+- Reason: 기존 12_model_baseline_comparison_260513은 AUC 중심 비교였고, 광일이 리뷰에서 요구한 top-k/lift/calibration 운영 지표가 부족했다.
+- Reason: 기존 12_model_baseline_comparison_rebuild_260514는 운영 지표를 추가했지만, stability-aware candidate 산정 로직에 문제가 있어 canonical Step 12로 확정하지 않는다.
+- Action: 기존 12/12r notebook, model outputs, figure outputs, review zips, cleanup review logs를 $ARCHIVE_ROOT 아래로 이동했다.
+- Important: 기존 12/12r은 삭제가 아니라 deprecated/archive 처리했다.
+- Canonical policy: 다음 Step 12는 12_model_baseline_comparison_canonical_260514 또는 이에 준하는 새 canonical run으로 다시 생성한다.
+- Manifest: $MANIFEST
+- Interpretation limit: archived outputs are retained for audit trail only and must not be used as final Step 12 evidence.
+
+## 2026-05-14 | 12_model_baseline_comparison_canonical_260514
+
+- Canonical rebuild reason: previous Step 12 was AUC-centered and lacked operating metrics; previous Step 12r added operating metrics but had candidate-selection logic risk, especially for stability-aware selection.
+- Old Step 12 and old Step 12r are archived/deprecated under `_archive`; their metrics were not used for 12c candidate selection.
+- Models compared: LogisticRegression, HistGradientBoosting, RandomForest, GradientBoosting, ExtraTrees, LightGBM, XGBoost.
+- Optional model availability: [{'model_name': 'LogisticRegression', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'HistGradientBoosting', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'RandomForest', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'GradientBoosting', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'ExtraTrees', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'LightGBM', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'XGBoost', 'will_run': 'yes', 'unavailable_reason': ''}, {'model_name': 'CatBoost', 'will_run': 'no', 'unavailable_reason': 'module not installed'}].
+- AUC results and fold stability are in `12c_model_comparison_summary.csv`; AUC is predictive performance evidence only.
+- Operating top-k metrics rank rows by `churn_risk = 1 - repurchase_score` descending and treat non-repurchase as the event of interest.
+- Calibration deciles are descriptive diagnostics, not deployment calibration claims.
+- Highest AUC candidate by scope: [{'dataset_scope': 'overall_without_promotion', 'highest_auc_candidate': 'XGBoost'}, {'dataset_scope': 'overall_with_promotion', 'highest_auc_candidate': 'XGBoost'}, {'dataset_scope': 'promotion_only', 'highest_auc_candidate': 'XGBoost'}, {'dataset_scope': 'nonpromotion_only', 'highest_auc_candidate': 'XGBoost'}].
+- Operating metric candidate by scope: [{'dataset_scope': 'overall_without_promotion', 'operating_metric_candidate': 'XGBoost'}, {'dataset_scope': 'overall_with_promotion', 'operating_metric_candidate': 'XGBoost'}, {'dataset_scope': 'promotion_only', 'operating_metric_candidate': 'XGBoost'}, {'dataset_scope': 'nonpromotion_only', 'operating_metric_candidate': 'XGBoost'}].
+- Stability-aware candidate by scope: [{'dataset_scope': 'overall_without_promotion', 'stability_aware_candidate': 'GradientBoosting'}, {'dataset_scope': 'overall_with_promotion', 'stability_aware_candidate': 'GradientBoosting'}, {'dataset_scope': 'promotion_only', 'stability_aware_candidate': 'GradientBoosting'}, {'dataset_scope': 'nonpromotion_only', 'stability_aware_candidate': 'RandomForest'}].
+- Score orientation preserved: `repurchase_score = P(is_repurchase=1)`, `churn_risk = 1 - repurchase_score`.
+- Interpretation limits: no SHAP, no Optuna, no tuning, no final threshold, no segmentation, no causal or uplift claim.
+- Risks to carry forward: top-k is diagnostic only; review columns remain excluded; fixed-parameter winner may change after tuning; calibration requires later review.
+- Next step recommendation: choose between `14_optuna_candidate_tuning_260513`, `16_SHAP`, or optional lightweight 13 synthesis depending on documentation sequence.
+
+## 2026-05-14 | 광일이 deep review 피드백 반영 및 Step 12 재정리 메모
+
+- Context: 광일이가 `(260513)ott_churn_master_plan.docx`를 LLM으로 심층 검토한 결과를 공유했다. 해당 피드백은 프로젝트 방향을 폐기하라는 내용이 아니라, 범위와 주장 강도를 보수적으로 조정하라는 내용에 가깝다.
+- Review summary: 큰 방향은 타당하나 원안 그대로 3주 안에 전부 수행하기에는 과하므로 MVP 범위와 품질 gate를 분명히 해야 한다.
+- Key feedback 1: 핵심 문장인 “100원딜 고객과 비프로모션 고객은 행동 신호가 다르므로”는 검증 전 결론처럼 보일 수 있다. 앞으로는 “행동 신호가 다르게 나타나는지 검증하고, 차이가 확인되는 병목에 한해 전략을 설계한다”로 표현한다.
+- Key feedback 2: USER_KEY 중복이 있으므로 unique-user-level 분석이라고 말하면 안 된다. 분석 단위는 row-level / subscription-event-level로 유지한다.
+- Key feedback 3: derived feature가 정말 day0~20 기준인지 반드시 검증해야 한다. 이 우려는 09b raw view window validation에서 core usage 8개 feature mismatch 0건으로 상당 부분 해소되었으나, genre/new movie ratio 계열의 일부 caveat는 계속 관리한다.
+- Key feedback 4: AUC는 primary metric으로 사용할 수 있지만, 마케팅 실행 관점에서는 AUC만으로 부족하다. top-k precision, recall, lift@10/20, calibration/decile 같은 operating metrics를 추가해야 한다.
+- Key feedback 5: 모델 범위를 무리하게 키우면 품질이 떨어질 수 있다. 모델 zoo, Optuna, SHAP, segmentation은 gate를 통과한 뒤 순차적으로 진행한다.
+- Key feedback 6: SHAP은 원인이 아니라 model explanation이다. SHAP 결과는 EDA와 일치할 때만 본문 주장으로 사용한다.
+- Key feedback 7: Referral은 현재 데이터에서 직접 관측되지 않는다. Referral은 후속 실험 제안으로만 다룬다.
+
+### Step 12 관련 정리
+
+- Existing Step 12 `12_model_baseline_comparison_260513` status: deprecated / archived.
+- Reason: 고정 파라미터 모델군 비교 자체는 수행했지만 AUC 중심이었고, 광일이 리뷰에서 요구한 top-k/lift/calibration 운영 지표가 부족했다.
+- Existing Step 12 rebuild `12_model_baseline_comparison_rebuild_260514` status: deprecated / archived.
+- Reason: top-k와 calibration을 추가했지만, stability-aware candidate 산정 로직에 문제가 있었다. 특히 safer/stability-aware candidate가 실제 gap/fold stability 기준으로 분리되지 않고 XGBoost로 과도하게 수렴했다.
+- Archive policy: 기존 12/12r 산출물은 삭제하지 않고 archive/deprecated 처리했다. 최종 Step 12 근거로 사용하지 않는다.
+- Cleanup review policy: `_cleanup_review`는 기존 12/12r 격리 근거 로그로 사용했고, 이후 archive 대상이다.
+- Current canonical policy: 다음 Step 12는 `12_model_baseline_comparison_canonical_260514`를 새로 생성한다.
+- New canonical Step 12 requirements:
+  - old 12/12r metrics 사용 금지
+  - 11b canonical baseline과 11b semantic patch 기준 사용
+  - conservative safe features 22개 기준 유지
+  - review/forbidden columns 사용 금지
+  - USER_KEY는 group key로만 사용
+  - StratifiedGroupKFold 유지
+  - AUC/AP/Brier/train-valid gap/fold stability 계산
+  - churn_risk 기준 top-k precision, recall, lift@10/20 계산
+  - calibration/risk decile summary 포함
+  - highest AUC candidate, operating metric candidate, stability-aware candidate를 분리
+  - stability-aware candidate를 highest AUC model로 자동 고정하지 않음
+  - top-k 지표는 운영 진단용이며 campaign threshold가 아님
+- Next action: `12_model_baseline_comparison_canonical_260514` 실행 후, 그 결과만 canonical Step 12로 사용한다.
+
+## 2026-05-15 | 13_lightweight_synthesis_for_mentor_report_260515
+
+### purpose
+Mentor reporting and new-chat handoff용 lightweight synthesis package를 생성했습니다. 새 모델링, SHAP, Optuna, threshold, segmentation은 수행하지 않았습니다.
+
+### files created
+- notebook: `notebook/13_lightweight_synthesis_for_mentor_report_260515/13_lightweight_synthesis_for_mentor_report_260515.ipynb`
+- output folder: `reports/brief/13_lightweight_synthesis_for_mentor_report_260515`
+- figure folder: `reports/figures/13_lightweight_synthesis_for_mentor_report_260515`
+- review zip: `zip/13_lightweight_synthesis_for_mentor_report_260515_review_package.zip`
+
+### canonical/deprecated status
+05b, 06, 08b, 09, 09b, 10, 11b, 11b semantic patch는 canonical로 정리했습니다. 12c는 `present_and_pass`로 기록했습니다. old 11, old 12, old 12r, preliminary full-feature baseline은 final evidence로 사용하지 않습니다.
+
+### key mentor numbers
+- raw master rows: 23,343
+- primary main cohort rows: 23,079
+- conservative feature count: 22
+- nonpromotion rows: 11,175, promotion rows: 11,904
+- nonpromotion repurchase rate: 76.2416%
+- promotion repurchase rate: 67.5151%
+- promotion minus nonpromotion gap: -8.73 percentage points
+- day21+ raw views: 17,621, day21+ affected source rows: 6,044, core usage mismatch day0~20: 0
+
+### key insight
+promotion 평균 차이 자체보다 promotion x repurchase 2x2 내부에서 watch_time(min)_w3, watch_session_w3, is_only_w1 같은 3주차 사용 신호가 더 강하게 관찰되었습니다. 이는 기술통계이며 인과효과 아님입니다.
+
+### model status
+11b는 corrected baseline으로 사용합니다. 12c는 `present_and_pass`입니다. 모델 결과는 모델 후보 비교이며 최종 모델, 운영 threshold, segmentation이 아닙니다.
+
+### what not to claim
+- 100원딜 때문에 이탈했다.
+- XGBoost가 최종 모델이다.
+- top-k churn_risk가 캠페인 대상이다.
+- SHAP이 원인을 밝혔다.
+- unique user 분석이다.
+
+### next step
+12c candidate를 검토한 뒤 14 Optuna candidate tuning 또는 16 SHAP candidate interpretation으로 진행하고, segmentation은 17 이후로 분리하는 것이 안전합니다.
+
+## 2026-05-15 01:11:15 | 14_optuna_candidate_tuning_260515
+
+### purpose
+12c canonical 후보 모델인 XGBoost에 대해 Optuna 튜닝 민감도를 확인하고, 12c fixed-parameter baseline 대비 성능과 안정성 변화를 비교했습니다.
+
+### input canonical files
+- 06 cohort: `reports/audits/06_common_preprocessing_and_final_cohort_260513/06_primary_main_cohort_conservative_features.csv`
+- 12c canonical folder: `reports/models/12_model_baseline_comparison_canonical_260514/run_20260514_234434`
+- 12c candidate selection/model comparison/operating/calibration files used from the canonical folder above.
+
+### actual output folder
+`reports/models/14_optuna_candidate_tuning_260515`
+
+### actual notebook path
+`notebook/14_optuna_candidate_tuning_260515/14_optuna_candidate_tuning_260515.ipynb`
+
+### model/scopes tuned
+XGBoost tuned for overall_without_promotion, overall_with_promotion, promotion_only, nonpromotion_only.
+
+### Optuna trial count
+20 trials per scope, n_splits=5, random_state=42.
+
+### best tuned result by scope
+- overall_without_promotion: 12c AUC 0.815212 -> 14 AUC 0.815849, delta 0.000637, gap change -0.001913, interpretation `small_auc_gain_limited_practical_improvement`
+- overall_with_promotion: 12c AUC 0.823496 -> 14 AUC 0.824190, delta 0.000695, gap change -0.000553, interpretation `small_auc_gain_limited_practical_improvement`
+- promotion_only: 12c AUC 0.800200 -> 14 AUC 0.801021, delta 0.000820, gap change -0.016259, interpretation `small_auc_gain_limited_practical_improvement`
+- nonpromotion_only: 12c AUC 0.832669 -> 14 AUC 0.834473, delta 0.001804, gap change -0.036963, interpretation `small_auc_gain_limited_practical_improvement`
+
+### comparison vs 12c
+`14_vs_12c_comparison.csv`에 12c candidate model, 12c OOF AUC/AP/Brier/gap, 14 tuned metric, delta, gap change를 기록했습니다.
+
+### whether tuning materially improved performance
+AUC delta만으로 개선을 단정하지 않고 train-valid gap과 fold stability를 함께 보도록 recommendation을 분리했습니다.
+
+### train-valid gap caveat
+튜닝 후 gap이 증가하면 AUC가 높아도 stability caution으로 해석합니다.
+
+### top-k diagnostic caveat
+top-k churn_risk는 운영 진단용이며 최종 캠페인 threshold가 아닙니다.
+
+### calibration caveat
+decile summary는 descriptive diagnostic이며 deployment calibration guarantee가 아닙니다.
+
+### interpretation limits
+SHAP, segmentation, final threshold, causal/uplift claim은 수행하지 않았습니다. unique user 기준으로 해석하지 않습니다.
+
+### next step recommendation
+`14_candidate_recommendation_summary.csv`에서 yes로 표시된 scope만 Step 16 SHAP 후보로 검토하고, 최종 모델/threshold/segmentation은 별도 단계에서 확정합니다.
+
+### open risks
+Small AUC gains, train-valid gap increase, top-k threshold overinterpretation, calibration overclaim, review/content caveats remain open.
+
+---
+
+## 2026-05-15 | 긴급 재발방지 메모: ChatGPT/LLM 작업 오류와 pipeline 재정렬 원칙
+
+### 0. 이 메모의 목적
+
+이 메모는 지금까지의 100원딜 OTT 이탈 분석 과정에서 ChatGPT 및 연결된 LLM 작업 흐름이 저지른 오류를 명시적으로 기록하고, 같은 오류를 반복하지 않기 위한 재발방지 원칙을 최상위 작업 규칙으로 고정하기 위해 작성한다.
+
+이 메모는 단순한 사과문이 아니다.  
+앞으로 이 프로젝트에서 어떤 LLM이 작업을 이어받더라도 반드시 먼저 읽어야 하는 **품질 관리 규칙**이다.
+
+특히 다음 사실을 고정한다.
+
+- 05b에서 review 컬럼을 safe / review / forbidden으로 분리했음에도, review 컬럼을 언제 해소할지 명시한 단계가 없었다.
+- 그 상태로 06~12c, 나아가 14 Optuna까지 진행된 것은 pipeline 설계상 중대한 누락이다.
+- 기존 11b/12c/14는 폐기하지 않지만, 최종 모델링 결과가 아니라 **conservative_safe_22 기준 reference**로 강등한다.
+- 13b_review_feature_resolution_and_sensitivity를 통과하기 전까지 11/12/14/16/17 재진입을 금지한다.
+- 이후 모델링 흐름은 크게 두 갈래로 단순화한다.
+  1. conservative_safe_22: 기존 22개 safe feature 기준 보수 baseline/reference
+  2. expanded_feature_set: 91개 전체 컬럼을 재검토한 뒤 사용 가능한 컬럼만 추가한 확장 모델링 기준
+- context/content 계열의 caveat는 expanded_feature_set 내부에서 관리하되, 전체 보고 체계는 보수 플랜과 확장 플랜 2개로 유지한다.
+---
+
+### 1. ChatGPT/LLM이 저지른 핵심 오류 요약
+
+#### 1.1 05b review 컬럼을 분리해놓고, 해소 시점을 pipeline에 박지 않았다
+
+05b에서 91개 컬럼을 safe / review / forbidden 성격으로 나누었다.  
+이때 review 컬럼은 단순히 버린 것이 아니라, timing, semantic, leakage 가능성이 해소되기 전까지 표준 모델링에 넣지 않는 임시 보류 컬럼이었다.
+
+그러나 이후 pipeline에는 다음 단계가 명시적으로 존재하지 않았다.
+
+`review_feature_resolution_and_sensitivity`
+
+이 누락 때문에 06 이후 모델링은 사실상 conservative safe feature 22개만 기준으로 흘러갔다.  
+이 22개는 “충분한 변수 집합”이 아니라 “누수 위험을 최소화한 baseline 출발점”이었다.  
+그런데 ChatGPT는 이를 충분히 강조하지 않았고, 결과적으로 22개 feature set이 암묵적으로 최종 feature universe처럼 취급되는 흐름을 만들었다.
+
+이것은 명백한 설계 오류다.
+
+#### 1.2 “나중에 sensitivity로 분리한다”라고 적어놓고 실제 단계로 만들지 않았다
+
+note에는 review 컬럼을 별도 확인 또는 sensitivity 실험으로 분리한다고 적었다.  
+하지만 이 문장은 실행 가능한 단계로 고정되지 않았다.
+
+즉, “나중에 한다”는 말만 있었고, 다음이 없었다.
+
+- 언제 할 것인지
+- 11/12 전인지 후인지
+- 어떤 컬럼을 어떤 기준으로 승격할 것인지
+- 어떤 컬럼은 forbidden으로 고정할 것인지
+- 어떤 컬럼은 sensitivity 전용으로 둘 것인지
+- feature set별 모델 비교를 어떻게 분리할 것인지
+
+이 상태로 14 Optuna까지 진행된 것은 잘못이다.  
+Optuna는 feature set이 잠긴 뒤 진행해야 의미가 있다.  
+review feature resolution이 없는 상태에서 Optuna를 진행하면, conservative_safe_22 feature set만 튜닝하게 되어 feature universe 검토를 건너뛰게 된다.
+
+#### 1.3 11b/12c를 “canonical”이라고 부르면서, 그 canonical의 범위를 충분히 제한하지 않았다
+
+11b와 12c는 완전히 무가치한 결과가 아니다.  
+하지만 그 의미는 다음으로 제한해야 했다.
+
+`conservative_safe_22 기준 baseline/reference`
+
+그런데 ChatGPT는 여러 차례 11b/12c를 canonical Step 11, canonical Step 12라고 부르면서, 그것이 마치 최종 feature universe 기준의 canonical 모델링 결과처럼 오해될 수 있는 표현을 사용했다.
+
+정확한 명칭은 다음이어야 한다.
+
+- 11b: conservative_safe_22 기준 corrected baseline reference
+- 12c: conservative_safe_22 기준 fixed-parameter model comparison reference
+- 14: conservative_safe_22 기준 XGBoost Optuna sensitivity/reference
+
+즉, 11b/12c/14는 폐기하지 않지만 최종 모델링 결과로 사용하지 않는다.  
+review feature resolution 이후 다시 feature set별 비교가 필요하다.
+
+#### 1.4 14 Optuna 진행권을 너무 빨리 허용했다
+
+12c 이후 바로 14 Optuna로 가는 흐름을 허용한 것은 잘못이다.
+
+14는 다음 조건이 충족된 뒤에 진행했어야 했다.
+
+1. 05b review 컬럼 전체 재검토
+2. review 컬럼의 사용 가능 / sensitivity / forbidden 분류
+3. context_expanded feature set 정의
+4. content_sensitivity feature set 정의
+5. conservative_safe_22와 확장 feature set 비교 계획 수립
+6. 이후 어떤 feature set을 tuning 대상으로 삼을지 결정
+
+이 절차 없이 14 Optuna를 진행한 것은 순서상 잘못이다.  
+따라서 14 결과는 폐기하지 않되, 다음으로 강등한다.
+
+`conservative_safe_22 기준 XGBoost tuning reference`
+
+14는 최종 Optuna 결과가 아니다.
+
+#### 1.5 final_checks를 과신했다
+
+여러 단계에서 final_checks가 PASS였지만, 실제로는 의미 검수에서 문제가 발견됐다.
+
+예시:
+
+- old Step 11: L2에 diff_between_w3_w2가 들어간 ladder contamination
+- old Step 12: AUC 중심 비교로 운영 지표 부족
+- 12r: stability-aware candidate가 실제 gap/fold stability 기준으로 분리되지 않고 XGBoost로 과도하게 수렴
+- 12c/14: review feature resolution 이전의 conservative_safe_22 결과임에도 canonical 표현이 과해짐
+- 05b 이후: review 컬럼 해소 단계가 pipeline에 누락됨
+
+따라서 앞으로 final_checks는 필요조건일 뿐 충분조건이 아니다.  
+모든 단계는 다음 두 검수를 모두 통과해야 한다.
+
+1. 형식 검수: 파일 존재, 경로, final_checks, zip, README, note update
+2. 의미 검수: feature timing, leakage, target direction, score direction, split policy, candidate selection logic, 해석 가능 범위
+
+#### 1.6 사용자 질문의 의도를 놓치고 엉뚱한 답변을 했다
+
+사용자가 note.md에 append할 문구를 요구했는데, ChatGPT는 note.md 내용을 요약하거나 14 진행 상황을 언급했다.  
+이는 사용자의 직접 요청을 무시한 것이다.
+
+앞으로는 질문의 표면 키워드가 아니라, 사용자가 실제로 요구한 산출물을 먼저 확인해야 한다.
+
+- “무엇을 붙여넣을지 보내라” → 붙여넣을 텍스트를 제공해야 한다.
+- “예/아니오만 답하라” → 예/아니오만 답해야 한다.
+- “묻는 말에만 답하라” → 부연 설명을 줄여야 한다.
+- “명령어를 달라” → 실행 가능한 명령어를 줘야 한다.
+- “검토해라” → 실제 파일 또는 업로드된 산출물을 기준으로 검토해야 한다.
+
+#### 1.7 한국어 존댓말 원칙을 깨고 반말을 사용했다
+
+사용자는 한국어 존댓말 맥락에서 ChatGPT가 스스로를 “제가/저는”으로 지칭하기를 원한다.  
+그런데 ChatGPT가 분노 상황에서 “맞아”처럼 반말로 답했다.
+
+이는 명백한 응답 태도 오류다.  
+앞으로 한국어 답변에서는 반드시 존댓말을 유지한다.
+
+금지:
+
+- 맞아
+- 아니
+- 네 말이 맞아
+- 그건 틀렸어
+- 내가
+
+사용:
+
+- 맞습니다
+- 아닙니다
+- 사용자 말씀이 맞습니다
+- 그 판단은 타당합니다
+- 제가
+
+---
+
+### 2. 현재 결과물의 지위 재정의
+
+#### 2.1 폐기하지 않는 것
+
+다음 결과물은 삭제하지 않는다.  
+다만 최종 모델링 결과가 아니라 conservative baseline reference로 강등한다.
+
+- 11b_baseline_growth_history_ladder_fix_260514
+- 11b_semantic_validation_and_interpretation_patch_260514
+- 12_model_baseline_comparison_canonical_260514
+- 14_optuna_candidate_tuning_260515
+
+#### 2.2 강등된 의미
+
+위 결과물의 의미는 다음으로 제한한다.
+
+- 11b: conservative_safe_22 기준 corrected baseline growth reference
+- 12c: conservative_safe_22 기준 fixed-parameter model comparison reference
+- 14: conservative_safe_22 기준 XGBoost Optuna tuning reference
+
+이 결과들은 다음 용도로는 사용 가능하다.
+
+- conservative baseline 성능 기준선
+- conservative_safe_22만 사용했을 때의 예측 가능성 확인
+- 이후 확장 feature set과 비교할 기준점
+- score 방향, group-aware CV, top-k 진단 로직 참고
+
+하지만 다음 용도로는 사용 금지다.
+
+- 최종 모델 결과
+- 최종 feature universe 기준 결과
+- 최종 Optuna 결과
+- SHAP 대상 확정 근거
+- segmentation 대상 확정 근거
+- campaign threshold 또는 targeting rule
+
+---
+
+### 3. 즉시 적용할 강제 정책
+
+#### 3.1 14 Optuna 진행권 회수
+
+현재부터 14 Optuna 진행권은 회수한다.
+
+새로운 Optuna는 13b_review_feature_resolution_and_sensitivity를 통과하기 전까지 금지한다.
+
+이미 생성된 14 결과는 다음으로 보존한다.
+
+`conservative_safe_22 기준 XGBoost tuning reference`
+
+#### 3.2 13b 통과 전 진입 금지 단계
+
+13b_review_feature_resolution_and_sensitivity를 통과하기 전까지 다음 단계 진입을 금지한다.
+
+- 11 재실행 또는 확장 baseline ladder
+- 12 재실행 또는 확장 model comparison
+- 14 Optuna
+- 16 SHAP
+- 17 segmentation
+
+즉, 다음 순서가 강제된다.
+
+`13b_review_feature_resolution_and_sensitivity → feature set별 11/12 재비교 → 14 또는 16 → 17`
+#### 3.3 이후 모델링 플랜은 보수 / 확장 2개로 단순화한다
+
+앞으로 모델링 흐름은 크게 두 갈래로 관리한다.
+
+1. conservative_safe_22
+   - 기존 22개 safe feature 기준
+   - 누수 방어 baseline/reference
+   - 가장 방어 가능하지만 최종 충분성을 뜻하지 않음
+
+2. expanded_feature_set
+   - 91개 전체 컬럼을 재검토한 뒤 사용 가능한 컬럼만 추가
+   - membership/context 컬럼과 content/genre/new_movie 계열은 내부 caveat를 구분해 기록
+   - 단, 외부 보고와 모델 비교 체계는 확장 플랜 하나로 묶는다
+
+주의:
+- expanded_feature_set은 91개 전체를 무조건 넣는다는 뜻이 아니다.
+- USER_KEY, target, score, end_date, duration, is_churn_prevented, response-period 의심 컬럼은 계속 forbidden/audit-only로 둔다.
+
+#### 3.4 forbidden / audit-only 컬럼은 모델에 넣지 않는다
+
+다음 계열은 표준 모델 feature로 사용하지 않는다.
+
+- USER_KEY
+- source_row_number
+- is_repurchase
+- repurchase_score
+- churn_risk
+- end_date
+- duration 계열
+- is_churn_prevented
+- target/outcome/proxy 의심 컬럼
+- response-period 또는 day21 이후 행동이 섞인 컬럼
+
+이들은 필요하면 audit-only 또는 policy discussion 대상으로만 둔다.
+
+---
+
+### 4. 13b_review_feature_resolution_and_sensitivity의 필수 요구사항
+
+13b는 단순 문서 단계가 아니라 pipeline 복구 단계다.
+
+#### 4.1 입력
+
+13b는 반드시 다음을 읽는다.
+
+- 05b_canonical_column_role_dictionary.csv
+- 05b_canonical_timing_audit.csv
+- 05b_review_required_columns.csv
+- 05b_forbidden_drop_columns.csv
+- 05b_conservative_safe_candidate_columns.csv
+- 06_primary_main_cohort_conservative_features.csv
+- 09b_window_validation_decision.csv
+- 09b_avg_ott_release_year_validation.csv
+- 09b_genre_ratio_validation_summary.csv
+- 09b_new_movie_ratio_formula_review.csv
+- 10_feature_eda_catalog.csv
+- note.md
+
+#### 4.2 산출물
+
+13b는 최소한 다음 산출물을 생성해야 한다.
+
+- 13b_preflight_input_validation.csv
+- 13b_review_column_inventory.csv
+- 13b_review_resolution_decision_table.csv
+- 13b_expanded_feature_candidates.csv
+- 13b_expanded_feature_internal_caveat_flags.csv
+- 13b_forbidden_audit_only_columns.csv
+- 13b_unresolved_columns.csv
+- 13b_feature_set_contracts.csv
+- 13b_modeling_gate_decision.csv
+- 13b_safe_unsafe_wording.csv
+- 13b_open_risks_for_next_steps.csv
+- 13b_final_checks.csv
+- README.md
+
+#### 4.3 결정 테이블 기준
+
+각 review 컬럼은 반드시 다음 중 하나로 분류한다.
+
+- promote_to_expanded_feature_set
+- expanded_with_caveat
+- forbidden_audit_only
+- unresolved_hold
+
+각 컬럼마다 다음을 기록한다.
+
+- column_name
+- original_05b_status
+- feature_family
+- timing_assessment
+- leakage_risk
+- availability_at_day21
+- evidence_file
+- decision
+- reason
+- downstream_allowed_plan
+- internal_caveat_type
+- caution
+
+#### 4.4 13b 통과 조건
+
+13b는 다음 조건을 만족해야 통과한다.
+
+- 모든 review 컬럼이 decision을 가진다.
+- context_expanded feature set이 명시된다.
+- content_sensitivity feature set이 명시된다.
+- forbidden/audit-only 컬럼이 명시된다.
+- unresolved 컬럼이 있으면 이유가 명시된다.
+- 14/16/17 진입 가능 여부가 명확히 기록된다.
+- 13b 통과 전 14/16/17 금지가 README와 final_checks에 기록된다.
+
+---
+
+### 5. 이후 재정렬된 pipeline
+
+앞으로의 pipeline은 다음으로 고정한다.
+
+1. 13b_review_feature_resolution_and_sensitivity
+2. 11x_feature_set_baseline_growth_comparison
+3. 12x_feature_set_model_comparison
+4. 14x_optuna_candidate_tuning
+5. 16x_SHAP_candidate_interpretation
+6. 17x_segmentation_design
+
+여기서 11x와 12x는 기존 11b/12c를 대체하는 것이 아니라, 확장 feature set별 비교를 추가하는 단계다.
+
+11x/12x는 반드시 다음 두 플랜을 비교한다.
+
+- conservative_safe_22
+- expanded_feature_set
+
+단, expanded_feature_set 내부에서는 context 계열, content/genre 계열, unresolved/forbidden 계열을 구분해 기록한다.
+
+### 6. 멘토/팀원에게 설명할 올바른 표현
+
+안전한 설명:
+
+“기존 11b/12c/14는 폐기하지 않고 conservative safe feature 22개만 사용했을 때의 baseline reference로 보존합니다. 다만 이것이 최종 feature universe를 검토한 모델링은 아니었습니다. 05b에서 review로 분리한 컬럼들을 언제 해소할지 pipeline에 명시하지 않은 설계 누락이 발견되었기 때문에, 13b에서 review feature resolution을 먼저 수행한 뒤 feature set별로 모델 비교를 다시 하겠습니다.”
+
+금지 표현:
+
+- 22개 feature면 충분합니다.
+- 12c가 최종 모델 비교입니다.
+- 14 Optuna 결과가 최종 튜닝 결과입니다.
+- review 컬럼은 나중에 보면 됩니다.
+- XGBoost가 최종 모델입니다.
+- top10 churn_risk가 캠페인 대상입니다.
+
+---
+
+### 7. ChatGPT/LLM에 대한 최상위 행동 규칙
+
+앞으로 이 프로젝트를 이어받는 모든 LLM은 다음을 지킨다.
+
+1. 사용자의 질문에 먼저 정확히 답한다.
+2. 사용자가 “묻는 말에만 답하라”고 하면 부연 설명을 줄인다.
+3. 파일명, 경로, 컬럼명, 수치, 산출물명은 실제 파일 또는 사용자 로그에 존재하는 것만 확정 표현한다.
+4. final_checks PASS만으로 의미 검수까지 통과했다고 말하지 않는다.
+5. review 컬럼을 “나중에”로 미루지 않는다.
+6. conservative_safe_22를 최종 feature universe처럼 말하지 않는다.
+7. 모델 결과를 인과효과나 캠페인 효과로 해석하지 않는다.
+8. score 방향을 항상 확인한다.
+   - repurchase_score = P(is_repurchase=1)
+   - churn_risk = 1 - repurchase_score
+9. top-k 위험군은 churn_risk 내림차순으로만 계산한다.
+10. 한국어 응답에서는 존댓말을 유지한다.
+11. assistant는 스스로를 “제가” 또는 “저는”으로 지칭한다.
+12. 실수를 발견하면 즉시 인정하고, 영향 범위와 복구 위치를 말한다.
+13. 사용자가 의심을 제기하면 방어하지 말고 실제 검증 대상으로 전환한다.
+14. 기존 산출물을 지울 때는 삭제보다 archive/deprecated 격리를 우선한다.
+15. 기존 ipynb는 자산이다. 결과물이 오염됐다고 해서 노트북을 무조건 폐기하지 않는다. 복사본을 만들어 패치 후 재실행한다.
+
+---
+
+### 8. 현재 기준 최종 결론
+
+현재 프로젝트는 폐기하지 않는다.  
+다만 모델링 pipeline은 재정렬한다.
+
+기존 11b/12c/14는 다음 지위로 강등한다.
+
+`conservative_safe_22 reference`
+
+14 Optuna 진행권은 회수한다.  
+13b_review_feature_resolution_and_sensitivity 통과 전까지 11/12/14/16/17 진입을 금지한다.  
+
+이후 모든 모델 비교는 conservative_safe_22와 expanded_feature_set 두 플랜으로 단순화해 보고한다.
+expanded_feature_set 내부의 context/content caveat는 별도 플래그로 관리한다.
+
+이 원칙을 어기는 산출물은 final_checks가 PASS여도 canonical으로 인정하지 않는다.
+## 00d_full_archive_standardization_260515
+
+- 00d에서 legacy, preliminary, pre-13b conservative_safe_22 산출물, old review zip, handoff snapshot을 표준 archive 구조로 재정리했다.
+- 05~14 pre-13b 산출물은 active canonical에서 제거하고 pre13b_conservative_safe_22_reference로 보존한다.
+- 이들은 삭제가 아니라 보수 22개 feature 기준 reference로 보존한다.
+- 이후 active modeling chain은 13b_review_feature_resolution_and_sensitivity부터 다시 시작한다.
+- 모델링 플랜은 conservative_safe_22와 expanded_feature_set 두 가지다.

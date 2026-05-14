@@ -1,0 +1,2 @@
+﻿old_step_11_output_path,old_step_11_status,reason,old_step_11_metric_used_in_step12,11b_used_as_canonical,11b_semantic_patch_used
+C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11_baseline_growth_history_260513,deprecated,ladder contamination: diff_between_w3_w2 was included in L2_add_week2_retention,no,yes,yes

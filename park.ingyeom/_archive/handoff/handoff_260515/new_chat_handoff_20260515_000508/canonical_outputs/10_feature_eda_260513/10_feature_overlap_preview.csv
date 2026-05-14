@@ -1,0 +1,8 @@
+﻿pair_name,feature_a,feature_b,correlation_if_numeric,cross_tab_if_binary,overlap_interpretation,potential_redundancy_level,downstream_note
+w3 watch time vs w3 sessions,watch_time(min)_w3,watch_session_w3,0.7814291777158731,,simple descriptive overlap preview only,medium,full redundancy audit belongs later if needed
+retention_w3_ratio vs diff_between_w3_w1,retention_w3_ratio,diff_between_w3_w1,0.40952572301024787,,simple descriptive overlap preview only,low,full redundancy audit belongs later if needed
+retention_w3_ratio vs diff_between_w3_w2,retention_w3_ratio,diff_between_w3_w2,0.5776122544360527,,simple descriptive overlap preview only,medium,full redundancy audit belongs later if needed
+is_only_w1 vs w2 zero usage,is_only_w1,watch_session_w2,-0.23912348054684684,,simple descriptive overlap preview only,low,full redundancy audit belongs later if needed
+cold_start_3d vs cold_start_7d,is_cold_start_3d,is_cold_start_7d,0.6386175096453409,"{""0"":{""0"":7402,""1"":0},""1"":{""0"":4981,""1"":10696}}",simple descriptive overlap preview only,medium,full redundancy audit belongs later if needed
+w1 over50 vs w2 over50,is_w1_over_50pct,is_w2_over_50pct,-0.37580474529673025,"{""0"":{""0"":10295,""1"":6701},""1"":{""0"":6044,""1"":39}}",simple descriptive overlap preview only,low,full redundancy audit belongs later if needed
+w2 over50 vs w3 over50,is_w2_over_50pct,is_w3_over_50pct,-0.3697589188583795,"{""0"":{""0"":10479,""1"":6052},""1"":{""0"":6517,""1"":31}}",simple descriptive overlap preview only,low,full redundancy audit belongs later if needed

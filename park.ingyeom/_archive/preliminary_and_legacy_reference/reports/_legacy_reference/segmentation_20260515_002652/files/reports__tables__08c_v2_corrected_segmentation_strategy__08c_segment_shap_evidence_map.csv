@@ -1,0 +1,7 @@
+﻿final_segment_key,weekly_usage_pattern,genre_ratio_proxy,membership_context,simple_usage_volume,release_month_proxy,shap_basis,caution
+최상위_이탈위험군,strong,moderate,moderate,weak,none,Stage 07c TRUE SHAP (corrected official),SHAP is observational association only; no causality claim
+초기중기_저관여_고위험군,strong,weak,weak,moderate,none,Stage 07c TRUE SHAP (corrected official),SHAP is observational association only; no causality claim
+주차별이용패턴_고위험군,strong,moderate,weak,weak,none,Stage 07c TRUE SHAP (corrected official),SHAP is observational association only; no causality claim
+장르비율_추천후보군,weak,strong,weak,none,none,Stage 07c TRUE SHAP (corrected official),SHAP is observational association only; no causality claim
+안정유지_후보군,moderate,weak,weak,weak,none,Stage 07c TRUE SHAP (corrected official),SHAP is observational association only; no causality claim
+일반관찰군,none,none,none,none,none,Stage 07c TRUE SHAP (corrected official),SHAP is observational association only; no causality claim

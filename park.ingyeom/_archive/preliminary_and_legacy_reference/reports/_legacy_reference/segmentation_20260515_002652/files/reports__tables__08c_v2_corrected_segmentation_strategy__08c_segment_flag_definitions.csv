@@ -1,0 +1,6 @@
+﻿flag_key,flag_name_ko,definition,primary_shap_family,caution
+seg_top10_risk,최상위 위험 플래그,churn_risk_score >= p90 of holdout,weekly_usage_pattern,Top 10% by predicted churn risk score; observational ranking only
+seg_high_risk_low_usage,고위험 저관여 플래그,"churn_risk_score in [p70, p90) AND total_watch_time < p33 of holdout",weekly_usage_pattern + simple_usage_volume,Low engagement within risk_10_30 band; not top10
+seg_risky_weekly_pattern,위험 주차 패턴 플래그,"churn_risk_score in [p40, p90) AND (week3_watch_time < week1_watch_time * 0.5 OR total_watch_time == 0)",weekly_usage_pattern,Declining or absent weekly usage pattern; do not claim causality
+seg_genre_affinity,장르 선호 플래그,max(genre_ratio_*) > 0.4,genre_ratio_proxy,Any dominant genre above 40% ratio; content recommendation basis only
+seg_stable_low_risk,안정 저위험 플래그,churn_risk_score < p40 of holdout,weekly_usage_pattern (high usage),"Bottom 40% by predicted churn risk; maintenance group, not targeting"

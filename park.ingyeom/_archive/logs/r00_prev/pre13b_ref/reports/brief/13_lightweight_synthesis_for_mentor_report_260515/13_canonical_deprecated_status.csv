@@ -1,0 +1,15 @@
+﻿item,status,reason,can_use_as_final_evidence,caution
+05b canonical,canonical,Column role dictionary patch folder is present and used as upstream policy context.,yes,"Use as role-policy context, not as new result."
+06 canonical,canonical,Primary main cohort and conservative features final checks pass.,yes,"Rows are subscription-event-level observations, not unique users."
+08b canonical interpretation patch,canonical,Audit patch clarifies promotion average-difference interpretation.,yes,Do not interpret raw stage means as causal or segment evidence.
+09 canonical descriptive 2x2 EDA,canonical,2x2 cohort and within-target descriptive differences final checks pass.,yes,"Descriptive only, no causality."
+09b canonical raw window validation,canonical,Required run_20260514_130402 exists and final checks pass.,yes,Use to defend day0~20 usage window only.
+10 canonical feature EDA,canonical,Latest valid Step 10 folder detected and final checks pass.,yes,"Descriptive EDA only, no modeling or p-value claims."
+11b canonical corrected Step 11,canonical,Corrected baseline growth history final checks pass.,yes,"Baseline comparison only, no SHAP, tuning, threshold, or segmentation."
+11b semantic patch canonical guardrail,canonical,Semantic validation patch final checks pass and marks 11b canonical after wording patch.,yes,Respect ladder interpretation wording.
+12c canonical Step 12 if present,canonical,12c final checks pass.,yes,"Fixed-parameter comparison only, not final model or operating threshold."
+old 11 deprecated,deprecated,Superseded by 11b and semantic patch.,no,Archive/history only.
+old 12 deprecated,deprecated,Superseded by 12c canonical comparison.,no,Do not use as final evidence.
+old 12r deprecated,deprecated,Archived rebuild is not the canonical Step 12 evidence.,no,Do not use as final evidence.
+preliminary full-feature baseline not final evidence,deprecated,Preliminary full-feature baseline is not the conservative canonical model evidence.,no,Do not call it final baseline.
+archive manifest status,present,4 archive manifest file(s) found.,no,Archive manifests document deprecated history only.

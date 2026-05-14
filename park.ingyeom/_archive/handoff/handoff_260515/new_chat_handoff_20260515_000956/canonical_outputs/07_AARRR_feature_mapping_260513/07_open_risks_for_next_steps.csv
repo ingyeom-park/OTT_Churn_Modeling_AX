@@ -1,0 +1,13 @@
+﻿risk_to_carry_forward
+review columns remain excluded from conservative standard modeling
+membership/context L0 baseline may not be possible under strict conservative feature use
+"if membership/context baseline is desired, review resolution or sensitivity design is required"
+Referral is not observed and must not be claimed as measured
+"Revenue is proxy via is_repurchase, not actual amount"
+"Acquisition is descriptive split via is_promotion, not causal effect"
+duration < 21 rows are excluded from main cohort but remain relevant for anomaly discussion
+duplicated USER_KEY and cross-promotion overlap require careful row-level language
+total/all-period usage timing unresolved
+recency timing unresolved
+content/genre observation window unresolved
+11 baseline ladder should use 07 handoff and 06 conservative table

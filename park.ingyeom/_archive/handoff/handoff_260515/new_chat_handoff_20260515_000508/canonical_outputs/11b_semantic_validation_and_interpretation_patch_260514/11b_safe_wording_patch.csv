@@ -1,0 +1,8 @@
+﻿topic,unsafe_wording,safe_wording,reason
+L1 week1-only misinterpretation,L1은 1주차까지만 보고 예측한 모델이다.,L1은 day21 시점에서 사용 가능한 feature 중 초기활성 및 초기집중/early-only pattern family를 사용한 baseline이다.,Step 11b ladder is not a temporal cutoff ladder.
+pure activation mislabel,L1은 순수 activation feature만 쓴다.,L1은 pure activation feature와 front-loaded / early-only pattern feature를 함께 포함한다.,is_only_w1 and is_w1_over_50pct are not pure activation.
+is_only_w1 interpretation,is_only_w1은 순수 activation feature다.,is_only_w1은 1주차만 시청하고 이후 2~3주차에는 시청하지 않은 early-only pattern feature다.,Requires day0-20 observation but valid at day21.
+is_w1_over_50pct interpretation,is_w1_over_50pct는 순수 activation feature다.,is_w1_over_50pct는 전체 1~3주 관측창 중 1주차 사용 비중이 높은 early concentration/front-loaded pattern feature다.,Requires day0-20 denominator but valid at day21.
+L5 promotion indicator causal overclaim,L5에서 is_promotion이 좋아졌으니 프로모션 효과가 입증됐다.,"L5에서 is_promotion indicator가 예측 신호를 추가했을 수 있으나, 이는 인과효과를 의미하지 않는다.",Predictive signal comparison only.
+repurchase_score/churn_risk threshold overclaim,churn_risk 상위 고객을 바로 타겟팅하면 된다.,repurchase_score와 churn_risk는 baseline audit score이며 운영 threshold나 타겟팅 기준은 아니다.,No segmentation or threshold in 11b.
+old 11 vs 11b canonical status,Step 11과 11b를 둘 다 공식 기준으로 쓴다.,"Old Step 11은 deprecated/pre-patch이고, semantic patch 이후 11b를 canonical corrected Step 11로 사용한다.",Avoid mixing deprecated and canonical outputs.

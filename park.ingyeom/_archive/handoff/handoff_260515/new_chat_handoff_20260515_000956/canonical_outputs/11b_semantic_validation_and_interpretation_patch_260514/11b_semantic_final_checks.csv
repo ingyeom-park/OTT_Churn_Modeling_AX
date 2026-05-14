@@ -1,0 +1,24 @@
+﻿check_name,status,value,note,actual_output_folder
+repo_root_checked,PASS,C:/Code/ott-churn-prediction,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+repo_root_matches_expected,PASS,C:/Code/ott-churn-prediction,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+required_11b_inputs_exist,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+11b_final_checks_pass,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+old_11_deprecated_status_documented,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+feature_family_ladder_documented,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+temporal_cutoff_ladder_rejected,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+L1_not_week1_only_documented,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+is_only_w1_frontloaded_or_early_only_documented,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+is_w1_over_50pct_frontloaded_documented,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+is_only_w1_not_timing_leakage_under_day21_contract,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+is_w1_over_50pct_not_timing_leakage_under_day21_contract,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+L1_pure_activation_overclaim_blocked,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+L5_promotion_causal_overclaim_blocked,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+score_threshold_overclaim_blocked,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+canonical_after_patch_recorded,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+model_rerun_not_performed,PASS,No model training code was executed in this patch notebook.,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+no_old_11_outputs_modified,PASS,This notebook does not write to old Step 11 paths.,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+no_11b_metrics_modified,PASS,This notebook reads 11b metrics only and writes to semantic patch folder.,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+note_md_updated,PASS,,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\11b_semantic_validation_and_interpretation_patch_260514_review_package.zip,,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+zip_contains_required_outputs,PASS,True,"semantic patch notebook, outputs, README, and note.md",C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514
+notebook_saved_with_outputs,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\11b_semantic_validation_and_interpretation_patch_260514\11b_semantic_validation_and_interpretation_patch_260514.ipynb,nbconvert execution saves notebook outputs after cell completion,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\11b_semantic_validation_and_interpretation_patch_260514

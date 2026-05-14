@@ -1,0 +1,5 @@
+﻿unsafe,safer,topic
+XGBoost가 가장 좋으니 최종 모델이다.,"Step 12에서는 고정 파라미터 baseline 비교에서 XGBoost가 가장 높게 나왔을 수 있으나, 최종 모델 여부는 안정성, 해석, SHAP, 튜닝 전후 비교 후 결정한다.",fixed winner not final
+AUC가 올라갔으니 프로모션 전략 효과가 입증됐다.,"AUC 상승은 예측 성능 개선이며, 마케팅 전략의 인과효과를 의미하지 않는다.",no causality
+review 컬럼을 안 넣었으니 정보 손실이 없다.,"보수 baseline에서는 review 컬럼을 제외했으며, 정보 손실 가능성은 후속 sensitivity에서 검토할 수 있다.",review exclusion caveat
+churn_risk 상위군을 바로 캠페인 대상으로 삼자.,"Step 12 score는 후보 모델 비교용이며, 캠페인 대상 기준은 세그먼트 설계와 실험 이후에 정한다.",no threshold targeting

@@ -1,0 +1,11 @@
+﻿check_name,status,evidence,required_action
+"promotion row counts match across group overview, 2x2, feature distributions",PASS,"overview={0: 11175, 1: 11904};2x2={0: 11175, 1: 11904};dist={0: 11175, 1: 11904}",No action.
+repurchase rates match across group overview and rate difference file,PASS,non=0.7624161073825504;pro=0.6751512096774194,No action.
+"feature count matches 22 after excluding metadata, target, split, flags, source_row_number, duration audit fields",PASS,avg_gap_w1_watch_days;avg_gap_w2_watch_days;avg_gap_w3_watch_days;is_cold_start_3d;is_cold_start_7d;watch_time(min)_w1;watch_time(min)_w2;watch_time(min)_w3;watch_session_w1;watch_session_w2;watch_session_w3;retention_w2_ratio;retention_w3_ratio;diff_between_w2_w1;diff_between_w3_w1;diff_between_w3_w2;is_w1_over_50pct;is_w2_over_50pct;is_w3_over_50pct;is_only_w1;is_only_w2;is_only_w3,No action.
+AARRR mapping does not treat __summary rows as features,PASS,__summary rows excluded,No action.
+no p-value columns exist,PASS,[],No action.
+no statistical test output exists,PASS,checked columns,No action.
+no model score columns exist,PASS,[],No action.
+no SHAP columns exist,PASS,[],No action.
+no review columns used in standard feature distribution,PASS,[],No action.
+no forbidden columns used in standard feature distribution,PASS,[],No action.

@@ -1,0 +1,6 @@
+﻿unsafe,safer
+3주차 시청량이 재구매의 원인이다.,"재구매 행은 미재구매 행보다 3주차 시청량과 세션이 높게 관찰되었으며, 이는 이후 모델링에서 확인할 descriptive signal이다."
+09/10에서 통계적으로 유의한 차이가 확인됐다.,09/10은 p-value 검정 없이 분포와 descriptive effect size를 확인한 단계다.
+프로모션 고객은 행동 패턴이 확실히 다르다.,"08에서는 promotion 평균 feature 차이가 약했고, 09/10에서는 각 promotion 집단 내부의 재구매/미재구매 차이가 더 크게 관찰됐다."
+이 bin을 세그먼트 threshold로 쓰자.,"현재 bin은 분포 이해용 EDA bin이며, 세그먼트 threshold는 모델/EDA 후 별도 설계한다."
+review 컬럼이 없어도 충분하다.,"보수 feature만으로 확인한 신호이며, review 컬럼은 별도 resolution 또는 sensitivity로 남아 있다."

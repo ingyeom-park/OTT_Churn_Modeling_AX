@@ -1,0 +1,5 @@
+﻿figure_file,figure_path,title,source_csv,notes
+13_fig_01_promotion_repurchase_rate.png,reports/figures/13_lightweight_synthesis_for_mentor_report_260515/13_fig_01_promotion_repurchase_rate.png,프로모션 여부별 재구매율 관찰값,09_2x2_cohort_definition.csv,"descriptive only, not causal"
+13_fig_02_2x2_cohort_counts.png,reports/figures/13_lightweight_synthesis_for_mentor_report_260515/13_fig_02_2x2_cohort_counts.png,promotion x repurchase 2x2 cohort 행 수,09_2x2_cohort_definition.csv,percent is share of primary main cohort
+13_fig_03_key_signal_summary.png,reports/figures/13_lightweight_synthesis_for_mentor_report_260515/13_fig_03_key_signal_summary.png,주요 09 기술통계 신호 요약,09_within_*_target_difference_summary.csv,descriptive only
+13_fig_04_model_candidate_summary.png,reports/figures/13_lightweight_synthesis_for_mentor_report_260515/13_fig_04_model_candidate_summary.png,모델 후보 요약,12c_candidate_selection_by_scope.csv,"candidate only, not final model"

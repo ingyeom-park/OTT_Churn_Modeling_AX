@@ -1,0 +1,9 @@
+﻿selected_experiment,row_count,score_orientation,allowed_use,forbidden_use
+nonpromotion_only::XGBoost::highest_auc,11175,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+nonpromotion_only::XGBoost::safer_followup,11175,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+overall_with_promotion::XGBoost::highest_auc,23079,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+overall_with_promotion::XGBoost::safer_followup,23079,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+overall_without_promotion::XGBoost::highest_auc,23079,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+overall_without_promotion::XGBoost::safer_followup,23079,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+promotion_only::XGBoost::highest_auc,11904,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"
+promotion_only::XGBoost::safer_followup,11904,repurchase_score = P(is_repurchase=1); churn_risk = 1 - repurchase_score,candidate model comparison audit only,"no segmentation, no targeting criterion, no final threshold"

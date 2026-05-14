@@ -1,0 +1,12 @@
+﻿check,result,expected,note
+diff_between_w3_w2_not_in_L1,True,True,w3-w2 change must not appear at L1
+diff_between_w3_w2_not_in_L2,True,True,this was the Step 11 bug — now fixed
+no_w3_features_in_L2,True,True,w3 features in L2: []
+diff_between_w3_w2_in_L3,True,True,w3-w2 change first appears at L3
+diff_between_w3_w2_in_L4,True,True,included in all-conservative L4
+L1_feature_count_is_6,True,True,got 6
+L2_feature_count_is_13,True,True,got 13; was 14 in Step 11
+L3_feature_count_is_21,True,True,got 21
+L4_feature_count_is_22,True,True,got 22
+step11_L2_had_diff_between_w3_w2,True,True,Confirmed from 11_feature_ladder_definition.csv: L2 had 14 features including diff_between_w3_w2
+step11b_removes_contamination,True,True,11b uses hard-coded ladder lists; diff_between_w3_w2 is absent from L2

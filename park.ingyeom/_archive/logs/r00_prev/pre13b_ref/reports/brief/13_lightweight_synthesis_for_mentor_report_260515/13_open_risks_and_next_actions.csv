@@ -1,0 +1,14 @@
+﻿risk_or_next_action,status,recommended_next
+12c candidate should be verified before Optuna/SHAP,open,Confirm 12c candidate choice and scope before Step 14 or Step 16.
+no SHAP yet,open,Handle only in Step 16 candidate interpretation.
+no Optuna yet,open,Handle only after candidate scope is fixed.
+no final segment yet,open,Segmentation remains later Step 17.
+review columns still excluded,open,Keep review features out unless a separate policy approves them.
+content/genre caveats remain,open,Treat content metadata as caveated until separately validated.
+new_movie ratio formula unresolved,open,Resolve formula before content-feature interpretation.
+calibration descriptive only,open,Do not treat deciles as calibrated deployment probabilities.
+top-k not campaign threshold,open,Use top-k as diagnostic ranking only.
+13 synthesis done,next_path,Use this package for mentor report and handoff.
+14 Optuna candidate tuning,next_path,Run after candidate scope confirmation.
+16 SHAP candidate interpretation,next_path,Run only for selected candidate after tuning policy is clear.
+17 segmentation later,next_path,Do not segment in Step 13.

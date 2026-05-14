@@ -1,0 +1,21 @@
+﻿feature_name,AARRR_stage_primary,promotion_group,direction,descriptive_strength,safe_preview_interpretation,why_09_must_analyze_deeper
+is_only_w1,activation,promotion,repurchase rows lower,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_w1_over_50pct,activation,promotion,repurchase rows lower,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_cold_start_3d,activation,promotion,repurchase rows higher,small,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_time(min)_w1,activation,promotion,repurchase rows higher,negligible,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_cold_start_7d,activation,promotion,repurchase rows lower,negligible,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_only_w1,activation,nonpromotion,repurchase rows lower,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_w1_over_50pct,activation,nonpromotion,repurchase rows lower,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_cold_start_7d,activation,nonpromotion,repurchase rows lower,small,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_time(min)_w1,activation,nonpromotion,repurchase rows higher,negligible,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+is_cold_start_3d,activation,nonpromotion,repurchase rows higher,negligible,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_time(min)_w3,retention,promotion,repurchase rows higher,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_session_w3,retention,promotion,repurchase rows higher,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+avg_gap_w3_watch_days,retention,promotion,repurchase rows higher,moderate,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+diff_between_w3_w1,retention,promotion,repurchase rows higher,moderate,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_time(min)_w2,retention,promotion,repurchase rows higher,moderate,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_session_w3,retention,nonpromotion,repurchase rows higher,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_time(min)_w3,retention,nonpromotion,repurchase rows higher,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+avg_gap_w3_watch_days,retention,nonpromotion,repurchase rows higher,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+watch_time(min)_w2,retention,nonpromotion,repurchase rows higher,large,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.
+diff_between_w3_w1,retention,nonpromotion,repurchase rows higher,moderate,Limited preview from 08 only; do not treat as full 09.,09 must compute promotion x repurchase cells directly.

@@ -1,0 +1,37 @@
+﻿path,item_type,file_size_bytes,last_modified_time,belongs_to_success_run,should_be_used_downstream,reason
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_AARRR_summary_by_promotion.csv,file,1342,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_cohort_consistency_check.csv,file,1255,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_conservative_feature_distribution_by_promotion.csv,file,7856,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_conservative_feature_distribution_by_promotion_target.csv,file,12720,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_conservative_feature_promotion_difference_summary.csv,file,7862,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_descriptive_findings_summary.csv,file,2323,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_flag_distribution_by_promotion.csv,file,1145,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_open_risks_for_next_steps.csv,file,703,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_preflight_input_validation.csv,file,736,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_promotion_group_overview.csv,file,638,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_promotion_repurchase_rate_difference.csv,file,509,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_promotion_target_2x2_main_cohort.csv,file,387,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_raw_vs_main_promotion_target_comparison.csv,file,1873,2026-05-14T02:23:01,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_review_columns_excluded_from_standard_eda.csv,file,20038,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_safe_unsafe_wording.csv,file,914,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\08_top_descriptive_differences_by_AARRR_stage.csv,file,1620,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\README.md,file,658,2026-05-14T02:23:02,no,no,Ignored: base 08 folder may include failed or partial first-run artifacts.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322,folder,,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_AARRR_summary_by_promotion.csv,file,1342,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_cohort_consistency_check.csv,file,1255,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_conservative_feature_distribution_by_promotion.csv,file,7856,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_conservative_feature_distribution_by_promotion_target.csv,file,12720,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_conservative_feature_promotion_difference_summary.csv,file,7862,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_descriptive_findings_summary.csv,file,2323,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_final_checks.csv,file,3999,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_flag_distribution_by_promotion.csv,file,1145,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_open_risks_for_next_steps.csv,file,703,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_preflight_input_validation.csv,file,736,2026-05-14T02:23:22,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_promotion_group_overview.csv,file,638,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_promotion_repurchase_rate_difference.csv,file,509,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_promotion_target_2x2_main_cohort.csv,file,387,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_raw_vs_main_promotion_target_comparison.csv,file,1873,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_review_columns_excluded_from_standard_eda.csv,file,20038,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_safe_unsafe_wording.csv,file,914,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\08_top_descriptive_differences_by_AARRR_stage.csv,file,1620,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.
+reports\eda\08_promotion_vs_nonpromotion_eda_260513\run_20260514_022322\README.md,file,658,2026-05-14T02:23:23,yes,yes,Locked valid 08 source.

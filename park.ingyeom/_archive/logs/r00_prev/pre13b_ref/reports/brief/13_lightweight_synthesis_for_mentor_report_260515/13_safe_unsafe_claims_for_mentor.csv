@@ -1,0 +1,8 @@
+﻿claim_type,claim,safer_rewrite,reason
+unsafe,100원딜 때문에 이탈했다.,프로모션 행은 비프로모션 행보다 재구매율이 낮게 관찰되었다.,인과효과 아님
+unsafe,프로모션 고객은 행동 패턴이 완전히 다르다.,"보수 feature 기준 promotion 평균 행동 차이는 작았고, 2x2 내부 재구매/미재구매 차이가 더 강하게 관찰되었다.",기술통계 범위
+unsafe,XGBoost가 최종 모델이다.,"XGBoost는 고정 파라미터 비교에서 높은 성능 후보이며, 안정성 후보는 별도로 본다.",모델 후보
+unsafe,top10 churn_risk가 캠페인 대상이다.,top-k churn_risk는 운영 진단 지표이며 최종 타겟팅 threshold가 아니다.,운영 threshold 아님
+unsafe,SHAP이 원인을 밝혔다.,SHAP은 이후 모델 설명으로만 다룬다.,SHAP 미수행
+unsafe,Referral 성과를 분석했다.,Referral은 후속 실험 제안이다.,현재 분석 범위 밖
+unsafe,unique user 분석이다.,분석 단위는 row-level / subscription-event-level이다.,행 단위 분석

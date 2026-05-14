@@ -1,0 +1,2 @@
+﻿day0_20_view_rows,movie_match_rate,duplicate_MOVIE_NUM_count_in_Movie_Master_v2,MOVIE_NUM_with_conflicting_category_count,MOVIE_NUM_with_conflicting_ott_release_month_count,view_rows_affected_by_MOVIE_NUM_duplicate_category_conflicts,interpretation
+155854,1.0,864,9,0,1866,content metadata join available; duplicate MOVIE_NUM conflicts are carried as caveat

@@ -1,0 +1,36 @@
+﻿metric,value,source,caution
+raw master rows,23343,06_cohort_summary.csv,source CSV was not modified
+primary main cohort rows,23079,06_cohort_summary.csv,row-level / subscription-event-level
+duration < 21 excluded,238,06_cohort_summary.csv,excluded from primary main cohort
+duplicate extra rows excluded after duration policy,26,06_cohort_summary.csv,exact duplicate extras after duration policy
+conservative feature count,22,06_primary_main_cohort_conservative_features.csv,approved conservative behavioral features
+nonpromotion rows,11175,06_cohort_summary.csv,row-level
+promotion rows,11904,06_cohort_summary.csv,row-level
+nonpromotion repurchase rate,76.2416%,09_2x2_cohort_definition.csv,descriptive only
+promotion repurchase rate,67.5151%,09_2x2_cohort_definition.csv,descriptive only
+gap promotion minus nonpromotion,-8.73 percentage points,09_2x2_cohort_definition.csv,not causal
+nonpromotion_repurchase,8520,09_2x2_cohort_definition.csv,row-level
+nonpromotion_nonrepurchase,2655,09_2x2_cohort_definition.csv,row-level
+promotion_repurchase,8037,09_2x2_cohort_definition.csv,row-level
+promotion_nonrepurchase,3867,09_2x2_cohort_definition.csv,row-level
+day21+ raw views,17621,09b_raw_view_relative_day_distribution.csv,raw view history contains day21+ rows
+day21+ affected source rows,6044,09b_raw_view_relative_day_distribution.csv,affected source rows only
+core usage mismatch day0~20,0,09b_day21_plus_leakage_contrast_test.csv,evidence against day21+ inclusion
+core usage mismatch day21+ included,6044,09b_day21_plus_leakage_contrast_test.csv,available contrast check
+top signals from 09,watch_time(min)_w3; watch_session_w3; is_only_w1,09 within-promotion and within-nonpromotion summaries,descriptive signal only
+best 11b baseline by scope: nonpromotion_only,RandomForest / L4_all_conservative_behavior / AUC=0.830305,11b_best_baseline_by_scope.csv,AUC winner and presentation-safe follow-up candidate are intentionally distinguished.
+best 11b baseline by scope: overall_with_promotion,HistGradientBoosting / L5_all_conservative_plus_promotion_indicator / AUC=0.821144,11b_best_baseline_by_scope.csv,AUC winner and presentation-safe follow-up candidate are intentionally distinguished.
+best 11b baseline by scope: overall_without_promotion,HistGradientBoosting / L4_all_conservative_behavior / AUC=0.813674,11b_best_baseline_by_scope.csv,AUC winner and presentation-safe follow-up candidate are intentionally distinguished.
+best 11b baseline by scope: promotion_only,RandomForest / L4_all_conservative_behavior / AUC=0.793162,11b_best_baseline_by_scope.csv,AUC winner and presentation-safe follow-up candidate are intentionally distinguished.
+best 12c AUC candidate by scope: overall_without_promotion,XGBoost / AUC=0.815212,12c_candidate_selection_by_scope.csv,"fixed-parameter comparison only; not final model, threshold, segmentation, or causal evidence"
+operating candidate by scope: overall_without_promotion,XGBoost / lift@10=2.663178,12c_candidate_selection_by_scope.csv,not an operating threshold
+stability-aware candidate by scope: overall_without_promotion,GradientBoosting / gap=0.014940,12c_candidate_selection_by_scope.csv,candidate only
+best 12c AUC candidate by scope: overall_with_promotion,XGBoost / AUC=0.823496,12c_candidate_selection_by_scope.csv,"fixed-parameter comparison only; not final model, threshold, segmentation, or causal evidence"
+operating candidate by scope: overall_with_promotion,XGBoost / lift@10=2.669311,12c_candidate_selection_by_scope.csv,not an operating threshold
+stability-aware candidate by scope: overall_with_promotion,GradientBoosting / gap=0.014299,12c_candidate_selection_by_scope.csv,candidate only
+best 12c AUC candidate by scope: promotion_only,XGBoost / AUC=0.800200,12c_candidate_selection_by_scope.csv,"fixed-parameter comparison only; not final model, threshold, segmentation, or causal evidence"
+operating candidate by scope: promotion_only,XGBoost / lift@10=2.367568,12c_candidate_selection_by_scope.csv,not an operating threshold
+stability-aware candidate by scope: promotion_only,GradientBoosting / gap=0.026932,12c_candidate_selection_by_scope.csv,candidate only
+best 12c AUC candidate by scope: nonpromotion_only,XGBoost / AUC=0.832669,12c_candidate_selection_by_scope.csv,"fixed-parameter comparison only; not final model, threshold, segmentation, or causal evidence"
+operating candidate by scope: nonpromotion_only,XGBoost / lift@10=3.090896,12c_candidate_selection_by_scope.csv,not an operating threshold
+stability-aware candidate by scope: nonpromotion_only,RandomForest / gap=0.019784,12c_candidate_selection_by_scope.csv,candidate only

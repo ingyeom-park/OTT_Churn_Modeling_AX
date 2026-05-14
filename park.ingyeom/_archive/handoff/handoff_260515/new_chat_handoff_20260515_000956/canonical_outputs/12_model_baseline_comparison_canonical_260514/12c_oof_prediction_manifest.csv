@@ -1,0 +1,13 @@
+﻿dataset_scope,model_name,oof_row_count,score_orientation
+nonpromotion_only,GradientBoosting,11175,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+nonpromotion_only,RandomForest,11175,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+nonpromotion_only,XGBoost,11175,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+overall_with_promotion,GradientBoosting,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+overall_with_promotion,RandomForest,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+overall_with_promotion,XGBoost,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+overall_without_promotion,GradientBoosting,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+overall_without_promotion,RandomForest,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+overall_without_promotion,XGBoost,23079,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+promotion_only,GradientBoosting,11904,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+promotion_only,RandomForest,11904,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending
+promotion_only,XGBoost,11904,repurchase_score=P(is_repurchase=1); churn_risk=1-repurchase_score; top-k ranks churn_risk descending

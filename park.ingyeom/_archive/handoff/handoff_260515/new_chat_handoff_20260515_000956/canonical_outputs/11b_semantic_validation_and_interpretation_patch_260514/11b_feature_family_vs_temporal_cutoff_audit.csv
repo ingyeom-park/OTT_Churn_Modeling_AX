@@ -1,0 +1,9 @@
+﻿audit_item,semantic_statement,status
+step_11b_ladder_type,Step 11b ladder is a feature-family ladder.,PASS
+not_temporal_cutoff_ladder,Step 11b is not a temporal cutoff ladder.,PASS
+day21_scoring_contract,"All week1-week3 behavior, day0-20, is available at day21 scoring.",PASS
+is_only_w1_timing,is_only_w1 is not timing leakage under the day21 contract because week2-week3 are already observed.,PASS
+is_w1_over_50pct_timing,is_w1_over_50pct is not timing leakage under the day21 contract because week1-week3 totals are already observed.,PASS
+not_pure_activation,is_only_w1 and is_w1_over_50pct should not be called pure activation.,PASS
+L1_auc_guardrail,L1 AUC must not be interpreted as week1-only predictive power.,PASS
+L1_safe_interpretation,L1 AUC may be interpreted as early activation and front-loaded or early-only behavior family signal.,PASS

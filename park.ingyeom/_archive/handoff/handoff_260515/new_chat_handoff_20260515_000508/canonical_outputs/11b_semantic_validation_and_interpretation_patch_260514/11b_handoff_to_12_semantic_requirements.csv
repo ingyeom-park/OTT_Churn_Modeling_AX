@@ -1,0 +1,10 @@
+﻿requirement,semantic_requirement
+use_11b_canonical,12 must use 11b as canonical Step 11.
+do_not_use_old_11,12 must not use old Step 11.
+preserve_feature_family_interpretation,12 must preserve feature-family interpretation of the ladder.
+do_not_call_L1_week1_only,12 must not describe L1 as week1-only model.
+review_columns_policy,12 may compare broader model families but must not reintroduce review columns by default.
+optional_model_families,12 may include optional model families only after baseline comparison setup.
+shap_timing,SHAP remains later.
+optuna_timing,Optuna remains later.
+threshold_timing,Score thresholds remain later.
