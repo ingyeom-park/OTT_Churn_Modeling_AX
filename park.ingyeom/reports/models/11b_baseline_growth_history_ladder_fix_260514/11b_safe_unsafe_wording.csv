@@ -1,0 +1,6 @@
+﻿unsafe_wording,safer_wording
+이 모델이 이탈 원인을 밝혔다.,이 모델은 보수적 1~3주차 행동 feature를 바탕으로 재구매 가능성을 예측하는 baseline이다.
+AUC가 높으니 마케팅 효과가 입증됐다.,"AUC는 재구매 여부를 구분하는 예측 성능 지표이며, 마케팅 효과나 인과효과를 의미하지 않는다."
+churn_risk 상위 고객을 바로 타겟팅하면 된다.,"이 단계의 churn_risk는 baseline audit score이며, 운영 타겟팅 기준은 세그먼트와 실험 설계 이후에 정해야 한다."
+review 컬럼도 넣으면 성능이 오르니 쓰자.,review 컬럼은 timing/semantic 확인 전까지 표준 baseline에 넣지 않는다. 필요하면 sensitivity 실험으로 분리한다.
+프로모션 전용 모델에 is_promotion을 넣었다.,프로모션 전용 모델에서는 is_promotion이 상수이므로 feature에서 제외한다.

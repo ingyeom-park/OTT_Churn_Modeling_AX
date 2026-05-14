@@ -1,0 +1,14 @@
+﻿risk_or_carry_forward,caution
+"Step 11 is baseline modeling only, not final model.",carry to next step
+No SHAP yet.,carry to next step
+No Optuna yet.,carry to next step
+No final threshold yet.,carry to next step
+No segmentation yet.,carry to next step
+Review columns remain excluded.,carry to next step
+Membership/context L0 remains limited under conservative approach.,carry to next step
+AUC may be modest because feature set is conservative.,carry to next step
+Group-aware CV must remain in future modeling.,carry to next step
+12 should compare broader model families carefully.,carry to next step
+"16 SHAP later must use final selected model, not every exploratory model.",carry to next step
+17 segmentation later must not use 11 bins or scores as final thresholds without design.,carry to next step
+"Selected OOF scores are score orientation audit outputs only, not targeting criteria.",carry to next step

@@ -1,0 +1,2 @@
+﻿shap_performed_in_step11,when_to_run,interpretation_policy,comparison_policy,feature_grouping_policy,caution
+no,after candidate model is selected,"SHAP is model explanation, not cause","compare overall, promotion-only, and nonpromotion-only SHAP later",use 05b/07/10 mappings,Do not explain every exploratory model.

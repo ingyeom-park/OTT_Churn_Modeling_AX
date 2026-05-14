@@ -612,3 +612,43 @@ promotion × repurchase 2x2 구조에서 promotion/non-promotion 각 내부의 �
 - interpretation limits: no causality, no p-value, no modeling, no final segment threshold.
 - risks to carry forward: review columns excluded, content/context signals limited, feature overlap needs later care, USER_KEY duplication requires group-aware CV later.
 - next step recommendation: 11_baseline_growth_history_260513.
+
+## 2026-05-14 14:38:12 - 11_baseline_growth_history_260513
+
+- 목적: 보수 safe-window feature 기반 baseline growth history 구축.
+- 생성 파일: 모델 CSV 23개, README.md, PNG figure 6개, 실행 저장 notebook, review package zip.
+- dataset scopes: overall_without_promotion, overall_with_promotion, promotion_only, nonpromotion_only.
+- feature ladder: L0 dummy prior, L1 activation safe, L2 week2 retention, L3 week3 retention, L4 all conservative behavior, L5 promotion indicator only for overall_with_promotion.
+- models: DummyPrior, LogisticRegression, HistGradientBoosting, RandomForest. 튜닝은 수행하지 않았다.
+- best baseline by scope: [{'dataset_scope': 'nonpromotion_only', 'best_model_name': 'RandomForest', 'best_ladder_step': 'L4_all_conservative_behavior', 'best_oof_auc': 0.8303052527342334, 'train_valid_gap': 0.0197840949996292}, {'dataset_scope': 'overall_with_promotion', 'best_model_name': 'HistGradientBoosting', 'best_ladder_step': 'L5_all_conservative_plus_promotion_indicator', 'best_oof_auc': 0.8211437468292977, 'train_valid_gap': 0.0391284644979338}, {'dataset_scope': 'overall_without_promotion', 'best_model_name': 'HistGradientBoosting', 'best_ladder_step': 'L4_all_conservative_behavior', 'best_oof_auc': 0.8136740303172799, 'train_valid_gap': 0.0379134937487572}, {'dataset_scope': 'promotion_only', 'best_model_name': 'RandomForest', 'best_ladder_step': 'L4_all_conservative_behavior', 'best_oof_auc': 0.7931624035577116, 'train_valid_gap': 0.0202161826770433}]
+- AUC growth summary: `11_ladder_growth_summary.csv`에 기록.
+- overfit/stability caveats: AUC 최고 후보와 후속/발표용 안전 후보를 구분했고, train-valid gap caution을 남겼다.
+- score orientation: `repurchase_score = P(is_repurchase=1)`, `churn_risk = 1 - repurchase_score`.
+- score 제한: selected OOF score는 score orientation audit용이며 세그먼트 후보, 타겟팅 기준, 최종 threshold로 해석하지 않는다.
+- checks: `11_final_checks.csv` 기준 50/50 PASS.
+- interpretation limits: 인과 주장, 통계적 유의성 주장, deployment readiness 주장 금지.
+- risks to carry forward: review columns 제외 유지, group-aware CV 유지, SHAP/Optuna/threshold/segmentation은 후속 단계에서 별도 설계.
+- next step recommendation: 12_model_baseline_comparison_260513.
+
+
+## 2026-05-14 16:06:40 - 11b_baseline_growth_history_ladder_fix_260514
+
+- step name: 11b_baseline_growth_history_ladder_fix_260514
+- purpose: Step 11 feature ladder contamination 버그 수정. diff_between_w3_w2가 L2에 포함되던 오류를 수정한 canonical baseline growth history.
+- why 11b was needed: 기존 Step 11의 L2_add_week2_retention에 diff_between_w3_w2(3주차-2주차 변화량)가 포함됨. Week3 정보가 L2에 누출되어 L1->L2 AUC 상승 해석이 오염됨.
+- old 11 contamination issue: 07_AARRR_to_baseline_ladder_handoff.csv의 L2 열에 diff_between_w3_w2 오기재 -> handoff_cols()가 이를 L2에 포함. Step 11 L2 feature count was 14 (should be 13).
+- corrected ladder summary: L2=13개(diff_between_w3_w2 제거), L3=21개(diff_between_w3_w2 정상 포함), L4=22개, L5=23개(overall_with_promotion 전용).
+- dataset scopes: overall_without_promotion, overall_with_promotion, promotion_only, nonpromotion_only
+- models used: DummyPrior(L0), LogisticRegression, HistGradientBoosting, RandomForest (L1-L5). 튜닝 미수행.
+- best baseline by scope: [{'dataset_scope': 'nonpromotion_only', 'best_model_name': 'RandomForest', 'best_ladder_step': 'L4_all_conservative_behavior', 'best_oof_auc': 0.8303052527342334, 'train_valid_gap': 0.019784094999629208}, {'dataset_scope': 'overall_with_promotion', 'best_model_name': 'HistGradientBoosting', 'best_ladder_step': 'L5_all_conservative_plus_promotion_indicator', 'best_oof_auc': 0.8211437468292977, 'train_valid_gap': 0.039128464497933835}, {'dataset_scope': 'overall_without_promotion', 'best_model_name': 'HistGradientBoosting', 'best_ladder_step': 'L4_all_conservative_behavior', 'best_oof_auc': 0.8136740303172799, 'train_valid_gap': 0.03791349374875723}, {'dataset_scope': 'promotion_only', 'best_model_name': 'RandomForest', 'best_ladder_step': 'L4_all_conservative_behavior', 'best_oof_auc': 0.7931624035577116, 'train_valid_gap': 0.020216182677043303}]
+- AUC growth summary: 11b_ladder_growth_summary.csv 참조
+- overfit/stability caveats: AUC 최고 후보와 gap-safe 후보를 구분. train_valid_gap_audit 참조.
+- score orientation: repurchase_score = P(is_repurchase=1), churn_risk = 1 - repurchase_score
+- checks passed/failed: 11b_final_checks.csv 참조
+- interpretation limits: 인과 주장, threshold, segmentation, deployment readiness 금지.
+- risks to carry forward: review columns 제외 유지, group-aware CV 유지, SHAP/Optuna/threshold/segmentation은 후속 단계에서 별도 설계.
+- next step recommendation: 12_model_baseline_comparison_260513 (11b 기준으로 진행).
+- deprecated audit: 11b_deprecated_11_audit.csv
+- contamination check: 11b_ladder_contamination_check.csv
+- old Step 11은 pre-patch/deprecated로 보존. 삭제하지 않음.
+- generated files: 25 CSVs, README.md, 7 PNG figures, review zip.
