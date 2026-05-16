@@ -1,0 +1,15 @@
+﻿check,status,detail
+06x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515
+07x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515
+required 06x files exist,PASS,
+required 07x files exist,PASS,
+source fingerprint before captured,PASS,count=7
+output folder created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\08x_promotion_nonpromotion_EDA_260516
+06x final checks pass,PASS,rows=29
+07x final checks pass,PASS,rows=26
+conservative dataset loaded,PASS,"(23079, 24)"
+expanded dataset loaded,PASS,"(23079, 82)"
+07x mapping loaded,PASS,"(106, 16)"
+07x downstream EDA handoff loaded,PASS,"(6, 7)"
+promotion split available,PASS,expanded has is_promotion; conservative split uses row-aligned expanded is_promotion after USER_KEY/is_repurchase validation
+stop_reason,PASS,ready

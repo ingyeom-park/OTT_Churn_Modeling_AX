@@ -1,0 +1,35 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified,PASS,raw source SHA256 before/after unchanged
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\11x_baseline_growth_comparison_260516\11x_baseline_growth_comparison_260516.ipynb
+notebook_reused_or_reuse_status_documented,PASS,C:\Code\ott-churn-prediction\park.ingyeom\_archive\logs\r00_prev\pre13b_ref\notebook\11b_baseline_growth_history_ladder_fix_260514\11b_baseline_growth_history_ladder_fix_260514.ipynb
+notebook_executed,PASS,set after nbconvert execution completes
+06x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515
+06x_final_checks_pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_final_checks.csv
+07x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515
+07x_final_checks_pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515\07x_final_checks.csv
+10x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516
+10x_final_checks_pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516
+conservative_dataset_used,PASS,
+expanded_dataset_used,PASS,
+four_dataset_scopes_created,PASS,"nonpromotion_only,overall_with_promotion,overall_without_promotion,promotion_only"
+StratifiedGroupKFold_used,PASS,"n_splits=5, shuffle=True, random_state=42"
+USER_KEY_used_as_group_not_feature,PASS,
+is_repurchase_used_as_target_not_feature,PASS,
+is_promotion_scope_policy_respected,PASS,is_promotion only allowed in overall_with_promotion when available
+no_unapproved_new_features_created,PASS,used 06x feature lists only; conservative is_promotion scope key added for filtering only=True
+no_feature_removal_performed,PASS,scoped exclusion of is_promotion only; no VIF-based removal
+no_feature_selection_decision_made,PASS,candidate summary is 12x reference only
+no_optuna_performed,PASS,
+no_shap_performed,PASS,
+no_segmentation_performed,PASS,
+no_causal_claim,PASS,
+oof_predictions_are_fold_based,PASS,validation fold predictions only
+churn_risk_equals_1_minus_repurchase_score,PASS,
+topk_sorted_by_churn_risk_desc,PASS,top-k table generated after sorting churn_risk descending
+conservative_vs_expanded_comparison_created,PASS,
+redundancy_caveat_handoff_created,PASS,
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\11x_baseline_growth_comparison_260516_review_package.zip; duplicate_entries=0; inventory_rows=21
+critical_fail_count_zero,PASS,fail_count_before_critical=0

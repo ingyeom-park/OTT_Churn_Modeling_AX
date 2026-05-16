@@ -5,7 +5,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Code\\\\ott-churn-prediction\\\\park.ingyeom\\\\reports\\\\models\\\\11_baseline_growth_history_260513\" -Force -ErrorAction SilentlyContinue)",
       "Bash(Select-Object Name)",
       "PowerShell(Head -50)",
-      "Bash(git -C \"C:/Code/ott-churn-prediction\" rev-parse --show-toplevel)"
+      "Bash(git -C \"C:/Code/ott-churn-prediction\" rev-parse --show-toplevel)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

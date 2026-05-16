@@ -1,0 +1,37 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified_by_sha256,PASS,{'unchanged': 7}
+source_fingerprint_created,PASS,
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\08x_promotion_nonpromotion_EDA_260516\08x_promotion_nonpromotion_EDA_260516.ipynb
+notebook_executed,PASS,This row is produced by the executed 08x notebook
+execution_log_created,PASS,created after final checks
+06x_inputs_loaded,PASS,"(23079, 24) / (23079, 82)"
+07x_inputs_loaded,PASS,"(106, 18)"
+06x_final_checks_pass,PASS,rows=29
+07x_final_checks_pass,PASS,rows=26
+conservative_dataset_loaded,PASS,"(23079, 24)"
+expanded_dataset_loaded,PASS,"(23079, 82)"
+promotion_split_available,PASS,expanded has is_promotion; conservative split uses row-aligned expanded is_promotion after USER_KEY/is_repurchase validation
+target_distribution_created,PASS,
+numeric_group_comparison_created,PASS,
+binary_group_comparison_created,PASS,
+feature_family_summary_created,PASS,
+AARRR_stage_summary_created,PASS,
+top_observed_differences_created,PASS,
+caveat_claim_guardrail_created,PASS,
+downstream_handoff_created,PASS,
+redundancy_audit_handoff_created,PASS,
+no_modeling_performed,PASS,No estimator fit code in 08x
+no_train_test_split_performed,PASS,No train/test split code in 08x
+no_prediction_performed,PASS,No predict/proba output in 08x
+no_shap_performed,PASS,SHAP not imported or executed
+no_optuna_performed,PASS,Optuna not imported or executed
+no_segmentation_performed,PASS,No segment artifact generated
+no_final_business_claim_created,PASS,README and guardrail restrict to observed differences
+no_new_features_created,PASS,No source dataset or feature list modified; split key used only for grouping
+no_feature_removed,PASS,No feature removal decision made
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_inventory_created,PASS,created below before zip
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\08x_promotion_nonpromotion_EDA_260516_review_package.zip
+critical_fail_count_zero,PASS,0

@@ -1,0 +1,27 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified,PASS,fingerprinted_csv_count=7
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\07x_feature_mapping_AARRR_260515\07x_feature_mapping_AARRR_260515.ipynb
+notebook_reused_or_reuse_status_documented,PASS,C:\Code\ott-churn-prediction\park.ingyeom\_archive\pre13b_ref\notebook\07_AARRR_feature_mapping_260513\07_AARRR_feature_mapping_260513.ipynb
+notebook_executed,PASS,This row is produced by executed 07x notebook
+06x_inputs_loaded,PASS,model_feature_rows=106 schema_rows=106
+06x_final_checks_pass,PASS,all 06x final checks PASS
+conservative_mapping_created,PASS,
+expanded_mapping_created,PASS,
+fixed_cold_start_used_not_original,PASS,fixed fields present; original cold_start not use_as_feature
+USER_KEY_not_feature,PASS,
+is_repurchase_target_not_feature,PASS,
+is_promotion_scope_policy_recorded,PASS,
+caveat_handoff_created,PASS,
+downstream_EDA_handoff_created,PASS,
+no_modeling_performed,PASS,"No estimator fit, prediction, or model artifact code is present"
+no_eda_performed,PASS,"Only mapping, policy, and handoff tables are generated"
+no_shap_performed,PASS,
+no_optuna_performed,PASS,
+no_segmentation_performed,PASS,
+README_created,PASS,
+note_md_updated,PASS,
+07x_review_zip_inventory_created,PASS,
+required_outputs_created_before_zip,PASS,
+review_zip_created,PASS,created below
+critical_fail_count_zero,PASS,0

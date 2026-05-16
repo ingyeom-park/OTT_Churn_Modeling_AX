@@ -1,0 +1,20 @@
+check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_260515
+raw_source_csv_not_modified,PASS,read-only access only
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\05x_feature_contract_rebuild_260515\05x_feature_contract_rebuild_260515.ipynb
+source_master_read,PASS,23343 rows
+all_91_columns_inventoried,PASS,91
+decision_table_created,PASS,91
+user_approval_required_column_exists,PASS,yes
+final_decision_status_pending,PASS,all pending
+conservative_contract_created,PASS,22
+expanded_candidate_contract_created,PASS,84
+forbidden_audit_candidates_created,PASS,4
+unresolved_review_created,PASS,1
+no_modeling_performed,PASS,contract-only step
+no_eda_performed,PASS,contract-only step
+no_shap_performed,PASS,contract-only step
+no_optuna_performed,PASS,contract-only step
+no_segmentation_performed,PASS,contract-only step
+all_expected_csvs_exist,PASS,"['05x_preflight_input_validation.csv', '05x_full_column_inventory.csv', '05x_feature_resolution_decision_table.csv', '05x_conservative_safe_22_contract.csv', '05x_expanded_feature_set_candidate_contract.csv', '05x_forbidden_or_audit_only_candidates.csv', '05x_unresolved_user_review_required.csv', '05x_user_approval_checklist.csv', '05x_safe_unsafe_wording.csv', '05x_next_step_gate.csv']"
+critical_fail_count_zero,PASS,0

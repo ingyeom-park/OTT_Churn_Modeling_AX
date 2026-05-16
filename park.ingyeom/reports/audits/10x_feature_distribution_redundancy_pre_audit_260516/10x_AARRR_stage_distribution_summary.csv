@@ -1,0 +1,10 @@
+﻿feature_set_name,AARRR_stage,feature_count,numeric_count,binary_count,avg_zero_rate,near_constant_count,high_corr_pair_count,vif_high_or_extreme_count,group_proxy_risk_count,leakage_suspect_count,interpretation_guardrail,notes
+conservative_safe_22,Activation,6,2,4,0.5514464809278276,0,3,1,0,6,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+conservative_safe_22,Retention,16,12,4,0.4524351141730578,0,4,5,0,16,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+expanded_feature_set,Acquisition_context,12,0,12,0.7214459032020452,0,0,9,5,12,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+expanded_feature_set,Activation,6,2,4,0.5514464809278276,0,3,2,0,6,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+expanded_feature_set,Needs_user_review,4,1,3,0.34438233892283027,1,0,0,4,4,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+expanded_feature_set,Retention,39,35,4,0.2814191167239392,0,17,21,0,33,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+expanded_feature_set,Retention_context,18,17,1,0.6282479021332524,0,3,13,0,3,Referral has no directly observed feature when applicable; diagnostics are not causal or importance claims,AARRR-stage distribution summary only
+conservative_safe_22,Referral,0,0,0,,0,0,0,0,0,No directly observed Referral feature in current dataset; do not claim Referral was validated by data,explicit empty-stage caveat
+expanded_feature_set,Referral,0,0,0,,0,0,0,0,0,No directly observed Referral feature in current dataset; do not claim Referral was validated by data,explicit empty-stage caveat

@@ -1,0 +1,8 @@
+﻿run_start=2026-05-16T12:11:17
+run_end=2026-05-16T12:13:04
+output_dir=C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11x_baseline_growth_comparison_260516
+zip_path=C:\Code\ott-churn-prediction\park.ingyeom\zip\11x_baseline_growth_comparison_260516_review_package.zip
+final_fail_count=0
+raw_source_csv_not_modified=True
+oof_rows=553896
+zip_duplicate_entries=0

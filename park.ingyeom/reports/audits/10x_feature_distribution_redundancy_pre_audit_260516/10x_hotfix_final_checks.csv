@@ -1,0 +1,28 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified_by_sha256,PASS,changed_raw_sources=0
+source_fingerprint_created,PASS,10x_hotfix_source_fingerprint_before_after.csv
+original_10x_outputs_loaded,PASS,missing=
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516.ipynb
+notebook_executed,PASS,executed_code_cells=14/14
+executed_notebook_visible_outputs_saved,PASS,output_code_cells=14/14; C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516_executed.ipynb
+execution_log_created,PASS,10x_hotfix_execution_log.txt
+final_checks_rebuilt,PASS,10x_final_checks.csv and 10x_hotfix_final_checks.csv
+review_zip_duplicate_entries_absent,PASS,duplicate_entries=0
+review_zip_inventory_created,PASS,duplicate_count=1 for all rows
+age_group_default_demographic_artifact_recorded,PASS,age_group default_demographic_artifact_risk=True
+feature_refinement_candidate_policy_created,PASS,policy_rows=10
+expanded_full_preserved,PASS,expanded_feature_set use_as_feature=yes count=80
+no_feature_removed,PASS,keep_in_expanded_full=True and removal_allowed_now=False
+no_feature_selection_decision_made,PASS,"policy-only, user_approval_required=True"
+no_modeling_performed,PASS,hotfix regenerated audit/log/package artifacts only
+no_train_test_split_performed,PASS,hotfix regenerated audit/log/package artifacts only
+no_prediction_performed,PASS,hotfix regenerated audit/log/package artifacts only
+no_shap_performed,PASS,hotfix regenerated audit/log/package artifacts only
+no_optuna_performed,PASS,hotfix regenerated audit/log/package artifacts only
+no_segmentation_performed,PASS,hotfix regenerated audit/log/package artifacts only
+no_final_business_claim_created,PASS,guardrails only
+README_updated,PASS,README.md hotfix section present
+note_md_updated,PASS,note.md hotfix entry present
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\10x_feature_distribution_redundancy_pre_audit_260516_hotfix_review_package.zip
+critical_fail_count_zero,PASS,fail_count_before_critical=0

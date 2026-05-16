@@ -1,0 +1,48 @@
+﻿check_name,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified_by_sha256,PASS,{'unchanged': 7}
+source_fingerprint_created,PASS,
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\09x_promotion_repurchase_2x2_EDA_260516\09x_promotion_repurchase_2x2_EDA_260516.ipynb
+notebook_executed,PASS,nbconvert execution reached final validation cell
+execution_log_created,PASS,09x_execution_log.txt exists
+06x_inputs_loaded,PASS,
+07x_inputs_loaded,PASS,
+08x_inputs_loaded,PASS,
+06x_final_checks_pass,PASS,"29 checks, 0 non-PASS"
+07x_final_checks_pass,PASS,"26 checks, 0 non-PASS"
+08x_final_checks_pass,PASS,"36 checks, 0 non-PASS"
+conservative_dataset_loaded,PASS,"(23079, 24)"
+expanded_dataset_loaded,PASS,"(23079, 82)"
+conservative_expanded_row_alignment_verified,PASS,
+promotion_split_available,PASS,
+target_available,PASS,
+2x2_cohort_summary_created,PASS,
+target_rate_summary_created,PASS,target_matches_08x=True
+numeric_2x2_profile_created,PASS,
+binary_2x2_profile_created,PASS,
+within_promotion_comparison_created,PASS,
+within_nonpromotion_comparison_created,PASS,
+between_promotion_status_comparison_created,PASS,
+feature_family_2x2_summary_created,PASS,
+AARRR_stage_2x2_summary_created,PASS,
+top_2x2_differences_created,PASS,
+context_profile_proxy_risk_review_created,PASS,
+usage_retention_2x2_review_created,PASS,
+caveat_claim_guardrail_created,PASS,
+downstream_handoff_created,PASS,
+redundancy_audit_handoff_created,PASS,
+no_modeling_performed,PASS,
+no_train_test_split_performed,PASS,
+no_prediction_performed,PASS,
+no_shap_performed,PASS,
+no_optuna_performed,PASS,
+no_segmentation_performed,PASS,
+no_final_business_claim_created,PASS,
+no_new_features_created,PASS,Only temporary analysis_group_label cohort_2x2_label was created in-memory
+no_feature_removed,PASS,
+2x2_label_not_saved_as_model_feature,PASS,
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_inventory_created,PASS,09x_review_zip_inventory.csv
+review_zip_created,FAIL,C:\Code\ott-churn-prediction\park.ingyeom\zip\09x_promotion_repurchase_2x2_EDA_260516_review_package.zip
+critical_fail_count_zero,FAIL,1

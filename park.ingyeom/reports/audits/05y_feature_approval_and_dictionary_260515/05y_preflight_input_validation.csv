@@ -1,0 +1,9 @@
+﻿input_name,path,status,stop_reason
+source_master,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv,exists,
+05x_patch_folder,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_patch_260515,exists,
+v3_team_variable_file,,missing,
+output_folder,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05y_feature_approval_and_dictionary_260515,ready,
+View_History_v2.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\View_History_v2.csv,exists,
+User_Mapping_v2.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\User_Mapping_v2.csv,exists,
+Membership_train.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\Membership_train.csv,exists,
+Movie_Master_v2.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\Movie_Master_v2.csv,exists,

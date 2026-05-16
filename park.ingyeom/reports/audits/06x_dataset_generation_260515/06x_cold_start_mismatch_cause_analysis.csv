@@ -1,0 +1,6 @@
+﻿topic,analysis
+hotfix root cause,Previous retry passed row policy but cold_start fixed was computed from USER_KEY-level first watch. Hotfix computes first_watch_rel_day by master_row_id subscription-event row.
+row-level calculation rule,"Each master row receives master_row_id, is joined to User_Mapping and View_History through USER_KEY, filtered to 0 <= watch_rel_day <= 20, then grouped by master_row_id."
+negative first_watch_rel_day,Negative first_watch_rel_day count after row-level first-watch construction is 0.
+raw validation,"[{""basis"": ""raw_master_full"", ""raw_rows_or_cohort_rows"": 23343, ""old_3d_positive_count"": 10816, ""fixed_3d_positive_count"": 9034, ""changed_3d_count"": 1782, ""expected_changed_3d_count"": 1782, ""old_7d_positive_count"": 15855, ""fixed_7d_positive_count"": 14891, ""changed_7d_count"": 964, ""expected_changed_7d_count"": 964, ""negative_first_watch_rel_day_count"": 0, ""status"": ""PASS""}]"
+primary cohort validation,"[{""basis"": ""primary_main_cohort"", ""raw_rows_or_cohort_rows"": 23079, ""old_3d_positive_count"": 10696, ""fixed_3d_positive_count"": 8929, ""changed_3d_count"": 1767, ""expected_changed_3d_count"": 1767, ""old_7d_positive_count"": 15677, ""fixed_7d_positive_count"": 14721, ""changed_7d_count"": 956, ""expected_changed_7d_count"": 956, ""negative_first_watch_rel_day_count"": 0, ""status"": ""PASS""}]"

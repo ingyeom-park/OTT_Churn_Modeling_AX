@@ -1,0 +1,13 @@
+check,status,detail
+raw_source_csv_not_modified,PASS,
+hotfix_diff_summary_created,PASS,105 changed fields recorded
+cold_start_counts_corrected_to_1782_964,PASS,
+excluded_feature_dictionary_source_fixed,PASS,
+no_view_history_source_for_membership_excluded_columns,PASS,
+genre_caveat_consistent,PASS,
+no_unnecessary_current_feature_name_column_added,PASS,
+feature_dictionary_xlsx_updated,PASS,
+README_updated,PASS,
+note_md_updated,PASS,
+review_zip_updated,PASS,05y_feature_approval_and_dictionary_patch2_260515_review_package.zip
+critical_fail_count_zero,PASS,0

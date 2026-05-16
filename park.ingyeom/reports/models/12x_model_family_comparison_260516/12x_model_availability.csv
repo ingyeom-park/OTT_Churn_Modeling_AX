@@ -1,0 +1,9 @@
+﻿model_name,import_available,will_run,unavailable_reason
+LogisticRegression,yes,yes,
+HistGradientBoosting,yes,yes,
+RandomForest,yes,yes,
+GradientBoosting,yes,yes,
+ExtraTrees,yes,yes,
+LightGBM,yes,yes,
+XGBoost,yes,yes,
+CatBoost,yes,yes,

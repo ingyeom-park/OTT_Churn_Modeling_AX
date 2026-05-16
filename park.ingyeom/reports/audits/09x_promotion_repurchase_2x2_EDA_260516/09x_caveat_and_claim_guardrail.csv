@@ -1,0 +1,20 @@
+﻿caveat_id,caveat_topic,applies_to_feature,applies_to_stage,safe_claim,unsafe_claim,required_wording
+observed_difference_only,observed difference only,,09x,2x2 cohorts show observed descriptive differences.,The difference is causal or actionable by itself.,Use observed difference only wording.
+no_causal_claim,no causal claim,,09x,09x does not estimate causal effects.,Promotion caused churn or repurchase.,Do not use causal verbs.
+no_uplift_claim,no uplift claim,,09x,09x does not estimate uplift.,Promotion uplifted retention.,Use descriptive comparison only.
+no_marketing_effectiveness_claim,no marketing effectiveness claim,,09x,09x does not evaluate marketing effectiveness.,Promotion was ineffective.,Use observed group difference only.
+no_feature_importance_claim,no feature importance claim,,09x,EDA differences are not model importance.,Top difference is an important feature.,Say review candidate.
+no_feature_selection_decision,no feature selection decision,,09x,No feature is selected or removed in 09x.,Use or remove this feature.,Require later audit and user approval.
+no_model_performance_claim,no model performance claim,,09x,No model was trained or evaluated.,This improves AUC.,No performance wording.
+shap_not_performed,SHAP not performed,,09x,SHAP was not performed.,SHAP confirms this feature.,Reserve SHAP wording for SHAP step.
+modeling_not_performed,modeling not performed,,09x,Modeling was not performed.,The model learned this pattern.,No model wording.
+segmentation_not_performed,segmentation not performed,,09x,Segmentation was not performed.,This is a final segment.,No segment claim.
+is_promotion_split_key,is_promotion split key caveat,is_promotion,09x,is_promotion is a split key.,is_promotion is a model feature here.,Do not treat split key as feature.
+is_repurchase_target,is_repurchase target caveat,is_repurchase,09x,is_repurchase is target.,is_repurchase is a feature.,Exclude target from profile features.
+cohort_label_analysis_only,2x2 cohort label is analysis group only,cohort_2x2_label,09x,cohort_2x2_label is an analysis group label only.,Use cohort label as model input.,"role=analysis_group_label, use_as_feature=False."
+is_churn_prevented_context,is_churn_prevented historical context caveat,is_churn_prevented,09x,Historical context field needs leakage review.,This proves churn was prevented.,Pass to leakage suspect audit if used later.
+cold_start_fixed,cold_start_fixed caveat,"is_cold_start_3d_fixed,is_cold_start_7d_fixed",09x,Cold-start fixed variables are descriptive onboarding indicators.,Cold start caused repurchase.,Use observed difference wording only.
+old_movie_ratio_5y_mismatch,old_movie_ratio_5y 9-row mismatch caveat,old_movie_ratio_5y,09x,Known 9-row mismatch caveat remains inherited.,This field is fully formula-validated.,Carry caveat forward.
+genre_multi_category,genre multi-category caveat,genre ratios,09x,Genre fields may reflect multi-category mapping caveats.,Genre ratio is exact causal preference.,Use descriptive caveat.
+under_threshold,under_1m/5m <= threshold caveat,"watch_ratio_under_1m,watch_ratio_under_5m",09x,Threshold feature definition needs careful wording.,Threshold features prove intent.,Use definition-level caveat.
+context_profile_proxy,context/profile/payment group proxy risk caveat,context/profile/payment features,09x,"Context, profile, and payment fields may act as group proxies.",These are approved final features.,"Send to 10x or 11x redundancy, proxy, and leakage audit."

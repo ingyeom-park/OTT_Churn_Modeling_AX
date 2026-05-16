@@ -1,0 +1,10 @@
+execution_start=2026-05-16T02:36:37
+execution_end=2026-05-16T02:36:50
+notebook_path=C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516.ipynb
+executed_notebook_path=C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516.ipynb
+input_file_load_status=loaded 06x/07x/08x/09x required inputs
+output_file_creation_status=created CSV/README/note copy outputs
+visible_output_save_status=checked from on-disk notebook before final zip when available
+warnings=
+errors=
+final_status=pending final check table below

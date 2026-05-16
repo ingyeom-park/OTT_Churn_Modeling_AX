@@ -1,0 +1,80 @@
+﻿original_feature_name,safe_model_feature_name,use_in_expanded_plan,caveat_flag,caveat_reason
+is_promotion,is_promotion,split_key_and_overall_with_promotion_feature_only,True,allowed only in overall_with_promotion; excluded from split-specific models
+is_churn_prevented,is_churn_prevented,model_feature,True,"approved as historical ever-benefited flag, not current-cycle post outcome"
+is_standard,is_standard,model_feature,False,
+is_premium,is_premium,model_feature,False,
+age_group,age_group,model_feature,False,
+is_female,is_female,model_feature,False,
+is_male,is_male,model_feature,False,
+reg_is_weekend,reg_is_weekend,model_feature,False,
+reg_hour_morning,reg_hour_morning,model_feature,False,
+reg_hour_afternoon,reg_hour_afternoon,model_feature,False,
+reg_hour_evening,reg_hour_evening,model_feature,False,
+reg_hour_night,reg_hour_night,model_feature,False,
+payment_is_mobile,payment_is_mobile,model_feature,False,
+payment_is_pc,payment_is_pc,model_feature,False,
+payment_is_android,payment_is_android,model_feature,False,
+payment_is_ios,payment_is_ios,model_feature,False,
+total_watch_count,total_watch_count,model_feature,False,
+unique_movie,unique_movie,model_feature,False,
+watch_days,watch_days,model_feature,False,
+active_ratio,active_ratio,model_feature,False,
+total_watch_time(min),total_watch_time_min,model_feature,False,
+watch_per_day,watch_per_day,model_feature,False,
+avg_watch_time(min),avg_watch_time_min,model_feature,False,
+median_watch_time(min),median_watch_time_min,model_feature,False,
+std_watch_time(min),std_watch_time_min,model_feature,False,
+avg_daily_watch_time(min),avg_daily_watch_time_min,model_feature,False,
+max_watch_time(min),max_watch_time_min,model_feature,False,
+max_daily_watch_time(min),max_daily_watch_time_min,model_feature,False,
+max_daily_sessions,max_daily_sessions,model_feature,False,
+recency,recency,model_feature,False,
+avg_gap_between_watch_days,avg_gap_between_watch_days,model_feature,False,
+avg_gap_w1_watch_days,avg_gap_w1_watch_days,model_feature,False,
+avg_gap_w2_watch_days,avg_gap_w2_watch_days,model_feature,False,
+avg_gap_w3_watch_days,avg_gap_w3_watch_days,model_feature,False,
+max_inactive_gap_days,max_inactive_gap_days,model_feature,False,
+avg_rewatch_ratio,avg_rewatch_ratio,model_feature,False,
+weekend_watch_ratio,weekend_watch_ratio,model_feature,False,
+watch_ratio_under_1m,watch_ratio_under_1m,model_feature,True,dictionary formula records <= threshold according to user approval
+watch_ratio_under_5m,watch_ratio_under_5m,model_feature,True,dictionary formula records <= threshold according to user approval
+movie_per_active_day,movie_per_active_day,model_feature,False,
+max_day_share,max_day_share,model_feature,False,
+day_count_over_3times,day_count_over_3times,model_feature,False,
+watch_time(min)_w1,watch_time_min_w1,model_feature,False,
+watch_time(min)_w2,watch_time_min_w2,model_feature,False,
+watch_time(min)_w3,watch_time_min_w3,model_feature,False,
+watch_session_w1,watch_session_w1,model_feature,False,
+watch_session_w2,watch_session_w2,model_feature,False,
+watch_session_w3,watch_session_w3,model_feature,False,
+retention_w2_ratio,retention_w2_ratio,model_feature,False,
+retention_w3_ratio,retention_w3_ratio,model_feature,False,
+diff_between_w2_w1,diff_between_w2_w1,model_feature,False,
+diff_between_w3_w1,diff_between_w3_w1,model_feature,False,
+diff_between_w3_w2,diff_between_w3_w2,model_feature,False,
+is_w1_over_50pct,is_w1_over_50pct,model_feature,False,
+is_w2_over_50pct,is_w2_over_50pct,model_feature,False,
+is_w3_over_50pct,is_w3_over_50pct,model_feature,False,
+is_only_w1,is_only_w1,model_feature,False,
+is_only_w2,is_only_w2,model_feature,False,
+is_only_w3,is_only_w3,model_feature,False,
+new_movie_in_90d_ratio,new_movie_in_90d_ratio,model_feature,False,Movie_Master duplicate category caveat applies to genre/content ratios
+new_movie_in_180d_ratio,new_movie_in_180d_ratio,model_feature,False,Movie_Master duplicate category caveat applies to genre/content ratios
+new_movie_in_365d_ratio,new_movie_in_365d_ratio,model_feature,False,Movie_Master duplicate category caveat applies to genre/content ratios
+old_movie_ratio(5y),old_movie_ratio_5y,model_feature,True,use master value; record 9-row mismatch caveat
+avg_ott_release_year,avg_ott_release_year,model_feature,False,
+genre_diversity_count,genre_diversity_count,model_feature,True,
+action_adventure_ratio,action_adventure_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+family_animation_ratio,family_animation_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+drama_ratio,drama_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+thriller_crime_ratio,thriller_crime_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+sf_fantasy_ratio,sf_fantasy_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+comedy_ratio,comedy_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+romance_ratio,romance_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+horror_ratio,horror_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+documentary_ratio,documentary_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+historical_war_ratio,historical_war_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+other_ratio,other_ratio,model_feature,True,Movie_Master duplicate category caveat applies to genre/content ratios
+is_basic,is_basic,model_feature,False,
+is_cold_start_3d_fixed,is_cold_start_3d_fixed,model_feature,False,
+is_cold_start_7d_fixed,is_cold_start_7d_fixed,model_feature,False,

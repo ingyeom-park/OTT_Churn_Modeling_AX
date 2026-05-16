@@ -1,0 +1,56 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified_by_sha256,PASS,
+source_fingerprint_created,PASS,
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516.ipynb
+notebook_executed,PASS,executed notebook copy has execution_count: 14/14
+executed_notebook_visible_outputs_saved,PASS,executed notebook copy has visible outputs: 14/14
+execution_log_created,PASS,
+06x_inputs_loaded,PASS,
+07x_inputs_loaded,PASS,
+08x_inputs_loaded,PASS,
+09x_inputs_loaded,PASS,
+06x_final_checks_pass,PASS,
+07x_final_checks_pass,PASS,
+08x_final_checks_pass,PASS,
+09x_final_checks_pass,PASS,
+conservative_dataset_loaded,PASS,"(23079, 24)"
+expanded_dataset_loaded,PASS,"(23079, 82)"
+conservative_expanded_row_alignment_verified,PASS,
+feature_distribution_catalog_created,PASS,
+numeric_distribution_overall_created,PASS,
+binary_distribution_overall_created,PASS,
+numeric_distribution_by_group_created,PASS,
+binary_distribution_by_group_created,PASS,
+zero_inflation_tail_risk_audit_created,PASS,
+near_constant_group_proxy_audit_created,PASS,
+pairwise_correlation_audit_created,PASS,
+redundancy_cluster_pre_audit_created,PASS,
+vif_pre_audit_created,PASS,
+duplicate_like_feature_audit_created,PASS,
+target_leakage_suspect_pre_audit_created,PASS,
+feature_family_distribution_summary_created,PASS,
+AARRR_stage_distribution_summary_created,PASS,
+key_feature_distribution_review_created,PASS,
+caveat_claim_guardrail_created,PASS,
+downstream_handoff_created,PASS,
+modeling_preflight_risk_register_created,PASS,
+no_modeling_performed,PASS,10x notebook only generated diagnostics and audit tables
+no_train_test_split_performed,PASS,10x notebook only generated diagnostics and audit tables
+no_prediction_performed,PASS,10x notebook only generated diagnostics and audit tables
+no_shap_performed,PASS,10x notebook only generated diagnostics and audit tables
+no_optuna_performed,PASS,10x notebook only generated diagnostics and audit tables
+no_segmentation_performed,PASS,10x notebook only generated diagnostics and audit tables
+no_final_business_claim_created,PASS,10x notebook only generated diagnostics and audit tables
+no_new_features_created,PASS,10x notebook only generated diagnostics and audit tables
+no_feature_removed,PASS,10x notebook only generated diagnostics and audit tables
+no_feature_selection_decision_made,PASS,10x notebook only generated diagnostics and audit tables
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_inventory_created,PASS,
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\10x_feature_distribution_redundancy_pre_audit_260516_review_package.zip
+critical_fail_count_zero,PASS,rebuilt by 10x hotfix; see 10x_hotfix_final_checks.csv
+review_zip_duplicate_entries_absent,PASS,hotfix review zip uses unique expected paths
+age_group_default_demographic_artifact_recorded,PASS,age_group default demographic artifact caveat recorded
+feature_refinement_candidate_policy_created,PASS,10x_feature_refinement_candidate_policy.csv
+expanded_full_preserved,PASS,expanded_feature_set use_as_feature=yes count=80

@@ -1,0 +1,8 @@
+﻿run_start=2026-05-16T13:10:43
+run_end=2026-05-16T13:17:39
+output_dir=C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12x_model_family_comparison_260516
+zip_path=C:\Code\ott-churn-prediction\park.ingyeom\zip\12x_model_family_comparison_260516_review_package.zip
+final_fail_count=0
+raw_source_csv_not_modified=True
+oof_rows=1107792
+zip_duplicate_entries=0

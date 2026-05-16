@@ -1,0 +1,9 @@
+﻿risk,status,next_step
+SHAP is model explanation not causality,open,Keep causal wording out of 16x and presentation.
+high VIF / redundancy,open,Prefer feature family and redundancy family interpretation.
+feature family interpretation preferred,open,Do not overinterpret one variable inside correlated clusters.
+is_churn_prevented interpretation caution,open,"Treat as policy/caveat-sensitive feature, not causal proof."
+content/genre caveat,open,Genre/content ratios may be proxies and should not be read as direct preference causes.
+old_movie_ratio_5y 9-row caveat,open,Keep small-row caveat visible when used in interpretation.
+final segment threshold not selected,open,Leave segmentation design to 17x.
+campaign threshold not selected,open,Do not convert top-k diagnostics into campaign target threshold.

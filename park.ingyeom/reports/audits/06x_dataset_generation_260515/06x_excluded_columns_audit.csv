@@ -1,0 +1,11 @@
+﻿excluded_original_column,reason,user_approval_source,audit_use_allowed_yes_no
+product_code,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+billing_method,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+payment_device,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+gender,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+age,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+reg_hour,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+price,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+max_screen,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,no
+reg_date,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,yes
+end_date,User-approved exclusion from model features,05y patch2 user approval and 06x cold_start row-level hotfix instruction,yes

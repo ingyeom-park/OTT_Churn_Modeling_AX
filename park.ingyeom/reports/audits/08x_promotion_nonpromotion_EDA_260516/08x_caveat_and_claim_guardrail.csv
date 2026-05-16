@@ -1,0 +1,15 @@
+﻿caveat_id,caveat_topic,applies_to_feature,applies_to_stage,safe_claim,unsafe_claim,required_wording
+C01,observed difference only,all,all,promotion and non-promotion groups show observed differences.,promotion caused the observed difference.,Use observed difference language only.
+C02,no causal claim,all,all,This EDA does not estimate causal effects.,100-won deal caused churn or repurchase.,Never use causal wording.
+C03,no uplift claim,all,all,No uplift was estimated.,promotion created uplift.,Do not use uplift wording.
+C04,no marketing effectiveness claim,all,all,Marketing effectiveness was not tested.,promotion was effective or ineffective.,Keep to descriptive group differences.
+C05,SHAP not performed,all,all,SHAP was not performed in 08x.,SHAP shows feature importance.,Leave SHAP to a later approved stage.
+C06,modeling not performed,all,all,No model was fit.,model performance improved.,No model evidence exists in 08x.
+C07,segmentation not performed,all,all,No final segment was created.,this is the final segment.,Do not create segment claims.
+C08,is_promotion split key caveat,is_promotion,Acquisition,is_promotion is a split key for this EDA.,is_promotion is an outcome or causal treatment estimate.,Use only as group split key.
+C09,is_churn_prevented historical context caveat,is_churn_prevented,Retention,is_churn_prevented requires historical context review.,is_churn_prevented proves prevention.,Treat as descriptive and caveated.
+C10,cold_start_fixed caveat,is_cold_start_3d_fixed; is_cold_start_7d_fixed,Activation,Fixed cold-start fields are row-level hotfix outputs.,original cold_start fields were used.,Name fixed fields explicitly.
+C11,old_movie_ratio_5y 9-row mismatch caveat,old_movie_ratio_5y,Retention,Known 9-row mismatch caveat remains.,old_movie_ratio_5y is fully resolved.,Carry caveat forward.
+C12,genre multi-category caveat,genre ratio fields,Retention,Genre ratios can reflect multi-category movie records.,genre fields are mutually exclusive categories.,Keep multi-category caveat.
+C13,under_1m/5m <= threshold caveat,watch_ratio_under_1m; watch_ratio_under_5m,Retention,Threshold features depend on <= cutoff convention.,threshold interpretation is self-evident without definition.,State threshold caveat when interpreting.
+C14,Optuna not performed,all,all,Optuna tuning was not performed.,Optuna selected a feature set.,No tuning language in 08x.

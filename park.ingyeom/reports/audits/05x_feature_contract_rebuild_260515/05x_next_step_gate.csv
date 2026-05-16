@@ -1,0 +1,6 @@
+condition,required_before_06x,current_status,note,required_before_modeling,required_always
+user_approved_expanded_feature_set,yes,not_yet,05x user_approval_checklist must be reviewed and approved before 06x dataset generation,,
+recency_timing_confirmed,yes,not_yet,Confirm recency reference date is day21 or earlier,,
+end_date_is_churn_prevented_timing_confirmed,,not_yet,Confirm end_date and is_churn_prevented are historical/not post-scoring,yes,
+genre_observation_window_confirmed,,not_yet,Confirm genre ratios computed from day0-20 only,yes,
+no_modeling_before_approval,,enforced,Do not run 11/12/14/16/17 modeling steps before user approves feature contract,,yes

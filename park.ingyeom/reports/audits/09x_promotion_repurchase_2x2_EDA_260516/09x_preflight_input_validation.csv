@@ -1,0 +1,43 @@
+﻿check_name,status,detail
+06x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515
+07x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515
+08x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\08x_promotion_nonpromotion_EDA_260516
+required 06x files exist,PASS,06x_conservative_dataset.csv
+required 06x files exist,PASS,06x_expanded_dataset.csv
+required 06x files exist,PASS,06x_model_feature_lists.csv
+required 06x files exist,PASS,06x_dataset_schema_conservative.csv
+required 06x files exist,PASS,06x_dataset_schema_expanded.csv
+required 06x files exist,PASS,06x_scope_feature_policy.csv
+required 06x files exist,PASS,06x_caveat_register.csv
+required 06x files exist,PASS,06x_final_checks.csv
+required 07x files exist,PASS,07x_feature_mapping_master.csv
+required 07x files exist,PASS,07x_AARRR_summary_by_feature_set.csv
+required 07x files exist,PASS,07x_conservative_AARRR_mapping.csv
+required 07x files exist,PASS,07x_expanded_AARRR_mapping.csv
+required 07x files exist,PASS,07x_scope_policy_handoff.csv
+required 07x files exist,PASS,07x_caveat_handoff.csv
+required 07x files exist,PASS,07x_downstream_EDA_handoff.csv
+required 07x files exist,PASS,07x_final_checks.csv
+required 08x files exist,PASS,08x_dataset_scope_summary.csv
+required 08x files exist,PASS,08x_promotion_target_summary.csv
+required 08x files exist,PASS,08x_numeric_feature_group_comparison.csv
+required 08x files exist,PASS,08x_binary_feature_group_comparison.csv
+required 08x files exist,PASS,08x_feature_family_summary.csv
+required 08x files exist,PASS,08x_AARRR_stage_summary.csv
+required 08x files exist,PASS,08x_top_observed_differences_for_review.csv
+required 08x files exist,PASS,08x_caveat_and_claim_guardrail.csv
+required 08x files exist,PASS,08x_downstream_handoff.csv
+required 08x files exist,PASS,08x_redundancy_audit_handoff.csv
+required 08x files exist,PASS,08x_final_checks.csv
+06x final checks pass,PASS,"29 checks, 0 non-PASS"
+07x final checks pass,PASS,"26 checks, 0 non-PASS"
+08x final checks pass,PASS,"36 checks, 0 non-PASS"
+conservative dataset loaded,PASS,"(23079, 24)"
+expanded dataset loaded,PASS,"(23079, 82)"
+is_promotion split available,PASS,expanded dataset
+is_repurchase target available,PASS,conservative and expanded
+source fingerprint before captured,PASS,7 files
+output folder created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\09x_promotion_repurchase_2x2_EDA_260516
+conservative expanded row alignment verified,PASS,USER_KEY and is_repurchase exact row order
+2x2 cohort labels generated for analysis only,PASS,role=analysis_group_label; use_as_feature=False
+stop_reason,PASS,none

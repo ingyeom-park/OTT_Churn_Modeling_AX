@@ -1,0 +1,22 @@
+﻿column_name,changed_column,previous_value,patched_value,reason
+USER_KEY,llm_proposed_decision,Row identifier; never a model feature; use as group key in CV only,forbidden_or_audit_only_candidate,05x patch requirement or mandatory blank normalization
+USER_KEY,reason,CV group key only,"row identifier / group key only, not a model feature",05x patch requirement or mandatory blank normalization
+USER_KEY,user_approval_required,,no,05x patch requirement or mandatory blank normalization
+USER_KEY,final_decision_status,pending_user_approval,fixed_by_policy_not_model_feature,05x patch requirement or mandatory blank normalization
+USER_KEY,caution,no,policy-fixed audit/group key only,05x patch requirement or mandatory blank normalization
+price,llm_proposed_decision,candidate_for_expanded_feature_set,unresolved_user_review_required,05x patch requirement or mandatory blank normalization
+price,reason,Known at subscription start; available at day21 scoring point,requires explicit user review before any expanded feature approval,05x patch requirement or mandatory blank normalization
+price,caution,Check redundancy between derived and parent columns,과거 사용자 결정과 충돌 가능성 있음. price/max_screen은 사용자가 제거 또는 대체를 언급한 이력이 있으므로 자동 expanded 승인 금지,05x patch requirement or mandatory blank normalization
+max_screen,llm_proposed_decision,candidate_for_expanded_feature_set,unresolved_user_review_required,05x patch requirement or mandatory blank normalization
+max_screen,reason,Known at subscription start; available at day21 scoring point,requires explicit user review before any expanded feature approval,05x patch requirement or mandatory blank normalization
+max_screen,caution,Check redundancy between derived and parent columns,과거 사용자 결정과 충돌 가능성 있음. price/max_screen은 사용자가 제거 또는 대체를 언급한 이력이 있으므로 자동 expanded 승인 금지,05x patch requirement or mandatory blank normalization
+is_promotion,llm_proposed_decision,forbidden_or_audit_only,unresolved_user_review_required,05x patch requirement or mandatory blank normalization
+is_promotion,user_approval_required,no,yes,05x patch requirement or mandatory blank normalization
+is_churn_prevented,llm_proposed_decision,forbidden_or_audit_only,unresolved_user_review_required,05x patch requirement or mandatory blank normalization
+reg_date,llm_proposed_decision,forbidden_or_audit_only,unresolved_user_review_required,05x patch requirement or mandatory blank normalization
+end_date,llm_proposed_decision,forbidden_or_audit_only,unresolved_user_review_required,05x patch requirement or mandatory blank normalization
+is_repurchase,llm_proposed_decision,Target variable; including as feature causes direct leakage,forbidden_or_audit_only_candidate,05x patch requirement or mandatory blank normalization
+is_repurchase,reason,Never use as feature,"target variable, never a model feature",05x patch requirement or mandatory blank normalization
+is_repurchase,user_approval_required,,no,05x patch requirement or mandatory blank normalization
+is_repurchase,final_decision_status,pending_user_approval,fixed_by_policy_not_model_feature,05x patch requirement or mandatory blank normalization
+is_repurchase,caution,no,policy-fixed target leakage prohibition,05x patch requirement or mandatory blank normalization

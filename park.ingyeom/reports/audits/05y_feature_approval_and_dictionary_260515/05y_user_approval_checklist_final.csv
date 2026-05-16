@@ -1,0 +1,95 @@
+﻿original_feature_name,safe_model_feature_name,user_decision,decision_reason,model_use_plan,final_status
+USER_KEY,USER_KEY,audit_only,group key / identifier only,not_model_feature,audit_only
+product_code,product_code,excluded,user approved exclusion of parent plan code,not_model_feature,excluded
+price,price,excluded,user approved exclusion,not_model_feature,excluded
+billing_method,billing_method,excluded,user approved exclusion of raw billing method,not_model_feature,excluded
+max_screen,max_screen,excluded,user approved exclusion,not_model_feature,excluded
+is_promotion,is_promotion,approved_scope_limited,split axis; allowed as feature only in overall_with_promotion model,split_key_and_overall_with_promotion_feature_only,approved_scope_limited
+is_churn_prevented,is_churn_prevented,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+payment_device,payment_device,excluded,use derived payment device flags instead,not_model_feature,excluded
+is_user_verified,is_user_verified,pending_user_review,not directly resolved in user approval list,exclude_until_review,pending_user_review
+gender,gender,excluded,use is_male and is_female instead,not_model_feature,excluded
+age,age,excluded,use age_group instead,not_model_feature,excluded
+reg_date,reg_date,audit_only,feature excluded; allowed only as calculation/audit reference date,not_model_feature,audit_only
+reg_hour,reg_hour,excluded,use registration time band flags instead,not_model_feature,excluded
+end_date,end_date,audit_only,feature excluded; allowed only for audit/policy confirmation,not_model_feature,audit_only
+is_repurchase,is_repurchase,target,"target variable, never a feature",not_model_feature,target
+is_standard,is_standard,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_premium,is_premium,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+age_group,age_group,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_female,is_female,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_male,is_male,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+reg_is_weekend,reg_is_weekend,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+reg_hour_morning,reg_hour_morning,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+reg_hour_afternoon,reg_hour_afternoon,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+reg_hour_evening,reg_hour_evening,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+reg_hour_night,reg_hour_night,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+payment_is_mobile,payment_is_mobile,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+payment_is_pc,payment_is_pc,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+payment_is_android,payment_is_android,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+payment_is_ios,payment_is_ios,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+total_watch_count,total_watch_count,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+unique_movie,unique_movie,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_days,watch_days,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+active_ratio,active_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+total_watch_time(min),total_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_per_day,watch_per_day,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_watch_time(min),avg_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+median_watch_time(min),median_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+std_watch_time(min),std_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_daily_watch_time(min),avg_daily_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+max_watch_time(min),max_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+max_daily_watch_time(min),max_daily_watch_time_min,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+max_daily_sessions,max_daily_sessions,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+recency,recency,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_gap_between_watch_days,avg_gap_between_watch_days,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_gap_w1_watch_days,avg_gap_w1_watch_days,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_gap_w2_watch_days,avg_gap_w2_watch_days,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_gap_w3_watch_days,avg_gap_w3_watch_days,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+max_inactive_gap_days,max_inactive_gap_days,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_rewatch_ratio,avg_rewatch_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+weekend_watch_ratio,weekend_watch_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_ratio_under_1m,watch_ratio_under_1m,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_ratio_under_5m,watch_ratio_under_5m,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_cold_start_3d,is_cold_start_3d_original,replaced_by_fixed,original preserved; model uses is_cold_start_3d_fixed,use_fixed_replacement_only,replaced_by_fixed
+is_cold_start_7d,is_cold_start_7d_original,replaced_by_fixed,original preserved; model uses is_cold_start_7d_fixed,use_fixed_replacement_only,replaced_by_fixed
+movie_per_active_day,movie_per_active_day,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+max_day_share,max_day_share,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+day_count_over_3times,day_count_over_3times,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_time(min)_w1,watch_time_min_w1,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_time(min)_w2,watch_time_min_w2,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_time(min)_w3,watch_time_min_w3,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_session_w1,watch_session_w1,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_session_w2,watch_session_w2,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+watch_session_w3,watch_session_w3,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+retention_w2_ratio,retention_w2_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+retention_w3_ratio,retention_w3_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+diff_between_w2_w1,diff_between_w2_w1,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+diff_between_w3_w1,diff_between_w3_w1,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+diff_between_w3_w2,diff_between_w3_w2,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_w1_over_50pct,is_w1_over_50pct,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_w2_over_50pct,is_w2_over_50pct,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_w3_over_50pct,is_w3_over_50pct,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_only_w1,is_only_w1,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_only_w2,is_only_w2,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_only_w3,is_only_w3,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+new_movie_in_90d_ratio,new_movie_in_90d_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+new_movie_in_180d_ratio,new_movie_in_180d_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+new_movie_in_365d_ratio,new_movie_in_365d_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+old_movie_ratio(5y),old_movie_ratio_5y,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+avg_ott_release_year,avg_ott_release_year,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+genre_diversity_count,genre_diversity_count,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+action_adventure_ratio,action_adventure_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+family_animation_ratio,family_animation_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+drama_ratio,drama_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+thriller_crime_ratio,thriller_crime_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+sf_fantasy_ratio,sf_fantasy_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+comedy_ratio,comedy_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+romance_ratio,romance_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+horror_ratio,horror_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+documentary_ratio,documentary_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+historical_war_ratio,historical_war_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+other_ratio,other_ratio,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_basic,is_basic,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_cold_start_3d_fixed,is_cold_start_3d_fixed,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved
+is_cold_start_7d_fixed,is_cold_start_7d_fixed,approved,approved by user conversation 260515 or covered by all usage/content policy,model_feature,approved

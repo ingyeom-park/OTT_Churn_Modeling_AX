@@ -1,0 +1,11 @@
+﻿check,status,detail,stop_reason
+06x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515,
+06x final checks pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_final_checks.csv,
+07x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515,
+07x final checks pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515\07x_final_checks.csv,
+10x folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516,
+10x final checks pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516\10x_final_checks.csv,
+10x hotfix final checks pass,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516\10x_hotfix_final_checks.csv,
+required input files exist,PASS,,
+archived 11 notebook found yes/no,PASS,found=True; path=C:\Code\ott-churn-prediction\park.ingyeom\_archive\logs\r00_prev\pre13b_ref\notebook\11b_baseline_growth_history_ladder_fix_260514\11b_baseline_growth_history_ladder_fix_260514.ipynb,
+output folder,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11x_baseline_growth_comparison_260516,

@@ -1,0 +1,27 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05y_feature_approval_and_dictionary_260515
+raw_source_csv_not_modified,PASS,source hash and metadata unchanged
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\05y_feature_approval_and_dictionary_260515\05y_feature_approval_and_dictionary_260515.ipynb
+notebook_executed,PASS,nbconvert execution reached final cell
+source_master_loaded,PASS,"rows=23343, cols=91"
+approval_decision_table_created,PASS,
+name_mapping_created,PASS,
+unsafe_characters_handled,PASS,safe names checked
+no_duplicate_safe_model_feature_names,PASS,
+conservative_contract_created,PASS,
+expanded_contract_created,PASS,
+excluded_contract_created,PASS,
+feature_dictionary_xlsx_created,PASS,
+cold_start_fixed_policy_recorded,PASS,
+old_movie_ratio_caveat_recorded,PASS,
+under_1m_5m_formula_recorded_as_lte,PASS,
+user_approval_recorded,PASS,
+no_modeling_performed,PASS,
+no_eda_performed,PASS,
+no_shap_performed,PASS,
+no_optuna_performed,PASS,
+no_segmentation_performed,PASS,
+note_md_updated,PASS,
+README_created,PASS,
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\05y_feature_approval_and_dictionary_260515_review_package.zip
+critical_fail_count_zero,PASS,critical_fail_count=0

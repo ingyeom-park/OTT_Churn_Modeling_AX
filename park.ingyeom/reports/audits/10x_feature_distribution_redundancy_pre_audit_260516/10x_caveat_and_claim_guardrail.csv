@@ -1,0 +1,18 @@
+﻿caveat_id,caveat_topic,applies_to_feature,applies_to_stage,safe_claim,unsafe_claim,required_wording
+distribution_eda_only,scope,all,10x,10x is distribution EDA only.,10x proves feature importance.,Describe distributions as observed EDA patterns only.
+redundancy_pre_audit_only,scope,all,10x,Correlation/VIF/redundancy are pre-audit diagnostics.,High correlation means remove the feature.,Use removal candidate or review risk wording only.
+no_feature_removal,decision,all,10x,No feature was removed in 10x.,10x selected the final feature set.,All removal decisions require user approval.
+no_causal_claim,claim,all,10x,"No causal, uplift, marketing effectiveness, model performance, or feature importance claim is made.",The feature causes churn or improves retention.,Keep claims descriptive and non-causal.
+modeling_not_performed,method,all,10x,"Modeling, train/test split, prediction, SHAP, Optuna, and segmentation were not performed.",10x model results show.,Route modeling questions to 11x/12x.
+is_promotion_split_key,feature,is_promotion,10x,is_promotion is a split/scope key.,is_promotion is interpreted as an ordinary feature in 10x.,Use only for group diagnostics in this step.
+is_repurchase_target,feature,is_repurchase,10x,is_repurchase is the target label.,is_repurchase is a model feature.,Use only for 2x2 diagnostic grouping.
+is_churn_prevented_context,feature,is_churn_prevented,10x,is_churn_prevented requires target-proxy review.,is_churn_prevented is approved for modeling.,Carry to 11x preflight.
+cold_start_fixed,feature,is_cold_start_3d_fixed; is_cold_start_7d_fixed,Activation,Fixed cold-start features use row-level first-watch timing.,Original cold_start fields are model features.,Use fixed replacement caveat.
+old_movie_ratio_5y_mismatch,feature,old_movie_ratio_5y,Retention,old_movie_ratio_5y has a 9-row mismatch caveat.,old_movie_ratio_5y is fully clean.,Keep mismatch caveat in interpretation.
+genre_multi_category,feature,genre ratio features,Retention,Movie_Master same MOVIE_NUM multi-category caveat applies.,Genre ratios are exact content preference truth.,Treat as content taxonomy proxy.
+under_threshold_caveat,feature,under_1m/under_5m,Retention,under_1m/5m features are <= threshold ratios.,They prove short viewing causes churn.,Use threshold-ratio wording.
+context_proxy_risk,feature,context/profile/payment features,Acquisition/Activation,Profile/payment fields may encode structural proxy risk.,Age/payment/gender directly explains churn.,Carry to 11x sensitivity and SHAP guardrail.
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,

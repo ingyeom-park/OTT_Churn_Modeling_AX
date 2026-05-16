@@ -1,0 +1,23 @@
+execution_start=2026-05-16T01:34:37
+execution_end=2026-05-16T01:34:42
+notebook_path=C:\Code\ott-churn-prediction\park.ingyeom\notebook\09x_promotion_repurchase_2x2_EDA_260516\09x_promotion_repurchase_2x2_EDA_260516.ipynb
+input_file_load_status=06x:True, 07x:True, 08x:True
+output_file_creation_status=09x_source_fingerprint_before_after.csv:True, 09x_preflight_input_validation.csv:True, 09x_2x2_cohort_summary.csv:True, 09x_2x2_target_rate_summary.csv:True, 09x_numeric_2x2_feature_profile.csv:True, 09x_binary_2x2_feature_profile.csv:True, 09x_within_promotion_repurchase_comparison.csv:True, 09x_within_nonpromotion_repurchase_comparison.csv:True, 09x_between_promotion_status_within_repurchase_comparison.csv:True, 09x_feature_family_2x2_summary.csv:True, 09x_AARRR_stage_2x2_summary.csv:True, 09x_top_2x2_observed_differences_for_review.csv:True, 09x_context_profile_proxy_risk_review.csv:True, 09x_usage_retention_2x2_review.csv:True, 09x_caveat_and_claim_guardrail.csv:True, 09x_downstream_handoff.csv:True, 09x_redundancy_audit_handoff.csv:True
+warnings=none
+errors=none
+final_status=PASS
+
+runtime_log:
+[2026-05-16T01:34:37] ROOT = C:\Code\ott-churn-prediction
+[2026-05-16T01:34:37] PARK = C:\Code\ott-churn-prediction\park.ingyeom
+[2026-05-16T01:34:37] OUT_DIR = C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\09x_promotion_repurchase_2x2_EDA_260516
+[2026-05-16T01:34:37] source fingerprint before captured
+[2026-05-16T01:34:38] inputs loaded and 2x2 analysis labels generated
+[2026-05-16T01:34:38] cohort and target summaries created; target_matches_08x=True
+[2026-05-16T01:34:40] numeric profile rows=276, binary profile rows=128
+[2026-05-16T01:34:41] comparison rows created=404
+[2026-05-16T01:34:42] family, AARRR, and top difference summaries created
+[2026-05-16T01:34:42] context proxy and usage retention reviews created
+[2026-05-16T01:34:42] guardrail and handoff files created
+[2026-05-16T01:34:42] README, note update, note tail copy, and source fingerprint created
+[2026-05-16T01:34:42] execution end status: PASS

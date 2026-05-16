@@ -1,4 +1,4 @@
-# ⚠️ 최상위 경고: 이 프로젝트에서 LLM이 반복한 오류와 재발방지 원칙
+﻿# ⚠️ 최상위 경고: 이 프로젝트에서 LLM이 반복한 오류와 재발방지 원칙
 
 이 문서는 `100원딜 OTT 이탈 분석` 프로젝트의 최상위 작업 규칙이다.  
 이 아래의 모든 작업 로그, 단계별 결과, README, final_checks, zip 산출물보다 먼저 읽어야 한다.
@@ -1569,3 +1569,1766 @@ expanded_feature_set 내부의 context/content caveat는 별도 플래그로 관
 - 이들은 삭제가 아니라 보수 22개 feature 기준 reference로 보존한다.
 - 이후 active modeling chain은 13b_review_feature_resolution_and_sensitivity부터 다시 시작한다.
 - 모델링 플랜은 conservative_safe_22와 expanded_feature_set 두 가지다.
+
+## 2026-05-15 02:31:36 | 05x_feature_contract_rebuild_260515
+
+- purpose: 기존 05~14 pre-13b 산출물이 archive로 격리된 상태에서 91개 전체 컬럼을 재검토하고 사용자 승인용 feature contract를 작성했다.
+- pre-13b 지위: 05~14 pre-13b 결과는 _archive/pre13b_conservative_safe_22_reference에 보존됨. canonical 복원 안 함.
+- conservative_safe_22 count: 22
+- expanded_feature_set candidate count (incl conservative_22): 84
+- forbidden_or_audit_only count: 4
+- unresolved count: 1
+- user_approval_checklist items: 66
+- LLM 원칙: LLM은 feature 최종 제외/승격을 결정하지 않는다. 근거와 후보만 제시. 최종 결정은 사용자 승인 후 확정.
+- final_checks: PASS (fail_count=0)
+- output_dir: C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_260515
+- next step: 06x_dataset_generation (사용자 승인 후 진행)
+- gate: 05x_user_approval_checklist.csv 승인 전 06x/11/12/14/16/17 진행 금지
+
+## 2026-05-15 16:24:05 | 05x_feature_contract_rebuild_patch_260515
+
+- 05x patch 수행.
+- 기존 05x의 decision table 오류 수정.
+- USER_KEY와 is_repurchase는 모델 feature 금지로 정책상 고정.
+- price/max_screen은 사용자 확인 필요 항목으로 표시.
+- 05x patch 이후에도 최종 feature 사용 여부는 사용자 승인 전까지 확정 아님.
+- 06x는 사용자 승인 후 진행.
+- output_dir: C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_patch_260515
+- review_zip: C:\Code\ott-churn-prediction\park.ingyeom\zip\05x_feature_contract_rebuild_patch_260515_review_package.zip
+
+
+## 05y_feature_approval_and_dictionary_260515
+- 05y 수행: 사용자 승인 내용을 반영해 feature approval contract, safe model feature name mapping, feature dictionary xlsx를 생성했다.
+- 사용자 승인 내용: product_code, billing_method, payment_device, gender, age, reg_hour, price, max_screen, reg_date, end_date 제외. USER_KEY는 feature 금지, is_repurchase는 target으로 기록했다.
+- 파생 context 변수 사용: payment flags, gender flags, age_group, registration time-band flags, reg_is_weekend, is_standard, is_premium, is_basic.
+- usage summary 전부 사용, content/genre 전부 사용 정책을 반영했다.
+- is_promotion 정책: split 기준으로 사용하며 overall_with_promotion 모델에는 feature로 포함 가능, split-specific 모델에서는 제외한다.
+- is_churn_prevented 의미와 사용 승인: 현재 cycle 사후 결과가 아니라 과거에 한 번이라도 churn prevention 혜택을 받은 이력 flag로 승인되었고, 한 번이라도 회유에 넘어간 유저군으로 해석한다.
+- recency 사용 승인 반영.
+- cold_start fixed 생성 정책: is_cold_start_3d_fixed는 first_watch_rel_day <= 2, is_cold_start_7d_fixed는 first_watch_rel_day <= 6 기준으로 06x에서 생성한다.
+- old_movie_ratio_5y는 광일 master 값을 유지하고 9행 mismatch caveat를 기록했다.
+- 컬럼명 안전화 규칙: 괄호/특수문자 언더바 처리, percent to pct, 공백 제거, 연속 언더바 축약, 앞뒤 언더바 제거.
+- feature_dictionary.xlsx 생성 완료.
+- 다음 단계는 06x dataset generation이다.
+
+
+## 05y patch2 수행 기록 - 2026-05-15 18:30:28
+- 05y patch2 수행: `05y_feature_approval_and_dictionary_patch2_260515`.
+- v3 팀 합의 CSV를 실제로 읽어 비교함: `C:\Code\ott-churn-prediction\park.ingyeom\data\변수_합집합_비교_v3.csv`.
+- `is_user_verified` expanded_feature_set 포함 승인 반영.
+- feature dictionary formula placeholder 제거.
+- cold_start fixed 정책 기록: `is_cold_start_3d_fixed = first_watch_rel_day <= 2`, `is_cold_start_7d_fixed = first_watch_rel_day <= 6`.
+- `old_movie_ratio_5y`는 광일 master 유지 및 9행 mismatch caveat 기록.
+- `watch_ratio_under_1m`, `watch_ratio_under_5m`는 `<=` 기준으로 공식 기록.
+- genre 다중 category caveat 기록: 동일 `MOVIE_NUM` 다중 category 가능성.
+- 다음 단계는 06x dataset generation.
+
+## 05y patch2 hotfix 수행 기록 - 2026-05-15
+- 05y patch2 hotfix 수행: 기존 `05y_feature_approval_and_dictionary_patch2_260515` 산출물을 새 단계로 만들지 않고 직접 보정했다.
+- cold_start 변경 행 수를 `is_cold_start_3d = 1782`, `is_cold_start_7d = 964`로 정정했다.
+- 제외 컬럼의 source/principle 설명 오류를 membership/source master, target variable, identifier/group key 기준으로 수정했다.
+- `current_feature_name` 별도 컬럼은 만들지 않고 기존 v3 match/status 계열 컬럼으로 처리했다.
+- 06x 진행 전 05y feature dictionary 품질 보정을 완료했다.
+
+
+## 2026-05-15 06x_dataset_generation_260515
+- 06x 수행.
+- 기존 06 노트북 재활용 여부: 재활용함.
+- 05y hotfix 기준으로 conservative / expanded dataset 생성.
+- 생성한 새 파생변수는 is_basic, is_cold_start_3d_fixed, is_cold_start_7d_fixed뿐임.
+- 사용자 승인 없는 새 feature 생성 없음.
+- USER_KEY는 group key, is_repurchase는 target.
+- is_promotion scope별 사용 정책은 06x_scope_feature_policy.csv에 기록.
+- 다음 단계는 07x.
+## 2026-05-15 06x_dataset_generation_retry_260515 pre-retry failure record
+- 직전 06x는 실행되었으나 의미 검수에서 실패했다.
+- 실패 이유는 23,343 raw master 전체 행으로 dataset을 생성했고, primary main cohort 23,079 rows 기준을 반영하지 않았기 때문이다.
+- 직전 실패한 06x 산출물은 사용자가 일부 또는 전부 수동 삭제한 상태였다.
+- 이번 retry에서는 해당 경로의 존재 여부를 확인하고, 남아 있는 경우만 삭제했다.
+- 이미 없는 경로는 already_missing_user_deleted로 기록했다.
+- 직전 06x notebook, reports, review zip은 삭제 또는 삭제 확인 처리했다.
+- raw source CSV는 수정하지 않았다.
+- 이번 retry는 기존 06 notebook 자산을 복사해 재활용하되, row policy를 강제 반영한다.
+- 06x retry의 완료 조건은 primary main cohort 23,079 rows 기준 dataset 생성이다.
+
+
+## 2026-05-15 06x_dataset_generation_retry_260515 completed
+- 직전 06x는 raw 23,343 rows 기준 dataset을 생성해 실패했다.
+- 해당 06x notebook, reports, review zip을 삭제 또는 삭제 확인 처리했다.
+- 이번 06x retry는 primary main cohort 23,079 rows 기준으로 재생성했다.
+- 기존 06 notebook 재활용 여부: 재활용함.
+- 05y hotfix 기준으로 conservative / expanded dataset 생성.
+- 생성한 새 파생변수는 is_basic, is_cold_start_3d_fixed, is_cold_start_7d_fixed뿐임.
+- 사용자 승인 없는 새 feature 생성 없음.
+- USER_KEY는 group key, is_repurchase는 target.
+- is_promotion scope별 사용 정책은 06x_scope_feature_policy.csv에 기록.
+- 다음 단계는 07x.
+
+
+## 2026-05-15 06x_cold_start_rowlevel_hotfix_260515
+- 06x cold_start row-level hotfix 수행.
+- USER_KEY 단위 first watch 방식이 아니라 master_row_id/subscription-event row 기준으로 재계산함.
+- raw 기준 변경 수 1782 / 964.
+- primary cohort 기준 변경 수 1767 / 956.
+- negative first_watch_rel_day 0건.
+- conservative/expanded dataset은 23079 rows 유지.
+- 새로 생성된 feature는 기존 승인된 3개뿐임: is_basic, is_cold_start_3d_fixed, is_cold_start_7d_fixed.
+- 다음 단계는 07x.
+
+
+## 2026-05-15 07x_feature_mapping_AARRR_260515
+- 07x 수행.
+- 기존 07 notebook 재활용 여부: 재활용함.
+- pre13b 07은 구조 참고용이고, 06x 기준으로 새 mapping 작성.
+- conservative_safe_22와 expanded_feature_set 각각 AARRR mapping 생성.
+- 원본 cold_start가 아니라 fixed cold_start 사용.
+- USER_KEY는 group key, is_repurchase는 target/Revenue proxy로 기록.
+- is_promotion scope별 사용 정책을 master mapping과 scope handoff에 모두 반영.
+- 다음 단계는 08x.
+
+---
+
+## 2026-05-16 | ChatGPT raw/note verification after 07x
+
+### 목적
+
+07x review package 검수 이후, 07x 산출물의 note 반영 여부와 06x dataset generation의 핵심 의미 검수 항목을 raw CSV 기준으로 다시 확인했다.  
+이번 검수의 목적은 final_checks PASS만 신뢰하는 것이 아니라, 현재 제공된 raw file bundle을 기준으로 06x row policy와 cold_start fixed 계산이 실제로 재현되는지 확인하는 것이었다.
+
+### 제공된 ZIP
+
+`for_chatgpt_raw_and_note_verify_260515.zip`
+
+ZIP 내부에는 다음 파일들이 포함되어 있었다.
+
+- `park.ingyeom/note.md`
+- `park.ingyeom/data/(광일)Membership_v2_with_derived_features.csv`
+- `park.ingyeom/data/변수_합집합_비교_v3.csv`
+- `park.ingyeom/data/Membership_train.csv`
+- `park.ingyeom/data/Membership_v2.csv`
+- `park.ingyeom/data/Movie_Master_v2.csv`
+- `park.ingyeom/data/User_Mapping_v2.csv`
+- `park.ingyeom/data/View_History_v2.csv`
+- `bundle_inventory.txt`
+
+### note.md 확인
+
+전체 `note.md`를 열어 확인했다.  
+이전 07x review ZIP에는 `note_tail_copy.md`만 포함되어 있었으나, 이번 전체 `note.md` 확인 결과 07x 수행 기록이 실제 note.md 최하단에 반영되어 있었다.
+
+확인된 07x 기록의 핵심 내용은 다음과 같다.
+
+- 07x feature mapping / AARRR mapping 수행
+- 기존 pre13b 07 notebook은 구조 참고용으로만 사용
+- 06x 기준 conservative_safe_22와 expanded_feature_set 기준으로 새 mapping 작성
+- 원본 cold_start가 아니라 fixed cold_start 사용
+- `USER_KEY`는 group key / identifier로 기록
+- `is_repurchase`는 target / Revenue proxy로 기록
+- `is_promotion`은 scope별 사용 정책 기록
+- 다음 단계는 08x promotion vs nonpromotion EDA
+
+### raw CSV 기본 프로파일 확인
+
+`(광일)Membership_v2_with_derived_features.csv` 기준:
+
+- rows: 23,343
+- columns: 91
+- total missing values: 0
+- unique USER_KEY: 23,134
+- duplicate USER_KEY extra rows: 209
+
+`Membership_v2.csv`는 광일 master의 앞쪽 15개 membership 원본 컬럼과 내용상 완전히 일치하는 것으로 확인했다.
+
+`Membership_train.csv`는 완전 raw file로 간주하며, 이번 06x row policy / cold_start 검수의 결측 문제로 취급하지 않는다.
+
+### 06x row policy raw 재계산
+
+광일 master의 `reg_date`, `end_date`를 기준으로 duration을 다시 계산했다.
+
+재계산 결과:
+
+- raw source rows: 23,343
+- `duration < 21`: 238
+- `duration >= 21`: 23,105
+- duration 조건 이후 exact duplicate extra rows: 26
+- primary main cohort rows: 23,079
+
+따라서 06x row policy의 핵심 흐름인 `23,343 → 23,105 → 23,079`는 raw CSV 기준으로 다시 계산해도 일치한다.
+
+### cold_start fixed raw 재계산
+
+다음 기준으로 cold_start fixed를 독립 재계산했다.
+
+- master row / subscription-event row 기준
+- `USER_KEY → USER_NUM → View_History` 연결
+- `watch_rel_day = watch_day - reg_date`
+- 관측창은 `0 <= watch_rel_day <= 20`
+- `is_cold_start_3d_fixed = first_watch_rel_day <= 2`
+- `is_cold_start_7d_fixed = first_watch_rel_day <= 6`
+
+재계산 결과:
+
+| 기준 | rows | old 3d | fixed 3d | changed 3d | old 7d | fixed 7d | changed 7d | negative first_watch_rel_day |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| raw master full | 23,343 | 10,816 | 9,034 | 1,782 | 15,855 | 14,891 | 964 | 0 |
+| primary main cohort | 23,079 | 10,696 | 8,929 | 1,767 | 15,677 | 14,721 | 956 | 0 |
+
+이 값은 06x 산출물의 cold_start hotfix validation 결과와 일치한다.
+
+또한 이전 06x readiness bundle에 포함된 `06x_expanded_dataset.csv`와 현재 raw CSV에서 재계산한 primary cohort를 비교했을 때, 공통 컬럼 68개와 `is_cold_start_3d_fixed`, `is_cold_start_7d_fixed`가 행 단위로 일치했다.
+
+### 확인한 것과 확인하지 못한 것
+
+확인한 것:
+
+- 전체 note.md에 07x 기록이 실제 반영되어 있음
+- 06x row policy는 raw CSV 기준 재계산 결과와 일치
+- 06x cold_start fixed는 raw CSV 기준 재계산 결과와 일치
+- primary main cohort는 23,079 rows 기준
+- negative first_watch_rel_day count는 raw/primary 모두 0
+- 06x expanded dataset의 fixed cold_start 값은 raw 재계산 결과와 행 단위로 일치
+
+확인하지 못한 것:
+
+- raw source CSV가 07x 실행 전후로 절대 수정되지 않았는지를 before/after hash로 독립 검증하지는 못했다.
+- 이번 bundle에는 source fingerprint before/after 파일이 없었다.
+- 따라서 raw source CSV 미수정 여부는 현재 raw와 산출물 간 일관성까지 확인한 상태이며, 실행 전후 hash 검증은 다음 단계부터 별도 산출물로 남겨야 한다.
+
+### 다음 단계부터 추가할 필수 산출물
+
+앞으로 각 Codex goal과 review ZIP에는 가능하면 다음 산출물을 필수로 포함한다.
+
+1. `source_fingerprint_before_after.csv`
+
+권장 컬럼:
+
+- `file_path`
+- `file_role`
+- `sha256_before`
+- `sha256_after`
+- `mtime_before`
+- `mtime_after`
+- `size_before`
+- `size_after`
+- `status`
+
+2. `execution_log.txt` 또는 단계명 포함 실행 로그
+
+3. `review_zip_inventory.csv`
+
+4. `README.md`
+
+5. `note_tail_copy.md` 또는 전체 `note.md`
+
+목적은 final_checks 자기 보고에 의존하지 않고, raw source 미수정 여부와 review ZIP 완결성을 독립 검증하기 위함이다.
+
+### 판단
+
+현재 제공된 raw CSV 기준으로 06x의 핵심 의미 검수 항목인 row policy와 cold_start fixed는 재현된다.  
+또한 07x 기록은 전체 note.md에 실제 반영되어 있다.
+
+따라서 현재 체인은 08x promotion vs nonpromotion EDA로 넘어갈 수 있다.
+
+단, 다음 단계부터는 raw source 미수정 여부를 `source_fingerprint_before_after.csv`로 반드시 남기는 것을 권장한다.
+
+---
+
+## 2026-05-16 | Post-07x pipeline control memo: expanded feature survival, redundancy, modeling, SHAP, segmentation
+
+### 목적
+
+07x feature mapping / AARRR mapping까지 완료된 뒤, 이후 08x~17x 단계에서 다시 발생할 수 있는 파이프라인 drift와 LLM 독단 판단을 방지하기 위해 운영 원칙을 기록한다.
+
+이번 메모의 핵심은 다음이다.
+
+- 22개 conservative_safe feature만 사용하는 문제는 07x까지의 산출물 기준으로는 해소되었다.
+- 그러나 실제 모델이 expanded 80개 feature를 사용했는지는 아직 확인된 것이 아니다.
+- 다중공선성 / feature redundancy는 아직 현재 x-chain에서 핵심 검수 완료된 단계가 아니므로 반드시 별도 검수해야 한다.
+- 모델링, Optuna, SHAP, segmentation은 반드시 하되, 각 단계의 권한과 금지선을 명확히 둬야 한다.
+- 특히 segmentation은 비즈니스 제언에서 중요하지만 LLM 폭주 위험이 큰 단계이므로, 이름보다 기준식과 분포 확인이 먼저다.
+
+### 1. 22개 feature 문제에 대한 현재 판단
+
+현재 “22개만 쓰는 문제”는 07x까지의 산출물 기준으로는 feature contract / dataset / mapping 단계에서 해소된 것으로 본다.
+
+확인된 근거는 다음이다.
+
+- 05y expanded feature set: 80개
+- 06x expanded dataset feature set: 80개
+- 07x expanded feature mapping: 80개
+
+07x 검수에서 05y expanded 80개, 06x expanded dataset 80개, 07x expanded mapping 80개가 서로 일치하는 것을 확인했다.  
+따라서 “팀원들과 만든 피처들이 22개 conservative_safe feature만 남고 나머지가 사라지는 문제”는 현재 feature contract / dataset / mapping 단계에서는 다시 발생하지 않은 상태다.
+
+단, 아직 모델링을 하지 않았기 때문에 다음 표현은 금지한다.
+
+- “모델이 expanded 80개 feature를 사용했다.”
+- “80개 feature 기준 모델링이 완료됐다.”
+- “expanded feature set이 최종 모델에 반영됐다.”
+
+현재 말할 수 있는 안전한 표현은 다음이다.
+
+> 모델에 들어갈 준비가 된 expanded feature set 80개가 살아 있고, 06x dataset과 07x mapping까지 반영되었다.  
+> 실제 모델에서 expanded 80개 feature가 사용되었는지는 11x/12x에서 다시 검수해야 한다.
+
+### 2. 다중공선성 / feature redundancy 검수 필요성
+
+다중공선성은 아직 현재 x-chain에서 핵심적으로 검수 완료된 단계가 아니다.  
+이 항목은 반드시 10x feature EDA 또는 11x modeling preflight에 강제로 포함해야 한다.
+
+주의할 점은 다음이다.
+
+- Logistic Regression은 다중공선성에 민감하다.
+- 다중공선성은 계수 해석을 흔들 수 있다.
+- 트리 계열 모델에서는 예측 성능에는 덜 치명적일 수 있지만, feature importance와 SHAP 해석이 분산될 수 있다.
+- 즉, 문제의 핵심은 “모델이 반드시 망가진다”가 아니라 “해석이 왜곡될 수 있다”이다.
+
+반드시 점검할 항목은 다음이다.
+
+- VIF
+- pairwise correlation
+- feature family별 redundancy cluster
+- near-constant feature
+- duplicate-like feature
+- target leakage suspect
+- feature family 단위 중복 구조
+- SHAP 해석 시 묶어서 봐야 할 feature group
+
+단, 이 단계에서도 LLM이 임의로 피처를 제거하면 안 된다.  
+출력은 “제거”가 아니라 다음 형식이어야 한다.
+
+- 사용자 승인 필요
+- model family별 주의
+- SHAP 해석 시 묶어서 볼 것
+- redundancy risk 있음
+- removal candidate, not removed
+- keep unless user approves removal
+
+### 3. 모델링 원칙
+
+모델은 여러 개를 사용해야 한다.  
+하지만 아무 모델이나 무작정 돌리는 것이 목적은 아니다.
+
+최소 모델 후보는 다음과 같다.
+
+| 모델 | 역할 | 주의점 |
+|---|---|---|
+| Logistic Regression | 해석 가능한 기준선 | 다중공선성에 민감하므로 redundancy 검수와 함께 봐야 함 |
+| RandomForest | 비선형 기준 모델 | 과적합, feature importance 분산 주의 |
+| GradientBoosting 또는 HistGradientBoosting | sklearn 기반 boosting 기준선 | 안정적인 boosting 비교 기준 |
+| LightGBM | 고성능 후보 | 튜닝 전후 과적합과 SHAP 안정성 확인 |
+| XGBoost | 고성능 후보 | 성능과 일반화 gap 확인 |
+| CatBoost | 고성능 후보 | 범주형/비선형 패턴 대응 가능, 과적합 확인 |
+
+모델링 단계에서는 다음을 분리해야 한다.
+
+- conservative_safe_22 baseline
+- expanded_feature_set model
+- overall_with_promotion
+- overall_without_promotion
+- promotion_only
+- nonpromotion_only
+
+특히 `is_promotion`은 scope별 정책을 반드시 지킨다.
+
+- `overall_with_promotion`: feature 사용 가능
+- `overall_without_promotion`: 제외
+- `promotion_only`: 제외
+- `nonpromotion_only`: 제외
+
+### 4. Optuna 원칙
+
+Optuna는 바로 수행하지 않는다.
+
+Optuna는 다음 조건이 충족된 뒤 제한적으로 수행한다.
+
+1. baseline model 결과가 확보됨
+2. feature ladder 결과가 확보됨
+3. conservative vs expanded 비교가 끝남
+4. overall / promotion_only / nonpromotion_only 구조가 확인됨
+5. 후보 모델 1~2개가 좁혀짐
+6. train-test gap 또는 CV stability를 볼 수 있음
+
+Optuna는 “성능을 올리는 마법”이 아니다.  
+문제 정의가 잠기기 전에 Optuna를 실행하면 잘못된 feature set, 잘못된 split, 잘못된 scope를 열심히 최적화하는 사고가 날 수 있다.
+
+따라서 Optuna는 1차 모델링 이후의 제한적 고도화 단계로 둔다.
+
+### 5. SHAP 원칙
+
+SHAP은 반드시 수행한다.  
+하지만 SHAP은 원인이 아니라 model explanation이다.
+
+금지 표현:
+
+- “SHAP 상위 feature가 이탈의 원인이다.”
+- “이 feature를 바꾸면 재구매율이 오른다.”
+- “SHAP이 고객 심리를 밝혀냈다.”
+
+안전 표현:
+
+- “모델이 해당 feature를 재구매 예측에 중요하게 사용했다.”
+- “이 feature family가 모델 설명에서 큰 비중을 차지했다.”
+- “이는 후속 마케팅 가설로 연결할 수 있으나, 인과효과는 A/B test가 필요하다.”
+
+SHAP은 최소한 다음 범위에서 본다.
+
+- overall model
+- promotion_only model
+- nonpromotion_only model
+- conservative vs expanded 비교 가능 시 비교
+- feature family 단위 중요도
+
+발표에서는 개별 변수 Top 20을 나열하지 않는다.  
+개별 feature는 근거표에 남기고, 발표 메시지는 feature family 단위로 묶는다.
+
+예시 feature family:
+
+- onboarding
+- weekly usage
+- retention decay
+- content preference
+- membership context
+- payment/device context
+- historical churn prevention context
+
+### 6. Segmentation 원칙
+
+Segmentation은 비즈니스 제언으로 가기 위한 0순위 핵심 단계다.  
+하지만 동시에 LLM이 가장 쉽게 폭주할 수 있는 단계다.
+
+위험한 방식:
+
+- 이름을 먼저 붙이고 데이터를 끼워 맞춤
+- “충성고객형”, “가격민감형” 같은 해석명을 LLM이 임의 생성
+- 기준식 없이 감으로 segment를 나눔
+- 사용자 승인 없이 final segment를 확정
+- 여러 flag를 가진 고객을 임의로 하나의 성격으로 단정
+
+안전한 방식은 세 단계다.
+
+#### 1단계: 내부 multi-flag 생성
+
+내부 multi-flag는 기준식 기반으로 기계적으로 만든다.  
+한 row/customer-event는 여러 flag를 동시에 가질 수 있다.
+
+예시:
+
+- `high_risk`
+- `week2_drop`
+- `week3_drop`
+- `cold_start_weak`
+- `genre_focused`
+- `stable_user`
+- `heavy_user`
+- `low_activity`
+- `retention_decay`
+- `content_preference_clear`
+
+단, 새 파생변수 생성은 사용자 승인 범위 안에서만 가능하다.  
+승인되지 않은 새 파생변수는 만들지 않는다.
+
+#### 2단계: final representative segment 배정
+
+발표와 캠페인 실행을 위해서는 하나의 대표 segment가 필요할 수 있다.  
+이때는 우선순위 규칙으로 배정한다.
+
+예시:
+
+1. high_risk & week2_drop
+2. high_risk & week3_drop
+3. cold_start_weak
+4. genre_focused
+5. stable_user
+6. referral_candidate
+
+이 우선순위는 데이터 분포와 사용자 승인 이후 확정한다.
+
+#### 3단계: segment 이름은 마지막에 붙임
+
+세그먼트 이름은 가장 마지막에 붙인다.
+
+먼저 해야 할 것:
+
+- 기준식 확정
+- segment별 n 확인
+- segment별 재구매율 확인
+- segment별 risk score 분포 확인
+- segment별 feature distribution 확인
+- promotion/nonpromotion 분포 확인
+- AARRR 병목 확인
+
+그 다음 사람이 이해 가능한 이름을 붙인다.
+
+중요 원칙:
+
+> 이름이 데이터를 끌고 가면 안 된다.  
+> 기준식과 분포가 먼저이고, 이름은 마지막이다.
+
+사용자 승인 전까지 final segment는 반드시 provisional로 표기한다.
+
+### 7. LLM 권한 제한 원칙
+
+향후 모든 goal에는 다음 통제장치를 가능한 한 포함한다.
+
+- 피처 제거 금지
+- 제거 후보로만 기록
+- 새 파생변수 생성 금지
+- 단, 사용자 승인된 경우만 새 파생변수 허용
+- 애매한 mapping은 `needs_user_review=1`
+- 모델 성능 비교와 feature 사용 여부 분리
+- 다중공선성은 제거 결론이 아니라 위험표로 먼저 기록
+- SHAP은 인과가 아니라 model explanation
+- 세그먼트는 이름보다 기준식 먼저
+- final segment는 사용자 승인 전까지 provisional
+- 모든 review zip에는 source fingerprint, execution log, inventory 포함
+
+### 8. 08x 이후 위험 관리
+
+현재 파이프라인은 06x와 07x에서 계약을 다시 잠근 덕분에 통제 가능해졌다.  
+하지만 08x부터 위험이 다시 커진다.
+
+위험이 커지는 이유:
+
+- EDA는 해석 문장을 만들기 쉽다.
+- 모델링은 성능 숫자에 끌려가기 쉽다.
+- SHAP은 인과처럼 오해되기 쉽다.
+- segmentation은 LLM이 이름을 지어내며 폭주하기 쉽다.
+- 비즈니스 제언은 검증되지 않은 효과를 과장하기 쉽다.
+
+따라서 앞으로는 “좋은 결과를 내라”보다 “각 단계의 권한과 금지선을 지켜라”가 우선이다.
+
+### 9. 다음 단계 08x에 대한 원칙
+
+다음 단계는 08x promotion vs nonpromotion EDA다.
+
+08x에서는 EDA를 수행한다.  
+하지만 다음은 금지한다.
+
+- modeling
+- SHAP
+- Optuna
+- segmentation
+- final business claim
+- causal claim
+
+08x에서 해야 할 일:
+
+- promotion vs nonpromotion 기본 분포 비교
+- target distribution 비교
+- feature family별 관찰 차이 확인
+- conservative / expanded feature set 혼동 방지
+- 07x downstream EDA handoff 사용
+- 관찰 차이를 인과처럼 말하지 않기
+- 다음 단계 09x, 10x, 11x에서 볼 항목 handoff 생성
+- 다중공선성 / redundancy audit 필요 항목을 10x 또는 11x로 넘기기
+
+08x에서 다중공선성을 본격적으로 해결하려고 하면 범위가 흐려질 수 있다.  
+따라서 08x에서는 redundancy audit 후보를 handoff로 남기고, 실제 VIF / correlation / redundancy cluster 검수는 10x feature EDA 또는 11x modeling preflight에서 강하게 수행하는 것이 안전하다.
+
+### 최종 판단
+
+현재 07x까지는 feature contract, dataset, mapping 단계에서 expanded feature set이 살아 있는 것으로 확인되었다.  
+그러나 모델링, redundancy, SHAP, segmentation은 아직 앞에 남아 있는 고위험 단계다.
+
+앞으로의 핵심은 빠르게 진행하는 것이 아니라, 각 단계의 권한과 금지선을 지키며 진행하는 것이다.
+
+> 08x_promotion_nonpromotion_EDA_260516
+
+- 08x 수행 완료.
+- 08x는 promotion vs non-promotion EDA 단계였음.
+- 모델링 / SHAP / Optuna / segmentation은 수행하지 않았음.
+- 06x conservative / expanded dataset을 입력으로 사용함.
+- 07x AARRR mapping / downstream EDA handoff를 입력으로 사용함.
+- promotion vs nonpromotion 관찰 차이만 기록함.
+- 인과 주장 금지. promotion 효과를 인과처럼 말하지 않음.
+- 다중공선성 / feature redundancy 본검수는 10x 또는 11x로 handoff함.
+- 다음 단계는 09x promotion x repurchase 2x2 EDA.
+- review package: `C:\Code\ott-churn-prediction\park.ingyeom\zip\08x_promotion_nonpromotion_EDA_260516_review_package.zip`
+
+
+
+> 09x_promotion_repurchase_2x2_EDA_260516
+
+- 09x 수행 완료.
+- 09x는 promotion x repurchase 2x2 EDA 단계였음.
+- 모델링 / SHAP / Optuna / segmentation은 수행하지 않았음.
+- 06x conservative / expanded dataset을 입력으로 사용함.
+- 07x AARRR mapping을 입력으로 사용함.
+- 08x promotion vs nonpromotion EDA 결과를 입력으로 사용함.
+- 2x2 cohort 정의: promotion_repurchase, promotion_nonrepurchase, nonpromotion_repurchase, nonpromotion_nonrepurchase.
+- 2x2 관찰 차이만 기록함.
+- 인과 주장 금지.
+- feature importance 주장 금지.
+- feature selection 결정 아님.
+- context/profile/payment 계열 group proxy risk를 10x/11x로 handoff함.
+- 다중공선성 / feature redundancy 본검수는 10x 또는 11x로 handoff함.
+- 다음 단계는 10x feature distribution EDA 또는 10x feature/redundancy EDA.
+- review package: `C:\Code\ott-churn-prediction\park.ingyeom\zip\09x_promotion_repurchase_2x2_EDA_260516_review_package.zip`
+
+---
+
+## 2026-05-16 | iOS App Store 결제 / 본인인증 / default demographic artifact 가설 기록
+
+### 목적
+
+08x promotion vs nonpromotion EDA와 09x promotion × repurchase 2x2 EDA에서 `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수의 집단 차이가 크게 관찰되었다. 특히 non-promotion 집단에 `payment_is_ios=1`, `is_user_verified=0`, 성별 N, `age_group=40` 값이 많이 몰려 있는 구조가 확인되었다.
+
+이 메모는 해당 패턴을 단순한 고객 인구통계 특성으로 해석하지 않고, 결제 경로와 본인인증 정책에서 발생한 데이터 생성 artifact 가능성으로 관리하기 위해 작성한다.
+
+### 사용자 도메인 가설
+
+사용자 도메인 가설에 따르면, iPhone 사용자가 결제하더라도 결제 경로에 따라 `payment_device` 또는 payment 관련 값이 다르게 기록될 수 있다.
+
+예를 들어 iPhone에서 Safari 등 모바일 웹을 통해 결제하면 일반적인 mobile 결제로 잡힐 수 있다. 반면 iOS App Store를 경유해 결제하면 payment 관련 값이 iOS 또는 App Store 경유 결제로 잡힐 수 있다.
+
+이때 App Store 경유 결제에서는 유저가 OTT 서비스에 직접 결제하는 것이 아니라, 사용자가 App Store에 결제하고 App Store가 OTT 측에 영수증 또는 결제확인서를 전달하는 구조일 수 있다. OTT는 이 결제확인서를 신뢰하고 유저에게 구독권을 부여하는 방식으로 운영될 수 있다.
+
+이 과정에서 App Store가 OTT 측에 유저의 인구통계적 개인정보를 충분히 전달하지 않을 가능성이 있다. 따라서 사용자가 OTT 서비스 안에서 별도 본인인증을 하지 않았다면, 성별, 연령, 인증 여부 같은 개인정보성 필드가 실제 유저 정보를 반영하지 않고 default-like 값으로 남을 수 있다.
+
+사용자 가설상 가능한 default-like 패턴은 다음과 같다.
+
+- `is_user_verified = 0` 또는 N
+- 성별 = N
+- `age_group = 40`
+- `payment_is_ios = 1`
+
+여기서 `age_group=40`은 실제 40대 고객이라는 뜻이 아니라, 정상 연령 범위를 0~80세로 볼 때 중앙값에 가까운 default setting 또는 결측 대체값일 가능성이 있다.
+
+또한 promotion 혜택을 받기 위해서는 본인인증이 필수이고, 이전에 해당 프로모션을 받아본 적 없는 계정이어야 할 가능성이 있다. 이 조건이 맞다면 promotion 집단에서 `is_user_verified=1`이 거의 고정되고, App Store 경유 결제 계정이 promotion 집단에 거의 나타나지 않는 구조는 이상치가 아니라 프로모션 eligibility / 본인인증 정책 / 결제 경로 차이의 결과일 수 있다.
+
+### 해석상 중요한 전환
+
+기존에 단순히 보면 다음처럼 해석할 위험이 있다.
+
+> non-promotion 집단에는 40대, 미인증, 성별 N, iOS 결제자가 많다.
+
+그러나 사용자 도메인 가설을 반영하면 더 안전한 해석은 다음이다.
+
+> non-promotion 집단에는 App Store 경유 결제 계정이 많이 포함되어 있고, 이 결제 경로에서는 개인정보나 본인인증 정보가 OTT 측에 충분히 전달되지 않아 `age_group=40`, 성별 N, `is_user_verified=0` 같은 default-like 값으로 남는 구조가 있을 수 있다.
+
+이 차이는 매우 중요하다.  
+첫 번째 해석은 고객의 실제 인구통계 특성에 대한 해석이다.  
+두 번째 해석은 결제/인증 시스템과 데이터 생성 과정에 대한 해석이다.
+
+현재 단계에서는 두 번째 해석이 더 안전하다.
+
+### 현재 데이터에서 관찰된 패턴의 의미
+
+08x/09x 기준으로 `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수는 promotion/non-promotion 집단을 강하게 가르는 구조를 보였다.
+
+특히 다음 패턴은 structural proxy risk로 관리해야 한다.
+
+- promotion 집단에서 `is_user_verified=1`이 거의 고정되는 구조
+- promotion 집단에서 `payment_is_ios=1`이 거의 또는 완전히 나타나지 않는 구조
+- non-promotion 집단에서 `payment_is_ios=1`이 많이 나타나는 구조
+- non-promotion 집단에서 `is_user_verified=0`, 성별 N, `age_group=40`이 함께 나타나는 구조
+
+이 패턴은 고객의 실제 행동 성향이라기보다 다음 요인의 결과일 수 있다.
+
+- App Store 경유 결제 구조
+- 본인인증 여부
+- 프로모션 eligibility 조건
+- 인구통계 정보 미전달
+- default-like demographic value
+- 결제/인증 시스템 artifact
+
+따라서 이 변수들은 단순한 membership/context feature로 취급하면 위험하다.
+
+### 모델링상 위험
+
+`payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수는 모델 성능을 올릴 수 있다.  
+그러나 그 성능 상승이 실제 시청 행동이나 콘텐츠 선호를 학습한 결과가 아닐 수 있다.
+
+가능한 위험은 다음이다.
+
+- 모델이 promotion/non-promotion 집단 구분 shortcut을 학습할 수 있음
+- `payment_is_ios`가 결제 경로 proxy로 작동할 수 있음
+- `is_user_verified`가 프로모션 eligibility proxy로 작동할 수 있음
+- `age_group=40`, 성별 N이 실제 인구통계가 아니라 default demographic artifact일 수 있음
+- SHAP에서 이 변수들이 상위에 올라와도 고객 심리나 실제 연령/성별 효과로 해석하면 안 됨
+- segmentation에서 이 변수들을 기준으로 고객군 이름을 붙이면 오해 가능성이 큼
+
+이것은 전형적인 target leakage라고 단정할 수는 없다.  
+왜냐하면 이 변수들이 반드시 `is_repurchase` 이후의 사후 정보를 포함한다고 확인된 것은 아니기 때문이다.
+
+그러나 이들은 다음 유형의 위험으로 별도 관리해야 한다.
+
+- structural proxy risk
+- cohort-construction proxy risk
+- group membership proxy risk
+- payment/authentication artifact risk
+- default demographic artifact risk
+
+### 10x에서 반드시 확인할 것
+
+10x feature distribution / redundancy / group-proxy pre-audit에서 다음 변수들을 별도 집중 검토 대상으로 둔다.
+
+- `payment_is_ios`
+- `is_user_verified`
+- `age_group`
+- 성별 관련 변수
+- `is_female`
+- `is_male`
+- 성별 N에 대응되는 원본 또는 파생 구조
+- `payment_is_mobile`
+- `payment_is_pc`
+- `is_premium`
+
+10x에서 확인할 항목은 다음이다.
+
+- overall 분포
+- promotion vs non-promotion 분포
+- promotion × repurchase 2x2 분포
+- near-constant 여부
+- group proxy risk 여부
+- default-like demographic artifact 가능성
+- correlation / redundancy 위험
+- model-family-specific caution
+- SHAP 해석 시 caveat 필요 여부
+- segmentation 사용 시 위험 여부
+
+단, 10x에서 이 변수들을 제거하지 않는다.  
+10x는 제거 단계가 아니라 pre-audit 단계다.
+
+### 11x / 12x 모델링에서의 처리 원칙
+
+11x / 12x 모델링에서는 이 변수들을 다음과 같이 관리한다.
+
+- expanded feature set에 포함되어 있더라도 실제 model input feature list를 반드시 저장하고 검수한다.
+- `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수가 모델 성능을 과도하게 지배하는지 확인한다.
+- conservative vs expanded 비교에서 이 변수들의 추가가 AUC를 크게 올리는지 확인한다.
+- scope별로 해당 변수들이 어떻게 작동하는지 확인한다.
+- overall_with_promotion, overall_without_promotion, promotion_only, nonpromotion_only에서 해석을 분리한다.
+- 필요하면 sensitivity analysis 후보로 기록한다.
+- 제거 여부는 LLM이 결정하지 않고 사용자 승인 대상으로 남긴다.
+
+### SHAP 해석 원칙
+
+SHAP 단계에서 `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수가 상위에 올라오더라도 다음과 같이 해석하지 않는다.
+
+금지 표현:
+
+- “40대 고객이 이탈한다.”
+- “미인증 고객은 이탈 성향이 높다.”
+- “iOS 결제 고객은 이탈한다.”
+- “성별 N 고객은 이탈한다.”
+- “이 변수들이 이탈의 원인이다.”
+
+안전한 표현:
+
+- “모델이 결제/인증/프로필 관련 변수를 예측에 사용했다.”
+- “이 변수들은 실제 인구통계라기보다 결제 경로와 본인인증 정책에서 발생한 데이터 생성 구조를 반영했을 가능성이 있다.”
+- “특히 App Store 경유 결제 및 본인인증 미수행 계정에서 default-like demographic artifact가 발생했을 수 있으므로, 고객 성향으로 직접 해석하지 않는다.”
+- “SHAP 상위 feature로 나타나더라도 인과 또는 고객 심리로 해석하지 않고, structural proxy risk caveat와 함께 제시한다.”
+
+### Segmentation 해석 원칙
+
+segmentation 단계에서 이 변수들을 직접적인 고객군 이름으로 쓰면 위험하다.
+
+금지 예시:
+
+- 40대 미인증 iOS 고객군
+- 성별 미상 이탈 위험군
+- iOS 결제 이탈군
+- 미인증 저충성 고객군
+
+더 안전한 표현:
+
+- App Store 경유 결제 / 인증정보 결측 가능 계정군
+- 결제·인증 정보 구조상 demographic default 가능성이 있는 계정군
+- payment/authentication artifact risk group
+- structural profile-missingness candidate group
+
+단, 이 역시 final segment 이름으로 확정하기 전에는 반드시 분포, 재구매율, risk score, feature overlap, 사용자 승인 여부를 확인해야 한다.
+
+### 현재 결론
+
+`payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수는 단순한 고객 인구통계 feature로 보면 안 된다.
+
+현재 가장 안전한 해석은 다음이다.
+
+> 이 변수들은 고객의 실제 나이, 성별, 인증 성향을 그대로 반영한다기보다, App Store 경유 결제와 본인인증 정책, 개인정보 전달 여부, default-like demographic value가 결합된 데이터 생성 구조를 반영했을 가능성이 있다.
+
+따라서 이 변수들은 expanded feature set 안에서 다음과 같이 관리한다.
+
+- 제거 확정 아님
+- 사용 확정 아님
+- structural proxy risk 있음
+- group proxy risk 있음
+- default demographic artifact 가능성 있음
+- 10x에서 pre-audit
+- 11x/12x에서 modeling sensitivity / actual feature usage 검수
+- SHAP에서 고객 특성으로 직접 해석 금지
+- segmentation에서 이름 먼저 붙이기 금지
+- 최종 처리 여부는 사용자 승인 필요
+
+## 10x 수행 기록: feature distribution redundancy pre-audit 260516
+
+- 10x를 수행했다. 이번 단계는 feature distribution EDA + redundancy / group-proxy pre-audit 단계였다.
+- 모델링, SHAP, Optuna, segmentation은 수행하지 않았다.
+- 06x conservative / expanded dataset을 입력으로 사용했다.
+- 07x AARRR mapping을 입력으로 사용했다.
+- 08x promotion vs nonpromotion EDA 결과를 입력으로 사용했다.
+- 09x promotion x repurchase 2x2 EDA 결과를 입력으로 사용했다.
+- feature distribution, zero-inflation, outlier, near-constant, correlation, VIF, redundancy, group-proxy risk를 진단했다.
+- feature 제거 결정이 아니다.
+- feature selection 결정이 아니다.
+- 사용자 승인 없이 feature를 제거하지 않는다.
+- 11x modeling preflight에서 actual model input feature list를 반드시 검수해야 한다.
+- SHAP 단계에서는 correlated feature를 family 단위로 해석해야 한다.
+- segmentation 단계에서는 이름보다 기준식과 분포 확인이 먼저다.
+- 다음 단계는 11x modeling preflight / baseline growth comparison이다.
+
+---
+
+## 2026-05-16 | AARRR 정의 보강: 관측창 내 Activation, Referral 실험 제안, App Store 결제/본인인증 맥락
+
+### 목적
+
+08x promotion vs non-promotion EDA, 09x promotion × repurchase 2x2 EDA, 그리고 이후 10x feature distribution / redundancy / group-proxy pre-audit로 넘어가는 과정에서 AARRR 프레임의 정의를 더 엄밀하게 다듬을 필요가 생겼다.
+
+특히 다음 쟁점이 새로 정리되었다.
+
+1. Activation을 “서비스 전체 기간 중 영상을 본 적 있음”으로 정의하면 안 된다.
+2. 본 프로젝트의 Activation은 day21 scoring point 이전, 즉 day0~20 관측창 안에서 관측된 첫 시청으로 제한해야 한다.
+3. day21 이후, 즉 3~4주차 대응기간에 처음 시청한 고객은 서비스 전체 관점에서는 activation 고객일 수 있지만, 본 프로젝트의 모델 입력 시점에서는 activation 미관측 고객이다.
+4. Referral은 현재 데이터로 직접 관측되지 않으므로, 분석 결과가 아니라 후속 마케팅 실험 제안으로 관리해야 한다.
+5. 20대/모바일 이용자/프로모션 반응 고객의 공유 성향은 외부 논문, 산업 보고서, 소비자 리포트 등 공신력 있는 자료로 보강할 수 있다.
+6. App Store 경유 결제, 본인인증, default demographic artifact 가설은 AARRR 해석과 segmentation에서 중요한 caveat로 관리해야 한다.
+
+이 메모의 목적은 AARRR 프레임을 발표용 장식으로 쓰는 것이 아니라, 실제 데이터 관측 가능성, 모델링 시점, 비즈니스 제언 가능 범위를 구분해 안전하게 사용하는 것이다.
+
+---
+
+### 1. 현재 프로젝트의 시간축 재확인
+
+본 프로젝트의 시간축은 다음과 같이 고정한다.
+
+- 가입일 `reg_date`를 day0으로 둔다.
+- 1주차는 day0~6이다.
+- 2주차는 day7~13이다.
+- 3주차는 day14~20이다.
+- day21을 scoring point 또는 이탈 방어 판단 시점으로 둔다.
+- day21 이후부터 구독 종료 전까지를 3~4주차 대응기간으로 둔다.
+- 다음 달 재결제 여부인 `is_repurchase`를 target 또는 Revenue proxy로 사용한다.
+
+따라서 모델과 EDA의 기본 feature는 day0~20 안에서 관측 가능한 정보만 사용한다.
+
+day21 이후 행동은 실제로는 존재할 수 있다. raw `View_History_v2.csv`에도 day21 이후 시청 로그가 존재한다는 점은 이전 09b raw view window validation에서 확인된 바 있다. 그러나 day21 이후 행동은 본 프로젝트의 운영 논리상 feature로 사용하면 안 된다. 이유는 day21 이후가 바로 이탈 방어 캠페인을 실행해야 하는 대응기간이기 때문이다.
+
+즉, 본 프로젝트는 “전체 구독기간을 모두 본 뒤 고객 행동을 사후 분석하는 프로젝트”가 아니다.  
+본 프로젝트는 “day0~20까지의 행동을 보고, day21 이후 대응기간에 어떤 고객을 어떻게 방어할지 설계하는 프로젝트”다.
+
+이 시간축 때문에 AARRR 정의도 반드시 “관측창 기준”으로 다시 표현해야 한다.
+
+---
+
+### 2. AARRR 프레임의 현재 정의
+
+현재 프로젝트에서 AARRR은 다음처럼 정의한다.
+
+#### Acquisition
+
+Acquisition은 100원딜 프로모션을 통한 유입 또는 참여 여부로 본다.
+
+데이터상으로는 `is_promotion`을 기준으로 promotion / non-promotion을 나눈다.
+
+주의할 점은 `is_promotion`이 단순한 feature 하나가 아니라 최상위 split key라는 점이다. 전체 모델의 `overall_with_promotion`에서는 feature로 사용할 수 있지만, `promotion_only`, `nonpromotion_only`, `overall_without_promotion`에서는 feature로 쓰면 안 된다.
+
+안전한 표현:
+
+> Acquisition은 100원딜 프로모션을 통한 유입 또는 참여 여부로 정의하고, `is_promotion`을 기준으로 promotion / non-promotion 집단을 구분한다.
+
+위험한 표현:
+
+> 100원딜이 재구매율 감소를 유발했다.
+
+이 표현은 금지한다. 현재 데이터로 말할 수 있는 것은 promotion 집단과 non-promotion 집단 사이에 관찰 차이가 있다는 것뿐이다.
+
+#### Activation
+
+Activation은 가입 후 실제 시청이 발생했는가로 본다.
+
+하지만 여기서 중요한 제한이 있다.
+
+본 프로젝트의 Activation은 **day21 scoring point 이전**, 즉 **day0~20 관측창 안에서 관측된 Activation**이다.
+
+따라서 day21 이후 처음 시청한 고객은 서비스 전체 관점에서는 activation 고객일 수 있지만, 본 프로젝트의 모델 입력 시점에서는 activation이 아직 관측되지 않은 고객이다.
+
+안전한 정의:
+
+> Activation은 day21 scoring point 이전, 즉 day0~20 안에 실제 시청이 발생했는지로 정의한다. day21 이후 처음 시청한 고객은 서비스 전체 관점에서는 activation 고객일 수 있지만, 본 프로젝트의 예측 시점에서는 activation 미관측 고객으로 처리한다.
+
+이 구분은 매우 중요하다.
+
+예를 들어 어떤 사용자가 가입 후 22일차에 처음 영상을 봤다면, 실제 서비스 운영 관점에서는 이 사용자는 결국 activation된 고객이다. 그러나 본 프로젝트에서는 day21 시점에 이 사용자의 미래 행동을 알 수 없다. day21 시점에 사용할 수 있는 정보만 놓고 보면 이 고객은 “아직 첫 시청이 관측되지 않은 고객”이다.
+
+따라서 이 고객을 day0~20 feature 기준의 Activation 고객으로 처리하면 안 된다.
+
+Activation 관련 feature는 다음과 같다.
+
+- `is_cold_start_3d_fixed`
+- `is_cold_start_7d_fixed`
+- 1주차 watch time
+- 1주차 watch session
+- 첫 시청까지의 상대일
+- 1분 이하 시청 비율
+- 5분 이하 시청 비율
+- week1 usage 관련 feature
+
+`is_cold_start_3d_fixed`, `is_cold_start_7d_fixed`는 반드시 fixed 버전을 사용한다. 기존 원본 `is_cold_start_3d`, `is_cold_start_7d`는 모델 feature로 사용하지 않는다.
+
+#### Retention
+
+Retention은 day0~20 관측창 안에서 1주차, 2주차, 3주차 사용이 유지되는지로 본다.
+
+현재까지의 08x/09x 흐름에서 Retention은 매우 중요한 신호로 보인다. 특히 promotion × repurchase 2x2 EDA에서 재구매/미재구매 내부 차이는 3주차 사용량, 3주차 세션, recency, gap 계열에서 강하게 관찰되었다.
+
+Retention 관련 feature는 다음과 같다.
+
+- `watch_time_min_w1`
+- `watch_time_min_w2`
+- `watch_time_min_w3`
+- `watch_session_w1`
+- `watch_session_w2`
+- `watch_session_w3`
+- `retention_w2_ratio`
+- `retention_w3_ratio`
+- `diff_between_w2_w1`
+- `diff_between_w3_w2`
+- `diff_between_w3_w1`
+- `recency`
+- inactive gap 계열
+- average gap 계열
+- only week 계열
+- w1/w2/w3 over 50pct 계열
+
+Retention 해석에서 중요한 것은 “쭉 이어서 잘 본 사람”이라는 표현을 반드시 수치 기준으로 바꿔야 한다는 점이다.
+
+발표용 표현으로는 “1~3주차 동안 사용이 유지되는가”라고 말할 수 있다.  
+분석용 표현으로는 “week별 watch time/session, retention ratio, diff, recency, inactive gap으로 측정한다”고 말해야 한다.
+
+#### Revenue
+
+Revenue는 실제 매출액이 아니라 다음 달 재결제 여부인 `is_repurchase`를 Revenue proxy로 사용한다.
+
+현재 데이터에는 실제 결제 금액, ARPU, LTV, 쿠폰 비용, 캠페인 비용 등이 없다. 따라서 Revenue를 실제 매출로 해석하면 안 된다.
+
+안전한 표현:
+
+> Revenue는 실제 매출액이 아니라 다음 달 재결제 여부인 `is_repurchase`를 Revenue proxy로 사용한다.
+
+금지 표현:
+
+> 매출 증가를 검증했다.
+> 100원딜이 수익성을 높였다.
+> 이 액션은 매출을 올린다.
+
+현재 프로젝트에서 Revenue와 관련해 말할 수 있는 것은 `is_repurchase`를 기준으로 재결제 여부를 예측하거나 설명한다는 수준이다.
+
+#### Referral
+
+Referral은 현재 데이터로 직접 관측되지 않는다.
+
+추천 링크, 친구 초대, 공유 로그, 초대 수락 여부, SNS 공유, 캠페인 응답 로그가 현재 데이터에 없다. 따라서 Referral을 데이터로 검증했다고 말하면 안 된다.
+
+하지만 Referral을 완전히 버릴 필요는 없다. Referral은 후속 그로스마케팅 실험 제안으로 설계할 수 있다.
+
+사용자 제안은 다음과 같다.
+
+- 20대 또는 모바일 친화적 고객은 스마트폰 활용도가 높고 정보 공유에 익숙할 가능성이 있다.
+- 이들은 소외되는 것을 싫어하고, 유용한 프로모션 정보를 주변에 공유하는 행동을 보일 수 있다.
+- 따라서 100원딜 프로모션에 참여한 고객 또는 활성도가 높은 고객이 친구에게 추천 링크를 보내고, 친구가 이 링크를 통해 100원딜 프로모션에 참여하면 추천자에게도 100원딜 1개월 추가 쿠폰을 지급하는 방식의 referral 실험을 설계할 수 있다.
+- 이 구조는 신규 유입, 즉 Acquisition을 다시 만들고, 동시에 추천자에게 추가 이용 기회를 제공해 Revenue proxy 또는 Retention에도 기여할 수 있다.
+
+다만 이 제안은 현재 데이터로 입증된 것이 아니다.  
+현재 프로젝트에서는 Referral 실험을 직접 수행할 수 없다.  
+본 프로젝트 팀은 실제 OTT사의 마케팅 운영 권한을 가지고 있지 않기 때문에 A/B test를 직접 실행할 수 없다.
+
+따라서 Referral은 다음처럼 표현해야 한다.
+
+> Referral은 현재 데이터로 직접 관측되지 않는다. 다만 외부 자료와 마케팅 논리를 바탕으로, 활성 고객이 친구에게 100원딜 추천 링크를 보내고 친구가 프로모션에 참여하면 추천자에게 추가 혜택을 지급하는 후속 실험 제안으로 설계할 수 있다. 본 프로젝트에서는 효과를 입증하지 않고, 실제 OTT사가 실행할 경우 확인해야 할 KPI와 실험 설계를 제안한다.
+
+---
+
+### 3. 3~4주차에 처음 시청한 고객의 Activation 처리
+
+이 메모에서 가장 중요한 쟁점은 3~4주차에 처음 시청한 고객을 Activation으로 볼 수 있는가이다.
+
+결론은 다음과 같다.
+
+> 서비스 전체 관점에서는 Activation으로 볼 수 있다.  
+> 그러나 본 프로젝트의 관측 시야 안에서는 Activation으로 볼 수 없다.
+
+이유는 명확하다.
+
+본 프로젝트는 day0~20 관측창을 기준으로 day21 시점에 재구매 가능성 또는 이탈 위험을 판단한다.  
+day21 이후의 행동은 대응기간에서 발생하는 행동이다.  
+따라서 day21 이후 처음 시청한 고객의 첫 시청 정보는 모델 입력 시점에서는 알 수 없는 미래 정보다.
+
+만약 day21 이후 첫 시청을 Activation feature로 넣으면, 대응기간의 행동을 미리 본 것이 된다. 이는 운영 논리와 맞지 않으며, 모델링 관점에서는 timing leakage에 가까운 문제가 될 수 있다.
+
+따라서 3~4주차에 처음 시청한 고객은 다음처럼 기록해야 한다.
+
+- 전체 서비스 생애주기 관점: late activation 고객일 수 있음
+- 본 프로젝트의 day21 예측 시점 관점: activation 미관측 고객
+- 모델 feature 관점: day0~20 내 activation 없음
+- 마케팅 제안 관점: 대응기간에서 activation을 유도할 수 있는 후보
+
+안전한 표현:
+
+> day21 이후 처음 시청한 고객은 서비스 전체 관점에서는 activation 고객일 수 있으나, 본 프로젝트의 scoring point에서는 아직 activation이 관측되지 않은 고객이다. 따라서 모델 feature에는 포함하지 않고, 대응기간의 activation 유도 후보로만 해석한다.
+
+금지 표현:
+
+> 이 고객은 가입 후 결국 봤으니 Activation 고객으로 feature에 포함한다.
+> 3~4주차 첫 시청까지 포함해 Activation을 계산한다.
+> 전체 구독기간 중 한 번이라도 본 사람을 Activation으로 본다.
+
+위 표현은 본 프로젝트의 시간축과 맞지 않는다.
+
+---
+
+### 4. Activation segment 후보에 대한 안전한 표현
+
+향후 segmentation 또는 Streamlit dashboard에서 Activation 관련 그룹을 만들 경우 다음 표현을 고려할 수 있다.
+
+단, 이는 아직 final segment가 아니다.  
+사용자 승인 전까지는 provisional 또는 candidate로 표시해야 한다.
+
+가능한 Activation 관련 분석 그룹:
+
+1. `early_activated`
+   - day0~6 안에 첫 시청이 발생한 고객
+   - 1주차에 Activation이 관측된 고객
+
+2. `late_observed_activated`
+   - day7~20 안에 첫 시청이 발생한 고객
+   - day21 scoring point 이전에는 Activation이 관측되었지만, 초기 활성화는 늦은 고객
+
+3. `not_activated_by_day21`
+   - day0~20 안에 첫 시청이 관측되지 않은 고객
+   - day21 시점 기준 Activation 미관측 고객
+
+4. `post_window_activation_candidate`
+   - day21 이후 대응기간에서 첫 시청 유도가 가능한 후보
+   - 현재 모델 feature로 직접 관측되는 그룹이 아니라, 마케팅 액션 가설로만 다룬다
+
+주의:
+
+`post_window_activation_candidate`는 현재 feature로 만들면 안 된다.  
+day21 이후 행동을 모델 feature에 넣으면 안 되기 때문이다.  
+이 개념은 캠페인 제안 또는 마케팅 가설로만 사용한다.
+
+---
+
+### 5. Referral 제안의 현재 지위
+
+Referral 제안은 현재 데이터 분석 결과가 아니라 후속 마케팅 실험 제안이다.
+
+현재 데이터에 다음 로그가 없기 때문이다.
+
+- 추천 링크 발송 로그
+- 추천 링크 클릭 로그
+- 친구 초대 로그
+- 초대 수락 로그
+- SNS 공유 로그
+- 캠페인 노출 로그
+- 캠페인 반응 로그
+- referral로 유입된 신규 고객 여부
+
+따라서 Referral은 다음처럼 관리한다.
+
+- 데이터로 검증된 AARRR 단계가 아니다.
+- 후속 실험 제안이다.
+- 실제 효과는 본 프로젝트에서 입증하지 않는다.
+- 실제 OTT사가 실행할 경우 검증해야 할 KPI를 제안한다.
+- 외부 논문, 산업 보고서, 소비자 리포트로 20대/모바일 이용자/프로모션 공유 행동의 근거를 보강할 수 있다.
+
+가능한 Referral 실험 구조:
+
+1. 추천자 조건
+   - 100원딜 프로모션 참여자
+   - 또는 activation/retention이 양호한 고객
+   - 또는 프로모션 재구매 고객
+   - 또는 high satisfaction proxy를 가진 고객
+
+2. 피추천자 조건
+   - 신규 계정
+   - 프로모션 미사용 계정
+   - 본인인증 완료 계정
+   - 동일 기기/동일 전화번호/동일 결제수단 중복 제한
+
+3. 보상 조건
+   - 친구가 추천 링크를 통해 100원딜 프로모션에 참여
+   - 친구가 본인인증 완료
+   - 친구가 첫 시청 또는 일정 watch time 조건 충족
+   - 조건 충족 후 추천자에게 100원딜 1개월 추가 쿠폰 지급
+
+4. 기대 효과
+   - 신규 유입 증가
+   - 추천자의 재방문 또는 재구매 유도
+   - Activation과 Retention 동시 개선 가능성
+   - Referral과 Revenue proxy를 함께 자극하는 실험 구조
+
+단, 기대 효과는 검증된 결과가 아니다.  
+실제 운영 시에는 실험 설계와 KPI 추적이 필요하다.
+
+---
+
+### 6. Referral 어뷰징 가능성에 대한 판단
+
+추천 보상형 프로모션은 일반적으로 어뷰징 위험이 있다.  
+예를 들어 다계정 생성, 가족 계정 반복 사용, 동일 기기 반복, 동일 결제수단 반복, 쿠폰만 받고 이탈하는 행동 등이 가능하다.
+
+다만 사용자 도메인 가설상 100원딜 프로모션 참여에는 본인인증이 필요할 수 있다.  
+이 조건이 맞다면 단순 다계정 어뷰징 위험은 어느 정도 제한될 수 있다.
+
+특히 100원딜 혜택을 받기 위해 핸드폰 회선을 새로 개통하는 행동은 비용과 번거로움이 크기 때문에 일반적인 규모로 발생할 가능성은 낮아 보인다.  
+그러나 이것은 현재 데이터로 검증한 사실이 아니라 도메인 추정이다.
+
+따라서 안전한 표현은 다음이다.
+
+> 본인인증 조건이 있다면 단순 다계정 어뷰징 위험은 제한될 수 있다. 다만 실제 운영에서는 동일 기기, 동일 전화번호, 동일 결제수단, 동일 계정 정보 기반의 중복 방지 정책이 필요하다.
+
+금지 표현:
+
+> 어뷰징 위험은 없다.
+> 본인인증 때문에 부정 사용은 불가능하다.
+
+---
+
+### 7. 20대 / 모바일 공유 성향 근거의 처리
+
+Referral 아이디어에서 20대의 모바일 친화성, 정보 공유 성향, 소외 회피 성향을 사용할 수 있다.
+
+하지만 현재 프로젝트 데이터만으로 이 주장을 입증하면 안 된다.  
+특히 `age_group`은 App Store 결제 / 본인인증 / default demographic artifact 가능성이 있다.  
+따라서 우리 데이터의 `age_group`만 보고 20대 공유 성향을 주장하면 위험하다.
+
+이 부분은 외부 근거로 보강해야 한다.
+
+보강 가능한 외부 자료 유형:
+
+- 20대 모바일 이용 행태 보고서
+- OTT 이용 행태 보고서
+- 디지털 네이티브 세대의 정보 공유 행동 관련 논문
+- 모바일 커머스 / 앱 프로모션 참여 관련 리포트
+- referral marketing 효과 관련 산업 보고서
+- SNS 공유 행동과 FOMO 관련 소비자 행동 연구
+
+단, 외부 자료를 가져오더라도 우리 데이터가 그 효과를 직접 입증한 것은 아니다.  
+외부 자료는 referral 제안의 가능성과 설득력을 보강하는 역할이다.
+
+안전한 표현:
+
+> 외부 소비자 행동 연구와 모바일 이용 행태 보고서를 근거로, 모바일 친화적 고객군에서 추천형 프로모션 실험을 설계할 수 있다. 다만 본 프로젝트 데이터는 referral 행동을 직접 관측하지 않으므로, 이 제안은 후속 실험 아이디어로 제한한다.
+
+---
+
+### 8. App Store 결제 / 본인인증 / default demographic artifact 가설과 AARRR의 연결
+
+사용자 도메인 가설에 따르면, iOS App Store 경유 결제에서는 유저가 App Store에 결제하고, App Store가 OTT 측에 영수증 또는 결제확인서를 전달하는 구조일 수 있다.  
+이 과정에서 OTT 측으로 인구통계적 개인정보가 충분히 전달되지 않을 수 있다.
+
+그 결과, 별도 본인인증을 하지 않은 App Store 경유 결제 계정은 다음 값으로 남을 수 있다.
+
+- `is_user_verified=0`
+- 성별 N
+- `age_group=40`
+- `payment_is_ios=1`
+
+반대로 100원딜 promotion 참여에는 본인인증이 필요하고, 해당 프로모션을 받아본 적 없는 계정이어야 할 수 있다.  
+이 조건이 맞다면 promotion 집단에서 `is_user_verified=1`이 거의 고정되고 `payment_is_ios=1`이 거의 나타나지 않는 구조가 발생할 수 있다.
+
+이 가설은 AARRR 해석에도 영향을 준다.
+
+Acquisition 단계에서 `is_promotion`은 단순한 유입 구분만이 아니라 본인인증과 프로모션 eligibility가 결합된 구조를 반영할 수 있다.
+
+Activation 단계에서 App Store 경유 계정의 demographic 결측 또는 default 값은 실제 초기 시청 행동과 별개로 profile/context feature에 영향을 줄 수 있다.
+
+Retention 단계에서 usage/retention feature와 payment/profile feature가 서로 다른 종류의 신호임을 분리해야 한다.
+
+Revenue 단계에서 `is_repurchase`와 결제 경로가 관련될 수 있으나, 이를 인과로 해석하면 안 된다.
+
+Referral 단계에서 본인인증 조건은 어뷰징 방지 장치로 작동할 수 있지만, 추천 실험의 효과를 보장하지는 않는다.
+
+---
+
+### 9. Streamlit Dashboard에 반영할 AARRR 구조
+
+향후 Streamlit dashboard를 만든다면 AARRR 탭은 다음 구조가 안전하다.
+
+#### Overview tab
+
+- 전체 row count
+- promotion / non-promotion row count
+- repurchase rate
+- 2x2 cohort size
+- 단, row-level / subscription-event-level임을 명시
+
+#### AARRR tab
+
+각 단계별로 다음을 표시한다.
+
+Acquisition:
+- promotion / non-promotion split
+- `is_promotion` 기준
+- 인과 주장 금지
+
+Activation:
+- day0~20 내 첫 시청 여부
+- cold_start fixed
+- week1 usage
+- day21 이후 activation은 feature가 아니라 campaign target hypothesis로 표시
+
+Retention:
+- week1~3 watch time/session
+- retention ratio
+- diff
+- recency
+- inactive gap
+
+Revenue:
+- `is_repurchase`
+- Revenue proxy임을 표시
+- 실제 매출액 아님
+
+Referral:
+- 직접 관측 feature 없음
+- 후속 실험 제안
+- 외부 자료로 보강 필요
+- 실제 효과는 입증하지 않음
+
+#### Feature Risk tab
+
+- `payment_is_ios`
+- `is_user_verified`
+- `age_group`
+- gender-related variables
+- group proxy risk
+- default demographic artifact caveat
+- App Store 결제 / 본인인증 가설
+
+#### Segment Candidate tab
+
+- segment는 final이 아니라 provisional
+- 기준식 먼저
+- 이름은 마지막
+- day21 시점 activation 미관측 고객과 대응기간 activation 유도 후보를 구분
+
+---
+
+### 10. 안전한 최종 스토리라인
+
+현재까지의 AARRR 기반 안전한 스토리라인은 다음과 같다.
+
+> 100원딜은 Acquisition을 만들어내는 강한 유입 장치다.  
+> 하지만 Acquisition만으로는 충분하지 않다.  
+> 가입 후 day21 이전, 즉 1~3주차 안에서 실제 시청이 발생해야 Activation이 관측된다.  
+> 이후 1주차에서 3주차까지 사용이 유지되는지, 특히 3주차 watch time, session, recency가 살아 있는지가 Retention 단계의 핵심 신호다.  
+> 이 Retention 신호는 다음 달 재결제 여부인 Revenue proxy와 연결될 수 있다.  
+> Referral은 현재 데이터에서 직접 관측되지 않지만, 모바일 친화적 고객군과 프로모션 참여 고객을 활용한 친구 추천 100원딜 쿠폰 실험으로 설계할 수 있다.  
+> 단, Referral 효과는 본 프로젝트에서 입증하지 않고, 실제 OTT사가 실행할 경우 검증해야 할 후속 실험 제안으로 둔다.
+
+---
+
+### 11. 금지 표현과 안전 표현
+
+#### Activation 관련
+
+금지 표현:
+
+- 전체 구독기간 중 한 번이라도 봤으면 Activation이다.
+- 3~4주차에 처음 본 사람도 모델의 Activation feature에 포함한다.
+- day21 이후 첫 시청도 feature로 사용한다.
+
+안전 표현:
+
+- 본 프로젝트의 Activation은 day0~20 안에서 관측된 첫 시청이다.
+- day21 이후 처음 시청한 고객은 서비스 전체 관점에서는 Activation 고객일 수 있으나, day21 scoring point 기준으로는 Activation 미관측 고객이다.
+- day21 이후 첫 시청은 모델 feature가 아니라 대응기간 마케팅 액션의 결과 또는 후보로만 해석한다.
+
+#### Referral 관련
+
+금지 표현:
+
+- Referral 효과를 검증했다.
+- 친구 추천 쿠폰이 재구매율을 올린다.
+- 20대는 반드시 공유한다.
+- 본인인증 때문에 어뷰징은 불가능하다.
+
+안전 표현:
+
+- Referral은 현재 데이터로 직접 관측되지 않는다.
+- Referral은 후속 실험 제안이다.
+- 외부 자료를 통해 모바일 친화 고객군의 공유 성향을 보강할 수 있다.
+- 본인인증 조건은 단순 다계정 어뷰징 위험을 제한할 수 있으나, 실제 운영에서는 중복 방지 정책이 필요하다.
+- 본 프로젝트에서는 Referral 효과를 입증하지 않고, 실제 실행 시 확인해야 할 KPI를 제안한다.
+
+#### App Store / default demographic artifact 관련
+
+금지 표현:
+
+- 40대 고객이 많아서 그렇다.
+- 성별 N 고객은 이탈한다.
+- iOS 결제 고객은 이탈한다.
+- 미인증 고객은 충성도가 낮다.
+
+안전 표현:
+
+- `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수는 실제 인구통계라기보다 결제 경로와 본인인증 정책에서 발생한 데이터 생성 구조를 반영했을 가능성이 있다.
+- App Store 경유 결제와 본인인증 미수행 계정에서 default-like demographic artifact가 발생했을 수 있다.
+- 이 변수들은 structural proxy risk로 관리하며, 고객 특성으로 직접 해석하지 않는다.
+
+---
+
+### 12. 향후 단계 반영사항
+
+10x feature distribution / redundancy / group-proxy pre-audit에서 반드시 반영할 것:
+
+- Activation은 day0~20 기준으로만 해석한다.
+- day21 이후 첫 시청은 feature가 아니라 대응기간 activation 유도 후보로만 다룬다.
+- `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수는 structural proxy risk로 별도 관리한다.
+- near-constant / group-proxy / default demographic artifact 가능성을 감사한다.
+- 이 변수들을 제거하지 말고, 11x modeling preflight로 넘긴다.
+- feature 제거 여부는 사용자 승인 전까지 결정하지 않는다.
+
+11x / 12x 모델링에서 반드시 반영할 것:
+
+- expanded feature set에 이 변수들이 포함되더라도 actual model input feature list를 반드시 저장하고 검수한다.
+- context/profile/payment 계열이 성능을 과도하게 끌어올리는지 확인한다.
+- usage/retention 계열만으로도 설명력이 유지되는지 확인한다.
+- `payment_is_ios`, `is_user_verified`, `age_group`, 성별 관련 변수의 scope별 민감도를 확인한다.
+- SHAP에서 이 변수들이 상위에 올라오면 고객 특성이 아니라 structural proxy caveat와 함께 해석한다.
+
+Segmentation에서 반드시 반영할 것:
+
+- segment 이름을 먼저 붙이지 않는다.
+- 기준식과 분포 확인이 먼저다.
+- `40대 미인증 iOS 고객군` 같은 이름은 금지한다.
+- 필요하면 `App Store 경유 / 인증정보 결측 가능 계정군`처럼 데이터 생성 구조 중심으로 표현한다.
+- final segment는 사용자 승인 전까지 provisional로 둔다.
+
+---
+
+### 최종 판단
+
+현재 AARRR 프레임은 유지 가능하다.  
+다만 각 단계는 반드시 본 프로젝트의 관측창과 데이터 한계를 반영해 재정의해야 한다.
+
+가장 중요한 보정은 다음이다.
+
+> Activation은 전체 구독기간 기준이 아니라 day0~20 관측창 기준이다.  
+> 3~4주차에 처음 시청한 고객은 서비스 전체 관점에서는 activation 고객일 수 있지만, 본 프로젝트의 scoring point에서는 activation 미관측 고객이다.  
+> Referral은 현재 데이터로 검증된 결과가 아니라 후속 실험 제안이다.  
+> App Store 결제 / 본인인증 / default demographic artifact 가능성은 AARRR, 모델링, SHAP, segmentation 전 과정에서 caveat로 관리해야 한다.
+
+이 원칙을 지키면 AARRR은 단순한 발표용 프레임이 아니라, 데이터 관측 가능성과 비즈니스 제언을 연결하는 안전한 구조로 사용할 수 있다.
+
+## 2026-05-16 10x_feature_distribution_redundancy_pre_audit_260516_hotfix
+- 10x hotfix 수행.
+- `10x_final_checks.csv`와 실제 notebook artifact 상태의 불일치 가능성을 보정했고, executed notebook visible outputs 저장 상태를 확인했다.
+- `10x_feature_distribution_redundancy_pre_audit_260516_executed.ipynb`를 저장했다.
+- review zip duplicate entry를 제거한 hotfix review package를 새로 생성했다.
+- `age_group`은 단순 near-constant가 아니라 default-demographic artifact / group-proxy risk로 관리한다.
+- high-VIF feature는 자동 제거하지 않는다.
+- expanded_full 80개 feature는 보존한다.
+- redundancy-aware sensitivity는 11x에서 별도 비교 후보로만 관리한다.
+- feature 제거는 사용자 승인 필요 상태로 유지한다.
+- 다음 단계는 11x modeling preflight / baseline growth comparison이다.
+
+## 2026-05-16 11x_baseline_growth_comparison_260516
+- 11x 수행.
+- 기존 11/11b notebook은 archive에서 발견했고, 11b 복사본을 새 11x notebook 위치에 둔 뒤 현재 목적에 맞는 baseline comparison notebook으로 수정했다.
+- 06x/07x/10x canonical chain 기준 입력을 사용했다.
+- conservative_safe_22와 expanded_feature_set을 4개 scope에서 같은 StratifiedGroupKFold 정책으로 비교했다.
+- feature 제거 없음.
+- VIF/redundancy는 해석 주의 및 후속 sensitivity 후보로만 기록했다.
+- 모델링 결과는 baseline comparison이며 최종 모델이 아니다.
+- 다음 단계는 12x model family comparison이다.
+
+## 2026-05-16 12x_model_family_comparison_260516
+- 12x 수행.
+- 기존 12/12c notebook은 archive에서 발견했고, 12c 복사본을 새 12x notebook 위치에 둔 뒤 현재 목적에 맞는 model family comparison notebook으로 수정했다.
+- 06x/07x/10x/11x canonical chain 기준 입력을 사용했다.
+- conservative_safe_22 vs expanded_feature_set model family comparison을 수행했다.
+- feature 제거 없음.
+- VIF/redundancy는 해석 주의 및 후속 sensitivity 후보로만 기록했다.
+- 모델링 결과는 candidate comparison이며 최종 모델이 아니다.
+- 다음 단계는 14x 또는 16x 후보 결정이다.
+
+
+## 2026-05-16 12:47:24 | 12x_model_family_comparison_260516 deletion before CatBoost rerun
+
+- 기존 12x 결과는 CatBoost import unavailable 상태에서 생성되어 삭제했다.
+- 삭제 대상은 12x notebook, 12x reports/models output, 12x figures output, 12x review zip/temp zip으로 제한했다.
+- raw source CSV, 06x, 07x, 10x, 11x 산출물은 수정하지 않았다.
+- CatBoost 설치 후 12x_model_family_comparison_260516을 다시 실행한다.
+- 삭제 로그: zip\12x_deleted_for_catboost_rerun_260516.csv
+
+## 14x_lightweight_candidate_tuning_260516
+- 수행 시각: 2026-05-16T14:45:30
+- 12x 후보 기반 경량 Optuna tuning을 수행했다. 최종 모델 확정, SHAP, segmentation, feature removal 단계가 아니다.
+- n_trials_per_model_scope=30, timeout_per_model_scope_seconds=900, CV=StratifiedGroupKFold(n_splits=5, group=USER_KEY).
+- 튜닝 대상 model/scope:
+  - conservative_safe_22 / nonpromotion_only / RandomForest
+  - conservative_safe_22 / nonpromotion_only / HistGradientBoosting
+  - conservative_safe_22 / overall_with_promotion / LightGBM
+  - conservative_safe_22 / overall_with_promotion / CatBoost
+  - conservative_safe_22 / overall_without_promotion / LightGBM
+  - conservative_safe_22 / overall_without_promotion / CatBoost
+  - conservative_safe_22 / promotion_only / LightGBM
+  - conservative_safe_22 / promotion_only / HistGradientBoosting
+  - expanded_feature_set / nonpromotion_only / LightGBM
+  - expanded_feature_set / nonpromotion_only / HistGradientBoosting
+  - expanded_feature_set / overall_with_promotion / LightGBM
+  - expanded_feature_set / overall_with_promotion / CatBoost
+  - expanded_feature_set / overall_without_promotion / LightGBM
+  - expanded_feature_set / overall_without_promotion / HistGradientBoosting
+  - expanded_feature_set / promotion_only / LightGBM
+  - expanded_feature_set / promotion_only / HistGradientBoosting
+- 12x 대비 AUC 양수 delta 조합 수: 15/16. 세부 값은 14x_vs_12x_comparison.csv 기준이다.
+- VIF/redundancy가 높아도 피처 제거를 수행하지 않았고, feature selection decision도 내리지 않았다.
+- use_for_final_model은 기본 no로 유지했다.
+- 다음 단계 후보는 16x SHAP / interpretation 검토다.
+
+## 16x_SHAP_candidate_interpretation_260516
+- 수행: 12x/14x 후보 기반 SHAP 해석을 완료했다. SHAP은 인과가 아니라 fitted candidate model의 repurchase_score model explanation이다.
+- 사용 후보: expanded_feature_set/overall_with_promotion/LightGBM; expanded_feature_set/overall_without_promotion/LightGBM; expanded_feature_set/promotion_only/HistGradientBoosting; expanded_feature_set/nonpromotion_only/LightGBM; conservative_safe_22/overall_with_promotion/CatBoost
+- 한글 폰트 설정: selected_font=Malgun Gothic, axes.unicode_minus=False, font test figure 생성 완료.
+- 주요 top feature/family는 16x_SHAP_global_importance.csv와 16x_SHAP_family_importance.csv에 기록했다.
+- VIF/redundancy 때문에 개별 변수보다 feature family/redundancy family 단위 해석을 권장한다. feature removal은 수행하지 않았다.
+- 최종 segmentation/threshold/campaign threshold는 아직 아니다. 다음 단계는 17x segmentation design이다.
+
+## 16x_SHAP_candidate_interpretation_hotfix_260516
+- 수행: 16x figure layout hotfix를 수행했다.
+- 수정: reports/figures/16x_SHAP_candidate_interpretation_260516/16x_fig_scope_top10_SHAP_comparison.png의 subplot 제목, 축 라벨, 여백 겹침 가능성을 줄이기 위해 2x2 발표용 layout으로 재생성했다.
+- SHAP 값 재계산 없음. 모델 재학습 없음. Optuna, segmentation, feature removal 없음.
+- 변경 파일: 16x_fig_scope_top10_SHAP_comparison.png, 16x notebook hotfix cell, README.md, note.md, hotfix audit CSV, hotfix review zip.
+
+## 2026-05-16 | 15x 전 결제기기·인증·연령 proxy 리스크 및 sensitivity 필요성 정리
+
+### 1. 이 메모의 목적
+
+이 메모는 12x model family comparison, 14x lightweight tuning, 16x SHAP interpretation까지 완료된 뒤, 17x segmentation으로 넘어가기 전에 새롭게 확인된 중요한 해석 리스크를 기록하기 위해 작성한다.
+
+핵심 리스크는 `payment_device` 원본 및 그 파생변수인 `payment_is_mobile`, `payment_is_pc`, `payment_is_android`, `payment_is_ios` 계열이다.
+
+현재 expanded_feature_set에는 원본 `payment_device`는 들어가지 않았지만, `payment_is_mobile`, `payment_is_pc`, `payment_is_android`, `payment_is_ios` 파생변수가 포함되어 있다.
+
+문제는 이 변수들이 “시청 기기”가 아니라 “결제 기기 또는 결제 환경”에 가깝다는 점이다. 따라서 이 변수가 모델 성능이나 SHAP에서 중요하게 나오더라도, 이를 “아이폰으로 결제하면 이탈이 줄어든다”, “iOS 사용자는 충성도가 높다”, “결제 기기 자체가 재구매를 만든다”처럼 해석하면 안 된다.
+
+이 메모의 목적은 다음과 같다.
+
+1. payment_device 계열 변수가 왜 해석상 위험한지 기록한다.
+2. 40대·미인증·iOS 조합이 왜 단순 고객 세그먼트가 아니라 artifact/proxy일 수 있는지 기록한다.
+3. 17x segmentation 전에 payment_device 제거 sensitivity를 수행해야 하는 이유를 기록한다.
+4. payment_device 계열을 제거할지 유지할지 LLM이 임의 결정하지 않고, 데이터 기반 sensitivity 결과와 사용자 승인으로 결정하도록 한다.
+
+---
+
+### 2. 현재까지의 모델링/해석 상태
+
+현재 최신 흐름은 다음과 같다.
+
+- 06x dataset generation 통과
+  - primary main cohort 23,079 rows 기준
+  - conservative_dataset과 expanded_dataset 생성
+  - cold_start fixed row-level hotfix 완료
+  - `is_basic`, `is_cold_start_3d_fixed`, `is_cold_start_7d_fixed`만 새 파생변수로 생성
+  - 사용자 승인 없는 새 feature 생성 없음
+
+- 07x feature mapping / AARRR mapping 통과
+  - 06x conservative/expanded dataset 기준으로 feature mapping 재작성
+  - pre13b 07 구조는 참고만 하고, 06x 기준으로 새 mapping 생성
+
+- 10x feature distribution / redundancy pre-audit 통과
+  - VIF, pairwise correlation, redundancy family 확인
+  - feature removal은 하지 않음
+  - redundancy/VIF는 제거 근거가 아니라 해석 주의사항으로만 기록
+
+- 11x baseline growth comparison 통과
+  - conservative_safe_22 vs expanded_feature_set 비교
+  - expanded_feature_set의 성능 향상이 확인됨
+  - feature removal 없음
+
+- 12x model family comparison 통과
+  - LightGBM, CatBoost, XGBoost 등 model family 비교
+  - expanded_feature_set의 성능이 전반적으로 우수
+  - 최종 모델 확정은 아님
+
+- 14x lightweight tuning 통과
+  - 12x 후보 기반 경량 Optuna tuning 수행
+  - 최종 모델 확정은 아님
+  - 일부 tuned 후보에서 성능 개선 확인
+
+- 16x SHAP interpretation 통과
+  - SHAP은 인과가 아니라 model explanation으로 제한
+  - 한글 폰트 및 시각화 산출물 검수 완료
+  - 16x hotfix로 scope top10 SHAP comparison figure layout 개선 완료
+
+현재 다음 정식 단계는 17x segmentation design이지만, 17x 전에 payment_device 계열의 해석 리스크를 정리할 필요가 생겼다.
+
+---
+
+### 3. payment_device 계열의 본질적 문제
+
+`payment_device`는 이름상 기기 정보처럼 보이지만, 실제 의미는 “시청 기기”가 아니라 “결제 기기 또는 결제 환경”이다.
+
+사용자 설명 기준으로 다음과 같은 상황이 가능하다.
+
+- 아버지가 iPhone으로 결제하고, 실제 시청자는 자녀일 수 있다.
+- 결제는 iOS에서 했지만, 실제 시청은 TV, PC, Android, 태블릿에서 할 수 있다.
+- 결제 기기는 계정 생성 또는 결제 경로의 흔적일 뿐, 콘텐츠 시청 경험을 직접 의미하지 않는다.
+- iPhone으로 결제했다고 해서 화질, 콘텐츠 선호, 시청 몰입도, 서비스 경험이 직접 달라진다고 보기 어렵다.
+- Galaxy로 시청한다고 해서 화질이 달라지는 것도 아니며, 결제 기기와 시청 기기는 개념적으로 다르다.
+
+따라서 `payment_is_ios` 또는 `payment_is_android`가 SHAP에서 높게 나오더라도, 이를 다음처럼 해석하면 안 된다.
+
+금지 해석:
+
+- “iOS로 결제하면 이탈 확률이 낮다.”
+- “아이폰 사용자는 재구매율이 높다.”
+- “안드로이드 사용자는 이탈한다.”
+- “결제 기기가 재구매를 유발한다.”
+- “시청 기기 경험 차이가 이탈을 설명한다.”
+
+허용 가능한 해석:
+
+- “payment_device 계열은 결제 환경, 인증 상태, 유입 경로, 계정 생성 맥락, 비프로모션 구조와 얽힌 proxy일 수 있다.”
+- “모델은 payment_device 파생변수를 재구매 score 설명에 사용했지만, 이는 시청 경험의 인과효과를 뜻하지 않는다.”
+- “payment_is_ios는 시청 기기가 아니라 결제 환경의 흔적이므로, 비즈니스 세그먼트명이나 원인 설명에 직접 사용하지 않는다.”
+- “이 변수는 artifact/proxy risk를 가진 변수로 보고, segmentation 전 sensitivity 검토가 필요하다.”
+
+---
+
+### 4. 40대·미인증·iOS 조합의 리스크
+
+이 프로젝트에서 사용자와의 논의 중 중요한 관찰이 있었다.
+
+`40대 + 미인증 + iOS` 조합은 단순한 “고객 특성”처럼 보이지만, 실제로는 다음 문제가 있다.
+
+1. 미인증 상태의 연령 정보는 인구통계적으로 충분히 검증된 값인지 불명확하다.
+2. 결제기기 iOS는 시청기기가 아니라 결제기기다.
+3. 이 조합은 promotion/nonpromotion split과 강하게 얽힐 가능성이 있다.
+4. 이 조합이 모델에서 중요하게 나오더라도, 고객의 실제 성향이나 시청 경험이라고 단정할 수 없다.
+5. 40대·미인증·iOS를 세그먼트 이름으로 쓰면, 데이터 생성 구조의 artifact를 실제 고객군처럼 포장할 위험이 있다.
+
+특히 프로젝트 초기에 promotion/nonpromotion 방향으로 분석 축을 튼 이유 중 하나도, 40대·미인증 계열을 인구통계적으로 해석하기 어렵다는 점이 포함되어 있었다.
+
+즉, 이 문제는 새로 생긴 문제가 아니라, 프로젝트 방향성의 배경에 이미 존재하던 리스크다. 다만 16x SHAP 이후, payment/auth/demographic 계열이 모델 설명에 일정 부분 나타날 수 있으므로 17x segmentation 전에 명시적으로 관리해야 한다.
+
+---
+
+### 5. 왜 바로 제거하지 않고 sensitivity를 먼저 하는가
+
+현재 가장 보수적인 선택은 payment_device 파생변수를 모델 feature에서 제거하는 것이다.
+
+제거 대상 후보:
+
+- `payment_is_mobile`
+- `payment_is_pc`
+- `payment_is_android`
+- `payment_is_ios`
+
+하지만 바로 canonical expanded_feature_set에서 제거하고 06x부터 모든 단계를 다시 실행하는 것은 부담이 크다. 이미 06x, 07x, 10x, 11x, 12x, 14x, 16x까지 진행됐기 때문이다.
+
+반대로 이 변수를 아무 조치 없이 그대로 두고 17x segmentation으로 가는 것도 위험하다. 세그먼트가 payment_device proxy에 오염될 수 있고, 발표에서 결제기기를 실제 시청경험처럼 잘못 설명할 수 있기 때문이다.
+
+따라서 현재 가장 안전한 방식은 다음이다.
+
+`15x_payment_device_sensitivity_260516`
+
+15x의 목적은 canonical 전체를 즉시 갈아엎는 것이 아니라, 다음 두 조건을 비교하는 것이다.
+
+1. 기존 expanded_feature_set
+2. expanded_feature_set에서 payment_is_* 4개를 제거한 sensitivity feature set
+
+이 비교를 통해 다음을 확인한다.
+
+- payment_is_* 제거 시 AUC/AP/Brier/top-k 성능이 얼마나 변하는가
+- payment_is_* 제거 시 SHAP 상위 feature가 행동 변수 중심으로 더 안정되는가
+- payment_is_* 제거 시 segment 후보가 proxy 오염에서 벗어나는가
+- 성능 손실이 작다면 canonical에서도 제거할 수 있는가
+- 성능 손실이 크다면 모델 feature로 유지하되, 해석/세그먼트/비즈니스 제언에서는 artifact/proxy로만 다룰 것인가
+
+---
+
+### 6. 15x의 성격
+
+15x는 최종 모델링 단계가 아니다.
+
+15x는 다음도 아니다.
+
+- Optuna 단계 아님
+- SHAP 본단계 아님
+- segmentation 단계 아님
+- feature removal 확정 단계 아님
+- campaign threshold 결정 단계 아님
+
+15x는 sensitivity audit 단계다.
+
+목적은 다음이다.
+
+- payment_device 계열을 제거했을 때 성능과 해석 안정성이 어떻게 변하는지 확인한다.
+- 제거 여부를 LLM이 확정하지 않는다.
+- 결과를 보고 사용자가 canonical feature contract를 수정할지 결정한다.
+
+따라서 15x 결과는 다음과 같이 해석해야 한다.
+
+- 성능 손실이 거의 없음 → payment_is_*를 canonical expanded에서 제거하는 방향 검토
+- 성능 손실이 큼 → 모델 feature로는 유지할 수 있으나, 해석/세그먼트 rule에서는 사용 금지
+- SHAP 해석이 더 깨끗해짐 → segmentation에서는 payment_device 계열 제외 강하게 권장
+- 성능은 좋아도 SHAP이 payment_device에 과의존 → proxy-contamination risk로 기록
+
+---
+
+### 7. 17x segmentation에 대한 영향
+
+17x segmentation에서는 payment_device 계열을 대표 세그먼트 rule에 직접 사용하면 안 된다.
+
+금지되는 세그먼트 예시:
+
+- “40대 미인증 iOS 안정군”
+- “iOS 결제 고충성군”
+- “Android 결제 이탈위험군”
+- “미인증 iOS 고객군”
+- “iOS 사용자 재구매군”
+
+이런 이름은 payment_device를 시청기기나 고객 성향으로 오해하게 만든다.
+
+17x에서는 다음 방식이 안전하다.
+
+1. 대표 세그먼트 rule은 행동 기반으로 만든다.
+   - 3주차 시청량
+   - retention ratio
+   - week-to-week drop
+   - only_w1
+   - cold_start_fixed
+   - churn_risk
+   - content preference caveat
+
+2. payment_device, is_user_verified, age_group 조합은 세그먼트 조건이 아니라 artifact/proxy audit flag로 관리한다.
+
+3. 예를 들어 다음 flag를 검수용으로만 만들 수 있다.
+
+`flag_age40_unverified_ios`
+
+단, 이 flag는 segment assignment 조건으로 쓰지 않는다. segment별 proxy concentration을 점검하는 용도다.
+
+4. 각 segment별로 다음을 확인한다.
+
+- payment_is_ios 비중
+- is_user_verified=0 비중
+- age_group=40 비중
+- flag_age40_unverified_ios 비중
+- 이 조합이 특정 segment에 과도하게 몰려 있는지
+
+5. 특정 segment가 payment/auth/demographic proxy에 과도하게 의존하면, 그 segment는 행동 기반 세그먼트가 아니라 proxy-contaminated segment일 수 있으므로 caveat를 붙인다.
+
+---
+
+### 8. 15x에서 반드시 확인할 지표
+
+15x는 최소 다음을 확인해야 한다.
+
+성능 비교:
+
+- 기존 expanded_feature_set AUC
+- payment_is_* 제거 sensitivity AUC
+- delta AUC
+- AP 변화
+- Brier 변화
+- logloss 변화
+- train-valid gap 변화
+- fold AUC std 변화
+
+운영 지표 비교:
+
+- top5pct precision / recall / lift
+- top10pct precision / recall / lift
+- top20pct precision / recall / lift
+- churn_risk decile calibration 변화
+
+해석 안정성 비교:
+
+- SHAP top feature에서 payment_is_* 제거 후 상위 feature 변화
+- 행동 feature의 상대 중요도 변화
+- retention / week3 / only_w1 / cold_start_fixed 계열이 더 중심으로 나오는지
+- artifact/proxy family importance 감소 여부
+
+세그먼트 위험 사전점검:
+
+- top churn_risk 집단에서 payment_is_* 비중 변화
+- 40대·미인증·iOS 조합의 고위험군 과대표집 여부
+- payment/auth/demographic artifact family의 위험도
+
+---
+
+### 9. 15x의 권장 산출물
+
+15x에서 생성해야 할 산출물 후보는 다음과 같다.
+
+- `15x_preflight_input_validation.csv`
+- `15x_payment_device_feature_policy.csv`
+- `15x_feature_set_comparison_design.csv`
+- `15x_expanded_no_payment_device_feature_list.csv`
+- `15x_model_comparison_without_payment_device.csv`
+- `15x_vs_12x_14x_performance_comparison.csv`
+- `15x_topk_comparison_without_payment_device.csv`
+- `15x_proxy_artifact_audit.csv`
+- `15x_age40_unverified_ios_audit.csv`
+- `15x_segment_risk_handoff.csv`
+- `15x_recommendation_for_canonical_feature_contract.csv`
+- `15x_safe_unsafe_wording.csv`
+- `15x_open_risks_for_17x.csv`
+- `15x_final_checks.csv`
+- `README.md`
+- review zip
+
+---
+
+### 10. 15x의 최종 결정 원칙
+
+15x는 payment_device 계열 제거 여부를 확정하지 않는다.
+
+15x는 다음 decision을 제안할 수 있다.
+
+1. `remove_payment_device_from_canonical_recommended`
+   - 성능 손실이 작고 해석이 개선되는 경우
+
+2. `keep_for_model_but_exclude_from_interpretation`
+   - 성능 손실이 크지만, 인과/비즈니스 해석은 위험한 경우
+
+3. `keep_with_strong_proxy_caveat`
+   - 성능과 운영 지표에 유의미하게 기여하지만 proxy 위험이 큰 경우
+
+4. `requires_user_decision`
+   - 성능/해석 trade-off가 애매해 사용자 판단이 필요한 경우
+
+최종 결정은 LLM이 하지 않는다.  
+최종 feature contract 수정 여부는 사용자가 승인한다.
+
+---
+
+### 11. 현재 결론
+
+현재 가장 안전한 방향은 다음이다.
+
+`17x segmentation으로 바로 가지 않고, 15x_payment_device_sensitivity_260516을 먼저 수행한다.`
+
+이유는 다음과 같다.
+
+- payment_device는 시청기기가 아니라 결제기기/결제환경이다.
+- payment_device 계열은 비즈니스 인과 해석이 매우 위험하다.
+- 40대·미인증·iOS 조합은 인구통계/인증/결제 구조의 proxy일 수 있다.
+- 17x segmentation에서 이 조합을 세그먼트 이름이나 rule로 쓰면 오해가 생길 수 있다.
+- sensitivity를 통해 제거해도 성능이 유지되는지 확인한 뒤 canonical feature contract 수정 여부를 결정하는 것이 안전하다.
+
+따라서 다음 작업은 15x다.
+
+`15x_payment_device_sensitivity_260516`
+
+이 단계는 17x segmentation의 사전 안전장치다.

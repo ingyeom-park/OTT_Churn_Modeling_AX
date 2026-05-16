@@ -1,0 +1,7 @@
+﻿scope,column_name,policy,role,use_as_feature,reason
+overall_with_promotion,is_promotion,feature use allowed,feature,yes,Approved only for overall model that intentionally includes promotion status.
+overall_without_promotion,is_promotion,feature excluded,split_key/audit_only,no,Promotion effect should not be injected when measuring behavior-only scope.
+promotion_only,is_promotion,feature excluded,split_key/audit_only,no,Constant inside promotion-only subset.
+nonpromotion_only,is_promotion,feature excluded,split_key/audit_only,no,Constant inside nonpromotion-only subset.
+all_models,USER_KEY,feature excluded; group key only,group_key,no,Identifier retained for grouping/splitting only.
+all_models,is_repurchase,target,target,no,Target label.

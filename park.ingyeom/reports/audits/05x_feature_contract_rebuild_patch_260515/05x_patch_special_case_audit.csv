@@ -1,0 +1,6 @@
+﻿special_case,column_exists,action,status,note
+USER_KEY,yes,policy fixed as forbidden_or_audit_only_candidate,patched,actual column name checked only
+is_repurchase,yes,policy fixed as forbidden_or_audit_only_candidate,patched,actual column name checked only
+price,yes,flagged as unresolved_user_review_required,patched,actual column name checked only
+max_screen,yes,flagged as unresolved_user_review_required,patched,actual column name checked only
+archive_reference,n/a,document previous WARN False and proceed from previous 05x outputs plus source master,warn_documented,archive reference was optional for patch; warning not hidden

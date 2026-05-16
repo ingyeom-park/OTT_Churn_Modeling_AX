@@ -2,3 +2,7 @@
 
 # Large generated prediction score files
 **/*prediction_scores*.csv
+
+# Large generated model artifacts
+park.ingyeom/reports/models/**/*oof_predictions*.csv
+park.ingyeom/zip/*.zip

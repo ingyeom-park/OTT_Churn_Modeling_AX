@@ -1,0 +1,9 @@
+﻿caveat_item,affected_features,feature_set_name,caveat_reason,handoff_action
+old_movie_ratio_5y caveat,old_movie_ratio_5y,expanded_feature_set,Kwangil master value retained; raw Movie_Master reconstruction has 9-row mismatch caveat.,Use with caveat; do not claim formula was fully reconstructed.
+genre multi-category caveat,"genre_diversity_count, action_adventure_ratio, family_animation_ratio, drama_ratio, thriller_crime_ratio, sf_fantasy_ratio, comedy_ratio, romance_ratio, horror_ratio, documentary_ratio, historical_war_ratio, other_ratio",expanded_feature_set,Movie_Master can contain multiple category records for the same MOVIE_NUM.,Use as master-derived content context with caveat.
+cold_start fixed caveat,"is_cold_start_3d_fixed, is_cold_start_7d_fixed","conservative_safe_22, expanded_feature_set",Original cold_start columns are excluded; fixed fields use row-level first-watch hotfix.,Use fixed fields only.
+is_churn_prevented interpretation,is_churn_prevented,expanded_feature_set,"Historical churn-prevention benefit flag, not current-cycle outcome.",Interpret as context/history only.
+under_1m/5m <= threshold,"watch_ratio_under_1m, watch_ratio_under_5m",expanded_feature_set,Official dictionary records <= 1 minute and <= 5 minutes thresholds.,State threshold definition when used.
+USER_KEY role caveat,USER_KEY,"conservative_safe_22, expanded_feature_set","Identifier/group key, not a model feature.",Use only for grouping/join checks.
+is_repurchase role caveat,is_repurchase,"conservative_safe_22, expanded_feature_set","Target and Revenue proxy only, not a model feature.",Do not use as feature.
+is_promotion role caveat,is_promotion,expanded_feature_set,Acquisition split key and scope-conditional feature.,Allow only in overall_with_promotion; exclude from other scopes.
