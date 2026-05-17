@@ -1,0 +1,16 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,
+raw_source_csv_not_modified,PASS,
+existing_16x_final_checks_pass_confirmed,PASS,
+no_model_refit_performed,PASS,hotfix reads existing CSV only
+no_shap_recalculation_performed,PASS,no shap import or SHAP value computation in hotfix cell
+target_figure_hotfixed,PASS,
+target_figure_exists,PASS,
+korean_font_preserved,PASS,Malgun Gothic
+updated_notebook_saved,PASS,
+hotfix_manifest_created,PASS,
+hotfix_visualization_inventory_created,PASS,
+README_updated,PASS,
+note_md_updated,PASS,
+review_zip_created,PASS,zip is created after final_checks file is written
+critical_fail_count_zero,PASS,fail_count_before_this_check=0
