@@ -1,0 +1,8 @@
+﻿segment_priority,representative_segment,matched_rule_text,rule_features,provisional_label_yes_no,final_segment_name_yes_no,small_n_review_required,uses_payment_auth_demographic_proxy
+1,high_risk_week3_inactive_or_drop,flag_high_risk_top20 == 1 AND (flag_week3_inactive == 1 OR flag_week3_drop == 1 OR flag_retention_decay == 1),"flag_high_risk_top20,flag_week3_inactive,flag_week3_drop,flag_retention_decay",yes,no,computed_after_assignment,False
+2,high_risk_only_w1_or_cold_start_weak,flag_high_risk_top20 == 1 AND (flag_only_w1 == 1 OR flag_cold_start_weak == 1),"flag_high_risk_top20,flag_only_w1,flag_cold_start_weak",yes,no,computed_after_assignment,False
+3,high_risk_low_activity,flag_high_risk_top20 == 1 AND flag_low_activity == 1,"flag_high_risk_top20,flag_low_activity",yes,no,computed_after_assignment,False
+4,medium_risk_retention_decay,flag_high_risk_top20 == 0 AND churn_risk top 20-50 percent AND flag_retention_decay == 1,"risk_percentile_desc,flag_retention_decay",yes,no,computed_after_assignment,False
+5,content_preference_target_candidate,flag_high_risk_top20 == 0 AND flag_low_activity == 0 AND content proxy flag == 1,"flag_low_activity,flag_genre_focused,flag_new_movie_oriented,flag_old_movie_oriented",yes,no,computed_after_assignment,False
+6,stable_retained_user,flag_low_risk_stable == 1,flag_low_risk_stable,yes,no,computed_after_assignment,False
+7,general_observation,no prior rule matched,none,yes,no,computed_after_assignment,False

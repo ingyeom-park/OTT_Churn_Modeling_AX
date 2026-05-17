@@ -1,6 +1,0 @@
-﻿file_path,file_type,existed_before,action,reason,content_changed_yes_no
-C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_scope_top10_SHAP_comparison.png,PNG,yes,replaced_existing_png,fix scope comparison subplot title axis margin overlap risk,yes
-C:\Code\ott-churn-prediction\park.ingyeom\notebook\16x_SHAP_candidate_interpretation_260516\16x_SHAP_candidate_interpretation_260516.ipynb,ipynb,yes,added_hotfix_cell_and_skip_tag_for_original_cell,preserve audit trail and allow hotfix-only execution without SHAP recalculation,yes
-C:\Code\ott-churn-prediction\park.ingyeom\reports\interpretation\16x_SHAP_candidate_interpretation_260516\README.md,markdown,yes,appended_hotfix_section,document figure-only hotfix and presentation recommendation,yes
-C:\Code\ott-churn-prediction\park.ingyeom\note.md,markdown,yes,appended_note_section,"record hotfix, no SHAP recalculation, no model refit, and changed files",yes
-C:\Code\ott-churn-prediction\park.ingyeom\reports\interpretation\16x_SHAP_candidate_interpretation_hotfix_260516,audit_folder,yes,created_or_refreshed_hotfix_audit_outputs,maintain 16x hotfix audit trail,yes

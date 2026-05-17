@@ -1,0 +1,9 @@
+﻿wording_type,wording,reason
+unsafe,iOS 결제라서 이탈이 낮다,causal and viewing-device overread
+unsafe,결제기기가 재구매를 유발한다,causal overclaim
+unsafe,40대 미인증 iOS 세그먼트,artifact-like proxy group should not define representative segment
+unsafe,payment device가 시청 경험을 설명한다,payment environment is not viewing behavior
+unsafe,payment_is_*를 세그먼트 rule로 사용한다,direct use is not recommended before 17x audit
+safe,payment_is_*는 결제환경/계정/인증 구조 proxy일 수 있다,proxy-cautious wording
+safe,payment_device 제거 sensitivity 결과를 바탕으로 feature contract 수정 여부를 결정한다,keeps decision pending
+safe,세그먼트 rule에는 행동 기반 변수를 우선 사용한다,safer 17x direction

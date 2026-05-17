@@ -1,40 +1,32 @@
-﻿check,status,detail
-all_outputs_inside_park_ingyeom,PASS,
-raw_source_csv_not_modified,PASS,
-source_fingerprint_created,PASS,
-source_fingerprint_unchanged,PASS,
-notebook_exists,PASS,
-notebook_executed,PASS,this cell completed under nbconvert execution
-06x_inputs_loaded,PASS,
-06x_final_checks_pass,PASS,
-07x_inputs_loaded,PASS,
-07x_final_checks_pass,PASS,
-10x_inputs_loaded,PASS,
-10x_final_checks_pass,PASS,
-12x_inputs_loaded,PASS,
-12x_final_checks_pass,PASS,
-14x_inputs_loaded,PASS,
-14x_final_checks_pass,PASS,
+﻿check_name,status,detail
+failed_previous_16x_deleted_or_missing,PASS,
+note_md_records_previous_16x_failure,PASS,
+15x_inputs_loaded,PASS,
+15x_final_checks_pass,PASS,
+payment_removed_input_gate_created,PASS,
+payment_removed_input_gate_pass,PASS,
+payment_is_mobile_absent_from_SHAP_input,PASS,
+payment_is_pc_absent_from_SHAP_input,PASS,
+payment_is_android_absent_from_SHAP_input,PASS,
+payment_is_ios_absent_from_SHAP_input,PASS,
+feature_count_overall_with_promotion_76,PASS,actual=76
+feature_count_overall_without_promotion_75,PASS,actual=75
+feature_count_promotion_only_75,PASS,actual=75
+feature_count_nonpromotion_only_75,PASS,actual=75
+no_non_payment_features_removed_without_approval,PASS,
 shap_import_available,PASS,0.51.0
 font_preflight_created,PASS,
 korean_font_test_figure_created,PASS,
-SHAP_candidate_plan_created,PASS,
-SHAP_sample_audit_created,PASS,
 SHAP_global_importance_created,PASS,
 SHAP_family_importance_created,PASS,
-SHAP_direction_summary_created,PASS,
 visualization_inventory_created,PASS,
 required_figures_created,PASS,
-beeswarm_figures_created,PASS,
-bar_figures_created,PASS,
-family_bar_figures_created,PASS,
-scope_comparison_figure_created,PASS,
-no_feature_removal_performed,PASS,
-no_feature_selection_decision_made,PASS,
-no_optuna_performed,PASS,
-no_segmentation_performed,PASS,
-no_causal_claim,PASS,
+no_optuna_performed,PASS,no tuning loop executed
+no_segmentation_performed,PASS,no segment rule generated
+no_causal_claim,PASS,README and wording restrict causal language
 README_created,PASS,
 note_md_updated,PASS,
-review_zip_created,PASS,zip created by notebook after outputs; repeated nbconvert execution keeps packaged notebook in executed state
-critical_fail_count_zero,PASS,fail_count_before_this_check=0
+raw_source_csv_not_modified,PASS,
+all_outputs_inside_park_ingyeom,PASS,
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\16x_SHAP_candidate_interpretation_260516_review_package.zip
+critical_fail_count_zero,PASS,critical_fail_count=0

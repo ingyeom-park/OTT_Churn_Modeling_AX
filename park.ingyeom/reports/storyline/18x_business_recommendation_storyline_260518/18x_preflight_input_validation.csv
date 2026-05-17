@@ -1,0 +1,13 @@
+﻿input_file,path,exists,loaded,row_count,column_count,required_columns_present,status,detail
+17x_segment_summary.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segment_summary.csv,True,True,7,15,True,PASS,
+17x_representative_segment_assignment.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_assignment.csv,True,True,23079,10,True,PASS,
+17x_representative_segment_rules.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_rules.csv,True,True,7,8,True,PASS,
+17x_segment_feature_profile.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segment_feature_profile.csv,True,True,161,6,True,PASS,
+17x_segment_SHAP_evidence_link.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segment_SHAP_evidence_link.csv,True,True,109,9,True,PASS,
+17x_proxy_artifact_audit.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_proxy_artifact_audit.csv,True,True,7,29,True,PASS,
+17x_age40_unverified_ios_audit.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_age40_unverified_ios_audit.csv,True,True,12,5,True,PASS,
+17x_business_action_candidates.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_business_action_candidates.csv,True,True,7,4,True,PASS,
+17x_dashboard_handoff_datamart.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_dashboard_handoff_datamart.csv,True,True,23079,39,True,PASS,
+17x_safe_unsafe_wording.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_safe_unsafe_wording.csv,True,True,13,3,True,PASS,
+17x_open_risks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_open_risks.csv,True,True,7,2,True,PASS,
+17x_final_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_final_checks.csv,True,True,38,3,True,PASS,

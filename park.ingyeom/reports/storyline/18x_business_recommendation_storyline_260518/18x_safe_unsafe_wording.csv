@@ -1,0 +1,18 @@
+﻿wording_type,wording,reason
+unsafe,고객 수,unique customer count not verified
+unsafe,iOS 고객은 충성도가 높다,payment proxy misuse
+unsafe,40대 미인증 iOS 고객군,proxy segment naming forbidden
+unsafe,SHAP이 원인이다,SHAP is model explanation only
+unsafe,100원딜이 이탈을 유발했다,causal claim forbidden
+unsafe,payment_device는 시청기기다,field meaning is payment environment proxy
+unsafe,4주차까지 보고 판단했다,day0~20 observation window violation
+unsafe,이 고객은 이탈한다,deterministic individual claim forbidden
+unsafe,이 segment가 최종 고객 유형이다,segment is provisional
+safe,subscription-event rows,row-level wording
+safe,day0~20 관측창 내 행동 신호,observation-window wording
+safe,재구매 가능성 점수,repurchase_score safe wording
+safe,이탈 위험 후보,non-deterministic risk wording
+safe,모델 설명,SHAP safe wording
+safe,제언 후보,not final policy
+safe,provisional representative segment,not final customer type
+safe,Movie_Master category mapping 기준 콘텐츠 취향 proxy,content caveat

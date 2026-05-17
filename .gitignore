@@ -1,8 +1,12 @@
 ~$*
 
-# Large generated prediction score files
-**/*prediction_scores*.csv
+git rm --cached --ignore-unmatch "park.ingyeom/reports/audits/15x_payment_device_sensitivity_260516/15x_oof_predictions.csv"
+# Local review packages and handoff bundles
+park.ingyeom/zip/
+park.ingyeom/handoff/
 
-# Large generated model artifacts
-park.ingyeom/reports/models/**/*oof_predictions*.csv
-park.ingyeom/zip/*.zip
+# Large prediction outputs
+park.ingyeom/reports/**/*_oof_predictions.csv
+park.ingyeom/reports/**/*prediction_scores.csv
+park.ingyeom/_archive/**/*_oof_predictions.csv
+park.ingyeom/_archive/**/*prediction_scores.csv

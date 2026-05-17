@@ -1,0 +1,13 @@
+﻿group_type,group_value,row_count,flag_share,representative_rule_used
+overall,all,23079,0.11798604792235365,no
+segment,content_preference_target_candidate,6195,0.12397094430992736,no
+segment,general_observation,7896,0.12462006079027356,no
+segment,high_risk_low_activity,511,0.09980430528375733,no
+segment,high_risk_only_w1_or_cold_start_weak,265,0.06792452830188679,no
+segment,high_risk_week3_inactive_or_drop,3793,0.0896388083311363,no
+segment,medium_risk_retention_decay,3195,0.11392801251956182,no
+segment,stable_retained_user,1224,0.16176470588235295,no
+is_promotion,0,11175,0.243668903803132,no
+is_promotion,1,11904,0.0,no
+risk_top10,risk_top10,2307,0.06935413957520589,no
+risk_top20,risk_top20,4615,0.08884073672806067,no

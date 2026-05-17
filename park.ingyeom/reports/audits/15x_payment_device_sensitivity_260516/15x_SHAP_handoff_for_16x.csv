@@ -1,0 +1,2 @@
+﻿current_16x_candidate,payment_removed_sensitivity_result,SHAP_needs_rerun,recommended_16x_action,reason
+existing 16x SHAP candidate remains unchanged until user decision,mean_delta_auc=0.003590; worst_delta_auc=-0.000150; final decision pending_user_approval,yes,Do not rerun SHAP immediately. Rerun or annotate 16x only after user approves canonical feature-contract change.,"15x is sensitivity audit only. If payment_is_* are removed from canonical modeling, prior 16x SHAP is no longer contract-aligned."

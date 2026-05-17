@@ -1,0 +1,5 @@
+﻿dataset_scope,original_expanded_feature_count,expected_payment_removed_feature_count,actual_SHAP_input_feature_count,payment_is_mobile_present,payment_is_pc_present,payment_is_android_present,payment_is_ios_present,missing_dataset_columns,status
+overall_with_promotion,80,76,76,False,False,False,False,,PASS
+overall_without_promotion,80,75,75,False,False,False,False,,PASS
+promotion_only,80,75,75,False,False,False,False,,PASS
+nonpromotion_only,80,75,75,False,False,False,False,,PASS

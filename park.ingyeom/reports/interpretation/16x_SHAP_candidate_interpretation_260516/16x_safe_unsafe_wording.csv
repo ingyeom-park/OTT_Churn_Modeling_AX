@@ -1,10 +1,6 @@
-﻿wording_type,wording,safe_alternative
-unsafe,SHAP이 원인을 밝혔다,SHAP은 fitted model의 repurchase_score 설명 근거다.
-unsafe,이 feature를 바꾸면 재구매가 오른다,이 모델에서 feature value와 SHAP direction이 repurchase_score 방향으로 연결되어 보인다.
-unsafe,100원딜 때문에 이탈했다,promotion 관련 feature는 모델 설명 신호일 뿐 인과효과가 아니다.
-unsafe,top10 churn_risk가 캠페인 대상이다,top-k와 churn_risk는 진단 지표이며 campaign threshold는 아직 아니다.
-unsafe,최종 모델 확정,16x는 후보 모델 해석 단계이며 최종 모델 확정이 아니다.
-unsafe,unique user 기준,분석 단위는 row-level / subscription-event-level이다.
-safe,이 모델에서 해당 feature/family가 repurchase_score 설명에 크게 기여했다,
-safe,EDA와 SHAP에서 공통적으로 3주차 사용량 관련 신호가 강하게 나타났다,
-safe,해석은 모델 설명이며 인과가 아니다,
+﻿type,wording,reason
+safe,SHAP은 fitted candidate model의 repurchase_score 설명이다.,model explanation only
+safe,payment_is_* 4개는 15x no-payment feature list 기준으로 SHAP input에서 제거했다.,approved sensitivity result
+safe,payment/auth/demographic proxy는 17x 대표 rule이 아니라 audit/caveat로만 관리한다.,segmentation guardrail
+unsafe,iOS 결제가 재구매를 만든다.,causal claim and payment_device misuse
+unsafe,SHAP 상위 feature를 바꾸면 이탈이 감소한다.,intervention claim

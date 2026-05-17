@@ -1,0 +1,13 @@
+﻿threshold_name,threshold_type,definition,threshold_value,source_or_caution
+high_risk_top10,fixed percentile,churn_risk descending top 10 percent,10.0,risk_percentile_desc <= 10
+high_risk_top20,fixed percentile,churn_risk descending top 20 percent,20.0,risk_percentile_desc <= 20
+low_risk_bottom20,fixed percentile,churn_risk descending bottom 20 percent,80.0,risk_percentile_desc >= 80
+low_activity_watch_time_q25,quantile,total_watch_time_min q25,74.0,computed on 06x expanded rows
+low_activity_watch_count_q25,quantile,total_watch_count q25,2.0,computed on 06x expanded rows
+heavy_user_watch_time_q75,quantile,total_watch_time_min q75,413.0,computed on 06x expanded rows
+heavy_user_watch_count_q75,quantile,total_watch_count q75,9.0,computed on 06x expanded rows
+genre_focused_max_genre_ratio_q75,quantile,max genre ratio q75,0.972222,Movie_Master category mapping proxy
+new_movie_oriented_q75,quantile,new_movie_in_365d_ratio q75,0.5,content proxy
+old_movie_oriented_q75,quantile,old_movie_ratio_5y q75,0.26087,content proxy
+proxy_contamination_medium,fixed ratio,overall 대비 1.5x,1.5,audit only
+proxy_contamination_high,fixed ratio,overall 대비 2.0x,2.0,audit only

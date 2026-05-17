@@ -1,0 +1,2 @@
+﻿recommendation,evidence_summary,performance_loss_level,interpretation_risk_level,user_decision_required,final_decision_status
+requires_user_decision,"Payment removal sensitivity compared against 12x expanded original reference. mean_delta_auc=0.003590, worst_delta_auc=-0.000150. Proxy/artifact risk is documented separately.",near_neutral,high,yes,pending_user_approval

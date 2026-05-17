@@ -1,0 +1,13 @@
+﻿feature_set_variant,dataset_scope,model_name,will_run,params_source,reason
+expanded_no_payment_device,overall_without_promotion,LightGBM,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,overall_without_promotion,CatBoost,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,overall_without_promotion,HistGradientBoosting,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,overall_with_promotion,LightGBM,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,overall_with_promotion,CatBoost,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,overall_with_promotion,HistGradientBoosting,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,promotion_only,LightGBM,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,promotion_only,CatBoost,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,promotion_only,HistGradientBoosting,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,nonpromotion_only,LightGBM,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,nonpromotion_only,CatBoost,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity
+expanded_no_payment_device,nonpromotion_only,HistGradientBoosting,True,"15x fixed sensitivity params, no Optuna; same CV and params used across all no-payment runs",required candidate model for payment-device removal sensitivity

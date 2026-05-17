@@ -1,6 +1,0 @@
-"path","existed","action","reason"
-"C:\Code\ott-churn-prediction\park.ingyeom\notebook\12x_model_family_comparison_260516","yes","deleted","CatBoost was unavailable in previous 12x run; rerun required after pip install catboost"
-"C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12x_model_family_comparison_260516","yes","deleted","CatBoost was unavailable in previous 12x run; rerun required after pip install catboost"
-"C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\12x_model_family_comparison_260516","no","skipped","already missing"
-"C:\Code\ott-churn-prediction\park.ingyeom\zip\12x_model_family_comparison_260516_review_package.zip","yes","deleted","CatBoost was unavailable in previous 12x run; rerun required after pip install catboost"
-"C:\Code\ott-churn-prediction\park.ingyeom\zip\12x_model_family_comparison_260516_review_package_temp","no","skipped","already missing"

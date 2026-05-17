@@ -1,0 +1,11 @@
+﻿question,risk_type,safe_answer,evidence_file,do_not_answer_like_this
+왜 고객 수가 아니라 row 수라고 하나요?,unit risk,이 데이터는 subscription-event row 단위로 구성되어 있고 USER_KEY 중복이 있을 수 있으므로 unique customer 수로 표현하지 않습니다.,17x_representative_segment_assignment.csv,"고객 23,079명입니다."
+100원딜이 이탈을 유발했다고 볼 수 있나요?,causal risk,아니요. 100원딜 여부는 관측된 집단 차이로만 다루며 인과효과로 단정하지 않습니다.,17x_safe_unsafe_wording.csv,100원딜 때문에 이탈했습니다.
+SHAP이 높으면 원인 아닌가요?,SHAP causal risk,SHAP은 fitted model explanation입니다. 모델이 어떤 변수를 중요하게 사용했는지를 설명할 뿐 원인을 증명하지 않습니다.,17x_segment_SHAP_evidence_link.csv,SHAP이 원인을 밝혔습니다.
+payment_is_ios를 왜 제거했나요?,proxy risk,payment_device는 시청기기가 아니라 결제기기/결제환경 proxy이므로 해석 리스크가 큽니다. 15x sensitivity와 사용자 승인에 따라 SHAP input에서 제거되었습니다.,16x_payment_removed_input_gate.csv,iOS 고객 특성을 제거했습니다.
+40대 미인증 iOS 조합은 고객 특성 아닌가요?,demographic proxy risk,이 조합은 audit flag로만 관리하며 대표 세그먼트 기준이나 제언 근거로 쓰지 않습니다.,17x_age40_unverified_ios_audit.csv,40대 미인증 iOS 고객군입니다.
+segment 이름이 너무 임의적인 것 아닌가요?,label risk,맞습니다. 17x segment 이름은 provisional label이며 final customer type이 아닙니다. priority rule과 행동 조건을 함께 제시해야 합니다.,17x_representative_segment_rules.csv,최종 고객 유형입니다.
+이 결과로 바로 캠페인을 실행해도 되나요?,policy risk,아니요. 이번 결과는 campaign candidate이며 A/B test와 운영 검증이 필요합니다.,18x_open_risks.csv,바로 집행하면 됩니다.
+day21 이후 행동은 왜 feature로 쓰지 않았나요?,leakage risk,day21은 scoring point이므로 이후 행동을 feature로 쓰면 대응 전 예측이 아니라 사후 정보를 보는 문제가 생깁니다.,17x_open_risks.csv,4주차까지 보고 판단했습니다.
+genre 추천은 정확한 취향이라고 봐도 되나요?,content proxy risk,장르 변수는 Movie_Master category mapping 기준 proxy입니다. 정확한 취향 확정이 아니라 추천 후보 근거로만 사용합니다.,17x_segment_feature_profile.csv,정확한 취향입니다.
+stable_retained_user에게 할인해야 하나요?,action risk,"방어성 할인보다 만족도 유지, 업셀, 리뷰/추천 유도 후보가 더 안전합니다. 단 최종 정책은 실험으로 검증해야 합니다.",18x_business_recommendation_matrix.csv,할인을 주면 됩니다.

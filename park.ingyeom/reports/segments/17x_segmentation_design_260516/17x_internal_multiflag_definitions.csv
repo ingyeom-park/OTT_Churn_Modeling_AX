@@ -1,0 +1,17 @@
+﻿flag_name,flag_type,definition_text,columns_used,threshold_source,model_feature_yes_no,representative_rule_candidate_yes_no,audit_only_yes_no,caveat
+flag_high_risk_top10,risk,churn_risk descending top 10 percent,"churn_risk,risk_percentile_desc",top10 fixed percentile,no,no,no,score-derived diagnostic
+flag_high_risk_top20,risk,churn_risk descending top 20 percent,"churn_risk,risk_percentile_desc",top20 fixed percentile,no,yes,no,score-derived provisional threshold
+flag_low_risk_stable,risk_behavior,bottom 20 percent risk and stable week3 retention,"churn_risk,retention_w2_ratio,retention_w3_ratio",bottom20 fixed percentile plus behavior,no,yes,no,not campaign-safe threshold
+flag_cold_start_weak,behavior,cold start fixed flags indicate weak activation,"is_cold_start_3d_fixed,is_cold_start_7d_fixed",06x fixed flags,no,yes,no,behavior-only representative candidate
+flag_strong_early_activation,behavior,week1 watch time or session above q75,"watch_time_min_w1,watch_session_w1",q75,no,no,no,diagnostic
+flag_week3_inactive,behavior,week3 watch time or sessions equal zero,"watch_time_min_w3,watch_session_w3",fixed zero,no,yes,no,behavior-only representative candidate
+flag_only_w1,behavior,only week1 activity in day0-20 window,is_only_w1,06x flag,no,yes,no,behavior-only representative candidate
+flag_week3_drop,behavior,week3 usage below week2 and diff negative,"watch_time_min_w2,watch_time_min_w3,diff_between_w3_w2",observed decrease,no,yes,no,behavior-only representative candidate
+flag_retention_decay,behavior,week3 retention below week2 or below 0.5,"retention_w2_ratio,retention_w3_ratio",fixed 0.5 plus relative drop,no,yes,no,behavior-only representative candidate
+flag_retention_stable,behavior,week3 retention stable vs week2 and at least 0.5,"retention_w2_ratio,retention_w3_ratio",fixed 0.5 plus relative comparison,no,yes,no,behavior-only representative candidate
+flag_heavy_user,behavior,total watch time or count above q75,"total_watch_time_min,total_watch_count",q75,no,no,no,diagnostic
+flag_low_activity,behavior,total watch time or count below q25,"total_watch_time_min,total_watch_count",q25,no,yes,no,behavior-only representative candidate
+flag_genre_focused,content_proxy,max genre ratio above q75,"genre ratio columns,max_genre_ratio",q75,no,yes,no,Movie_Master mapping proxy
+flag_new_movie_oriented,content_proxy,new movie in 365d ratio above q75,new_movie_in_365d_ratio,q75,no,yes,no,content proxy
+flag_old_movie_oriented,content_proxy,old movie ratio 5y above q75,old_movie_ratio_5y,q75,no,yes,no,content proxy
+flag_age40_unverified_ios,proxy_audit,age_group == 40 AND is_user_verified == 0 AND payment_is_ios == 1,"age_group,is_user_verified,payment_is_ios",fixed audit definition,no,no,yes,audit only; never representative rule

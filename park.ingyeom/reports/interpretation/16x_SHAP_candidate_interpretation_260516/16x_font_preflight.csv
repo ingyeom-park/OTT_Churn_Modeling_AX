@@ -1,5 +1,2 @@
-﻿candidate_font,found,selected,matplotlib_font_family,unicode_minus_setting,status,note
-Malgun Gothic,yes,yes,Malgun Gothic,False,PASS,C:\Windows\Fonts\malgunbd.ttf
-Noto Sans CJK KR,no,no,Malgun Gothic,False,WARN,not found
-Noto Sans KR,yes,no,Malgun Gothic,False,PASS,C:\Windows\Fonts\NotoSansKR-VF.ttf
-AppleGothic,no,no,Malgun Gothic,False,WARN,not found
+﻿os_name,selected_font,malgun_gothic_available,axes_unicode_minus,status
+nt,Malgun Gothic,True,False,PASS

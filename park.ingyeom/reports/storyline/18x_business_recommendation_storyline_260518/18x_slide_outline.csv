@@ -1,0 +1,15 @@
+﻿slide_no,slide_title,main_message,supporting_evidence,recommended_visual,speaker_note,safe_wording,risk_or_caution
+1,프로젝트 질문,100원딜 유입 이후 재구매를 어떻게 방어할 것인가,"target=is_repurchase, score=repurchase_score/churn_risk",time axis diagram,고객 단정이 아니라 subscription-event row의 행동 신호를 본다,subscription-event rows 기준 분석,고객 수라고 말하지 않는다
+2,왜 단순 재구매율 비교만으로 부족한가,같은 재구매율 뒤에도 행동 패턴은 다르다,17x segment별 row_count와 repurchase_rate,segment summary table,전체 평균보다 segment별 대응 가능성을 봐야 한다,행동 신호별 대응 후보,100원딜 효과를 인과로 말하지 않는다
+3,분석 시간축,"day0~20 관측, day21 이후 대응 후보",17x open risks and safe wording,timeline,day21 이후 행동은 feature로 쓰지 않았다,day0~20 관측창 내 행동 신호,4주차까지 보고 판단했다고 말하지 않는다
+4,모델과 segment의 역할,모델은 대응 우선순위 보조 도구다,17x score source and SHAP evidence link,model role diagram,SHAP은 모델 설명이고 segment는 provisional이다,model explanation,SHAP causal claim 금지
+5,17x 대표 segment 분포,7개 provisional segment로 row당 하나 배정했다,17x_segment_summary.csv,bar chart,row count 기준 분포를 먼저 보여준다,row-level representative segment,final 고객 유형이라고 말하지 않는다
+6,high_risk_week3_inactive_or_drop,week3 inactive/drop 고위험 row는 day21 직후 재진입 후보,row_count and mean_churn_risk,segment card,이탈 확정이 아니라 위험 후보다,이탈 위험 후보,이 고객은 이탈한다 금지
+7,high_risk_only_w1_or_cold_start_weak,초기 activation 약화 row는 온보딩 보강 후보,row_count and behavior rule,segment card,첫 시청/두 번째 시청 유도 후보로 말한다,초기 activation 약화,고객 성향 단정 금지
+8,high_risk_low_activity,저활동 고위험 row는 낮은 마찰의 재방문 유도 후보,row_count and mean_churn_risk,segment card,과도한 개인화보다 broad recommendation이 안전하다,낮은 활동량 신호,할인 확정 금지
+9,medium_risk_retention_decay,중위험 retention decay row는 조기 유지 메시지 후보,row_count and retention decay rule,segment card,고위험 전 단계의 감소 신호로 제시한다,주차별 사용 감소,인과 표현 금지
+10,content_preference_target_candidate,콘텐츠 proxy가 뚜렷한 row는 유사 장르 추천 후보,row_count and content proxy caveat,segment card,Movie_Master category mapping proxy라고 caveat를 붙인다,콘텐츠 취향 proxy,정확한 취향이라고 단정 금지
+11,stable_retained_user,안정 row는 방어성 할인보다 유지/업셀 후보,repurchase_rate and mean_churn_risk,segment card,할인을 줄인다는 결론이 아니라 후보로 말한다,안정적 재구매 가능성 후보,최종 정책 확정 금지
+12,proxy/artifact 주의점,payment/auth/demographic proxy는 근거가 아니라 audit이다,17x_proxy_artifact_audit.csv,caution table,proxy를 segment 이름에 쓰지 않는다,proxy audit,iOS/40대/미인증 세그먼트 금지
+13,최종 비즈니스 운영안,행동 신호별 메시지와 타이밍을 다르게 설계한다,18x recommendation matrix,matrix,제언은 campaign candidate다,제언 후보,A/B test 전 정책 확정 금지
+14,한계와 다음 단계,검증과 실험 설계가 다음 단계다,18x_open_risks.csv,risk list,A/B test와 dashboard handoff로 이어진다,남은 리스크 명시,확정 표현 금지

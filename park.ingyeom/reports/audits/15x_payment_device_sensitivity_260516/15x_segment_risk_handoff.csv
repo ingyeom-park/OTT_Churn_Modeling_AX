@@ -1,0 +1,4 @@
+﻿risk,why_it_matters,segmentation_rule_policy,audit_required_in_17x,safe_wording,unsafe_wording
+payment_device proxy risk,"Payment device can reflect account creation, authentication, acquisition, or payment environment rather than viewing behavior.",Prefer not to use payment_is_* directly in representative segment rules.,yes,payment_is_* may be a payment/account context proxy,payment device explains viewing experience
+age/gender/auth reliability caveat,"Unverified rows may contain self-entered demographics and gender=N means missing, not Neutral.",Do not name representative segments directly by auth/demographic proxy.,yes,demographic/auth fields require caution,40대 미인증 iOS 세그먼트
+final segment rule not selected,"15x is an audit stage, not segmentation.",Keep segment rules pending until 17x.,yes,segment rule candidates remain pending,payment_is_*를 세그먼트 rule로 사용한다
