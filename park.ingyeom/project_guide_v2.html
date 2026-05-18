@@ -415,6 +415,49 @@ hr.section-hr { border: none; border-top: 1px solid var(--border); margin: 28px 
 .wide { grid-column: 1 / -1; }
 @media (max-width: 900px) { .chart-grid { grid-template-columns: 1fr; } }
 
+
+  /* ── Dark/Light mode toggle ── */
+  #theme-toggle {
+    position: fixed; top: 14px; right: 18px; z-index: 9999;
+    background: var(--toggle-bg, rgba(255,255,255,0.12));
+    border: 1px solid var(--toggle-border, rgba(255,255,255,0.2));
+    border-radius: 999px; padding: 6px 14px;
+    cursor: pointer; font-size: 13px; font-weight: 600;
+    color: var(--toggle-text, #e2e8f0);
+    display: flex; align-items: center; gap: 6px;
+    transition: background .2s, color .2s, border-color .2s;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    font-family: inherit;
+  }
+  #theme-toggle:hover { opacity: .85; }
+  body.light-mode #theme-toggle {
+    background: rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.15);
+    color: #1a1d27;
+  }
+
+  /* Dark mode overrides */
+  body.dark-mode {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #1e2130;
+    --border: #2a2d3e; --text: #e2e8f0; --text2: #94a3b8; --text3: #6b7280;
+    --accent: #6366f1; --accent2: #818cf8;
+    --danger: #ef4444; --warn: #f59e0b; --success: #22c55e;
+    --tag-bg: rgba(99,102,241,.15); --tag-text: #a5b4fc;
+    --warn-bg: rgba(245,158,11,.1); --warn-text: #fcd34d;
+    --danger-bg: rgba(239,68,68,.1); --danger-text: #fca5a5;
+  }
+  body.dark-mode .sidebar { background: var(--surface); border-color: var(--border); }
+  body.dark-mode .sidebar a { color: var(--text3); }
+  body.dark-mode .sidebar a:hover,
+  body.dark-mode .sidebar a.active { color: var(--text); background: rgba(99,102,241,.12); }
+  body.dark-mode .card,
+  body.dark-mode .section-card { background: var(--surface); border-color: var(--border); }
+  body.dark-mode table th { background: var(--surface2); color: var(--text2); }
+  body.dark-mode table td { border-color: var(--surface2); }
+  body.dark-mode code { background: var(--surface2); color: #a5b4fc; }
+  body.dark-mode pre { background: var(--surface2); }
+
 </style>
 </head>
 <body>
@@ -1175,5 +1218,38 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); });
 });
 </script>
+
+<script>
+(function(){
+  const btn = document.createElement('button');
+  btn.id = 'theme-toggle';
+  btn.innerHTML = '🌙 다크';
+  document.body.appendChild(btn);
+
+  const STORAGE_KEY = 'ott-theme';
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  function applyTheme(mode) {
+    if (mode === 'light') {
+      document.body.classList.remove('dark-mode');
+      btn.innerHTML = '🌙 다크';
+      localStorage.setItem(STORAGE_KEY, 'light');
+    } else {
+      document.body.classList.remove('light-mode');
+      btn.innerHTML = '🌙 다크';
+      localStorage.setItem(STORAGE_KEY, 'dark');
+    }
+  }
+
+  // 저장된 설정 복원
+  if (saved === 'dark') applyTheme('dark'); else applyTheme('light');
+
+  btn.addEventListener('click', function(){
+    const isLight = !document.body.classList.contains('dark-mode');
+    applyTheme(isLight ? 'dark' : 'light');
+  });
+})();
+</script>
+
 </body>
 </html>
