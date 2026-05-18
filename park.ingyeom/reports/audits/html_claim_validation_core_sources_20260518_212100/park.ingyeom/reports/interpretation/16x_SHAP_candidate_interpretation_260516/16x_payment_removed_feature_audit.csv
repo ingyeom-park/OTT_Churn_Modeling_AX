@@ -1,0 +1,17 @@
+﻿dataset_scope,removed_feature,existed_in_original_expanded,removed_from_SHAP_input,status
+overall_with_promotion,payment_is_mobile,True,True,PASS
+overall_with_promotion,payment_is_pc,True,True,PASS
+overall_with_promotion,payment_is_android,True,True,PASS
+overall_with_promotion,payment_is_ios,True,True,PASS
+overall_without_promotion,payment_is_mobile,True,True,PASS
+overall_without_promotion,payment_is_pc,True,True,PASS
+overall_without_promotion,payment_is_android,True,True,PASS
+overall_without_promotion,payment_is_ios,True,True,PASS
+promotion_only,payment_is_mobile,True,True,PASS
+promotion_only,payment_is_pc,True,True,PASS
+promotion_only,payment_is_android,True,True,PASS
+promotion_only,payment_is_ios,True,True,PASS
+nonpromotion_only,payment_is_mobile,True,True,PASS
+nonpromotion_only,payment_is_pc,True,True,PASS
+nonpromotion_only,payment_is_android,True,True,PASS
+nonpromotion_only,payment_is_ios,True,True,PASS

@@ -1,0 +1,6 @@
+﻿model_name,import_available,will_run,unavailable_reason
+LightGBM,yes,yes,
+XGBoost,yes,no,
+CatBoost,yes,yes,
+HistGradientBoosting,yes,yes,
+RandomForest,yes,yes,

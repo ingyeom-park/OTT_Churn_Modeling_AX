@@ -1,0 +1,7 @@
+﻿feature_set_name,scope_name,row_count,column_count,feature_count,promotion_0_count,promotion_1_count,repurchase_0_count,repurchase_1_count,repurchase_rate,notes
+conservative_safe_22,conservative_overall,23079,24,22,11175,11904,6522,16557,0.717405433510984,conservative split key is row-aligned from expanded after validation
+conservative_safe_22,conservative_promotion_only,11904,24,22,0,11904,3867,8037,0.6751512096774194,conservative split key is row-aligned from expanded after validation
+conservative_safe_22,conservative_nonpromotion_only,11175,24,22,11175,0,2655,8520,0.7624161073825504,conservative split key is row-aligned from expanded after validation
+expanded_feature_set,expanded_overall,23079,82,80,11175,11904,6522,16557,0.717405433510984,expanded contains is_promotion split key
+expanded_feature_set,expanded_promotion_only,11904,82,80,0,11904,3867,8037,0.6751512096774194,expanded contains is_promotion split key
+expanded_feature_set,expanded_nonpromotion_only,11175,82,80,11175,0,2655,8520,0.7624161073825504,expanded contains is_promotion split key

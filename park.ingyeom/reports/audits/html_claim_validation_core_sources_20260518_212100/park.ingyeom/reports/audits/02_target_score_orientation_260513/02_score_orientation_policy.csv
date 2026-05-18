@@ -1,0 +1,5 @@
+﻿policy_item,decision,definition
+model_output_name,repurchase_score or repurchase_probability,higher value means higher probability of repurchase
+business_churn_risk,churn_risk = 1 - repurchase_score,higher value means higher risk of non-repurchase
+ranking_tables,must state sort score,future decile/ranking table must explicitly state repurchase_score or churn_risk
+vague_score_wording,forbidden,never say high score users without naming the score

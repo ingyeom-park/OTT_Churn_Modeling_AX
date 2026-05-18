@@ -1,0 +1,8 @@
+﻿representative_segment,action_status,business_action_candidate,caution
+high_risk_week3_inactive_or_drop,candidate only,day14-20 observed usage drop or week3 inactivity re-entry message candidate,No payment/auth/demographic proxy action.
+high_risk_only_w1_or_cold_start_weak,candidate only,onboarding or low-friction first-watch recommendation candidate,No payment/auth/demographic proxy action.
+high_risk_low_activity,candidate only,low-barrier recommendation or reminder candidate,No payment/auth/demographic proxy action.
+medium_risk_retention_decay,candidate only,week2-week3 retention decay prevention message candidate,No causal claim.
+content_preference_target_candidate,candidate only,similar genre or content curation candidate,Genre/content is Movie_Master mapping proxy.
+stable_retained_user,candidate only,"maintenance, upsell, satisfaction management candidate",Do not over-message.
+general_observation,candidate only,general monitoring or additional information needed,No final campaign action.

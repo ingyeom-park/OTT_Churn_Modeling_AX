@@ -1,0 +1,10 @@
+﻿risk,handling
+segment 이름은 provisional,사용자 승인 전 final customer type으로 부르지 않는다.
+제언은 campaign candidate,A/B test 전 최종 정책으로 쓰지 않는다.
+A/B test 필요,운영 효과는 실험으로 검증해야 한다.
+SHAP은 인과 아님,model explanation으로만 사용한다.
+100원딜 효과는 인과 아님,관측된 집단 차이로만 말한다.
+row-level 분석,고객 수 또는 unique customer 수로 말하지 않는다.
+payment/auth/demographic proxy caution,제언 근거로 직접 사용하지 않는다.
+genre/content mapping caveat,Movie_Master category mapping 기준 proxy다.
+day21 이후 행동 미사용,leakage 방지를 위한 설계이며 이후 행동으로 사후 판단하지 않는다.

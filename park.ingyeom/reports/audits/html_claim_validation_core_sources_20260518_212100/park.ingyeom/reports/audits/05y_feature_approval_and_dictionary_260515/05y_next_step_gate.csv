@@ -1,0 +1,3 @@
+﻿gate,can_proceed,blocking_issue,required_action
+06x_dataset_generation,conditional_yes,none for approved/excluded policy; pending_user_review features must remain excluded,use safe_model_feature_name and create fixed columns during 06x
+pending_user_review_count,yes_if_excluded_from_06x,1,resolve later or keep excluded_until_review

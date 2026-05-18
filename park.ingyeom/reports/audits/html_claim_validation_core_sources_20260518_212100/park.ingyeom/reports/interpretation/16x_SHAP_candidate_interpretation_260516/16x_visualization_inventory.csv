@@ -1,0 +1,16 @@
+﻿figure_file,path,size_bytes,width,height,png_read_ok,status
+16x_fig_00_korean_font_test.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_00_korean_font_test.png,10687,1264,368,True,PASS
+16x_fig_bar_nonpromotion_only.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_bar_nonpromotion_only.png,141725,1263,1820,True,PASS
+16x_fig_bar_overall_with_promotion.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_bar_overall_with_promotion.png,142065,1262,1820,True,PASS
+16x_fig_bar_overall_without_promotion.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_bar_overall_without_promotion.png,141520,1263,1820,True,PASS
+16x_fig_bar_promotion_only.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_bar_promotion_only.png,140578,1263,1820,True,PASS
+16x_fig_beeswarm_nonpromotion_only.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_beeswarm_nonpromotion_only.png,209609,1239,1502,True,PASS
+16x_fig_beeswarm_overall_with_promotion.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_beeswarm_overall_with_promotion.png,244523,1238,1502,True,PASS
+16x_fig_beeswarm_overall_without_promotion.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_beeswarm_overall_without_promotion.png,244445,1239,1502,True,PASS
+16x_fig_beeswarm_promotion_only.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_beeswarm_promotion_only.png,263744,1239,1502,True,PASS
+16x_fig_family_bar_nonpromotion_only.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_family_bar_nonpromotion_only.png,47420,1426,785,True,PASS
+16x_fig_family_bar_overall_with_promotion.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_family_bar_overall_with_promotion.png,51640,1427,785,True,PASS
+16x_fig_family_bar_overall_without_promotion.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_family_bar_overall_without_promotion.png,48312,1426,785,True,PASS
+16x_fig_family_bar_promotion_only.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_family_bar_promotion_only.png,47471,1426,785,True,PASS
+16x_fig_redundancy_family_SHAP_importance.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_redundancy_family_SHAP_importance.png,106840,1429,785,True,PASS
+16x_fig_scope_top10_SHAP_comparison.png,C:\Code\ott-churn-prediction\park.ingyeom\reports\figures\16x_SHAP_candidate_interpretation_260516\16x_fig_scope_top10_SHAP_comparison.png,91783,1745,945,True,PASS

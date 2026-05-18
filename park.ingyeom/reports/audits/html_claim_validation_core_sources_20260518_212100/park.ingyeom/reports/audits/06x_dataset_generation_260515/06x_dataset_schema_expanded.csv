@@ -1,0 +1,83 @@
+﻿column_name,role,source_original_feature,dtype,missing_count,unique_count,use_as_feature,caveat_flag,caveat_reason
+USER_KEY,group_key,USER_KEY,str,0,23032,no,False,
+is_repurchase,target,is_repurchase,int64,0,2,no,False,
+is_promotion,split_key,is_promotion,int64,0,2,yes,True,allowed only in overall_with_promotion; excluded from split-specific models
+is_churn_prevented,feature,is_churn_prevented,int64,0,2,yes,True,"approved as historical ever-benefited flag, not current-cycle post outcome"
+is_user_verified,feature,is_user_verified,int64,0,2,yes,False,
+is_standard,feature,is_standard,int64,0,2,yes,False,
+is_premium,feature,is_premium,int64,0,2,yes,False,
+age_group,feature,age_group,int64,0,7,yes,False,
+is_female,feature,is_female,int64,0,2,yes,False,
+is_male,feature,is_male,int64,0,2,yes,False,
+reg_is_weekend,feature,reg_is_weekend,int64,0,2,yes,False,
+reg_hour_morning,feature,reg_hour_morning,int64,0,2,yes,False,
+reg_hour_afternoon,feature,reg_hour_afternoon,int64,0,2,yes,False,
+reg_hour_evening,feature,reg_hour_evening,int64,0,2,yes,False,
+reg_hour_night,feature,reg_hour_night,int64,0,2,yes,False,
+payment_is_mobile,feature,payment_is_mobile,int64,0,2,yes,False,
+payment_is_pc,feature,payment_is_pc,int64,0,2,yes,False,
+payment_is_android,feature,payment_is_android,int64,0,2,yes,False,
+payment_is_ios,feature,payment_is_ios,int64,0,2,yes,False,
+total_watch_count,feature,total_watch_count,int64,0,59,yes,False,
+unique_movie,feature,unique_movie,int64,0,42,yes,False,
+watch_days,feature,watch_days,int64,0,20,yes,False,
+active_ratio,feature,active_ratio,float64,0,20,yes,False,
+total_watch_time_min,feature,total_watch_time(min),int64,0,1543,yes,False,
+watch_per_day,feature,watch_per_day,float64,0,237,yes,False,
+avg_watch_time_min,feature,avg_watch_time(min),float64,0,5275,yes,False,
+median_watch_time_min,feature,median_watch_time(min),float64,0,331,yes,False,
+std_watch_time_min,feature,std_watch_time(min),float64,0,15475,yes,False,
+avg_daily_watch_time_min,feature,avg_daily_watch_time(min),float64,0,3883,yes,False,
+max_watch_time_min,feature,max_watch_time(min),int64,0,201,yes,False,
+max_daily_watch_time_min,feature,max_daily_watch_time(min),int64,0,633,yes,False,
+max_daily_sessions,feature,max_daily_sessions,int64,0,26,yes,False,
+recency,feature,recency,int64,0,22,yes,False,
+avg_gap_between_watch_days,feature,avg_gap_between_watch_days,float64,0,118,yes,False,
+avg_gap_w1_watch_days,feature,avg_gap_w1_watch_days,float64,0,13,yes,False,
+avg_gap_w2_watch_days,feature,avg_gap_w2_watch_days,float64,0,13,yes,False,
+avg_gap_w3_watch_days,feature,avg_gap_w3_watch_days,float64,0,13,yes,False,
+max_inactive_gap_days,feature,max_inactive_gap_days,int64,0,21,yes,False,
+avg_rewatch_ratio,feature,avg_rewatch_ratio,float64,0,167,yes,False,
+weekend_watch_ratio,feature,weekend_watch_ratio,float64,0,318,yes,False,
+watch_ratio_under_1m,feature,watch_ratio_under_1m,float64,0,288,yes,True,official formula recorded with <= threshold; v3 text uses < threshold and is treated as policy mismatch
+watch_ratio_under_5m,feature,watch_ratio_under_5m,float64,0,310,yes,True,official formula recorded with <= threshold; v3 text uses < threshold and is treated as policy mismatch
+movie_per_active_day,feature,movie_per_active_day,float64,0,225,yes,False,
+max_day_share,feature,max_day_share,float64,0,11949,yes,False,
+day_count_over_3times,feature,day_count_over_3times,int64,0,12,yes,False,
+watch_time_min_w1,feature,watch_time(min)_w1,int64,0,856,yes,False,
+watch_time_min_w2,feature,watch_time(min)_w2,int64,0,849,yes,False,
+watch_time_min_w3,feature,watch_time(min)_w3,int64,0,841,yes,False,
+watch_session_w1,feature,watch_session_w1,int64,0,36,yes,False,
+watch_session_w2,feature,watch_session_w2,int64,0,35,yes,False,
+watch_session_w3,feature,watch_session_w3,int64,0,36,yes,False,
+retention_w2_ratio,feature,retention_w2_ratio,float64,0,8592,yes,False,
+retention_w3_ratio,feature,retention_w3_ratio,float64,0,8484,yes,False,
+diff_between_w2_w1,feature,diff_between_w2_w1,int64,0,1382,yes,False,
+diff_between_w3_w1,feature,diff_between_w3_w1,int64,0,1482,yes,False,
+diff_between_w3_w2,feature,diff_between_w3_w2,int64,0,1407,yes,False,
+is_w1_over_50pct,feature,is_w1_over_50pct,int64,0,2,yes,False,
+is_w2_over_50pct,feature,is_w2_over_50pct,int64,0,2,yes,False,
+is_w3_over_50pct,feature,is_w3_over_50pct,int64,0,2,yes,False,
+is_only_w1,feature,is_only_w1,int64,0,2,yes,False,
+is_only_w2,feature,is_only_w2,int64,0,2,yes,False,
+is_only_w3,feature,is_only_w3,int64,0,2,yes,False,
+new_movie_in_90d_ratio,feature,new_movie_in_90d_ratio,float64,0,231,yes,False,
+new_movie_in_180d_ratio,feature,new_movie_in_180d_ratio,float64,0,247,yes,False,
+new_movie_in_365d_ratio,feature,new_movie_in_365d_ratio,float64,0,272,yes,False,
+old_movie_ratio_5y,feature,old_movie_ratio(5y),float64,0,224,yes,True,Kwangil master value retained; raw Movie_Master reconstruction leaves 9-row mismatch; no fixed feature created
+avg_ott_release_year,feature,avg_ott_release_year,float64,0,14979,yes,False,
+genre_diversity_count,feature,genre_diversity_count,int64,0,12,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+action_adventure_ratio,feature,action_adventure_ratio,float64,0,6020,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+family_animation_ratio,feature,family_animation_ratio,float64,0,4075,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+drama_ratio,feature,drama_ratio,float64,0,8023,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+thriller_crime_ratio,feature,thriller_crime_ratio,float64,0,6598,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+sf_fantasy_ratio,feature,sf_fantasy_ratio,float64,0,5216,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+comedy_ratio,feature,comedy_ratio,float64,0,5444,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+romance_ratio,feature,romance_ratio,float64,0,5387,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+horror_ratio,feature,horror_ratio,float64,0,2312,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+documentary_ratio,feature,documentary_ratio,float64,0,1934,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+historical_war_ratio,feature,historical_war_ratio,float64,0,4215,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+other_ratio,feature,other_ratio,float64,0,1920,yes,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+is_basic,feature,is_basic,int64,0,2,yes,False,
+is_cold_start_3d_fixed,feature,is_cold_start_3d_fixed,int64,0,2,yes,True,fixed replacement approved for modeling; raw recomputation mismatch counts are recorded in formula validation summary
+is_cold_start_7d_fixed,feature,is_cold_start_7d_fixed,int64,0,2,yes,True,fixed replacement approved for modeling; raw recomputation mismatch counts are recorded in formula validation summary

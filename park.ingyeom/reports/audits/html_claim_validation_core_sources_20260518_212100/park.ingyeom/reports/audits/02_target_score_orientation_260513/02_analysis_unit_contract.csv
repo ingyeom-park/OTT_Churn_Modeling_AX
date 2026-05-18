@@ -1,0 +1,4 @@
+﻿contract_item,decision,reason,safe_wording,unsafe_wording
+analysis_unit,row-level / subscription-event-level,USER_KEY duplication exists,행 단위 또는 구독 이벤트 단위; subscription-event-level rows; rows in the 광일 v2 master file,"23,343 unique users; 23,343 customers"
+USER_KEY_duplication,do not call each row a unique user,"row_count=23343, unique_USER_KEY_count=23134, duplicated_USER_KEY_extra_rows=209",USER_KEY 중복이 있으므로 현재 분석 단위는 행 단위로 둔다,각 행은 고유 사용자다
+row_exclusion,no rows excluded in this step,step 02 is contract-only,duration anomaly와 duplicate는 다음 단계 검토 대상으로 carry forward,이 단계에서 이상 행을 제거했다

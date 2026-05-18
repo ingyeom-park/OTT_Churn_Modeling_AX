@@ -1,0 +1,6 @@
+﻿wording_type,wording,safe_alternative
+unsafe,14x에서 최종 모델을 확정했다,14x는 12x 후보 모델의 경량 tuning sensitivity를 확인한 reference 단계다
+unsafe,Optuna가 최종 모델을 만들었다,Optuna는 후보 모델의 hyperparameter sensitivity를 점검했다
+unsafe,tuned LightGBM/CatBoost가 원인을 밝혔다,tuned model은 예측 성능 참고 결과이며 원인 설명은 아니다
+unsafe,top10 churn_risk가 캠페인 대상이다,top-k churn_risk는 threshold가 아니라 diagnostic이다
+unsafe,unique user 기준이다,row-level 또는 subscription-event-level 분석이다

@@ -1,0 +1,22 @@
+2026-05-18T01:15:18 | START 18x_business_recommendation_storyline_260518
+2026-05-18T01:15:18 | park_root=C:\Code\ott-churn-prediction\park.ingyeom
+2026-05-18T01:15:19 | created 18x_preflight_input_validation.csv: rows=12, cols=9
+2026-05-18T01:15:19 | preflight 17x_pass=True seg_count_ok=True assignment_rows=23079 one_seg_ok=True
+2026-05-18T01:15:19 | created 18x_storyline_master.md: chars=1311
+2026-05-18T01:15:19 | created 18x_slide_outline.csv: rows=14, cols=8
+2026-05-18T01:15:19 | created 18x_business_recommendation_matrix.csv: rows=7, cols=13
+2026-05-18T01:15:19 | created 18x_segment_to_message_strategy.csv: rows=7, cols=8
+2026-05-18T01:15:19 | created 18x_presentation_narrative_script.md: chars=981
+2026-05-18T01:15:19 | created 18x_mentor_QA_defense.csv: rows=10, cols=5
+2026-05-18T01:15:19 | created 18x_safe_unsafe_wording.csv: rows=17, cols=3
+2026-05-18T01:15:19 | created 18x_storyline_onepager.md: chars=905
+2026-05-18T01:15:19 | created 18x_segment_priority_for_presentation.csv: rows=7, cols=9
+2026-05-18T01:15:19 | created 18x_open_risks.csv: rows=9, cols=2
+2026-05-18T01:15:19 | created 18x_source_fingerprint_before_after.csv: rows=12, cols=9
+2026-05-18T01:15:19 | created README.md: chars=1411
+2026-05-18T01:15:19 | updated note.md
+2026-05-18T01:15:19 | created 18x_final_checks.csv: rows=32, cols=3
+2026-05-18T01:15:19 | initial final_checks fail_count=2
+2026-05-18T01:15:19 | END notebook execution before packaging
+2026-05-18T01:15:19 | created review zip C:\Code\ott-churn-prediction\park.ingyeom\zip\18x_business_recommendation_storyline_260518_review_package.zip size=38563
+2026-05-18T01:15:19 | created 18x_final_checks.csv: rows=32, cols=3

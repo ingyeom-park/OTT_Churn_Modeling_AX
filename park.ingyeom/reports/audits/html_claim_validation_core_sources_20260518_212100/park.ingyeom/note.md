@@ -3425,39 +3425,3 @@ payment/auth/demographic proxy는 제언 근거로 직접 사용하지 않았다
 다음 단계 인수인계: 발표 슬라이드 제작 시 `18x_slide_outline.csv`를 기본 목차로 쓰고, 본문 문장은 `18x_presentation_narrative_script.md`와 `18x_safe_unsafe_wording.csv`의 안전 표현만 사용한다. 멘토 질문 방어는 `18x_mentor_QA_defense.csv`를 기준으로 한다.
 
 18x final_checks 결과는 `32 PASS / 0 FAIL`이다. review zip은 `zip/18x_business_recommendation_storyline_260518_review_package.zip`에 생성했다.
-
-## 2026-05-19 00:22:27 | project_guide.html 2차 수정
-
-작업명: `project_guide.html` 2차 수정 및 `project_guide_v2.html` 생성.
-
-수정 이유: ChatGPT claim validation audit와 core source CSV 검수에서 기존 HTML의 FAIL/WARN 성격 오류가 확인되었다. 주요 오류는 07x Needs_user_review와 payment_is_* 혼동, cold_start `_fixed` 변수명 누락, watch_time safe name 불일치, 14x Optuna 결과와 15x no-payment sensitivity 결과 혼합, 최종 모델처럼 읽히는 과잉 표현, SHAP `is_promotion` 순위 오기, 세그먼트가 행동 rule only처럼 읽히는 설명 부족이었다.
-
-주요 수정 항목:
-- 07x Needs_user_review 4개를 `age_group`, `is_female`, `is_male`, `is_user_verified`로 정정했다.
-- `is_cold_start_3d_fixed`, `is_cold_start_7d_fixed` 기준을 반영했다.
-- `watch_time_min_w1`, `watch_time_min_w2`, `watch_time_min_w3` safe name 기준으로 설명했다.
-- 14x `expanded_feature_set` Optuna 후보 결과와 15x `expanded_no_payment_device` sensitivity 결과를 분리했다.
-- “최종 모델”, “최종 채택 AUC”처럼 운영 확정으로 읽힐 수 있는 표현을 후보 기준 AUC, diagnostic score, not final model selection 표현으로 완화했다.
-- 16x SHAP에서 개별 feature 기준 `is_promotion`은 2위, family 기준 `acquisition_split_key`는 3위로 정정했다.
-- 17x 세그먼트 설명을 `churn_risk` percentile + day0~20 행동 flag + 우선순위 대표 라벨 방식으로 보강했다.
-- 세그먼트별 쉬운 한국어 설명, 대응 후보, flag dictionary를 추가했다.
-- source artifact details와 다수의 Chart.js 시각화를 추가했다.
-- score source 선택 이유를 추가했다. 17x 세그먼트 점수는 15x `expanded_no_payment_device` / `overall_with_promotion` / `LightGBM` OOF 진단 점수를 사용했고, 이는 16x SHAP 근거와 모델 기준을 맞추기 위한 선택이다.
-- `payment_is_*` 제거 이유를 결론 수준으로 보강했다. 결제기기와 시청기기가 다르며, 결제자와 실제 시청자가 다를 수 있고, 15x sensitivity에서 성능 손실이 near-neutral 수준이었다는 점을 명시했다.
-- 18x safe/unsafe wording과 멘토 방어 QA를 추가했다. 기존 row 단위 반복을 늘리지 않고 score source, payment proxy, SHAP, threshold, 제언 정책화 리스크 중심으로 구성했다.
-
-생성 산출물:
-- `park.ingyeom/project_guide_v2.html`
-- `park.ingyeom/reports/audits/project_guide_v2_revision_checklist.csv`
-- `park.ingyeom/reports/audits/project_guide_v2_source_fingerprint.csv`
-- `park.ingyeom/zip/project_guide_v2_review_package_*.zip`
-
-아직 남은 검수 필요 사항:
-- OOF 기반 AUC 직접 재계산은 이번 HTML 수정 범위 밖이다.
-- `project_guide_v2.html`은 ChatGPT 또는 사람 기준 2차 검수가 필요하다.
-- 차트는 summary/profile CSV 기반 설명용 시각화이며, 새 모델 학습이나 새 통계 검정을 수행한 것이 아니다.
-
-주의:
-- 이 HTML은 설명형 guide이며, 최종 모델 확정 문서가 아니다.
-- segment는 provisional representative label이다.
-- row count는 customer count가 아니라 subscription-event row count다.

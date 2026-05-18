@@ -1,0 +1,2 @@
+﻿v3_variable_name,master_column_exists,current_use_status,mismatch_flag,mismatch_reason,action
+,missing_v3_file,not_available,not_evaluable,v3 team variable file not found in active park.ingyeom tree,continue from master and 05x patch per user instruction

@@ -1,0 +1,6 @@
+﻿type,wording,reason
+safe,SHAP은 fitted candidate model의 repurchase_score 설명이다.,model explanation only
+safe,payment_is_* 4개는 15x no-payment feature list 기준으로 SHAP input에서 제거했다.,approved sensitivity result
+safe,payment/auth/demographic proxy는 17x 대표 rule이 아니라 audit/caveat로만 관리한다.,segmentation guardrail
+unsafe,iOS 결제가 재구매를 만든다.,causal claim and payment_device misuse
+unsafe,SHAP 상위 feature를 바꾸면 이탈이 감소한다.,intervention claim

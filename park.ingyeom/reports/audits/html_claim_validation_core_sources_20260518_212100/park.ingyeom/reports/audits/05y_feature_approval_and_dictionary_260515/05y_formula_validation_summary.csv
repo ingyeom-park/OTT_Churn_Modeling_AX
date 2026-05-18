@@ -1,0 +1,9 @@
+﻿feature_name,validation_source,validation_status,mismatch_count,caveat,action
+cold_start_3d,user_approved_policy,fixed_needed,,original is day0-3; fixed uses day0-2,create is_cold_start_3d_fixed in 06x
+cold_start_7d,user_approved_policy,fixed_needed,,original is day0-7; fixed uses day0-6,create is_cold_start_7d_fixed in 06x
+watch_ratio_under_1m,user_approved_dictionary_policy,formula_recorded,,<= 1 threshold recorded; master value retained,use master value and dictionary formula <= 1
+watch_ratio_under_5m,user_approved_dictionary_policy,formula_recorded,,<= 5 threshold recorded; master value retained,use master value and dictionary formula <= 5
+old_movie_ratio_5y,Kwangil master and prior validation caveat,accepted_with_caveat,9,use master value; no fixed rebuild,record caveat only
+genre_ratio,Movie_Master_v2 reference,accepted_with_caveat,,same MOVIE_NUM may have multiple categories,record duplicate-category caveat
+major_usage_feature,05x contract and raw validation references,normal_validation_recorded,0,,use all usage summary features
+context_derived_feature,05y user approval,normal_validation_recorded,0,,use approved derived context flags

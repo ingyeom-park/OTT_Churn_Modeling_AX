@@ -1,0 +1,22 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified,PASS,read-only nrows=0 schema check only
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\05x_feature_contract_rebuild_patch_260515\05x_feature_contract_rebuild_patch_260515.ipynb
+notebook_executed_with_outputs,PASS,checked execution_count and outputs in saved notebook
+previous_05x_loaded,PASS,91
+all_91_columns_present_in_decision_table,PASS,91
+llm_proposed_decision_values_valid,PASS,"['candidate_for_expanded_feature_set', 'candidate_for_expanded_with_caveat', 'forbidden_or_audit_only_candidate', 'keep_in_conservative_safe_22', 'unresolved_user_review_required']"
+USER_KEY_decision_code_fixed,PASS,USER_KEY
+is_repurchase_decision_code_fixed,PASS,is_repurchase
+no_blank_user_approval_required_for_key_columns,PASS,0
+price_max_screen_flagged_if_present,PASS,actual columns only
+archive_reference_warn_documented,PASS,previous 05x: WARN False
+no_modeling_performed,PASS,patch-only notebook
+no_eda_performed,PASS,patch-only notebook
+no_shap_performed,PASS,patch-only notebook
+no_optuna_performed,PASS,patch-only notebook
+no_segmentation_performed,PASS,patch-only notebook
+README_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_patch_260515\README.md
+note_md_updated,PASS,C:\Code\ott-churn-prediction\park.ingyeom\note.md
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\05x_feature_contract_rebuild_patch_260515_review_package.zip
+critical_fail_count_zero,PASS,0

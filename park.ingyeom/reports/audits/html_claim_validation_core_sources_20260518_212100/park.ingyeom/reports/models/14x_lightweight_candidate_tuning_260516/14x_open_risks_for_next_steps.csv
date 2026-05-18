@@ -1,0 +1,8 @@
+﻿risk,status,next_step
+high VIF / redundancy,open,Carry 10x and 12x caveats into 16x interpretation; do not remove features here
+overfit risk after tuning,open,Review train-valid gap and fold std before reuse
+train-valid gap caution,open,Do not rank by AUC alone
+CatBoost/LightGBM optional package dependency,open,Record import availability and rerun only in environments with packages installed
+top-k threshold caution,open,"Treat top-k as diagnostic, not campaign threshold"
+final model not selected,open,Use later review step for final model decision
+SHAP still not performed,open,16x can perform SHAP or interpretation after candidate review

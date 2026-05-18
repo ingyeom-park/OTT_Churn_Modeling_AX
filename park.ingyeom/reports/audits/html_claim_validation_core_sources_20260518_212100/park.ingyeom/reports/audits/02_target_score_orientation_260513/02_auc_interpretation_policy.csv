@@ -1,0 +1,4 @@
+﻿policy_item,decision,reason
+positive_class,AUC is interpreted with is_repurchase=1 as positive class,target contract keeps is_repurchase as model target
+threshold,AUC itself does not require fixed probability threshold,threshold metrics are not part of step 02
+operational_churn_targeting,targeting churn risk is an operational transformation,churn_risk = 1 - repurchase_score does not change the modeling target

@@ -1,0 +1,40 @@
+2026-05-18T00:53:09 | START 17x_segmentation_design_260516
+2026-05-18T00:53:09 | cwd=C:\Code\ott-churn-prediction\park.ingyeom\notebook\17x_segmentation_design_260516
+2026-05-18T00:53:09 | park_root=C:\Code\ott-churn-prediction\park.ingyeom
+2026-05-18T00:53:09 | preexisting notebook_dir: True
+2026-05-18T00:53:09 | preexisting output_dir: True
+2026-05-18T00:53:09 | preexisting figure_dir: True
+2026-05-18T00:53:09 | preexisting zip_path: False
+2026-05-18T00:53:11 | created 17x_preflight_input_validation.csv: rows=41, cols=10
+2026-05-18T00:53:11 | expanded_shape=(23079, 82); expanded_feature_count=80; 15x_no_payment=True; 16x_gate_count_ok=True; 16x_payment_rows=0
+2026-05-18T00:53:11 | created 17x_score_source_selection.csv: rows=4, cols=14
+2026-05-18T00:53:11 | created 17x_internal_multiflag_definitions.csv: rows=16, cols=9
+2026-05-18T00:53:11 | created 17x_internal_multiflag_assignment.csv: rows=23079, cols=18
+2026-05-18T00:53:11 | created 17x_representative_segment_rules.csv: rows=7, cols=8
+2026-05-18T00:53:11 | created 17x_threshold_audit.csv: rows=12, cols=5
+2026-05-18T00:53:11 | created 17x_representative_segment_assignment.csv: rows=23079, cols=10
+2026-05-18T00:53:12 | created 17x_segmentation_base_datamart.csv: rows=23079, cols=58
+2026-05-18T00:53:12 | created 17x_segment_summary.csv: rows=7, cols=15
+2026-05-18T00:53:12 | created 17x_segment_feature_profile.csv: rows=161, cols=6
+2026-05-18T00:53:12 | created 17x_segment_SHAP_evidence_link.csv: rows=109, cols=9
+2026-05-18T00:53:12 | created 17x_proxy_artifact_audit.csv: rows=7, cols=29
+2026-05-18T00:53:12 | created 17x_age40_unverified_ios_audit.csv: rows=12, cols=5
+2026-05-18T00:53:12 | created 17x_business_action_candidates.csv: rows=7, cols=4
+2026-05-18T00:53:13 | created 17x_dashboard_handoff_datamart.csv: rows=23079, cols=39
+2026-05-18T00:53:13 | created 17x_safe_unsafe_wording.csv: rows=13, cols=3
+2026-05-18T00:53:13 | created 17x_open_risks.csv: rows=7, cols=2
+2026-05-18T00:53:13 | created figure 17x_fig_segment_row_count.png
+2026-05-18T00:53:13 | created figure 17x_fig_segment_churn_risk.png
+2026-05-18T00:53:13 | created figure 17x_fig_segment_repurchase_rate.png
+2026-05-18T00:53:13 | created figure 17x_fig_proxy_contamination.png
+2026-05-18T00:53:13 | created 17x_visualization_inventory.csv: rows=4, cols=4
+2026-05-18T00:53:13 | created 17x_visualization_warnings.csv: rows=1, cols=2
+2026-05-18T00:53:14 | created 17x_source_fingerprint_before_after.csv: rows=41, cols=9
+2026-05-18T00:53:14 | created README.md
+2026-05-18T00:53:14 | updated note.md
+2026-05-18T00:53:14 | created 17x_final_checks.csv: rows=38, cols=3
+2026-05-18T00:53:14 | final_checks fail_count=0; warn_count=2
+2026-05-18T00:53:14 | END notebook execution before packaging
+2026-05-18T00:53:15 | created review zip C:\Code\ott-churn-prediction\park.ingyeom\zip\17x_segmentation_design_260516_review_package.zip size=11588093
+2026-05-18T00:53:15 | created 17x_final_checks.csv: rows=38, cols=3
+2026-05-18T00:54:47 | post-run note.md final_checks summary appended and note_tail_copy refreshed

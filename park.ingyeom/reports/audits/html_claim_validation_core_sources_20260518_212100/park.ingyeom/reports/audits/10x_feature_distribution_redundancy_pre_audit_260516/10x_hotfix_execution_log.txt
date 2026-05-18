@@ -1,0 +1,15 @@
+﻿hotfix_start_time=2026-05-16T02:48:19
+hotfix_end_time=2026-05-16T02:48:19
+notebook_path=C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516.ipynb
+executed_notebook_path=C:\Code\ott-churn-prediction\park.ingyeom\notebook\10x_feature_distribution_redundancy_pre_audit_260516\10x_feature_distribution_redundancy_pre_audit_260516_executed.ipynb
+original_notebook_execution_count_present=True executed_code_cells=14/14
+original_notebook_output_present=True output_code_cells=14/14
+executed_notebook_execution_count_present=True executed_code_cells=14/14
+executed_notebook_output_present=True output_code_cells=14/14
+final_checks_rebuild_result=10x_final_checks.csv and 10x_hotfix_final_checks.csv rebuilt
+duplicate_zip_entry_check_result=PASS duplicate_entries=0
+age_group_correction_result=True
+feature_refinement_policy_creation_result=True rows=10
+warnings=
+errors=
+final_status=PASS

@@ -1,0 +1,3 @@
+﻿is_promotion,n,repurchase_rate,non_repurchase_rate,promotion_minus_nonpromotion_repurchase_rate_diff,relative_difference_vs_nonpromotion_descriptive_only,interpretation_limit
+0,11388,0.7588689848963821,0.24113101510361784,-0.08467408736396886,-0.11157932271475092,descriptive comparison only; no causal inference
+1,11955,0.6741948975324132,0.32580510246758676,-0.08467408736396886,-0.11157932271475092,descriptive comparison only; no causal inference

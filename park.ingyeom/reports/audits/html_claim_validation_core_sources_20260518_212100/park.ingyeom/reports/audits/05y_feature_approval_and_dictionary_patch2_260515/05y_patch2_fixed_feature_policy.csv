@@ -1,0 +1,5 @@
+﻿feature_name,policy,formula,model_use_plan,caveat
+is_basic,create in 06x from max_screen,1 if max_screen is neither 2 nor 4 else 0; generated in 06x from max_screen,model_feature,
+is_cold_start_3d_fixed,create fixed replacement in 06x,"1 if first_watch_rel_day <= 2 else 0, where first_watch_rel_day = first watch day minus reg_date",model_feature,corrected mismatch count vs original is_cold_start_3d = 1782
+is_cold_start_7d_fixed,create fixed replacement in 06x,"1 if first_watch_rel_day <= 6 else 0, where first_watch_rel_day = first watch day minus reg_date",model_feature,corrected mismatch count vs original is_cold_start_7d = 964
+old_movie_ratio(5y),retain Kwangil source master value as-is; do not create fixed replacement,source master value used as-is; raw Movie_Master reconstruction leaves 9-row mismatch caveat and no fixed replacement is created,model_feature,9-row mismatch remains when attempting raw Movie_Master reconstruction

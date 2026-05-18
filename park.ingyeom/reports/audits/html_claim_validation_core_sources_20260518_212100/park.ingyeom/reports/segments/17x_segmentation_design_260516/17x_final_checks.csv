@@ -1,0 +1,39 @@
+﻿check_name,status,detail
+all_outputs_inside_park_ingyeom,PASS,
+raw_source_csv_not_modified,PASS,
+source_fingerprint_created,PASS,
+source_fingerprint_unchanged,PASS,
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\17x_segmentation_design_260516\17x_segmentation_design_260516.ipynb
+notebook_executed,PASS,execution reached final checks cell
+06x_inputs_loaded,PASS,
+06x_final_checks_pass,PASS,
+07x_inputs_loaded,PASS,
+07x_final_checks_pass,PASS,
+15x_inputs_loaded,PASS,
+15x_final_checks_pass,PASS,
+16x_inputs_loaded,PASS,
+16x_final_checks_pass,PASS,
+score_source_filtered_to_expanded_no_payment_device,PASS,
+primary_score_scope_overall_with_promotion,PASS,
+primary_score_model_LightGBM,PASS,
+churn_risk_equals_1_minus_repurchase_score,PASS,
+row_count_23079,PASS,"base=23079, row_id_ok=True, user_match=True, target_match=True"
+one_representative_segment_per_row,PASS,
+no_payment_feature_used_in_representative_rule,PASS,
+no_auth_feature_used_in_representative_rule,PASS,
+no_demographic_feature_used_in_representative_rule,PASS,
+flag_age40_unverified_ios_audit_only,PASS,
+payment_features_audit_only,PASS,
+no_model_training_performed,PASS,17x uses existing 15x OOF predictions only
+no_optuna_performed,PASS,no tuning executed
+no_SHAP_recalculation_performed,PASS,16x SHAP CSV read only
+no_feature_removal_performed,PASS,17x did not alter feature contracts
+segment_summary_created,PASS,
+proxy_audit_created,PASS,
+business_action_candidates_created,PASS,
+dashboard_handoff_created,PASS,
+safe_unsafe_wording_created,PASS,
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\17x_segmentation_design_260516_review_package.zip
+review_zip_inventory_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_review_zip_inventory.csv

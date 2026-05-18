@@ -1,0 +1,23 @@
+﻿conservative_safe_22_basis,original_feature_name,safe_model_feature_name,use_in_conservative_plan,formula
+05x_conservative_safe_22_with_patch2_fixed_policy,avg_gap_w1_watch_days,avg_gap_w1_watch_days,yes,mean gap between active watch days inside week 1
+05x_conservative_safe_22_with_patch2_fixed_policy,avg_gap_w2_watch_days,avg_gap_w2_watch_days,yes,mean gap between active watch days inside week 2
+05x_conservative_safe_22_with_patch2_fixed_policy,avg_gap_w3_watch_days,avg_gap_w3_watch_days,yes,mean gap between active watch days inside week 3
+05x_conservative_safe_22_with_patch2_fixed_policy,watch_time(min)_w1,watch_time_min_w1,yes,sum of watch_time(min) in observation week 1
+05x_conservative_safe_22_with_patch2_fixed_policy,watch_time(min)_w2,watch_time_min_w2,yes,sum of watch_time(min) in observation week 2
+05x_conservative_safe_22_with_patch2_fixed_policy,watch_time(min)_w3,watch_time_min_w3,yes,sum of watch_time(min) in observation week 3
+05x_conservative_safe_22_with_patch2_fixed_policy,watch_session_w1,watch_session_w1,yes,count of watch sessions in observation week 1
+05x_conservative_safe_22_with_patch2_fixed_policy,watch_session_w2,watch_session_w2,yes,count of watch sessions in observation week 2
+05x_conservative_safe_22_with_patch2_fixed_policy,watch_session_w3,watch_session_w3,yes,count of watch sessions in observation week 3
+05x_conservative_safe_22_with_patch2_fixed_policy,retention_w2_ratio,retention_w2_ratio,yes,watch_session_w2 divided by watch_session_w1; guarded for zero denominator
+05x_conservative_safe_22_with_patch2_fixed_policy,retention_w3_ratio,retention_w3_ratio,yes,watch_session_w3 divided by watch_session_w1; guarded for zero denominator
+05x_conservative_safe_22_with_patch2_fixed_policy,diff_between_w2_w1,diff_between_w2_w1,yes,watch_session_w2 minus watch_session_w1
+05x_conservative_safe_22_with_patch2_fixed_policy,diff_between_w3_w1,diff_between_w3_w1,yes,watch_session_w3 minus watch_session_w1
+05x_conservative_safe_22_with_patch2_fixed_policy,diff_between_w3_w2,diff_between_w3_w2,yes,watch_session_w3 minus watch_session_w2
+05x_conservative_safe_22_with_patch2_fixed_policy,is_w1_over_50pct,is_w1_over_50pct,yes,1 if week 1 watch time share is greater than or equal to 50 percent else 0
+05x_conservative_safe_22_with_patch2_fixed_policy,is_w2_over_50pct,is_w2_over_50pct,yes,1 if week 2 watch time share is greater than or equal to 50 percent else 0
+05x_conservative_safe_22_with_patch2_fixed_policy,is_w3_over_50pct,is_w3_over_50pct,yes,1 if week 3 watch time share is greater than or equal to 50 percent else 0
+05x_conservative_safe_22_with_patch2_fixed_policy,is_only_w1,is_only_w1,yes,1 if watch activity exists only in week 1 among weeks 1 to 3 else 0
+05x_conservative_safe_22_with_patch2_fixed_policy,is_only_w2,is_only_w2,yes,1 if watch activity exists only in week 2 among weeks 1 to 3 else 0
+05x_conservative_safe_22_with_patch2_fixed_policy,is_only_w3,is_only_w3,yes,1 if watch activity exists only in week 3 among weeks 1 to 3 else 0
+05x_conservative_safe_22_with_patch2_fixed_policy,is_cold_start_3d_fixed,is_cold_start_3d_fixed,yes,"1 if first_watch_rel_day <= 2 else 0, where first_watch_rel_day = first watch day minus reg_date"
+05x_conservative_safe_22_with_patch2_fixed_policy,is_cold_start_7d_fixed,is_cold_start_7d_fixed,yes,"1 if first_watch_rel_day <= 6 else 0, where first_watch_rel_day = first watch day minus reg_date"

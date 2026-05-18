@@ -1,0 +1,428 @@
+from __future__ import annotations
+
+import csv
+import html
+from pathlib import Path
+
+
+ROOT = Path.cwd()
+PARK = ROOT / "park.ingyeom"
+OUT = PARK / "shap_visual_guide.html"
+INTERP = PARK / "reports" / "interpretation" / "16x_SHAP_candidate_interpretation_260516"
+FIG = PARK / "reports" / "figures" / "16x_SHAP_candidate_interpretation_260516"
+
+
+def read_rows(path: Path) -> list[dict[str, str]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def esc(value: object) -> str:
+    return html.escape(str(value), quote=True)
+
+
+def fnum(value: str) -> float:
+    return float(value) if value not in ("", None) else 0.0
+
+
+VAR_KO = {
+    "watch_time_min_w3": "3주차 총 시청 시간, 분 단위",
+    "is_promotion": "100원딜 프로모션 유입 여부, 1=프로모션, 0=일반",
+    "retention_w2_ratio": "1주차 대비 2주차 시청 유지 비율",
+    "retention_w3_ratio": "1주차 대비 3주차 시청 유지 비율",
+    "drama_ratio": "전체 시청 콘텐츠 중 드라마 장르 비율",
+    "family_animation_ratio": "전체 시청 콘텐츠 중 가족/애니메이션 장르 비율",
+    "romance_ratio": "전체 시청 콘텐츠 중 로맨스 장르 비율",
+    "thriller_crime_ratio": "전체 시청 콘텐츠 중 스릴러/범죄 장르 비율",
+    "action_adventure_ratio": "전체 시청 콘텐츠 중 액션/어드벤처 장르 비율",
+    "diff_between_w2_w1": "2주차 시청시간 - 1주차 시청시간, 증감 신호",
+    "is_cold_start_3d_fixed": "구독 후 3일 이내 첫 시청 여부, row-level 재계산 fixed 버전",
+    "diff_between_w3_w2": "3주차 시청시간 - 2주차 시청시간, 증감 신호",
+    "is_churn_prevented": "이전 이탈 방지 이력 여부",
+    "is_user_verified": "본인인증 완료 여부, 인증 상태 대리 변수",
+    "is_standard": "스탠다드 요금제 여부",
+    "is_premium": "프리미엄 요금제 여부",
+    "age_group": "나이대 그룹, 인구통계 대리 변수",
+    "is_female": "여성 여부, 인구통계 대리 변수",
+    "is_male": "남성 여부, 인구통계 대리 변수",
+    "reg_is_weekend": "주말 가입 여부",
+    "reg_hour_morning": "오전 가입 여부",
+    "reg_hour_afternoon": "오후 가입 여부",
+    "reg_hour_evening": "저녁 가입 여부",
+}
+
+
+FAMILY_KO = {
+    "usage_retention_behavior": "시청·유지 행동 묶음",
+    "content_preference_context": "콘텐츠 취향 맥락 묶음",
+    "acquisition_split_key": "유입 구분 변수 묶음",
+    "other_feature_family": "기타 피처 묶음",
+    "membership_context": "멤버십 맥락 묶음",
+    "demographic_proxy_caveat": "인구통계 대리 변수 주의 묶음",
+    "registration_context": "가입 시점 맥락 묶음",
+    "auth_proxy_caveat": "인증 상태 대리 변수 주의 묶음",
+}
+
+
+SCOPE_KO = {
+    "overall_with_promotion": "전체 row + is_promotion 포함",
+    "overall_without_promotion": "전체 row + is_promotion 제외",
+    "promotion_only": "100원딜 row만",
+    "nonpromotion_only": "비프로모션 row만",
+}
+
+
+def feature_label(name: str) -> str:
+    return f"{name} ({VAR_KO.get(name, '한국어 설명 확인 필요')})"
+
+
+def family_label(name: str) -> str:
+    return f"{FAMILY_KO.get(name, name)} ({name})"
+
+
+def rel(path: Path) -> str:
+    return path.relative_to(PARK).as_posix()
+
+
+def img_card(title: str, file_name: str, caption: str, detail: str = "", wide: bool = True) -> str:
+    path = FIG / file_name
+    klass = "figure-card wide" if wide else "figure-card"
+    missing = "" if path.exists() else "<div class='danger'>이미지 파일을 찾지 못했습니다.</div>"
+    detail_html = f"<p>{detail}</p>" if detail else ""
+    return f"""
+    <article class="{klass}">
+      <h3>{esc(title)}</h3>
+      <figure>
+        <img src="{esc(rel(path))}" alt="{esc(title)}">
+        <figcaption>{esc(caption)}</figcaption>
+      </figure>
+      {missing}
+      {detail_html}
+    </article>
+    """
+
+
+def top_global_table() -> str:
+    rows = [
+        r
+        for r in read_rows(INTERP / "16x_SHAP_global_importance.csv")
+        if r["dataset_scope"] == "overall_with_promotion" and r["model_name"] == "LightGBM"
+    ][:12]
+    trs = []
+    for i, r in enumerate(rows, 1):
+        trs.append(
+            "<tr>"
+            f"<td>{i}</td>"
+            f"<td>{esc(feature_label(r['feature']))}</td>"
+            f"<td>{esc(family_label(r['feature_family']))}</td>"
+            f"<td>{fnum(r['mean_abs_shap']):.4f}</td>"
+            "</tr>"
+        )
+    return "<table><tr><th>순위</th><th>피처</th><th>피처 묶음</th><th>mean |SHAP|</th></tr>" + "".join(trs) + "</table>"
+
+
+def family_table() -> str:
+    rows = [
+        r
+        for r in read_rows(INTERP / "16x_SHAP_family_importance.csv")
+        if r["dataset_scope"] == "overall_with_promotion" and r["model_name"] == "LightGBM"
+    ]
+    trs = []
+    for i, r in enumerate(rows, 1):
+        trs.append(
+            "<tr>"
+            f"<td>{i}</td>"
+            f"<td>{esc(family_label(r['feature_family']))}</td>"
+            f"<td>{fnum(r['mean_abs_shap_sum']):.4f}</td>"
+            "</tr>"
+        )
+    return "<table><tr><th>순위</th><th>피처 묶음</th><th>mean |SHAP| 합계</th></tr>" + "".join(trs) + "</table>"
+
+
+def direction_table() -> str:
+    rows = [
+        r
+        for r in read_rows(INTERP / "16x_SHAP_direction_summary.csv")
+        if r["dataset_scope"] == "overall_with_promotion" and r["model_name"] == "LightGBM"
+    ][:12]
+    trs = []
+    for r in rows:
+        corr = fnum(r["feature_value_shap_corr"])
+        direction = "피처값이 클수록 재구매 점수를 올리는 방향" if corr > 0 else "피처값이 클수록 재구매 점수를 낮추는 방향"
+        trs.append(
+            "<tr>"
+            f"<td>{esc(feature_label(r['feature']))}</td>"
+            f"<td>{esc(family_label(r['feature_family']))}</td>"
+            f"<td>{corr:.3f}</td>"
+            f"<td>{esc(direction)}</td>"
+            "</tr>"
+        )
+    return "<table><tr><th>피처</th><th>피처 묶음</th><th>피처값-SHAP 상관</th><th>읽는 법</th></tr>" + "".join(trs) + "</table>"
+
+
+def scope_cards() -> str:
+    specs = [
+        ("전체 row + is_promotion 포함", "16x_fig_bar_overall_with_promotion.png", "16x_fig_beeswarm_overall_with_promotion.png", "16x_fig_family_bar_overall_with_promotion.png"),
+        ("전체 row + is_promotion 제외", "16x_fig_bar_overall_without_promotion.png", "16x_fig_beeswarm_overall_without_promotion.png", "16x_fig_family_bar_overall_without_promotion.png"),
+        ("100원딜 row만", "16x_fig_bar_promotion_only.png", "16x_fig_beeswarm_promotion_only.png", "16x_fig_family_bar_promotion_only.png"),
+        ("비프로모션 row만", "16x_fig_bar_nonpromotion_only.png", "16x_fig_beeswarm_nonpromotion_only.png", "16x_fig_family_bar_nonpromotion_only.png"),
+    ]
+    cards = []
+    for title, bar, bee, fam in specs:
+        cards.append(
+            f"""
+            <details class="scope-detail">
+              <summary>{esc(title)} SHAP 그림 3종 보기</summary>
+              <div class="scope-grid">
+                {img_card(title + " bar", bar, "피처별 평균 절대 SHAP 중요도입니다.", wide=False)}
+                {img_card(title + " beeswarm", bee, "각 row의 SHAP 분포와 방향성을 함께 보여줍니다.", wide=False)}
+                {img_card(title + " family bar", fam, "피처를 묶음 단위로 합산한 중요도입니다.", wide=False)}
+              </div>
+            </details>
+            """
+        )
+    return "".join(cards)
+
+
+def build_html() -> str:
+    top1 = read_rows(INTERP / "16x_SHAP_global_importance.csv")[0]
+    return f"""<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>16x SHAP 시각화 전문 해설서</title>
+  <style>
+    :root {{
+      --bg:#f6f7fb; --surface:#ffffff; --surface2:#f0f3f8; --text:#17202a; --text2:#445066; --muted:#6b7280;
+      --blue:#378ADD; --pink:#D4537E; --green:#1D9E75; --border:#d9dee8; --warn:#f08c00; --danger:#c92a2a;
+    }}
+    * {{ box-sizing:border-box; }}
+    body {{ margin:0; font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background:var(--bg); color:var(--text); line-height:1.75; }}
+    .layout {{ display:grid; grid-template-columns:260px minmax(0,1fr); min-height:100vh; }}
+    aside {{ position:sticky; top:0; height:100vh; overflow:auto; background:#fff; border-right:1px solid var(--border); padding:24px 20px; }}
+    aside h1 {{ font-size:18px; margin:0 0 8px; line-height:1.35; }}
+    aside p {{ margin:0 0 18px; color:var(--muted); font-size:12px; }}
+    aside a {{ display:block; color:var(--text2); text-decoration:none; padding:7px 0; font-size:13px; }}
+    main {{ max-width:1280px; width:100%; padding:34px 42px 72px; }}
+    section {{ margin:0 0 42px; }}
+    h2 {{ font-size:25px; margin:0 0 16px; letter-spacing:0; }}
+    h3 {{ font-size:17px; margin:0 0 12px; letter-spacing:0; }}
+    p {{ margin:0 0 12px; color:var(--text2); }}
+    .hero {{ background:linear-gradient(135deg,#1f5fbf,#1D9E75); color:#fff; border-radius:10px; padding:32px; margin-bottom:28px; }}
+    .hero h2 {{ font-size:32px; margin-bottom:10px; color:#fff; }}
+    .hero p {{ color:#eef6ff; max-width:960px; }}
+    .cards {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:stretch; }}
+    .card, .figure-card, .note {{ background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:22px; box-shadow:0 8px 20px rgba(10,20,40,.04); }}
+    .note {{ max-width:none; min-height:100%; font-size:15px; }}
+    .note p {{ margin-bottom:16px; }}
+    .stat {{ font-size:30px; font-weight:800; color:var(--blue); line-height:1.1; }}
+    .label {{ color:var(--muted); font-size:12px; margin-top:4px; }}
+    .figure-grid {{ display:grid; grid-template-columns:minmax(0,1.45fr) minmax(420px,.95fr); gap:18px; align-items:stretch; }}
+    .figure-grid.equal {{ grid-template-columns:1fr 1fr; }}
+    .figure-grid .figure-card, .figure-grid .note {{ height:100%; }}
+    .figure-card table {{ font-size:14px; }}
+    .wide {{ grid-column:1 / -1; }}
+    figure {{ margin:0; }}
+    img {{ width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:8px; background:#fff; }}
+    figcaption {{ color:var(--muted); font-size:12px; margin-top:8px; }}
+    table {{ width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden; font-size:13px; }}
+    th,td {{ border-bottom:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top; }}
+    th {{ background:var(--surface2); font-size:12px; color:var(--text2); }}
+    tr:last-child td {{ border-bottom:0; }}
+    .warn {{ border-left:5px solid var(--warn); }}
+    .danger {{ border-left:5px solid var(--danger); color:var(--danger); }}
+    .safe {{ border-left:5px solid var(--green); }}
+    .pill {{ display:inline-block; padding:3px 7px; border-radius:5px; background:var(--surface2); border:1px solid var(--border); color:var(--text2); font-size:12px; margin:2px; }}
+    .scope-detail {{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px 18px; margin-bottom:14px; }}
+    summary {{ cursor:pointer; font-weight:700; }}
+    .scope-grid {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:16px; }}
+    .explain-wide {{ grid-column:1 / -1; font-size:15px; }}
+    .source {{ font-size:12px; color:var(--muted); margin-top:12px; }}
+    @media (max-width:980px) {{
+      .layout {{ grid-template-columns:1fr; }}
+      aside {{ position:relative; height:auto; }}
+      main {{ padding:24px 18px 56px; }}
+      .cards, .figure-grid, .figure-grid.equal, .scope-grid {{ grid-template-columns:1fr; }}
+      .hero h2 {{ font-size:25px; }}
+    }}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <h1>16x SHAP 시각화 해설</h1>
+    <p>실제 16x PNG 기반. 새 모델링 없음.</p>
+    <a href="#overview">읽기 전 기준</a>
+    <a href="#bar">Global bar</a>
+    <a href="#beeswarm">Beeswarm</a>
+    <a href="#family">Family importance</a>
+    <a href="#direction">방향성 해석</a>
+    <a href="#scope">Scope 비교</a>
+    <a href="#caution">발표 주의 문장</a>
+    <a href="#sources">근거 파일</a>
+  </aside>
+  <main>
+    <div class="hero">
+      <h2>16x SHAP 시각화 전문 해설서</h2>
+      <p>이 문서는 100원딜 OTT 이탈 분석에서 생성된 16x SHAP 그림만 모아 해석하는 전용 HTML입니다. 그림은 모두 실제 산출물 PNG를 사용하며, 설명은 16x CSV와 figure inventory 기준으로 작성했습니다.</p>
+    </div>
+
+    <section id="overview">
+      <h2>읽기 전 기준</h2>
+      <div class="cards">
+        <div class="card safe">
+          <div class="stat">16x</div>
+          <div class="label">SHAP candidate interpretation</div>
+          <p>payment_is_mobile / payment_is_pc / payment_is_android / payment_is_ios 제거 후의 SHAP 해석 산출물입니다.</p>
+        </div>
+        <div class="card safe">
+          <div class="stat">LightGBM</div>
+          <div class="label">주 해석 기준 모델</div>
+          <p>세그먼트 score source와 SHAP evidence 기준을 맞추기 위해 LightGBM 기준 해석을 중심으로 봅니다.</p>
+        </div>
+        <div class="card warn">
+          <div class="stat">인과 아님</div>
+          <div class="label">가장 중요한 해석 경계</div>
+          <p>SHAP은 모델 설명입니다. 어떤 피처가 재구매를 만들었다거나 이탈을 유발했다는 뜻이 아닙니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bar">
+      <h2>1. Global bar: 어떤 피처를 많이 썼는가</h2>
+      <div class="figure-grid">
+        {img_card(
+            "전체 row + is_promotion 포함: SHAP bar",
+            "16x_fig_bar_overall_with_promotion.png",
+            "mean |SHAP| 기준 전역 중요도입니다. 막대가 길수록 모델이 재구매 점수를 구분할 때 해당 피처를 많이 활용했다는 뜻입니다.",
+            "이 그림에서 1위는 watch_time_min_w3 (3주차 총 시청 시간, 분 단위)이고, 2위는 is_promotion (100원딜 프로모션 유입 여부)입니다. 다만 is_promotion이 높다는 것은 100원딜이 이탈을 일으켰다는 뜻이 아니라, 모델이 프로모션 유입 여부를 재구매 구분 신호로 활용했다는 뜻입니다.",
+        )}
+        <div class="figure-card">
+          <h3>Top 12 실제 수치</h3>
+          {top_global_table()}
+          <p class="source">근거: 16x_SHAP_global_importance.csv</p>
+        </div>
+      </div>
+      <div class="note explain-wide safe" style="margin-top:18px;">
+        <h3>이 그림에서 발표자가 꼭 말해야 하는 핵심</h3>
+        <p>bar 그림은 “어떤 피처가 모델 안에서 많이 쓰였는가”를 보여주는 전역 중요도 그림입니다. 여기서 중요한 점은 1위가 watch_time_min_w3 (3주차 총 시청 시간, 분 단위)이고, 상위권에 retention_w2_ratio (1주차 대비 2주차 시청 유지 비율), retention_w3_ratio (1주차 대비 3주차 시청 유지 비율), diff_between_w2_w1 (2주차 시청시간 - 1주차 시청시간, 증감 신호) 같은 시청·유지 행동 신호가 함께 있다는 점입니다.</p>
+        <p>따라서 발표에서는 “모델이 3주차 시청량과 유지율 변화를 재구매 점수 구분에 크게 활용했다”고 말하는 것이 안전합니다. 반대로 “3주차 시청시간이 재구매를 만든다”라고 말하면 인과 주장으로 넘어가므로 피해야 합니다.</p>
+      </div>
+    </section>
+
+    <section id="beeswarm">
+      <h2>2. Beeswarm: 피처값의 방향과 분포를 함께 본다</h2>
+      <div class="figure-grid">
+        {img_card(
+            "전체 row + is_promotion 포함: SHAP beeswarm",
+            "16x_fig_beeswarm_overall_with_promotion.png",
+            "각 점은 row 하나입니다. x축은 해당 피처가 모델의 재구매 점수를 어느 방향으로 밀었는지 보여줍니다.",
+            "beeswarm은 bar보다 정보가 많습니다. 같은 피처라도 모든 row에서 같은 방향으로 작동하지 않을 수 있고, 분포가 넓으면 row별 영향이 크게 달랐다는 뜻입니다. 단, 이 방향성도 모델 내부 설명일 뿐 실제 고객 행동의 원인 설명이 아닙니다.",
+        )}
+        <div class="note warn">
+          <h3>beeswarm을 읽는 순서</h3>
+          <p>먼저 y축에서 어떤 피처가 위에 있는지 봅니다. 위에 있을수록 전역 중요도가 큽니다.</p>
+          <p>그다음 x축을 봅니다. 오른쪽은 재구매 점수를 올리는 방향, 왼쪽은 재구매 점수를 낮추는 방향입니다.</p>
+          <p>마지막으로 색과 퍼짐을 봅니다. 피처값이 높은 row와 낮은 row가 모델 점수에 어떤 방향으로 연결됐는지 대략적으로 확인할 수 있습니다.</p>
+          <p><strong>주의:</strong> “오른쪽에 있으니 원인이다”가 아닙니다. “모델이 그렇게 점수화했다”가 안전한 표현입니다.</p>
+        </div>
+      </div>
+      <div class="note explain-wide safe" style="margin-top:18px;">
+        <h3>bar보다 beeswarm이 더 중요한 이유</h3>
+        <p>bar는 평균 중요도만 보여주기 때문에 피처가 어떤 방향으로 작동했는지, row마다 영향이 얼마나 달랐는지는 잘 보이지 않습니다. beeswarm은 각 row가 점 하나로 찍히기 때문에 같은 피처라도 어떤 row에서는 재구매 점수를 올리고, 어떤 row에서는 낮추는 식의 분포를 볼 수 있습니다.</p>
+        <p>그래서 이 그림은 “모델이 모든 고객을 같은 방식으로 본 것이 아니라, 같은 피처라도 row별 맥락에 따라 다른 점수 영향을 줬다”는 설명에 유용합니다. 다만 여기서도 고객 행동의 원인을 증명하는 것은 아니므로, 메시지 전략으로 옮길 때는 반드시 후보 표현을 써야 합니다.</p>
+      </div>
+    </section>
+
+    <section id="family">
+      <h2>3. Family importance: 변수 묶음 단위로 보면 무엇이 중심인가</h2>
+      <div class="figure-grid">
+        {img_card(
+            "피처 묶음 중요도",
+            "16x_fig_family_bar_overall_with_promotion.png",
+            "개별 피처를 family 단위로 합산한 SHAP 중요도입니다.",
+            "개별 피처만 보면 장르나 프로모션 변수가 눈에 띄지만, 묶음 단위로 보면 usage_retention_behavior (시청·유지 행동 묶음)가 가장 큽니다. 따라서 발표에서는 “핵심은 day0~20 시청·유지 행동 신호”라고 말하는 것이 가장 안전합니다.",
+        )}
+        <div class="figure-card">
+          <h3>Family 실제 수치</h3>
+          {family_table()}
+          <p class="source">근거: 16x_SHAP_family_importance.csv</p>
+        </div>
+      </div>
+      {img_card(
+          "redundancy family SHAP importance",
+          "16x_fig_redundancy_family_SHAP_importance.png",
+          "중복·유사 피처 묶음을 감안해 family 수준 해석을 보조하는 그림입니다.",
+          "피처가 많을수록 개별 피처 중요도가 쪼개져 보일 수 있습니다. 그래서 발표에서는 개별 피처 순위만 말하지 않고, family 수준의 큰 축도 함께 설명해야 합니다.",
+      )}
+    </section>
+
+    <section id="direction">
+      <h2>4. 방향성 요약: 점수 방향을 어디까지 말할 수 있나</h2>
+      <div class="note warn explain-wide">
+        <h3>방향성 해석의 안전선</h3>
+        <p>아래 표는 피처값과 SHAP 값의 상관을 요약한 것입니다. 양수면 피처값이 커질수록 모델이 재구매 점수를 올리는 방향으로 쓰는 경향이 있고, 음수면 낮추는 방향으로 쓰는 경향이 있다는 뜻입니다.</p>
+        <p>하지만 이 표도 인과가 아닙니다. 특히 is_user_verified, age_group, 성별 변수는 인증·인구통계 대리 변수 caveat가 있으므로 고객 특성처럼 직접 해석하면 안 됩니다.</p>
+      </div>
+      {direction_table()}
+    </section>
+
+    <section id="scope">
+      <h2>5. Scope별 SHAP: 같은 모델 설명도 분석 범위에 따라 달라진다</h2>
+      {img_card(
+          "scope별 Top10 SHAP 비교",
+          "16x_fig_scope_top10_SHAP_comparison.png",
+          "overall_with_promotion, overall_without_promotion, promotion_only, nonpromotion_only의 주요 피처를 비교하는 그림입니다.",
+          "scope별 비교는 특정 피처가 모든 집단에서 안정적으로 중요한지, 특정 scope에서만 두드러지는지 확인하기 위한 장치입니다. 하나의 scope만 보고 전체 프로젝트 결론으로 확장하면 과잉 해석이 됩니다.",
+      )}
+      {scope_cards()}
+    </section>
+
+    <section id="caution">
+      <h2>6. 발표에서 안전한 문장과 위험한 문장</h2>
+      <div class="cards">
+        <div class="card safe">
+          <h3>안전한 표현</h3>
+          <p>“모델이 재구매 여부를 구분할 때 watch_time_min_w3 (3주차 총 시청 시간, 분 단위)를 가장 크게 활용했다.”</p>
+          <p>“피처 묶음 기준으로는 시청·유지 행동 신호가 가장 큰 축이다.”</p>
+          <p>“콘텐츠 장르는 Movie_Master category mapping 기반 대리 신호다.”</p>
+        </div>
+        <div class="card danger">
+          <h3>위험한 표현</h3>
+          <p>“3주차 시청 시간이 재구매를 만든다.”</p>
+          <p>“100원딜이 이탈을 유발했다.”</p>
+          <p>“is_promotion이 2위니까 100원딜 자체가 문제다.”</p>
+        </div>
+        <div class="card warn">
+          <h3>한 문장 결론</h3>
+          <p>SHAP은 원인 설명이 아니라 모델 설명입니다. 이 프로젝트에서 안전한 결론은 “day0~20 시청·유지 행동과 콘텐츠 대리 신호가 재구매 점수 구분에 크게 사용됐다”입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>근거 파일</h2>
+      <table>
+        <tr><th>구분</th><th>파일</th></tr>
+        <tr><td>그림 inventory</td><td>reports/interpretation/16x_SHAP_candidate_interpretation_260516/16x_visualization_inventory.csv</td></tr>
+        <tr><td>개별 피처 중요도</td><td>reports/interpretation/16x_SHAP_candidate_interpretation_260516/16x_SHAP_global_importance.csv</td></tr>
+        <tr><td>피처 묶음 중요도</td><td>reports/interpretation/16x_SHAP_candidate_interpretation_260516/16x_SHAP_family_importance.csv</td></tr>
+        <tr><td>방향성 요약</td><td>reports/interpretation/16x_SHAP_candidate_interpretation_260516/16x_SHAP_direction_summary.csv</td></tr>
+        <tr><td>그림 폴더</td><td>reports/figures/16x_SHAP_candidate_interpretation_260516</td></tr>
+      </table>
+    </section>
+  </main>
+</div>
+</body>
+</html>
+"""
+
+
+def main() -> None:
+    OUT.write_text(build_html(), encoding="utf-8", newline="\n")
+    print(f"created={OUT}")
+
+
+if __name__ == "__main__":
+    main()

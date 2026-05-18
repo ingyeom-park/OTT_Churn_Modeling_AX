@@ -1,0 +1,59 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,all 15x paths resolve under park.ingyeom
+raw_source_csv_not_modified,PASS,source targets unchanged by sha256 and size
+source_fingerprint_created,PASS,
+source_fingerprint_unchanged,PASS,
+notebook_exists,PASS,park.ingyeom/notebook/15x_payment_device_sensitivity_260516/15x_payment_device_sensitivity_260516.ipynb
+notebook_executed,PASS,final checks cell executed at 2026-05-17 23:09:08
+06x_inputs_loaded,PASS,park.ingyeom/reports/audits/06x_dataset_generation_260515
+06x_final_checks_pass,PASS,"FAIL count=0, rows=29"
+10x_inputs_loaded,PASS,park.ingyeom/reports/audits/10x_feature_distribution_redundancy_pre_audit_260516
+10x_final_checks_pass,PASS,"FAIL count=0, rows=55"
+12x_inputs_loaded,PASS,park.ingyeom/reports/models/12x_model_family_comparison_260516
+12x_final_checks_pass,PASS,"FAIL count=0, rows=41"
+14x_inputs_loaded,PASS,park.ingyeom/reports/models/14x_lightweight_candidate_tuning_260516
+14x_final_checks_pass,PASS,"FAIL count=0, rows=41"
+16x_inputs_loaded,PASS,park.ingyeom/reports/interpretation/16x_SHAP_candidate_interpretation_260516
+16x_final_checks_pass,PASS,"FAIL count=0, rows=39"
+payment_features_identified,PASS,payment_is_mobile|payment_is_pc|payment_is_android|payment_is_ios
+expanded_no_payment_feature_list_created,PASS,
+payment_features_removed_only_in_sensitivity,PASS,
+canonical_expanded_not_modified,PASS,
+no_unapproved_new_features_created,PASS,only runtime removal of four payment_is_* features; audit flag not used as feature
+no_feature_removal_final_decision_made,PASS,
+no_optuna_performed,PASS,no Optuna imports or trials in 15x
+no_shap_recalculation_performed,PASS,16x SHAP read only for handoff
+no_segmentation_performed,PASS,no segment assignment created
+OOF_predictions_are_fold_based,PASS,
+USER_KEY_used_as_group_not_feature,PASS,
+is_repurchase_used_as_target_not_feature,PASS,
+churn_risk_equals_1_minus_repurchase_score,PASS,
+proxy_artifact_audit_created,PASS,
+age40_unverified_ios_audit_created,PASS,
+recommendation_requires_user_decision,PASS,
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_created,PASS,park.ingyeom/zip/15x_payment_device_sensitivity_260516_review_package.zip
+output_exists_15x_preflight_input_validation.csv,PASS,
+output_exists_15x_source_fingerprint_before_after.csv,PASS,
+output_exists_15x_payment_device_feature_policy.csv,PASS,
+output_exists_15x_feature_set_comparison_design.csv,PASS,
+output_exists_15x_expanded_no_payment_device_feature_list.csv,PASS,
+output_exists_15x_model_availability.csv,PASS,
+output_exists_15x_model_run_plan.csv,PASS,
+output_exists_15x_cv_fold_metrics.csv,PASS,
+output_exists_15x_model_summary_by_scope.csv,PASS,
+output_exists_15x_payment_removed_vs_original_comparison.csv,PASS,
+output_exists_15x_oof_predictions.csv,PASS,
+output_exists_15x_topk_comparison_without_payment_device.csv,PASS,
+output_exists_15x_calibration_decile_summary.csv,PASS,
+output_exists_15x_proxy_artifact_audit.csv,PASS,
+output_exists_15x_age40_unverified_ios_audit.csv,PASS,
+output_exists_15x_SHAP_handoff_for_16x.csv,PASS,
+output_exists_15x_recommendation_for_canonical_feature_contract.csv,PASS,
+output_exists_15x_segment_risk_handoff.csv,PASS,
+output_exists_15x_safe_unsafe_wording.csv,PASS,
+output_exists_15x_open_risks_for_17x.csv,PASS,
+output_exists_README.md,PASS,
+output_exists_note_tail_copy.md,PASS,
+critical_fail_count_zero,PASS,critical_fail_count=0

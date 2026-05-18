@@ -1,0 +1,14 @@
+﻿wording_type,wording,reason
+safe,day0~20 관측창 내 사용 감소,observed behavior wording
+safe,subscription-event rows,row-level count wording
+safe,model explanation,SHAP limit
+safe,churn_risk 기준 상위 위험 row,score direction
+safe,Movie_Master category mapping 기준 장르 proxy,content caveat
+safe,payment/auth/demographic proxy audit,proxy audit only
+unsafe,고객 수,unique customer not verified
+unsafe,iOS 고객이 충성도가 높다,payment proxy misuse
+unsafe,40대 미인증 iOS 세그먼트,proxy segment naming forbidden
+unsafe,SHAP이 원인이다,causal misuse
+unsafe,100원딜이 이탈을 유발했다,promotion causality forbidden
+unsafe,payment_device는 시청기기다,wrong field meaning
+unsafe,4주차까지 보고 판단했다,observation window violation

@@ -1,0 +1,9 @@
+﻿feature_set_name,cohort_2x2_label,is_promotion_value,is_repurchase_value,row_count,row_share_within_feature_set,row_share_within_promotion_group,row_share_within_repurchase_group,notes
+conservative_safe_22,promotion_repurchase,1,1,8037,0.34823865852073316,0.6751512096774194,0.4854140242797608,"2x2 cohort label is analysis group only, not a model feature."
+conservative_safe_22,promotion_nonrepurchase,1,0,3867,0.16755492005719486,0.3248487903225806,0.5929162833486661,"2x2 cohort label is analysis group only, not a model feature."
+conservative_safe_22,nonpromotion_repurchase,0,1,8520,0.36916677499025086,0.7624161073825504,0.5145859757202391,"2x2 cohort label is analysis group only, not a model feature."
+conservative_safe_22,nonpromotion_nonrepurchase,0,0,2655,0.11503964643182113,0.23758389261744967,0.40708371665133397,"2x2 cohort label is analysis group only, not a model feature."
+expanded_feature_set,promotion_repurchase,1,1,8037,0.34823865852073316,0.6751512096774194,0.4854140242797608,"2x2 cohort label is analysis group only, not a model feature."
+expanded_feature_set,promotion_nonrepurchase,1,0,3867,0.16755492005719486,0.3248487903225806,0.5929162833486661,"2x2 cohort label is analysis group only, not a model feature."
+expanded_feature_set,nonpromotion_repurchase,0,1,8520,0.36916677499025086,0.7624161073825504,0.5145859757202391,"2x2 cohort label is analysis group only, not a model feature."
+expanded_feature_set,nonpromotion_nonrepurchase,0,0,2655,0.11503964643182113,0.23758389261744967,0.40708371665133397,"2x2 cohort label is analysis group only, not a model feature."

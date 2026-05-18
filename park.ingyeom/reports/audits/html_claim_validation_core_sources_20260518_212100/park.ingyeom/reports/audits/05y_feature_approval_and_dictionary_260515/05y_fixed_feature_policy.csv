@@ -1,0 +1,5 @@
+﻿feature,policy,formula_or_rule,model_feature_name
+is_cold_start_3d,preserve original; model uses fixed,is_cold_start_3d_fixed = 1 if first_watch_rel_day <= 2 else 0,is_cold_start_3d_fixed
+is_cold_start_7d,preserve original; model uses fixed,is_cold_start_7d_fixed = 1 if first_watch_rel_day <= 6 else 0,is_cold_start_7d_fixed
+is_basic,create new derived plan flag,is_basic = 1 if is_standard == 0 and is_premium == 0 else 0,is_basic
+old_movie_ratio_5y,use master value as-is; no fixed column,old_movie_ratio(5y) from Kwangil master; record 9-row mismatch caveat,old_movie_ratio_5y

@@ -1,0 +1,6 @@
+﻿unsafe_expression,safer_alternative,reason
+모델이 이탈 확률을 직접 예측한다.,"모델은 재구매 가능성을 예측하고, 운영상 이탈위험은 1 - 재구매 가능성으로 변환한다.",target is is_repurchase=1
+score가 높으면 위험하다.,"repurchase_score가 높으면 재구매 가능성이 높고, churn_risk가 높으면 이탈 위험이 높다.",score name must be explicit
+"23,343명의 고객","23,343행의 구독 이벤트 후보",USER_KEY duplication exists
+100원딜 때문에 이탈했다.,프로모션 집단과 비프로모션 집단 사이에 재구매율 차이가 관찰되었다.,no causal claim
+재구매하지 않은 고객은 이탈 고객이다.,"is_repurchase=0은 다음 달 재구매가 관측되지 않은 행이며, 이탈 proxy로 해석할 수 있다.",target is proxy for continuation

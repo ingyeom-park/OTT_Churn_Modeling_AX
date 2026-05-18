@@ -1,0 +1,12 @@
+﻿timing_family,policy,meaning,caution
+week1_or_w1,yes,candidate if constructed only from day 0 to day 6,timing audit still needed
+week2_or_w2,yes,candidate if constructed only from day 7 to day 13,timing audit still needed
+week3_or_w3,yes,candidate if constructed only from day 14 to day 20,timing audit still needed
+week4_or_w4,no,4th-week/response-period behavior,forbidden for modeling
+total_or_all_period,review,total/all-period naming does not prove day 0-20 only,must verify construction window
+retention_or_diff,review,ratio/diff needs source window confirmation,may mix periods
+recency,review,recency needs timestamp/window proof,may reference late behavior
+content_without_explicit_week,review,content proxy without explicit observation window,must document construction window
+membership_or_static,review,static/context candidate,business/timing leakage review still required for some columns
+id_target_split_date,no,"id, target, split, or raw date fields",not model features
+unknown_review_required,review,cannot classify from name alone,manual review required

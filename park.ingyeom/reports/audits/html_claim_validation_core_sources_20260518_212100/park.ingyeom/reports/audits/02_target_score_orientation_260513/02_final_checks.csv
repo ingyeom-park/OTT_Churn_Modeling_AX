@@ -1,0 +1,37 @@
+﻿check,status,evidence
+source_file_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+source_file_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_01_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\01_data_contract_260513
+notebook_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\02_target_score_orientation_260513\02_target_score_orientation_260513.ipynb
+output_folder_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\02_target_score_orientation_260513
+no_files_written_outside_park_ingyeom,PASS,all tracked writes are inside park.ingyeom
+no_py_script_created,PASS,no tracked .py files
+no_existing_notebook_modified,PASS,new step 02 notebook only
+no_source_csv_modified,PASS,source size and mtime unchanged
+no_modeling_performed,PASS,no estimator fit/train or model object created
+no_predictions_created,PASS,no prediction column or score output created
+no_shap_performed,PASS,no shap import or SHAP computation
+no_optuna_performed,PASS,no optuna import or tuning
+no_rows_excluded,PASS,all computations used full source row count
+target_column_exists,PASS,is_repurchase
+target_positive_class_documented,PASS,is_repurchase=1 means repurchase
+repurchase_score_definition_documented,PASS,repurchase_score naming documented
+churn_risk_definition_documented,PASS,churn_risk = 1 - repurchase_score
+auc_positive_class_documented,PASS,AUC positive class documented
+analysis_unit_contract_created,PASS,02_analysis_unit_contract.csv
+safe_unsafe_wording_created,PASS,02_safe_unsafe_wording.csv
+downstream_requirements_created,PASS,02_downstream_requirements.csv
+open_risks_created,PASS,02_open_risks_for_next_steps.csv
+readme_created,PASS,README.md
+note_md_updated,PASS,C:\Code\ott-churn-prediction\park.ingyeom\note.md
+review_zip_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\zip\02_target_score_orientation_260513_review_package.zip
+required_output_exists::02_input_consistency_check.csv,PASS,02_input_consistency_check.csv
+required_output_exists::02_analysis_unit_contract.csv,PASS,02_analysis_unit_contract.csv
+required_output_exists::02_target_contract.csv,PASS,02_target_contract.csv
+required_output_exists::02_score_orientation_policy.csv,PASS,02_score_orientation_policy.csv
+required_output_exists::02_auc_interpretation_policy.csv,PASS,02_auc_interpretation_policy.csv
+required_output_exists::02_score_naming_convention.csv,PASS,02_score_naming_convention.csv
+required_output_exists::02_safe_unsafe_wording.csv,PASS,02_safe_unsafe_wording.csv
+required_output_exists::02_downstream_requirements.csv,PASS,02_downstream_requirements.csv
+required_output_exists::02_open_risks_for_next_steps.csv,PASS,02_open_risks_for_next_steps.csv
+required_output_exists::README.md,PASS,README.md

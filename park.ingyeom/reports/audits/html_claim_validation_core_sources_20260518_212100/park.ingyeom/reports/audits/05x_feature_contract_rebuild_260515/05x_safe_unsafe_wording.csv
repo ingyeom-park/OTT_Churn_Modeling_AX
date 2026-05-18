@@ -1,0 +1,9 @@
+category,safe,unsafe
+feature_count,22개 conservative safe feature를 사용한 보수 baseline,91개 전체를 모두 넣었다
+expanded_status,expanded_feature_set은 사용자 승인 전 후보 계약으로만 본다,확장 feature set을 이미 확정했다
+leakage,end_date와 is_churn_prevented는 타이밍 확인 전 모델에 넣지 않는다,end_date나 is_churn_prevented를 feature로 사용했다
+recency,recency의 reference date가 day21 이전임을 확인한 후 사용한다,recency를 타이밍 확인 없이 사용했다
+genre_caveat,장르 비율은 day0-20 관측창 기준임을 확인한 후 사용한다,장르 비율 확인 없이 full feature로 투입했다
+naming_caveat,total_watch_time은 실제로 day0-20 기준임을 09b로 확인했으나 명명 주의가 필요하다,total_watch_time이 전체 기간 데이터라고 설명했다
+causality,프로모션 그룹 간 재구매율 차이는 관찰된 차이이다,100원딜이 이탈을 유발했다
+analysis_unit,분석 단위는 row-level / subscription-event-level이다,unique user 분석이다

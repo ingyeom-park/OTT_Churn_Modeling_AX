@@ -1,0 +1,9 @@
+execution_start=2026-05-16T00:26:48
+execution_end=2026-05-16T00:26:49
+notebook_path=C:\Code\ott-churn-prediction\park.ingyeom\notebook\08x_promotion_nonpromotion_EDA_260516\08x_promotion_nonpromotion_EDA_260516.ipynb
+06x_load_status=PASS shape_conservative=(23079, 24) shape_expanded=(23079, 82)
+07x_load_status=PASS mapping_shape=(106, 18)
+output_file_count=18
+warnings=[]
+errors=[]
+final_status=PASS

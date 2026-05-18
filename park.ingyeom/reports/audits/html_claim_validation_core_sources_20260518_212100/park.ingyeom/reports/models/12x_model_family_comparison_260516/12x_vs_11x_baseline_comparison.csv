@@ -1,0 +1,9 @@
+﻿feature_set_name,dataset_scope,11x_best_model,11x_best_oof_auc,12x_best_model,12x_best_oof_auc,delta_auc_12x_minus_11x,interpretation
+conservative_safe_22,nonpromotion_only,RandomForest,0.8317561426310531,RandomForest,0.8317561426310531,0.0,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+conservative_safe_22,overall_with_promotion,RandomForest,0.8118014743081232,LightGBM,0.8122084808379524,0.0004070065298291681,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+conservative_safe_22,overall_without_promotion,RandomForest,0.8118014743081232,LightGBM,0.8122084808379524,0.0004070065298291681,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+conservative_safe_22,promotion_only,HistGradientBoosting,0.7963176128867911,LightGBM,0.7966613650295107,0.00034375214271953336,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+expanded_feature_set,nonpromotion_only,HistGradientBoosting,0.8829908357868492,LightGBM,0.8838334084860703,0.0008425726992210558,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+expanded_feature_set,overall_with_promotion,HistGradientBoosting,0.8770164443769534,LightGBM,0.877345643626692,0.0003291992497386209,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+expanded_feature_set,overall_without_promotion,HistGradientBoosting,0.8725164248649397,LightGBM,0.8732836581727084,0.0007672333077686222,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.
+expanded_feature_set,promotion_only,HistGradientBoosting,0.8606216741493531,LightGBM,0.8616083346613972,0.0009866605120441019,12x is a broader fixed-parameter family comparison against 11x baseline; not a final model decision.

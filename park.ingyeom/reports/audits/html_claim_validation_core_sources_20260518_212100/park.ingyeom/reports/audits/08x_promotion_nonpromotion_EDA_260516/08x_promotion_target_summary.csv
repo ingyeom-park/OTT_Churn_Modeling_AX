@@ -1,0 +1,5 @@
+﻿feature_set_name,group_name,row_count,repurchase_1_count,repurchase_0_count,repurchase_rate,churn_proxy_rate,rate_difference_vs_other_group,safe_interpretation,forbidden_interpretation
+conservative_safe_22,promotion,11904,8037,3867,0.6751512096774194,0.3248487903225806,-0.08726489770513102,promotion group shows lower observed repurchase rate than nonpromotion group.,promotion caused churn/repurchase difference.
+conservative_safe_22,nonpromotion,11175,8520,2655,0.7624161073825504,0.2375838926174496,0.08726489770513102,nonpromotion group shows higher observed repurchase rate than promotion group.,promotion caused churn/repurchase difference.
+expanded_feature_set,promotion,11904,8037,3867,0.6751512096774194,0.3248487903225806,-0.08726489770513102,promotion group shows lower observed repurchase rate than nonpromotion group.,promotion caused churn/repurchase difference.
+expanded_feature_set,nonpromotion,11175,8520,2655,0.7624161073825504,0.2375838926174496,0.08726489770513102,nonpromotion group shows higher observed repurchase rate than promotion group.,promotion caused churn/repurchase difference.

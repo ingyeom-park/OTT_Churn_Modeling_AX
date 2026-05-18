@@ -1,0 +1,107 @@
+﻿dataset_name,feature_set_name,original_feature_name,safe_model_feature_name,use_as_feature,role,caveat_flag,caveat_reason
+06x_conservative_dataset,conservative_safe_22,USER_KEY,USER_KEY,no,group_key,False,
+06x_conservative_dataset,conservative_safe_22,is_repurchase,is_repurchase,no,target,False,
+06x_conservative_dataset,conservative_safe_22,avg_gap_w1_watch_days,avg_gap_w1_watch_days,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,avg_gap_w2_watch_days,avg_gap_w2_watch_days,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,avg_gap_w3_watch_days,avg_gap_w3_watch_days,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,watch_time(min)_w1,watch_time_min_w1,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,watch_time(min)_w2,watch_time_min_w2,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,watch_time(min)_w3,watch_time_min_w3,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,watch_session_w1,watch_session_w1,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,watch_session_w2,watch_session_w2,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,watch_session_w3,watch_session_w3,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,retention_w2_ratio,retention_w2_ratio,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,retention_w3_ratio,retention_w3_ratio,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,diff_between_w2_w1,diff_between_w2_w1,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,diff_between_w3_w1,diff_between_w3_w1,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,diff_between_w3_w2,diff_between_w3_w2,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_w1_over_50pct,is_w1_over_50pct,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_w2_over_50pct,is_w2_over_50pct,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_w3_over_50pct,is_w3_over_50pct,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_only_w1,is_only_w1,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_only_w2,is_only_w2,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_only_w3,is_only_w3,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_cold_start_3d_fixed,is_cold_start_3d_fixed,yes,feature,False,
+06x_conservative_dataset,conservative_safe_22,is_cold_start_7d_fixed,is_cold_start_7d_fixed,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,USER_KEY,USER_KEY,no,group_key,False,
+06x_expanded_dataset,expanded_feature_set,is_repurchase,is_repurchase,no,target,False,
+06x_expanded_dataset,expanded_feature_set,is_promotion,is_promotion,yes,split_key,True,allowed only in overall_with_promotion; excluded from split-specific models
+06x_expanded_dataset,expanded_feature_set,is_churn_prevented,is_churn_prevented,yes,feature,True,"approved as historical ever-benefited flag, not current-cycle post outcome"
+06x_expanded_dataset,expanded_feature_set,is_user_verified,is_user_verified,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_standard,is_standard,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_premium,is_premium,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,age_group,age_group,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_female,is_female,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_male,is_male,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,reg_is_weekend,reg_is_weekend,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,reg_hour_morning,reg_hour_morning,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,reg_hour_afternoon,reg_hour_afternoon,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,reg_hour_evening,reg_hour_evening,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,reg_hour_night,reg_hour_night,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,payment_is_mobile,payment_is_mobile,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,payment_is_pc,payment_is_pc,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,payment_is_android,payment_is_android,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,payment_is_ios,payment_is_ios,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,total_watch_count,total_watch_count,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,unique_movie,unique_movie,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_days,watch_days,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,active_ratio,active_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,total_watch_time(min),total_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_per_day,watch_per_day,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_watch_time(min),avg_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,median_watch_time(min),median_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,std_watch_time(min),std_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_daily_watch_time(min),avg_daily_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,max_watch_time(min),max_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,max_daily_watch_time(min),max_daily_watch_time_min,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,max_daily_sessions,max_daily_sessions,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,recency,recency,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_gap_between_watch_days,avg_gap_between_watch_days,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_gap_w1_watch_days,avg_gap_w1_watch_days,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_gap_w2_watch_days,avg_gap_w2_watch_days,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_gap_w3_watch_days,avg_gap_w3_watch_days,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,max_inactive_gap_days,max_inactive_gap_days,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,avg_rewatch_ratio,avg_rewatch_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,weekend_watch_ratio,weekend_watch_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_ratio_under_1m,watch_ratio_under_1m,yes,feature,True,official formula recorded with <= threshold; v3 text uses < threshold and is treated as policy mismatch
+06x_expanded_dataset,expanded_feature_set,watch_ratio_under_5m,watch_ratio_under_5m,yes,feature,True,official formula recorded with <= threshold; v3 text uses < threshold and is treated as policy mismatch
+06x_expanded_dataset,expanded_feature_set,movie_per_active_day,movie_per_active_day,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,max_day_share,max_day_share,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,day_count_over_3times,day_count_over_3times,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_time(min)_w1,watch_time_min_w1,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_time(min)_w2,watch_time_min_w2,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_time(min)_w3,watch_time_min_w3,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_session_w1,watch_session_w1,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_session_w2,watch_session_w2,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,watch_session_w3,watch_session_w3,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,retention_w2_ratio,retention_w2_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,retention_w3_ratio,retention_w3_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,diff_between_w2_w1,diff_between_w2_w1,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,diff_between_w3_w1,diff_between_w3_w1,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,diff_between_w3_w2,diff_between_w3_w2,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_w1_over_50pct,is_w1_over_50pct,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_w2_over_50pct,is_w2_over_50pct,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_w3_over_50pct,is_w3_over_50pct,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_only_w1,is_only_w1,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_only_w2,is_only_w2,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_only_w3,is_only_w3,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,new_movie_in_90d_ratio,new_movie_in_90d_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,new_movie_in_180d_ratio,new_movie_in_180d_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,new_movie_in_365d_ratio,new_movie_in_365d_ratio,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,old_movie_ratio(5y),old_movie_ratio_5y,yes,feature,True,Kwangil master value retained; raw Movie_Master reconstruction leaves 9-row mismatch; no fixed feature created
+06x_expanded_dataset,expanded_feature_set,avg_ott_release_year,avg_ott_release_year,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,genre_diversity_count,genre_diversity_count,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,action_adventure_ratio,action_adventure_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,family_animation_ratio,family_animation_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,drama_ratio,drama_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,thriller_crime_ratio,thriller_crime_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,sf_fantasy_ratio,sf_fantasy_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,comedy_ratio,comedy_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,romance_ratio,romance_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,horror_ratio,horror_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,documentary_ratio,documentary_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,historical_war_ratio,historical_war_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,other_ratio,other_ratio,yes,feature,True,"Movie_Master_v2 can contain multiple category rows for the same MOVIE_NUM, so genre/category values may be affected by multi-category mapping"
+06x_expanded_dataset,expanded_feature_set,is_basic,is_basic,yes,feature,False,
+06x_expanded_dataset,expanded_feature_set,is_cold_start_3d_fixed,is_cold_start_3d_fixed,yes,feature,True,fixed replacement approved for modeling; raw recomputation mismatch counts are recorded in formula validation summary
+06x_expanded_dataset,expanded_feature_set,is_cold_start_7d_fixed,is_cold_start_7d_fixed,yes,feature,True,fixed replacement approved for modeling; raw recomputation mismatch counts are recorded in formula validation summary

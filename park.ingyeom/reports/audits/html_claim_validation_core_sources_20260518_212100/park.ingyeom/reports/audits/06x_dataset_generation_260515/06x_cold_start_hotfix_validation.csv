@@ -1,0 +1,3 @@
+﻿basis,raw_rows_or_cohort_rows,old_3d_positive_count,fixed_3d_positive_count,changed_3d_count,expected_changed_3d_count,old_7d_positive_count,fixed_7d_positive_count,changed_7d_count,expected_changed_7d_count,negative_first_watch_rel_day_count,status
+raw_master_full,23343,10816,9034,1782,1782,15855,14891,964,964,0,PASS
+primary_main_cohort,23079,10696,8929,1767,1767,15677,14721,956,956,0,PASS

@@ -1,0 +1,42 @@
+﻿check,status,detail
+all_outputs_inside_park_ingyeom,PASS,C:\Code\ott-churn-prediction\park.ingyeom
+raw_source_csv_not_modified,PASS,"park.ingyeom/data CSV SHA256, size, mtime unchanged"
+source_fingerprint_created,PASS,
+source_fingerprint_unchanged,PASS,{'UNCHANGED': 12}
+notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\14x_lightweight_candidate_tuning_260516\14x_lightweight_candidate_tuning_260516.ipynb
+notebook_executed,PASS,This row is produced during notebook execution
+06x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515
+06x_final_checks_pass,PASS,PASS/WARN only
+07x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515
+07x_final_checks_pass,PASS,PASS/WARN only
+10x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516
+10x_final_checks_pass,PASS,PASS/WARN only
+11x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\11x_baseline_growth_comparison_260516
+11x_final_checks_pass,PASS,PASS/WARN only
+12x_inputs_loaded,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12x_model_family_comparison_260516
+12x_final_checks_pass,PASS,PASS/WARN only
+candidate_plan_created,PASS,
+tuning_limited_to_12x_candidates,PASS,16 tuned jobs
+conservative_dataset_used,PASS,
+expanded_dataset_used,PASS,
+four_dataset_scopes_created,PASS,
+StratifiedGroupKFold_used,PASS,"n_splits=5, random_state=42"
+USER_KEY_used_as_group_not_feature,PASS,
+is_repurchase_used_as_target_not_feature,PASS,
+is_promotion_scope_policy_respected,PASS,
+no_unapproved_new_features_created,PASS,feature columns came from 06x_model_feature_lists only; row_id is identifier
+no_feature_removal_performed,PASS,no removal decision; only scope policy exclusion for is_promotion
+no_feature_selection_decision_made,PASS,
+optuna_performed,PASS,trials=480
+no_shap_performed,PASS,
+no_segmentation_performed,PASS,
+no_causal_claim,PASS,
+oof_predictions_are_fold_based,PASS,
+oof_predictions_include_row_id,PASS,
+churn_risk_equals_1_minus_repurchase_score,PASS,
+topk_sorted_by_churn_risk_desc,PASS,
+comparison_vs_12x_created,PASS,
+README_created,PASS,
+note_md_updated,PASS,
+review_zip_created,PASS,created after final checks in this notebook and refreshed after execution if needed
+critical_fail_count_zero,PASS,0

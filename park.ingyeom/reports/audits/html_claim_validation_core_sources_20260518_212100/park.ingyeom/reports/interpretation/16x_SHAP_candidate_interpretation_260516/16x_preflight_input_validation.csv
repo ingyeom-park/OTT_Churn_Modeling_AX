@@ -1,0 +1,13 @@
+﻿file_name,path,exists,final_checks_pass,status
+06x_expanded_dataset.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_expanded_dataset.csv,True,,PASS
+06x_model_feature_lists.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_model_feature_lists.csv,True,,PASS
+06x_final_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_final_checks.csv,True,True,PASS
+12x_candidate_selection_by_scope.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12x_model_family_comparison_260516\12x_candidate_selection_by_scope.csv,True,,PASS
+12x_final_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\12x_model_family_comparison_260516\12x_final_checks.csv,True,True,PASS
+14x_candidate_recommendation_summary.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\14x_lightweight_candidate_tuning_260516\14x_candidate_recommendation_summary.csv,True,,PASS
+14x_best_params_by_scope.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\14x_lightweight_candidate_tuning_260516\14x_best_params_by_scope.csv,True,,PASS
+14x_final_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\models\14x_lightweight_candidate_tuning_260516\14x_final_checks.csv,True,True,PASS
+15x_expanded_no_payment_device_feature_list.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\15x_payment_device_sensitivity_260516\15x_expanded_no_payment_device_feature_list.csv,True,,PASS
+15x_SHAP_handoff_for_16x.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\15x_payment_device_sensitivity_260516\15x_SHAP_handoff_for_16x.csv,True,,PASS
+15x_recommendation_for_canonical_feature_contract.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\15x_payment_device_sensitivity_260516\15x_recommendation_for_canonical_feature_contract.csv,True,,PASS
+15x_final_checks.csv,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\15x_payment_device_sensitivity_260516\15x_final_checks.csv,True,True,PASS

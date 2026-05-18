@@ -1,0 +1,8 @@
+﻿check,status,detail
+source_master_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+previous_05x_folder_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_260515
+previous_05x_notebook_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\notebook\05x_feature_contract_rebuild_260515\05x_feature_contract_rebuild_260515.ipynb
+previous_decision_table_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_260515\05x_feature_resolution_decision_table.csv
+archive_reference_exists,WARN,"previous 05x preflight status=WARN, detail=False; optional archive reference not used for this patch"
+patch_output_folder,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_patch_260515
+stop_reason,PASS,none

@@ -1,0 +1,10 @@
+﻿item,path,exists,status,stop_reason
+source master exists,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv,True,PASS,
+v3 csv exists,C:\Code\ott-churn-prediction\park.ingyeom\data\변수_합집합_비교_v3.csv,True,PASS,
+previous 05y folder exists,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05y_feature_approval_and_dictionary_260515,True,PASS,
+05x patch folder exists,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_patch_260515,True,PASS,
+raw validation file exists: View_History_v2.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\View_History_v2.csv,True,PASS,
+raw validation file exists: User_Mapping_v2.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\User_Mapping_v2.csv,True,PASS,
+raw validation file exists: Membership_train.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\Membership_train.csv,True,PASS,
+raw validation file exists: Movie_Master_v2.csv,C:\Code\ott-churn-prediction\park.ingyeom\data\Movie_Master_v2.csv,True,PASS,
+output folder,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05y_feature_approval_and_dictionary_patch2_260515,True,PASS,

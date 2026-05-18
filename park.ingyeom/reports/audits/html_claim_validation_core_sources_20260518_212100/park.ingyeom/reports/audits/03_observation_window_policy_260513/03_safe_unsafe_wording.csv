@@ -1,0 +1,5 @@
+﻿unsafe_expression,safer_alternative,reason
+3주차까지 봤으므로 초조기 예측이다.,1~3주차 행동을 관측하고 day 21 이후 대응하는 갱신 직전 이탈 방어 모델이다.,"scoring point is day 21, not ultra-early"
+duration < 21은 고객센터 즉시해지다.,"duration < 21은 단기 종료 후보이며, 고객센터 즉시해지 여부는 CSV만으로 확정할 수 없다.",CSV has dates but no cancellation reason
+4주차 행동도 모델에 넣으면 성능이 좋아진다.,4주차는 대응기간에 해당하므로 feature로 사용하면 운영 논리와 timing leakage 위험이 생긴다.,response-period behavior is forbidden
+duration < 21 고객은 모두 제거한다.,"duration < 21 행은 관측창 불완전 후보로 flag하고, main cohort 제외 여부는 후속 단계에서 결정한다.",no final cohort exclusion in this goal

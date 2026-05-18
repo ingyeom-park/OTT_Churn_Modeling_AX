@@ -1,0 +1,8 @@
+﻿risk,handling
+representative segment threshold is provisional,Do not use as final campaign threshold.
+segment name is not final before user approval,Keep labels provisional.
+payment/auth/demographic proxy audit only,Never use as representative segment rule.
+SHAP is not causal evidence,Use only as model explanation link.
+genre/content is mapping proxy,Mention Movie_Master category mapping caveat.
+OOF score is not final campaign criterion,Separate decision gate required.
+"row-level analysis, not unique customer analysis",Use subscription-event rows wording.

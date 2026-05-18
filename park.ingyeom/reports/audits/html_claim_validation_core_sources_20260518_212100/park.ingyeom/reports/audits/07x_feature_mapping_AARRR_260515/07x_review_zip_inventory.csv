@@ -1,0 +1,14 @@
+﻿required_item,exists,size,include_in_zip
+notebook/07x_feature_mapping_AARRR_260515/07x_feature_mapping_AARRR_260515.ipynb,True,34961,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_preflight_input_validation.csv,True,2250,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_feature_mapping_master.csv,True,38317,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_AARRR_summary_by_feature_set.csv,True,2276,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_conservative_AARRR_mapping.csv,True,8626,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_expanded_AARRR_mapping.csv,True,29950,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_scope_policy_handoff.csv,True,8851,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_caveat_handoff.csv,True,1806,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_downstream_EDA_handoff.csv,True,6937,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_final_checks.csv,True,1493,True
+reports/audits/07x_feature_mapping_AARRR_260515/README.md,True,10331,True
+reports/audits/07x_feature_mapping_AARRR_260515/note_tail_copy.md,True,5199,True
+reports/audits/07x_feature_mapping_AARRR_260515/07x_execution_log.txt,True,187,True

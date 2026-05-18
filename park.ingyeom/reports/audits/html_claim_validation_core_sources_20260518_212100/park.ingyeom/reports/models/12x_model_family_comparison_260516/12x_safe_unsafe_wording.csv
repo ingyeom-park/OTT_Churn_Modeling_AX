@@ -1,0 +1,10 @@
+﻿wording_type,expression,reason
+safe,expanded_feature_set improved or changed baseline metrics in 12x OOF comparison,Describes observed baseline metric comparison only.
+safe,VIF/redundancy requires interpretation caution and possible future sensitivity,Matches 10x policy without feature removal.
+safe,"top-k churn_risk is an operating diagnostic, not a campaign threshold",Prevents threshold overclaim.
+unsafe,확장 피처가 원인을 밝혔다,Causal claim not supported.
+unsafe,VIF가 높아서 피처를 제거했다,No feature removal was performed or approved.
+unsafe,12x에서 최종 모델을 확정했다,12x is baseline comparison only.
+unsafe,XGBoost/CatBoost가 최종 모델이다,12x only compares fixed-parameter model families.
+unsafe,top10 churn_risk가 캠페인 대상이다,"Top-k is diagnostic, not final targeting."
+unsafe,unique user 기준이다,12x is row-level / subscription-event-level.

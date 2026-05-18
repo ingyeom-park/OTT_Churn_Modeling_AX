@@ -1,0 +1,9 @@
+﻿risk,detail,owner_next_step
+payment_device proxy risk,"payment_is_* may proxy payment/account/auth/acquisition context, not viewing device.",17x rule audit
+age/gender/auth reliability caveat,is_user_verified is real identity verification; unverified demographics are provisionally trusted but cautious.,17x wording guardrail
+40대 미인증 iOS artifact risk,flag_age40_unverified_ios is audit-only and must not be used as feature or segment rule.,17x artifact exclusion
+recency interpretation caution,recency is day0 to day20 observation-window recency only.,17x wording guardrail
+under_1m/5m behavior proxy distinction,under_1m and under_5m are different behavioral proxies and both remain available.,17x rule candidate review
+genre taxonomy proxy,genre ratios follow Movie_Master category mapping and are proxies.,17x wording guardrail
+SHAP not causal,Existing and future SHAP should not be phrased causally.,16x/17x handoff
+final segment rule not selected,15x does not select segmentation rules.,17x segmentation

@@ -1,0 +1,16 @@
+﻿original_feature_name,safe_model_feature_name,user_approval_status,exclude_or_audit_reason,user_approval_detail,audit_use_allowed
+USER_KEY,USER_KEY,audit_only,group key / identifier only,audit_only,yes
+product_code,product_code,excluded,user approved exclusion of parent plan code,excluded,no
+price,price,excluded,user approved exclusion,excluded,no
+billing_method,billing_method,excluded,user approved exclusion of raw billing method,excluded,no
+max_screen,max_screen,excluded,user approved exclusion,excluded,no
+payment_device,payment_device,excluded,use derived payment device flags instead,excluded,no
+is_user_verified,is_user_verified,pending_user_review,not directly resolved in user approval list,pending_user_review,yes
+gender,gender,excluded,use is_male and is_female instead,excluded,no
+age,age,excluded,use age_group instead,excluded,no
+reg_date,reg_date,audit_only,feature excluded; allowed only as calculation/audit reference date,audit_only,yes
+reg_hour,reg_hour,excluded,use registration time band flags instead,excluded,no
+end_date,end_date,audit_only,feature excluded; allowed only for audit/policy confirmation,audit_only,yes
+is_repurchase,is_repurchase,target,"target variable, never a feature",target,no
+is_cold_start_3d,is_cold_start_3d_original,replaced_by_fixed,original preserved; model uses is_cold_start_3d_fixed,replaced_by_fixed,yes
+is_cold_start_7d,is_cold_start_7d_original,replaced_by_fixed,original preserved; model uses is_cold_start_7d_fixed,replaced_by_fixed,yes

@@ -1,0 +1,10 @@
+﻿risk,detail,next_step
+high VIF / redundancy,10x shows high/extreme VIF and redundancy families; no feature removal in 12x.,Carry into later sensitivity design only with user approval.
+is_churn_prevented interpretation caution,"Leakage pre-audit can flag this as high; user confirmed it is historical churn prevention context, not post-target leakage by itself.",Document as prior-history flag and avoid target-proxy overclaim.
+content/genre caveat,Genre/content ratios have compositional and Movie_Master caveats.,Interpret as content preference family.
+old_movie_ratio_5y 9-row caveat,Carry 06x/10x caveat forward.,Do not overread this feature alone.
+top-k threshold caution,Top-k is diagnostic and not campaign threshold.,No targeting decision in 12x.
+expanded feature overfit risk,Expanded set has more features and redundancy.,Compare 12x model family and calibration carefully.
+LogisticRegression coefficient interpretation caution,High VIF limits individual coefficient interpretation.,Use family-level caveats.
+optional package availability variation,"LightGBM, XGBoost, and CatBoost execution depends on local import availability.",Use 12x_model_availability.csv when comparing runs.
+final model not selected,12x creates candidate comparison only.,Decide whether 14x tuning or 16x SHAP candidate review comes next.

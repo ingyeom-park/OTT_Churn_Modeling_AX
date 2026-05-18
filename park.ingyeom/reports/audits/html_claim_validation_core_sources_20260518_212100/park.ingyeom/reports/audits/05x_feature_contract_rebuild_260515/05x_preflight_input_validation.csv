@@ -1,0 +1,8 @@
+check,status,detail
+source_master_exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\data\(광일)Membership_v2_with_derived_features.csv
+row_count,PASS,23343
+column_count,PASS,91
+active_steps_01_04_exist,PASS,True
+archive_reference_exists,WARN,False
+output_dir_created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\05x_feature_contract_rebuild_260515
+stop_reason,PASS,none

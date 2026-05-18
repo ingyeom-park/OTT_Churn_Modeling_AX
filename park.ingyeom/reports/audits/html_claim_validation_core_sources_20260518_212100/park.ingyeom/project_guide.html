@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100원딜 OTT 이탈 분석 — 프로젝트 해설서</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --surface2: #f1f3f5;
+  --border: #dee2e6;
+  --text: #212529;
+  --text2: #495057;
+  --text3: #6c757d;
+  --accent: #4263eb;
+  --accent2: #1971c2;
+  --danger: #e03131;
+  --warn: #f08c00;
+  --success: #2f9e44;
+  --tag-bg: #e7f5ff;
+  --tag-text: #1864ab;
+  --warn-bg: #fff9db;
+  --warn-text: #7c4d00;
+  --danger-bg: #fff5f5;
+  --danger-text: #c92a2a;
+  --success-bg: #ebfbee;
+  --success-text: #1a7a2e;
+}
+body.dark {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text2: #b1bac4;
+  --text3: #768390;
+  --accent: #79c0ff;
+  --accent2: #58a6ff;
+  --danger: #ff7b72;
+  --warn: #e3b341;
+  --success: #56d364;
+  --tag-bg: #1c2d3e;
+  --tag-text: #79c0ff;
+  --warn-bg: #272115;
+  --warn-text: #e3b341;
+  --danger-bg: #2c1515;
+  --danger-text: #ff7b72;
+  --success-bg: #122316;
+  --success-text: #56d364;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+}
+/* Layout */
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+.main { flex: 1; padding: 32px 48px; max-width: 1100px; }
+/* Sidebar */
+.sidebar-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  padding: 0 20px 8px;
+}
+.sidebar-nav a {
+  display: block;
+  padding: 7px 20px;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+}
+.sidebar-nav a:hover, .sidebar-nav a.active {
+  color: var(--accent);
+  background: var(--surface2);
+  border-left-color: var(--accent);
+}
+.sidebar-nav .nav-sub { padding-left: 32px; font-size: 12px; }
+.sidebar-divider { height: 1px; background: var(--border); margin: 10px 20px; }
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+.topbar h1 { font-size: 22px; font-weight: 700; }
+.topbar .subtitle { font-size: 13px; color: var(--text3); margin-top: 4px; }
+.dark-toggle {
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 13px;
+}
+/* Sections */
+section { margin-bottom: 56px; }
+.section-header {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+}
+.section-header h2 { font-size: 20px; font-weight: 700; }
+.section-header .step-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Meta block */
+.meta-block {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+}
+.meta-block .meta-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text3);
+  margin-bottom: 12px;
+}
+.meta-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 6px 12px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.meta-row .meta-label {
+  font-weight: 600;
+  color: var(--text3);
+  font-size: 12px;
+}
+.meta-row .meta-value { color: var(--text2); }
+/* Warning badges */
+.warn-bar {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: var(--warn-text);
+}
+.warn-bar .warn-items { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.warn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid;
+}
+.warn-pill.red { background: var(--danger-bg); color: var(--danger-text); border-color: var(--danger); }
+.warn-pill.orange { background: var(--warn-bg); color: var(--warn-text); border-color: var(--warn); }
+.warn-pill.blue { background: var(--tag-bg); color: var(--tag-text); border-color: var(--accent); }
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.card-grid { display: grid; gap: 16px; }
+.card-grid.col2 { grid-template-columns: 1fr 1fr; }
+.card-grid.col3 { grid-template-columns: 1fr 1fr 1fr; }
+.card-grid.col4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+/* Stat */
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label { font-size: 12px; color: var(--text3); margin-bottom: 8px; }
+.stat-source { font-size: 11px; font-weight: 600; color: var(--tag-text); background: var(--tag-bg); padding: 2px 6px; border-radius: 3px; }
+.stat-explain {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text2);
+}
+.stat-explain strong { color: var(--text); }
+/* Timeline */
+.timeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 24px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.tl-phase {
+  flex: 1;
+  padding: 16px 18px;
+  border-right: 2px dashed var(--border);
+  background: var(--surface);
+}
+.tl-phase:last-child { border-right: none; }
+.tl-phase.active { background: #e7f5ff; }
+body.dark .tl-phase.active { background: #1c2d3e; }
+.tl-phase.scoring { background: #fff3bf; }
+body.dark .tl-phase.scoring { background: #2b2206; }
+.tl-phase.response { background: #ebfbee; }
+body.dark .tl-phase.response { background: #122316; }
+.tl-phase-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text3); margin-bottom: 6px; }
+.tl-phase-day { font-size: 22px; font-weight: 800; color: var(--accent); }
+.tl-phase-desc { font-size: 12px; color: var(--text2); margin-top: 6px; }
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--surface2); border: 1px solid var(--border); padding: 8px 12px; font-weight: 600; text-align: left; font-size: 12px; color: var(--text3); }
+td { border: 1px solid var(--border); padding: 8px 12px; color: var(--text2); }
+tr:hover td { background: var(--surface2); }
+/* Source tag */
+.src { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 3px; background: var(--tag-bg); color: var(--tag-text); margin-left: 4px; vertical-align: middle; }
+/* Collapsible */
+details { margin-top: 8px; }
+summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--accent);
+  padding: 4px 0;
+  list-style: none;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before { content: '▶ '; font-size: 10px; }
+details[open] summary::before { content: '▼ '; }
+details .detail-body {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text2);
+}
+/* Segment cards */
+.segment-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  border-left: 5px solid var(--border);
+}
+.segment-card.high-risk { border-left-color: var(--danger); }
+.segment-card.medium-risk { border-left-color: var(--warn); }
+.segment-card.low-risk { border-left-color: var(--success); }
+.segment-card.general { border-left-color: var(--text3); }
+.segment-name-ko { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.segment-name-en { font-size: 12px; color: var(--text3); margin-bottom: 12px; }
+.segment-stats { display: flex; gap: 24px; margin-bottom: 12px; flex-wrap: wrap; }
+.segment-stat { text-align: center; }
+.segment-stat .n { font-size: 20px; font-weight: 700; color: var(--accent); }
+.segment-stat .lbl { font-size: 11px; color: var(--text3); }
+/* Pipeline */
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.pipeline-step {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.pipeline-step:last-child { border-bottom: none; }
+.pipeline-step::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 36px;
+  bottom: -14px;
+  width: 2px;
+  background: var(--border);
+}
+.pipeline-step:last-child::before { display: none; }
+.step-circle {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.step-circle.done { background: var(--success); }
+.step-circle.audit { background: var(--warn); }
+.step-circle.interpret { background: #ae3ec9; }
+.step-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.step-content p { font-size: 13px; color: var(--text2); }
+/* SHAP bar */
+.shap-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.shap-bar-label { width: 220px; font-size: 12px; color: var(--text2); text-align: right; }
+.shap-bar-track { flex: 1; height: 18px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+.shap-bar-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width 0.4s; }
+.shap-bar-val { width: 50px; font-size: 12px; font-weight: 700; color: var(--accent); }
+/* Feature tag */
+.feature-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin: 2px;
+  border: 1px solid;
+}
+.feature-tag.retention { background: #e7f5ff; color: #1864ab; border-color: #74c0fc; }
+.feature-tag.activation { background: #ebfbee; color: #1a7a2e; border-color: #69db7c; }
+.feature-tag.acquisition { background: #fff0f6; color: #862e9c; border-color: #da77f2; }
+.feature-tag.content { background: #fff3bf; color: #7c4d00; border-color: #ffd43b; }
+.feature-tag.proxy { background: var(--danger-bg); color: var(--danger-text); border-color: var(--danger); }
+/* One-liner */
+.conclusion-box {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  border-radius: 12px;
+  padding: 28px 32px;
+  color: #fff;
+  margin: 24px 0;
+}
+.conclusion-box .label { font-size: 12px; font-weight: 700; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.conclusion-box .text { font-size: 17px; font-weight: 600; line-height: 1.5; }
+/* Responsive */
+@media (max-width: 1100px) {
+  .card-grid.col4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 800px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; }
+  .main { padding: 20px; }
+  .card-grid.col2, .card-grid.col3, .card-grid.col4 { grid-template-columns: 1fr; }
+}
+.highlight { color: var(--accent); font-weight: 700; }
+.muted { color: var(--text3); font-size: 12px; }
+hr.section-hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-title">목차</div>
+  <div class="sidebar-nav">
+    <a href="#overview">프로젝트 개요</a>
+    <a href="#warnings">핵심 주의사항 5가지</a>
+    <a href="#timeline">분석 시간축</a>
+    <a href="#data">데이터 구조</a>
+    <a href="#pipeline">파이프라인 전체 흐름</a>
+    <a href="#features">피처 세트 계보</a>
+    <a href="#aarrr">AARRR 프레임워크</a>
+    <a href="#cohort">코호트 분포</a>
+    <a href="#modeling">모델링 결과</a>
+    <a href="#shap">SHAP 해석 (인과 아님)</a>
+    <a href="#segments">7개 대표 세그먼트</a>
+    <a href="#recommendations">비즈니스 제언</a>
+    <a href="#limits">한계와 다음 단계</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-nav">
+    <a href="#" style="font-size:11px;color:var(--text3);">Park Ingyeom · 2026-05</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="main">
+
+<!-- Topbar -->
+<div class="topbar">
+  <div>
+    <h1>100원딜 OTT 이탈 분석 — 프로젝트 해설서</h1>
+    <div class="subtitle">이 문서는 프로젝트를 처음 보는 사람도 구조를 완전히 이해할 수 있도록 만든 설명형 가이드입니다.</div>
+  </div>
+  <button class="dark-toggle" onclick="document.body.classList.toggle('dark');this.textContent=document.body.classList.contains('dark')?'☀️ 라이트':'🌙 다크'">🌙 다크</button>
+</div>
+
+<!-- ===== 0. WARNINGS ===== -->
+<section id="warnings">
+  <div class="section-header">
+    <h2>⚠️ 이 문서를 읽기 전 반드시 알아야 할 5가지</h2>
+  </div>
+  <div class="card-grid col2" style="margin-bottom:16px;">
+    <div class="card" style="border-left:4px solid var(--danger);">
+      <div style="font-weight:700;margin-bottom:6px;">① row ≠ 고객</div>
+      <div style="font-size:13px;color:var(--text2);">분석 단위는 <strong>subscription-event row</strong>입니다. USER_KEY에 중복이 있어(143명 = 352 rows) 이 문서의 모든 수치는 <strong>행(row) 수</strong>이지 고객 수가 아닙니다. "고객 3,793명이 이탈 위험"이라고 읽으면 안 됩니다.</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--danger);">
+      <div style="font-weight:700;margin-bottom:6px;">② 100원딜 ≠ 인과</div>
+      <div style="font-size:13px;color:var(--text2);">100원딜 여부(is_promotion)는 코호트 분리 기준이자 모델 피처이지만, 이탈의 <strong>원인</strong>이라고 해석할 수 없습니다. 관찰된 상관관계일 뿐이며 A/B 실험 없이 인과를 주장해서는 안 됩니다.</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--warn);">
+      <div style="font-weight:700;margin-bottom:6px;">③ segment = provisional</div>
+      <div style="font-size:13px;color:var(--text2);">7개 세그먼트는 모두 <strong>임시 설계(provisional)</strong>입니다. 최종 고객 유형이 아니며, 비즈니스 운영에 바로 적용하기 전 검증이 필요합니다. "이 고객은 이탈한다"는 단정은 금지입니다.</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--warn);">
+      <div style="font-weight:700;margin-bottom:6px;">④ SHAP ≠ 인과</div>
+      <div style="font-size:13px;color:var(--text2);">SHAP 수치는 <strong>"모델이 재구매 여부를 구분할 때 해당 피처를 얼마나 활용했는가"</strong>를 보여줍니다. watch_time_w3가 높다고 해서 "시청 시간이 재구매를 일으킨다"는 해석은 틀립니다.</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--accent); grid-column: 1 / -1;">
+      <div style="font-weight:700;margin-bottom:6px;">⑤ day21 이후 데이터 = 피처 금지</div>
+      <div style="font-size:13px;color:var(--text2);">모든 피처는 <strong>day0~20 관측창</strong> 내 데이터만 사용합니다. day21 이후는 대응 기간이므로 해당 구간의 행동 데이터를 피처로 쓰면 데이터 누수(leakage)가 발생합니다. "4주차까지 보고 판단했다"는 서술은 오류입니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 1. OVERVIEW ===== -->
+<section id="overview">
+  <div class="section-header">
+    <h2>프로젝트 개요</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">이 프로젝트가 왜 존재하고, 무엇을 만들었는지</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">목적을 모르면 이후 모든 숫자가 의미 없음</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[01x] 데이터 계약 ~ [18x] 비즈니스 스토리라인 전체</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">이 프로젝트는 "100원딜이 좋은가 나쁜가"를 판단하지 않음</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">100원딜로 유입된 구독자의 day21 이후 재구매를 행동 신호 기반으로 예측·방어하는 시스템 설계</span></div>
+  </div>
+
+  <div class="conclusion-box">
+    <div class="label">핵심 결론 <span class="src">[18x]</span></div>
+    <div class="text">100원딜 이탈 방어의 핵심은 day0~20 안에서 식어가는 신호를 조기에 발견하고, day21 이후 대응기간에 맞춤 개입하는 것이다.</div>
+  </div>
+
+  <div class="card-grid col3">
+    <div class="card">
+      <div class="stat-number">23,079</div>
+      <div class="stat-label">분석 대상 subscription-event rows</div>
+      <span class="src">[06x]</span>
+      <div class="stat-explain"><strong>그래서 이게 무슨 뜻인가?</strong> 원본 23,343행에서 구독 기간 21일 미만(238행) + 완전 중복(26행)을 제외한 최종 분석 데이터셋 크기입니다. 이 수치는 고객 수가 아닌 행 수입니다.</div>
+    </div>
+    <div class="card">
+      <div class="stat-number">−8.73%p</div>
+      <div class="stat-label">100원딜 vs 비프로모션 재구매율 격차</div>
+      <span class="src">[08x]</span>
+      <div class="stat-explain"><strong>그래서 이게 무슨 뜻인가?</strong> 프로모션 코호트 재구매율 67.52%에서 비프로모션 76.24%를 뺀 값입니다. 이 격차가 이 프로젝트의 출발점이지만, 인과관계는 아닙니다.</div>
+    </div>
+    <div class="card">
+      <div class="stat-number">0.8871</div>
+      <div class="stat-label">최고 모델 AUC (LightGBM, nonpromotion)</div>
+      <span class="src">[14x]</span>
+      <div class="stat-explain"><strong>그래서 이게 무슨 뜻인가?</strong> AUC 0.8871은 "무작위 두 행을 뽑으면 88.7% 확률로 실제 재구매 행을 더 높게 점수 매긴다"는 의미입니다. 완벽하지 않으므로 점수는 확률 보조도구로만 씁니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. TIMELINE ===== -->
+<section id="timeline">
+  <div class="section-header">
+    <h2>분석 시간축 — 이 프로젝트의 뼈대</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">데이터 관측 기간 / 점수 산출 시점 / 대응 기간의 3분할 구조</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">이 시간축을 이해해야 피처 설계, 타겟 설정, 개입 타이밍 모두 올바르게 읽힘</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[05x] 피처 계약 ~ [06x] 데이터셋 생성</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">day21 이후 행동 데이터는 피처로 사용 불가 — 여기서 쓰면 데이터 누수</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">day0~20 관측 → day21 점수 → 대응 기간 3단계는 이 프로젝트의 핵심 설계 원칙</span></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-phase active">
+      <div class="tl-phase-title">관측창</div>
+      <div class="tl-phase-day">Day 0 ~ 20</div>
+      <div class="tl-phase-desc">
+        모든 피처(22~80개)는 이 구간 행동만 사용<br>
+        주차별 시청, 활성화, 장르, 회원 맥락 등<br>
+        <strong>이 구간만 피처로 허용</strong>
+      </div>
+    </div>
+    <div class="tl-phase scoring">
+      <div class="tl-phase-title">점수 산출 시점</div>
+      <div class="tl-phase-day">Day 21</div>
+      <div class="tl-phase-desc">
+        repurchase_score 및 churn_risk 계산<br>
+        churn_risk = 1 − repurchase_score<br>
+        <strong>대응 우선순위 결정 기준</strong>
+      </div>
+    </div>
+    <div class="tl-phase response">
+      <div class="tl-phase-title">대응 기간</div>
+      <div class="tl-phase-day">Day 21+</div>
+      <div class="tl-phase-desc">
+        캠페인 실행 구간<br>
+        세그먼트별 메시지 / 타이밍 분리<br>
+        <strong>피처 사용 금지 구간</strong>
+      </div>
+    </div>
+    <div class="tl-phase" style="border-left: 2px dashed var(--border);">
+      <div class="tl-phase-title">타겟 변수</div>
+      <div class="tl-phase-day">다음 달</div>
+      <div class="tl-phase-desc">
+        is_repurchase = 다음 달 재구매 여부<br>
+        이진 분류 (1=재구매, 0=미재구매)<br>
+        <strong>예측 대상</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-bar">
+    <strong>주차(Week) 정의:</strong> W1 = day0~6, W2 = day7~13, W3 = day14~20. 총 3주차 × 행동 지표 조합으로 시청 패턴 변화를 포착합니다.
+  </div>
+</section>
+
+<!-- ===== 3. DATA ===== -->
+<section id="data">
+  <div class="section-header">
+    <h2>데이터 구조 이해</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">원본 데이터의 크기, 중복 처리, 코호트 분리 기준</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">23,079라는 숫자가 어디서 왔는지 모르면 후속 통계 해석 불가</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[01x] 데이터 계약, [06x] 데이터셋 생성</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">USER_KEY 143개가 중복이지만 제거 대상이 아님 — 동일 사용자의 다른 구독 이벤트이므로 row 단위 분석 유지</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">23,343 원본 → 264행 제거 → 23,079 최종 코호트</span></div>
+  </div>
+
+  <div class="card-grid col4">
+    <div class="card">
+      <div class="stat-number">23,343</div>
+      <div class="stat-label">원본 rows</div>
+      <span class="src">[01x]</span>
+      <div class="stat-explain">91개 컬럼, 결측치 없음, 완전 중복 48행 포함.</div>
+    </div>
+    <div class="card">
+      <div class="stat-number">−238</div>
+      <div class="stat-label">기간 < 21일 제거</div>
+      <span class="src">[06x]</span>
+      <div class="stat-explain">구독 기간이 21일 미만이면 관측창 전체를 채울 수 없어 제외.</div>
+    </div>
+    <div class="card">
+      <div class="stat-number">−26</div>
+      <div class="stat-label">완전 중복 제거</div>
+      <span class="src">[06x]</span>
+      <div class="stat-explain">모든 컬럼 값이 동일한 완전 중복 26행 제거.</div>
+    </div>
+    <div class="card">
+      <div class="stat-number">23,079</div>
+      <div class="stat-label">최종 분석 rows</div>
+      <span class="src">[06x]</span>
+      <div class="stat-explain">이후 모든 분석, 모델, 세그먼트의 기준 데이터셋.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h4 style="margin-bottom:12px;">USER_KEY 중복에 대한 이해 <span class="src">[01x]</span></h4>
+    <table>
+      <tr><th>항목</th><th>수치</th><th>설명</th></tr>
+      <tr><td>중복 USER_KEY 수</td><td>143개</td><td>동일 사용자가 여러 구독 이벤트를 가짐</td></tr>
+      <tr><td>해당 rows 수</td><td>352 rows (= 143 × 평균 2.46회)</td><td>중복 USER_KEY가 만든 행 수</td></tr>
+      <tr><td>처리 방식</td><td>제거 안 함 — row 단위 분석 유지</td><td>각 이벤트가 독립적인 구독 구간을 가짐</td></tr>
+      <tr><td>CV 전략</td><td>StratifiedGroupKFold(group=USER_KEY)</td><td>같은 USER_KEY가 train/test에 분리되도록 보장</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 4. PIPELINE ===== -->
+<section id="pipeline">
+  <div class="section-header">
+    <h2>파이프라인 전체 흐름 (01x ~ 18x)</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">18개 이상의 단계가 어떤 순서로 어떤 이유로 실행되었는가</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">각 단계의 목적을 알아야 결과물의 한계와 의미를 이해할 수 있음</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">전체 파이프라인</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">일부 단계는 재설계(re-do)가 있었으며, 이 문서는 최종 실행 결과만 반영</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">데이터 감사 → 피처 설계 → 모델링 → 해석 → 세그먼트 → 제언의 6단계 흐름</span></div>
+  </div>
+
+  <div class="pipeline">
+    <div class="pipeline-step">
+      <div class="step-circle done">01x</div>
+      <div class="step-content">
+        <h4>데이터 계약 감사</h4>
+        <p>23,343 rows, 91 cols, 결측치 0, 완전 중복 48행 확인. USER_KEY 중복 143개 발견. is_promotion / is_repurchase 2×2 분포 기록.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle done">05x</div>
+      <div class="step-content">
+        <h4>conservative_safe_22 피처 계약</h4>
+        <p>payment/auth/demographic proxy 없이 순수 주차별 시청 행동 22개 피처 확정. 이후 확장 피처셋의 기준선(baseline) 역할.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle done">05y</div>
+      <div class="step-content">
+        <h4>expanded 피처 계약 (80개)</h4>
+        <p>회원 맥락(멤버십, 인구통계 proxy), 가입 시점, 결제 방식, 콘텐츠/장르 비율 등 58개 추가. payment_is_* 4개 포함(→ 15x에서 재심의).</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle done">06x</div>
+      <div class="step-content">
+        <h4>데이터셋 생성 및 행 정책</h4>
+        <p>23,343 → 23,079 최종 코호트. conservative(22개) / expanded(80개) 두 데이터셋 병렬 생성. 4개 scope 정의: overall_with/without_promotion, promotion_only, nonpromotion_only.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle audit">07x</div>
+      <div class="step-content">
+        <h4>AARRR 피처 매핑</h4>
+        <p>80개 피처를 AARRR 프레임워크로 분류. Retention 39개가 가장 많음. Needs_user_review 4개(payment_is_* 관련) 식별.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle audit">08x~09x</div>
+      <div class="step-content">
+        <h4>프로모션/비프로모션 EDA</h4>
+        <p>코호트 분리 후: promotion 11,904행(재구매율 67.52%), nonpromotion 11,175행(76.24%). 차이 −8.73%p. 2×2 분포: 각 사분면 8,037 / 3,867 / 8,520 / 2,655행.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle">11x</div>
+      <div class="step-content">
+        <h4>baseline vs expanded 모델 비교</h4>
+        <p>conservative(RandomForest) AUC 최고 0.8318(nonpromotion). expanded(HistGBM) 0.8830. 확장 피처가 +0.05 이상 성능 향상 확인.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle">12x</div>
+      <div class="step-content">
+        <h4>모델 패밀리 비교</h4>
+        <p>LightGBM expanded가 대부분 scope에서 최고 성능. nonpromotion 0.8838, overall_with 0.8773. LightGBM을 canonical 모델로 선정.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle">14x</div>
+      <div class="step-content">
+        <h4>Optuna 튜닝 (lightweight candidate)</h4>
+        <p>LightGBM Optuna 튜닝 후: overall_with 0.8797(+0.0024), nonpromotion 0.8871(+0.0033). 최종 채택 AUC.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle audit">15x</div>
+      <div class="step-content">
+        <h4>payment_is_* 민감도 분석</h4>
+        <p>4개 결제 방식 피처 제거 실험. mean AUC delta +0.0036(중립~소폭 개선). 시청 기기가 아닌 과금 환경 proxy임을 이유로 제거 결정. → expanded_no_payment_device(76/75개) 피처셋 확정.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle interpret">16x</div>
+      <div class="step-content">
+        <h4>SHAP 해석</h4>
+        <p>overall_with_promotion LightGBM 기준: usage_retention_behavior 패밀리가 SHAP 합계 2.877로 1위. 개별 피처 1위: watch_time_min_w3. is_promotion 3위(0.376). 인과 해석 금지.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle interpret">17x</div>
+      <div class="step-content">
+        <h4>대표 세그먼트 설계</h4>
+        <p>행동 신호 기반 flag → 7개 provisional 세그먼트. payment/auth/demographic proxy 불사용. flag_age40_unverified_ios는 audit 전용 플래그로만 존재.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-circle interpret">18x</div>
+      <div class="step-content">
+        <h4>비즈니스 스토리라인 / 제언</h4>
+        <p>세그먼트별 메시지 전략, 타이밍, 채널 후보 설계. 제언은 캠페인 후보이며 A/B 실험 전 정책 확정 불가.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. FEATURES ===== -->
+<section id="features">
+  <div class="section-header">
+    <h2>피처 세트 계보 (genealogy)</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">22개 → 80개 → 76/75개로 피처가 진화한 이유와 과정</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">어떤 피처가 어떤 이유로 포함/제외됐는지 알아야 SHAP/세그먼트 해석이 가능</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[05x] [05y] [15x]</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">payment_is_* 제거는 모델 성능 악화가 아님 — AUC delta +0.0036으로 중립~개선</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">각 피처셋은 안전성(오해 방지) vs 성능의 트레이드오프를 명시적으로 협상한 결과</span></div>
+  </div>
+
+  <div class="card-grid col3">
+    <div class="card" style="border-top: 3px solid var(--success);">
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px;color:var(--success)">conservative_safe_22 <span class="src">[05x]</span></div>
+      <div class="stat-number" style="font-size:28px;">22</div>
+      <div class="stat-label">순수 행동 피처 (proxy 없음)</div>
+      <div style="margin-top:12px;font-size:13px;color:var(--text2);">
+        주차별 시청 시간/세션/간격, 주차 비율, cold start 등 행동만 포함. payment/auth/demographic 피처 완전 배제.
+      </div>
+      <details>
+        <summary>22개 피처 목록 보기</summary>
+        <div class="detail-body">
+          <div>avg_gap_w1/w2/w3_watch_days, is_cold_start_3d/7d</div>
+          <div>watch_time_w1/w2/w3, watch_session_w1/w2/w3</div>
+          <div>retention_w2/w3_ratio, diff_between_w2_w1/w3_w1/w3_w2</div>
+          <div>is_w1/w2/w3_over_50pct, is_only_w1/w2/w3</div>
+        </div>
+      </details>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--accent);">
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px;color:var(--accent)">expanded_feature_set <span class="src">[05y]</span></div>
+      <div class="stat-number" style="font-size:28px;">80</div>
+      <div class="stat-label">확장 피처 (payment_is_* 4개 포함)</div>
+      <div style="margin-top:12px;font-size:13px;color:var(--text2);">
+        회원 맥락, 가입 시점, 인구통계 proxy, 콘텐츠/장르 비율 추가. is_promotion 포함 (overall_with scope에서만).
+      </div>
+      <details>
+        <summary>카테고리별 피처 분류 보기</summary>
+        <div class="detail-body">
+          <div><strong>멤버십:</strong> is_standard, is_premium, is_basic, is_churn_prevented</div>
+          <div><strong>인구통계 proxy:</strong> age_group, is_female, is_male</div>
+          <div><strong>가입 맥락:</strong> reg_is_weekend, reg_hour_morning/afternoon/evening/night</div>
+          <div><strong>결제(→제거 예정):</strong> payment_is_mobile/pc/android/ios</div>
+          <div><strong>콘텐츠/장르:</strong> drama_ratio, movie_ratio, romance_ratio, thriller_crime_ratio 등</div>
+        </div>
+      </details>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--warn);">
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px;color:var(--warn)">expanded_no_payment_device <span class="src">[15x]</span></div>
+      <div class="stat-number" style="font-size:28px;">76/75</div>
+      <div class="stat-label">최종 채택 피처셋 (payment_is_* 제거)</div>
+      <div style="margin-top:12px;font-size:13px;color:var(--text2);">
+        overall_with_promotion scope: 76개. 나머지 scope: 75개. payment_is_* 4개 제거 이유: 시청 기기가 아닌 과금 환경 proxy → 오해 유발 위험.
+      </div>
+      <details>
+        <summary>제거 근거 (15x 민감도 분석) 보기</summary>
+        <div class="detail-body">
+          <div>mean AUC delta: <strong>+0.0036</strong> (제거 후 소폭 개선)</div>
+          <div>worst case delta: −0.00015 (거의 무손실)</div>
+          <div>결론: AUC 관점 중립~개선 + 오해 리스크 제거 → 제거 채택</div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. AARRR ===== -->
+<section id="aarrr">
+  <div class="section-header">
+    <h2>AARRR 프레임워크 — 피처를 비즈니스 언어로</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">80개 피처를 AARRR 단계로 매핑하면 비즈니스적 의미가 드러남</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">Retention 신호가 압도적으로 많다 → 이 모델은 이탈 방어 특화 구조</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[07x] AARRR 피처 매핑</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">Needs_user_review 4개(payment_is_*)는 15x에서 제거 결정됨</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">Retention(39) + Activation(6) = 45개가 핵심 — 행동 기반 예측 모델임을 확인</span></div>
+  </div>
+
+  <div class="card-grid col2" style="margin-bottom:20px;">
+    <div class="card">
+      <h4 style="margin-bottom:14px;">conservative_safe_22 AARRR 분포 <span class="src">[07x]</span></h4>
+      <canvas id="aarrr_conservative" height="200"></canvas>
+    </div>
+    <div class="card">
+      <h4 style="margin-bottom:14px;">expanded_feature_set(80) AARRR 분포 <span class="src">[07x]</span></h4>
+      <canvas id="aarrr_expanded" height="200"></canvas>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>AARRR 단계</th><th>conservative(22)</th><th>expanded(80)</th><th>대표 피처 예시</th></tr>
+    <tr><td>Acquisition</td><td>0</td><td>1</td><td>is_promotion</td></tr>
+    <tr><td>Acquisition_context</td><td>0</td><td>12</td><td>reg_is_weekend, age_group, is_premium 등</td></tr>
+    <tr><td>Activation</td><td>6</td><td>6</td><td>is_cold_start_3d, is_only_w1</td></tr>
+    <tr><td>Retention</td><td>16</td><td>39</td><td>watch_time_w1~w3, retention_w2/w3_ratio</td></tr>
+    <tr><td>Retention_context</td><td>0</td><td>18</td><td>drama_ratio, romance_ratio, 장르 비율</td></tr>
+    <tr><td>Needs_user_review</td><td>0</td><td>4</td><td>payment_is_mobile/pc/android/ios (→ 제거됨)</td></tr>
+  </table>
+</section>
+
+<!-- ===== 7. COHORT ===== -->
+<section id="cohort">
+  <div class="section-header">
+    <h2>코호트 분포 — 프로모션 vs 비프로모션</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">프로모션/비프로모션 코호트 크기와 재구매율 차이</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">−8.73%p 격차가 이 프로젝트의 동기이지만, 인과 해석은 불가</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[08x] [09x]</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">격차는 관찰된 상관관계. "100원딜이 재구매를 낮춘다"는 인과 주장 금지</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">프로모션 유입은 더 많이 들어왔지만 재구매율은 더 낮음 — 행동 신호 기반 방어가 필요한 이유</span></div>
+  </div>
+
+  <div class="card-grid col2">
+    <div class="card">
+      <h4 style="margin-bottom:14px;">코호트별 재구매율 비교 <span class="src">[08x]</span></h4>
+      <canvas id="cohort_bar" height="220"></canvas>
+      <div class="stat-explain" style="margin-top:12px;"><strong>그래서 이게 무슨 뜻인가?</strong> 프로모션 코호트 11,904행 중 67.52%가 재구매, 비프로모션 11,175행은 76.24%. 8.73%p 격차는 이 분석의 핵심 문제 설정이지만 단순 비교만으로는 대응 설계 불가 → 행동 신호별 세분화 필요.</div>
+    </div>
+    <div class="card">
+      <h4 style="margin-bottom:14px;">2×2 분포 (코호트 × 재구매) <span class="src">[09x]</span></h4>
+      <canvas id="twobytwo" height="220"></canvas>
+      <div class="stat-explain" style="margin-top:12px;"><strong>그래서 이게 무슨 뜻인가?</strong> 4개 사분면 각각의 크기가 다름. 프로모션 비재구매(3,867행, 16.8%)가 핵심 방어 대상이지만, 행동 패턴은 그 안에서도 다양 → 세그먼트 설계의 이유.</div>
+    </div>
+  </div>
+
+  <div class="card-grid col4" style="margin-top:16px;">
+    <div class="card">
+      <div class="stat-number">11,904</div>
+      <div class="stat-label">프로모션 rows</div>
+      <span class="src">[08x]</span>
+      <div style="margin-top:6px;font-size:12px;color:var(--text3);">재구매율 67.52%</div>
+    </div>
+    <div class="card">
+      <div class="stat-number">11,175</div>
+      <div class="stat-label">비프로모션 rows</div>
+      <span class="src">[08x]</span>
+      <div style="margin-top:6px;font-size:12px;color:var(--text3);">재구매율 76.24%</div>
+    </div>
+    <div class="card">
+      <div class="stat-number" style="color:var(--danger);">3,867</div>
+      <div class="stat-label">프로모션 × 비재구매</div>
+      <span class="src">[09x]</span>
+      <div style="margin-top:6px;font-size:12px;color:var(--text3);">전체의 16.8% — 핵심 방어 대상</div>
+    </div>
+    <div class="card">
+      <div class="stat-number" style="color:var(--success);">8,520</div>
+      <div class="stat-label">비프로모션 × 재구매</div>
+      <span class="src">[09x]</span>
+      <div style="margin-top:6px;font-size:12px;color:var(--text3);">전체의 36.9%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. MODELING ===== -->
+<section id="modeling">
+  <div class="section-header">
+    <h2>모델링 결과 — 4개 scope × 피처셋 비교</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">어떤 모델이 어떤 조건에서 얼마나 잘 예측하는가</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">최종 채택 모델(LightGBM expanded)의 AUC가 이후 SHAP/세그먼트의 신뢰도 기반</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[11x] [12x] [14x]</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">AUC는 랭킹 능력이지 "정확한 이탈 예측" 능력이 아님. 점수는 보조 도구</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">LightGBM + expanded_no_payment_device + Optuna가 모든 scope에서 최고 또는 준최고 성능</span></div>
+  </div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <h4 style="margin-bottom:14px;">AUC 성장 추적 <span class="src">[11x→12x→14x]</span></h4>
+    <canvas id="auc_chart" height="200"></canvas>
+  </div>
+
+  <table>
+    <tr><th>단계</th><th>모델</th><th>피처셋</th><th>overall_with</th><th>overall_without</th><th>promotion_only</th><th>nonpromotion_only</th></tr>
+    <tr><td>[11x] baseline</td><td>RandomForest</td><td>conservative(22)</td><td>0.8118</td><td>0.8118</td><td>0.7963</td><td>0.8318</td></tr>
+    <tr><td>[11x] expanded</td><td>HistGBM</td><td>expanded(80)</td><td>0.8770</td><td>0.8725</td><td>0.8606</td><td>0.8830</td></tr>
+    <tr><td>[12x] best</td><td>LightGBM</td><td>expanded(80)</td><td>0.8773</td><td>0.8733</td><td>0.8616</td><td>0.8838</td></tr>
+    <tr style="background:var(--success-bg);"><td>[14x] <strong>최종</strong></td><td><strong>LightGBM</strong></td><td><strong>expanded(76/75)</strong></td><td><strong>0.8797</strong></td><td>—</td><td>—</td><td><strong>0.8871</strong></td></tr>
+  </table>
+
+  <div class="card-grid col2" style="margin-top:16px;">
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:8px;">4개 modeling scope 설명 <span class="src">[06x]</span></div>
+      <table>
+        <tr><th>scope</th><th>설명</th><th>is_promotion 포함?</th></tr>
+        <tr><td>overall_with_promotion</td><td>전체, is_promotion 피처 포함</td><td>✓</td></tr>
+        <tr><td>overall_without_promotion</td><td>전체, is_promotion 피처 제외</td><td>✗</td></tr>
+        <tr><td>promotion_only</td><td>프로모션 rows만</td><td>✗</td></tr>
+        <tr><td>nonpromotion_only</td><td>비프로모션 rows만</td><td>✗</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:8px;">CV 전략 <span class="src">[06x]</span></div>
+      <div style="font-size:13px;color:var(--text2);">
+        <strong>StratifiedGroupKFold</strong> (k=5)<br><br>
+        Group key: USER_KEY → 같은 사용자가 train/test에 분리됨<br>
+        Stratify: is_repurchase → 각 fold의 재구매율 균형 유지<br><br>
+        <strong>그래서 이게 무슨 뜻인가?</strong> 단순 KFold를 쓰면 같은 USER_KEY가 train과 test에 동시 등장해 데이터 누수가 생김. GroupKFold로 이를 방지.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. SHAP ===== -->
+<section id="shap">
+  <div class="section-header">
+    <h2>SHAP 해석 — 모델이 사용한 신호 (인과 아님)</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">LightGBM이 재구매 여부를 구분할 때 어떤 신호를 얼마나 활용했는가</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">세그먼트 설계와 메시지 전략의 간접 근거 — 단, 인과 아님</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[16x] SHAP 해석</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">SHAP = "모델이 이 피처를 얼마나 참고했나". "이 피처가 재구매를 일으킨다"는 해석 금지</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">시청 행동(W3 집중) > 콘텐츠 선호 > 프로모션 여부 순으로 모델이 참고한 신호</span></div>
+  </div>
+
+  <div class="warn-bar" style="background:var(--danger-bg);border-color:var(--danger);color:var(--danger-text);">
+    ⚠️ <strong>SHAP 인과 해석 절대 금지</strong> — "watch_time_w3가 높으면 재구매한다" (X) / "모델이 watch_time_w3 값이 높은 row를 재구매 가능성 높다고 분류하는 경향이 있다" (O)
+  </div>
+
+  <div class="card-grid col2">
+    <div class="card">
+      <h4 style="margin-bottom:16px;">SHAP 패밀리별 중요도 <span class="src">[16x] overall_with_promotion LightGBM</span></h4>
+      <div class="shap-bar"><div class="shap-bar-label">usage_retention_behavior</div><div class="shap-bar-track"><div class="shap-bar-fill" style="width:100%;background:#4263eb;"></div></div><div class="shap-bar-val">2.877</div></div>
+      <div class="shap-bar"><div class="shap-bar-label">content_preference_context</div><div class="shap-bar-track"><div class="shap-bar-fill" style="width:67%;background:#1971c2;"></div></div><div class="shap-bar-val">1.930</div></div>
+      <div class="shap-bar"><div class="shap-bar-label">acquisition_split_key (is_promotion)</div><div class="shap-bar-track"><div class="shap-bar-fill" style="width:13%;background:#ae3ec9;"></div></div><div class="shap-bar-val">0.376</div></div>
+      <div class="shap-bar"><div class="shap-bar-label">other</div><div class="shap-bar-track"><div class="shap-bar-fill" style="width:9%;background:#868e96;"></div></div><div class="shap-bar-val">0.266</div></div>
+      <div class="shap-bar"><div class="shap-bar-label">membership_context</div><div class="shap-bar-track"><div class="shap-bar-fill" style="width:5%;background:#f08c00;"></div></div><div class="shap-bar-val">0.157</div></div>
+      <div class="shap-bar"><div class="shap-bar-label">demographic_proxy_caveat</div><div class="shap-bar-track"><div class="shap-bar-fill" style="width:3.5%;background:#e03131;"></div></div><div class="shap-bar-val">0.101</div></div>
+    </div>
+    <div class="card">
+      <h4 style="margin-bottom:12px;">SHAP 개별 피처 Top 10 <span class="src">[16x]</span></h4>
+      <table>
+        <tr><th>순위</th><th>피처</th><th>AARRR</th></tr>
+        <tr><td>1</td><td>watch_time_min_w3</td><td><span class="feature-tag retention">Retention</span></td></tr>
+        <tr><td>2</td><td>is_promotion</td><td><span class="feature-tag acquisition">Acquisition</span></td></tr>
+        <tr><td>3</td><td>retention_w2_ratio</td><td><span class="feature-tag retention">Retention</span></td></tr>
+        <tr><td>4</td><td>retention_w3_ratio</td><td><span class="feature-tag retention">Retention</span></td></tr>
+        <tr><td>5</td><td>drama_ratio</td><td><span class="feature-tag content">Content</span></td></tr>
+        <tr><td>6</td><td>family_animation_ratio</td><td><span class="feature-tag content">Content</span></td></tr>
+        <tr><td>7</td><td>romance_ratio</td><td><span class="feature-tag content">Content</span></td></tr>
+        <tr><td>8</td><td>thriller_crime_ratio</td><td><span class="feature-tag content">Content</span></td></tr>
+        <tr><td>9</td><td>action_adventure_ratio</td><td><span class="feature-tag content">Content</span></td></tr>
+        <tr><td>10</td><td>diff_between_w2_w1</td><td><span class="feature-tag retention">Retention</span></td></tr>
+      </table>
+      <div class="stat-explain" style="margin-top:10px;"><strong>그래서 이게 무슨 뜻인가?</strong> W3(3주차) 시청 시간과 주차별 retention 비율이 모델이 가장 많이 참고하는 신호입니다. 콘텐츠 장르 비율도 상위에 등장 — 이것이 content_preference_target_candidate 세그먼트 설계의 간접 근거입니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. SEGMENTS ===== -->
+<section id="segments">
+  <div class="section-header">
+    <h2>7개 대표 세그먼트 (provisional)</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">day0~20 행동 신호로 분류한 7개 임시 세그먼트의 특징과 대응 방향</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">동일한 재구매율 뒤에도 행동 패턴이 다르므로, 세그먼트별 맞춤 대응이 가능</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[17x] 세그먼트 설계, [18x] 메시지 전략</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">모든 세그먼트는 provisional. "이 고객은 이탈한다" 단정 금지. payment/auth/demographic proxy 불사용.</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">고위험 3개 + 중위험 1개 + 특성 기반 2개 + 일반 관찰 1개 = 7개 provisional 대응 후보</span></div>
+  </div>
+
+  <div class="warn-bar">
+    <strong>세그먼트 공통 주의사항:</strong>
+    <div class="warn-items">
+      <span class="warn-pill red">row ≠ 고객</span>
+      <span class="warn-pill orange">provisional 임시 설계</span>
+      <span class="warn-pill orange">payment/auth/demographic proxy 미사용</span>
+      <span class="warn-pill red">이탈 확정 단정 금지</span>
+      <span class="warn-pill blue">A/B 실험 전 정책 확정 금지</span>
+    </div>
+  </div>
+
+  <div class="card-grid col2" style="margin-bottom:20px;">
+    <div class="card">
+      <h4 style="margin-bottom:14px;">세그먼트별 row 분포 <span class="src">[17x]</span></h4>
+      <canvas id="segment_dist" height="240"></canvas>
+    </div>
+    <div class="card">
+      <h4 style="margin-bottom:14px;">세그먼트별 재구매율 vs 이탈위험 <span class="src">[17x]</span></h4>
+      <canvas id="segment_risk" height="240"></canvas>
+    </div>
+  </div>
+
+  <!-- Segment 1 -->
+  <div class="segment-card high-risk">
+    <div class="segment-name-ko">🔴 3주차 비활성/이탈 고위험</div>
+    <div class="segment-name-en">high_risk_week3_inactive_or_drop <span class="src">[17x] priority 1</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">3,793</div><div class="lbl">rows (16.4%)</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--danger);">26.8%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--danger);">73.3%</div><div class="lbl">평균 이탈위험</div></div>
+      <div class="segment-stat"><div class="n">100%</div><div class="lbl">top20 risk 내</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      관측창 말미(week3)에 비활성 또는 시청 급감 신호가 있는 고위험 행. churn_risk top 20%에 전부 속함. <strong>대응 후보: day21 직후 이전 관측창 콘텐츠 proxy 기반 재진입 추천.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>flag_high_risk_top20 == 1 AND (flag_week3_inactive == 1 OR flag_week3_drop == 1 OR flag_retention_decay == 1)</code>
+      </div>
+    </details>
+  </div>
+
+  <!-- Segment 2 -->
+  <div class="segment-card high-risk">
+    <div class="segment-name-ko">🔴 초기 활성화 약화 고위험</div>
+    <div class="segment-name-en">high_risk_only_w1_or_cold_start_weak <span class="src">[17x] priority 2</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">265</div><div class="lbl">rows (1.1%)</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--danger);">28.3%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--danger);">69.8%</div><div class="lbl">평균 이탈위험</div></div>
+      <div class="segment-stat"><div class="n">100%</div><div class="lbl">top20 risk 내</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      W1에만 시청하거나 cold start가 약한 행. 시청 습관이 형성되지 않은 초기 이탈 패턴. <strong>대응 후보: day7~21 사이 낮은 마찰 재방문 유도, 온보딩 보강.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>flag_high_risk_top20 == 1 AND (flag_only_w1 == 1 OR flag_cold_start_weak == 1)</code>
+      </div>
+    </details>
+  </div>
+
+  <!-- Segment 3 -->
+  <div class="segment-card high-risk">
+    <div class="segment-name-ko">🔴 저활동 고위험</div>
+    <div class="segment-name-en">high_risk_low_activity <span class="src">[17x] priority 3</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">511</div><div class="lbl">rows (2.2%)</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--danger);">18.6%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--danger);">76.5%</div><div class="lbl">평균 이탈위험</div></div>
+      <div class="segment-stat"><div class="n">100%</div><div class="lbl">top20 risk 내</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      전반적으로 시청량이 낮고 고위험인 행. 과도한 개인화보다 낮은 마찰의 broad recommendation이 적합. <strong>대응 후보: day21 직후 낮은 빈도 리마인드, broad 콘텐츠 추천.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>flag_high_risk_top20 == 1 AND flag_low_activity == 1</code>
+      </div>
+    </details>
+  </div>
+
+  <!-- Segment 4 -->
+  <div class="segment-card medium-risk">
+    <div class="segment-name-ko">🟡 주차별 시청 감소 중위험</div>
+    <div class="segment-name-en">medium_risk_retention_decay <span class="src">[17x] priority 4</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">3,195</div><div class="lbl">rows (13.8%)</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--warn);">61.2%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--warn);">35.8%</div><div class="lbl">평균 이탈위험</div></div>
+      <div class="segment-stat"><div class="n">0%</div><div class="lbl">top20 risk 내</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      중위험이지만 주차별 시청이 감소하는 decay 신호. 고위험 전 단계로 조기 개입 가능. <strong>대응 후보: week2~3 감소 감지 후 day21 전후 유지 메시지.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>flag_high_risk_top20 == 0 AND churn_risk top 20-50% AND flag_retention_decay == 1</code>
+      </div>
+    </details>
+  </div>
+
+  <!-- Segment 5 -->
+  <div class="segment-card low-risk">
+    <div class="segment-name-ko">🟢 콘텐츠 취향 proxy 보유</div>
+    <div class="segment-name-en">content_preference_target_candidate <span class="src">[17x] priority 5</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">6,195</div><div class="lbl">rows (26.8%)</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--success);">89.9%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--success);">9.5%</div><div class="lbl">평균 이탈위험</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      장르 비율이 뚜렷하게 나타나는 행. 콘텐츠 proxy 기반 유사 장르 추천 후보. <strong>주의: Movie_Master category mapping proxy이므로 정확한 취향이라고 단정 금지.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>flag_high_risk_top20 == 0 AND flag_low_activity == 0 AND (flag_genre_focused == 1 OR flag_new_movie_oriented == 1 OR flag_old_movie_oriented == 1)</code>
+      </div>
+    </details>
+  </div>
+
+  <!-- Segment 6 -->
+  <div class="segment-card low-risk">
+    <div class="segment-name-ko">🟢 안정 재구매 가능성</div>
+    <div class="segment-name-en">stable_retained_user <span class="src">[17x] priority 6</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">1,224</div><div class="lbl">rows (5.3%)</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--success);">98.9%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n" style="color:var(--success);">1.7%</div><div class="lbl">평균 이탈위험</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      이미 안정적 재구매 가능성이 높은 행. 방어성 할인보다 유지/업셀 후보로 접근. <strong>대응 후보: 정기 만족도 접점, 업셀 타진 — 단, 할인 확정 아님.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>flag_low_risk_stable == 1</code>
+      </div>
+    </details>
+  </div>
+
+  <!-- Segment 7 -->
+  <div class="segment-card general">
+    <div class="segment-name-ko">⚪ 일반 관찰 대상</div>
+    <div class="segment-name-en">general_observation <span class="src">[17x] priority 7</span></div>
+    <div class="segment-stats">
+      <div class="segment-stat"><div class="n">7,896</div><div class="lbl">rows (34.2%)</div></div>
+      <div class="segment-stat"><div class="n">84.1%</div><div class="lbl">재구매율</div></div>
+      <div class="segment-stat"><div class="n">16.9%</div><div class="lbl">평균 이탈위험</div></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">
+      어떤 이전 규칙에도 해당하지 않는 행. 가장 많은 비중(34.2%)을 차지하는 잔여 집합. <strong>추가 모니터링 또는 정보 수집이 우선.</strong>
+    </div>
+    <details>
+      <summary>분류 규칙 보기 (영문 원본)</summary>
+      <div class="detail-body">
+        <code>이전 우선순위 1~6 규칙에 해당하지 않는 모든 row</code>
+      </div>
+    </details>
+  </div>
+
+  <div class="warn-bar" style="margin-top:16px;">
+    <strong>flag_age40_unverified_ios 에 대해:</strong> age_group=40 + is_user_verified=0 + payment_is_ios=1 조합 플래그는 audit 전용으로만 존재합니다. 어떤 세그먼트 규칙에도 사용되지 않았으며, "iOS 40대 미인증 고객" 세그먼트는 이 프로젝트에 존재하지 않습니다.
+  </div>
+</section>
+
+<!-- ===== 11. RECOMMENDATIONS ===== -->
+<section id="recommendations">
+  <div class="section-header">
+    <h2>비즈니스 제언 — 세그먼트별 대응 후보</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">각 세그먼트에 어떤 메시지를, 언제, 어떤 채널로 전달할 수 있는가</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">단일 메시지 대신 행동 신호별 분리 대응이 이 프로젝트의 핵심 제안</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[18x] 비즈니스 스토리라인</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">제언은 campaign 후보이며 A/B 실험 전 정책으로 확정 불가. 채널도 후보임.</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">day21 이후 동일한 메시지 대신 6가지 행동 신호별 맞춤 개입 설계가 제안의 핵심</span></div>
+  </div>
+
+  <table>
+    <tr>
+      <th>세그먼트</th>
+      <th>대응 목표</th>
+      <th>타이밍 후보</th>
+      <th>메시지 방향 (안전 표현)</th>
+      <th>채널 후보</th>
+    </tr>
+    <tr>
+      <td><strong>3주차 비활성/이탈</strong></td>
+      <td>관측창 말미 식어가는 신호 → 재진입</td>
+      <td>day21 직후</td>
+      <td>이전 관측창 콘텐츠 proxy 기반 유사 콘텐츠 추천 후보</td>
+      <td>app push / in-app / email (미확정)</td>
+    </tr>
+    <tr>
+      <td><strong>초기 활성화 약화</strong></td>
+      <td>시청 습관 미형성 → 온보딩 보강</td>
+      <td>day7~21 또는 day21 직후</td>
+      <td>낮은 마찰 재방문 유도, 첫 시청 완주 유도</td>
+      <td>app push / in-app / email (미확정)</td>
+    </tr>
+    <tr>
+      <td><strong>저활동 고위험</strong></td>
+      <td>낮은 참여도 → 부담 없는 재방문</td>
+      <td>day21 직후 낮은 빈도</td>
+      <td>broad recommendation, 개인화 최소화</td>
+      <td>app push / in-app / email (미확정)</td>
+    </tr>
+    <tr>
+      <td><strong>retention decay 중위험</strong></td>
+      <td>감소 신호 조기 감지 → 유지</td>
+      <td>week2~3 감소 후 day21 전후</td>
+      <td>이전 선호 콘텐츠 proxy 유사 콘텐츠 추천</td>
+      <td>app push / in-app / email (미확정)</td>
+    </tr>
+    <tr>
+      <td><strong>콘텐츠 취향 proxy</strong></td>
+      <td>장르 proxy 활용 → 유사 추천</td>
+      <td>day21 이후 추천 슬롯</td>
+      <td>유사 장르 추천 (proxy caveat 포함)</td>
+      <td>app push / in-app / email (미확정)</td>
+    </tr>
+    <tr>
+      <td><strong>안정 재구매</strong></td>
+      <td>방어 할인 불필요 → 유지/업셀</td>
+      <td>정기 만족도 접점</td>
+      <td>업셀 타진 후보 (할인 확정 아님)</td>
+      <td>app push / in-app / email (미확정)</td>
+    </tr>
+    <tr>
+      <td><strong>general_observation</strong></td>
+      <td>모니터링 우선</td>
+      <td>정기 모니터링</td>
+      <td>추가 정보 수집 후 결정</td>
+      <td>미확정</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ===== 12. LIMITS ===== -->
+<section id="limits">
+  <div class="section-header">
+    <h2>한계와 다음 단계</h2>
+  </div>
+  <div class="meta-block">
+    <div class="meta-title">섹션 메타</div>
+    <div class="meta-row"><span class="meta-label">이 섹션이 말하는 것</span><span class="meta-value">이 분석이 할 수 없는 것과 검증을 위해 필요한 다음 단계</span></div>
+    <div class="meta-row"><span class="meta-label">왜 중요한가</span><span class="meta-value">한계를 명시해야 비즈니스 팀이 과대 해석하지 않음</span></div>
+    <div class="meta-row"><span class="meta-label">어느 단계에서 왔나</span><span class="meta-value">[18x] open risks</span></div>
+    <div class="meta-row"><span class="meta-label">오해 금지</span><span class="meta-value">한계가 있다는 것이 분석을 무효화하지 않음 — 적절한 해석 범위 내에서 유효</span></div>
+    <div class="meta-row"><span class="meta-label">한 줄 해석</span><span class="meta-value">관찰 → 가설 → A/B 실험 → 운영 반영이 남은 경로</span></div>
+  </div>
+
+  <div class="card-grid col2">
+    <div class="card" style="border-left:4px solid var(--danger);">
+      <h4 style="margin-bottom:12px;">인과 불가 항목</h4>
+      <ul style="font-size:13px;color:var(--text2);padding-left:18px;line-height:1.8;">
+        <li>100원딜이 이탈을 <em>일으키는지</em> 증명 불가</li>
+        <li>SHAP 상위 피처가 재구매를 <em>유발하는지</em> 증명 불가</li>
+        <li>개입 메시지 효과는 A/B 실험 전 알 수 없음</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--warn);">
+      <h4 style="margin-bottom:12px;">데이터 한계</h4>
+      <ul style="font-size:13px;color:var(--text2);padding-left:18px;line-height:1.8;">
+        <li>USER_KEY 중복(143명)이 row 단위 독립성 가정에 영향</li>
+        <li>콘텐츠 장르는 Movie_Master mapping proxy — 정확한 카테고리 아님</li>
+        <li>세그먼트는 임시 설계 — 최종 고객 유형 아님</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--accent);">
+      <h4 style="margin-bottom:12px;">다음 단계</h4>
+      <ul style="font-size:13px;color:var(--text2);padding-left:18px;line-height:1.8;">
+        <li>A/B 실험 설계: 세그먼트별 메시지 효과 검증</li>
+        <li>Dashboard handoff: day21 실시간 scoring 운영화</li>
+        <li>세그먼트 재검토: 더 많은 관측 데이터로 규칙 정밀화</li>
+        <li>콘텐츠 매핑 개선: Movie_Master proxy → 실제 장르 태그</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--success);">
+      <h4 style="margin-bottom:12px;">이 분석이 할 수 있는 것</h4>
+      <ul style="font-size:13px;color:var(--text2);padding-left:18px;line-height:1.8;">
+        <li>day21 시점 row 단위 재구매 가능성 상대 점수 제공</li>
+        <li>동일 평균 뒤에 숨어 있는 행동 패턴 차이 구분</li>
+        <li>대응 우선순위 보조 도구로서 세그먼트 분리</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="conclusion-box" style="margin-top:24px;">
+    <div class="label">최종 한 줄 결론 <span style="color:rgba(255,255,255,0.7)">[18x]</span></div>
+    <div class="text">100원딜 이탈 방어의 핵심은 day0~20 안에서 식어가는 신호를 조기에 발견하고 day21 이후 대응기간에 맞춤 개입하는 것이다.</div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+// Dark mode
+const saved = localStorage.getItem('theme');
+if (saved === 'dark') {
+  document.body.classList.add('dark');
+  document.querySelector('.dark-toggle').textContent = '☀️ 라이트';
+}
+document.querySelector('.dark-toggle').addEventListener('click', function() {
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
+
+// Charts
+const isDark = () => document.body.classList.contains('dark');
+const textColor = () => isDark() ? '#b1bac4' : '#495057';
+const gridColor = () => isDark() ? '#30363d' : '#dee2e6';
+
+// AARRR Conservative
+new Chart(document.getElementById('aarrr_conservative'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Activation', 'Retention'],
+    datasets: [{
+      data: [6, 16],
+      backgroundColor: ['#2f9e44', '#4263eb'],
+      borderWidth: 2,
+      borderColor: isDark() ? '#161b22' : '#fff'
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { labels: { color: textColor(), font: { size: 12 } } }
+    }
+  }
+});
+
+// AARRR Expanded
+new Chart(document.getElementById('aarrr_expanded'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Acquisition(1)', 'Acq_context(12)', 'Activation(6)', 'Retention(39)', 'Ret_context(18)', 'Review(4)'],
+    datasets: [{
+      data: [1, 12, 6, 39, 18, 4],
+      backgroundColor: ['#ae3ec9','#862e9c','#2f9e44','#4263eb','#1971c2','#e03131'],
+      borderWidth: 2,
+      borderColor: isDark() ? '#161b22' : '#fff'
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { labels: { color: textColor(), font: { size: 11 } } }
+    }
+  }
+});
+
+// Cohort bar
+new Chart(document.getElementById('cohort_bar'), {
+  type: 'bar',
+  data: {
+    labels: ['프로모션\n(11,904 rows)', '비프로모션\n(11,175 rows)'],
+    datasets: [
+      { label: '재구매율', data: [67.52, 76.24], backgroundColor: ['#4263eb', '#2f9e44'] }
+    ]
+  },
+  options: {
+    scales: {
+      y: {
+        min: 60, max: 85,
+        ticks: { color: textColor(), callback: v => v + '%' },
+        grid: { color: gridColor() }
+      },
+      x: { ticks: { color: textColor() }, grid: { color: gridColor() } }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.parsed.y.toFixed(2) + '%' } }
+    }
+  }
+});
+
+// 2x2
+new Chart(document.getElementById('twobytwo'), {
+  type: 'bar',
+  data: {
+    labels: ['프로모션\n재구매', '프로모션\n비재구매', '비프로모션\n재구매', '비프로모션\n비재구매'],
+    datasets: [{ label: 'rows', data: [8037, 3867, 8520, 2655], backgroundColor: ['#2f9e44','#e03131','#2f9e44','#e03131'] }]
+  },
+  options: {
+    scales: {
+      y: { ticks: { color: textColor() }, grid: { color: gridColor() } },
+      x: { ticks: { color: textColor(), font: { size: 11 } }, grid: { color: gridColor() } }
+    },
+    plugins: { legend: { display: false } }
+  }
+});
+
+// AUC chart
+new Chart(document.getElementById('auc_chart'), {
+  type: 'bar',
+  data: {
+    labels: ['[11x] conservative\nRandomForest', '[11x] expanded\nHistGBM', '[12x] expanded\nLightGBM', '[14x] expanded_no_pay\nLightGBM+Optuna'],
+    datasets: [
+      { label: 'overall_with', data: [0.8118, 0.8770, 0.8773, 0.8797], backgroundColor: '#4263eb' },
+      { label: 'nonpromotion', data: [0.8318, 0.8830, 0.8838, 0.8871], backgroundColor: '#2f9e44' },
+      { label: 'promotion_only', data: [0.7963, 0.8606, 0.8616, null], backgroundColor: '#f08c00' }
+    ]
+  },
+  options: {
+    scales: {
+      y: {
+        min: 0.77, max: 0.90,
+        ticks: { color: textColor(), callback: v => v.toFixed(3) },
+        grid: { color: gridColor() }
+      },
+      x: { ticks: { color: textColor(), font: { size: 10 } }, grid: { color: gridColor() } }
+    },
+    plugins: {
+      legend: { labels: { color: textColor(), font: { size: 12 } } }
+    }
+  }
+});
+
+// Segment distribution
+new Chart(document.getElementById('segment_dist'), {
+  type: 'bar',
+  data: {
+    labels: ['3주차\n비활성', '초기활성\n약화', '저활동\n고위험', 'retention\ndecay', '콘텐츠\nproxy', '안정\n재구매', '일반\n관찰'],
+    datasets: [{
+      label: 'row count',
+      data: [3793, 265, 511, 3195, 6195, 1224, 7896],
+      backgroundColor: ['#e03131','#e03131','#e03131','#f08c00','#2f9e44','#2f9e44','#868e96']
+    }]
+  },
+  options: {
+    scales: {
+      y: { ticks: { color: textColor() }, grid: { color: gridColor() } },
+      x: { ticks: { color: textColor(), font: { size: 10 } }, grid: { color: gridColor() } }
+    },
+    plugins: { legend: { display: false } }
+  }
+});
+
+// Segment risk vs repurchase
+new Chart(document.getElementById('segment_risk'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label: '3주차비활성', data: [{x: 73.3, y: 26.8}], backgroundColor: '#e03131', pointRadius: 10 },
+      { label: '초기활성약화', data: [{x: 69.8, y: 28.3}], backgroundColor: '#e03131', pointRadius: 7 },
+      { label: '저활동고위험', data: [{x: 76.5, y: 18.6}], backgroundColor: '#c92a2a', pointRadius: 8 },
+      { label: 'retention decay', data: [{x: 35.8, y: 61.2}], backgroundColor: '#f08c00', pointRadius: 10 },
+      { label: '콘텐츠proxy', data: [{x: 9.5, y: 89.9}], backgroundColor: '#2f9e44', pointRadius: 12 },
+      { label: '안정재구매', data: [{x: 1.7, y: 98.9}], backgroundColor: '#1a7a2e', pointRadius: 9 },
+      { label: '일반관찰', data: [{x: 16.9, y: 84.1}], backgroundColor: '#868e96', pointRadius: 14 }
+    ]
+  },
+  options: {
+    scales: {
+      x: {
+        title: { display: true, text: '평균 이탈위험(%)', color: textColor() },
+        ticks: { color: textColor() }, grid: { color: gridColor() }
+      },
+      y: {
+        title: { display: true, text: '재구매율(%)', color: textColor() },
+        ticks: { color: textColor() }, grid: { color: gridColor() }
+      }
+    },
+    plugins: {
+      legend: { labels: { color: textColor(), font: { size: 11 } } },
+      tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: 이탈위험 ${ctx.parsed.x}%, 재구매율 ${ctx.parsed.y}%` } }
+    }
+  }
+});
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

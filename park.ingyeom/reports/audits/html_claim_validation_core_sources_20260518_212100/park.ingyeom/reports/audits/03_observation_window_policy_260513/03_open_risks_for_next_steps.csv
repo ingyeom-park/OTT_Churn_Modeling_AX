@@ -1,0 +1,11 @@
+﻿risk,carry_forward_to,current_policy
+duration < 21 rows remain included for now,cohort policy,"flag only, no exclusion"
+duration < 21 may confound low behavior with insufficient observation time,cohort policy and modeling design,document as observation-window-incomplete candidates
+duration = 0 rows need business interpretation but cannot be explained from CSV alone,business data review,do not claim immediate customer-center cancellation
+4th-week behavior must remain forbidden as feature,feature selection and leakage audit,explicit w4/week4 columns marked no
+total/all-period columns need timing review before modeling,leakage/timing audit,marked review
+recency needs timing review before modeling,leakage/timing audit,marked review
+content columns without explicit observation window need timing review,feature construction review,marked review
+end_date/duration timing still needs leakage/timing audit,leakage/timing audit,not audited in step 03
+full duplicate rows still need policy review,deduplication/cohort policy,no duplicate rows removed
+groupwise models later must not use is_promotion as a feature,promotion split modeling,carry forward from step 02

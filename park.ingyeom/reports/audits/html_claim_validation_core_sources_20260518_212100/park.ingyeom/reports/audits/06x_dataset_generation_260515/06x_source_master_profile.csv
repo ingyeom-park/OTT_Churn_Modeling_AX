@@ -1,0 +1,7 @@
+﻿metric,value
+raw row_count,23343
+raw column_count,91
+missing_count,0
+duplicated USER_KEY extra rows,209
+target distribution,"{""1"": 16702, ""0"": 6641}"
+promotion distribution,"{""1"": 11955, ""0"": 11388}"

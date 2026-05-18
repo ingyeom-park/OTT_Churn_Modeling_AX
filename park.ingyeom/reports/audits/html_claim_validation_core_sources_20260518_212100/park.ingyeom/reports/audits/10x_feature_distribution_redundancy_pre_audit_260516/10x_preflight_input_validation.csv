@@ -1,0 +1,22 @@
+﻿check,status,detail
+06x_dataset_generation_260515 folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\06x_dataset_generation_260515
+required 06x_dataset_generation_260515 files exist,PASS,
+07x_feature_mapping_AARRR_260515 folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\07x_feature_mapping_AARRR_260515
+required 07x_feature_mapping_AARRR_260515 files exist,PASS,
+08x_promotion_nonpromotion_EDA_260516 folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\08x_promotion_nonpromotion_EDA_260516
+required 08x_promotion_nonpromotion_EDA_260516 files exist,PASS,
+09x_promotion_repurchase_2x2_EDA_260516 folder exists,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\09x_promotion_repurchase_2x2_EDA_260516
+required 09x_promotion_repurchase_2x2_EDA_260516 files exist,PASS,
+06x final checks pass,PASS,
+07x final checks pass,PASS,
+08x final checks pass,PASS,
+09x final checks pass,PASS,
+conservative dataset loaded,PASS,"(23079, 24)"
+expanded dataset loaded,PASS,"(23079, 82)"
+conservative_expanded_row_alignment_verified,PASS,USER_KEY and target aligned
+is_promotion split available,PASS,expanded dataset
+is_repurchase target available,PASS,
+2x2 cohort labels available for analysis only,PASS,"computed as masks only, not saved as new dataset features"
+source fingerprint before captured,PASS,7
+output folder created,PASS,C:\Code\ott-churn-prediction\park.ingyeom\reports\audits\10x_feature_distribution_redundancy_pre_audit_260516
+stop_reason,PASS,none
