@@ -1,4 +1,4 @@
-import os
+﻿import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -43,15 +43,15 @@ st.markdown("""
         transition: all 0.15s ease !important;
     }
     section[data-testid="stSidebar"] .stRadio label:hover {
-        background: #f0f4ff !important;
-        border-color: #4f8bf9 !important;
+        background: #fff0f0 !important;
+        border-color: #E57373 !important;
         color: #1a1a1a !important;
     }
     section[data-testid="stSidebar"] .stRadio label[data-baseweb="radio"]:has(input:checked),
     section[data-testid="stSidebar"] .stRadio [aria-checked="true"] {
-        background: #1565c0 !important;
+        background: #E57373 !important;
         color: white !important;
-        border-color: #1565c0 !important;
+        border-color: #E57373 !important;
     }
     /* 라디오 원형 점 숨기기 */
     section[data-testid="stSidebar"] .stRadio [role="radio"],
@@ -77,14 +77,14 @@ st.markdown("""
     .card-unit    { font-size: 12px; font-weight: normal; color: #777; }
     .card-percent { font-size: 11px; font-weight: 400; color: #888; margin-top: 2px; }
 
-    .border-very-high { border-top: 4px solid #d32f2f; }
-    .border-high      { border-top: 4px solid #f57c00; }
+    .border-very-high { border-top: 4px solid #EA002C; }
+    .border-high      { border-top: 4px solid #FF7A00; }
     .border-medium    { border-top: 4px solid #fbc02d; }
     .border-low       { border-top: 4px solid #388e3c; }
 
     .cluster-card {
         border-radius: 8px;
-        padding: 14px 12px;
+        padding: 10px 9px;
         background-color: #fafafa;
         border: 1px solid #e0e0e0;
         margin-bottom: 10px;
@@ -98,16 +98,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 COLOR_MAP = {
-    ' C1 (헤비유저형)': '#F06292',
-    ' C0 (맛보기형)':   '#FFB74D',
-    ' C3 (휴면형)':     '#90CAF9',
-    ' C2 (후반몰입형)': '#66BB6A',
+    ' C1 (헤비유저형)': '#FF8FA3',   # pastel rose
+    ' C0 (맛보기형)':   '#FFB347',   # pastel orange
+    ' C3 (휴면형)':     '#64B5F6',   # pastel blue
+    ' C2 (후반몰입형)': '#81C784',   # pastel green
 }
 CLUSTER_MAP = {
-    0: ' C0 (맛보기형)',
+    0: ' C3 (휴면형)',      # total=1회, recency=15일 → 사실상 미접속
     1: ' C1 (헤비유저형)',
     2: ' C2 (후반몰입형)',
-    3: ' C3 (휴면형)'
+    3: ' C0 (맛보기형)',    # 5분미만 비율 74%, w1>w2>w3 감소
 }
 PATTERN_MAP = {
     ' C0 (맛보기형)':   '짧은 시청 후 이탈',
@@ -125,8 +125,9 @@ ACTION_MAP = {
 # ==========================================
 # 2. 데이터 로드 및 캐싱
 # ==========================================
-DATA_FILE      = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Membership_v4_clustered.csv')
-DATA_FILE_ALL  = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Membership_v4.csv')
+DATA_FILE         = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Membership_v4_clustered.csv')
+DATA_FILE_ALL     = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Membership_v4.csv')
+DATA_FILE_DERIVED = os.path.join(os.path.dirname(os.path.abspath(__file__)), '260513_derived_membership.csv')
 
 @st.cache_data
 def load_data():
@@ -138,7 +139,7 @@ def load_data():
     for col in df.select_dtypes(include=['string']).columns:
         df[col] = df[col].astype(object)
 
-    promo = df[df['is_promotion'] == 1].copy().reset_index(drop=True)
+    promo = df[df['is_promotion'] == 1].drop_duplicates().reset_index(drop=True)
 
     promo['is_churn']     = (promo['is_repurchase'] == 0).astype(int)
     promo['cluster_name'] = promo['cluster'].map(CLUSTER_MAP).astype(object)
@@ -177,7 +178,16 @@ def load_data():
              .reset_index(drop=True)
     )
 
-    return promo, pca_sample, total_all
+    # 비프로모션 비교용 데이터
+    df_derived = pd.read_csv(DATA_FILE_DERIVED, encoding='utf-8-sig')
+    nonpromo = df_derived[df_derived['is_promotion'] == 0].copy().reset_index(drop=True)
+    nonpromo['is_churn']   = (nonpromo['is_repurchase'] == 0).astype(int)
+    nonpromo['gender_kor'] = nonpromo['gender'].map({'F': '여성', 'M': '남성', 'N': '기타'})
+    nonpromo['plan'] = '베이직'
+    nonpromo.loc[nonpromo['is_standard'] == 1, 'plan'] = '스탠다드'
+    nonpromo.loc[nonpromo['is_premium']  == 1, 'plan'] = '프리미엄'
+
+    return promo, pca_sample, total_all, nonpromo
 
 
 def fmt_min(m):
@@ -187,10 +197,27 @@ def fmt_min(m):
     return f"{m}분"
 
 
-promo_df, pca_df, TOTAL_ALL = load_data()
+promo_df, pca_df, TOTAL_ALL, nonpromo_df = load_data()
+promo_df    = promo_df[promo_df['age_group'] != 70].reset_index(drop=True)
+nonpromo_df = nonpromo_df[nonpromo_df['age_group'] != 70].reset_index(drop=True)
 TOTAL = len(promo_df)
 CONVERTED = int(promo_df['is_repurchase'].sum())
 CHURNED   = int(promo_df['is_churn'].sum())
+
+# 이탈 고위험군 (모델 예측 결과)
+_CHURN_PROBA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'churn_proba_B.csv')
+try:
+    _prob_df = pd.read_csv(_CHURN_PROBA_FILE, encoding='utf-8-sig')
+    _prob_df = _prob_df.groupby('USER_KEY', as_index=False).agg({'churn_proba': 'mean', 'is_high_risk': 'max'})
+    promo_df = promo_df.merge(_prob_df[['USER_KEY', 'churn_proba', 'is_high_risk']], on='USER_KEY', how='left')
+    HIGH_RISK_COUNT = int(promo_df['is_high_risk'].sum())
+    HIGH_RISK_RATIO = promo_df['is_high_risk'].mean() * 100
+except Exception:
+    HIGH_RISK_COUNT = None
+    HIGH_RISK_RATIO = None
+
+HR_LABEL = f"{HIGH_RISK_COUNT:,} 명" if HIGH_RISK_COUNT is not None else "- 명"
+HR_DELTA = f"즉시 대응 필요 ({HIGH_RISK_RATIO:.1f}%)" if HIGH_RISK_RATIO is not None else "즉시 대응 필요"
 
 # ==========================================
 # 3. 좌측 사이드바 (탭 스타일)
@@ -198,6 +225,24 @@ CHURNED   = int(promo_df['is_churn'].sum())
 with st.sidebar:
     st.title("🎯 Retention Lab")
     st.caption("2021년 프로모션 이탈 방어 시스템")
+    st.markdown(f"""
+    <div style="background:#FFE0B2; border-radius:10px; padding:12px 14px;
+                margin:8px 0 4px 0;">
+      <div style="font-size:11px; color:#BF360C; margin-bottom:5px;">
+        📡 2021년 &nbsp;·&nbsp; SKT OTT &nbsp;·&nbsp; 100원 체험 프로모션
+      </div>
+      <div style="font-size:13px; line-height:1.6; margin-bottom:8px; color:#333;">
+        가입자 <b>{TOTAL:,}명</b> 중<br>
+        <b style="font-size:1.15rem; color:#E07830;">{CHURNED/TOTAL*100:.1f}%</b>
+        <span style="font-size:12px; color:#555;"> 유료 전환 없이 이탈</span>
+      </div>
+      <div style="font-size:11px; color:#666; line-height:1.8;">
+        📅 분석 기간 : 2021년 3월 (1~3주차)<br>
+        🎯 분석 목적 : 4주차 유료 전환율 제고<br>
+        🔬 분석 방법 : K-Means 군집화 + 행동 기반 위험 점수
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
     st.markdown("---")
     menu = st.radio("분석 메뉴", [
         "🏠 종합 현황",
@@ -212,7 +257,7 @@ with st.sidebar:
 if menu == "🏠 종합 현황":
     st.markdown(
         "<h1 style='font-size:2rem; font-weight:800; margin-bottom:2px;'>"
-        "프로모션 이탈 방어 종합 현황</h1>",
+        "고객 이탈 현황</h1>",
         unsafe_allow_html=True,
     )
 
@@ -224,66 +269,35 @@ if menu == "🏠 종합 현황":
     cstats_m['이탈률'] = cstats_m['이탈자'] / cstats_m['총인원'] * 100
     cstats_m['비중']   = cstats_m['총인원'] / TOTAL * 100
 
-    tab0, tab1, tab2 = st.tabs(["고객 현황", "군집 분포", "인구통계 분석"])
+    # 탭 공통 사전 계산 (plan_color_map, plan_stats)
+    plan_color_map = {'베이직': '#90caf9', '스탠다드': '#FFA040', '프리미엄': '#E05070'}
+    plan_stats = promo_df.groupby('plan').agg(
+        인원=('USER_KEY', 'count'),
+        이탈=('is_churn', 'sum'),
+    ).reset_index()
+    plan_stats['이탈률'] = (plan_stats['이탈'] / plan_stats['인원'] * 100).round(1)
+    plan_stats['비중']   = (plan_stats['인원'] / TOTAL * 100).round(1)
+
+    tab0, tab1, tab2 = st.tabs(["고객 현황", "군집 분포", "세부 인구통계 분석"])
 
     # ── 탭0: 전체 고객 현황 ────────────────────────────────────────────
     with tab0:
         # 미니 KPI
-        ov1, ov2, ov3, ov4 = st.columns(4)
-        gender_counts = promo_df['gender_kor'].value_counts()
-        male_pct   = gender_counts.get('남성', 0) / TOTAL * 100
-        female_pct = gender_counts.get('여성', 0) / TOTAL * 100
-        age_mode   = int(promo_df['age_group'].mode()[0])
-        ov1.metric("100원 프로모션 가입자", f"{TOTAL:,} 명",             f"전체의 {TOTAL/TOTAL_ALL*100:.1f}%", delta_color="off")
+        ov1, ov2, ov3 = st.columns(3)
+        _age_churn_tab0    = promo_df.groupby('age_group')['is_churn'].mean()
+        _top_churn_age     = int(_age_churn_tab0.idxmax())
+        _top_churn_age_rate = _age_churn_tab0.max() * 100
+        ov1.metric("총 프로모션 가입자", f"{TOTAL:,} 명",             f"전체의 {TOTAL/TOTAL_ALL*100:.1f}%", delta_color="off")
         ov2.metric("이탈률",                f"{CHURNED/TOTAL*100:.1f} %", f"{CHURNED:,}명 이탈",               delta_color="inverse")
-        ov3.metric("최다 연령대",           f"{age_mode}대",              "가장 많은 나이대",                   delta_color="off")
-        ov4.metric("남성 : 여성",           f"{male_pct:.0f} : {female_pct:.0f}", "성별 비율",                 delta_color="off")
+        # ov3.metric("이탈률 1위 연령대",      f"{_top_churn_age}대",        f"이탈률 {_top_churn_age_rate:.1f}%", delta_color="inverse")
+        ov3.metric("이탈 고위험군",         HR_LABEL,                     HR_DELTA,                            delta_color="inverse")
 
         st.markdown("<hr style='margin:14px 0;'>", unsafe_allow_html=True)
 
-        col_a, col_b, col_c = st.columns([2, 3, 5])
+        # ── 이탈률 2종 ────────────────────────────────────────────
+        ch1, ch2 = st.columns([3, 2])
 
-        # 성별 도넛 차트
-        with col_a:
-            st.caption("**성별 분포**")
-            gen_dist = promo_df[promo_df['gender_kor'].isin(['남성', '여성'])]['gender_kor'].value_counts().reset_index()
-            gen_dist.columns = ['성별', '인원']
-            fig_gen_pie = px.pie(
-                gen_dist, names='성별', values='인원',
-                hole=0.55,
-                color='성별',
-                color_discrete_map={'남성': '#1565c0', '여성': '#e91e8c'},
-            )
-            fig_gen_pie.update_traces(textinfo='label+percent', textfont=dict(size=13, color='black', family='Arial'), insidetextorientation='horizontal')
-            fig_gen_pie.update_layout(
-                height=300, margin=dict(t=10, b=10, l=10, r=10),
-                showlegend=False,
-            )
-            st.plotly_chart(fig_gen_pie, use_container_width=True)
-
-        # 나이대 분포 바 차트
-        with col_b:
-            st.caption("**나이대 분포**")
-            age_dist = promo_df.groupby('age_group')['USER_KEY'].count().reset_index()
-            age_dist.columns = ['나이대', '인원']
-            age_dist['나이대'] = age_dist['나이대'].astype(str) + '대'
-            age_dist['비중']   = (age_dist['인원'] / TOTAL * 100).round(1)
-            fig_age_bar = px.bar(
-                age_dist, x='나이대', y='인원',
-                text=age_dist['비중'].astype(str) + '%',
-                color='인원', color_continuous_scale='Blues',
-            )
-            fig_age_bar.update_traces(textposition='outside')
-            fig_age_bar.update_layout(
-                height=300, margin=dict(t=40, b=10, l=0, r=0),
-                coloraxis_showscale=False,
-                yaxis=dict(range=[0, age_dist['인원'].max() * 1.45], title='인원 수'),
-                xaxis_title='',
-            )
-            st.plotly_chart(fig_age_bar, use_container_width=True)
-
-        # 성별 × 나이대별 이탈률 라인 차트
-        with col_c:
+        with ch1:
             st.caption("**성별 및 나이대별 이탈률**")
             gen_age_churn = (
                 promo_df[promo_df['gender_kor'].isin(['남성', '여성'])]
@@ -296,17 +310,17 @@ if menu == "🏠 종합 현황":
             gen_age_churn = gen_age_churn.rename(columns={'gender_kor': '성별'})
             gen_age_churn = gen_age_churn.sort_values('age_group')
 
-            fig_ga = px.line(
+            fig_ga = px.bar(
                 gen_age_churn, x='나이대', y='이탈률', color='성별',
-                markers=True,
-                color_discrete_map={'남성': '#1565c0', '여성': '#e91e8c'},
+                barmode='group',
+                color_discrete_map={'남성': '#5B8DD9', '여성': '#D4609A'},
                 text='이탈률',
             )
-            fig_ga.update_traces(textposition='top center', textfont_size=10, line_width=2.5, marker_size=9)
+            fig_ga.update_traces(texttemplate='%{text:.1f}%', textposition='outside', textfont_size=10)
             fig_ga.update_layout(
-                height=300, margin=dict(t=30, b=10, l=0, r=10),
+                height=400, margin=dict(t=30, b=10, l=0, r=10),
                 plot_bgcolor='white',
-                yaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)', range=[15, 50]),
+                yaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)', range=[20, 40]),
                 xaxis_title='',
                 legend=dict(
                     orientation='v', x=1.01, y=1, xanchor='left', yanchor='top',
@@ -316,194 +330,247 @@ if menu == "🏠 종합 현황":
             )
             st.plotly_chart(fig_ga, use_container_width=True)
 
-        st.markdown("<hr style='margin:14px 0;'>", unsafe_allow_html=True)
+        with ch2:
+            cr_baseline = CHURNED / TOTAL * 100
+            st.caption("**요금제별 이탈률**")
+            plan_order_ch2 = ['베이직', '스탠다드', '프리미엄']
+            plan_cr  = [promo_df[promo_df['plan'] == p]['is_churn'].mean() * 100 for p in plan_order_ch2]
+            plan_n   = [int((promo_df['plan'] == p).sum()) for p in plan_order_ch2]
+            plan_clr = [plan_color_map[p] for p in plan_order_ch2]
 
-        # 요금제 분포 + 이탈률
-        plan_color_map = {'베이직': '#90caf9', '스탠다드': '#1565c0', '프리미엄': '#0d47a1'}
-        plan_stats = promo_df.groupby('plan').agg(
-            인원=('USER_KEY', 'count'),
-            이탈=('is_churn', 'sum'),
-        ).reset_index()
-        plan_stats['이탈률'] = (plan_stats['이탈'] / plan_stats['인원'] * 100).round(1)
-        plan_stats['비중']   = (plan_stats['인원'] / TOTAL * 100).round(1)
-
-        pc1, pc2 = st.columns([1, 3])
-
-        with pc1:
-            st.caption("**요금제 분포**")
-            fig_plan_pie = px.pie(
-                plan_stats, names='plan', values='인원',
-                hole=0.55,
-                color='plan',
-                color_discrete_map=plan_color_map,
-            )
-            fig_plan_pie.update_traces(
-                textinfo='label+percent',
-                textfont=dict(size=13, color='black', family='Arial'),
-            )
-            fig_plan_pie.update_layout(
-                height=400, margin=dict(t=10, b=10, l=10, r=10), showlegend=False,
-            )
-            st.plotly_chart(fig_plan_pie, use_container_width=True)
-
-        with pc2:
-            st.caption("**요금제별 나이대 비율 (색상 = 이탈률)**")
-            age_groups = sorted(promo_df['age_group'].dropna().unique())
-
-            at_labels  = ['전체']
-            at_parents = ['']
-            at_values  = [TOTAL]
-            at_colors  = [CHURNED / TOTAL * 100]
-            at_custom  = ['']
-
-            for plan in ['베이직', '스탠다드', '프리미엄']:
-                sub_plan = promo_df[promo_df['plan'] == plan]
-                n_plan   = len(sub_plan)
-                cr_plan  = sub_plan['is_churn'].mean() * 100
-                at_labels  += [plan]
-                at_parents += ['전체']
-                at_values  += [n_plan]
-                at_colors  += [cr_plan]
-                at_custom  += [f"{n_plan:,}명 | 이탈 {cr_plan:.1f}%"]
-
-                for ag in age_groups:
-                    sub = sub_plan[sub_plan['age_group'] == ag]
-                    if len(sub) == 0:
-                        continue
-                    n_sub  = len(sub)
-                    cr_sub = sub['is_churn'].mean() * 100
-                    at_labels  += [f"{plan}·{int(ag)}대"]
-                    at_parents += [plan]
-                    at_values  += [n_sub]
-                    at_colors  += [cr_sub]
-                    at_custom  += [f"{int(ag)}대 | {n_sub:,}명 ({n_sub/n_plan*100:.1f}%) | 이탈 {cr_sub:.1f}%"]
-
-            fig_age_tree = go.Figure(go.Treemap(
-                labels=at_labels, parents=at_parents, values=at_values,
-                branchvalues='total',
-                marker=dict(
-                    colors=at_colors,
-                    colorscale='RdBu_r',
-                    cmin=15, cmax=50,
-                    showscale=True,
-                    colorbar=dict(
-                        title=dict(text='이탈률(%)', side='right'),
-                        thickness=14, len=0.8,
-                        tickvals=[15, 25, 35, 50],
-                        ticktext=['15%', '25%', '35%', '50%+'],
-                    ),
-                    line=dict(width=2, color='white'),
-                ),
-                customdata=at_custom,
-                texttemplate='<b>%{label}</b><br>%{customdata}',
-                textfont=dict(size=11, color='#1a1a1a', family='Arial'),
-                hovertemplate='<b>%{label}</b><br>%{customdata}<extra></extra>',
-                root_color='#eeeeee',
+            fig_plan_bar = go.Figure()
+            fig_plan_bar.add_trace(go.Bar(
+                x=plan_order_ch2,
+                y=plan_cr,
+                marker_color=plan_clr,
+                text=[f'{cr:.1f}%' for cr in plan_cr],
+                textposition='outside',
+                textfont=dict(size=13, color='#333'),
+                hovertemplate='<b>%{x}</b><br>이탈률: %{y:.1f}%<extra></extra>',
             ))
-            fig_age_tree.update_layout(height=400, margin=dict(t=10, b=10, l=10, r=80))
-            st.plotly_chart(fig_age_tree, use_container_width=True)
-            st.caption("🟥 붉을수록 이탈 고위험 &nbsp;&nbsp; 🟦 파랄수록 이탈 저위험 &nbsp;&nbsp;|&nbsp;&nbsp; 면적 = 인원 수 비례")
+            for x_val, n_val in zip(plan_order_ch2, plan_n):
+                fig_plan_bar.add_annotation(
+                    x=x_val, y=0, text=f'{n_val:,}명',
+                    showarrow=False, yanchor='bottom', yshift=6,
+                    font=dict(size=11, color='#555'),
+                )
+            fig_plan_bar.add_hline(
+                y=cr_baseline, line_dash='dash', line_color='#888', line_width=1.5,
+                annotation_text=f'평균 {cr_baseline:.1f}%',
+                annotation_position='top right',
+                annotation_font=dict(size=11, color='#555'),
+            )
+            fig_plan_bar.update_layout(
+                height=400,
+                margin=dict(t=30, b=10, l=0, r=10),
+                plot_bgcolor='white',
+                xaxis=dict(title='', tickfont=dict(size=13)),
+                yaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)',
+                           range=[0, max(plan_cr) * 1.3], zeroline=False),
+                showlegend=False,
+            )
+            st.plotly_chart(fig_plan_bar, use_container_width=True)
+
+        # ── 가입자 구성 차트 준비 ────────────────────────────────────────
+        _t0_g_df = (
+            promo_df[promo_df['gender_kor'].isin(['남성', '여성'])]
+            .groupby('gender_kor')['USER_KEY'].count().reset_index()
+        )
+        _t0_g_df.columns = ['성별', '인원']
+        _t0_g_labels = _t0_g_df['성별'].tolist()
+        _t0_g_values = _t0_g_df['인원'].tolist()
+        _t0_g_colors = [{'남성': '#5B8DD9', '여성': '#D4609A'}[l] for l in _t0_g_labels]
+        fig_t0_gen = go.Figure(go.Pie(
+            labels=_t0_g_labels, values=_t0_g_values, hole=0.55,
+            marker=dict(colors=_t0_g_colors, line=dict(color='white', width=2)),
+            textinfo='label+percent', textfont=dict(size=12, color='black'),
+            insidetextorientation='horizontal', automargin=True,
+            hovertemplate='<b>%{label}</b><br>인원: %{value:,}명<br>비중: %{percent}<extra></extra>',
+        ))
+        fig_t0_gen.update_layout(height=225, margin=dict(t=10, b=10, l=10, r=10), showlegend=False)
+
+        _t0_age = promo_df.groupby('age_group')['USER_KEY'].count().reset_index()
+        _t0_age.columns = ['나이대', '인원']
+        _t0_age['나이대'] = _t0_age['나이대'].astype(str) + '대'
+        _t0_age['비중']   = (_t0_age['인원'] / TOTAL * 100).round(1)
+        fig_t0_age_dist = px.bar(_t0_age, x='나이대', y='인원',
+            text=_t0_age['비중'].astype(str) + '%',
+            color='인원', color_continuous_scale=['#FFE0B2', '#FF7A00'])
+        fig_t0_age_dist.update_traces(textposition='outside')
+        fig_t0_age_dist.update_layout(height=230, margin=dict(t=30, b=10, l=0, r=0),
+            coloraxis_showscale=False,
+            yaxis=dict(range=[0, _t0_age['인원'].max() * 1.45], title='인원 수'), xaxis_title='')
+
+        _t0_p_labels = plan_stats['plan'].tolist()
+        _t0_p_values = plan_stats['인원'].tolist()
+        _t0_p_colors = [plan_color_map[p] for p in _t0_p_labels]
+        fig_t0_plan = go.Figure(go.Pie(
+            labels=_t0_p_labels, values=_t0_p_values, hole=0.55,
+            marker=dict(colors=_t0_p_colors, line=dict(color='white', width=2)),
+            textinfo='label+percent', textfont=dict(size=12, color='black'),
+            insidetextorientation='horizontal', automargin=True,
+            hovertemplate='<b>%{label}</b><br>인원: %{value:,}명<br>비중: %{percent}<extra></extra>',
+        ))
+        fig_t0_plan.update_layout(height=225, margin=dict(t=10, b=10, l=10, r=10), showlegend=False)
+
+        # ── 이탈 집중 구간 데이터 준비 ───────────────────────────────────
+        _t0c_age_df = promo_df.groupby('age_group')['is_churn'].agg(['mean', 'count']).reset_index()
+        _t0c_age_df.columns = ['나이대', '이탈률', '인원']
+        _t0c_age_df['이탈률'] *= 100
+        _t0c_age_df['나이대_str'] = _t0c_age_df['나이대'].astype(str) + '대'
+
+        _t0c_gen_df = promo_df[promo_df['gender_kor'].isin(['여성', '남성'])].groupby('gender_kor').agg(
+            이탈률=('is_churn', 'mean'), 인원=('USER_KEY', 'count')
+        ).reset_index()
+        _t0c_gen_df['이탈률'] *= 100
+        _t0c_gen_df.columns = ['성별', '이탈률', '인원']
+
+        _t0c_cr_avg     = CHURNED / TOTAL * 100
+        _t0c_top_age    = _t0c_age_df.loc[_t0c_age_df['이탈률'].idxmax(), '나이대_str']
+        _t0c_top_age_rt = _t0c_age_df['이탈률'].max()
+        _t0c_gen_gap    = abs(_t0c_gen_df['이탈률'].max() - _t0c_gen_df['이탈률'].min())
+        _t0c_high_gen   = _t0c_gen_df.loc[_t0c_gen_df['이탈률'].idxmax(), '성별']
+        _t0c_top_plan   = plan_stats.loc[plan_stats['이탈률'].idxmax()]
+
+        fig_t0c_age = px.bar(_t0c_age_df, x='나이대_str', y='이탈률',
+            text=_t0c_age_df['이탈률'].round(1).astype(str) + '%',
+            color='이탈률', color_continuous_scale=['#f0c4b0', '#c0392b'], range_color=[0, 60],
+            labels={'나이대_str': '나이대'})
+        fig_t0c_age.update_traces(textposition='outside')
+        fig_t0c_age.add_hline(y=_t0c_cr_avg, line_dash='dash', line_color='#888', line_width=1.5,
+            annotation_text=f'평균 {_t0c_cr_avg:.1f}%', annotation_position='bottom right',
+            annotation_font=dict(size=10, color='#555'))
+        fig_t0c_age.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=0),
+            coloraxis_showscale=False, plot_bgcolor='white',
+            yaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)', range=[0, _t0c_age_df['이탈률'].max() * 1.3]),
+            xaxis_title='')
+
+        fig_t0c_gen = px.bar(_t0c_gen_df, x='성별', y='이탈률',
+            text=_t0c_gen_df['이탈률'].round(1).astype(str) + '%',
+            color='성별', color_discrete_map={'여성': '#D4609A', '남성': '#5B8DD9'})
+        fig_t0c_gen.update_traces(textposition='outside')
+        fig_t0c_gen.add_hline(y=_t0c_cr_avg, line_dash='dash', line_color='#888', line_width=1.5,
+            annotation_text=f'평균 {_t0c_cr_avg:.1f}%', annotation_position='bottom right',
+            annotation_font=dict(size=10, color='#555'))
+        fig_t0c_gen.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=0),
+            showlegend=False, plot_bgcolor='white',
+            yaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)', range=[0, _t0c_gen_df['이탈률'].max() * 1.3]),
+            xaxis_title='')
+
+        # ── 나이대/성별 주차별 시청 추이 데이터 준비 ────────────────────────
+        _t0w_cols = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
+        _t0_age_rows = []
+        for _ag in sorted(promo_df['age_group'].unique()):
+            _grp = promo_df[promo_df['age_group'] == _ag][_t0w_cols].mean()
+            for _wk, _cw in zip(['1주차', '2주차', '3주차'], _t0w_cols):
+                _t0_age_rows.append({'나이대': f"{int(_ag)}대", '주차': _wk, '평균 시청(분)': round(_grp[_cw], 1)})
+        _t0_age_line_df = pd.DataFrame(_t0_age_rows)
+
+        _t0_gen_rows = []
+        for _g in ['남성', '여성']:
+            _grp = promo_df[promo_df['gender_kor'] == _g][_t0w_cols].mean()
+            for _wk, _cw in zip(['1주차', '2주차', '3주차'], _t0w_cols):
+                _t0_gen_rows.append({'성별': _g, '주차': _wk, '평균 시청(분)': round(_grp[_cw], 1)})
+        _t0_gen_line_df = pd.DataFrame(_t0_gen_rows)
+
+        fig_t0_age_line = px.line(_t0_age_line_df, x='주차', y='평균 시청(분)', color='나이대',
+            markers=True, text='평균 시청(분)')
+        fig_t0_age_line.update_traces(textposition='top center', textfont_size=10, line_width=2, marker_size=7)
+        fig_t0_age_line.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=120),
+            plot_bgcolor='white', xaxis_title='',
+            yaxis=dict(gridcolor='#f0f0f0', title='평균 시청 시간 (분)'),
+            legend=dict(orientation='v', x=1.01, y=1, xanchor='left', yanchor='top',
+                bgcolor='rgba(255,255,255,0.9)', bordercolor='#e0e0e0', borderwidth=1,
+                font=dict(size=11), title=dict(text='나이대', font=dict(size=11))))
+
+        fig_t0_gen_line = px.line(_t0_gen_line_df, x='주차', y='평균 시청(분)', color='성별',
+            markers=True, color_discrete_map={'남성': '#5B8DD9', '여성': '#D4609A'}, text='평균 시청(분)')
+        fig_t0_gen_line.update_traces(textposition='top center', textfont_size=11, line_width=2.5, marker_size=9)
+        fig_t0_gen_line.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=120),
+            plot_bgcolor='white', xaxis_title='',
+            yaxis=dict(gridcolor='#f0f0f0', title='평균 시청 시간 (분)'),
+            legend=dict(orientation='v', x=1.01, y=1, xanchor='left', yanchor='top',
+                bgcolor='rgba(255,255,255,0.9)', bordercolor='#e0e0e0', borderwidth=1, font=dict(size=12)))
+
+        # ── 하나의 expander: 가입자 구성 + 이탈 집중 구간 ─────────────────
+        with st.expander("세부 분석 보기 (가입자 구성 · 이탈 집중 구간)", expanded=False):
+            col_a0, col_b0, col_c0 = st.columns([2, 3, 2])
+            with col_a0:
+                st.caption("**가입자 성별 분포**")
+                st.plotly_chart(fig_t0_gen, use_container_width=True)
+            with col_b0:
+                st.caption("**가입자 나이대 분포**")
+                st.plotly_chart(fig_t0_age_dist, use_container_width=True)
+            with col_c0:
+                st.caption("**가입자 요금제 분포**")
+                st.plotly_chart(fig_t0_plan, use_container_width=True)
+
+            st.markdown("""<div style="display:flex; align-items:center; margin:16px 0 12px 0; gap:12px;">
+              <span style="font-size:13px; font-weight:600; color:#4472C4; white-space:nowrap;">세그먼트별 이탈 위험도 파악</span>
+              <div style="flex:1; height:1px; background:#e0e0e0;"></div>
+            </div>""", unsafe_allow_html=True)
+
+            mk1, mk2, mk3, mk4 = st.columns(4)
+            mk1.metric("전체 이탈률",     f"{_t0c_cr_avg:.1f} %",          f"{CHURNED:,}명 이탈",                   delta_color="inverse")
+            mk2.metric("최고위험 나이대",  _t0c_top_age,                     f"이탈률 {_t0c_top_age_rt:.1f}%",        delta_color="inverse")
+            mk3.metric("성별 이탈률 격차", f"{_t0c_gen_gap:.1f} %p",         f"{_t0c_high_gen}이 더 높음",            delta_color="inverse")
+            mk4.metric("최고위험 요금제",  _t0c_top_plan['plan'],            f"이탈률 {_t0c_top_plan['이탈률']:.1f}%", delta_color="inverse")
+
+            cr1, cr2 = st.columns(2)
+            with cr1:
+                st.caption("**나이대별 이탈률 (%)**")
+                st.plotly_chart(fig_t0c_age, use_container_width=True)
+            with cr2:
+                st.caption("**성별 이탈률 (%)**")
+                st.plotly_chart(fig_t0c_gen, use_container_width=True)
+
+            st.markdown("""<div style="display:flex; align-items:center; margin:16px 0 12px 0; gap:12px;">
+              <span style="font-size:13px; font-weight:600; color:#4472C4; white-space:nowrap;">세그먼트별 주차 시청 추이</span>
+              <div style="flex:1; height:1px; background:#e0e0e0;"></div>
+            </div>""", unsafe_allow_html=True)
+
+            tr1, tr2 = st.columns(2)
+            with tr1:
+                st.caption("**나이대별 주차별 평균 시청 시간 추이**")
+                st.plotly_chart(fig_t0_age_line, use_container_width=True)
+            with tr2:
+                st.caption("**성별 주차별 평균 시청 시간 추이**")
+                st.plotly_chart(fig_t0_gen_line, use_container_width=True)
 
     # ── 탭1: 군집 분포 ─────────────────────────────────────────────────
     with tab1:
         # KPI 행
-        kpi1, kpi2, kpi3 = st.columns(3)
-        kpi1.metric("총 프로모션 가입자", f"{TOTAL:,} 명",             "전체 데이터 기준",        delta_color="off")
-        kpi2.metric("이탈률",             f"{CHURNED/TOTAL*100:.1f} %", f"{CHURNED:,}명 이탈",     delta_color="inverse")
-        kpi3.metric("이탈 고위험군",      "X 명",                   "즉시 대응 필요 (37.3%)", delta_color="inverse")
+        top_churn_row  = cstats_m.loc[cstats_m['이탈률'].idxmax()]
+        top_churn_name = top_churn_row['cluster_name'].strip().split('(')[-1].rstrip(')')
+        top_churn_rate = top_churn_row['이탈률']
 
-        st.markdown("<hr style='margin:14px 0;'>", unsafe_allow_html=True)
+        _plan_order_kpi    = ['베이직', '스탠다드', '프리미엄']
+        _cluster_order_kpi = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
+        _cross_rows_kpi = []
+        for _plan in _plan_order_kpi:
+            for _cname in _cluster_order_kpi:
+                _sub = promo_df[(promo_df['plan'] == _plan) & (promo_df['cluster_name'] == _cname)]
+                if len(_sub) == 0:
+                    continue
+                _cross_rows_kpi.append({'plan': _plan, 'cluster': _cname.strip().split('(')[-1].rstrip(')'),
+                                        'n': len(_sub), 'cr': _sub['is_churn'].mean() * 100})
+        _cross_df_kpi = pd.DataFrame(_cross_rows_kpi)
+        _top_cross    = _cross_df_kpi.loc[_cross_df_kpi['cr'].idxmax()]
 
-        # ── [2, 3, 5] 비율: 인원 비중 | 이탈률 | 주차별 추이 ──────────
+        kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+        kpi1.metric("총 프로모션 가입자", f"{TOTAL:,} 명",  f"전체의 {TOTAL/TOTAL_ALL*100:.1f}%", delta_color="off")
+        kpi2.metric("최다 이탈 군집",     top_churn_name,   f"이탈률 {top_churn_rate:.1f}%",      delta_color="inverse")
+        kpi3.metric("이탈 집중 구간",
+                    f"{_top_cross['plan']} × {_top_cross['cluster'].split('(')[-1].rstrip(')')}",
+                    f"이탈률 {_top_cross['cr']:.1f}%",
+                    delta_color="inverse")
+        kpi4.metric("이탈 고위험군",       HR_LABEL,         HR_DELTA,                             delta_color="inverse")
+
         cl_names  = cstats_m['cluster_name'].tolist()
         cl_colors = [COLOR_MAP.get(n, '#999') for n in cl_names]
-        cl_labels = [n.strip() for n in cl_names]
+        cl_labels = [n.strip().split('(')[-1].rstrip(')') if '(' in n else n.strip() for n in cl_names]
 
-        col_a, col_b, col_c = st.columns([2, 3, 5])
-
-        with col_a:
-            st.caption("**군집별 인원 비중**")
-            fig_pie = go.Figure(go.Pie(
-                labels=cl_labels,
-                values=cstats_m['총인원'].tolist(),
-                hole=0.5,
-                marker=dict(colors=cl_colors, line=dict(color='white', width=2)),
-                textinfo='percent',
-                textfont=dict(size=12, color='white', family='Arial'),
-                insidetextorientation='horizontal',
-                hovertemplate='<b>%{label}</b><br>인원: %{value:,}명<br>비중: %{percent}<extra></extra>',
-            ))
-            fig_pie.update_layout(
-                height=300, margin=dict(t=10, b=10, l=10, r=10),
-                showlegend=False,
-            )
-            st.plotly_chart(fig_pie, use_container_width=True)
-
-        with col_b:
-            st.caption("**군집별 이탈률**")
-            churn_sorted = cstats_m.sort_values('이탈률', ascending=True)
-            bar_colors   = [COLOR_MAP.get(n, '#999') for n in churn_sorted['cluster_name']]
-            fig_churn_bar = go.Figure(go.Bar(
-                y=[n.strip() for n in churn_sorted['cluster_name']],
-                x=churn_sorted['이탈률'].round(1),
-                orientation='h',
-                marker=dict(color=bar_colors),
-                text=churn_sorted['이탈률'].round(1).astype(str) + '%',
-                textposition='outside',
-                textfont=dict(size=12),
-                hovertemplate='<b>%{y}</b><br>이탈률: %{x:.1f}%<extra></extra>',
-            ))
-            fig_churn_bar.update_layout(
-                height=300, margin=dict(t=10, b=10, l=10, r=50),
-                plot_bgcolor='white',
-                xaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)',
-                           range=[0, churn_sorted['이탈률'].max() * 1.3]),
-                yaxis=dict(title=''),
-            )
-            st.plotly_chart(fig_churn_bar, use_container_width=True)
-
-        with col_c:
-            st.caption("**주차별 평균 시청 시간 추이**")
-            wt_cols = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
-            trend_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
-            trend_colors_list = ['#FFB74D', '#F06292', '#66BB6A', '#90CAF9']
-
-            trend_rows = []
-            for cn in trend_order:
-                row_t = promo_df[promo_df['cluster_name'] == cn][wt_cols].mean()
-                vals = [round(row_t[c], 1) for c in wt_cols]
-                for i, (w, v) in enumerate(zip(['1주차', '2주차', '3주차'], vals)):
-                    if i == 0:
-                        label = f"{v}분"
-                    else:
-                        diff = v - vals[i - 1]
-                        sign = '△' if diff >= 0 else '▽'
-                        label = f"{v}분<br><sub>{sign}{abs(diff):.1f}</sub>"
-                    trend_rows.append({'군집': cn.strip(), '주차': w, '시청시간(분)': v, '라벨': label})
-            trend_df = pd.DataFrame(trend_rows)
-
-            fig_trend = px.bar(
-                trend_df, x='주차', y='시청시간(분)', color='군집',
-                barmode='group',
-                color_discrete_sequence=trend_colors_list,
-                text='라벨',
-            )
-            fig_trend.update_traces(textposition='outside', textfont_size=11)
-            fig_trend.update_layout(
-                height=300,
-                margin=dict(t=10, b=10, l=0, r=0),
-                legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='left', x=0),
-                yaxis_title='평균 시청 시간 (분)',
-                xaxis_title='',
-                plot_bgcolor='white',
-                yaxis=dict(gridcolor='#f0f0f0', range=[0, trend_df['시청시간(분)'].max() * 1.25]),
-            )
-            st.plotly_chart(fig_trend, use_container_width=True)
-
-        # ── 군집별 특성 프로파일: 4열 가로 나열 ──────────────────────
-        st.caption("**📋 군집별 특성 프로파일**")
-        CLUSTER_ICONS_M  = {' C0 (맛보기형)': '🔍', ' C1 (헤비유저형)': '🎬',
-                            ' C2 (후반몰입형)': '🌱', ' C3 (휴면형)': '👻'}
+        
         CLUSTER_LABEL_M  = {' C0 (맛보기형)': '맛보기형', ' C1 (헤비유저형)': '헤비유저형',
                             ' C2 (후반몰입형)': '안정형',   ' C3 (휴면형)': '휴면형'}
         CLUSTER_DESC_M   = {
@@ -512,85 +579,241 @@ if menu == "🏠 종합 현황":
             ' C2 (후반몰입형)': '3주차 리텐션 51.9%로 전 군집 중 최고. 시간이 갈수록 몰입도 상승하는 성장 패턴.',
             ' C3 (휴면형)':     '시청 횟수 평균 1회, 최근 접속 15일. 가입 후 사실상 미접속 상태.'
         }
-        CLUSTER_BORDER_M = {' C0 (맛보기형)': '#FFA726', ' C1 (헤비유저형)': '#EC407A',
-                            ' C2 (후반몰입형)': '#66BB6A', ' C3 (휴면형)': '#42A5F5'}
+        CLUSTER_NUM_M = {
+            ' C0 (맛보기형)':   '평균 시청 13분 · 5분 미만 비율 높음',
+            ' C1 (헤비유저형)': '총 시청 827분 · 장르 다양성 5.25',
+            ' C2 (후반몰입형)': '3주차 리텐션 51.9% — 전 군집 최고',
+            ' C3 (휴면형)':     '시청 횟수 1회 · 최근 접속 15일',
+        }
+        CLUSTER_TXT_M = {
+            ' C0 (맛보기형)':   '콘텐츠를 시작하지만 완주 못하고 이탈',
+            ' C1 (헤비유저형)': '가장 충성도 높은 핵심 고객군',
+            ' C2 (후반몰입형)': '시간이 갈수록 몰입도 상승하는 성장 패턴',
+            ' C3 (휴면형)':     '가입 후 사실상 미접속 상태',
+        }
+        CLUSTER_BORDER_M = {' C0 (맛보기형)': '#FFB347', ' C1 (헤비유저형)': '#FF8FA3',
+                            ' C2 (후반몰입형)': '#81C784', ' C3 (휴면형)': '#64B5F6'}
 
         def churn_badge_color(rate):
             if rate >= 40:   return '#e53935', '#ffebee'
-            elif rate >= 25: return '#f57c00', '#fff3e0'
+            elif rate >= 25: return '#FF7A00', '#fff3e0'
             else:            return '#2e7d32', '#e8f5e9'
 
-        prof_cols = st.columns(4)
-        for i, cname in enumerate([' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']):
-            row_c = cstats_m[cstats_m['cluster_name'] == cname].iloc[0]
-            color = CLUSTER_BORDER_M[cname]
-            text_color, bg_color = churn_badge_color(row_c['이탈률'])
-            with prof_cols[i]:
-                st.markdown(
-                    f"""<div class="cluster-card" style="border-top: 4px solid {color}; margin-bottom:8px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                      <div class="cluster-title" style="font-size:13px; margin:0;">{CLUSTER_ICONS_M[cname]} {cname.strip()}</div>
-                      <span style="font-size:11px; font-weight:700; color:{text_color}; background:{bg_color};
-                                   padding:2px 7px; border-radius:10px; white-space:nowrap;">
-                        이탈 {row_c['이탈률']:.1f}%
-                      </span>
-                    </div>
-                    <span style="font-size:12px; color:#555;">{CLUSTER_DESC_M[cname]}</span>
-                    </div>""",
-                    unsafe_allow_html=True
-                )
-
-        # ── 요금제 분포 트리맵 ─────────────────────────────────────────
+        # ── 군집별 이탈률 + 군집 × 요금제별 이탈률 비교 (1:3 행) ──────────────────────
         st.markdown("<hr style='margin:20px 0 12px 0;'>", unsafe_allow_html=True)
-        st.markdown("**요금제 × 군집 분포 (트리맵)**")
+        col_left, col_right = st.columns([1.5, 3])
 
-        plan_color_map_t = {'베이직': '#90caf9', '스탠다드': '#1565c0', '프리미엄': '#0d47a1'}
-        plan_order = ['베이직', '스탠다드', '프리미엄']
-        cluster_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
+        with col_left:
+            st.caption("**군집별 이탈률**")
+            churn_sorted = cstats_m.sort_values('이탈률', ascending=True)
+            _cr_avg_bar  = promo_df['is_churn'].mean() * 100
+            bar_colors   = [COLOR_MAP.get(n, '#999') for n in churn_sorted['cluster_name']]
+            churn_names = [n.strip().split('(')[-1].rstrip(')') if '(' in n else n.strip() for n in churn_sorted['cluster_name']]
+            churn_rates = churn_sorted['이탈률'].round(1).tolist()
+            fig_churn_bar = go.Figure(go.Bar(
+                y=churn_names,
+                x=churn_rates,
+                orientation='h',
+                marker=dict(color=bar_colors),
+                text=churn_names,
+                textposition='inside',
+                textfont=dict(size=12, color='white', family='Arial'),
+                hovertemplate='<b>%{y}</b><br>이탈률: %{x:.1f}%<extra></extra>',
+            ))
+            for name, rate in zip(churn_names, churn_rates):
+                _num_color = '#e53935' if rate > _cr_avg_bar else '#333'
+                _num_text = f'<b>{rate:.1f}%</b>' if rate > _cr_avg_bar else f'{rate:.1f}%'
+                fig_churn_bar.add_annotation(
+                    x=rate, y=name,
+                    text=_num_text,
+                    showarrow=False,
+                    xanchor='left',
+                    xshift=6,
+                    font=dict(size=12, color=_num_color),
+                )
+            fig_churn_bar.update_layout(
+                height=315, margin=dict(t=10, b=10, l=10, r=60),
+                plot_bgcolor='white',
+                xaxis=dict(gridcolor='#f0f0f0', title='이탈률 (%)',
+                           range=[0, 50]),
+                yaxis=dict(title='', showticklabels=False),
+            )
+            st.plotly_chart(fig_churn_bar, use_container_width=True)
 
-        pt_labels, pt_parents, pt_values, pt_colors, pt_custom, pt_textcolors = ['전체'], [''], [TOTAL], ['#ffffff'], [''], ['#212121']
+        with col_right:
+            plan_order    = ['베이직', '스탠다드', '프리미엄']
+            cluster_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
 
-        for plan in plan_order:
-            sub_plan = promo_df[promo_df['plan'] == plan]
-            n_plan   = len(sub_plan)
-            cr_plan  = sub_plan['is_churn'].mean() * 100
-            pt_labels      += [plan]
-            pt_parents     += ['전체']
-            pt_values      += [n_plan]
-            pt_colors      += [plan_color_map_t[plan]]
-            pt_custom      += [f"{n_plan:,}명 ({n_plan/TOTAL*100:.1f}%) | 이탈 {cr_plan:.1f}%"]
-            pt_textcolors  += ['white']   # 베이직/스탠다드/프리미엄 → 흰색 유지
+            cross_df  = _cross_df_kpi.copy()
+            top_cross = _top_cross
 
-            for cname in cluster_order:
-                sub = sub_plan[sub_plan['cluster_name'] == cname]
-                if len(sub) == 0:
-                    continue
-                n_sub  = len(sub)
-                cr_sub = sub['is_churn'].mean() * 100
-                pt_labels      += [f"{plan}·{cname.strip()}"]
-                pt_parents     += [plan]
-                pt_values      += [n_sub]
-                pt_colors      += [COLOR_MAP[cname]]
-                pt_custom      += [f"{n_sub:,}명 | 이탈 {cr_sub:.1f}%"]
-                pt_textcolors  += ['#212121']  # 군집 항목 → 검정
+            # 군집별 요금제 그룹 막대차트
+            cr_avg = promo_df['is_churn'].mean() * 100
 
-        fig_plan_tree = go.Figure(go.Treemap(
-            labels=pt_labels, parents=pt_parents, values=pt_values,
-            branchvalues='total',
-            marker=dict(colors=pt_colors, line=dict(width=2, color='white')),
-            customdata=pt_custom,
-            texttemplate='<b>%{label}</b><br>%{customdata}',
-            textfont=dict(size=11, color=pt_textcolors),
-            hovertemplate='<b>%{label}</b><br>%{customdata}<extra></extra>',
-            root_color='white',
-        ))
-        fig_plan_tree.update_layout(height=400, margin=dict(t=10, b=10, l=10, r=10))
-        st.plotly_chart(fig_plan_tree, use_container_width=True)
-        st.caption("🟦 요금제 색상 (베이직/스탠다드/프리미엄) &nbsp;&nbsp; 🟫 군집별 색상으로 세분화 &nbsp;&nbsp;|&nbsp;&nbsp; 면적 = 인원 수 비례")
+            st.markdown(
+                f'<small style="color:rgba(49,51,63,0.6);">'
+                f'<b>군집 × 요금제별 이탈률 비교</b>'
+                f' - 점선 = 전체 평균 {cr_avg:.1f}% · 같은 군집 안에서 요금제 차이를 비교'
+                f'</small>',
+                unsafe_allow_html=True,
+            )
+            cluster_order_bar = ['맛보기형', '헤비유저형', '후반몰입형', '휴면형']
+            cluster_short_to_full = {
+                '맛보기형':  ' C0 (맛보기형)',
+                '헤비유저형': ' C1 (헤비유저형)',
+                '후반몰입형': ' C2 (후반몰입형)',
+                '휴면형':    ' C3 (휴면형)',
+            }
+            plan_colors_bar   = {'베이직': '#90caf9', '스탠다드': '#FFA040', '프리미엄': '#E05070'}
 
-    # ── 탭2: 인구통계 분석 (전용 미니 KPI + 차트) ────────────────────
+            fig_bar = go.Figure()
+            for _plan in ['베이직', '프리미엄', '스탠다드']:
+                y_vals, x_vals = [], []
+                for _cname_bare in cluster_order_bar:
+                    _cname_full = cluster_short_to_full[_cname_bare]
+                    _sub = promo_df[(promo_df['plan'] == _plan) & (promo_df['cluster_name'] == _cname_full)]
+                    cr = _sub['is_churn'].mean() * 100 if len(_sub) > 0 else 0
+                    y_vals.append(round(cr, 1))
+                    x_vals.append(_cname_bare)
+                fig_bar.add_trace(go.Bar(
+                    name=_plan,
+                    x=x_vals,
+                    y=y_vals,
+                    marker_color=plan_colors_bar[_plan],
+                    text=[f'{v:.1f}%' for v in y_vals],
+                    textposition='outside',
+                    textfont=dict(size=11, color=['#e53935' if v > cr_avg else '#333' for v in y_vals]),
+                ))
+
+            fig_bar.add_hline(
+                y=cr_avg, line_dash='dash', line_color='#888', line_width=1.5,
+                annotation_text=f'평균 {cr_avg:.1f}%',
+                annotation_position='bottom right',
+                annotation_font=dict(size=11, color='#555'),
+            )
+            fig_bar.update_layout(
+                barmode='group',
+                height=315,
+                margin=dict(t=20, b=10, l=50, r=20),
+                plot_bgcolor='white',
+                xaxis=dict(title='', tickfont=dict(size=12)),
+                yaxis=dict(title='이탈률 (%)', gridcolor='#f0f0f0', zeroline=False,
+                           range=[0, cross_df['cr'].max() * 1.25]),
+                legend=dict(orientation='h', yanchor='bottom', y=1.01,
+                            xanchor='left', x=0, font=dict(size=12)),
+            )
+            st.plotly_chart(fig_bar, use_container_width=True)
+
+        st.markdown("<hr style='margin:20px 0 12px 0;'>", unsafe_allow_html=True)
+        col_pie, col_prof = st.columns([2, 5])
+
+        with col_pie:
+            st.caption("**군집별 인원 비중**")
+            fig_pie = go.Figure(go.Pie(
+                labels=cl_labels,
+                values=cstats_m['총인원'].tolist(),
+                hole=0.5,
+                marker=dict(colors=cl_colors, line=dict(color='white', width=2)),
+                textinfo='label+percent',
+                textfont=dict(size=11, color='black', family='Arial'),
+                insidetextorientation='horizontal',
+                automargin=True,
+                hovertemplate='<b>%{label}</b><br>인원: %{value:,}명<br>비중: %{percent}<extra></extra>',
+            ))
+            fig_pie.update_layout(
+                height=200, margin=dict(t=30, b=30, l=30, r=30),
+                showlegend=False,
+            )
+            st.plotly_chart(fig_pie, use_container_width=True)
+
+        with col_prof:
+            st.caption("**군집별 특성 프로파일**")
+            cluster_order_prof = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
+            for row_idx in range(2):
+                card_cols = st.columns(2)
+                for col_idx in range(2):
+                    cname = cluster_order_prof[row_idx * 2 + col_idx]
+                    color = CLUSTER_BORDER_M[cname]
+                    with card_cols[col_idx]:
+                        st.markdown(
+                            f"""<div class="cluster-card" style="border-top: 4px solid {color}; margin-bottom:8px;">
+                            <div style="margin-bottom:6px;">
+                              <div class="cluster-title" style="font-size:13px; margin:0;">{cname.strip().split('(')[-1].rstrip(')')}</div>
+                            </div>
+                            <span style="font-size:11px; color:#888; display:block; margin-bottom:4px;">{CLUSTER_NUM_M[cname]}</span>
+                            <span style="font-size:13px; color:#333; font-weight:500;">{CLUSTER_TXT_M[cname]}</span>
+                            </div>""",
+                            unsafe_allow_html=True
+                        )
+
+        # ── 시청 행동 패턴 데이터 준비 ─────────────────────────────────────
+        _t1b_wt_cols       = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
+        _t1b_cluster_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
+        _t1b_cl_colors     = ['#FFB347', '#FF8FA3', '#81C784', '#64B5F6']
+
+        _t1b_trend_rows = []
+        for cn in _t1b_cluster_order:
+            _row_t = promo_df[promo_df['cluster_name'] == cn][_t1b_wt_cols].mean()
+            _vals  = [round(_row_t[c], 1) for c in _t1b_wt_cols]
+            _short = cn.strip().split('(')[-1].rstrip(')')
+            for _w, _v in zip(['1주차', '2주차', '3주차'], _vals):
+                _t1b_trend_rows.append({'군집': _short, '주차': _w, '시청시간(분)': _v})
+        _t1b_trend_df = pd.DataFrame(_t1b_trend_rows)
+
+        _t1b_beh_rows = []
+        for cn in _t1b_cluster_order:
+            _sub   = promo_df[promo_df['cluster_name'] == cn]
+            _short = cn.strip().split('(')[-1].rstrip(')')
+            _t1b_beh_rows.append({
+                '군집':              _short,
+                '활성 비율(%)':      round(_sub['active_ratio'].mean() * 100, 1),
+                '단타 시청(%)(5분↓)': round(_sub['watch_ratio_under_5m'].mean() * 100, 1),
+                '장르 다양성(개)':    round(_sub['genre_diversity_count'].mean(), 1),
+            })
+        _t1b_beh_df  = pd.DataFrame(_t1b_beh_rows)
+        _t1b_pct_melt = _t1b_beh_df[['군집', '활성 비율(%)', '단타 시청(%)(5분↓)']].melt(
+            id_vars='군집', var_name='지표', value_name='값')
+
+        # 차트 생성
+        fig_t1b_trend = px.line(_t1b_trend_df, x='주차', y='시청시간(분)', color='군집',
+            markers=True, text='시청시간(분)', color_discrete_sequence=_t1b_cl_colors)
+        fig_t1b_trend.update_traces(textposition='top center', textfont_size=10, line_width=2.5, marker_size=9)
+        fig_t1b_trend.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=120),
+            plot_bgcolor='white', xaxis_title='',
+            yaxis=dict(gridcolor='#f0f0f0', title='평균 시청 시간 (분)'),
+            legend=dict(orientation='v', x=1.01, y=1, xanchor='left', yanchor='top',
+                bgcolor='rgba(255,255,255,0.9)', bordercolor='#e0e0e0', borderwidth=1, font=dict(size=11)))
+
+        fig_t1b_beh = px.bar(_t1b_pct_melt, x='군집', y='값', color='지표', barmode='group',
+            color_discrete_sequence=['#4472C4', '#ED7D31'], text='값')
+        fig_t1b_beh.update_traces(textposition='outside', textfont_size=10)
+        fig_t1b_beh.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=0),
+            plot_bgcolor='white', yaxis_title='(%)', xaxis_title='',
+            yaxis=dict(gridcolor='#f0f0f0', range=[0, _t1b_pct_melt['값'].max() * 1.35]),
+            legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='left', x=0, font=dict(size=10)))
+
+        fig_t1b_genre = px.bar(_t1b_beh_df, x='군집', y='장르 다양성(개)',
+            color='군집', color_discrete_sequence=_t1b_cl_colors, text='장르 다양성(개)')
+        fig_t1b_genre.update_traces(textposition='outside', textfont_size=11, showlegend=False)
+        fig_t1b_genre.update_layout(height=300, margin=dict(t=10, b=5, l=0, r=0),
+            plot_bgcolor='white', xaxis_title='', showlegend=False,
+            yaxis=dict(gridcolor='#f0f0f0', title='평균 장르 수',
+                range=[0, _t1b_beh_df['장르 다양성(개)'].max() * 1.4]))
+
+        # ── expander: 시청 행동 패턴 UI ──────────────────────────────────
+        with st.expander("시청 행동 패턴 상세 보기 (군집별 시청 추이)", expanded=False):
+            st.caption("시청 데이터로 보는 이탈 신호")
+
+            st.plotly_chart(fig_t1b_trend, use_container_width=True)
+
+    # ── 탭2: 세부 인구통계 분석 ────────────────────────────────────────────
     with tab2:
-        # 인구통계 전용 사전 계산
+        # ── 공통 사전 계산 ──────────────────────────────────────────────
+        _wt_cols = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
+        _t2_cluster_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
+        _t2_cl_colors     = ['#FFB347', '#FF8FA3', '#81C784', '#64B5F6']
+        _t2_short_color   = {'맛보기형':'#FFB347','헤비유저형':'#FF8FA3','후반몰입형':'#81C784','휴면형':'#64B5F6'}
+
         age_df = promo_df.groupby('age_group')['is_churn'].agg(['mean', 'count']).reset_index()
         age_df.columns = ['나이대', '이탈률', '인원']
         age_df['이탈률'] *= 100
@@ -602,144 +825,354 @@ if menu == "🏠 종합 현황":
         gen_df['이탈률'] *= 100
         gen_df.columns = ['성별', '이탈률', '인원']
 
-        top_age      = age_df.loc[age_df['이탈률'].idxmax(), '나이대_str']
-        top_age_rate = age_df['이탈률'].max()
-        gen_gap      = abs(gen_df['이탈률'].max() - gen_df['이탈률'].min())
-        high_gen     = gen_df.loc[gen_df['이탈률'].idxmax(), '성별']
+        top_age       = age_df.loc[age_df['이탈률'].idxmax(), '나이대_str']
+        top_age_rate  = age_df['이탈률'].max()
+        gen_gap       = abs(gen_df['이탈률'].max() - gen_df['이탈률'].min())
+        high_gen      = gen_df.loc[gen_df['이탈률'].idxmax(), '성별']
+        _t2_top_plan  = plan_stats.loc[plan_stats['이탈률'].idxmax()]
+        _cr_avg_t2    = CHURNED / TOTAL * 100
 
-        # 인구통계 전용 미니 KPI
-        mk1, mk2, mk3 = st.columns(3)
-        mk1.metric("전체 이탈률 (기준선)", f"{CHURNED/TOTAL*100:.1f} %", f"총 {TOTAL:,}명 중 {CHURNED:,}명", delta_color="off")
-        mk2.metric("최고위험 나이대",      top_age,                       f"이탈률 {top_age_rate:.1f}%",       delta_color="inverse")
-        mk3.metric("성별 이탈률 격차",     f"{gen_gap:.1f} %p",           f"{high_gen}이 더 높음",             delta_color="inverse")
+        # ── 핵심 인사이트 카드 (맨 위 — 결론 먼저, 전부 동적 계산) ────────
+        _ins_cl_rows = []
+        for _cn in _t2_cluster_order:
+            _s = promo_df[promo_df['cluster_name'] == _cn]
+            _sn = _cn.strip().split('(')[-1].rstrip(')')
+            _ins_cl_rows.append({
+                '군집':     _sn,
+                '이탈률':   _s['is_churn'].mean() * 100,
+                '총시청':   _s['total_watch_time(min)'].mean(),
+                'only_w1':  _s['is_only_w1'].mean() * 100,
+                'w3_잔존':  (_s['watch_time(min)_w3'] > 0).mean() * 100,
+                'w3_증감':  _s['watch_time(min)_w3'].mean() - _s['watch_time(min)_w1'].mean(),
+            })
+        _ins_cl_df   = pd.DataFrame(_ins_cl_rows)
+        _ins_c2 = _ins_cl_df.loc[_ins_cl_df['이탈률'].idxmax()]   # 이탈률 최고 군집
+        _ins_c3 = _ins_cl_df.loc[_ins_cl_df['이탈률'].idxmin()]   # 이탈률 최저 군집
+        _ins_c4 = _ins_cl_df.loc[_ins_cl_df['w3_증감'].idxmax()]  # 3주차 성장 최고 군집
 
-        st.markdown("---")
-
-        dem_col1, dem_col2 = st.columns(2)
-
-        with dem_col1:
-            st.caption("**나이대별 이탈률 (%)**")
-            fig_age = px.bar(
-                age_df, x='나이대_str', y='이탈률',
-                text=age_df['이탈률'].round(1).astype(str) + '%',
-                color='이탈률', color_continuous_scale='RdYlGn_r', range_color=[0, 60],
-                labels={'나이대_str': '나이대'},
-            )
-            fig_age.update_traces(textposition='outside')
-            fig_age.update_layout(
-                height=320, margin=dict(t=10, b=10, l=0, r=0),
-                coloraxis_showscale=False, yaxis_title='이탈률 (%)', xaxis_title=''
-            )
-            st.plotly_chart(fig_age, use_container_width=True)
-
-        with dem_col2:
-            st.caption("**성별 이탈률 (%)**")
-            fig_gen = px.bar(
-                gen_df, x='성별', y='이탈률',
-                text=gen_df['이탈률'].round(1).astype(str) + '%',
-                color='성별', color_discrete_map={'여성': '#e91e8c', '남성': '#1565c0'},
-            )
-            fig_gen.update_traces(textposition='outside')
-            fig_gen.update_layout(
-                height=320, margin=dict(t=10, b=10, l=0, r=0),
-                showlegend=False, yaxis_title='이탈률 (%)', xaxis_title=''
-            )
-            st.plotly_chart(fig_gen, use_container_width=True)
-
-        st.caption("**나이대 × 군집별 이탈률 히트맵 (%)**")
-        age_cl = promo_df.groupby(['age_group', 'cluster_name'])['is_churn'].mean().reset_index()
-        age_cl.columns = ['나이대', '군집', '이탈률']
-        age_cl['이탈률'] *= 100
-        age_cl['나이대'] = age_cl['나이대'].astype(str) + '대'
-        age_pivot = age_cl.pivot(index='나이대', columns='군집', values='이탈률')
-        fig_hm = px.imshow(
-            age_pivot.round(1), color_continuous_scale='RdYlGn_r',
-            zmin=0, zmax=60, text_auto='.1f', labels={'color': '이탈률(%)'},
-        )
-        fig_hm.update_layout(height=300, margin=dict(t=10, b=10, l=0, r=0))
-        st.plotly_chart(fig_hm, use_container_width=True)
-
-        st.caption("**성별 × 군집별 이탈률 (%)**")
-        gen_cl = promo_df[promo_df['gender_kor'].isin(['여성', '남성'])].groupby(
-            ['gender_kor', 'cluster_name'])['is_churn'].mean().reset_index()
-        gen_cl.columns = ['성별', '군집', '이탈률']
-        gen_cl['이탈률'] *= 100
-        fig_gcl = px.bar(
-            gen_cl, x='군집', y='이탈률', color='성별', barmode='group',
-            color_discrete_map={'여성': '#e91e8c', '남성': '#1565c0'},
-            text=gen_cl['이탈률'].round(1).astype(str) + '%',
-        )
-        fig_gcl.update_traces(textposition='outside')
-        fig_gcl.update_layout(
-            height=300, margin=dict(t=10, b=10, l=0, r=0),
-            yaxis_title='이탈률 (%)', xaxis_title=''
-        )
-        st.plotly_chart(fig_gcl, use_container_width=True)
+        _ins_data = [
+            (
+                "이탈 집중 구간",
+                f"{top_age} · {high_gen} · {_t2_top_plan['plan']}",
+                f"세 세그먼트 모두 전체 평균 {_cr_avg_t2:.1f}% 상회 — 우선 대응 필요",
+            ),
+            (
+                f"{_ins_c2['군집']} — 이탈 고위험",
+                f"이탈률 {_ins_c2['이탈률']:.1f}% · 1주차만 시청 {_ins_c2['only_w1']:.0f}%",
+                "1주차 종료 즉시 재참여 쿠폰 + 맞춤 알림 발송",
+            ),
+            (
+                f"{_ins_c3['군집']} — 핵심 유지 자산",
+                f"이탈률 {_ins_c3['이탈률']:.1f}% · 평균 총 시청 {_ins_c3['총시청']:.0f}분",
+                "충성 고객 록인 — 후속 콘텐츠 큐레이션 · VIP 혜택 제안",
+            ),
+            (
+                f"{_ins_c4['군집']} — 전환 기회",
+                f"3주차 잔존 {_ins_c4['w3_잔존']:.0f}% · w3 시청 변화 {_ins_c4['w3_증감']:+.0f}분",
+                "4주차 유료 전환 유도 메시지 집중 발송",
+            ),
+        ]
+        st.markdown('<div style="font-size:14px; font-weight:700; color:#333; margin-bottom:8px;">핵심 인사이트 &amp; 마케팅 액션 포인트</div>', unsafe_allow_html=True)
+        _ins_cols = st.columns(4)
+        for _col, (_title, _val, _desc) in zip(_ins_cols, _ins_data):
+            _col.markdown(f"""<div style="border-radius:8px; padding:12px; background:#fafafa;
+                border:1px solid #e0e0e0; border-top:3px solid #FF7A00;">
+              <div style="font-size:11px; font-weight:700; color:#FF7A00; margin-bottom:4px;">{_title}</div>
+              <div style="font-size:12px; font-weight:600; color:#333; margin-bottom:4px;">{_val}</div>
+              <div style="font-size:11px; color:#888; line-height:1.5;">{_desc}</div>
+            </div>""", unsafe_allow_html=True)
 
         st.markdown("<hr style='margin:14px 0;'>", unsafe_allow_html=True)
 
-        # 나이대 × 주차별 평균 시청 시간 선그래프
-        st.caption("**나이대별 주차별 평균 시청 시간 추이**")
-        wt_cols_tab2 = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
-        age_line_rows = []
-        for ag in sorted(promo_df['age_group'].unique()):
-            grp = promo_df[promo_df['age_group'] == ag][wt_cols_tab2].mean()
-            for w, col_w in zip(['1주차', '2주차', '3주차'], wt_cols_tab2):
-                age_line_rows.append({'나이대': f"{int(ag)}대", '주차': w, '평균 시청(분)': round(grp[col_w], 1)})
-        age_line_df = pd.DataFrame(age_line_rows)
+        # ─────────────────────────────────────────────────────────────
+        # 이탈 vs 유지 고객 차이 시각화
+        # ─────────────────────────────────────────────────────────────
+        st.markdown("""<div style="background:linear-gradient(90deg,#f5f0ff,#fff);
+            border-left:4px solid #7B1FA2; padding:10px 16px;
+            border-radius:0 8px 8px 0; margin-bottom:12px;">
+          <span style="font-size:16px; font-weight:700; color:#333;">이탈 vs 유지 고객 비교</span>
+          &nbsp;<span style="font-size:12px; color:#888;">실제 이탈/유지 고객의 행동 차이 심층 분석</span>
+        </div>""", unsafe_allow_html=True)
 
-        fig_age_line = px.line(
-            age_line_df, x='주차', y='평균 시청(분)', color='나이대',
-            markers=True, text='평균 시청(분)',
-        )
-        fig_age_line.update_traces(textposition='top center', textfont_size=10, line_width=2, marker_size=7)
-        fig_age_line.update_layout(
-            height=320, margin=dict(t=20, b=10, l=0, r=120),
-            plot_bgcolor='white',
-            yaxis=dict(gridcolor='#f0f0f0', title='평균 시청 시간 (분)'),
-            xaxis_title='',
-            legend=dict(
-                orientation='v', x=1.01, y=1, xanchor='left', yanchor='top',
-                bgcolor='rgba(255,255,255,0.9)', bordercolor='#e0e0e0', borderwidth=1,
-                font=dict(size=12), title=dict(text='나이대', font=dict(size=12)),
-            ),
-        )
-        st.plotly_chart(fig_age_line, use_container_width=True)
+        _cv_churn  = promo_df[promo_df['is_churn'] == 1]
+        _cv_retain = promo_df[promo_df['is_churn'] == 0]
+        _cv_wt_diff  = _cv_retain['total_watch_time(min)'].mean() - _cv_churn['total_watch_time(min)'].mean()
+        _cv_act_diff = (_cv_retain['active_ratio'].mean() - _cv_churn['active_ratio'].mean()) * 100
 
-        st.markdown("<hr style='margin:14px 0;'>", unsafe_allow_html=True)
+        cvk1, cvk2, cvk3, cvk4 = st.columns(4)
+        cvk1.metric("이탈 고객 수",      f"{len(_cv_churn):,}명",
+                    f"이탈률 {len(_cv_churn)/len(promo_df)*100:.1f}%", delta_color="inverse")
+        cvk2.metric("유지 고객 수",      f"{len(_cv_retain):,}명",
+                    f"잔존률 {len(_cv_retain)/len(promo_df)*100:.1f}%")
+        cvk3.metric("총 시청 시간 차이", f"{_cv_wt_diff:.0f}분",
+                    "유지가 이탈보다 더 시청")
+        cvk4.metric("활성비율 차이",     f"{_cv_act_diff:.1f}%p",
+                    "유지가 이탈보다 활성 비율 높음")
 
-        # 성별 × 주차별 평균 시청 시간 선그래프
-        st.caption("**성별 주차별 평균 시청 시간 추이**")
-        wt_cols_dem = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
-        gender_line_rows = []
-        for g in ['남성', '여성']:
-            grp = promo_df[promo_df['gender_kor'] == g][wt_cols_dem].mean()
-            for w, col_w in zip(['1주차', '2주차', '3주차'], wt_cols_dem):
-                gender_line_rows.append({'성별': g, '주차': w, '평균 시청(분)': round(grp[col_w], 1)})
-        gender_line_df = pd.DataFrame(gender_line_rows)
+        st.markdown("<hr style='margin:12px 0;'>", unsafe_allow_html=True)
 
-        fig_gen_line = px.line(
-            gender_line_df, x='주차', y='평균 시청(분)', color='성별',
-            markers=True,
-            color_discrete_map={'남성': '#1565c0', '여성': '#e91e8c'},
-            text='평균 시청(분)',
-        )
-        fig_gen_line.update_traces(textposition='top center', textfont_size=11, line_width=2.5, marker_size=9)
-        fig_gen_line.update_layout(
-            height=320, margin=dict(t=20, b=10, l=0, r=120),
-            plot_bgcolor='white',
-            yaxis=dict(gridcolor='#f0f0f0', title='평균 시청 시간 (분)'),
-            xaxis_title='',
-            legend=dict(
-                orientation='v', x=1.01, y=1, xanchor='left', yanchor='top',
-                bgcolor='rgba(255,255,255,0.9)', bordercolor='#e0e0e0', borderwidth=1,
-                font=dict(size=12),
-            ),
-        )
-        st.plotly_chart(fig_gen_line, use_container_width=True)
+        cv_r2a, cv_r2b = st.columns(2)
+
+        with cv_r2a:
+            st.caption("**이탈 vs 유지: 주차별 평균 시청 시간 (분)**")
+            _cv_wt_cols   = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
+            _cv_wt_labels = ['1주차', '2주차', '3주차']
+            _cv_wt_rows   = []
+            for _g, _df in [('이탈', _cv_churn), ('유지', _cv_retain)]:
+                for _w, _c in zip(_cv_wt_labels, _cv_wt_cols):
+                    _cv_wt_rows.append({'구분': _g, '주차': _w, '평균 시청(분)': round(_df[_c].mean(), 1)})
+            _cv_wt_df = pd.DataFrame(_cv_wt_rows)
+            fig_cv_wt = px.bar(_cv_wt_df, x='주차', y='평균 시청(분)', color='구분', barmode='group',
+                color_discrete_map={'이탈': '#C05555', '유지': '#52A068'},
+                text='평균 시청(분)')
+            fig_cv_wt.update_traces(textposition='outside', textfont_size=11)
+            fig_cv_wt.update_layout(height=290, margin=dict(t=10, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='', yaxis_title='평균 시청 (분)',
+                yaxis=dict(gridcolor='#f0f0f0'),
+                legend=dict(orientation='h', y=1.08, x=0, font=dict(size=11)))
+            st.plotly_chart(fig_cv_wt, use_container_width=True)
+
+        with cv_r2b:
+            st.caption("**이탈 vs 유지: 행동 지표 비교**")
+            _cv_beh_rows = []
+            for _g, _df in [('이탈', _cv_churn), ('유지', _cv_retain)]:
+                _cv_beh_rows.append({
+                    '구분':              _g,
+                    '활성 비율(%)':      round(_df['active_ratio'].mean() * 100, 1),
+                    '단타 시청(%)(5분↓)': round(_df['watch_ratio_under_5m'].mean() * 100, 1),
+                    '장르 다양성(개)':    round(_df['genre_diversity_count'].mean(), 1),
+                })
+            _cv_beh_df   = pd.DataFrame(_cv_beh_rows)
+            _cv_beh_melt = _cv_beh_df.melt(id_vars='구분', var_name='지표', value_name='값')
+            fig_cv_beh = px.bar(_cv_beh_melt, x='지표', y='값', color='구분', barmode='group',
+                color_discrete_map={'이탈': '#C05555', '유지': '#52A068'},
+                text='값')
+            fig_cv_beh.update_traces(textposition='outside', textfont_size=11)
+            fig_cv_beh.update_layout(height=290, margin=dict(t=10, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='', yaxis_title='값',
+                yaxis=dict(gridcolor='#f0f0f0'),
+                legend=dict(orientation='h', y=1.08, x=0, font=dict(size=11)))
+            st.plotly_chart(fig_cv_beh, use_container_width=True)
+
+        st.markdown("<hr style='margin:12px 0;'>", unsafe_allow_html=True)
+
+        # ── Row 2: 이탈 신호 플래그 & 장르 취향 차이 ──────────────────────
+        cv_r3a, cv_r3b = st.columns(2)
+
+        with cv_r3a:
+            st.caption("**이탈 신호 플래그 비율 (%)**")
+            _cv_flag_info = [
+                ('is_only_w1',       '1주차만 시청'),
+                ('is_w1_over_50pct', 'W1 시청 50%+'),
+                ('is_cold_start_3d', '3일 콜드스타트'),
+                ('is_only_w2',       '2주차만 시청'),
+            ]
+            _cv_flag_rows = []
+            for _col, _lbl in _cv_flag_info:
+                _cv_flag_rows.append({
+                    '지표': _lbl,
+                    '이탈': round(_cv_churn[_col].mean() * 100, 1),
+                    '유지': round(_cv_retain[_col].mean() * 100, 1),
+                })
+            _cv_flag_melt = pd.DataFrame(_cv_flag_rows).melt(id_vars='지표', var_name='구분', value_name='비율(%)')
+            fig_cv_flag = px.bar(_cv_flag_melt, x='지표', y='비율(%)', color='구분', barmode='group',
+                color_discrete_map={'이탈': '#C05555', '유지': '#52A068'}, text='비율(%)')
+            fig_cv_flag.update_traces(textposition='outside', textfont_size=10)
+            fig_cv_flag.update_layout(height=290, margin=dict(t=10, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='', yaxis_title='비율 (%)',
+                yaxis=dict(gridcolor='#f0f0f0'),
+                legend=dict(orientation='h', y=1.08, x=0, font=dict(size=11)))
+            st.plotly_chart(fig_cv_flag, use_container_width=True)
+
+        with cv_r3b:
+            st.caption("**장르 취향 차이 (이탈 − 유지, %p) · 빨강=이탈 더 많이 시청**")
+            _cv_genre_info = [
+                ('thriller_crime_ratio',   '스릴러/범죄'),
+                ('action_adventure_ratio', '액션/어드벤처'),
+                ('horror_ratio',           '호러'),
+                ('drama_ratio',            '드라마'),
+                ('romance_ratio',          '로맨스'),
+                ('family_animation_ratio', '가족/애니'),
+                ('comedy_ratio',           '코미디'),
+                ('documentary_ratio',      '다큐멘터리'),
+            ]
+            _cv_gdiff_rows = []
+            for _col, _lbl in _cv_genre_info:
+                _diff = round((_cv_churn[_col].mean() - _cv_retain[_col].mean()) * 100, 2)
+                _cv_gdiff_rows.append({'장르': _lbl, '차이': _diff, '색': '#C05555' if _diff > 0 else '#52A068'})
+            _cv_gdiff_df = pd.DataFrame(_cv_gdiff_rows).sort_values('차이')
+            fig_cv_genre = go.Figure(go.Bar(
+                x=_cv_gdiff_df['차이'], y=_cv_gdiff_df['장르'],
+                orientation='h',
+                marker_color=_cv_gdiff_df['색'].tolist(),
+                text=[f'{v:+.1f}%p' for v in _cv_gdiff_df['차이']],
+                textposition='outside',
+            ))
+            fig_cv_genre.add_vline(x=0, line_dash='dash', line_color='#888', line_width=1)
+            fig_cv_genre.update_layout(height=290, margin=dict(t=10, b=5, l=80, r=60),
+                plot_bgcolor='white',
+                xaxis=dict(title='차이 (이탈 − 유지, %p)', gridcolor='#f0f0f0'),
+                yaxis=dict(title=''))
+            st.plotly_chart(fig_cv_genre, use_container_width=True)
+
+        st.markdown("<hr style='margin:12px 0;'>", unsafe_allow_html=True)
+
+        # ── Row 3: 주차별 증감 & 핵심 지표 비교표 ────────────────────────
+        cv_r4a, cv_r4b = st.columns(2)
+
+        with cv_r4a:
+            st.caption("**주차 간 시청 증감 비교 (분) · 이탈 고객은 갈수록 급감**")
+            _cv_wdiff_info = [
+                ('diff_between_w2_w1', 'W2 − W1'),
+                ('diff_between_w3_w1', 'W3 − W1'),
+                ('diff_between_w3_w2', 'W3 − W2'),
+            ]
+            _cv_wdiff_rows = []
+            for _col, _lbl in _cv_wdiff_info:
+                _cv_wdiff_rows.append({
+                    '구간': _lbl,
+                    '이탈': round(_cv_churn[_col].mean(), 1),
+                    '유지': round(_cv_retain[_col].mean(), 1),
+                })
+            _cv_wdiff_melt = pd.DataFrame(_cv_wdiff_rows).melt(id_vars='구간', var_name='구분', value_name='증감(분)')
+            _wdiff_abs_max = _cv_wdiff_melt['증감(분)'].abs().max()
+            fig_cv_wdiff = px.bar(_cv_wdiff_melt, x='구간', y='증감(분)', color='구분', barmode='group',
+                color_discrete_map={'이탈': '#C05555', '유지': '#52A068'}, text='증감(분)')
+            fig_cv_wdiff.update_traces(textposition='outside', textfont_size=10)
+            fig_cv_wdiff.add_hline(y=0, line_color='#333', line_width=1.2)
+            fig_cv_wdiff.update_layout(height=290, margin=dict(t=10, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='', yaxis_title='평균 증감 (분)',
+                yaxis=dict(gridcolor='#f0f0f0', range=[-_wdiff_abs_max * 1.4, _wdiff_abs_max * 1.4]),
+                legend=dict(orientation='h', y=1.08, x=0, font=dict(size=11)))
+            st.plotly_chart(fig_cv_wdiff, use_container_width=True)
+
+        with cv_r4b:
+            st.caption("**핵심 지표 이탈 vs 유지 비교**")
+            _cv_kpi_rows = [
+                ("마지막 시청 후 경과일",
+                 f"{_cv_churn['recency'].mean():.1f}일",
+                 f"{_cv_retain['recency'].mean():.1f}일", "이탈↑"),
+                ("5분 미만 단타 시청 비율",
+                 f"{_cv_churn['watch_ratio_under_5m'].mean()*100:.1f}%",
+                 f"{_cv_retain['watch_ratio_under_5m'].mean()*100:.1f}%", "이탈↑"),
+                ("최다 시청일 집중도",
+                 f"{_cv_churn['max_day_share'].mean()*100:.1f}%",
+                 f"{_cv_retain['max_day_share'].mean()*100:.1f}%", "이탈↑"),
+                ("3회+ 시청일 수",
+                 f"{_cv_churn['day_count_over_3times'].mean():.2f}일",
+                 f"{_cv_retain['day_count_over_3times'].mean():.2f}일", "유지↑"),
+                ("시청 고유 영화 수",
+                 f"{_cv_churn['unique_movie'].mean():.1f}편",
+                 f"{_cv_retain['unique_movie'].mean():.1f}편", "유지↑"),
+                ("장르 다양성",
+                 f"{_cv_churn['genre_diversity_count'].mean():.1f}개",
+                 f"{_cv_retain['genre_diversity_count'].mean():.1f}개", "유지↑"),
+            ]
+            _kpi_html = """<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;">
+              <thead><tr style="background:#f8f8f8;">
+                <th style="text-align:left;padding:7px 8px;border-bottom:2px solid #ddd;">지표</th>
+                <th style="text-align:center;padding:7px 8px;border-bottom:2px solid #ddd;color:#C05555;">이탈</th>
+                <th style="text-align:center;padding:7px 8px;border-bottom:2px solid #ddd;color:#52A068;">유지</th>
+                <th style="text-align:center;padding:7px 8px;border-bottom:2px solid #ddd;">방향</th>
+              </tr></thead><tbody>"""
+            for _nm, _cv_v, _rv_v, _dir in _cv_kpi_rows:
+                _ds = "color:#C05555;" if "이탈" in _dir else "color:#52A068;"
+                _kpi_html += f"""<tr style="border-bottom:1px solid #eee;">
+                  <td style="padding:7px 8px;">{_nm}</td>
+                  <td style="text-align:center;padding:7px 8px;font-weight:600;color:#C05555;">{_cv_v}</td>
+                  <td style="text-align:center;padding:7px 8px;font-weight:600;color:#52A068;">{_rv_v}</td>
+                  <td style="text-align:center;padding:7px 8px;font-weight:700;{_ds}">{_dir}</td>
+                </tr>"""
+            _kpi_html += "</tbody></table>"
+            st.markdown(_kpi_html, unsafe_allow_html=True)
+
+        st.markdown("<hr style='margin:12px 0;'>", unsafe_allow_html=True)
+
+        # ── Row 4: 주차별 시청 패턴 LINE & 시청 습관 지표 ─────────────────
+        cv_r5a, cv_r5b = st.columns(2)
+
+        with cv_r5a:
+            st.caption("**주차별 시청 패턴 추이 — 이탈 고객은 W2·W3로 갈수록 급감**")
+            _cv_lw_cols = ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
+            _cv_line_rows = []
+            for _g, _dfl in [('이탈', _cv_churn), ('유지', _cv_retain)]:
+                for _w, _c in zip(['1주차', '2주차', '3주차'], _cv_lw_cols):
+                    _cv_line_rows.append({'구분': _g, '주차': _w, '평균 시청(분)': round(_dfl[_c].mean(), 1)})
+            _cv_line_df = pd.DataFrame(_cv_line_rows)
+            fig_cv_line = px.line(_cv_line_df, x='주차', y='평균 시청(분)', color='구분',
+                markers=True, text='평균 시청(분)',
+                color_discrete_map={'이탈': '#C05555', '유지': '#52A068'})
+            fig_cv_line.update_traces(textposition='top center', textfont_size=11, line_width=2.5, marker_size=9)
+            _cv_line_ymax = _cv_line_df['평균 시청(분)'].max()
+            fig_cv_line.update_layout(height=290, margin=dict(t=20, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='',
+                yaxis=dict(gridcolor='#f0f0f0', title='평균 시청 시간 (분)',
+                           range=[0, _cv_line_ymax * 1.3]),
+                legend=dict(orientation='h', y=1.08, x=0, font=dict(size=11)))
+            st.plotly_chart(fig_cv_line, use_container_width=True)
+
+        with cv_r5b:
+            st.caption("**시청 습관 지표 비교 (%) — 이탈 고객은 단타·집중형 시청 패턴**")
+            _cv_habit_info = [
+                ('active_ratio',         '활성화\n비율'),
+                ('watch_ratio_under_1m', '1분 미만\n시청'),
+                ('watch_ratio_under_5m', '5분 미만\n시청'),
+                ('avg_rewatch_ratio',    '재시청\n비율'),
+                ('weekend_watch_ratio',  '주말 시청\n비율'),
+                ('max_day_share',        '최다 시청일\n집중도'),
+            ]
+            _cv_habit_rows = []
+            for _col, _lbl in _cv_habit_info:
+                _cv_habit_rows.append({
+                    '지표': _lbl,
+                    '이탈': round(_cv_churn[_col].mean() * 100, 1),
+                    '유지': round(_cv_retain[_col].mean() * 100, 1),
+                })
+            _cv_habit_melt = pd.DataFrame(_cv_habit_rows).melt(id_vars='지표', var_name='구분', value_name='값(%)')
+            fig_cv_habit = px.bar(_cv_habit_melt, x='지표', y='값(%)', color='구분', barmode='group',
+                color_discrete_map={'이탈': '#C05555', '유지': '#52A068'}, text='값(%)')
+            fig_cv_habit.update_traces(textposition='outside', textfont_size=10)
+            _cv_habit_ymax = _cv_habit_melt['값(%)'].max()
+            fig_cv_habit.update_layout(height=290, margin=dict(t=10, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='', yaxis_title='비율 (%)',
+                yaxis=dict(gridcolor='#f0f0f0', range=[0, _cv_habit_ymax * 1.35]),
+                legend=dict(orientation='h', y=1.08, x=0, font=dict(size=11)))
+            st.plotly_chart(fig_cv_habit, use_container_width=True)
+
+        st.markdown("<hr style='margin:12px 0;'>", unsafe_allow_html=True)
+
+        # ── Row 5: 군집별 행동 지표 ─────────────────────────────────────
+        st.markdown("""<div style="display:flex; align-items:center; margin:4px 0 12px 0; gap:12px;">
+          <span style="font-size:13px; font-weight:600; color:#4472C4; white-space:nowrap;">이탈 vs 잔존 — 장르 다양성</span>
+          <div style="flex:1; height:1px; background:#e0e0e0;"></div>
+        </div>""", unsafe_allow_html=True)
+
+        cv_r6b, _ = st.columns(2)
+
+        with cv_r6b:
+            st.caption("**장르 다양성 (개)**")
+            _cv_genre_div = pd.DataFrame({
+                '구분': ['이탈', '잔존'],
+                '장르 다양성(개)': [
+                    round(_cv_churn['genre_diversity_count'].mean(), 1),
+                    round(_cv_retain['genre_diversity_count'].mean(), 1),
+                ],
+            })
+            fig_cv_gdiv = px.bar(_cv_genre_div, x='구분', y='장르 다양성(개)',
+                color='구분', color_discrete_map={'이탈': '#C05555', '잔존': '#52A068'},
+                text='장르 다양성(개)')
+            fig_cv_gdiv.update_traces(textposition='outside', textfont_size=12,
+                texttemplate='%{text}개')
+            _gdiv_max = _cv_genre_div['장르 다양성(개)'].max()
+            fig_cv_gdiv.update_layout(height=280, margin=dict(t=10, b=5, l=0, r=0),
+                plot_bgcolor='white', xaxis_title='', yaxis_title='평균 장르 수 (개)',
+                yaxis=dict(gridcolor='#f0f0f0', range=[0, _gdiv_max * 1.35]),
+                showlegend=False)
+            st.plotly_chart(fig_cv_gdiv, use_container_width=True)
+
 
 # ==========================================
-# 4-1. 100원 프로모션 유저 분석
+# 이탈 방어 전략
 # ==========================================
 elif menu == "🛡️ 이탈 방어 전략":
 
@@ -755,7 +1188,23 @@ elif menu == "🛡️ 이탈 방어 전략":
 
     st.markdown("<hr style='margin: 10px 0;'>", unsafe_allow_html=True)
 
-    # KPI
+    st.markdown("""
+    <div style="display:flex; gap:10px; margin: 6px 0 16px 0;">
+      <div style="flex:1; background:#e3f2fd; border-radius:8px; padding:12px 14px; border-left:3px solid #1565c0;">
+        <div style="font-size:11px; font-weight:700; color:#0d47a1; margin-bottom:4px;">📌 이 페이지에서 알 수 있는 것 ①</div>
+        <div style="font-size:13px; color:#333; line-height:1.5;">이탈 위험 점수와 세그먼트로 필터링한 <b>즉시 대응 가능한 고위험 고객 리스트</b>를 확인합니다.</div>
+      </div>
+      <div style="flex:1; background:#fff8e1; border-radius:8px; padding:12px 14px; border-left:3px solid #f9a825;">
+        <div style="font-size:11px; font-weight:700; color:#e65100; margin-bottom:4px;">📌 이 페이지에서 알 수 있는 것 ②</div>
+        <div style="font-size:13px; color:#333; line-height:1.5;">Local XAI 심층 분석으로 <b>특정 고객이 왜 이탈 위험인지</b> 군집 평균과 비교해 파악합니다.</div>
+      </div>
+      <div style="flex:1; background:#e8f5e9; border-radius:8px; padding:12px 14px; border-left:3px solid #388e3c;">
+        <div style="font-size:11px; font-weight:700; color:#1b5e20; margin-bottom:4px;">📌 이 페이지에서 알 수 있는 것 ③</div>
+        <div style="font-size:13px; color:#333; line-height:1.5;">세그먼트별 예상 LTV와 예산 배분 가이드로 <b>방어 성공 시 기대 매출</b>을 추정합니다.</div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     kpi1, kpi2, kpi3, kpi4 = st.columns(4)
     kpi1.metric("100원 프로모션 가입자",   f"{TOTAL:,} 명",  "전체의 51.2%", delta_color="off")
     kpi2.metric("유료 전환율",          f"{CONVERTED/TOTAL*100:.1f} %", f"{CONVERTED:,}명 재구매 완료")
@@ -764,7 +1213,6 @@ elif menu == "🛡️ 이탈 방어 전략":
 
     st.markdown("<hr style='margin: 10px 0;'>", unsafe_allow_html=True)
 
-    # 필터 헤더
     header_col, filter_col1, filter_col2 = st.columns([4, 3, 3])
     with header_col:
         st.markdown("<h3 style='margin-top: 15px;'>📋 고위험군 타겟 리스트</h3>", unsafe_allow_html=True)
@@ -784,7 +1232,6 @@ elif menu == "🛡️ 이탈 방어 전략":
             if st.checkbox(seg.strip(), value=(seg in default_checked)):
                 selected_segs.append(seg)
 
-    # 실제 데이터 필터링
     filtered_raw = promo_df[
         (promo_df['cluster_name'].isin(selected_segs)) &
         (promo_df['churn_score'] >= prob_range[0]) &
@@ -793,10 +1240,24 @@ elif menu == "🛡️ 이탈 방어 전략":
         (promo_df['watch_time(min)_w1'] <= watch_range[1])
     ].sort_values('churn_score', ascending=False).head(50)
 
+    fmt_min = lambda x: f"{int(x)}분"
+    PATTERN_MAP = {
+        ' C1 (헤비유저형)': '1주차 폭식 후 급감',
+        ' C0 (맛보기형)':   '콘텐츠 탐색만 하다 이탈',
+        ' C3 (휴면형)':     '가입 후 미접속',
+        ' C2 (후반몰입형)': '유료 전환 트리거 부재',
+    }
+    ACTION_MAP = {
+        ' C1 (헤비유저형)': '후속 콘텐츠 알림',
+        ' C0 (맛보기형)':   '취향 매칭 큐레이션',
+        ' C3 (휴면형)':     '재참여 쿠폰',
+        ' C2 (후반몰입형)': 'VIP 혜택 안내',
+    }
+
     display_df = pd.DataFrame({
         '고객 ID':       filtered_raw['USER_KEY'].str[:10].values,
         '성별':          filtered_raw['gender_kor'].values,
-        '나이대':        (filtered_raw['age_group'].astype(int).astype(object).apply(lambda x: f"{x}대")),
+        '나이대':        filtered_raw['age_group'].astype(int).astype(object).apply(lambda x: f"{x}대").values,
         '이탈 위험 점수(%)': filtered_raw['churn_score'].round(1).values,
         '소속 세그먼트':  filtered_raw['cluster_name'].str.strip().values,
         '1주차 시청':    filtered_raw['watch_time(min)_w1'].apply(fmt_min).values,
@@ -807,11 +1268,10 @@ elif menu == "🛡️ 이탈 방어 전략":
     })
     st.dataframe(display_df.set_index('고객 ID').astype(object), use_container_width=True, height=280)
 
-    # 액션 버튼
     st.markdown("<br>", unsafe_allow_html=True)
     ac1, ac2, ac3, ac4 = st.columns(4)
     with ac1:
-        if st.button("🚨 C1 체리피커 타겟 푸시", use_container_width=True): st.success("푸시 발송 완료!")
+        if st.button("🚨 C1 헤비유저 타겟 푸시", use_container_width=True): st.success("푸시 발송 완료!")
     with ac2:
         if st.button("📧 C0 맞춤 추천 메일",      use_container_width=True): st.success("메일 발송 완료!")
     with ac3:
@@ -821,7 +1281,6 @@ elif menu == "🛡️ 이탈 방어 전략":
 
     st.markdown("<br><hr style='margin: 10px 0;'>", unsafe_allow_html=True)
 
-    # XAI Expander
     GENRE_COLS = {
         '액션/어드벤처': 'action_adventure_ratio',
         '드라마':        'drama_ratio',
@@ -843,60 +1302,18 @@ elif menu == "🛡️ 이탈 방어 전략":
         '1주차 시청(분)':  'watch_time(min)_w1',
     }
 
-    with st.expander("🕵️‍♂️ 특정 고객 이탈 원인 심층 분석 (Local XAI) 열기"):
+    with st.expander("🕵️ 특정 고객 이탈 원인 심층 분석 (Local XAI) 열기"):
         user_options = display_df['고객 ID'].tolist() if not display_df.empty else ["선택 불가"]
         target_uid   = st.selectbox("분석할 고객 ID 선택", user_options)
 
-        if not display_df.empty:
-            row     = display_df[display_df['고객 ID'] == target_uid].iloc[0]
-            raw_row = filtered_raw[filtered_raw['USER_KEY'].str[:10] == target_uid].iloc[0]
-            segment = row['소속 세그먼트']
-            seg_key = ' ' + segment if not segment.startswith(' ') else segment
-            cluster_sub = promo_df[promo_df['cluster_name'] == seg_key]
+        if not display_df.empty and target_uid != "선택 불가":
+            raw_row   = filtered_raw[filtered_raw['USER_KEY'].str[:10] == target_uid].iloc[0]
+            segment   = raw_row['cluster_name']
+            cluster_sub = promo_df[promo_df['cluster_name'] == segment]
 
-            # 좌(유저정보+레이더+라인) / 우(편차 바) 분할
-            main_left, main_right = st.columns([5, 5])
-
+            main_left, main_right = st.columns([3, 4])
             with main_left:
-                # 상단: 유저 정보 | 레이더 차트
-                info_col, radar_col = st.columns([2, 3])
-
-                with info_col:
-                    st.markdown(
-                        f"**이탈 위험:** <span style='color:#d32f2f; font-size:18px; font-weight:bold;'>"
-                        f"{row['이탈 위험 점수(%)']:.1f}%</span>", unsafe_allow_html=True)
-                    st.markdown(f"**소속 그룹:** {segment}")
-                    st.markdown(f"**성별 / 나이대:** {row['성별']} / {row['나이대']}")
-
-                with radar_col:
-                    st.caption("**시청 장르 분포**")
-                    g_vals  = [float(raw_row.get(col, 0)) for col in GENRE_COLS.values()]
-                    g_names = list(GENRE_COLS.keys())
-                    if sum(g_vals) == 0:
-                        st.info("장르 시청 데이터 없음")
-                    else:
-                        fig_radar = go.Figure(go.Scatterpolar(
-                            r=g_vals + [g_vals[0]],
-                            theta=g_names + [g_names[0]],
-                            fill='toself',
-                            fillcolor='rgba(92,107,192,0.25)',
-                            line=dict(color='#5c6bc0', width=2),
-                        ))
-                        fig_radar.update_layout(
-                            polar=dict(
-                                radialaxis=dict(visible=True,
-                                                range=[0, max(g_vals) * 1.3 + 0.01],
-                                                showticklabels=False),
-                                angularaxis=dict(tickfont=dict(size=8))
-                            ),
-                            height=175,
-                            margin=dict(t=45, b=45, l=45, r=45),
-                            showlegend=False
-                        )
-                        st.plotly_chart(fig_radar, use_container_width=True)
-
-                # 하단: 주차별 시청 시간 (좌측 전체 폭)
-                st.caption("**주차별 시청 시간 추이**")
+                st.caption("**주차별 시청 시간 추이 (유저 vs 군집 평균)**")
                 weeks   = ['1주차', '2주차', '3주차']
                 wt_user = [float(raw_row['watch_time(min)_w1']),
                            float(raw_row['watch_time(min)_w2']),
@@ -907,7 +1324,7 @@ elif menu == "🛡️ 이탈 방어 전략":
                 fig_wt = go.Figure()
                 fig_wt.add_trace(go.Scatter(
                     x=weeks, y=wt_user, mode='lines+markers',
-                    name='선택 유저', line=dict(color='#d32f2f', width=2), marker=dict(size=7)
+                    name='선택 유저', line=dict(color='#EA002C', width=2), marker=dict(size=7)
                 ))
                 fig_wt.add_trace(go.Scatter(
                     x=weeks, y=wt_avg, mode='lines+markers',
@@ -924,7 +1341,6 @@ elif menu == "🛡️ 이탈 방어 전략":
                 st.plotly_chart(fig_wt, use_container_width=True)
 
             with main_right:
-                # 유저 vs 군집 평균 편차 바 차트
                 st.caption("**유저 지표 vs 군집 평균 (편차 비율)**")
                 feat_names, deviations, bar_colors = [], [], []
                 for label, col in FEAT_COLS.items():
@@ -933,7 +1349,7 @@ elif menu == "🛡️ 이탈 방어 전략":
                     dev    = (u_val - c_mean) / (c_mean + 1e-9) if c_mean != 0 else 0.0
                     feat_names.append(label)
                     deviations.append(round(dev, 3))
-                    bar_colors.append('#d32f2f' if dev < 0 else '#388e3c')
+                    bar_colors.append('#EA002C' if dev < 0 else '#388e3c')
 
                 if 'C1' in segment:
                     desc = "1주차 폭식 시청 후 급격한 접속 감소 패턴"
@@ -961,11 +1377,9 @@ elif menu == "🛡️ 이탈 방어 전략":
                 st.plotly_chart(fig_xai, use_container_width=True)
                 st.caption("🟢 군집 평균 이상 &nbsp;&nbsp; 🔴 군집 평균 미달")
 
-    # LTV Expander
     with st.expander("💰 세그먼트별 예상 LTV 및 마케팅 예산 할당 가이드 열기"):
         ltv_col1, ltv_col2 = st.columns([5, 5])
         with ltv_col1:
-            avg_watch = promo_df.groupby('cluster_name')['total_watch_time(min)'].mean()
             df_ltv = pd.DataFrame({
                 '세그먼트': [' C2 (후반몰입형)', ' C1 (헤비유저형)', ' C0 (맛보기형)', ' C3 (휴면형)'],
                 '예상 LTV': [150000, 95000, 28000, 12000]
@@ -978,18 +1392,17 @@ elif menu == "🛡️ 이탈 방어 전략":
             st.plotly_chart(fig_ltv, use_container_width=True)
         with ltv_col2:
             st.info("**💡 예산 운영 가이드**\n\n"
-                    "- **C2 (안정적)**: 유료 전환 가장 높음 → 적극적 VIP 혜택 투입 권장.\n"
-                    "- **C1 (체리피커)**: 고시청 후 이탈 → 시리즈 큐레이션 알림.\n"
+                    "- **C2 (후반몰입형)**: 유료 전환 가장 높음 → 적극적 VIP 혜택 투입 권장.\n"
+                    "- **C1 (헤비유저형)**: 고시청 후 이탈 → 시리즈 큐레이션 알림.\n"
                     "- **C0/C3**: 이탈 위험 최고 → 저비용 알림 + 쿠폰 중심 방어.")
 
 # ==========================================
-# 4-2. 프로모션 행동 분석
+# 프로모션 행동 분석
 # ==========================================
 elif menu == "👥 프로모션 행동 분석":
     st.header("👥 프로모션 행동 분석 현황")
     st.markdown("---")
 
-    # 이탈 위험도별 고객 분포 (실제 데이터 기반 행동 버킷)
     n_only_w1  = int((promo_df['is_only_w1'] == 1).sum())
     n_no_w3    = int(((promo_df['watch_time(min)_w3'] == 0) & (promo_df['is_only_w1'] != 1)).sum())
     n_low_ret  = int(((promo_df['retention_w3_ratio'].fillna(0) < 0.5) &
@@ -1001,13 +1414,13 @@ elif menu == "👥 프로모션 행동 분석":
     with card1:
         st.markdown(f"""<div class="risk-card border-very-high">
             <div class="card-title">매우 높음 — 1주차만 시청</div>
-            <div class="card-value" style="color:#d32f2f;">{n_only_w1:,}<span class="card-unit">명</span></div>
+            <div class="card-value" style="color:#EA002C;">{n_only_w1:,}<span class="card-unit">명</span></div>
             <div class="card-percent">(전체의 {n_only_w1/TOTAL*100:.1f}%)</div></div>""",
             unsafe_allow_html=True)
     with card2:
         st.markdown(f"""<div class="risk-card border-high">
             <div class="card-title">높음 — 3주차 미시청</div>
-            <div class="card-value" style="color:#f57c00;">{n_no_w3:,}<span class="card-unit">명</span></div>
+            <div class="card-value" style="color:#FF7A00;">{n_no_w3:,}<span class="card-unit">명</span></div>
             <div class="card-percent">(전체의 {n_no_w3/TOTAL*100:.1f}%)</div></div>""",
             unsafe_allow_html=True)
     with card3:
@@ -1025,7 +1438,6 @@ elif menu == "👥 프로모션 행동 분석":
 
     st.markdown("<br><hr>", unsafe_allow_html=True)
 
-    # AARRR 전환율 지표 (실제 데이터)
     n_activated  = int((promo_df['watch_time(min)_w1'] > 0).sum())
     n_retained   = int((promo_df['watch_time(min)_w2'] > 0).sum())
     n_revenue    = CONVERTED
@@ -1069,34 +1481,25 @@ elif menu == "👥 프로모션 행동 분석":
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # Sankey — 실제 숫자 기반
-    n_never_active = TOTAL - n_activated
-    n_drop_after_w1 = n_activated - n_retained
-    n_churn_after_retain = n_retained - n_revenue
+    n_never_active   = TOTAL - n_activated
+    n_drop_after_w1  = n_activated - n_retained
+    n_churn_after_ret = n_retained - n_revenue
+
     st.subheader("🌊 프로모션 유저 흐름 (Sankey Flow)")
     st.caption("프로모션 가입 → 활성화 → 유지 → 유료 전환 흐름 (실제 데이터)")
     fig_sankey = go.Figure(data=[go.Sankey(
         node=dict(
+            label=['전체 가입', '1주차 활성', '미활성', '2주차 유지', '1주차 이탈', '유료 전환', '이탈'],
+            color=['#5c6bc0', '#42a5f5', '#ef9a9a', '#66bb6a', '#ef9a9a', '#388e3c', '#e53935'],
             pad=15, thickness=20,
-            line=dict(color="black", width=0.5),
-            label=[
-                f"프로모션 가입\n({TOTAL:,})",
-                f"1주차 활성화\n({n_activated:,})",
-                f"2주 이상 유지\n({n_retained:,})",
-                f"유료 전환\n({n_revenue:,})",
-                "이탈"
-            ],
-            color=["#9e9e9e", "#5c6bc0", "#388e3c", "#1565c0", "#d32f2f"]
         ),
         link=dict(
-            source=[0, 0, 1, 1, 2, 2],
-            target=[1, 4, 2, 4, 3, 4],
-            value= [n_activated, n_never_active,
-                    n_retained,  n_drop_after_w1,
-                    n_revenue,   n_churn_after_retain],
-            color=["rgba(92,107,192,0.4)",  "rgba(211,47,47,0.3)",
-                   "rgba(56,142,60,0.4)",   "rgba(211,47,47,0.3)",
-                   "rgba(21,101,192,0.4)",  "rgba(251,192,45,0.3)"]
+            source=[0, 0, 1, 1, 3, 3],
+            target=[1, 2, 3, 4, 5, 6],
+            value=[n_activated, n_never_active, n_retained, n_drop_after_w1, n_revenue, n_churn_after_ret],
+            color=['rgba(92,107,192,0.4)', 'rgba(239,154,154,0.4)',
+                   'rgba(66,165,245,0.4)', 'rgba(239,154,154,0.4)',
+                   'rgba(102,187,106,0.4)', 'rgba(229,57,53,0.4)'],
         )
     )])
     fig_sankey.update_layout(height=400, margin=dict(t=20, b=20, l=10, r=10))
@@ -1104,7 +1507,6 @@ elif menu == "👥 프로모션 행동 분석":
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # 군집 요약 시각화 (PCA / 도넛 / 트렌드)
     st.subheader("🧠 고객 행동 패턴 및 군집 분석")
     col_ml, col_donut, col_line = st.columns([3, 3, 4])
 
@@ -1147,24 +1549,20 @@ elif menu == "👥 프로모션 행동 분석":
                                legend=dict(orientation="h", y=-0.25))
         st.plotly_chart(fig_line, use_container_width=True)
 
-    # ==========================================
-    # 군집 심층 분석 섹션 (NEW)
-    # ==========================================
     st.markdown("<hr>", unsafe_allow_html=True)
     st.subheader("🔬 군집별 이탈 패턴 심층 분석")
 
-    # 군집별 통계
-    cstats = promo_df.groupby(['cluster', 'cluster_name']).agg(
+    _p_cstats = promo_df.groupby(['cluster', 'cluster_name']).agg(
         총인원=('USER_KEY', 'count'),
         이탈자=('is_churn', 'sum'),
         방어성공=('is_churn_prevented', 'sum')
     ).reset_index()
-    cstats['이탈률'] = cstats['이탈자'] / cstats['총인원'] * 100
-    cstats['방어율'] = cstats['방어성공'] / cstats['총인원'] * 100
-    cstats['비중']   = cstats['총인원'] / TOTAL * 100
-    cstats = cstats.sort_values('cluster')
+    _p_cstats['이탈률'] = _p_cstats['이탈자'] / _p_cstats['총인원'] * 100
+    _p_cstats['방어율'] = _p_cstats['방어성공'] / _p_cstats['총인원'] * 100
+    _p_cstats['비중']   = _p_cstats['총인원'] / TOTAL * 100
+    _p_cstats = _p_cstats.sort_values('cluster')
 
-    avg_w = promo_df.groupby('cluster_name')[
+    _p_avg_w = promo_df.groupby('cluster_name')[
         ['watch_time(min)_w1', 'watch_time(min)_w2', 'watch_time(min)_w3']
     ].mean()
 
@@ -1174,194 +1572,134 @@ elif menu == "👥 프로모션 행동 분석":
         fig_cbar = go.Figure()
         fig_cbar.add_trace(go.Bar(
             name='이탈자',
-            x=cstats['cluster_name'],
-            y=cstats['이탈자'],
+            x=_p_cstats['cluster_name'],
+            y=_p_cstats['이탈자'],
             marker_color='#e57373',
-            text=cstats['이탈자'].apply(lambda x: f"{x:,}명"),
-            textposition='inside'
         ))
         fig_cbar.add_trace(go.Bar(
             name='방어 성공',
-            x=cstats['cluster_name'],
-            y=cstats['방어성공'],
-            marker_color='#66bb6a',
-            text=cstats['방어성공'].apply(lambda x: f"{x:,}명"),
-            textposition='inside'
+            x=_p_cstats['cluster_name'],
+            y=_p_cstats['방어성공'],
+            marker_color='#81c784',
         ))
         fig_cbar.update_layout(
-            barmode='stack', height=320,
+            barmode='group', height=280,
             margin=dict(t=10, b=10, l=0, r=0),
-            legend=dict(orientation="h", y=1.05)
+            legend=dict(orientation='h', y=1.05),
         )
         st.plotly_chart(fig_cbar, use_container_width=True)
 
     with col_bar_r:
         st.caption("**군집별 이탈률 (%)**")
         fig_rate = px.bar(
-            cstats, x='cluster_name', y='이탈률',
+            _p_cstats, x='cluster_name', y='이탈률',
             color='cluster_name', color_discrete_map=COLOR_MAP,
-            text=cstats['이탈률'].round(1).astype(str) + '%'
+            text=_p_cstats['이탈률'].round(1).astype(str) + '%'
         )
         fig_rate.update_traces(textposition='outside')
         fig_rate.update_layout(
-            height=320, showlegend=False,
+            height=280, showlegend=False,
             margin=dict(t=10, b=10, l=0, r=0),
-            yaxis=dict(range=[75, 90])
         )
         st.plotly_chart(fig_rate, use_container_width=True)
 
-    # 군집 프로파일 카드
-    st.markdown("#### 군집별 특성 프로파일")
-    CLUSTER_ICONS   = {' C0 (맛보기형)': '🔍', ' C1 (헤비유저형)': '🎬', ' C2 (후반몰입형)': '🌱', ' C3 (휴면형)': '👻'}
-    CLUSTER_LABEL   = {' C0 (맛보기형)': '맛보기형', ' C1 (헤비유저형)': '헤비유저형', ' C2 (후반몰입형)': '안정형', ' C3 (휴면형)': '휴면형'}
-    CLUSTER_DESC    = {
-        ' C0 (맛보기형)':   '평균 시청 13분, 5분 미만 시청 비율 높음. 콘텐츠를 시작하지만 완주 못하고 이탈.',
-        ' C1 (헤비유저형)': '총 시청 827분, 장르 다양성 최고(5.25). 가장 충성도 높은 핵심 고객군. 이탈률 15.8%.',
-        ' C2 (후반몰입형)':     '3주차 리텐션 51.9%로 전 군집 중 최고. 시간이 갈수록 몰입도 상승하는 성장 패턴.',
-        ' C3 (휴면형)':     '시청 횟수 평균 1회, 최근 접속 15일. 가입 후 사실상 미접속 상태.'
+    _p_CLUSTER_ICONS  = {' C0 (맛보기형)': '🔍', ' C1 (헤비유저형)': '🎬', ' C2 (후반몰입형)': '🌱', ' C3 (휴면형)': '👻'}
+    _p_CLUSTER_LABEL  = {' C0 (맛보기형)': '맛보기형', ' C1 (헤비유저형)': '헤비유저형', ' C2 (후반몰입형)': '후반몰입형', ' C3 (휴면형)': '휴면형'}
+    _p_CLUSTER_DESC   = {
+        ' C0 (맛보기형)':   '평균 시청 13분, 단타 시청 비율 높음. 콘텐츠를 시작하지만 완주 못하고 이탈.',
+        ' C1 (헤비유저형)': '총 시청 827분, 장르 다양성 최고. 가장 충성도 높은 핵심 고객군.',
+        ' C2 (후반몰입형)': '3주차 리텐션 전 군집 중 최고. 시간이 갈수록 몰입도 상승하는 성장 패턴.',
+        ' C3 (휴면형)':     '시청 횟수 평균 1회. 가입 후 사실상 미접속 상태.',
     }
-    CLUSTER_BORDER  = {' C0 (맛보기형)': '#f57c00', ' C1 (헤비유저형)': '#d32f2f',
-                       ' C2 (후반몰입형)': '#388e3c', ' C3 (휴면형)': '#fbc02d'}
+    _p_CLUSTER_BORDER = {' C0 (맛보기형)': '#FF7A00', ' C1 (헤비유저형)': '#EA002C',
+                         ' C2 (후반몰입형)': '#388e3c', ' C3 (휴면형)': '#fbc02d'}
 
-    cc0, cc1, cc2, cc3 = st.columns(4)
-    col_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
-    for col_widget, cname in zip([cc0, cc1, cc2, cc3], col_order):
-        row = cstats[cstats['cluster_name'] == cname].iloc[0]
-        wt_row = avg_w.loc[cname]
-        color  = CLUSTER_BORDER[cname]
+    st.markdown("#### 군집별 특성 프로파일")
+    pc0, pc1, pc2, pc3 = st.columns(4)
+    _p_col_order = [' C0 (맛보기형)', ' C1 (헤비유저형)', ' C2 (후반몰입형)', ' C3 (휴면형)']
+    for col_widget, cname in zip([pc0, pc1, pc2, pc3], _p_col_order):
+        row = _p_cstats[_p_cstats['cluster_name'] == cname].iloc[0]
+        wt_row = _p_avg_w.loc[cname]
+        color  = _p_CLUSTER_BORDER[cname]
         with col_widget:
             st.markdown(
                 f"""<div class="cluster-card" style="border-top: 4px solid {color};">
-                <div class="cluster-title">{CLUSTER_ICONS[cname]} {cname.strip()}</div>
-                <div style="color:#666; margin-bottom:6px; font-size:12px;">{CLUSTER_LABEL[cname]}</div>
+                <div class="cluster-title">{_p_CLUSTER_ICONS[cname]} {cname.strip()}</div>
+                <div style="color:#666; margin-bottom:6px; font-size:12px;">{_p_CLUSTER_LABEL[cname]}</div>
                 <b>인원:</b> {int(row['총인원']):,}명 ({row['비중']:.1f}%)<br>
-                <b>이탈률:</b> <span style="color:#d32f2f;">{row['이탈률']:.1f}%</span> &nbsp;
-                <b>방어율:</b> <span style="color:#388e3c;">{row['방어율']:.1f}%</span><br>
+                <b>이탈률:</b> <span style="color:#EA002C;">{row['이탈률']:.1f}%</span><br>
                 <b>시청 추이:</b> {wt_row['watch_time(min)_w1']:.0f}분 →
                                   {wt_row['watch_time(min)_w2']:.0f}분 →
                                   {wt_row['watch_time(min)_w3']:.0f}분<br>
                 <hr style="margin:6px 0;">
-                <span style="font-size:12px;">{CLUSTER_DESC[cname]}</span>
+                <span style="font-size:12px;">{_p_CLUSTER_DESC[cname]}</span>
                 </div>""",
                 unsafe_allow_html=True
             )
 
-    # 나이대 × 군집 이탈률 히트맵
-    st.markdown("#### 나이대 × 군집별 이탈률 (%)")
-    age_cl = promo_df.groupby(['age_group', 'cluster_name'])['is_churn'].mean().reset_index()
-    age_cl.columns = ['나이대', '군집', '이탈률']
-    age_cl['이탈률'] = age_cl['이탈률'] * 100
-    age_cl['나이대'] = age_cl['나이대'].astype(str) + '대'
-    age_pivot = age_cl.pivot(index='나이대', columns='군집', values='이탈률')
-
-    hm_col, bar_col = st.columns([3, 2])
-    with hm_col:
-        fig_hm = px.imshow(
-            age_pivot.round(1),
-            text_auto=True,
-            color_continuous_scale='RdYlGn_r',
-            zmin=75, zmax=95,
-            labels={'color': '이탈률(%)'}
-        )
-        fig_hm.update_layout(height=280, margin=dict(t=10, b=10, l=0, r=0))
-        st.plotly_chart(fig_hm, use_container_width=True)
-
-    with bar_col:
-        age_total = promo_df.groupby('age_group')['is_churn'].agg(['mean', 'count']).reset_index()
-        age_total.columns = ['나이대', '이탈률', '인원']
-        age_total['이탈률'] *= 100
-        age_total['나이대'] = age_total['나이대'].astype(str) + '대'
-        fig_age = px.bar(age_total, x='나이대', y='이탈률',
-                         text=age_total['이탈률'].round(1).astype(str) + '%',
-                         color='이탈률', color_continuous_scale='RdYlGn_r',
-                         range_color=[75, 95])
-        fig_age.update_traces(textposition='outside')
-        fig_age.update_layout(height=280, margin=dict(t=10, b=10, l=0, r=0),
-                               showlegend=False, coloraxis_showscale=False,
-                               yaxis=dict(range=[75, 95]))
-        st.plotly_chart(fig_age, use_container_width=True)
-
-    # 성별 × 군집 이탈률
-    st.markdown("#### 성별 × 군집별 이탈률 (%)")
-    gen_cl = promo_df[promo_df['gender_kor'].isin(['여성', '남성'])].groupby(
-        ['gender_kor', 'cluster_name'])['is_churn'].mean().reset_index()
-    gen_cl.columns = ['성별', '군집', '이탈률']
-    gen_cl['이탈률'] *= 100
-
-    gen_col1, gen_col2 = st.columns([3, 2])
-    with gen_col1:
-        fig_gen = px.bar(gen_cl, x='군집', y='이탈률', color='성별',
-                         barmode='group',
-                         color_discrete_map={'여성': '#e91e8c', '남성': '#1565c0'},
-                         text=gen_cl['이탈률'].round(1).astype(str) + '%')
-        fig_gen.update_traces(textposition='outside')
-        fig_gen.update_layout(height=280, margin=dict(t=10, b=10, l=0, r=0),
-                               yaxis=dict(range=[78, 92]))
-        st.plotly_chart(fig_gen, use_container_width=True)
-
-    with gen_col2:
-        gender_total = promo_df[promo_df['gender_kor'].isin(['여성','남성'])].groupby(
-            'gender_kor').agg(이탈률=('is_churn','mean'), 인원=('USER_KEY','count')).reset_index()
-        gender_total['이탈률'] *= 100
-        gender_total.columns = ['성별', '이탈률(%)', '인원']
-        gender_total['인원'] = gender_total['인원'].apply(lambda x: f"{x:,}명")
-        gender_total['이탈률(%)'] = gender_total['이탈률(%)'].round(1)
-        st.dataframe(gender_total.set_index('성별').astype(object), use_container_width=True, height=130)
-        st.markdown("")
-        st.info("**📌 인사이트**\n\n"
-                "성별 이탈률(재구매 안 함 비율) 분포를 확인하세요.\n"
-                "C0·C3 군집에서 성별 차이가 두드러질 수 있습니다.")
-
-    # 대응 전략 카드
+    st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown("#### 📋 군집별 핵심 대응 전략")
-    s0, s1, s2, s3 = st.columns(4)
-    strategies = {
+    _p_strategies = {
         ' C0 (맛보기형)': {
-            'icon': '📬',
-            'short': '취향 매칭 온보딩',
+            'icon': '📬', 'short': '취향 매칭 온보딩',
             'items': ['① 취향 파악 설문 (3문항)', '② 맞춤 인기작 큐레이션 메일', '③ 첫 시청 완료 보상 쿠폰']
         },
         ' C1 (헤비유저형)': {
-            'icon': '🎯',
-            'short': '후속 콘텐츠 연결',
+            'icon': '🎯', 'short': '후속 콘텐츠 연결',
             'items': ['① 1주차 시청 완료 후 즉시 알림', '② 동일 장르 시리즈 추천', '③ 한정 타임딜 오퍼']
         },
         ' C2 (후반몰입형)': {
-            'icon': '💎',
-            'short': 'VIP 전환 유도',
+            'icon': '💎', 'short': 'VIP 전환 유도',
             'items': ['① 독점 콘텐츠 선공개 안내', '② 유료 첫 달 할인 혜택', '③ VIP 등급 혜택 시뮬레이션']
         },
         ' C3 (휴면형)': {
-            'icon': '🔔',
-            'short': '재활성화 자동화',
+            'icon': '🔔', 'short': '재활성화 자동화',
             'items': ['① 3일 미접속 시 알림 발송', '② 이전 관심사 기반 추천', '③ 단기 무료 연장 쿠폰']
         }
     }
-    for col_widget, cname in zip([s0, s1, s2, s3], col_order):
-        s = strategies[cname]
-        color = CLUSTER_BORDER[cname]
+    ps0, ps1, ps2, ps3 = st.columns(4)
+    for col_widget, cname in zip([ps0, ps1, ps2, ps3], _p_col_order):
+        s = _p_strategies[cname]
+        color = _p_CLUSTER_BORDER[cname]
         with col_widget:
             st.markdown(
                 f"""<div class="cluster-card" style="border-top: 4px solid {color};">
                 <div class="cluster-title">{s['icon']} {cname.strip()}</div>
                 <div style="font-weight:600; margin-bottom:8px; color:#444;">{s['short']}</div>
-                {'<br>'.join(f'<span style="font-size:12px;">{i}</span>' for i in s['items'])}
+                {'<br>'.join(f'<span style="font-size:12px;">{it}</span>' for it in s['items'])}
                 </div>""",
                 unsafe_allow_html=True
             )
 
 # ==========================================
-# 4-3. 예측 모델 설정
+# 예측 모델 설정
 # ==========================================
 elif menu == "⚙️ 예측 모델 설정":
     st.header("⚙️ 예측 모델 설정")
     st.caption("이탈 예측 알고리즘의 파라미터를 조정하고 모델의 신뢰도를 모니터링합니다.")
     st.markdown("---")
 
-    st.subheader("📈 모델 성능 지표 (Model Health)")
+    st.markdown("""
+    <div style="display:flex; gap:10px; margin: 6px 0 18px 0;">
+      <div style="flex:1; background:#e8f5e9; border-radius:8px; padding:12px 14px; border-left:3px solid #388e3c;">
+        <div style="font-size:11px; font-weight:700; color:#1b5e20; margin-bottom:4px;">📌 이 페이지에서 알 수 있는 것 ①</div>
+        <div style="font-size:13px; color:#333; line-height:1.5;">행동 기반 위험 점수의 <b>임계값을 조정</b>해 정밀도와 재현율의 균형을 직접 설정합니다.</div>
+      </div>
+      <div style="flex:1; background:#e3f2fd; border-radius:8px; padding:12px 14px; border-left:3px solid #1565c0;">
+        <div style="font-size:11px; font-weight:700; color:#0d47a1; margin-bottom:4px;">📌 이 페이지에서 알 수 있는 것 ②</div>
+        <div style="font-size:13px; color:#333; line-height:1.5;">각 군집별로 <b>독립적인 모델 파라미터</b>를 설정해 세그먼트 특성에 맞는 예측을 구성합니다.</div>
+      </div>
+      <div style="flex:1; background:#fff8e1; border-radius:8px; padding:12px 14px; border-left:3px solid #f9a825;">
+        <div style="font-size:11px; font-weight:700; color:#e65100; margin-bottom:4px;">📌 이 페이지에서 알 수 있는 것 ③</div>
+        <div style="font-size:13px; color:#333; line-height:1.5;">모델의 <b>혼동 행렬·ROC·정밀도-재현율</b> 곡선으로 현재 예측 성능을 모니터링합니다.</div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.subheader("모델 성능 지표 (Model Health)")
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Model Accuracy", "88.4%", "+0.5%")
-    m2.metric("ROC-AUC",        "0.92",  "Stable", delta_color="off")
+    m2.metric("ROC-AUC",        "0.92",  "Stable")
     m3.metric("Precision",      "84.1%", "-1.2%")
     m4.metric("Recall",         "81.5%", "+2.3%")
 
@@ -1374,33 +1712,17 @@ elif menu == "⚙️ 예측 모델 설정":
         n_above   = int((promo_df['churn_score'] >= threshold * 100).sum())
         st.info(f"현재 설정: 위험 점수 **{threshold*100:.0f}점** 이상 → **{n_above:,}명** 고위험 분류")
         st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("""
-        <div style="position:relative; border-radius:10px; overflow:hidden; margin-top:8px;">
-            <div style="filter:blur(2px) grayscale(0.3); pointer-events:none; opacity:0.4; padding:12px 0;">
-                <p style="font-size:18px; font-weight:600; margin-bottom:8px;">⚖️ 변수 가중치 조정</p>
-                <p style="font-size:14px; color:#555;">주차별 시청 시간 &nbsp;✅&nbsp; 3주차 리텐션 &nbsp;✅&nbsp; 1주차 단독 시청 여부 &nbsp;✅</p>
-            </div>
-            <div style="
-                position:absolute; top:0; left:0; width:100%; height:100%;
-                background:rgba(180,180,180,0.72);
-                border-radius:10px;
-                display:flex; align-items:center; justify-content:center;
-                flex-direction:column; gap:6px;
-            ">
-                <span style="font-size:22px;">🔒</span>
-                <span style="font-size:13px; font-weight:700; color:#444;">준비 중인 기능입니다</span>
-                <span style="font-size:11px; color:#666;">모델 고도화 후 활성화 예정</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.subheader("⚖️ 변수 가중치 조정")
+        st.multiselect("우선 반영 행동 데이터",
+                       ["주차별 시청 시간", "3주차 리텐션", "1주차 단독 시청 여부", "활동 비율", "장르 다양성"],
+                       default=["주차별 시청 시간", "3주차 리텐션", "1주차 단독 시청 여부"])
 
     with set_col2:
         st.subheader("🎯 모델 재학습")
         st.text("마지막 학습일: 2021-04-10")
         if st.button("🚀 지금 즉시 모델 재학습 시작", use_container_width=True):
             import time
-            with st.spinner("최적화 중..."):
-                time.sleep(1)
+            with st.spinner('최적화 중...'): time.sleep(1)
             st.success("학습 완료!")
         st.markdown("---")
         st.subheader("📂 데이터 익스포트")
