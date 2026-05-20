@@ -1,0 +1,25 @@
+﻿check_name,status,expected,actual,severity,note
+results_dir_exists,PASS,PUBLIC/results exists,True,high,
+final_result_files_detected,PASS,>=1 final_result.csv,8,high,
+trials_all_files_detected,PASS,>=1 trials_all.csv,8,high,
+all_8_final_results_present,PASS,8 final_result.csv,8,high,
+all_8_trials_all_present,PASS,8 trials_all.csv,8,high,
+final_results_reparsed,PASS,all detected final_result.csv reparsed,True,high,
+trials_all_reparsed,PASS,all detected trials_all.csv reparsed,True,high,
+overfit_columns_checked,PASS,overfit column or fallback checked,True,high,
+overfit_rate_calculated_for_8_models,PASS,8 overfit rates,8,high,
+catboost_promo0_overfit_rate_checked,PASS,CatBoost promo0 overfit_rate present,0.865,high,
+catboost_promo1_overfit_rate_checked,PASS,CatBoost promo1 overfit_rate present,0.9,high,
+top5_top10_top20_overfit_checked,PASS,top5/top10/top20 overfit rates present,True,high,
+best_non_overfit_trial_identified,PASS,best non-overfit trial present for all models,True,high,
+overfit_adjusted_selection_table_created,PASS,selection table exists,True,high,
+selection_memo_created,PASS,selection memo exists,True,high,
+no_row_level_score_generated,PASS,No row-level score generated,PASS,critical,This script does not create score tables
+no_oof_score_generated,PASS,No OOF score generated,PASS,critical,This script does not create OOF scores
+no_shap_generated,PASS,No SHAP generated,PASS,critical,This script does not create SHAP outputs
+no_segmentation_generated,PASS,No segmentation generated,PASS,critical,This script does not create segmentation outputs
+no_html_modified,PASS,No HTML modified,PASS,critical,This script does not write HTML
+outputs_within_PUBLIC_only,PASS,All generated paths inside PUBLIC,True,critical,
+note_md_updated,PASS,note.md has overfit selection marker,checked,medium,
+review_zip_created,PASS,review zip exists and opens,True,high,
+review_zip_inventory_created,PASS,zip inventory exists and is inside zip,True,high,
