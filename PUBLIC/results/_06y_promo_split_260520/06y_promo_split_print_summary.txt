@@ -1,0 +1,9 @@
+PRINT_VALIDATION_SUMMARY_START
+step=06y_promo_split_260520
+source_rows=23097
+promo_0_rows=11193
+promo_1_rows=11904
+unexpected_is_promotion_rows=0
+source_columns=82
+final_status=PASS
+PRINT_VALIDATION_SUMMARY_END

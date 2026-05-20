@@ -1,0 +1,30 @@
+﻿check,status,detail
+paths_resolve_inside_project,PASS,
+raw_source_csv_not_modified,PASS,SHA256 and mtime unchanged for source master and raw validation CSVs
+notebook_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC\notebooks\06x_dataset_generation_260515.ipynb
+notebook_executed,PASS,This row is produced by the executed hotfix notebook
+rowlevel_cold_start_calculation_used,PASS,groupby master_row_id used for first watch
+USER_KEY_level_first_watch_not_used,PASS,No USER_KEY-level min watch_date table is used for fixed flags
+negative_first_watch_rel_day_count_zero,PASS,0
+raw_changed_3d_count_expected,PASS,1802
+raw_changed_7d_count_expected,PASS,985
+primary_changed_3d_count_expected,PASS,1786
+primary_changed_7d_count_expected,PASS,969
+primary_main_cohort_rows_expected,PASS,23097
+conservative_dataset_rows_expected,PASS,23097
+expanded_dataset_rows_expected,PASS,23097
+cold_start_hotfix_validation_created,PASS,
+cold_start_hotfix_print_summary_created,PASS,created below before final zip
+no_unapproved_new_features_created,PASS,
+original_cold_start_not_used_as_model_feature,PASS,
+USER_KEY_not_model_feature,PASS,
+is_repurchase_target_not_feature,PASS,
+no_modeling_performed,PASS,No estimator fit or prediction code is present
+no_eda_performed,PASS,Only required audit/profile tables are generated
+no_shap_performed,PASS,
+no_optuna_performed,PASS,
+no_segmentation_performed,PASS,
+README_updated,PASS,
+note_md_updated,PASS,
+review_zip_updated,PASS,created below
+critical_fail_count_zero,PASS,0

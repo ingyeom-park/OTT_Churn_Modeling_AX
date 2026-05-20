@@ -1,0 +1,5 @@
+﻿split_name,file_name,row_count,column_count,is_promotion_unique_values
+source,06x_expanded_dataset.csv,23097,82,"[""0"", ""1""]"
+promo_0,06y_expanded_dataset_promo_0.csv,11193,82,"[""0""]"
+promo_1,06y_expanded_dataset_promo_1.csv,11904,82,"[""1""]"
+unexpected,,0,82,[]

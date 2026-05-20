@@ -1180,3 +1180,23 @@ PUBLIC overfit-adjusted model selection
 - zip/PUBLIC_model_selection_overfit_260520_review_package.zip
 
 <!-- PUBLIC_MODEL_SELECTION_OVERFIT_260520_END -->
+
+
+## 2026-05-15 06x_cold_start_rowlevel_hotfix_260515
+- 06x cold_start row-level hotfix 수행.
+- USER_KEY 단위 first watch 방식이 아니라 master_row_id/subscription-event row 기준으로 재계산함.
+- raw 기준 변경 수 1802 / 985.
+- primary cohort 기준 변경 수 1786 / 969.
+- negative first_watch_rel_day 0건.
+- conservative/expanded dataset은 23097 rows 유지.
+- 새로 생성된 feature는 기존 승인된 3개뿐임: is_basic, is_cold_start_3d_fixed, is_cold_start_7d_fixed.
+- 다음 단계는 07x.
+
+
+## 2026-05-20 06y_promo_split_260520
+- PUBLIC 06x expanded dataset을 `is_promotion` 기준으로 분할함.
+- source rows: 23097.
+- promo_0 rows: 11193.
+- promo_1 rows: 11904.
+- unexpected is_promotion rows: 0.
+- outputs: PUBLIC/results/_06y_promo_split_260520.

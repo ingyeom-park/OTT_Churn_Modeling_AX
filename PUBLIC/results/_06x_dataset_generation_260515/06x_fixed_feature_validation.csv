@@ -1,0 +1,7 @@
+﻿basis,fixed_feature_name,source_original_feature,old_positive_count,fixed_positive_count,changed_row_count,expected_changed_row_count_if_applicable,status,note
+raw_master_full,is_basic,is_standard + is_premium,,14708,,,PASS,Generated only from approved standard/premium flags.
+raw_master_full,is_cold_start_3d_fixed,is_cold_start_3d,10778,9034,1802,1802,PASS,Row-level raw-master validation.
+raw_master_full,is_cold_start_7d_fixed,is_cold_start_7d,15834,14891,985,985,PASS,Row-level raw-master validation.
+primary_main_cohort,is_basic,is_standard + is_premium,,14537,,,PASS,Primary cohort count after row policy.
+primary_main_cohort,is_cold_start_3d_fixed,is_cold_start_3d,10688,8942,1786,1786,PASS,Row-level primary cohort validation.
+primary_main_cohort,is_cold_start_7d_fixed,is_cold_start_7d,15680,14737,969,969,PASS,Row-level primary cohort validation.

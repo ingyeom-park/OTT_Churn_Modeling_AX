@@ -1,0 +1,13 @@
+﻿zip_member,file_size,compress_size
+notebooks/06y_promo_split_260520.ipynb,18001,4088
+results/_06y_promo_split_260520/06y_expanded_dataset_promo_0.csv,5896640,2134992
+results/_06y_promo_split_260520/06y_expanded_dataset_promo_1.csv,6295394,2280574
+results/_06y_promo_split_260520/06y_final_checks.csv,842,379
+results/_06y_promo_split_260520/06y_promo_split_print_summary.txt,220,154
+results/_06y_promo_split_260520/06y_promo_split_summary.csv,277,167
+results/_06y_promo_split_260520/06y_review_zip_inventory.csv,847,319
+results/_06y_promo_split_260520/06y_schema_check.csv,3804,711
+results/_06y_promo_split_260520/06y_source_profile.csv,251,175
+results/_06y_promo_split_260520/06y_target_distribution_by_split.csv,177,128
+results/_06y_promo_split_260520/note_tail_copy.md,4639,1637
+results/_06y_promo_split_260520/README.md,671,319

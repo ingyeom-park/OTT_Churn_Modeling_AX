@@ -1,0 +1,6 @@
+﻿item,caveat_flag,caveat_reason
+old_movie_ratio_5y,True,Use Kwangil master value as-is; raw Movie_Master reconstruction has 9-row mismatch caveat; no fixed replacement created.
+genre ratio,True,Use Kwangil master value as-is; same MOVIE_NUM can have multiple category records in Movie_Master.
+watch_ratio_under_1m / watch_ratio_under_5m,True,"Official formula is <= 1 minute and <= 5 minutes, based on Kwangil master."
+cold_start original/fixed,True,Original is_cold_start_3d/7d are excluded from model features; fixed replacements are computed by master_row_id subscription-event row.
+is_churn_prevented,True,"Historical ever received churn-prevention benefit flag; interpret as users who have ever accepted/received retention benefit, not current-cycle post outcome."

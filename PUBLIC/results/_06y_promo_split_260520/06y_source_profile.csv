@@ -1,0 +1,6 @@
+﻿metric,value
+source_file,results\_06x_dataset_generation_260515\06x_expanded_dataset.csv
+source_row_count,23097
+source_column_count,82
+is_promotion_distribution,"{""0"": 11193, ""1"": 11904}"
+target_distribution,"{""1"": 16574, ""0"": 6523}"
