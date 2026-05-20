@@ -1,7 +1,7 @@
 ﻿check,status,detail
 paths_resolve_inside_PUBLIC,PASS,
 source_dataset_not_modified,PASS,SHA256 and mtime unchanged
-notebook_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC\notebooks\06y_promo_split_260520.ipynb
+notebook_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC\notebooks\06_dataset_260520\06y_promo_split_260520.ipynb
 source_has_is_promotion,PASS,
 source_has_is_repurchase,PASS,
 unexpected_is_promotion_rows_zero,PASS,0

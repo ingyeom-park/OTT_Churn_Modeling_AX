@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from _future_ import annotations
 
 import csv
 import math
@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-SCRIPT_PATH = Path(__file__).resolve()
+SCRIPT_PATH = Path(_file_).resolve()
 OUTPUT_DIR = SCRIPT_PATH.parent
 PUBLIC_DIR = OUTPUT_DIR.parent
 RESULTS_DIR = PUBLIC_DIR / "results"
@@ -65,7 +65,7 @@ def read_csv(path: Path) -> tuple[str, list[dict], list[str], str]:
             rows = list(reader)
             return "readable", rows, list(reader.fieldnames), ""
     except Exception as exc:
-        return "parse_error", [], [], f"{type(exc).__name__}: {exc}"
+        return "parse_error", [], [], f"{type(exc)._name_}: {exc}"
 
 
 def to_float(value) -> float | None:
@@ -195,7 +195,7 @@ def build_inventory() -> list[dict]:
         except Exception as exc:
             stat = None
             status = "unreadable"
-            note = f"{type(exc).__name__}: {exc}"
+            note = f"{type(exc)._name_}: {exc}"
         rows.append(
             {
                 "relative_path": rel(path),
@@ -993,7 +993,7 @@ def inspect_zip() -> tuple[bool, bool, list[dict]]:
                 "file_size": "",
                 "compress_size": "",
                 "modified_time": "",
-                "note": f"{type(exc).__name__}: {exc}",
+                "note": f"{type(exc)._name_}: {exc}",
             }
         )
         return False, False, rows
@@ -1196,5 +1196,5 @@ def main() -> None:
     print(f"zip path: {ZIP_PATH}")
 
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()

@@ -1,0 +1,3 @@
+﻿original_relative_path,new_relative_path,action_taken,reason
+notebooks/06x_dataset_generation_260515.ipynb,notebooks/06_dataset_260520/06x_dataset_generation_260515.ipynb,moved,"06x/06y are dataset preparation substeps, not model-selection notebooks"
+notebooks/06y_promo_split_260520.ipynb,notebooks/06_dataset_260520/06y_promo_split_260520.ipynb,moved,"06x/06y are dataset preparation substeps, not model-selection notebooks"

@@ -1,7 +1,7 @@
 ﻿check,status,detail
 paths_resolve_inside_project,PASS,
 raw_source_csv_not_modified,PASS,SHA256 and mtime unchanged for source master and raw validation CSVs
-notebook_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC\notebooks\06x_dataset_generation_260515.ipynb
+notebook_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC\notebooks\06_dataset_260520\06x_dataset_generation_260515.ipynb
 notebook_executed,PASS,This row is produced by the executed hotfix notebook
 rowlevel_cold_start_calculation_used,PASS,groupby master_row_id used for first watch
 USER_KEY_level_first_watch_not_used,PASS,No USER_KEY-level min watch_date table is used for fixed flags

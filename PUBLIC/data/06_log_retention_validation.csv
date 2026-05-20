@@ -1,0 +1,7 @@
+﻿dataset_name,output_file,source_column,log_column,row_count,source_min,source_non_positive_count,max_abs_diff_vs_np_log,status
+overall,PUBLIC\data\06_expanded_dataset_log_retention.csv,retention_w2_ratio,log_retention_w2_ratio,23097,0.0006807351940095,0,8.881784197001252e-16,PASS
+overall,PUBLIC\data\06_expanded_dataset_log_retention.csv,retention_w3_ratio,log_retention_w3_ratio,23097,0.0008888888888888,0,8.881784197001252e-16,PASS
+promo_0,PUBLIC\data\06_expanded_dataset_promo_0_log_retention.csv,retention_w2_ratio,log_retention_w2_ratio,11193,0.0006807351940095,0,8.881784197001252e-16,PASS
+promo_0,PUBLIC\data\06_expanded_dataset_promo_0_log_retention.csv,retention_w3_ratio,log_retention_w3_ratio,11193,0.000893655049151,0,8.881784197001252e-16,PASS
+promo_1,PUBLIC\data\06_expanded_dataset_promo_1_log_retention.csv,retention_w2_ratio,log_retention_w2_ratio,11904,0.0009216589861751,0,8.881784197001252e-16,PASS
+promo_1,PUBLIC\data\06_expanded_dataset_promo_1_log_retention.csv,retention_w3_ratio,log_retention_w3_ratio,11904,0.0008888888888888,0,8.881784197001252e-16,PASS

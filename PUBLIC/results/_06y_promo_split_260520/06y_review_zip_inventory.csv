@@ -1,5 +1,5 @@
 ﻿zip_member,file_size,compress_size
-notebooks/06y_promo_split_260520.ipynb,18001,4088
+notebooks/06_dataset_260520/06y_promo_split_260520.ipynb,18001,4088
 results/_06y_promo_split_260520/06y_expanded_dataset_promo_0.csv,5896640,2134992
 results/_06y_promo_split_260520/06y_expanded_dataset_promo_1.csv,6295394,2280574
 results/_06y_promo_split_260520/06y_final_checks.csv,842,379
