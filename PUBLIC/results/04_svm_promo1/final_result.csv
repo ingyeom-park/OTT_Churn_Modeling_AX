@@ -1,0 +1,2 @@
+﻿model,promo,best_trial,best_valid_auc,best_train_auc,best_gap,overfit,test_roc_auc,test_pr_auc,test_f1,test_precision,test_recall,test_n,param_kernel,param_C,param_gamma,param_degree
+SVM,1,142,0.8382107979695903,0.867011394396487,0.028800596426896696,False,0.8419227439773964,0.9162355111279774,0.8474676089517079,0.8048098434004475,0.8949004975124378,2381,rbf,56.335102136091514,0.0006376552103719719,
