@@ -1,0 +1,4 @@
+﻿file_path,exists,size_bytes,modified_time,readable_status,n_rows,n_cols,column_count,parse_status,notes
+PUBLIC/data/06_expanded_dataset_log_retention.csv,True,12958570,2026-05-20T13:42:33,PASS,23097,84,84,PASS,
+PUBLIC/data/06_expanded_dataset_promo_0_log_retention.csv,True,6269242,2026-05-20T13:42:33,PASS,11193,84,84,PASS,
+PUBLIC/data/06_expanded_dataset_promo_1_log_retention.csv,True,6690807,2026-05-20T13:42:34,PASS,11904,84,84,PASS,

@@ -1,0 +1,9 @@
+﻿file_name,field_or_column,before_value,after_value,reason
+06x_fixed_feature_validation.csv,raw_master_full is_cold_start_3d_fixed changed_row_count,1802.0,1802,row-level subscription-event cold_start hotfix
+06x_fixed_feature_validation.csv,raw_master_full is_cold_start_7d_fixed changed_row_count,985.0,985,row-level subscription-event cold_start hotfix
+06x_fixed_feature_validation.csv,primary_main_cohort is_cold_start_3d_fixed changed_row_count,1786.0,1786,row-level subscription-event cold_start hotfix
+06x_fixed_feature_validation.csv,primary_main_cohort is_cold_start_7d_fixed changed_row_count,969.0,969,row-level subscription-event cold_start hotfix
+06x_conservative_dataset.csv,row_count,23097,23097,dataset regenerated after cold_start hotfix; row count must remain stable
+06x_expanded_dataset.csv,row_count,23097,23097,dataset regenerated after cold_start hotfix; row count must remain stable
+README.md,hotfix_section,not guaranteed,updated,document row-level cold_start hotfix
+note.md,06x_cold_start_rowlevel_hotfix_260515,not guaranteed,updated,append hotfix record

@@ -1,0 +1,17 @@
+PRINT_VALIDATION_SUMMARY_START
+step=06x_cold_start_rowlevel_hotfix_260515
+raw_source_rows=23343
+duration_lt_21_count=238
+full_duplicate_extra_after_duration_count=8
+primary_main_cohort_rows=23097
+raw_changed_3d=1802
+raw_changed_7d=985
+primary_changed_3d=1786
+primary_changed_7d=969
+negative_first_watch_rel_day_count=0
+conservative_dataset_rows=23097
+expanded_dataset_rows=23097
+new_features_created=is_basic,is_cold_start_3d_fixed,is_cold_start_7d_fixed
+unapproved_new_features_created=0
+final_status=PASS
+PRINT_VALIDATION_SUMMARY_END

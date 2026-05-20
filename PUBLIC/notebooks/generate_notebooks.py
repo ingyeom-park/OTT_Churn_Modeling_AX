@@ -1,4 +1,4 @@
-import json, os
+﻿import json, os
 
 ROOT = "c:/Code/ott-churn-prediction/PUBLIC"
 
@@ -257,7 +257,7 @@ def make_nb(cfg):
     # ── 7. 최종 모델 학습 및 test 평가 ────────────────────────────────────────
     code([
         "class _FakeTrial:",
-        "    def __init__(self, p): self._p = p",
+        "    def _init_(self, p): self._p = p",
         "    def suggest_int(self, n, *a, **k):         return int(self._p[n])",
         "    def suggest_float(self, n, *a, **k):       return float(self._p[n])",
         "    def suggest_categorical(self, n, *a, **k): return self._p[n]",

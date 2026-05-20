@@ -1,0 +1,17 @@
+﻿check,status,detail
+paths_resolve_inside_PUBLIC,PASS,
+source_dataset_not_modified,PASS,SHA256 and mtime unchanged
+notebook_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC\notebooks\06_dataset_260520\06y_promo_split_260520.ipynb
+source_has_is_promotion,PASS,
+source_has_is_repurchase,PASS,
+unexpected_is_promotion_rows_zero,PASS,0
+split_rows_sum_to_source,PASS,11193 + 11904 = 23097
+promo0_only_has_zero,PASS,['0']
+promo1_only_has_one,PASS,['1']
+promo0_columns_match_source,PASS,
+promo1_columns_match_source,PASS,
+promo0_file_created,PASS,C:\Code\ott-churn-prediction\PUBLIC\results\_06y_promo_split_260520\06y_expanded_dataset_promo_0.csv
+promo1_file_created,PASS,C:\Code\ott-churn-prediction\PUBLIC\results\_06y_promo_split_260520\06y_expanded_dataset_promo_1.csv
+README_created,PASS,
+note_md_updated,PASS,
+critical_fail_count_zero,PASS,0
