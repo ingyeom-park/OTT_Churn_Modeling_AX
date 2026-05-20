@@ -117,6 +117,104 @@ assistant는 스스로를 "제가/저는"으로 지칭한다.
 
 # 작업 로그
 
+
+## 2026-05-20 | 현재 canonical 기준 요약 및 작업 차단 조건
+
+이 문서는 하나의 긴 연대기이자 작업 서사다. 따라서 과거 판단도 삭제하지 않고 보존한다.  
+다만 과거 판단과 최신 기준이 충돌할 수 있으므로, 이후 작업자는 반드시 이 섹션을 먼저 읽고 현재 canonical 기준을 확인한다.
+
+### 현재 canonical 기준
+
+현재 기준은 `PUBLIC` 폴더 내부의 06x → 06y → 06z 흐름이다.
+
+- 현재 dataset 기준: `PUBLIC/results/_06x_dataset_generation_260515/06x_expanded_dataset.csv`
+- 현재 전체 rows: 23,097
+- 현재 promo split:
+  - promo0: 11,193 rows
+  - promo1: 11,904 rows
+- 현재 promo split 산출물:
+  - `PUBLIC/results/_06y_promo_split_260520/06y_expanded_dataset_promo_0.csv`
+  - `PUBLIC/results/_06y_promo_split_260520/06y_expanded_dataset_promo_1.csv`
+- 현재 retention 관련 최신 변경:
+  - 기존 `retention_w2_ratio`, `retention_w3_ratio`는 유지
+  - 신규 `log_retention_w2_ratio`, `log_retention_w3_ratio` 추가
+  - log 변환은 `np.log(retention_w2_ratio)`, `np.log(retention_w3_ratio)` 방식
+- 현재 06z log retention 검수 결과:
+  - 0 이하 retention 값 0건
+  - log 계산값과 `np.log()` 직접 계산값 일치
+  - 최대 오차 8.88e-16
+  - 검수 결과 PASS
+
+### 과거 기준과 최신 기준의 충돌 주의
+
+과거 초기 PUBLIC 분리 기록에는 다음 값이 남아 있다.
+
+- 초기 기준 전체 rows: 23,079
+- 초기 `FINAL_promo_0.csv`: 11,175 rows
+- 초기 `FINAL_promo_1.csv`: 11,904 rows
+
+이 값은 당시 기록으로 보존한다.  
+하지만 이후 작업의 기준은 최신 06x/06y 재실행 기준인 23,097 rows, promo0 11,193 rows, promo1 11,904 rows다.
+
+따라서 이후 모델링, OOF score, SHAP, segmentation, dashboard, 발표 자료는 최신 06x/06y/06z 기준을 우선한다.
+
+### 현재 모델 후보 판단
+
+`PUBLIC_results_only.zip` 검수 기준 assistant의 1차 추천은 다음과 같다.
+
+- promo1 primary score source 후보: `10_gradientboosting_promo1`
+- promo0 primary score source 후보: `09_gradientboosting_promo0`
+- promo1 baseline/sensitivity 후보: `08_lr_promo1`
+- promo0 baseline/sensitivity 후보: `07_lr_promo0`
+- backup 후보:
+  - `01_catboost_promo0_conservative`
+  - `02_catboost_promo1_conservative`
+- reference 보존:
+  - 기존 CatBoost
+  - SVM
+  - RandomForest
+
+단, 이는 assistant의 1차 추천 판단이며 사용자 최종 승인 전까지 확정 모델이 아니다.
+
+### superseded 된 과거 판단
+
+이 문서에는 과거에 CatBoost를 `strong_candidate` 또는 `conditional_recommended_after_user_approval`로 둔 기록이 남아 있다.  
+해당 기록은 당시 audit 기준으로는 유효한 연대기적 기록이지만, 이후 trial-level overfit audit과 보수형 GradientBoosting 재실험으로 최신 판단에서는 superseded 되었다.
+
+현재 기준에서는 기존 CatBoost를 중심 score source로 바로 쓰지 않는다. 기존 CatBoost는 성능 reference로 보존한다.
+
+### 현재 작업 차단 조건: feature set 결정 전 OOF 금지
+
+06z에서 log retention 컬럼이 추가되었으므로, 다음 작업자가 바로 row-level OOF score table을 만들면 안 된다.
+
+OOF score table 생성 전 반드시 결정해야 할 사항:
+
+- 기존 `retention_w2_ratio`, `retention_w3_ratio`를 그대로 사용할지
+- 신규 `log_retention_w2_ratio`, `log_retention_w3_ratio`를 사용할지
+- 기존 retention과 log retention을 동시에 사용할지
+- 동시에 사용할 경우 다중공선성/중복 정보 문제를 어떻게 기록할지
+- 모델 입력 CSV를 `06y` 기준으로 할지, `06z` log retention 기준으로 할지
+- promo0/promo1 모델 입력 CSV 최종 경로를 무엇으로 할지
+
+이 결정이 note.md에 기록되기 전에는 모델링, OOF score table, SHAP, segmentation으로 넘어가지 않는다.
+
+### 현재 다음 단계
+
+현재 다음 단계는 `row-level OOF score table 생성`이 아니다.  
+정확한 다음 단계는 다음 순서다.
+
+1. feature set 결정
+2. 모델 입력 CSV 확정
+3. promo0/promo1 입력 파일 재고정
+4. 모델 후보 재확인
+5. row-level OOF score table 생성
+6. GB/LR high-risk overlap 검수
+7. SHAP 또는 feature importance
+8. promo1 중심 segmentation rule 설계
+9. segment assignment 생성
+10. segment visual guide v2 및 발표 스토리 재작성
+
+---
 ## 2026-05-19 | PUBLIC 폴더 초기화 및 데이터셋 분리
 
 ### 수행 내용
@@ -992,6 +1090,11 @@ promo1 주 모델 후보와 promo0 비교 모델 후보를 선정한다. 선정 
 
 이 질문에 답하지 못하는 산출물은 최종 발표의 중심에 놓으면 안 된다.
 
+
+> 주의: 아래 `PUBLIC result 1~8 model audit and comparison` 기록은 당시 8개 모델 1차 audit 기준이다.  
+> 이후 trial-level overfit audit 및 `PUBLIC_results_only.zip` 재검수로 인해 CatBoost `strong_candidate` 판단은 superseded 되었다.  
+> 최신 모델 후보 판단은 `현재 canonical 기준 요약` 및 `PUBLIC_results_only.zip 기반 보수형 모델 재판단` 섹션을 우선한다.
+
 <!-- PUBLIC_MODEL_AUDIT_260520_START -->
 
 > 2026-05-20 PUBLIC result 1~8 model audit and comparison
@@ -1069,6 +1172,11 @@ PUBLIC result 1~8 model audit and comparison
 - 후보 모델은 자동 확정이 아니라 사용자 승인 전 preflight 후보입니다.
 
 <!-- PUBLIC_MODEL_AUDIT_260520_END -->
+
+
+> 주의: 아래 `PUBLIC overfit-adjusted model selection` 기록은 기존 8개 모델 결과 기준으로 CatBoost를 조건부 후보로 둔 중간 판단이다.  
+> 이후 보수형 CatBoost 및 보수형 GradientBoosting 추가 실행 결과, 최신 1차 추천 후보는 GradientBoosting conservative로 이동했다.  
+> 아래 기록은 연대기적 중간 판단으로 보존하되, 최신 작업 기준으로 직접 사용하지 않는다.
 
 <!-- PUBLIC_MODEL_SELECTION_OVERFIT_260520_START -->
 
@@ -1200,3 +1308,39 @@ PUBLIC overfit-adjusted model selection
 - promo_1 rows: 11904.
 - unexpected is_promotion rows: 0.
 - outputs: PUBLIC/results/_06y_promo_split_260520.
+
+
+---
+
+## 2026-05-20 | PUBLIC_log_retention_only_model_notebook_prep_260520
+
+- 사용자 결정으로 feature set은 log retention only로 고정됨.
+- 기존 `retention_w2_ratio`, `retention_w3_ratio`는 모델 입력 CSV에서 제거함.
+- `log_retention_w2_ratio`, `log_retention_w3_ratio`는 모델 입력 CSV에 유지함.
+- 사용한 입력 데이터:
+  - `PUBLIC/data/06z_expanded_dataset_promo_0_log_retention.csv`
+  - `PUBLIC/data/06z_expanded_dataset_promo_1_log_retention.csv`
+- 생성한 모델 입력 CSV:
+  - `PUBLIC/data/06z_model_input_promo_0_log_retention_only.csv`
+  - `PUBLIC/data/06z_model_input_promo_1_log_retention_only.csv`
+- promo0 row 수: 11193
+- promo1 row 수: 11904
+- 생성한 노트북:
+  - `PUBLIC/notebooks/06z_gb_promo0_logretention_only.ipynb`
+  - `PUBLIC/notebooks/06z_gb_promo1_logretention_only.ipynb`
+  - `PUBLIC/notebooks/06z_lr_promo0_logretention_only.ipynb`
+  - `PUBLIC/notebooks/06z_lr_promo1_logretention_only.ipynb`
+- Optuna는 `N_TRIALS=100`으로 고정함.
+- 예정 OUT_DIR:
+  - `PUBLIC/results/_06z_log_retention_only_model_rerun_260520/gb_promo0`
+  - `PUBLIC/results/_06z_log_retention_only_model_rerun_260520/gb_promo1`
+  - `PUBLIC/results/_06z_log_retention_only_model_rerun_260520/lr_promo0`
+  - `PUBLIC/results/_06z_log_retention_only_model_rerun_260520/lr_promo1`
+- 이번 goal에서는 모델을 실행하지 않음.
+- `final_result.csv`, `trials_all.csv`는 아직 생성되지 않는 것이 정상임.
+- 사용자와 팀원이 다음 단계에서 4개 노트북을 수동 실행할 예정임.
+- 하지 않은 것: 모델 실행, OOF score table 생성, SHAP 생성, segmentation 생성, HTML 수정, 기존 결과 삭제.
+- 미해결 리스크: USER_KEY 중복에 따른 group leakage caveat, 기존 결과와 log-only 결과의 feature set 차이, 실행 전이므로 성능/overfit 판단 불가.
+- 다음 단계: 사용자가 4개 노트북을 실행한 뒤 결과 ZIP을 전달하면 assistant가 형식 검수와 의미 검수를 분리해 검수한다.
+- canonical update: feature set은 log retention only로 고정됨. 기존 retention은 모델 입력에서 제거됨. 기존 09/10/07/08 결과는 reference로 유지됨.
+- 구조 보정: `11/12/13/14`는 독립 pipeline step처럼 보이므로 사용하지 않는다. 이번 작업은 `06z log retention only` 계열의 모델 variant 준비 작업이며, 모델별 결과는 `_06z_log_retention_only_model_rerun_260520` 하위 폴더에 둔다.

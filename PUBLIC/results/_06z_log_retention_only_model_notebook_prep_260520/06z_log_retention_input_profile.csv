@@ -1,0 +1,3 @@
+﻿dataset_name,row_count,expected_row_count,row_count_status,column_count,has_USER_KEY,has_is_repurchase,has_is_promotion,has_retention_w2_ratio,has_retention_w3_ratio,has_log_retention_w2_ratio,has_log_retention_w3_ratio,has_payment_is_mobile,has_payment_is_pc,has_payment_is_android,has_payment_is_ios,target_positive_count,target_negative_count,target_positive_rate,missing_total,duplicate_USER_KEY_count,numeric_column_count,non_numeric_column_count,notes
+promo_0,11193,11193,PASS,84,True,True,True,True,True,True,True,True,True,True,True,8537,2656,0.7627088358795676,0,56,83,1,
+promo_1,11904,11904,PASS,84,True,True,True,True,True,True,True,True,True,True,True,8037,3867,0.6751512096774194,0,1,83,1,
