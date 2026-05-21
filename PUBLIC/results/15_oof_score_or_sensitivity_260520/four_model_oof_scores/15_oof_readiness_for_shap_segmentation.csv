@@ -1,0 +1,5 @@
+model_family,scope,oof_roc_auc,oof_pr_auc,suspicious_high_auc_flag,shap_readiness,segmentation_readiness,reason
+LogisticRegression,promo0,0.864944,0.951351,OK,READY,READY,oof_roc_auc=0.864944 ok
+LogisticRegression,promo1,0.839502,0.917268,OK,READY,READY,oof_roc_auc=0.839502 ok
+GradientBoosting,promo0,0.880476,0.957362,OK,READY,READY,oof_roc_auc=0.880476 ok
+GradientBoosting,promo1,0.859147,0.929921,OK,READY,READY,oof_roc_auc=0.859147 ok

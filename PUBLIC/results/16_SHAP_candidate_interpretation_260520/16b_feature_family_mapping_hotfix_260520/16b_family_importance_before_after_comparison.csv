@@ -1,0 +1,53 @@
+﻿model_family,promo_scope,feature_family,old_total_mean_abs_shap,new_total_mean_abs_shap,old_family_rank,new_family_rank,delta_total_mean_abs_shap,rank_change,interpretation
+GradientBoosting,promo0,content_preference,0.0186109058323865,0.0186109058323862,9.0,10.0,-3.0184188481996443e-16,-1,family importance changed because remapped features moved between families
+GradientBoosting,promo0,demographic_context,0.0440784042948923,0.0440784042948923,7.0,8.0,0.0,-1,family importance unchanged
+GradientBoosting,promo0,genre_preference,1.112997298446305,1.1514309430942005,2.0,2.0,0.03843364464789545,0,family importance changed because remapped features moved between families
+GradientBoosting,promo0,historical_churn_prevention_context,0.0581674155004773,0.0581674155004773,5.0,6.0,0.0,-1,family importance unchanged
+GradientBoosting,promo0,inactivity_recency,0.0,0.014944887710824799,,11.0,0.014944887710824799,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo0,membership_context,0.0278777663834185,0.0278777663834184,8.0,9.0,-1.0061396160665481e-16,-1,family importance changed because remapped features moved between families
+GradientBoosting,promo0,onboarding_activation,0.0500236933924705,0.0500236933924705,6.0,7.0,0.0,-1,family importance unchanged
+GradientBoosting,promo0,registration_timing_context,0.0,0.0077517250385885006,,12.0,0.0077517250385885006,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo0,retention_decay,0.4568113300419129,0.4568113300419129,3.0,3.0,0.0,0,family importance unchanged
+GradientBoosting,promo0,technical_or_unknown,0.2751578618644809,0.0,4.0,,-0.2751578618644809,,technical_or_unknown reduced from old importance to new importance; remaining_feature_count=0; remapped_feature_count=16
+GradientBoosting,promo0,usage_concentration,0.0,0.1117107748217988,,4.0,0.1117107748217988,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo0,week_specific_usage_pattern,0.0,0.1023168296453725,,5.0,0.1023168296453725,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo0,weekly_usage,1.3809966019692457,1.3809966019692443,1.0,1.0,-1.3322676295501878e-15,0,family importance changed because remapped features moved between families
+GradientBoosting,promo1,content_preference,0.0788110301104361,0.0788110301104359,7.0,7.0,-1.942890293094024e-16,0,family importance changed because remapped features moved between families
+GradientBoosting,promo1,demographic_context,0.0230906183240937,0.0230906183240937,9.0,11.0,0.0,-2,family importance unchanged
+GradientBoosting,promo1,genre_preference,1.2765918635143725,1.34462531693964,1.0,1.0,0.06803345342526756,0,family importance changed because remapped features moved between families
+GradientBoosting,promo1,historical_churn_prevention_context,0.0703260672789878,0.0703260672789878,8.0,8.0,0.0,0,family importance unchanged
+GradientBoosting,promo1,inactivity_recency,0.0,0.0555700181967172,,9.0,0.0555700181967172,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo1,membership_context,0.1311474780597215,0.1311474780597214,6.0,5.0,-8.326672684688674e-17,1,family importance changed because remapped features moved between families
+GradientBoosting,promo1,onboarding_activation,0.1755691321829313,0.1755691321829313,5.0,4.0,0.0,1,family importance unchanged
+GradientBoosting,promo1,registration_timing_context,0.0,0.0025621330344322,,12.0,0.0025621330344322,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo1,retention_decay,0.5663888408155988,0.5663888408155987,3.0,3.0,-1.1102230246251565e-16,0,family importance changed because remapped features moved between families
+GradientBoosting,promo1,technical_or_unknown,0.2486430884589186,0.0,4.0,,-0.2486430884589186,,technical_or_unknown reduced from old importance to new importance; remaining_feature_count=0; remapped_feature_count=16
+GradientBoosting,promo1,usage_concentration,0.0,0.081475167270565,,6.0,0.081475167270565,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo1,week_specific_usage_pattern,0.0,0.041002316531936,,10.0,0.041002316531936,,new hotfix family created from remapped technical_or_unknown features
+GradientBoosting,promo1,weekly_usage,1.2293478650563614,1.22934786505636,2.0,2.0,-1.3322676295501878e-15,0,family importance changed because remapped features moved between families
+LogisticRegression,promo0,content_preference,0.5280776827615028,0.5280776827615026,5.0,5.0,-2.220446049250313e-16,0,family importance changed because remapped features moved between families
+LogisticRegression,promo0,demographic_context,0.1606887165918217,0.1606887165918216,7.0,9.0,-1.1102230246251565e-16,-2,family importance changed because remapped features moved between families
+LogisticRegression,promo0,genre_preference,1.770864523047051,1.9583466317211347,3.0,2.0,0.18748210867408366,1,family importance changed because remapped features moved between families
+LogisticRegression,promo0,historical_churn_prevention_context,0.1319064603315363,0.1319064603315363,8.0,10.0,0.0,-2,family importance unchanged
+LogisticRegression,promo0,inactivity_recency,0.0,0.852082356678325,,4.0,0.852082356678325,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo0,membership_context,0.1871724795167251,0.187172479516725,6.0,8.0,-1.1102230246251565e-16,-2,family importance changed because remapped features moved between families
+LogisticRegression,promo0,onboarding_activation,0.1134963380152083,0.1134963380152082,9.0,12.0,-9.71445146547012e-17,-3,family importance changed because remapped features moved between families
+LogisticRegression,promo0,registration_timing_context,0.0,0.1216915605855628,,11.0,0.1216915605855628,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo0,retention_decay,1.276447573985381,1.2764475739853807,4.0,3.0,-2.220446049250313e-16,1,family importance changed because remapped features moved between families
+LogisticRegression,promo0,technical_or_unknown,1.8858428232033333,0.0,2.0,,-1.8858428232033333,,technical_or_unknown reduced from old importance to new importance; remaining_feature_count=0; remapped_feature_count=16
+LogisticRegression,promo0,usage_concentration,0.0,0.5029188439773065,,6.0,0.5029188439773065,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo0,week_specific_usage_pattern,0.0,0.2216679532880548,,7.0,0.2216679532880548,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo0,weekly_usage,3.371806886673307,3.3718068866733053,1.0,1.0,-1.7763568394002505e-15,0,family importance changed because remapped features moved between families
+LogisticRegression,promo1,content_preference,0.5835439028931306,0.5835439028931303,5.0,4.0,-3.3306690738754696e-16,1,family importance changed because remapped features moved between families
+LogisticRegression,promo1,demographic_context,0.0937884941593009,0.0937884941593008,9.0,11.0,-1.1102230246251565e-16,-2,family importance changed because remapped features moved between families
+LogisticRegression,promo1,genre_preference,1.7642705175747715,1.9704612434008373,2.0,2.0,0.2061907258260658,0,family importance changed because remapped features moved between families
+LogisticRegression,promo1,historical_churn_prevention_context,0.1454498453768016,0.1454498453768016,8.0,10.0,0.0,-2,family importance unchanged
+LogisticRegression,promo1,inactivity_recency,0.0,0.42148328389560974,,6.0,0.42148328389560974,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo1,membership_context,0.2387885741201672,0.23878857412016719,7.0,9.0,-2.7755575615628914e-17,-2,family importance changed because remapped features moved between families
+LogisticRegression,promo1,onboarding_activation,0.2865258115457798,0.2865258115457797,6.0,7.0,-5.551115123125783e-17,-1,family importance changed because remapped features moved between families
+LogisticRegression,promo1,registration_timing_context,0.0,0.0500965650174901,,12.0,0.0500965650174901,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo1,retention_decay,0.8840242033822658,0.8840242033822658,4.0,3.0,0.0,1,family importance unchanged
+LogisticRegression,promo1,technical_or_unknown,1.4122810906489425,0.0,3.0,,-1.4122810906489425,,technical_or_unknown reduced from old importance to new importance; remaining_feature_count=0; remapped_feature_count=16
+LogisticRegression,promo1,usage_concentration,0.0,0.45206669390920773,,5.0,0.45206669390920773,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo1,week_specific_usage_pattern,0.0,0.2824438220005679,,8.0,0.2824438220005679,,new hotfix family created from remapped technical_or_unknown features
+LogisticRegression,promo1,weekly_usage,2.7917755334460663,2.791775533446065,1.0,1.0,-1.3322676295501878e-15,0,family importance changed because remapped features moved between families

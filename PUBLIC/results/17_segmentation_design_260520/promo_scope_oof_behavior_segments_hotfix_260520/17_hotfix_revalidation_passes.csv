@@ -1,0 +1,23 @@
+﻿validation_pass,check_item,status,expected,actual,mismatch_count,notes
+A,base_datamart_rows,PASS,23097,23097,0,
+A,promo0_base_rows,PASS,11193,11193,0,
+A,promo1_base_rows,PASS,11904,11904,0,
+A,base_promo_scope_row_id_duplicates,PASS,0,0,0,
+A,representative_assignment_rows,PASS,23097,23097,0,
+A,one_representative_segment_per_row,PASS,1,1,,
+B,gb_score_direction,PASS,max diff < 1e-9,2.220446049250313e-16,,
+B,lr_score_direction,PASS,max diff < 1e-9,2.220446049250313e-16,,
+B,promo0_gb_high_risk_top10_count,PASS,about 1119,1120,1,allowing rounding differences
+B,promo1_gb_high_risk_top10_count,PASS,about 1190,1191,1,allowing rounding differences
+B,promo0_gb_high_risk_top20_count,PASS,about 2239,2239,0,allowing rounding differences
+B,promo1_gb_high_risk_top20_count,PASS,about 2381,2381,0,allowing rounding differences
+B,promo0_gb_high_risk_top30_count,PASS,about 3358,3358,0,allowing rounding differences
+B,promo1_gb_high_risk_top30_count,PASS,about 3571,3572,1,allowing rounding differences
+B,promo0_lr_high_risk_top10_count,PASS,about 1119,1120,1,allowing rounding differences
+B,promo1_lr_high_risk_top10_count,PASS,about 1190,1191,1,allowing rounding differences
+B,promo0_lr_high_risk_top20_count,PASS,about 2239,2239,0,allowing rounding differences
+B,promo1_lr_high_risk_top20_count,PASS,about 2381,2381,0,allowing rounding differences
+B,promo0_lr_high_risk_top30_count,PASS,about 3358,3358,0,allowing rounding differences
+B,promo1_lr_high_risk_top30_count,PASS,about 3571,3572,1,allowing rounding differences
+B,gb_high_risk_top20_used_in_rules,PASS,rule contains gb_high_risk_top20,True,,
+C,representative_rule_recalculation_mismatch,PASS,0,0,0,recalculated from original 17 multiflag assignment

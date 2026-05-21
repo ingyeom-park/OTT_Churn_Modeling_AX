@@ -1,0 +1,18 @@
+check_item,status,evidence,notes
+final_checks_all_pass,PASS,37/37 rows have status=PASS in PUBLIC_16b_feature_family_mapping_hotfix_final_checks.csv; 0 WARN; 0 FAIL,Confirmed by reading actual file
+technical_unknown_inventory_rows,PASS,16 rows in 16b_technical_unknown_inventory.csv; all with old_feature_family=technical_or_unknown,All 16 rows confirmed
+remapped_feature_count,PASS,16 rows in 16b_family_mapping_change_log.csv; all change_type records confirmed,All 16 features changed from technical_or_unknown to business family
+remaining_technical_unknown_count,PASS,0 features with new_feature_family containing technical_or_unknown in 16b_feature_family_mapping_hotfix.csv (75 total features),Confirmed by reading actual file; remaining count = 0
+recency_remapped_to_inactivity_recency,PASS,16b_family_mapping_change_log.csv: recency old=technical_or_unknown new=inactivity_recency,Confirmed
+max_inactive_gap_days_remapped_to_inactivity_recency,PASS,16b_family_mapping_change_log.csv: max_inactive_gap_days old=technical_or_unknown new=inactivity_recency,Confirmed
+is_only_w1_w2_w3_remapped_to_week_specific_usage_pattern,PASS,16b_family_mapping_change_log.csv: is_only_w1 / is_only_w2 / is_only_w3 all → week_specific_usage_pattern,3 features confirmed
+active_ratio_max_day_share_day_count_remapped_to_usage_concentration,PASS,16b_family_mapping_change_log.csv: active_ratio / max_day_share / day_count_over_3times all → usage_concentration,3 features confirmed
+reg_hour_and_reg_weekend_remapped_to_registration_timing_context,PASS,16b_family_mapping_change_log.csv: reg_hour_afternoon / reg_hour_evening / reg_hour_morning / reg_hour_night / reg_is_weekend all → registration_timing_context,5 features confirmed
+genre_unknowns_remapped_to_genre_preference,PASS,16b_family_mapping_change_log.csv: historical_war_ratio / sf_fantasy_ratio / other_ratio all → genre_preference,3 features confirmed
+family_importance_hotfix_created,PASS,16b_shap_family_importance_hotfix.csv: 48 rows 10 cols confirmed,Family-level SHAP importance computed with hotfix mapping
+promo1_vs_promo0_hotfix_created,PASS,16b_promo1_vs_promo0_shap_comparison_hotfix.csv: 174 rows 10 cols confirmed,Promo comparison created with hotfix family mapping
+handoff_for_17_created,PASS,16b_family_interpretation_handoff_for_17.csv: 13 rows 8 cols confirmed,Handoff for step 17 segmentation created
+no_shap_recalculation_performed,PASS,16b_shap_global_importance_with_hotfix_family.csv uses existing SHAP values; fingerprint shows all core SHAP CSVs status=unchanged,SHAP values reused; only family mapping was reattached and family-level aggregation recomputed
+no_model_refit_performed,PASS,No model training artifacts in 16b output folder; fingerprint shows no model file changes,Model was not retrained
+no_oof_regeneration_performed,PASS,No OOF files in 16b output folder; fingerprint shows no OOF file changes,OOF was not regenerated
+no_segmentation_performed,PASS,No segmentation output files in 16b folder; fingerprint shows no segmentation artifacts,Segmentation was not performed

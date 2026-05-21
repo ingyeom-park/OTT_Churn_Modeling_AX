@@ -1,0 +1,14 @@
+full_name,size_bytes
+16b_acceptance_input_validation.csv,2872
+16b_mapping_acceptance_summary.csv,3065
+16b_source_fingerprint_status_interpretation.csv,1740
+16b_final_acceptance_memo.md,3568
+PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_final_checks.csv,2593
+PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_zip_inventory.csv,636
+note.md,125397
+16b_technical_unknown_inventory.csv,3465
+16b_feature_family_mapping_hotfix.csv,19822
+16b_family_mapping_change_log.csv,5528
+16b_shap_family_importance_hotfix.csv,9239
+16b_promo1_vs_promo0_shap_comparison_hotfix.csv,49574
+16b_family_interpretation_handoff_for_17.csv,3689

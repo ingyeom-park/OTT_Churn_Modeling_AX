@@ -1674,3 +1674,1177 @@ PUBLIC overfit-adjusted model selection
 > Steps 07~10 are not completed and must be recorded as pending validation.  
 > Step 11 output is emergency modeling reference only, not final canonical modeling evidence.
 
+
+
+## 2026-05-20 | PUBLIC 11/12 emergency model stage meaning corrected
+
+이전에 급한 일정 때문에 11로 emergency bypass하는 결정을 했다.
+
+하지만 11을 LogisticRegression 전용, 12를 GradientBoosting 전용으로 해석하면 pipeline 의미가 깨진다.
+
+11은 log-retention-only four-model emergency reference 단계로 재정의한다.
+
+12는 four-model comparison summary 단계로 재정의한다.
+
+LogisticRegression promo0/promo1과 GradientBoosting promo0/promo1은 모두 11 emergency reference 안에 모은다.
+
+12에서는 네 결과를 비교한다.
+
+07~10은 여전히 pending validation이다.
+
+이번 작업에서는 모델 실행, 노트북 실행, Optuna, SHAP, segmentation을 하지 않았다.
+
+기존 결과는 이동하지 않고, 11 reference 구조로 copy했다.
+
+copied result는 final canonical model evidence가 아니다.
+
+기존 `11x_baseline_growth_comparison_260516.ipynb`는 LogisticRegression 전용 단계가 아니라 baseline growth comparison 단계였다.
+
+기존 `12x_model_family_comparison_260516.ipynb`는 GradientBoosting 전용 단계가 아니라 model family comparison 단계였다.
+
+현재 PUBLIC emergency 구조는 기존 11x/12x의 의미를 축소 적용한 임시 구조다.
+
+기존 11x/12x 원본 notebook은 future template/reference로만 기록하며, 이번 작업에서 실행하지 않았다.
+
+이번 결과는 final canonical model evidence가 아니다.
+
+다음 단계는 12 comparison review 또는 07~10 pending validation 해소다.
+
+
+## 2026-05-20 | PUBLIC 12 four-model comparison review completed
+
+이번 작업은 12 four-model comparison review다.
+
+11 emergency four-model reference에 모인 4개 log-retention-only 결과를 비교했다.
+
+4개 모델은 LogisticRegression promo0, LogisticRegression promo1, GradientBoosting promo0, GradientBoosting promo1이다.
+
+promo0와 promo1은 분리해서 비교했다.
+
+final_result.csv 기반 성능 요약을 만들었다.
+
+trials_all.csv 기반 overfit/stability 요약을 만들었다.
+
+log retention only 조건을 다시 확인했다.
+
+OOF score table은 생성하지 않았다.
+
+SHAP, segmentation, Optuna는 수행하지 않았다.
+
+07~10은 여전히 pending validation이다.
+
+이 결과는 final model selection이 아니다.
+
+계산하지 못한 항목은 없다. `trials_all.csv`에 `mean_valid_auc`, `gap`, `overfit` 컬럼이 있어서 overfit/stability와 topN overfit rate를 계산했다.
+
+다음 단계는 사용자 승인 후 OOF score table 생성 또는 07~10 pending validation 해소다.
+
+
+## 2026-05-20 | PUBLIC 12 high-AUC leakage/proxy steering applied
+
+이번 steering 이후 12 four-model comparison review의 중심 목적을 수정했다.
+
+이 작업은 가장 성능 좋은 모델을 고르는 작업이 아니다.
+
+이 작업은 log-retention-only 4개 모델의 AUC가 과도하게 높아 보일 가능성을 leakage, proxy, overfit, split issue 관점에서 엄격하게 검수하는 작업이다.
+
+Because AUC appears unusually high for this project context, this step treats high performance as a validation target rather than as immediate evidence of model quality.
+
+현재 AUC가 프로젝트 맥락상 과도하게 높아 보일 수 있으므로, 이번 단계에서는 높은 성능을 곧바로 성과로 해석하지 않고 leakage, proxy, overfit, split issue 검수 대상으로 취급한다.
+
+AUC가 0.90 이상인 모델은 `suspicious_high_auc_flag = 1`로 표시했다.
+
+`final_result.csv`의 best metric만 보고 후보를 추천하지 않도록 README와 output CSV의 문구를 보정했다.
+
+`trials_all.csv` 기준 overfit_rate, top5/top10/top20 overfit_rate, gap, valid AUC 안정성 항목을 확인했다.
+
+feature list 기준 USER_KEY, is_repurchase, repurchase_score, churn_risk, retention_w2_ratio, retention_w3_ratio, is_promotion, target-like/post-outcome 의심 컬럼을 감사했다.
+
+`log_retention_w2_ratio`, `log_retention_w3_ratio`는 사용 여부를 확인했지만, 이 둘이 성능을 과도하게 지배할 가능성을 caveat로 기록했다.
+
+group-aware split 또는 USER_KEY leakage 방지 여부는 확인 가능한 범위에서 감사했으며, GroupKFold 미사용 caveat 때문에 split policy는 PASS로 기록하지 않았다.
+
+OOF readiness는 사용자 승인 전 생성 불가 상태로 유지했다.
+
+추천 문구는 final candidate가 아니라 provisional candidate pending leakage/proxy/overfit/split review로 제한했다.
+
+07~10은 여전히 pending validation 상태이며, 이번 12 결과는 final canonical model selection이 아니다.
+
+
+## 2026-05-20 | PUBLIC 12 review user-confirmed interpretation hotfix
+
+### 사용자 확인 사항 반영
+
+사용자가 모델 판단의 primary metric을 ROC-AUC로 확인했다.
+
+PR-AUC는 보조 지표이며, PR-AUC가 높다는 이유만으로 suspicious high AUC 또는 leakage 의심으로 처리하지 않는다.
+
+기존 12 review의 high-AUC 경고는 test_pr_auc >= 0.90 트리거로 전부 suspicious_high_auc_flag=1이 됐다. 이는 PR-AUC 중심 오해가 섞인 과잉 차단이었으므로 보정했다. 보정 후 suspicious_high_auc_flag_after는 전부 0이다.
+
+ROC-AUC 범위: LR 0.844~0.860 / GB 0.862~0.883. 이 범위는 high_but_plausible_pending_standard_checks로 기록한다.
+
+### is_churn_prevented 보정
+
+is_churn_prevented는 사용자 확인 기준 과거 포인트 수령 또는 churn prevention event 긍정 반응 이력 flag다.
+
+is_churn_prevented는 자동 leakage FAIL이 아니다. approved_context_feature_with_interpretation_caveat로 재분류했다.
+
+금지 표현: "current-cycle post-treatment effect", "current intervention caused repurchase"
+
+안전한 표현: "past churn prevention response history"
+
+### split 기준 보정
+
+split 기준은 USER_KEY가 아니라 USER_NUM이며, 사용자 확인 기준 중복은 처리된 상태다.
+
+USER_KEY 중복을 근거로 GroupKFold 미사용을 자동 FAIL 처리하지 않는다.
+
+실제 입력 CSV(06_model_input_promo_0/1.csv)에는 USER_NUM 컬럼이 없고 USER_KEY가 있다. promo0 USER_KEY 중복 56건 / promo1 1건. 이 수치가 곧바로 split leakage를 의미하지는 않는다. upstream dedup 사용자 확인을 따른다. split 상태: WARN_needs_verification (FAIL 아님).
+
+### 07~10 상태
+
+07~10은 여전히 pending validation이다. 현재 일정상 나중에 처리한다. pending이며 skipped가 아니다.
+
+### 이번 hotfix에서 수행하지 않은 것
+
+이번 hotfix는 OOF, SHAP, segmentation, 모델 재실행을 수행하지 않았다.
+
+OOF score table은 사용자 승인 후 별도 goal로 진행한다.
+
+현재 상태는 final model selection이 아니라 OOF 전 interpretation/readiness correction이다.
+
+### 산출물
+
+- PUBLIC/results/12_model_family_comparison_260520/four_model_comparison_review_hotfix_user_confirmed/
+- PUBLIC/handoff/PUBLIC_12_review_hotfix_user_confirmed_260520/
+- PUBLIC/zip/PUBLIC_12_review_hotfix_user_confirmed_260520_review_package.zip
+
+
+## 2026-05-20 | PUBLIC 12 review hotfix wording and zip inventory patch
+
+이번 작업은 12 review user-confirmed hotfix의 문서/zip 보정 patch다.
+
+모델 재실행, 노트북 실행, OOF, Optuna, SHAP, segmentation은 수행하지 않았다.
+
+"Skipped due to schedule" 표현은 오해 소지가 있어 "Temporarily deferred due to schedule; not skipped"로 보정했다. 수정 파일: 12_oof_readiness_user_confirmed_update.csv.
+
+07~10은 skipped가 아니라 pending validation이며 temporarily deferred 상태다. 이 사실은 README와 oof_readiness CSV에 명확히 반영됐다.
+
+final_checks의 review_zip_created / zip_inventory_created 항목은 이전 작업에서 이미 PASS로 기록됐으며, 이번 patch에서 재확인했다.
+
+zip_inventory 자기 자신 누락 문제는 self-reference row 추가(방식 B)로 처리했다. size_bytes는 self-inclusion 이전 기준이며, self-reference limitation을 명시했다.
+
+이번 patch는 모델 성능, feature set, split policy, is_churn_prevented policy를 변경하지 않는다.
+
+OOF score table은 여전히 사용자 승인 후 별도 goal로 진행한다.
+
+## 2026-05-20 | PUBLIC 12 review patch accepted and OOF generation approved by user
+
+### Context
+
+`PUBLIC_12_review_hotfix_user_confirmed_patch_260520_review_package.zip` 검수 결과, 12 review user-confirmed hotfix의 핵심 해석 보정은 반영된 것으로 판단했다.
+
+이번 patch에서 확인된 핵심 보정은 다음이다.
+
+- `PR-AUC >= 0.90`이라는 이유만으로 suspicious high AUC 또는 leakage 의심으로 처리하지 않도록 보정했다.
+- 모델 성능 판단의 primary metric은 `ROC-AUC`로 둔다.
+- `PR-AUC`는 secondary metric으로 둔다.
+- `is_churn_prevented`는 자동 leakage FAIL이 아니라, 사용자 도메인 확인 기준 `approved context feature with interpretation caveat`로 둔다.
+- `is_churn_prevented`는 현재 cycle 사후 결과가 아니라, 과거 포인트 수령 또는 churn prevention event 긍정 반응 이력으로 해석한다.
+- split policy는 과거 `USER_KEY` 중복 경고를 자동 적용하지 않고, 현재 PUBLIC 기준의 `USER_NUM` 및 중복 처리 완료 전제를 우선 반영한다.
+- 07~10은 skipped가 아니라 `pending validation`이며, 일정상 `temporarily deferred` 상태로 기록한다.
+- OOF, SHAP, segmentation, Optuna, 모델 재실행은 이번 patch에서 수행하지 않았다.
+
+### Patch review caveat
+
+이번 patch는 내용상 목적을 달성했지만, 형식상 final_checks에는 일부 WARN이 남아 있었다.
+
+특히 다음 항목은 실제로는 생성되었으나, patch final_checks 안에서는 pending처럼 남아 있었다.
+
+- `note_md_append_completed`
+- `review_zip_created`
+- `zip_inventory_created`
+
+따라서 이번 patch는 내용상 통과하되, 형식 검수상 완전한 무결 상태는 아니라고 기록한다.
+
+이번 WARN은 모델 결과, 데이터, feature set, 성능 지표, split policy, `is_churn_prevented` 해석을 바꾸는 문제는 아니다.  
+다만 이후 Claude Code 또는 다른 LLM이 review zip을 만들 때는 final_checks를 최종 산출물 생성 후 다시 갱신하거나, self-reference limitation을 명확히 기록해야 한다.
+
+### User decision
+
+사용자는 현재 일정상 07~10을 나중에 처리하기로 했다.
+
+정확한 상태는 다음과 같다.
+
+- 07~10은 skipped가 아니다.
+- 07~10은 unnecessary가 아니다.
+- 07~10은 pending validation이다.
+- 현재 일정상 temporarily deferred 상태다.
+
+사용자는 12 review hotfix 결과를 받아들이고, 다음 단계로 OOF score table 생성을 진행하기로 승인했다.
+
+단, OOF score table 생성은 final model selection이 아니다.  
+OOF는 SHAP과 segmentation으로 가기 위한 row-level score source를 만드는 중간 단계다.
+
+### Current modeling basis
+
+현재 OOF 생성 대상은 11 emergency four-model reference에 모인 log-retention 기준 4개 모델이다.
+
+대상 모델은 다음 네 개다.
+
+- LogisticRegression promo0
+- LogisticRegression promo1
+- GradientBoosting promo0
+- GradientBoosting promo1
+
+현재 모델 판단 기준은 다음과 같다.
+
+- ROC-AUC를 primary metric으로 본다.
+- PR-AUC는 secondary metric으로 본다.
+- promo0와 promo1은 분리해서 본다.
+- 전체 4개 중 하나의 1등 모델을 뽑는 방식이 아니다.
+- GradientBoosting은 primary candidate 후보로 볼 수 있다.
+- LogisticRegression은 baseline 또는 sensitivity candidate로 유지한다.
+- 4개 모델 모두 OOF score를 생성해 GB/LR overlap과 scope별 risk profile을 확인한다.
+
+### OOF generation rule
+
+OOF score table 생성 시 반드시 다음을 지킨다.
+
+- 기존 `final_result.csv`와 `trials_all.csv`는 모델 후보 근거로 사용한다.
+- Optuna는 새로 수행하지 않는다.
+- SHAP은 수행하지 않는다.
+- segmentation은 수행하지 않는다.
+- 모델 선택을 final로 확정하지 않는다.
+- 07~10 pending validation 상태를 README와 note에 유지한다.
+- `is_repurchase`는 target으로만 사용한다.
+- `USER_NUM` 또는 식별자 계열은 feature로 사용하지 않는다.
+- `USER_KEY`가 존재하더라도 feature로 사용하지 않는다.
+- `is_promotion`은 promo split 이후 scope 내부 feature로 사용하지 않는다.
+- `retention_w2_ratio`, `retention_w3_ratio`는 feature로 사용하지 않는다.
+- `log_retention_w2_ratio`, `log_retention_w3_ratio`는 current feature로 사용한다.
+- `is_churn_prevented`는 approved context feature with interpretation caveat로 유지한다.
+- `repurchase_score`, `churn_risk`, 기존 score 컬럼이 있으면 feature에서 제외한다.
+
+### Split policy
+
+현재 사용자 확인 기준으로 PUBLIC split 및 중복 기준은 `USER_NUM` 중심이며, 중복은 처리된 상태로 본다.
+
+OOF 생성 시에는 다음을 확인한다.
+
+- 모델 입력 CSV에 `USER_NUM`이 있는지 확인한다.
+- `USER_NUM`이 있으면 중복 여부를 확인한다.
+- `USER_NUM`이 unique이면 StratifiedKFold 사용이 가능하다.
+- `USER_NUM` 중복이 남아 있으면 StratifiedGroupKFold 또는 group-aware split을 검토해야 한다.
+- `USER_NUM`이 없으면 어떤 식별자 기준으로 dedup이 완료되었는지 README와 final_checks에 기록한다.
+- 확인 불가능한 경우 PASS로 쓰지 말고 WARN으로 기록한다.
+
+### Required OOF outputs
+
+OOF 생성 후 최소 산출물은 다음이다.
+
+- `15_oof_score_long.csv`
+- `15_oof_score_wide.csv`
+- `15_oof_generation_input_validation.csv`
+- `15_oof_feature_policy_check.csv`
+- `15_oof_fold_distribution_check.csv`
+- `15_oof_metric_summary.csv`
+- `15_gb_lr_high_risk_overlap.csv`
+- `15_oof_readiness_for_shap_segmentation.csv`
+- `README.md`
+- `final_checks.csv`
+- review zip
+
+OOF score table에는 최소 다음 정보가 있어야 한다.
+
+- row identifier
+- `USER_NUM` 또는 사용 가능한 식별자
+- `is_repurchase`
+- promo scope
+- model family
+- fold id
+- `repurchase_score_oof`
+- `churn_risk_score_oof`
+- `risk_percentile`
+- `high_risk_top10`
+- `high_risk_top20`
+- `high_risk_top30`
+
+### Interpretation guardrail
+
+OOF score는 final campaign target이 아니다.
+
+OOF score는 다음 단계에서 사용할 row-level risk evidence다.
+
+- GB/LR high-risk overlap 검수
+- SHAP 대상 모델 선정 보조
+- segmentation rule 설계 보조
+- promo1 중심 risk profile 확인
+- promo0 비교군 risk profile 확인
+
+OOF score가 생성되었다고 해서 바로 SHAP, segmentation, dashboard, business action으로 넘어가는 것은 아니다.
+
+다음 단계는 OOF 결과 검수다.
+
+### Next action
+
+다음 작업은 `PUBLIC 15 OOF score generation`이다.
+
+Claude Code는 OOF score table을 생성하되, 다음을 금지한다.
+
+- Optuna 재실행 금지
+- SHAP 생성 금지
+- segmentation 생성 금지
+- final model selection 금지
+- campaign threshold 확정 금지
+- 07~10 완료로 기록 금지
+
+## 2026-05-20 | PUBLIC 15 four-model OOF score generation completed
+
+### 수행 내용
+
+4개 model/scope 조합 (LR promo0, LR promo1, GB promo0, GB promo1)에 대해 row-level OOF score를 생성했다.
+
+- Params: 기존 final_result.csv에서 직접 추출. Optuna 재실행 없음.
+- Split: StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+- Split 정책: USER_NUM 없음, USER_KEY 중복 promo0=56 / promo1=1. WARN_WITH_USER_CONFIRMATION. 사용자 domain 확인으로 StratifiedKFold 유지.
+- Features: 75개. retention_w2/w3_ratio 제외. log_retention_w2/w3_ratio 사용. is_churn_prevented 포함(승인된 context feature).
+
+### 생성된 산출물 경로
+
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_oof_score_long.csv — 46,194 rows
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_oof_score_wide_promo0.csv — 11,193 rows
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_oof_score_wide_promo1.csv — 11,904 rows
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_oof_metric_summary.csv
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_oof_fold_distribution_check.csv
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_gb_lr_high_risk_overlap.csv
+- PUBLIC/results/15_oof_score_or_sensitivity_260520/four_model_oof_scores/15_oof_readiness_for_shap_segmentation.csv
+- PUBLIC/notebooks/15_oof_score_or_sensitivity_260520/15_four_model_oof_score_generation_260520_executed.ipynb
+
+### OOF 결과 (형식 검수 기준)
+
+| model_family | scope | oof_roc_auc | oof_pr_auc | suspicious_high_auc_flag | readiness |
+|---|---|---|---|---|---|
+| LogisticRegression | promo0 | 0.864944 | 0.951351 | OK | READY |
+| LogisticRegression | promo1 | 0.839502 | 0.917268 | OK | READY |
+| GradientBoosting | promo0 | 0.880476 | 0.957362 | OK | READY |
+| GradientBoosting | promo1 | 0.859147 | 0.929921 | OK | READY |
+
+### 형식 검수 vs 의미 검수
+
+- 형식 검수: PASS (파일 생성, 행수 일치, flag 정상)
+- 의미 검수: 미완료 — 다음 단계에서 사용자가 OOF 결과를 직접 검토해야 한다.
+  - GB > LR 성능 차이가 예상 범위 내인지
+  - promo0/promo1 gap이 허용 가능한지
+  - high-risk overlap 비율이 이상하지 않은지
+
+### 금지 확인
+
+- Optuna 재실행: 없음
+- SHAP: 없음
+- segmentation: 없음
+- final model selection: 없음
+- raw source CSV 수정: 없음
+- park.ingyeom 폴더 수정: 없음
+
+### 다음 단계
+
+1. 사용자가 OOF 결과 의미 검수 (ROC-AUC 범위, high-risk overlap, promo0/promo1 비교)
+2. 검수 완료 후 SHAP 대상 모델 선정
+3. segmentation rule 설계
+
+
+## 2026-05-20 | PUBLIC 15 OOF score generation hotfix completed
+
+이번 작업은 PUBLIC 15 OOF score generation hotfix다.
+
+직전 15 review zip은 OOF long/wide, executed notebook, note.md, zip inventory가 누락되어 통과하지 못했다.
+
+직전 15 overlap은 threshold 0.5/0.6/0.7 기준이어서 요구한 top10/top20/top30 기준과 달랐다.
+
+이번 hotfix에서는 row-level OOF long/wide를 검수 가능하게 포함했다.
+
+high-risk overlap은 top10/top20/top30 percentile 기준으로 다시 계산했다.
+
+ROC-AUC를 primary metric으로 기록했다.
+
+PR-AUC는 secondary metric으로 기록했다.
+
+F1, precision, recall, brier score를 보조 지표로 추가했다.
+
+repurchase_score_oof = P(is_repurchase=1)로 정의했다.
+
+churn_risk_score_oof = 1 - repurchase_score_oof로 정의했다.
+
+retention_w2_ratio, retention_w3_ratio는 feature에서 제외했다.
+
+log_retention_w2_ratio, log_retention_w3_ratio는 feature로 사용했다.
+
+is_churn_prevented는 approved historical context feature with caveat로 유지했다.
+
+07~10은 여전히 pending validation이다.
+
+이번 작업에서는 Optuna, SHAP, segmentation을 수행하지 않았다.
+
+OOF score는 final campaign threshold가 아니다.
+
+SHAP과 segmentation은 사용자 검수 후 별도 승인 필요 상태다.
+
+다음 단계는 사용자가 hotfix review zip을 ChatGPT에 업로드하고, ChatGPT가 실제 ZIP을 열어 OOF 결과를 검수하는 것이다.
+
+## 2026-05-20 | Segment, business action, demographic context, and EDA policy memo
+
+### Purpose
+
+이 메모는 향후 `17 segmentation`, `18 business recommendation storyline`, dashboard, 발표 자료를 만들 때 세그먼트와 비즈니스 액션의 관계를 혼동하지 않기 위해 작성한다.
+
+현재 PUBLIC 작업은 100원딜 고객과 일반 고객을 분리하고, log-retention 기준 4개 모델 결과 및 OOF score를 중심으로 다음 단계를 준비하는 흐름이다. 이 과정에서 중요한 질문이 생겼다.
+
+“세그먼트는 행동 기반으로 만들되, 실제 비즈니스 액션은 연령과 성별에 따라 달라져야 하는 것 아닌가?”
+
+이 질문은 매우 중요하다. 같은 행동 세그먼트 안에 들어온 고객이라도 20대 여성과 40대 남성에게 같은 메시지, 같은 추천 콘텐츠, 같은 알림 채널, 같은 혜택 표현을 적용하는 것은 비즈니스적으로 적절하지 않을 수 있다.
+
+따라서 앞으로의 세그먼트 설계에서는 다음 원칙을 따른다.
+
+대표 세그먼트는 `100원딜 여부`, `OOF risk score`, `행동 변화 패턴`을 중심으로 만든다.
+
+연령과 성별은 대표 세그먼트의 1차 분류 기준으로 바로 쓰기보다, 세그먼트 내부에서 메시지, 채널, 콘텐츠 추천, 혜택 표현을 다르게 설계하는 `action personalization layer`로 사용한다.
+
+즉, 세그먼트는 “누가 어떤 위험 구조를 갖는가”를 설명하고, 연령/성별은 “그 고객에게 어떻게 말하고 어떤 제안을 할 것인가”를 조정하는 데 사용한다.
+
+---
+
+### Core distinction: segment rule vs business action
+
+앞으로 반드시 구분해야 할 두 개념이 있다.
+
+첫째, segment rule이다.
+
+Segment rule은 고객을 어떤 위험 구조로 나눌 것인지를 정하는 기준이다. 이 기준은 가능하면 행동과 위험 점수 중심이어야 한다.
+
+예를 들면 다음과 같은 질문에 답한다.
+
+- 이 고객은 100원딜 고객인가, 일반 고객인가?
+- OOF churn risk가 높은가?
+- 2주차에 시청량이 줄었는가?
+- 3주차에 시청이 끊겼는가?
+- 가입 초기에 콘텐츠를 충분히 탐색하지 않았는가?
+- 1주차에만 몰아서 보고 이후 이탈 징후를 보였는가?
+- log retention이 낮아졌는가?
+- 특정 장르에만 편중되어 있는가?
+- 저활동 고객인가, 안정적 이용 고객인가?
+
+둘째, business action이다.
+
+Business action은 그 세그먼트에 어떤 메시지, 어떤 채널, 어떤 혜택, 어떤 콘텐츠 추천, 어떤 타이밍으로 개입할지를 정하는 것이다.
+
+예를 들면 다음과 같은 질문에 답한다.
+
+- 모바일 푸시가 적절한가, 이메일이 적절한가?
+- 혜택 중심 메시지가 적절한가, 콘텐츠 추천 중심 메시지가 적절한가?
+- 짧고 가벼운 톤이 적절한가, 명확하고 설명적인 톤이 적절한가?
+- 최신 인기 콘텐츠를 추천할 것인가, 장르 기반 시리즈를 추천할 것인가?
+- 가족/주말 시청 맥락을 제안할 것인가, 트렌드/화제성 맥락을 제안할 것인가?
+- 가격 혜택을 다시 강조할 것인가, 사용 습관 형성을 강조할 것인가?
+
+따라서 같은 대표 세그먼트에 속하더라도 business action은 달라질 수 있다.
+
+예를 들어 대표 세그먼트가 `100원딜 고위험 + 3주차 시청량 급감형`이라고 하더라도, 그 안의 20대 여성과 40대 남성에게 동일한 메시지를 보내는 것은 적절하지 않을 수 있다. 대표 세그먼트의 위험 구조는 같지만, 설득 방식과 추천 콘텐츠는 다를 수 있기 때문이다.
+
+---
+
+### Why age and gender should not be ignored
+
+연령과 성별은 세그먼트 설계에서 완전히 무시하면 안 된다.
+
+특히 OTT 이용 행태, 콘텐츠 선호, 시청 시간대, 가격 민감도, 프로모션 반응, 메시지 수용 방식은 연령과 성별에 따라 달라질 가능성이 있다.
+
+예를 들어 20대 고객은 모바일 푸시, 화제성 콘텐츠, 짧은 메시지, SNS에서 많이 언급되는 콘텐츠에 더 반응할 수 있다.
+
+반면 40대 고객은 장르 선호, 가족/주말 시청 맥락, 명확한 혜택 안내, 시리즈 몰아보기 추천 등에 더 반응할 수 있다.
+
+성별 역시 특정 콘텐츠 장르, 메시지 톤, 추천 방식, 커뮤니케이션 채널에서 차이를 보일 수 있다.
+
+따라서 연령과 성별을 아예 제거하거나 해석에서 배제하면, 최종 비즈니스 제언이 지나치게 행동 로그 중심으로 납작해질 위험이 있다.
+
+행동 로그는 고객이 무엇을 했는지를 보여준다. 하지만 비즈니스 액션은 고객에게 어떻게 접근할지를 설계해야 한다. 이때 연령과 성별은 액션 설계를 더 현실적으로 만드는 맥락 변수로 작동할 수 있다.
+
+---
+
+### Why age and gender should not be the first representative segment rule
+
+그렇다고 연령과 성별을 대표 세그먼트의 1차 기준으로 바로 쓰는 것도 위험하다.
+
+예를 들어 다음과 같은 세그먼트 이름은 위험하다.
+
+- 20대 여성 이탈형
+- 40대 남성 고위험군
+- 여성 저충성 고객군
+- 남성 이탈 임박 고객군
+
+이런 이름은 연령/성별을 이탈 원인처럼 보이게 만들 수 있다. 또한 행동 원인보다 인구통계적 속성을 앞세우기 때문에 비즈니스적으로도 조심스럽고, 설명상으로도 방어가 어렵다.
+
+연령/성별은 고객의 속성이지, 그 자체로 이탈 원인이라고 말할 수 없다. 특정 연령대 또는 성별에서 위험 점수가 높게 관찰되더라도, 그것이 실제 연령/성별의 인과효과인지, 콘텐츠 선호 차이인지, 결제 경로 차이인지, 시청 시간대 차이인지, 표본 구성 차이인지는 별도로 확인해야 한다.
+
+따라서 연령과 성별은 대표 세그먼트를 만드는 첫 번째 칼이 아니라, 이미 만든 행동 기반 세그먼트가 어떤 인구통계적 맥락을 가지는지 확인하고, 그에 맞춰 액션을 조정하는 보조 레이어로 쓰는 것이 안전하다.
+
+---
+
+### Recommended hierarchy for segmentation and business action
+
+향후 17 segmentation과 18 business storyline에서는 다음 계층 구조를 따른다.
+
+1. Promo scope
+
+가장 먼저 100원딜 여부를 나눈다.
+
+- promo1: 100원딜 고객
+- promo0: 일반 고객 비교군
+
+100원딜은 단순 feature가 아니라 프로젝트의 주어다. 따라서 최종 발표와 비즈니스 제언의 중심은 promo1이어야 한다. promo0는 비교군이다.
+
+2. Risk score
+
+각 scope 내부에서 OOF score를 사용해 위험도를 본다.
+
+- repurchase_score_oof = P(is_repurchase = 1)
+- churn_risk_score_oof = 1 - repurchase_score_oof
+- risk_percentile
+- high_risk_top10
+- high_risk_top20
+- high_risk_top30
+
+위험 점수는 고객을 바로 최종 타깃으로 확정하는 기준이 아니다. 세그먼트 설계와 high-risk overlap 검수, SHAP/feature explanation의 입력이다.
+
+3. Behavioral flags
+
+위험 점수 위에 행동 flag를 결합한다.
+
+예시 행동 flag는 다음이다.
+
+- week2_drop
+- week3_drop
+- week3_inactive
+- only_w1
+- cold_start_weak
+- low_activity
+- stable_usage
+- log_retention_drop
+- narrow_genre_preference
+- short_watch_ratio_high
+- content_preference_concentrated
+
+대표 세그먼트는 우선 이 행동 flag와 risk score 조합으로 만든다.
+
+4. Provisional segment
+
+위험 점수와 행동 flag를 기준으로 provisional segment를 만든다.
+
+이 단계에서는 이름을 확정하지 않는다. 기준식, row 수, 재구매율, churn risk 분포, 주요 행동 feature 분포를 먼저 확인한다.
+
+5. Demographic and context audit
+
+그 다음 각 provisional segment 안에서 연령/성별 분포를 확인한다.
+
+- age_group 분포
+- is_female / is_male 분포
+- 성별 결측 또는 중립 값이 있다면 그 분포
+- promo1 전체 대비 특정 segment의 연령/성별 과대표집 여부
+- promo0와 promo1의 연령/성별 구성 차이
+- segment별 콘텐츠 선호와 연령/성별의 관계
+- segment별 risk score와 연령/성별의 관계
+
+이 단계의 목적은 연령/성별로 세그먼트를 다시 만드는 것이 아니라, 행동 세그먼트의 해석과 액션 설계에 필요한 맥락을 얻는 것이다.
+
+6. Action personalization layer
+
+마지막으로 연령/성별, 콘텐츠 선호, 이용 맥락을 반영해 액션 variant를 만든다.
+
+예를 들면 다음과 같다.
+
+대표 세그먼트: 100원딜 고위험 + 3주차 시청량 급감형
+
+액션 variant:
+
+- 20대 여성: 최근 인기작, 짧고 즉시 볼 수 있는 콘텐츠, 모바일 푸시 중심 메시지
+- 20대 남성: 장르 선호 또는 화제성 콘텐츠 중심 추천
+- 30대: 시간 효율, 주말 시청, 취향 기반 큐레이션
+- 40대 이상: 명확한 혜택 안내, 시리즈 몰아보기, 가족/주말 시청 맥락
+- 성별/연령 정보가 불확실한 고객: 행동 기반 메시지와 콘텐츠 선호 기반 추천 중심
+
+이처럼 대표 세그먼트는 동일하더라도, 실제 메시지와 추천 전략은 연령/성별별로 달라질 수 있다.
+
+---
+
+### EDA is required before using age and gender in business action
+
+연령/성별을 액션 personalization layer로 쓰려면 반드시 EDA 근거가 필요하다.
+
+단순히 “20대니까 이럴 것이다”, “여성은 이런 콘텐츠를 좋아할 것이다”, “40대 남성은 이런 메시지를 좋아할 것이다”라고 가정하면 안 된다. 가능하면 현재 데이터 안에서 최소한의 분포 차이를 확인해야 한다.
+
+여기서 말하는 EDA는 인과 입증이 아니다.
+
+정확한 목적은 다음이다.
+
+- 같은 행동 세그먼트 안에서 연령대별 시청 행동 분포가 다른가?
+- 같은 행동 세그먼트 안에서 성별별 콘텐츠 선호 분포가 다른가?
+- 같은 행동 세그먼트 안에서 연령/성별별 risk score 분포가 다른가?
+- 같은 행동 세그먼트 안에서 연령/성별별 actual repurchase rate가 다른가?
+- promo1의 특정 행동 패턴이 특정 연령대나 성별에 과도하게 몰려 있는가?
+- promo0와 비교했을 때 promo1에서만 나타나는 연령/성별 × 행동 패턴이 있는가?
+
+이 질문에 대한 관찰 근거가 있을 때, 연령/성별별 메시지 또는 추천 전략을 나누는 것이 타당해진다.
+
+---
+
+### Required EDA checks for demographic action personalization
+
+17 segmentation 또는 18 business action 단계 전에 다음 EDA를 수행하는 것이 좋다.
+
+1. Segment-level demographic profile
+
+각 provisional segment별로 age_group, is_female, is_male의 분포를 확인한다.
+
+생성 후보 파일:
+
+- 17_segment_demographic_profile.csv
+- 17_segment_age_gender_distribution.csv
+
+확인 항목:
+
+- segment_name 또는 provisional_segment_id
+- promo_scope
+- row_count
+- age_group별 row_count와 비율
+- gender별 row_count와 비율
+- promo1 전체 대비 lift 또는 ratio
+- promo0 비교군 대비 차이
+- 해석 주의사항
+
+2. Segment × age_group behavior profile
+
+각 segment 안에서 age_group별 행동 feature 분포를 확인한다.
+
+생성 후보 파일:
+
+- 17_segment_age_behavior_profile.csv
+
+확인할 feature 예시:
+
+- watch_time_w1
+- watch_time_w2
+- watch_time_w3
+- watch_session_w1
+- watch_session_w2
+- watch_session_w3
+- log_retention_w2_ratio
+- log_retention_w3_ratio
+- only_w1
+- cold_start_weak
+- low_activity
+- week3_inactive
+- short_watch_ratio
+- genre preference ratio
+
+볼 지표:
+
+- mean
+- median
+- q25
+- q75
+- zero ratio
+- high-risk ratio
+- actual repurchase rate
+- churn risk 평균
+- SMD 또는 간단한 standardized difference 가능 시 포함
+
+3. Segment × gender behavior profile
+
+각 segment 안에서 gender별 행동 feature 분포를 확인한다.
+
+생성 후보 파일:
+
+- 17_segment_gender_behavior_profile.csv
+
+확인할 내용은 age_group profile과 동일하다.
+
+4. Segment × demographic action matrix
+
+각 segment별로 연령/성별 action variant를 정리한다.
+
+생성 후보 파일:
+
+- 18_segment_demographic_action_matrix.csv
+
+필수 컬럼 후보:
+
+- promo_scope
+- provisional_segment_id
+- segment_rule_summary
+- demographic_modifier
+- observed_demographic_pattern
+- observed_behavior_difference
+- recommended_message_direction
+- recommended_channel
+- recommended_content_strategy
+- risk_of_overinterpretation
+- evidence_file
+- final_status
+
+이 파일은 segmentation 산출물이 아니라 business action 설계 산출물이다.
+
+5. Demographic caveat and fairness/proxy audit
+
+연령/성별을 비즈니스 액션에 사용할 때 과잉 해석을 막기 위한 caveat를 기록한다.
+
+생성 후보 파일:
+
+- 17_demographic_proxy_caveat_audit.csv
+- 18_demographic_action_caveat.md
+
+확인할 내용:
+
+- 연령/성별이 직접 원인으로 해석되고 있지 않은가
+- 특정 집단을 낙인찍는 표현이 없는가
+- 세그먼트 이름에 인구통계가 과도하게 들어가 있지 않은가
+- 행동 근거 없이 연령/성별만으로 메시지를 나누고 있지 않은가
+- 표본 수가 너무 작은 subgroup에 과한 해석을 하고 있지 않은가
+- age_group 또는 gender 값의 데이터 품질 caveat가 있는가
+
+---
+
+### How to decide whether demographic action variants are justified
+
+연령/성별별 액션 variant는 항상 필요한 것이 아니다. EDA 결과에 따라 달라져야 한다.
+
+다음 조건을 만족하면 demographic action variant를 고려할 수 있다.
+
+- 특정 segment 안에서 age_group별 행동 feature 분포가 뚜렷하게 다르다.
+- 특정 segment 안에서 gender별 콘텐츠 선호 또는 시청 패턴이 뚜렷하게 다르다.
+- 특정 segment 안에서 age/gender별 actual repurchase rate 또는 churn_risk score가 의미 있게 다르다.
+- subgroup row 수가 너무 작지 않다.
+- 차이가 단순 노이즈나 극단값 때문이 아니다.
+- 메시지, 채널, 콘텐츠 추천 방향이 실제로 달라질 수 있다.
+- 해석이 인과가 아니라 관찰 기반 personalization이라는 점을 명확히 기록할 수 있다.
+
+반대로 다음 조건이면 demographic action variant를 만들지 않는 것이 낫다.
+
+- age/gender별 분포 차이가 거의 없다.
+- subgroup row 수가 너무 작다.
+- 차이는 있지만 business action이 달라질 만큼 명확하지 않다.
+- 연령/성별보다 행동 flag가 훨씬 강한 설명력을 가진다.
+- 연령/성별을 쓰면 낙인 또는 과잉 일반화 위험이 크다.
+- 현재 데이터에서 age/gender의 품질 caveat가 크다.
+
+이 경우에는 대표 세그먼트의 행동 기반 액션을 유지하고, demographic은 profile audit 결과로만 보고한다.
+
+---
+
+### Example structure for future 17 and 18
+
+17 segmentation의 기본 구조는 다음이어야 한다.
+
+- promo1 중심
+- promo0 비교군
+- OOF risk score 기반
+- 행동 flag 기반
+- segment name은 provisional
+- age/gender는 segment rule이 아니라 profile audit
+- payment/auth/demographic proxy는 대표 rule에 직접 사용하지 않음
+- final segment는 사용자 승인 전까지 provisional
+
+18 business action의 기본 구조는 다음이어야 한다.
+
+- 100원딜 고객 세그먼트별 action priority
+- 같은 세그먼트 안에서 연령/성별에 따른 action variant
+- 콘텐츠 선호에 따른 recommendation variant
+- 채널 또는 메시지 톤 차이
+- causal claim 금지
+- A/B test 또는 후속 실험 제안
+- 실제 캠페인 threshold 확정 금지
+
+예를 들어 다음 구조가 가능하다.
+
+대표 세그먼트:
+
+100원딜 고위험 + 3주차 시청량 급감형
+
+행동 근거:
+
+- 3주차 watch time 감소
+- log_retention_w3_ratio 하락
+- churn_risk_score_oof 상위 20%
+- GB/LR high-risk overlap 여부 확인
+
+demographic audit:
+
+- 20대 비중이 promo1 전체 대비 높은가?
+- 40대 이상 비중이 특정 subgroup에서 높은가?
+- 성별별 콘텐츠 선호가 다른가?
+- 각 subgroup의 actual repurchase rate가 다른가?
+
+action variant:
+
+- 20대 중심 subgroup: 짧고 즉시 볼 수 있는 인기 콘텐츠, 모바일 푸시, 트렌드 기반 메시지
+- 30대 subgroup: 주말/퇴근 후 시청 맥락, 취향 기반 시리즈 추천
+- 40대 이상 subgroup: 명확한 혜택 안내, 장르 기반 추천, 가족/주말 시청 맥락
+- gender별 콘텐츠 선호 차이가 확인된 경우: 장르/콘텐츠 추천 variant 조정
+- demographic 차이가 확인되지 않은 경우: 동일 행동 기반 메시지 유지
+
+이 구조는 연령/성별을 무시하지 않으면서도, 연령/성별을 이탈 원인처럼 과장하지 않는 방식이다.
+
+---
+
+### Safe wording
+
+다음 표현은 허용한다.
+
+- “세그먼트는 100원딜 여부, OOF 위험 점수, 행동 변화 패턴을 기준으로 설계했다.”
+- “연령과 성별은 대표 세그먼트의 1차 기준이 아니라, 세그먼트별 메시지와 콘텐츠 추천 전략을 조정하는 personalization layer로 사용했다.”
+- “연령/성별별 액션 variant는 EDA에서 실제 분포 차이가 관찰되는 경우에만 제안한다.”
+- “연령/성별은 이탈의 원인이 아니라, 행동 세그먼트를 해석하고 커뮤니케이션 전략을 조정하기 위한 맥락 변수다.”
+- “같은 3주차 시청량 감소 세그먼트라도 연령대와 성별에 따라 추천 콘텐츠와 메시지 톤은 달라질 수 있다.”
+- “이 제안은 관찰 기반 personalization이며, 실제 효과는 A/B test 또는 캠페인 실험으로 검증해야 한다.”
+
+---
+
+### Unsafe wording
+
+다음 표현은 금지한다.
+
+- “20대 여성은 이탈한다.”
+- “40대 남성은 재구매하지 않는다.”
+- “여성 고객은 저충성이다.”
+- “남성 고객은 특정 장르 때문에 이탈한다.”
+- “연령이 이탈의 원인이다.”
+- “성별이 재구매 실패를 유발한다.”
+- “이 세그먼트는 40대 남성형이다.”
+- “연령/성별만 보고 메시지를 나누면 된다.”
+- “EDA 없이 연령/성별별 전략을 제안한다.”
+- “SHAP이나 모델 결과가 연령/성별의 인과효과를 증명했다.”
+
+---
+
+### Current decision
+
+현재 결정은 다음과 같다.
+
+- 100원딜 여부는 최상위 분석 scope다.
+- OOF risk score와 행동 flag는 대표 세그먼트의 1차 기준이다.
+- 연령/성별은 대표 세그먼트의 1차 기준이 아니라 세그먼트 해석 검수와 business action personalization layer로 사용한다.
+- 단, 연령/성별별 행동 분포 차이가 EDA에서 충분히 확인되면, 대표 세그먼트 아래의 action variant 또는 sub-message strategy로 반영할 수 있다.
+- 연령/성별을 최종 비즈니스 액션에 사용하려면 반드시 EDA 근거와 caveat를 함께 제시한다.
+- 연령/성별을 이탈 원인처럼 말하지 않는다.
+- 17 segmentation과 18 business recommendation 단계에서 이 원칙을 반드시 반영한다.
+
+---
+
+### Next implementation requirement
+
+향후 17 또는 18 단계 goal에는 반드시 다음 요구사항을 포함한다.
+
+- segment별 age_group 분포를 산출한다.
+- segment별 gender 분포를 산출한다.
+- segment별 age_group × 행동 feature 분포를 산출한다.
+- segment별 gender × 행동 feature 분포를 산출한다.
+- segment별 age/gender에 따른 actual repurchase rate와 churn_risk_score 분포를 확인한다.
+- 연령/성별 차이가 충분히 관찰되는 경우에만 action variant를 제안한다.
+- 연령/성별 차이가 약하면 행동 기반 액션을 유지한다.
+- 모든 demographic action은 provisional로 둔다.
+- 최종 business recommendation에는 demographic caveat를 포함한다.
+- segment name에는 연령/성별을 직접 넣지 않는 것을 기본값으로 둔다.
+- 단, 사용자가 명시적으로 승인하고 EDA 근거가 충분한 경우에만 demographic-aware subsegment 또는 action variant를 제안한다.
+
+이 메모는 이후 17 segmentation, 18 business storyline, dashboard, 발표 자료 작성 시 반드시 참조한다.
+
+## 2026-05-20 | PUBLIC 16 four-model SHAP candidate interpretation completed
+
+이번 작업은 PUBLIC 16 SHAP / model explanation 단계다.
+
+15 OOF hotfix 결과를 입력으로 삼았다.
+
+4개 모델 조합을 해석 대상으로 삼았다.
+
+조합은 LogisticRegression promo0, LogisticRegression promo1, GradientBoosting promo0, GradientBoosting promo1이다.
+
+SHAP은 인과가 아니라 model explanation이다.
+
+GradientBoosting에는 SHAP global/family importance를 생성했다.
+
+LogisticRegression에는 가능하면 SHAP을 생성하고, 불가능하거나 부적절하면 coefficient summary를 생성했다.
+
+promo1은 100원딜 고객 중심 scope이고, promo0는 비교군이다.
+
+promo1 vs promo0 feature/family 차이를 비교했다.
+
+연령/성별은 대표 세그먼트의 1차 기준이 아니라 action personalization layer와 profile audit 변수로 기록했다.
+
+demographic action variant는 EDA에서 실제 분포 차이가 확인될 때만 제안한다.
+
+is_churn_prevented는 approved historical context feature with caveat로 유지했다.
+
+07~10은 여전히 pending validation이다.
+
+이번 작업에서는 Optuna, OOF 재생성, segmentation, final model selection, campaign threshold 확정을 수행하지 않았다.
+
+segmentation은 사용자 검수 후 별도 goal로 진행한다.
+
+SHAP 계산 fallback은 핵심 산출물 기준으로 발생하지 않았다.
+
+
+
+## 2026-05-20 | PUBLIC 16b feature family mapping hotfix completed
+
+이번 작업은 16 SHAP 산출물의 feature family mapping hotfix다.
+
+모델 재실행, SHAP 재계산, OOF 재생성, Optuna, segmentation은 수행하지 않았다.
+
+기존 SHAP 값은 유지하고, feature family mapping만 보정했다.
+
+기존 technical_or_unknown은 provisional fallback label이며, feature가 쓸모없다는 뜻이 아니다.
+
+technical_or_unknown에 남아 있던 주요 feature를 registration_timing_context, usage_concentration, inactivity_recency, week_specific_usage_pattern, genre_preference 등으로 재분류했다.
+
+recency, max_inactive_gap_days는 inactivity_recency로 재분류했다.
+
+is_only_w1, is_only_w2, is_only_w3는 week_specific_usage_pattern으로 재분류했다.
+
+active_ratio, max_day_share, day_count_over_3times는 usage_concentration으로 재분류했다.
+
+reg_hour_*, reg_is_weekend는 registration_timing_context로 재분류했다.
+
+historical_war_ratio, sf_fantasy_ratio, other_ratio는 genre_preference로 재분류했다.
+
+hotfix family 기준으로 family importance와 promo1 vs promo0 family comparison을 다시 계산했다.
+
+17 segmentation에서는 원래 technical_or_unknown bucket이 아니라 16b hotfix family mapping을 사용해야 한다.
+
+연령/성별은 대표 세그먼트의 1차 기준이 아니라 profile audit과 action personalization layer로 사용한다.
+
+demographic action variant는 EDA에서 실제 분포 차이가 확인될 때만 제안한다.
+
+is_churn_prevented는 approved historical context feature with caveat로 유지한다.
+
+07~10은 여전히 pending validation이다.
+
+다음 단계는 사용자가 16b review zip을 검수한 뒤 17 segmentation으로 갈지, demographic EDA를 먼저 할지 결정하는 것이다.
+
+---
+
+## 2026-05-20 | PUBLIC 16b feature family mapping hotfix accepted after review
+
+16b feature family mapping hotfix review package를 검수한 결과, 핵심 mapping 보정은 통과 가능하다고 판단했다.
+
+기존 technical_or_unknown 16개 feature가 모두 재분류되었다.
+
+technical_or_unknown 잔여 feature는 0개다.
+
+recency와 max_inactive_gap_days는 inactivity_recency로 재분류되었다.
+
+is_only_w1, is_only_w2, is_only_w3는 week_specific_usage_pattern으로 재분류되었다.
+
+active_ratio, max_day_share, day_count_over_3times는 usage_concentration으로 재분류되었다.
+
+reg_hour_*와 reg_is_weekend는 registration_timing_context로 재분류되었다.
+
+historical_war_ratio, sf_fantasy_ratio, other_ratio는 genre_preference로 재분류되었다.
+
+기존 SHAP 값은 재계산하지 않았고, family mapping과 family-level 집계만 보정했다.
+
+17 segmentation에서는 원래 technical_or_unknown bucket이 아니라 16b hotfix family mapping을 사용해야 한다.
+
+16b_source_fingerprint_before_after.csv에서 자기참조성 있는 handoff/fingerprint/zip_inventory 파일 2개가 changed_needs_review로 남았지만, 이는 패키징 과정의 metadata self-reference 문제로 해석한다.
+
+원천 데이터, 기존 16 core SHAP 산출물, 16b 핵심 output이 변경된 문제로 보지 않는다.
+
+다음 작업부터 source fingerprint와 zip inventory의 self-reference limitation을 명시적으로 기록해야 한다.
+
+연령/성별은 대표 세그먼트 규칙이 아니라 profile audit 및 action personalization layer로 사용한다.
+
+demographic action variant는 EDA 근거가 있을 때만 제안한다.
+
+is_churn_prevented는 approved historical context feature with caveat로 유지한다.
+
+07~10은 여전히 pending validation이다.
+
+다음 단계는 17 segmentation 설계 또는 demographic EDA 선행 여부를 사용자가 결정하는 것이다.
+
+
+## 2026-05-20 | PUBLIC 17 promo-scope OOF behavior segmentation design completed
+
+이번 작업은 PUBLIC 17 segmentation design 단계다.
+
+15 OOF hotfix, 16 SHAP, 16b feature family mapping hotfix를 입력으로 사용했다.
+
+promo1은 100원딜 고객 중심 scope이며, promo0는 비교군이다.
+
+세그먼트는 OOF risk score와 행동 flag를 결합해 provisional로 설계했다.
+
+16b hotfix family mapping을 사용했고, 기존 technical_or_unknown bucket은 사용하지 않았다.
+
+연령/성별은 대표 세그먼트의 1차 기준이 아니라 demographic profile 및 action personalization layer로 사용했다.
+
+demographic action variant는 EDA에서 분포 차이가 확인되는 경우에만 제안한다.
+
+segment name은 final이 아니며 사용자 승인 전까지 provisional이다.
+
+OOF score는 final campaign threshold가 아니다.
+
+SHAP은 인과가 아니라 model explanation이다.
+
+is_churn_prevented는 approved historical context feature with caveat로 유지했다.
+
+07~10은 여전히 pending validation이다.
+
+이번 작업에서는 모델 재실행, Optuna, SHAP 재계산, OOF 재생성, campaign threshold 확정을 수행하지 않았다.
+
+`17_segment_rationale_memo_for_executives.md`를 작성해 세그먼트를 왜 이렇게 나누었는지 데이터와 비즈니스 근거를 길게 설명했다.
+
+다음 단계는 사용자가 17 review zip을 검수한 뒤, 18 business storyline 또는 segment hotfix 여부를 결정하는 것이다.
+
+
+## 2026-05-20 | PUBLIC 17 segmentation semantic hotfix completed
+
+이번 작업은 17 segmentation semantic hotfix다.
+
+기존 17 산출물은 row count, score direction, assignment rule은 맞았지만, content_preference_signal이 지나치게 broad하게 생성되어 segment-discriminating signal로 쓰기 위험했다.
+
+content_preference_signal은 representative rule에서 제거 또는 강등하고, broad content-context marker 또는 action personalization 참고 변수로만 사용하도록 보정했다.
+
+genre/content narrow 계열 segment는 genre_preference_clear 중심으로 재해석했다.
+
+other_needs_review 비중이 큰 점을 숨기지 않고 caveat로 기록했다.
+
+representative segment assignment와 summary를 hotfix rule 기준으로 다시 계산했다.
+
+executive rationale memo를 임원 설득용으로 대폭 확장했다.
+
+연령/성별은 대표 segment rule이 아니라 profile audit 및 action personalization layer로 유지했다.
+
+SHAP은 인과가 아니라 model explanation이다.
+
+OOF score는 final campaign threshold가 아니다.
+
+segment label은 provisional이다.
+
+07~10은 여전히 pending validation이다.
+
+이번 작업에서는 모델 재실행, OOF 재생성, SHAP 재계산, Optuna, final campaign targeting을 수행하지 않았다.
+
+다음 단계는 사용자가 17 hotfix review zip을 검수한 뒤 18 business storyline으로 갈지, 추가 segment 보정을 할지 결정하는 것이다.
+
+## 2026-05-20 | PUBLIC 17 segmentation quality hotfix completed
+
+- 이번 작업은 17 segmentation quality hotfix다.
+- 기존 17 산출물은 row count, score direction, assignment rule 측면에서는 맞았지만, content_preference_signal broad flag, small segment, other_needs_review 비중 문제 때문에 의미 검수 hotfix가 필요했다.
+- content_preference_signal은 representative rule에서 강등하고, broad content-context marker 또는 action cue로만 둔다.
+- 대표 세그먼트는 최소 규모 기준을 적용한다.
+- n < 300인 small segment는 기본적으로 대표 segment에서 강등하고, sub-signal/profile note/action cue로 보존한다.
+- other_needs_review는 단순 중위험군이 아니라 기존 rule로 설명되지 않은 잔여군으로 정의하고, risk band와 행동 flag 기준으로 decomposition했다.
+- promo1과 promo0의 같은 행동 패턴을 비교해, 공통 위험 신호인지 100원딜 고객에서 더 강하게 나타나는 신호인지 구분했다.
+- revised representative segment proposal과 assignment simulation을 만들었지만, user approval 전까지 final assignment가 아니다.
+- 연령/성별은 대표 rule이 아니라 action personalization layer다.
+- demographic action은 EDA 근거가 있을 때만 제안한다.
+- OOF score는 campaign threshold가 아니다.
+- SHAP은 인과가 아니다.
+- 07~10은 여전히 pending validation이다.
+- 다음 단계는 사용자가 quality hotfix review zip을 검수한 뒤, revised segment proposal을 승인할지, 추가 hotfix를 할지, 18 business storyline으로 갈지 결정하는 것이다.
+
+## 2026-05-20 | PUBLIC 17 demographic action layer hotfix completed
+
+- 이번 작업은 17 quality hotfix 이후 demographic/action personalization layer를 복구하기 위한 hotfix다.
+- 기존 revised segment assignment는 변경하지 않았다.
+- age_group profile을 다시 생성했다.
+- is_female/is_male 기준 gender derivation을 다시 점검했다.
+- segment별 age_group behavior profile을 생성했다.
+- segment별 gender behavior profile을 생성했다.
+- action personalization matrix를 demographic hotfix 기준으로 다시 만들었다.
+- 연령/성별은 대표 segment rule의 1차 기준이 아니라 profile audit 및 action personalization layer로만 사용한다.
+- demographic action variant는 EDA에서 실제 분포 차이와 행동 차이가 확인될 때만 제안한다.
+- 연령/성별을 이탈 원인으로 해석하지 않는다.
+- 18 business storyline은 사용자 검수 후 진행한다.
+- 이번 작업에서는 대표 segment 재배정, 모델 재실행, OOF 재생성, SHAP 재계산, Optuna, campaign threshold 확정을 수행하지 않았다.
+- 07~10은 여전히 pending validation이다.
+
+## 2026-05-20 | PUBLIC 18 business storyline and segment visual guide v2 completed
+
+- 이번 작업은 18 business recommendation storyline 및 segment visual guide v2 작성 단계다.
+- 입력으로 15 OOF hotfix, 16 SHAP, 16b family mapping hotfix, 17 quality hotfix, 17 demographic/action layer hotfix를 사용했다.
+- promo1은 100원딜 고객 중심 scope이고, promo0는 비교군이다.
+- revised 5-family segment proposal을 18의 기본 뼈대로 사용했다.
+- legacy segment_visual_guide.html은 레이아웃과 설명 방식만 참고했고, legacy 수치와 legacy rule은 사용하지 않았다.
+- 세그먼트는 행동 기반으로 설계했고, 연령·성별은 profile audit 및 action personalization layer로 사용했다.
+- demographic action variant는 EDA에서 분포 차이와 행동 차이가 관찰되는 경우에만 business hypothesis로 제안했다.
+- OOF score는 final campaign threshold가 아니다.
+- SHAP은 인과가 아니라 model explanation이다.
+- 100원딜이 이탈을 유발했다고 쓰지 않는다.
+- segment label은 provisional이다.
+- 07~10은 여전히 pending validation이다.
+- 이번 작업에서는 모델 재실행, OOF 재생성, SHAP 재계산, segmentation 재배정, campaign threshold 확정을 수행하지 않았다.
+- 다음 단계는 사용자가 18 review zip을 검수한 뒤, 발표용 HTML/대시보드/스토리라인을 최종 수정하는 것이다.
+
+---
+
+## 2026-05-20 | PUBLIC 18 Business Storyline Polish Hotfix
+
+### 수행 내용
+
+기존 `18_business_recommendation_storyline_260520` 산출물의 품질 문제를 발견하고, 발표 수준으로 정제하는 hotfix를 수행했다. 모델 재실행, OOF 재생성, SHAP 재계산, segment assignment 변경은 수행하지 않았다.
+
+### 발견된 주요 문제 (audit 결과)
+
+1. demographic action candidate 60개 all `include_in_storyline=yes` — 과도하게 낙관적; 동일 age_group 중복 등장
+2. promo0 action matrix에서 `final_status=provisional_business_candidate` — promo0는 comparison_reference여야 함
+3. `genre_or_content_action_cue` (n=11 promo1, n=5 promo0)가 main storyline에 포함 — n<300 기준 미달
+4. `mid_risk_retention_watchlist`가 storyline comparison에서 누락 (n=1,309; delta +18.4%p로 최대)
+5. HTML visual guide에 flag dictionary, segment KPI cards, safe/unsafe wording, demographic layer 없음
+
+### 생성 산출물 (모두 신규 파일, 기존 파일 수정 없음)
+
+**출력 디렉터리:** `PUBLIC/reports/business/18_business_recommendation_storyline_hotfix_260520/`
+
+| 파일 | 설명 |
+|---|---|
+| 18_existing_storyline_quality_audit.csv | 14개 audit 항목 (blocking 1, major 8, minor 3, pass 2) |
+| 18_promo1_main_business_action_matrix_hotfix.csv | promo1 5개 segment action matrix |
+| 18_promo0_comparison_reference_hotfix.csv | promo0 비교 기준 5행 (action 없음) |
+| 18_demographic_action_candidate_shortlist_hotfix.csv | 60행 → 16행 shortlist (promo1 yes:8, limited:2; comparison_only:6) |
+| 18_storyline_comparison_clean_hotfix.csv | genre demoted + mid_risk 추가 (6행) |
+| 18_segment_visual_guide_v2_polished.html | 종합 HTML (flag dict, segment cards, safe/unsafe, demo layer) |
+| 18_business_storyline_memo_hotfix.md | 10,000자+ 한국어 상세 메모 |
+| 18_presentation_talking_points_hotfix.md | 8개 Q&A + 방어 문장 + 금지 표현 |
+| 18_dashboard_handoff_datamart_hotfix.csv | 10행 (promo1×5 + promo0×5) |
+| 18_safe_unsafe_wording_hotfix.csv | 14개 wording 가이드 |
+| README.md | hotfix 전체 요약 |
+
+**Handoff 디렉터리:** `PUBLIC/handoff/PUBLIC_18_business_storyline_polish_hotfix_260520/`
+
+- 18_hotfix_input_validation.csv (30개 입력 파일 전체 PASS)
+- final_checks, source_fingerprint, zip_inventory, README
+
+### 핵심 수치 확인 (변경 없음)
+
+- promo1 high_risk_week3: n=1893, churn=0.7427, gb_risk=0.7399
+- promo1 high_risk_activation: n=370, churn=0.7838, gb_risk=0.7317
+- promo1 mid_risk_watchlist: n=1309, churn=0.6012, gb_risk=0.5276
+- promo1 stable: n=1999, churn=0.1196, gb_risk=0.1341
+- promo1 other_residual: n=6333, churn=0.1808, gb_risk=0.1941
+
+### 주의사항
+
+- 모든 segment는 provisional이다
+- OOF score는 campaign threshold가 아니다
+- SHAP은 인과가 아니다
+- demographic은 personalization layer이며 이탈 원인이 아니다
+- 07~10 validation은 여전히 pending이다
+- other residual (53.2%)은 중위험군이 아님을 반드시 명시해야 한다
+- genre_or_content_action_cue (n=11)는 main storyline에서 강등 완료
+
+### 다음 단계
+
+1. 팀 검토: segment label, demographic shortlist, safe/unsafe wording
+2. Visual guide 검토 및 발표 자료 적용
+3. 07~10 validation 진행
+4. other_needs_review_residual 내부 decomposition 분석 (별도 단계)
+5. threshold 설정 및 A/B test 설계 (별도 단계)
+

@@ -1,0 +1,17 @@
+﻿decision_item,status,evidence,user_approval_required,notes
+oof_long_created,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_long.csv,no,rows=46194
+oof_wide_created,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide.csv,no,rows=23097
+oof_wide_promo0_created,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide_promo0.csv,no,
+oof_wide_promo1_created,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide_promo1.csv,no,
+all_rows_have_oof_prediction,yes,one OOF prediction per row/model combination,no,
+churn_risk_equals_1_minus_repurchase_score,yes,max absolute diff below tolerance,no,
+high_risk_top10_20_30_percentile_based,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_gb_lr_high_risk_overlap.csv,no,Not fixed score thresholds.
+feature_policy_passed,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_feature_policy_check.csv,no,
+split_policy_checked,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_split_policy_check.csv,no,May be WARN_WITH_USER_CONFIRMATION.
+roc_auc_primary_metric_recorded,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_metric_summary.csv,no,ROC-AUC is primary metric.
+pr_auc_secondary_metric_recorded,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_metric_summary.csv,no,PR-AUC is secondary metric.
+gb_lr_overlap_created,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_gb_lr_high_risk_overlap.csv,no,top10/top20/top30 percentile overlap.
+shap_allowed_now,no,OOF review is required before SHAP.,yes,No automatic SHAP permission.
+segmentation_allowed_now,no,OOF review is required before segmentation.,yes,No automatic segmentation permission.
+requires_user_review_before_shap,yes,User review required.,yes,
+requires_user_review_before_segmentation,yes,User review required.,yes,

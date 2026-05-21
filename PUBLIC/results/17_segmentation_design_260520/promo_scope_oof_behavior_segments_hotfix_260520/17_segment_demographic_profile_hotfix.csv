@@ -1,0 +1,15 @@
+﻿promo_scope,representative_segment_id,demographic_variable,demographic_value,row_count,share_within_segment,share_within_scope,lift_vs_scope,actual_repurchase_rate,mean_gb_churn_risk,interpretation,caveat
+promo0,promo0_s01,gender_profile,unknown_or_ambiguous,1736,1.0,1.0,1.0,0.3127880184331797,0.6623917890006712,Profile audit only.,Age/gender are not representative segment rule.
+promo0,promo0_s02,gender_profile,unknown_or_ambiguous,154,1.0,1.0,1.0,0.3961038961038961,0.5552055752052045,Profile audit only.,Age/gender are not representative segment rule.
+promo0,promo0_s03,gender_profile,unknown_or_ambiguous,230,1.0,1.0,1.0,0.21304347826086956,0.6343099306579036,Profile audit only.,Age/gender are not representative segment rule.
+promo0,promo0_s04,gender_profile,unknown_or_ambiguous,43,1.0,1.0,1.0,0.4418604651162791,0.5997995016124588,Profile audit only.,Age/gender are not representative segment rule.
+promo0,promo0_s05,gender_profile,unknown_or_ambiguous,5,1.0,1.0,1.0,0.2,0.5638172728663062,Profile audit only.,Age/gender are not representative segment rule.
+promo0,promo0_s06,gender_profile,unknown_or_ambiguous,2031,1.0,1.0,1.0,0.9182668636139832,0.08001897369265862,Profile audit only.,Age/gender are not representative segment rule.
+promo0,promo0_s99,gender_profile,unknown_or_ambiguous,6994,1.0,1.0,1.0,0.8577352016013726,0.15411458284797294,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s01,gender_profile,unknown_or_ambiguous,1700,1.0,1.0,1.0,0.25058823529411767,0.7455318405606054,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s02,gender_profile,unknown_or_ambiguous,193,1.0,1.0,1.0,0.3160621761658031,0.6899049518433928,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s03,gender_profile,unknown_or_ambiguous,329,1.0,1.0,1.0,0.19756838905775076,0.7325794384034274,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s04,gender_profile,unknown_or_ambiguous,41,1.0,1.0,1.0,0.36585365853658536,0.7244826208969499,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s05,gender_profile,unknown_or_ambiguous,11,1.0,1.0,1.0,0.18181818181818182,0.6914571555461664,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s06,gender_profile,unknown_or_ambiguous,2086,1.0,1.0,1.0,0.8552253116011506,0.1497336324006249,Profile audit only.,Age/gender are not representative segment rule.
+promo1,promo1_s99,gender_profile,unknown_or_ambiguous,7544,1.0,1.0,1.0,0.7534464475079533,0.24758109632402753,Profile audit only.,Age/gender are not representative segment rule.

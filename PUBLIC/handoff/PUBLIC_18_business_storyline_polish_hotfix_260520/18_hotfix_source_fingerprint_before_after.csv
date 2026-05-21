@@ -1,0 +1,15 @@
+file_name,scope,change_type,before_description,after_description,rows_before,rows_after,key_change
+18_demographic_action_candidate_selection.csv,18_original,replaced_by_shortlist,60 rows all include_in_storyline=yes; same age_group repeated per feature,Shortlisted to 16 rows (8 yes + 2 limited + 6 comparison_only),60,16 (hotfix),60 all-yes → 8 promo1-yes shortlist; age_group duplication merged
+18_segment_business_action_matrix.csv,18_original,promo0_separated,promo0 rows included as provisional_business_candidate (same as promo1),promo0 separated to dedicated comparison_reference file,10,5+5 (hotfix split),promo0 role clarified as comparison_reference only
+18_promo1_vs_promo0_storyline_comparison.csv,18_original,cleaned_and_expanded,genre_or_content_action_cue included (n=11); mid_risk missing,genre demoted to profile_action_cue; mid_risk added,5,6 (hotfix),small-n removed; missing segment added
+18_segment_visual_guide_v2.html,18_original,replaced_by_comprehensive,Summary-level HTML; missing flag dict|segment cards|wording|demo layer,Comprehensive HTML with all sections,N/A,N/A,500+ lines; 14 sections including flag dict and segment cards
+18_business_storyline_memo.md,18_original,enhanced,Basic memo with padded content,10000+ char substantive Korean content,N/A,N/A,Sections 1-9 with detailed Korean narrative
+18_presentation_talking_points.md,18_original,enhanced,7 Q&A without attack defense,8 Q&A + judge attack defense + 10 forbidden sentences,N/A,N/A,Q8 added; forbidden sentences added
+18_demographic_action_candidate_shortlist_hotfix.csv,18_hotfix,new_file,does not exist,New shortlist file with 16 rows,0,16,New hotfix output
+18_promo1_main_business_action_matrix_hotfix.csv,18_hotfix,new_file,does not exist,5 promo1 segments with full action details,0,5,New hotfix output — promo1 only
+18_promo0_comparison_reference_hotfix.csv,18_hotfix,new_file,does not exist,5 promo0 comparison reference rows (no action),0,5,New hotfix output — promo0 comparison only
+18_storyline_comparison_clean_hotfix.csv,18_hotfix,new_file,does not exist,6 rows with cleaned status and safe/unsafe usage,0,6,New hotfix output
+18_existing_storyline_quality_audit.csv,18_hotfix,new_file,does not exist,14 audit items (1 blocking; 8 major; 3 minor; 2 pass),0,14,New audit output
+18_safe_unsafe_wording_hotfix.csv,18_hotfix,new_file,does not exist,14 wording pairs,0,14,New hotfix output
+18_dashboard_handoff_datamart_hotfix.csv,18_hotfix,new_file,does not exist,10 rows (5 promo1 + 5 promo0),0,10,New hotfix output — clarified roles
+18_segment_visual_guide_v2_polished.html,18_hotfix,new_file,does not exist,Comprehensive HTML 500+ lines,0,N/A,New comprehensive guide

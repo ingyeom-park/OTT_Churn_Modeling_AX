@@ -1,2 +1,0 @@
-﻿model,promo,best_trial,best_valid_auc,best_train_auc,best_gap,overfit,test_roc_auc,test_pr_auc,test_f1,test_precision,test_recall,test_n,param_penalty,param_C
-LogisticRegression,1,155,0.8353700581477245,0.8407522554975733,0.005382197349848794,False,0.8394617308026491,0.9146219259741992,0.8451198129748686,0.7971334068357222,0.8992537313432836,2381,l1,0.09502842558605931

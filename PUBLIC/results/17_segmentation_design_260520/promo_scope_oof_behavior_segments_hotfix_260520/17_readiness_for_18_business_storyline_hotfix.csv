@@ -1,0 +1,12 @@
+﻿decision_item,status,evidence,user_approval_required,notes
+representative_segments_created,yes,17_representative_segment_assignment_hotfix.csv,no,hotfix segments created
+segment_summary_created,yes,17_segment_summary_hotfix.csv,no,hotfix summary created
+content_preference_signal_demoted,yes,17_content_preference_signal_audit.csv,no,demoted when broad
+other_needs_review_caveat_recorded,yes,17_segment_summary_hotfix.csv,no,large other caveat recorded
+rationale_memo_expanded,yes,17_segment_rationale_memo_for_executives_hotfix.md,no,expanded memo created
+demographic_profile_created,yes,17_segment_demographic_profile_hotfix.csv,no,profile created
+action_personalization_matrix_created,yes,17_segment_action_personalization_matrix_hotfix.csv,no,matrix created
+segment_names_finalized,no,provisional labels only,yes,user approval required
+business_storyline_allowed_now,user_review_required,semantic hotfix requires review,yes,not automatic
+dashboard_allowed_now,user_review_required,semantic hotfix requires review,yes,not automatic
+requires_user_review_before_18,yes,stage gate,yes,review required

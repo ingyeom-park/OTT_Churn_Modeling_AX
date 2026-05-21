@@ -1,37 +1,27 @@
-﻿# 12_model_family_comparison_260520
+# 12_model_family_comparison_260520 notebooks
 
-## stage_name
-12_model_family_comparison_260520
+## Purpose
 
-## stage_status
-placeholder_created_blocked_until_11
+12 is a four-model comparison step.
 
-## expected_inputs
-11 baseline comparison outputs.
+12 is not GradientBoosting-only.
 
-## expected_outputs
-Model-family comparison outputs for candidates such as LR, RF, GB/HGB, LightGBM, XGBoost, or CatBoost if approved later.
+12는 4개 모델 비교 단계다.
 
-## why_this_stage_exists
-Model-family comparison should occur after baseline behavior is established.
+12는 GradientBoosting 전용이 아니다.
 
-## what_must_not_be_done_here
-Do not declare a final model here.
+## Execution Status
 
-## next_stage
-14_candidate_tuning_260520
+No notebook was executed in this restructuring task.
 
+이번 작업에서 노트북 실행은 하지 않았다.
 
-## Pipeline guardrail
+The actual comparison notebook must be written and executed later if the user decides to proceed with Step 12 comparison review.
 
-This folder represents a PUBLIC pipeline stage placeholder or working area.
-The existence of this folder does not mean the stage has been executed.
-Stage execution requires explicit notebook execution, outputs, final checks, README, note update, and review zip.
-Do not treat placeholder folders as completed analysis.
+## Existing 11x/12x Meaning
 
-## 파이프라인 가드레일
+The original `12x_model_family_comparison_260516.ipynb` was a model family comparison step, not a GradientBoosting-only step.
 
-이 폴더는 PUBLIC 파이프라인 단계의 placeholder 또는 작업 위치이다.
-이 폴더가 존재한다고 해서 해당 단계가 실행 완료되었다는 뜻은 아니다.
-단계 완료는 노트북 실행, 산출물 생성, final_checks, README, note 업데이트, review zip이 모두 갖춰졌을 때만 말할 수 있다.
-placeholder 폴더를 완료된 분석으로 해석하지 않는다.
+The current PUBLIC emergency structure narrows that meaning into a temporary four-model comparison summary.
+
+The original 12x notebook is future template/reference only and was not executed in this task.

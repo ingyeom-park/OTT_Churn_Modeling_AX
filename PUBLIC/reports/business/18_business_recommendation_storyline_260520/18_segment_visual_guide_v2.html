@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>PUBLIC 18 Segment Visual Guide v2</title>
+<style>
+body{margin:0;font-family:Arial,'Malgun Gothic',sans-serif;background:#f6f7fb;color:#1d2433;line-height:1.65}
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+aside{background:#172033;color:#fff;padding:24px;position:sticky;top:0;height:100vh;box-sizing:border-box}
+aside a{display:block;color:#d8e4ff;text-decoration:none;margin:10px 0;font-size:14px}
+main{padding:32px 42px;max-width:1180px}
+section{margin-bottom:34px;background:#fff;padding:26px;border:1px solid #d8dee9;border-radius:8px}
+h1{font-size:34px;margin:0 0 10px} h2{margin-top:0;color:#25314a} h3{margin-bottom:10px}
+.hero{background:#24314f;color:#fff} .hero p{max-width:900px}
+.pill{display:inline-block;background:#e8eefc;color:#1e376d;padding:4px 9px;border-radius:12px;margin:3px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+.card{border:1px solid #ccd5e3;border-radius:8px;padding:18px;background:#fbfcff}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0} .kpis span{background:#eef3fb;padding:8px;border-radius:6px}
+.caveat{color:#6b7280;font-size:14px} table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:9px;text-align:left;vertical-align:top} th{background:#f1f5f9}
+.barrow{display:grid;grid-template-columns:280px 1fr 80px;gap:10px;align-items:center;margin:8px 0} .bar{background:#e6ecf5;height:16px;border-radius:8px;overflow:hidden} .bar i{display:block;height:100%;background:#3764a8}
+code{background:#edf2f7;padding:2px 5px;border-radius:4px}
+</style>
+</head>
+<body><div class="layout">
+<aside>
+<h2>18 Visual Guide v2</h2>
+<a href="#hero">Hero</a><a href="#rules">읽기 전 기준</a><a href="#score">Score source</a><a href="#structure">Revised segment</a><a href="#cards">Segment cards</a><a href="#demo">Demographic layer</a><a href="#action">Business action</a><a href="#caution">Presentation caution</a><a href="#sources">Source files</a>
+</aside>
+<main>
+<section id="hero" class="hero"><h1>100원딜 고객을 일반 고객과 분리해 본 이유</h1>
+<p>100원딜은 정가 7,900원 대비 진입 비용을 극단적으로 낮춘 초저가 체험 프로모션이다. 따라서 100원딜 고객은 정가 고객과 유입 동기, 사전 이용 의도, 지불 의향이 다를 가능성이 있다. promo1은 100원딜 고객 중심 scope이며, promo0는 비교군이다.</p>
+<p>핵심 질문은 “전체 OTT 고객 중 누가 이탈하는가”가 아니라 “100원딜로 유입된 고객 중 누가 정가 전환에 실패하는가”이다.</p></section>
+<section id="rules"><h2>읽기 전 기준</h2>
+<span class="pill">row = subscription-event row</span><span class="pill">segment = provisional</span><span class="pill">OOF score != campaign threshold</span><span class="pill">SHAP != causality</span><span class="pill">age/gender = personalization layer</span>
+<p>세그먼트는 행동 기반으로 설계했고, 연령·성별은 세그먼트 내부 메시지와 콘텐츠 추천을 조정하는 personalization layer로 사용했다. 단, 연령·성별별 액션은 EDA에서 실제 분포 차이와 행동 차이가 관찰되는 경우에만 제안한다.</p></section>
+<section id="score"><h2>Score source</h2><p>15 OOF GB/LR 결과를 사용했다. GB churn risk score는 primary risk score로, LR은 baseline/sensitivity로 해석한다. ROC-AUC는 primary metric이고 PR-AUC는 secondary metric이다. OOF score는 final campaign threshold가 아니다.</p><p>promo0 LogisticRegression: ROC-AUC 0.865, PR-AUC 0.951; promo1 LogisticRegression: ROC-AUC 0.840, PR-AUC 0.917; promo0 GradientBoosting: ROC-AUC 0.880, PR-AUC 0.957; promo1 GradientBoosting: ROC-AUC 0.859, PR-AUC 0.930</p></section>
+<section id="structure"><h2>Revised segment structure</h2><p>17 quality hotfix의 revised 5-family proposal을 사용했다. other_needs_review_residual은 중위험군이 아니라 residual caveat다.</p><div class='barrow'><span>high_risk_activation_or_low_engagement</span><div class='bar'><i style='width:5%'></i></div><b>370</b></div><div class='barrow'><span>high_risk_week3_inactivity_or_retention_decay</span><div class='bar'><i style='width:29%'></i></div><b>1,893</b></div><div class='barrow'><span>mid_risk_retention_watchlist</span><div class='bar'><i style='width:20%'></i></div><b>1,309</b></div><div class='barrow'><span>other_needs_review_residual</span><div class='bar'><i style='width:100%'></i></div><b>6,333</b></div><div class='barrow'><span>stable_usage_lower_risk</span><div class='bar'><i style='width:31%'></i></div><b>1,999</b></div></section>
+<section id="cards"><h2>Segment별 카드</h2><div class="grid">
+        <article class="card">
+          <h3>high_risk_activation_or_low_engagement</h3>
+          <div class="kpis">
+            <span>n <b>370</b></span>
+            <span>share <b>3.1%</b></span>
+            <span>churn <b>78.4%</b></span>
+            <span>GB risk <b>0.732</b></span>
+          </div>
+          <p><b>Dominant behavior:</b> 초기 이용 습관 형성 실패 또는 낮은 활동</p>
+          <p><b>Promo1 vs Promo0:</b> 같은 위험 행동 패턴이 100원딜 고객군에서 더 높은 이탈률과 risk score로 관찰되었다.</p>
+          <p><b>Business implication:</b> 1주차 activation, 2주차 관심 유지, 3주차 초반 감소 조짐, day21 직전 개입 후보 타이밍을 연결해 검토한다.</p>
+          <p class="caveat">Caveat: provisional segment. OOF score is not campaign threshold.</p>
+        </article>
+        
+        <article class="card">
+          <h3>high_risk_week3_inactivity_or_retention_decay</h3>
+          <div class="kpis">
+            <span>n <b>1,893</b></span>
+            <span>share <b>15.9%</b></span>
+            <span>churn <b>74.3%</b></span>
+            <span>GB risk <b>0.740</b></span>
+          </div>
+          <p><b>Dominant behavior:</b> 3주차 비활성 또는 유지율 감소</p>
+          <p><b>Promo1 vs Promo0:</b> 같은 위험 행동 패턴이 100원딜 고객군에서 더 높은 이탈률과 risk score로 관찰되었다.</p>
+          <p><b>Business implication:</b> 1주차 activation, 2주차 관심 유지, 3주차 초반 감소 조짐, day21 직전 개입 후보 타이밍을 연결해 검토한다.</p>
+          <p class="caveat">Caveat: provisional segment. OOF score is not campaign threshold.</p>
+        </article>
+        
+        <article class="card">
+          <h3>mid_risk_retention_watchlist</h3>
+          <div class="kpis">
+            <span>n <b>1,309</b></span>
+            <span>share <b>11.0%</b></span>
+            <span>churn <b>60.1%</b></span>
+            <span>GB risk <b>0.528</b></span>
+          </div>
+          <p><b>Dominant behavior:</b> 상위 고위험은 아니지만 유지 관찰이 필요한 중간 위험</p>
+          <p><b>Promo1 vs Promo0:</b> promo0 comparison unavailable.</p>
+          <p><b>Business implication:</b> 1주차 activation, 2주차 관심 유지, 3주차 초반 감소 조짐, day21 직전 개입 후보 타이밍을 연결해 검토한다.</p>
+          <p class="caveat">Caveat: provisional segment. OOF score is not campaign threshold.</p>
+        </article>
+        
+        <article class="card">
+          <h3>other_needs_review_residual</h3>
+          <div class="kpis">
+            <span>n <b>6,333</b></span>
+            <span>share <b>53.2%</b></span>
+            <span>churn <b>18.1%</b></span>
+            <span>GB risk <b>0.194</b></span>
+          </div>
+          <p><b>Dominant behavior:</b> 현재 rule로 충분히 설명되지 않은 잔여군</p>
+          <p><b>Promo1 vs Promo0:</b> 같은 위험 행동 패턴이 100원딜 고객군에서 더 높은 이탈률과 risk score로 관찰되었다.</p>
+          <p><b>Business implication:</b> 1주차 activation, 2주차 관심 유지, 3주차 초반 감소 조짐, day21 직전 개입 후보 타이밍을 연결해 검토한다.</p>
+          <p class="caveat">Caveat: provisional segment. OOF score is not campaign threshold.</p>
+        </article>
+        
+        <article class="card">
+          <h3>stable_usage_lower_risk</h3>
+          <div class="kpis">
+            <span>n <b>1,999</b></span>
+            <span>share <b>16.8%</b></span>
+            <span>churn <b>12.0%</b></span>
+            <span>GB risk <b>0.134</b></span>
+          </div>
+          <p><b>Dominant behavior:</b> 상대적으로 안정적인 이용 패턴</p>
+          <p><b>Promo1 vs Promo0:</b> 같은 위험 행동 패턴이 100원딜 고객군에서 더 높은 이탈률과 risk score로 관찰되었다.</p>
+          <p><b>Business implication:</b> 1주차 activation, 2주차 관심 유지, 3주차 초반 감소 조짐, day21 직전 개입 후보 타이밍을 연결해 검토한다.</p>
+          <p class="caveat">Caveat: provisional segment. OOF score is not campaign threshold.</p>
+        </article>
+        </div></section>
+<section id="demo"><h2>Demographic action layer</h2><p>age_group profile, gender profile, age/gender behavior profile, action personalization 후보를 17 demographic hotfix에서 읽었다. demographic은 이탈 원인이 아니다. 연령·성별별 액션은 행동 차이와 분포 차이가 함께 관찰되는 경우에만 business hypothesis로 둔다.</p><p>선별된 candidate 수: 60</p></section>
+<section id="action"><h2>Business action matrix</h2><table><thead><tr><th>scope</th><th>segment</th><th>action</th><th>message</th><th>demographic cue</th></tr></thead><tbody><tr><td>promo1</td><td>high_risk_activation_or_low_engagement</td><td>activation_reengagement</td><td>1주차 activation과 2주차 관심 유지 여부를 확인하고 낮은 활동 고객에게 온보딩/재활성 메시지 검토</td><td>age_group=30; age_group=30; age_group=30</td></tr>
+<tr><td>promo1</td><td>high_risk_week3_inactivity_or_retention_decay</td><td>week3_save_campaign</td><td>3주차 초반부터 day21 직전까지 시청 감소/비활성 조짐을 감지하고 콘텐츠 추천, 혜택 안내, 복귀 메시지를 검토</td><td>age_group=10; age_group=60; age_group=60</td></tr>
+<tr><td>promo1</td><td>mid_risk_retention_watchlist</td><td>mid_risk_watchlist_nurture</td><td>고위험 확정이 아니라 관찰군으로 두고 2~3주차 행동 변화에 따라 nurture</td><td>age_group=40; age_group=40; age_group=30</td></tr>
+<tr><td>promo1</td><td>other_needs_review_residual</td><td>residual_monitoring</td><td>잔여군을 중위험으로 단정하지 않고 risk band와 행동 flag를 추가 모니터링</td><td>age_group=60; age_group=60; age_group=60</td></tr>
+<tr><td>promo1</td><td>stable_usage_lower_risk</td><td>stable_usage_maintenance_or_upsell</td><td>과도한 방어 캠페인보다 만족 유지와 업셀 후보로 관리</td><td>age_group=10; age_group=40; age_group=10</td></tr></tbody></table></section>
+<section id="caution"><h2>Presentation caution</h2><p>100원딜이 이탈을 유발했다고 말하지 않는다. SHAP은 model explanation이지 causality가 아니다. 07~10은 여전히 pending validation이다. segment label은 provisional이고, business action은 campaign policy가 아니라 candidate다.</p><table><thead><tr><th>topic</th><th>safe</th><th>unsafe</th></tr></thead><tbody><tr><td>100원딜 scope</td><td>100원딜은 진입 비용을 낮춘 초저가 체험 프로모션이다.</td><td>100원딜이 이탈을 유발했다.</td></tr>
+<tr><td>promo1 vs promo0</td><td>100원딜 고객은 정가 고객과 유입 맥락이 다를 수 있다.</td><td>정가 고객은 100% 이용 의도가 있다.</td></tr>
+<tr><td>OOF score</td><td>OOF score는 정가 전환 실패 위험을 비교하기 위한 모델 산출물이다.</td><td>OOF score가 곧 캠페인 threshold다.</td></tr>
+<tr><td>SHAP</td><td>SHAP은 model explanation이지 causality가 아니다.</td><td>SHAP이 원인을 말해준다.</td></tr>
+<tr><td>segment</td><td>segment label은 provisional rule label이다.</td><td>최종 세그먼트 이름이 확정됐다.</td></tr>
+<tr><td>demographic action</td><td>연령·성별은 action personalization layer다.</td><td>20대라서 이탈했다.</td></tr>
+<tr><td>is_churn_prevented</td><td>is_churn_prevented는 caveat가 필요한 historical context feature다.</td><td>캠페인 효과가 입증됐다.</td></tr>
+<tr><td>content preference</td><td>content preference는 profile/action cue로만 사용한다.</td><td>content_preference_signal이 대표 segment rule이다.</td></tr>
+<tr><td>other residual</td><td>other_needs_review는 설명되지 않은 residual이다.</td><td>other는 그냥 중위험군이다.</td></tr>
+<tr><td>business action</td><td>business action은 candidate다.</td><td>바로 캠페인 집행하면 된다.</td></tr>
+<tr><td>week3 signal</td><td>3주차 시청 감소는 정가 전환 실패를 구분하는 강한 행동 신호로 관찰되었다.</td><td>3주차 시청 감소가 이탈의 원인이다.</td></tr></tbody></table></section>
+<section id="sources"><h2>Source files</h2><ul><li>17 quality hotfix CSVs</li><li>17 demographic/action hotfix CSVs</li><li>16b family mapping hotfix CSVs</li><li>15 OOF hotfix CSVs</li></ul><p class="caveat">legacy HTML was not found under PUBLIC; no legacy numbers or legacy rules were reused.</p></section>
+</main></div></body></html>

@@ -1,0 +1,11 @@
+﻿decision_item,status,evidence,user_approval_required,notes
+shap_global_importance_created,yes,PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_global_importance.csv,no,"SHAP is model explanation, not causality."
+shap_family_importance_created,yes,PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_family_importance.csv,no,Feature family mapping is provisional.
+promo1_vs_promo0_comparison_created,yes,PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_promo1_vs_promo0_shap_comparison.csv,no,Promo1 is main business scope; promo0 is comparison scope.
+demographic_context_audit_created,yes,PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_demographic_context_audit_for_shap.csv,no,"Age/gender are profile audit and action personalization variables, not default segment rules."
+is_churn_prevented_caveat_created,yes,PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_is_churn_prevented_interpretation_audit.csv,no,Approved historical context feature with caveat.
+oof_score_available_from_15,yes,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_long.csv,no,OOF remains row-level risk evidence from 15.
+segmentation_allowed_now,no,16 is explanation only,yes,Segmentation requires user review after SHAP validation.
+requires_user_review_before_segmentation,yes,explicit stage gate,yes,No automatic segmentation permission.
+requires_demographic_eda_for_action_personalization,yes,demographic context policy,yes,Age/gender action variants require EDA evidence.
+seven_to_ten_pending_validation_preserved,yes,README/note wording,no,07~10 remain pending validation and temporarily deferred.

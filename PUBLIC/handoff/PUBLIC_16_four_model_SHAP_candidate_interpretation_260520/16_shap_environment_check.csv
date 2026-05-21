@@ -1,0 +1,6 @@
+﻿check_item,status,observed_value,notes
+shap_import_available,PASS,0.49.1,import available
+sklearn_available,PASS,1.7.2,import available
+matplotlib_available,PASS,3.8.4,import available
+pandas_available,PASS,2.3.3,import available
+numpy_available,PASS,1.26.4,import available

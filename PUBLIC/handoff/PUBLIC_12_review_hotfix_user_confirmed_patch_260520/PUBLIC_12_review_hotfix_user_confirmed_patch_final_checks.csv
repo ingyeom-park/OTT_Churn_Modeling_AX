@@ -1,0 +1,20 @@
+check_name,status,expected,actual,notes
+public_root_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC exists,confirmed,Verified at task start.
+original_hotfix_outputs_checked,PASS,previous hotfix CSVs and README read,all files read verbatim,Confirmed skipped wording location and zip inventory structure.
+skipped_wording_removed_or_replaced,PASS,no bare skipped wording in actual content,replaced in 12_oof_readiness_user_confirmed_update.csv,Replaced: Skipped due to schedule → Temporarily deferred due to schedule; not skipped.
+seven_to_ten_pending_not_skipped_wording_confirmed,PASS,07~10 described as pending validation temporarily deferred not skipped,confirmed in oof_readiness CSV and README,README 07~10 section updated to temporarily deferred. unsafe wording section clarified with replacement guidance.
+review_zip_created_status_corrected,PASS,review_zip_created = PASS in original hotfix final_checks,already PASS from previous task,No change needed. Status was PASS (37388 bytes) in original final_checks.
+zip_inventory_created_status_corrected,PASS,zip_inventory_created = PASS in original hotfix final_checks,already PASS from previous task,No change needed. Status was PASS in original final_checks.
+zip_inventory_self_reference_handled,PASS,self-reference row added or limitation documented,added self-reference row with size_bytes=1080 and self-reference limitation note,Method B used: self-reference limitation documented. Row added to inventory CSV.
+patch_summary_created,PASS,PUBLIC_12_review_hotfix_user_confirmed_patch_summary.md exists,created,patch handoff folder.
+note_md_append_completed,PASS,note.md appended with wording patch section,appended,Section: ## 2026-05-20 | PUBLIC 12 review hotfix wording and zip inventory patch
+no_model_execution_performed,PASS,no model training or prediction,confirmed,No sklearn fit or predict calls.
+no_notebook_execution_performed,PASS,no jupyter execution,confirmed,No nbconvert or kernel execution.
+no_oof_generation_performed,PASS,no OOF score table created,confirmed,OOF blocked until user approval.
+no_optuna_performed,PASS,no Optuna trial creation,confirmed,No optuna calls.
+no_shap_performed,PASS,no SHAP values computed,confirmed,No shap library calls.
+no_segmentation_performed,PASS,no segment assignment or rule design,confirmed,No segmentation logic.
+no_raw_source_modified,PASS,raw source CSVs not modified,confirmed,06_model_input_promo_0/1.csv not modified.
+no_park_ingyeom_modified,PASS,park.ingyeom folder not modified,confirmed,Work confined to PUBLIC folder.
+review_zip_created,PASS,patch review zip created,created (35248 bytes — 8 entries),PUBLIC\zip\PUBLIC_12_review_hotfix_user_confirmed_patch_260520_review_package.zip confirmed.
+zip_inventory_created,PASS,patch zip inventory created,created with self-reference row (823 bytes before self-inclusion),PUBLIC_12_review_hotfix_user_confirmed_patch_zip_inventory.csv added to zip. Self-reference limitation documented.

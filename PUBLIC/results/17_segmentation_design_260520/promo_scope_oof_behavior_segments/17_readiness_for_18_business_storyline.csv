@@ -1,0 +1,13 @@
+﻿decision_item,status,evidence,user_approval_required,notes
+representative_segments_created,yes,17_representative_segment_assignment.csv,no,one provisional segment per row
+segment_summary_created,yes,17_segment_summary.csv,no,summary created
+segment_feature_profile_created,yes,17_segment_feature_profile.csv,no,profile created
+segment_shap_family_evidence_created,yes,17_segment_SHAP_family_evidence_link.csv,no,SHAP family link created
+demographic_profile_created,yes,17_segment_demographic_profile.csv,no,profile audit created
+action_personalization_matrix_created,yes,17_segment_action_personalization_matrix.csv,no,matrix created
+executive_rationale_memo_created,yes,17_segment_rationale_memo_for_executives.md,no,memo created
+rejected_alternatives_memo_created,yes,17_segment_caveat_and_rejected_alternatives.md,no,memo created
+segment_names_finalized,no,provisional labels only,yes,final names require user approval
+business_storyline_allowed_now,user_review_required,17 outputs require review,yes,not automatic
+dashboard_allowed_now,user_review_required,17 outputs require review,yes,not automatic
+requires_user_review_before_18,yes,stage gate,yes,review required

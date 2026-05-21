@@ -6,7 +6,15 @@
       "Bash(Select-Object Name)",
       "PowerShell(Head -50)",
       "Bash(git -C \"C:/Code/ott-churn-prediction\" rev-parse --show-toplevel)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\data\" -Force 2>&1 | Select-Object Name, @{Name=\"Type\"; Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\" -Force 2>&1 | Select-Object Name, @{Name=\"Type\"; Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\\\\11_baseline_growth_comparison_260520\" -Force | Select-Object Name, @{Name=\"Type\"; Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\\\\12_model_family_comparison_260520\" -Force | Select-Object Name, @{Name=\"Type\"; Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\\\\_current\" -Force | Select-Object Name, @{Name=\"Type\"; Expression={if\\($_.PSIsContainer\\){\"Folder\"}else{\"File\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\\\\_current\" -Recurse -Force | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\\\\_current\\\\\", \"\"\\) })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\data\" -Force | ForEach-Object { Write-Host \"$\\($_.Name\\) $\\($_.Length\\) bytes\" })",
+      "Bash(Get-ChildItem -Path \"C:\\\\Code\\\\ott-churn-prediction\\\\PUBLIC\\\\results\\\\11_baseline_growth_comparison_260520\\\\\" -File | Select-Object Name)"
     ]
   }
 }

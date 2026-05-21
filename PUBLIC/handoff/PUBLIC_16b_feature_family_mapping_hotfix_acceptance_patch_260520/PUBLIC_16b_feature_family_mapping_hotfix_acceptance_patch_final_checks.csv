@@ -1,0 +1,21 @@
+check_name,status,expected,actual,notes
+public_root_exists,PASS,TRUE,TRUE,C:\Code\ott-churn-prediction\PUBLIC confirmed
+input_validation_created,PASS,TRUE,TRUE,16b_acceptance_input_validation.csv created; 11 items all PASS
+mapping_acceptance_summary_created,PASS,TRUE,TRUE,16b_mapping_acceptance_summary.csv created; 17 check items all PASS
+source_fingerprint_status_interpretation_created,PASS,TRUE,TRUE,16b_source_fingerprint_status_interpretation.csv created; 2 self-reference files interpreted
+final_acceptance_memo_created,PASS,TRUE,TRUE,16b_final_acceptance_memo.md created
+note_md_append_completed,PASS,TRUE,TRUE,Appended section [2026-05-20 | PUBLIC 16b feature family mapping hotfix accepted after review] to PUBLIC\note.md
+original_16b_final_checks_all_pass,PASS,37 PASS / 0 WARN / 0 FAIL,37 PASS / 0 WARN / 0 FAIL,Confirmed by reading actual PUBLIC_16b_feature_family_mapping_hotfix_final_checks.csv
+remaining_technical_unknown_count_zero,PASS,0,0,16b_feature_family_mapping_hotfix.csv: 75 features; 0 with technical_or_unknown in new_feature_family
+all_16_known_unknown_features_remapped,PASS,16,16,16b_family_mapping_change_log.csv: 16 rows all from technical_or_unknown to business family
+source_fingerprint_self_reference_interpreted,PASS,self_referential_or_packaging_artifact,self_referential_handoff_file_updated_during_packaging + packaging_inventory_self_reference_limitation,Both changed_needs_review files are handoff metadata; all core SHAP CSVs are unchanged
+no_core_16_shap_input_changed,PASS,unchanged,unchanged,fingerprint shows all four_model_shap_interpretation CSVs status=unchanged
+no_16b_output_recalculated,PASS,unchanged,unchanged,fingerprint shows all 16b_feature_family_mapping_hotfix_260520 output CSVs status=unchanged
+no_shap_recalculation_performed,PASS,TRUE,TRUE,SHAP values reused; only family mapping reattached and family-level aggregation recomputed
+no_model_refit_performed,PASS,TRUE,TRUE,No model training performed in 16b task
+no_oof_regeneration_performed,PASS,TRUE,TRUE,No OOF regeneration performed in 16b task
+no_segmentation_performed,PASS,TRUE,TRUE,No segmentation outputs in 16b folder
+no_raw_source_modified,PASS,TRUE,TRUE,No raw source CSV modified; confirmed by fingerprint and task scope
+no_park_ingyeom_modified,PASS,TRUE,TRUE,park.ingyeom not touched
+review_zip_created,PASS,TRUE,TRUE,PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520_review_package.zip created at PUBLIC\zip\; 56056 bytes
+zip_inventory_created,PASS,TRUE,TRUE,PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_zip_inventory.csv created; 13 rows; self-reference size stabilized at 636 bytes

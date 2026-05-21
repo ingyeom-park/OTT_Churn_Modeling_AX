@@ -1,0 +1,21 @@
+﻿promo_scope,model_family,fold_id,rows,positives,positive_rate,split_method,status,notes
+promo0,LogisticRegression,0,2239,1708,0.762840553818669,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,LogisticRegression,1,2239,1708,0.762840553818669,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,LogisticRegression,2,2239,1707,0.7623939258597588,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,LogisticRegression,3,2238,1707,0.7627345844504021,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,LogisticRegression,4,2238,1707,0.7627345844504021,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,LogisticRegression,0,2381,1608,0.6753464930701386,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,LogisticRegression,1,2381,1608,0.6753464930701386,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,LogisticRegression,2,2381,1607,0.6749265014699706,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,LogisticRegression,3,2381,1607,0.6749265014699706,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,LogisticRegression,4,2380,1607,0.6752100840336135,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,GradientBoosting,0,2239,1708,0.762840553818669,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,GradientBoosting,1,2239,1708,0.762840553818669,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,GradientBoosting,2,2239,1707,0.7623939258597588,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,GradientBoosting,3,2238,1707,0.7627345844504021,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo0,GradientBoosting,4,2238,1707,0.7627345844504021,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,GradientBoosting,0,2381,1608,0.6753464930701386,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,GradientBoosting,1,2381,1608,0.6753464930701386,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,GradientBoosting,2,2381,1607,0.6749265014699706,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,GradientBoosting,3,2381,1607,0.6749265014699706,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.
+promo1,GradientBoosting,4,2380,1607,0.6752100840336135,StratifiedKFold,PASS,OOF validation fold; prediction generated only for held-out rows.

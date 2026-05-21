@@ -1,2 +1,0 @@
-﻿model,promo,best_trial,best_valid_auc,best_train_auc,best_gap,overfit,test_roc_auc,test_pr_auc,test_f1,test_precision,test_recall,test_n,param_iterations,param_depth,param_learning_rate,param_l2_leaf_reg,param_border_count
-CatBoost,0,69,0.8810898902126423,0.9098764766979184,0.0287865864852761,False,0.8980674694747266,0.963654904906615,0.90458767238953,0.869118442401298,0.943075117370892,2235,694,3,0.02448234473262313,0.127913010953486,63
