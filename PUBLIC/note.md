@@ -2847,4 +2847,3 @@ segment label은 provisional이다.
 3. 07~10 validation 진행
 4. other_needs_review_residual 내부 decomposition 분석 (별도 단계)
 5. threshold 설정 및 A/B test 설계 (별도 단계)
-

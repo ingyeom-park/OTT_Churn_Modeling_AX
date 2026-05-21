@@ -1,0 +1,527 @@
+﻿DIR 	PUBLIC\data		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\data\_archive		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\data\_archive\260520_input_lineage		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_input_lineage\06_expanded_dataset_log_retention.csv	12958570	12.358 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_input_lineage\06_expanded_dataset_promo_0_log_retention.csv	6269242	5.979 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_input_lineage\06_expanded_dataset_promo_1_log_retention.csv	6690807	6.381 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_input_lineage\06_log_retention_validation.csv	1092	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_input_lineage\260520_input_lineage_reason.md	464	0.000 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\data\_archive\260520_raw_reference		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_raw_reference\260520_raw_Membership_v2_with_derived_features.csv	13815967	13.176 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\_archive\260520_raw_reference\260520_raw_reference_reason.md	437	0.000 MB	2026-05-21 17:37:37
+FILE	PUBLIC\data\06_model_input_promo_0.csv	5993802	5.716 MB	2026-05-20 14:39:46
+FILE	PUBLIC\data\06_model_input_promo_1.csv	6397348	6.101 MB	2026-05-20 14:39:47
+DIR 	PUBLIC\handoff		 MB	2026-05-21 17:52:30
+DIR 	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520\PUBLIC_11_12_emergency_model_restructure_final_checks.csv	3603	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520\PUBLIC_11_12_emergency_model_restructure_zip_inventory.csv	3373	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520\PUBLIC_detected_model_result_candidates.csv	2277	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520\PUBLIC_inventory_before_11_12_restructure.csv	21357	0.020 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520\README.md	4839	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_11_12_emergency_model_restructure_260520\run_public_11_12_restructure.py	36381	0.035 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520\12_input_file_validation.csv	1070	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520\apply_high_auc_leakage_steering.py	33737	0.032 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520\PUBLIC_12_four_model_comparison_review_final_checks.csv	4626	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520\PUBLIC_12_four_model_comparison_review_zip_inventory.csv	1722	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520\README.md	3930	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_four_model_comparison_review_260520\run_public_12_four_model_comparison_review.py	39395	0.038 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_260520\PUBLIC_12_review_hotfix_user_confirmed_final_checks.csv	4015	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_260520\PUBLIC_12_review_hotfix_user_confirmed_zip_inventory.csv	1271	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_260520\README.md	1280	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_patch_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_patch_260520\PUBLIC_12_review_hotfix_user_confirmed_patch_final_checks.csv	2974	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_patch_260520\PUBLIC_12_review_hotfix_user_confirmed_patch_summary.md	2506	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_patch_260520\PUBLIC_12_review_hotfix_user_confirmed_patch_zip_inventory.csv	1020	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_15_four_model_oof_score_generation_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_four_model_oof_score_generation_260520\15_oof_input_validation.csv	2906	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_four_model_oof_score_generation_260520\15_source_fingerprint_before_after.csv	4816	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_four_model_oof_score_generation_260520\PUBLIC_15_four_model_oof_score_generation_final_checks.csv	3787	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_four_model_oof_score_generation_260520\PUBLIC_15_four_model_oof_score_generation_zip_inventory.csv	2098	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_four_model_oof_score_generation_260520\README.md	2378	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\__pycache__\public_15_oof_hotfix_runner.cpython-310.pyc	45249	0.043 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\15_existing_oof_artifact_validation.csv	4324	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\15_existing_oof_inventory_before_hotfix.csv	2495	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\15_oof_hotfix_input_validation.csv	3092	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\15_source_fingerprint_before_after.csv	9173	0.009 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\public_15_oof_hotfix_runner.py	63094	0.060 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\PUBLIC_15_oof_score_hotfix_final_checks.csv	5580	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\PUBLIC_15_oof_score_hotfix_zip_inventory.csv	2379	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_15_oof_score_hotfix_260520\README.md	4052	0.004 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\__pycache__\public_16_shap_candidate_interpretation_runner.cpython-310.pyc	47454	0.045 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\16_shap_environment_check.csv	284	0.000 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\16_shap_input_validation.csv	4994	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\16_source_fingerprint_before_after.csv	5199	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\PUBLIC_16_four_model_SHAP_candidate_interpretation_final_checks.csv	5081	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\PUBLIC_16_four_model_SHAP_candidate_interpretation_zip_inventory.csv	3427	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\public_16_shap_candidate_interpretation_runner.py	76127	0.073 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520\README.md	1806	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\__pycache__\public_16b_feature_family_mapping_hotfix_runner.cpython-310.pyc	37204	0.035 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\16b_input_validation.csv	1981	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\16b_source_fingerprint_before_after.csv	8076	0.008 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\PUBLIC_16b_feature_family_mapping_hotfix_final_checks.csv	4902	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\public_16b_feature_family_mapping_hotfix_runner.py	52802	0.050 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\PUBLIC_16b_feature_family_mapping_hotfix_zip_inventory.csv	2205	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_260520\README.md	1666	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520\16b_acceptance_input_validation.csv	2884	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520\16b_final_acceptance_memo.md	3651	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520\16b_mapping_acceptance_summary.csv	3083	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520\16b_source_fingerprint_status_interpretation.csv	1743	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_final_checks.csv	2662	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_zip_inventory.csv	650	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\__pycache__\17_demographic_action_layer_hotfix_helper.cpython-310.pyc	48256	0.046 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\__pycache__\17_demographic_action_layer_quality_helper.cpython-310.pyc	40070	0.038 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\17_demographic_action_layer_hotfix_helper.py	70563	0.067 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\17_demographic_action_layer_quality_helper.py	50593	0.048 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\17_demographic_hotfix_input_validation.csv	2470	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\17_demographic_hotfix_source_fingerprint_before_after.csv	6419	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\PUBLIC_17_demographic_action_layer_hotfix_final_checks.csv	1851	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\PUBLIC_17_demographic_action_layer_hotfix_zip_inventory.csv	1251	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_demographic_action_layer_hotfix_260520\README.md	907	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\__pycache__\public_17_segmentation_design_runner.cpython-310.pyc	63416	0.060 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\17_input_validation.csv	4151	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\17_source_fingerprint_before_after.csv	12649	0.012 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\PUBLIC_17_promo_scope_oof_behavior_segmentation_final_checks.csv	6312	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\PUBLIC_17_promo_scope_oof_behavior_segmentation_zip_inventory.csv	3181	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\public_17_segmentation_design_runner.py	87403	0.083 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520\README.md	1289	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\__pycache__\quality_hotfix_helper.cpython-310.pyc	61724	0.059 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\17_quality_hotfix_input_validation.csv	5714	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\17_quality_hotfix_source_fingerprint_before_after.csv	14065	0.013 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\PUBLIC_17_segmentation_quality_hotfix_final_checks.csv	2616	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\PUBLIC_17_segmentation_quality_hotfix_zip_inventory.csv	1228	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\quality_hotfix_helper.py	78383	0.075 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_quality_hotfix_260520\README.md	1647	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\__pycache__\public_17_semantic_hotfix_runner.cpython-310.pyc	61687	0.059 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\17_hotfix_input_validation.csv	4458	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\17_hotfix_source_fingerprint_before_after.csv	13499	0.013 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\PUBLIC_17_segmentation_semantic_hotfix_final_checks.csv	6249	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\PUBLIC_17_segmentation_semantic_hotfix_zip_inventory.csv	3487	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\public_17_semantic_hotfix_runner.py	83590	0.080 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_17_segmentation_semantic_hotfix_260520\README.md	1303	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_18_business_storyline_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\__pycache__		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\__pycache__\18_business_storyline_helper.cpython-310.pyc	49653	0.047 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\18_business_storyline_helper.py	54822	0.052 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\18_input_validation.csv	5441	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\18_source_fingerprint_before_after.csv	11784	0.011 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\PUBLIC_18_business_storyline_final_checks.csv	2027	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\PUBLIC_18_business_storyline_zip_inventory.csv	953	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_260520\README.md	836	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_18_business_storyline_polish_hotfix_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_polish_hotfix_260520\18_hotfix_input_validation.csv	6101	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_polish_hotfix_260520\18_hotfix_source_fingerprint_before_after.csv	2694	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_polish_hotfix_260520\PUBLIC_18_business_storyline_polish_hotfix_final_checks.csv	2857	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_polish_hotfix_260520\PUBLIC_18_business_storyline_polish_hotfix_zip_inventory.csv	4616	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\handoff\PUBLIC_18_business_storyline_polish_hotfix_260520\README.md	2713	0.003 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450		 MB	2026-05-20 15:54:50
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\PUBLIC_folder_summary_depth3.csv	4261	0.004 MB	2026-05-20 15:54:50
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\PUBLIC_inventory_full.csv	25357	0.024 MB	2026-05-20 15:54:50
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\PUBLIC_key_artifact_inventory.csv	12518	0.012 MB	2026-05-20 15:54:50
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\PUBLIC_note_copy.md	63374	0.060 MB	2026-05-20 15:53:55
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\PUBLIC_notebook_inventory.csv	1972	0.002 MB	2026-05-20 15:54:50
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\PUBLIC_tree_full.txt	20244	0.019 MB	2026-05-20 15:54:50
+FILE	PUBLIC\handoff\PUBLIC_lineage_snapshot_20260520_155450\README.md	444	0.000 MB	2026-05-20 15:54:50
+DIR 	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520		 MB	2026-05-20 15:53:04
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\misnumbered_06_model_artifacts_audit.csv	5455	0.005 MB	2026-05-20 15:53:56
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\PUBLIC_06xy_notebook_relocation_260520.csv	433	0.000 MB	2026-05-20 15:53:04
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\PUBLIC_existing_inventory_before_realignment.csv	52404	0.050 MB	2026-05-20 15:53:56
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\PUBLIC_pipeline_realignment_final_checks.csv	2299	0.002 MB	2026-05-20 15:53:04
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\PUBLIC_pipeline_realignment_zip_inventory.csv	1510	0.001 MB	2026-05-20 15:53:58
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\PUBLIC_pipeline_stage_map_260520.csv	8841	0.008 MB	2026-05-20 15:53:56
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\README.md	2652	0.003 MB	2026-05-20 15:53:56
+FILE	PUBLIC\handoff\PUBLIC_pipeline_realignment_260520\run_realignment_260520.py	32866	0.031 MB	2026-05-20 15:53:56
+DIR 	PUBLIC\handoff\PUBLIC_structure_correction_2_260520		 MB	2026-05-20 16:08:10
+FILE	PUBLIC\handoff\PUBLIC_structure_correction_2_260520\PUBLIC_99_model_selections_manifest.csv	6582	0.006 MB	2026-05-20 16:08:10
+FILE	PUBLIC\handoff\PUBLIC_structure_correction_2_260520\PUBLIC_inventory_before_correction2.csv	56072	0.053 MB	2026-05-20 16:08:10
+FILE	PUBLIC\handoff\PUBLIC_structure_correction_2_260520\PUBLIC_results_model_reference_manifest.csv	3152	0.003 MB	2026-05-20 16:08:10
+FILE	PUBLIC\handoff\PUBLIC_structure_correction_2_260520\PUBLIC_structure_correction_2_final_checks.csv	4056	0.004 MB	2026-05-20 16:10:14
+FILE	PUBLIC\handoff\PUBLIC_structure_correction_2_260520\PUBLIC_structure_correction_2_zip_inventory.csv	1624	0.002 MB	2026-05-20 16:10:14
+FILE	PUBLIC\handoff\PUBLIC_structure_correction_2_260520\README.md	6503	0.006 MB	2026-05-20 16:10:14
+DIR 	PUBLIC\handoff\PUBLIC_structure_snapshot_20260521_175230		 MB	2026-05-21 17:52:30
+FILE	PUBLIC\handoff\PUBLIC_structure_snapshot_20260521_175230\PUBLIC_tree_full.txt	55050	0.052 MB	2026-05-21 17:52:30
+FILE	PUBLIC\note.md	136156	0.130 MB	2026-05-21 17:38:46
+DIR 	PUBLIC\notebooks		 MB	2026-05-21 17:37:39
+DIR 	PUBLIC\notebooks\_archive		 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\notebooks\_archive\misnumbered_06_model_notebooks_260520		 MB	2026-05-20 15:47:58
+DIR 	PUBLIC\notebooks\06_dataset_260520		 MB	2026-05-20 15:52:37
+FILE	PUBLIC\notebooks\06_dataset_260520\06x_dataset_generation_260515.ipynb	49286	0.047 MB	2026-05-20 13:33:51
+FILE	PUBLIC\notebooks\06_dataset_260520\06y_promo_split_260520.ipynb	18001	0.017 MB	2026-05-20 13:34:11
+FILE	PUBLIC\notebooks\06_dataset_260520\README.md	2289	0.002 MB	2026-05-20 16:08:10
+FILE	PUBLIC\notebooks\06z_gb_promo0_logretention_only.ipynb	49630	0.047 MB	2026-05-21 17:37:39
+DIR 	PUBLIC\notebooks\07_feature_mapping_AARRR_260520		 MB	2026-05-20 15:26:44
+FILE	PUBLIC\notebooks\07_feature_mapping_AARRR_260520\README.md	1351	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\08_promotion_nonpromotion_EDA_260520		 MB	2026-05-20 15:26:44
+FILE	PUBLIC\notebooks\08_promotion_nonpromotion_EDA_260520\README.md	1422	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\09_promotion_repurchase_2x2_EDA_260520		 MB	2026-05-20 15:26:44
+FILE	PUBLIC\notebooks\09_promotion_repurchase_2x2_EDA_260520\README.md	1422	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\10_feature_distribution_redundancy_pre_audit_260520		 MB	2026-05-20 15:26:44
+FILE	PUBLIC\notebooks\10_feature_distribution_redundancy_pre_audit_260520\README.md	1445	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\11_baseline_growth_comparison_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\11_baseline_growth_comparison_260520\11_lr_baseline_promo0.ipynb	36581	0.035 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\11_baseline_growth_comparison_260520\11_lr_baseline_promo1.ipynb	36670	0.035 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\11_baseline_growth_comparison_260520\README.md	985	0.001 MB	2026-05-20 17:02:28
+DIR 	PUBLIC\notebooks\12_model_family_comparison_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\12_model_family_comparison_260520\12_gradientboosting_promo0.ipynb	49572	0.047 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\12_model_family_comparison_260520\12_gradientboosting_promo1.ipynb	49695	0.047 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\12_model_family_comparison_260520\README.md	863	0.001 MB	2026-05-20 17:02:28
+DIR 	PUBLIC\notebooks\14_candidate_tuning_260520		 MB	2026-05-20 15:26:44
+FILE	PUBLIC\notebooks\14_candidate_tuning_260520\README.md	1390	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\15_oof_score_or_sensitivity_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\15_oof_score_or_sensitivity_260520\15_four_model_oof_score_generation_260520.ipynb	13765	0.013 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\15_oof_score_or_sensitivity_260520\15_four_model_oof_score_generation_260520_executed.ipynb	25682	0.024 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\15_oof_score_or_sensitivity_260520\15_four_model_oof_score_generation_hotfix_260520.ipynb	1035	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\15_oof_score_or_sensitivity_260520\15_four_model_oof_score_generation_hotfix_260520_executed.ipynb	3572	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\15_oof_score_or_sensitivity_260520\README.md	1393	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\16_SHAP_candidate_interpretation_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\16_SHAP_candidate_interpretation_260520\16_four_model_SHAP_candidate_interpretation_260520.ipynb	1473	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\16_SHAP_candidate_interpretation_260520\16_four_model_SHAP_candidate_interpretation_260520_executed.ipynb	3871	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520.ipynb	1404	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520_executed.ipynb	2240	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\16_SHAP_candidate_interpretation_260520\README.md	1355	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\17_segmentation_design_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_demographic_action_layer_hotfix_260520.ipynb	1468	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_demographic_action_layer_hotfix_260520_executed.ipynb	2637	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_promo_scope_oof_behavior_segmentation_260520.ipynb	1412	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_promo_scope_oof_behavior_segmentation_260520_executed.ipynb	2161	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_promo_scope_oof_behavior_segmentation_hotfix_260520.ipynb	1296	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_promo_scope_oof_behavior_segmentation_hotfix_260520_executed.ipynb	2547	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_segmentation_quality_hotfix_260520.ipynb	1355	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\17_segmentation_quality_hotfix_260520_executed.ipynb	2521	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\17_segmentation_design_260520\README.md	1407	0.001 MB	2026-05-20 16:08:10
+DIR 	PUBLIC\notebooks\18_business_recommendation_storyline_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\18_business_recommendation_storyline_260520\18_business_storyline_and_visual_guide_260520.ipynb	1250	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\18_business_recommendation_storyline_260520\18_business_storyline_and_visual_guide_260520_executed.ipynb	2206	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\18_business_recommendation_storyline_260520\18_business_storyline_polish_hotfix_260520.ipynb	8394	0.008 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\18_business_recommendation_storyline_260520\18_business_storyline_polish_hotfix_260520_executed.ipynb	11946	0.011 MB	2026-05-21 17:37:37
+FILE	PUBLIC\notebooks\18_business_recommendation_storyline_260520\README.md	1475	0.001 MB	2026-05-20 16:08:10
+FILE	PUBLIC\README.md	807	0.001 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\reports		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\reports\audits		 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\reports\audits\06_dataset_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\audits\07_feature_mapping_AARRR_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\audits\10_feature_distribution_redundancy_pre_audit_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\business		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\reports\business\18_business_recommendation_storyline_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_business_storyline_memo.md	22831	0.022 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_canonical_segment_set_for_storyline.csv	2869	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_dashboard_handoff_datamart.csv	3291	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_demographic_action_candidate_selection.csv	22508	0.021 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_presentation_talking_points.md	3799	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_promo1_vs_promo0_storyline_comparison.csv	2693	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_safe_unsafe_wording.csv	1753	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_segment_business_action_matrix.csv	6685	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_segment_visual_guide_v2.html	13571	0.013 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_260520\README.md	1352	0.001 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_business_storyline_memo_hotfix.md	25945	0.025 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_dashboard_handoff_datamart_hotfix.csv	3088	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_demographic_action_candidate_shortlist_hotfix.csv	6030	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_existing_storyline_quality_audit.csv	3281	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_presentation_talking_points_hotfix.md	11452	0.011 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_promo0_comparison_reference_hotfix.csv	2192	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_promo1_main_business_action_matrix_hotfix.csv	3490	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_safe_unsafe_wording_hotfix.csv	2761	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_segment_visual_guide_v2_polished.html	51223	0.049 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_storyline_comparison_clean_hotfix.csv	2167	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\README.md	5776	0.006 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\reports\eda		 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\reports\eda\08_promotion_nonpromotion_EDA_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\eda\09_promotion_repurchase_2x2_EDA_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\reports\figures\08_promotion_nonpromotion_EDA_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\09_promotion_repurchase_2x2_EDA_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\10_feature_distribution_redundancy_pre_audit_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\11_baseline_growth_comparison_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\12_model_family_comparison_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\14_candidate_tuning_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520\16_fig_family_importance_by_scope.png	145161	0.138 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520\16_fig_gb_promo0_top20_shap_bar.png	77047	0.073 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520\16_fig_gb_promo1_top20_shap_bar.png	79413	0.076 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520\16_fig_lr_promo0_top20_coef_bar.png	82501	0.079 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520\16_fig_lr_promo1_top20_coef_bar.png	79089	0.075 MB	2026-05-21 17:37:37
+FILE	PUBLIC\reports\figures\16_SHAP_candidate_interpretation_260520\16_fig_promo1_vs_promo0_family_comparison.png	124440	0.119 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\reports\figures\17_segmentation_design_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\18_business_recommendation_storyline_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\figures\18_business_recommendation_storyline_hotfix_260520		 MB	2026-05-21 17:05:09
+DIR 	PUBLIC\reports\interpretation		 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\reports\interpretation\16_SHAP_candidate_interpretation_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\models		 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\reports\models\11_baseline_growth_comparison_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\models\12_model_family_comparison_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\models\14_candidate_tuning_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\models\15_oof_score_or_sensitivity_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\reports\segmentation		 MB	2026-05-20 15:52:37
+DIR 	PUBLIC\reports\segmentation\17_segmentation_design_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\results		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\_06_log_retention_distribution_eda_260520		 MB	2026-05-20 15:52:37
+FILE	PUBLIC\results\_06_log_retention_distribution_eda_260520\06_fig_01_log_retention_histograms.png	156478	0.149 MB	2026-05-20 13:46:22
+FILE	PUBLIC\results\_06_log_retention_distribution_eda_260520\06_fig_02_log_retention_boxplot_by_dataset.png	52004	0.050 MB	2026-05-20 13:46:22
+FILE	PUBLIC\results\_06_log_retention_distribution_eda_260520\06_fig_03_overall_raw_vs_log_histograms.png	133585	0.127 MB	2026-05-20 13:46:23
+FILE	PUBLIC\results\_06_log_retention_distribution_eda_260520\06_log_retention_baseline_direction_summary.csv	816	0.001 MB	2026-05-20 13:46:23
+FILE	PUBLIC\results\_06_log_retention_distribution_eda_260520\06_log_retention_distribution_summary.csv	3066	0.003 MB	2026-05-20 13:46:21
+FILE	PUBLIC\results\_06_log_retention_distribution_eda_260520\README.md	768	0.001 MB	2026-05-20 15:53:04
+DIR 	PUBLIC\results\_06_model_notebook_prep_260520		 MB	2026-05-20 15:52:37
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_existing_folder_inventory.csv	2819	0.003 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_feature_manifest.csv	10312	0.010 MB	2026-05-20 15:32:10
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_input_validation.csv	826	0.001 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_log_retention_input_inventory.csv	446	0.000 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_log_retention_input_profile.csv	709	0.001 MB	2026-05-20 14:39:46
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_manual_execution_guide.md	1991	0.002 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_model_notebook_prep_final_checks.csv	3911	0.004 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_model_notebook_prep_memo.md	2093	0.002 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_notebook_prep_review_zip_inventory.csv	3099	0.003 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\06_notebook_static_checks.csv	1398	0.001 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\note_tail_PUBLIC_model_notebook_prep_260520.md	7859	0.007 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06_model_notebook_prep_260520\prepare_model_notebooks_260520.py	48736	0.046 MB	2026-05-20 15:53:04
+DIR 	PUBLIC\results\_06x_dataset_generation_260515		 MB	2026-05-20 13:06:57
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_caveat_register.csv	778	0.001 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_cold_start_hotfix_diff_summary.csv	1091	0.001 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_cold_start_hotfix_print_summary.txt	553	0.001 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_cold_start_hotfix_validation.csv	400	0.000 MB	2026-05-20 13:33:47
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_cold_start_mismatch_cause_analysis.csv	1384	0.001 MB	2026-05-20 13:33:47
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_conservative_dataset.csv	4866739	4.641 MB	2026-05-20 13:33:47
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_dataset_comparison_summary.csv	289	0.000 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_dataset_schema_conservative.csv	1527	0.001 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_dataset_schema_expanded.csv	8038	0.008 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_excluded_columns_audit.csv	1392	0.001 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_expanded_dataset.csv	12191995	11.627 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_feature_name_mapping.csv	5490	0.005 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_final_checks.csv	1546	0.001 MB	2026-05-20 15:53:01
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_fixed_feature_validation.csv	868	0.001 MB	2026-05-20 13:33:47
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_model_feature_lists.csv	12902	0.012 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_review_zip_inventory.csv	1809	0.002 MB	2026-05-20 15:53:01
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_row_policy_audit.csv	214	0.000 MB	2026-05-20 13:33:47
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_scope_feature_policy.csv	757	0.001 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\06x_source_master_profile.csv	218	0.000 MB	2026-05-20 13:33:47
+FILE	PUBLIC\results\_06x_dataset_generation_260515\note_tail_copy.md	5795	0.006 MB	2026-05-20 13:33:48
+FILE	PUBLIC\results\_06x_dataset_generation_260515\README.md	1886	0.002 MB	2026-05-20 13:33:48
+DIR 	PUBLIC\results\_06y_promo_split_260520		 MB	2026-05-20 13:19:53
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_expanded_dataset_promo_0.csv	5896640	5.623 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_expanded_dataset_promo_1.csv	6295394	6.004 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_final_checks.csv	860	0.001 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_promo_split_print_summary.txt	220	0.000 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_promo_split_summary.csv	277	0.000 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_review_zip_inventory.csv	865	0.001 MB	2026-05-20 15:53:04
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_schema_check.csv	3804	0.004 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_source_profile.csv	251	0.000 MB	2026-05-20 13:34:08
+FILE	PUBLIC\results\_06y_promo_split_260520\06y_target_distribution_by_split.csv	177	0.000 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\note_tail_copy.md	4639	0.004 MB	2026-05-20 13:34:09
+FILE	PUBLIC\results\_06y_promo_split_260520\README.md	671	0.001 MB	2026-05-20 13:34:09
+DIR 	PUBLIC\results\_current		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0\final_result.csv	1098	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0\SOURCE_POINTER.txt	558	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0\trials_all.csv	14385	0.014 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1\final_result.csv	1130	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1\SOURCE_POINTER.txt	558	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1\trials_all.csv	14408	0.014 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0\final_result.csv	926	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0\SOURCE_POINTER.txt	558	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0\trials_all.csv	11590	0.011 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1\final_result.csv	930	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1\SOURCE_POINTER.txt	558	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1\trials_all.csv	11675	0.011 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo0		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo0\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo0\final_result.csv	926	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo0\trials_all.csv	11590	0.011 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo1		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo1\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo1\final_result.csv	930	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\lr_baseline_promo1\trials_all.csv	11675	0.011 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\11_baseline_growth_comparison_260520\README.md	2645	0.003 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\12_model_family_comparison_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\12_hotfix_summary.md	3360	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\12_is_churn_prevented_policy_correction.csv	1108	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\12_metric_interpretation_correction.csv	2027	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\12_oof_readiness_user_confirmed_update.csv	2531	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\12_split_policy_usernum_correction.csv	3224	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\README.md	3802	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_final_result_metric_summary.csv	2994	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_high_auc_suspicion_audit.csv	2763	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_leakage_proxy_feature_audit.csv	2347	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_log_retention_condition_check.csv	1562	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_oof_readiness_decision.csv	2573	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_scopewise_gb_vs_lr_comparison.csv	1752	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_split_policy_audit.csv	1672	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\12_trials_overfit_stability_summary.csv	1313	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review\README.md	5283	0.005 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_summary		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_summary\12_four_model_comparison_input_manifest.csv	1104	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_summary\12_four_model_metric_preview.csv	1748	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo0		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo0\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo0\final_result.csv	1098	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo0\trials_all.csv	14385	0.014 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo1		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo1\feature_manifest_used.csv	1818	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo1\final_result.csv	1130	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo1\trials_all.csv	14408	0.014 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\12_model_family_comparison_260520\README.md	1933	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\14_candidate_tuning_260520		 MB	2026-05-20 15:26:44
+DIR 	PUBLIC\results\15_oof_score_or_sensitivity_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_gb_lr_high_risk_overlap.csv	1456	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_model_config_extraction.csv	1679	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_feature_policy_check.csv	985	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_fold_distribution_check.csv	2968	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_metric_summary.csv	1235	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_readiness_for_shap_segmentation.csv	2227	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_long.csv	13852127	13.210 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide.csv	6227550	5.939 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide_promo0.csv	3019403	2.880 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide_promo1.csv	3208441	3.060 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_split_policy_check.csv	884	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\README.md	3948	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_gb_lr_high_risk_overlap.csv	280	0.000 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_model_config_extraction.csv	1708	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_feature_policy_check.csv	930	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_fold_distribution_check.csv	1271	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_metric_summary.csv	968	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_readiness_for_shap_segmentation.csv	445	0.000 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_score_long.csv	8258221	7.876 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_score_wide_promo0.csv	1964936	1.874 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_score_wide_promo1.csv	2089906	1.993 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_split_policy_check.csv	1260	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\README.md	3869	0.004 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\16_SHAP_candidate_interpretation_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_family_importance_before_after_comparison.csv	9244	0.009 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_family_interpretation_handoff_for_17.csv	3689	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_family_mapping_change_log.csv	5528	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_feature_family_mapping_hotfix.csv	19822	0.019 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_promo1_vs_promo0_shap_comparison_hotfix.csv	49574	0.047 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_shap_family_importance_hotfix.csv	9239	0.009 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_shap_global_importance_with_hotfix_family.csv	66192	0.063 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\16b_technical_unknown_inventory.csv	3465	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\16b_feature_family_mapping_hotfix_260520\README.md	3109	0.003 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_demographic_context_audit_for_shap.csv	3795	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_feature_family_mapping_for_shap.csv	12628	0.012 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_is_churn_prevented_interpretation_audit.csv	1520	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_lr_coefficient_summary.csv	39910	0.038 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_model_config_and_feature_manifest.csv	2505	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_promo1_vs_promo0_shap_comparison.csv	48296	0.046 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_readiness_for_segmentation.csv	1850	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_direction_summary.csv	80526	0.077 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_execution_plan.csv	553	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_family_importance.csv	6515	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_feature_policy_check.csv	917	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\16_shap_global_importance.csv	48469	0.046 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\16_SHAP_candidate_interpretation_260520\four_model_shap_interpretation\README.md	3700	0.004 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\17_segmentation_design_260520		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments		 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_age_gender_behavior_profile_skipped_features.csv	3096	0.003 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_age_group_audit.csv	2571	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_demographic_hotfix_summary.csv	1301	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_demographic_source_column_audit.csv	7240	0.007 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_gender_derivation_audit.csv	421	0.000 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_readiness_for_18_business_storyline_demographic_hotfix.csv	1421	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_representative_segment_size_policy_before_after_demographic_hotfix.csv	5212	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_segment_action_personalization_matrix_demographic_hotfix.csv	32674	0.031 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_segment_age_behavior_profile_demographic_hotfix.csv	777495	0.741 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_segment_age_gender_behavior_profile_demographic_hotfix.csv	1192264	1.137 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_segment_demographic_profile_demographic_hotfix.csv	42801	0.041 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_segment_gender_behavior_profile_demographic_hotfix.csv	310625	0.296 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\17_segment_rationale_demographic_action_supplement.md	15084	0.014 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_demographic_hotfix_260520\README.md	1725	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520		 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_content_preference_signal_audit.csv	3758	0.004 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_hotfix_revalidation_passes.csv	1729	0.002 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_other_needs_review_decomposition.csv	6457	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_readiness_for_18_business_storyline_hotfix.csv	1116	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_representative_segment_assignment_hotfix.csv	3062152	2.920 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_representative_segment_rules_hotfix.csv	5143	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_action_personalization_matrix_hotfix.csv	6812	0.006 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_age_gender_behavior_profile_hotfix.csv	202	0.000 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_assignment_before_after_comparison.csv	2539	0.002 MB	2026-05-21 14:02:44
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_business_action_candidates_hotfix.csv	6382	0.006 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_caveat_and_rejected_alternatives_hotfix.md	1127	0.001 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_demographic_profile_hotfix.csv	2681	0.003 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_feature_profile_hotfix.csv	4557	0.004 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_rationale_evidence_table_hotfix.csv	22025	0.021 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_rationale_memo_for_executives_hotfix.md	28025	0.027 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_SHAP_family_evidence_link_hotfix.csv	13036	0.012 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_summary_hotfix.csv	6924	0.007 MB	2026-05-21 14:02:45
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\README.md	1919	0.002 MB	2026-05-21 14:02:45
+DIR 	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520		 MB	2026-05-21 15:07:53
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_other_needs_review_decomposition_quality_hotfix.csv	4463	0.004 MB	2026-05-21 15:09:19
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_promo1_vs_promo0_segment_differential_analysis.csv	3506	0.003 MB	2026-05-21 15:09:19
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_quality_revalidation_passes.csv	7380	0.007 MB	2026-05-21 15:09:19
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_readiness_for_18_quality_hotfix.csv	1931	0.002 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_revised_representative_segment_proposal.csv	6077	0.006 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_revised_segment_assignment_simulation.csv	6056881	5.776 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_revised_segment_demographic_action_bridge.csv	3800	0.004 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_revised_segment_summary_simulation.csv	4778	0.005 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_segment_quality_audit.csv	8998	0.009 MB	2026-05-21 15:09:19
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_segment_quality_hotfix_evidence_table.csv	17581	0.017 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_segment_quality_hotfix_rationale_memo_for_executives.md	21283	0.020 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_small_segment_merge_policy.csv	5015	0.005 MB	2026-05-21 15:09:19
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\README.md	2243	0.002 MB	2026-05-21 15:09:20
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_base_datamart_validation.csv	389	0.000 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_internal_multiflag_assignment.csv	2917446	2.782 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_internal_multiflag_definitions.csv	8585	0.008 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_readiness_for_18_business_storyline.csv	1187	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_representative_segment_assignment.csv	4123234	3.932 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_representative_segment_rules.csv	4820	0.005 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_action_personalization_matrix.csv	6934	0.007 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_age_gender_behavior_profile.csv	260357	0.248 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_business_action_candidates.csv	6676	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_caveat_and_rejected_alternatives.md	1136	0.001 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_demographic_profile.csv	42906	0.041 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_feature_profile.csv	296215	0.282 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_rationale_evidence_table.csv	22007	0.021 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_rationale_memo_for_executives.md	7929	0.008 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_SHAP_family_evidence_link.csv	11214	0.011 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segment_summary.csv	6784	0.006 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segmentation_base_datamart.csv	15754590	15.025 MB	2026-05-21 17:37:37
+FILE	PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\README.md	2415	0.002 MB	2026-05-21 17:37:37
+DIR 	PUBLIC\zip		 MB	2026-05-21 17:30:00
+FILE	PUBLIC\zip\_06x_dataset_generation_260515_review_package.zip	6831724	6.515 MB	2026-05-20 13:33:50
+FILE	PUBLIC\zip\_06y_promo_split_260520_review_package.zip	4425907	4.221 MB	2026-05-20 13:34:10
+FILE	PUBLIC\zip\PUBLIC_11_12_emergency_model_restructure_260520_review_package.zip	79789	0.076 MB	2026-05-20 17:02:28
+FILE	PUBLIC\zip\PUBLIC_12_four_model_comparison_review_260520_review_package.zip	56245	0.054 MB	2026-05-20 17:57:45
+FILE	PUBLIC\zip\PUBLIC_12_review_hotfix_user_confirmed_260520_review_package.zip	37388	0.036 MB	2026-05-20 19:51:20
+FILE	PUBLIC\zip\PUBLIC_12_review_hotfix_user_confirmed_patch_260520_review_package.zip	35248	0.034 MB	2026-05-20 20:16:04
+FILE	PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip	10427	0.010 MB	2026-05-20 20:55:42
+FILE	PUBLIC\zip\PUBLIC_15_oof_score_hotfix_260520_review_package.zip	11713238	11.171 MB	2026-05-20 21:30:23
+FILE	PUBLIC\zip\PUBLIC_16_four_model_SHAP_candidate_interpretation_260520_review_package.zip	609245	0.581 MB	2026-05-20 22:00:23
+FILE	PUBLIC\zip\PUBLIC_16b_feature_family_mapping_hotfix_260520_review_package.zip	80318	0.077 MB	2026-05-20 22:19:41
+FILE	PUBLIC\zip\PUBLIC_16b_feature_family_mapping_hotfix_acceptance_patch_260520_review_package.zip	56056	0.053 MB	2026-05-20 22:43:29
+FILE	PUBLIC\zip\PUBLIC_17_demographic_action_layer_hotfix_260520_review_package.zip	181009	0.173 MB	2026-05-21 15:59:46
+FILE	PUBLIC\zip\PUBLIC_17_promo_scope_oof_behavior_segmentation_260520_review_package.zip	7842323	7.479 MB	2026-05-21 12:57:25
+FILE	PUBLIC\zip\PUBLIC_17_segmentation_quality_hotfix_260520_review_package.zip	719040	0.686 MB	2026-05-21 15:09:21
+FILE	PUBLIC\zip\PUBLIC_17_segmentation_semantic_hotfix_260520_review_package.zip	658619	0.628 MB	2026-05-21 14:03:27
+FILE	PUBLIC\zip\PUBLIC_18_business_storyline_260520_review_package.zip	79372	0.076 MB	2026-05-21 16:38:23
+FILE	PUBLIC\zip\PUBLIC_18_business_storyline_polish_hotfix_260520_review_package.zip	53574	0.051 MB	2026-05-21 17:30:00
