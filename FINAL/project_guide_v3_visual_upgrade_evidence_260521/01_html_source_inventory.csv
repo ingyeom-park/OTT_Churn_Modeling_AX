@@ -1,0 +1,7 @@
+﻿html_file,title,purpose,section_count,canvas_count,image_count,external_script_count,uses_chartjs,uses_png_assets,has_dark_mode,has_sidebar,has_table_wrap,reusable_level,main_risk
+park.ingyeom/aarrr_visual_guide.html,AARRR 심층 분석 — 100원딜 OTT 이탈 예측,AARRR stages and Chart.js structure,14,14,0,1,yes,no,yes,yes,no,high,structure reference only; legacy text/numbers must be rewritten to final basis
+park.ingyeom/project_guide_v2.html,100원딜 OTT 이탈 분석 — 프로젝트 해설서 v2,Project guide v2 layout and warnings,13,19,0,1,yes,no,yes,yes,no,medium,structure reference only; legacy text/numbers must be rewritten to final basis
+park.ingyeom/segment_visual_guide.html,17x 세그먼트 시각화 전문 해설서,17x segment triage and charts,16,19,0,1,yes,no,yes,yes,no,high,structure reference only; legacy text/numbers must be rewritten to final basis
+park.ingyeom/shap_visual_guide.html,16x SHAP 시각화 전문 해설서,16x SHAP PNG and wording structure,8,0,17,0,no,yes,yes,no,no,high,structure reference only; legacy text/numbers must be rewritten to final basis
+FINAL/project_guide_v3.html,MISSING,Expected current final v3 HTML,0,0,0,0,no,no,no,no,no,none,current final v3 HTML not found in repo
+park.ingyeom/project_guide.html,100원딜 OTT 이탈 분석 — 프로젝트 해설서,"Discovered guide fallback, not final v3",13,7,0,1,yes,no,yes,yes,no,medium,structure reference only; legacy text/numbers must be rewritten to final basis
