@@ -125,9 +125,9 @@ ACTION_MAP = {
 # ==========================================
 # 2. 데이터 로드 및 캐싱
 # ==========================================
-DATA_FILE         = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Membership_v4_clustered.csv')
+DATA_FILE         = os.path.join(os.path.dirname(os.path.abspath(__file__)), '데이터', 'Membership_v4_churn_clustered.csv')
 DATA_FILE_ALL     = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Membership_v4.csv')
-DATA_FILE_DERIVED = os.path.join(os.path.dirname(os.path.abspath(__file__)), '260513_derived_membership.csv')
+DATA_FILE_DERIVED = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'kim.kwangil', 'derived_variable', '260513_derived_membership.csv')
 
 @st.cache_data
 def load_data():
