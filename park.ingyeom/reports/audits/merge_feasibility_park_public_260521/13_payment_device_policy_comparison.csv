@@ -1,0 +1,8 @@
+﻿feature_name,park_present_any_feature_inventory,park_present_expanded_no_payment_device,PUBLIC_present_any_feature_inventory,evidence_note
+payment_is_mobile,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.
+payment_is_pc,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.
+payment_is_android,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.
+payment_is_ios,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.
+USER_KEY,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.
+is_repurchase,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.
+is_promotion,True,False,True,Presence means found in feature inventory files only. It is not a new policy decision.

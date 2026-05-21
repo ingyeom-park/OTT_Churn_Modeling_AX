@@ -1,0 +1,13 @@
+﻿content_item,required,evidence_file,guide_section_candidate,risk_if_missing,status
+데이터셋 lineage,yes,dataset_lineage_summary.csv,Data Lineage,row count and exclusion confusion,created
+전처리 정책,yes,preprocessing_policy_summary.md,Preprocessing Policy,duration/window/target confusion,created
+feature contract,yes,column_feature_contract_summary.csv,Feature Contract,feature misuse and leakage claims,created
+AARRR 설계,yes,AARRR_design_summary.md,AARRR Design,framework looks arbitrary,created
+stage 07~18 timeline,yes,stage_07_to_18_timeline.csv,Pipeline Timeline,stage purpose confusion,created
+score source,yes,model_and_score_source_summary.md,Model and Score Source,CatBoost/GB/LightGBM confusion,created
+segmentation,yes,segmentation_basis_summary.md,Segmentation Basis,segment labels over-claimed,created
+100원딜 narrative,yes,final_note.md; PUBLIC 18 hotfix memo reference,Business Narrative,causal promotion claim risk,evidence_identified
+age/gender personalization,yes,08_segment_business_action_matrix.csv,Action Personalization,demographic causal claim risk,evidence_identified
+PUBLIC reference branch,yes,10_PUBLIC_reference_branch_policy.md,Reference Branch Policy,PUBLIC numeric score merged as final,evidence_identified
+safe/unsafe wording,yes,09_safe_unsafe_wording_final.csv; 18x_safe_unsafe_wording.csv,Safe Wording,unsafe causal or customer-count language,evidence_identified
+멘토 Q&A,yes,18x_mentor_QA_defense.csv,Mentor Q&A,presentation defense gaps,evidence_identified

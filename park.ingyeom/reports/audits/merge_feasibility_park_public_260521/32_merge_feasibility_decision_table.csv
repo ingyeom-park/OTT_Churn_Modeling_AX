@@ -1,0 +1,9 @@
+﻿question,evidence_based_answer,evidence_file,blocking_status
+최종 파이프라인 뼈대를 park.ingyeom으로 둘 수 있는가?,feasible_for_review_but_user_decision_required,32_merge_feasibility_decision_table.csv; 01_inventory_park.csv,not_blocking_by_inventory_alone
+PUBLIC을 canonical으로 삼아야 할 파일이 있는가?,not_determined_by_this_package,28_segment_merge_candidate_table.csv; 31_business_storyline_merge_candidate_table.csv,requires_user_decision
+"PUBLIC에서 가져올 수 있는 것은 narrative인가, segment rule인가, action matrix인가, visual guide인가?",narrative_visual_guide_action_matrix_as_reference_are_candidates; segment_rule_requires_conflict_review,28_segment_merge_candidate_table.csv; 31_business_storyline_merge_candidate_table.csv,partial_non_blocking
+park.ingyeom과 PUBLIC의 row count 차이는 병합을 막는 blocking issue인가?,park_23079_confirmed=True; PUBLIC_23097_confirmed=True; do_not_infer_cause,07_dataset_row_column_comparison.csv; 09_promotion_split_count_comparison.csv,review_required
+모델 score source가 다른 문제는 어떻게 처리해야 하는가?,keep_score_sources_separate_and_label_PUBLIC_as_sensitivity_or_reference_until_user_decision,19_score_source_comparison.csv; 20_oof_score_source_comparison.csv,blocking_for_numeric_merge
+"CatBoost note 누락은 단순 기록 누락인가, 결과 계보 불명확성인가?",see_catboost_audit; classify_as_lineage_review_required_if_file_note_mismatch_exists,18_catboost_rerun_missing_note_audit.csv,review_required
+최종 HTML/dashboard/report에서 어느 쪽 수치를 써야 하는가?,not_decided; package recommends explicit basis labeling and no cross-source numeric mixing,33_recommended_merge_strategy.md,requires_user_decision
+PUBLIC 산출물을 sensitivity/reference로 둘 경우 발표에 어떻게 설명할 수 있는가?,present_PUBLIC_as_100won_promo_split_reference_not_canonical_numeric_basis,33_recommended_merge_strategy.md,non_blocking_if_labeled

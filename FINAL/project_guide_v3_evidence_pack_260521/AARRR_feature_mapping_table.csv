@@ -1,0 +1,103 @@
+﻿AARRR_stage,feature_name,feature_family,conservative_safe_22,expanded_feature_set,final_interpretation,guide_v3_use,caveat
+Retention,avg_gap_w1_watch_days,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,avg_gap_w2_watch_days,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,avg_gap_w3_watch_days,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,diff_between_w2_w1,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,diff_between_w3_w1,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,diff_between_w3_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Activation,is_cold_start_3d_fixed,onboarding_cold_start_fixed,yes,yes,fixed replacement used,main_table,Fixed cold_start feature generated from row-level first watch timing; original cold_start fields are not model features.
+Activation,is_cold_start_7d_fixed,onboarding_cold_start_fixed,yes,yes,fixed replacement used,main_table,Fixed cold_start feature generated from row-level first watch timing; original cold_start fields are not model features.
+Activation,is_only_w1,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,is_only_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,is_only_w3,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Activation,is_w1_over_50pct,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,is_w2_over_50pct,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,is_w3_over_50pct,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,retention_w2_ratio,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,retention_w3_ratio,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Activation,watch_session_w1,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,watch_session_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,watch_session_w3,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Activation,watch_time_min_w1,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,watch_time_min_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,watch_time_min_w3,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention_context,action_adventure_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention,active_ratio,usage_retention_behavior,no,yes,Retention feature,main_table,
+Needs_user_review,age_group,profile_context_needs_review,no,yes,Name alone does not prove an AARRR stage; left for user review.,main_table,
+Retention,avg_daily_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,avg_gap_between_watch_days,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,avg_gap_w1_watch_days,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,avg_gap_w2_watch_days,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,avg_gap_w3_watch_days,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention_context,avg_ott_release_year,content_preference_context,no,yes,Retention_context feature,main_table,
+Retention,avg_rewatch_ratio,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,avg_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention_context,comedy_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention,day_count_over_3times,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,diff_between_w2_w1,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,diff_between_w3_w1,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,diff_between_w3_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention_context,documentary_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention_context,drama_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention_context,family_animation_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention_context,genre_diversity_count,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention_context,historical_war_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention_context,horror_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Acquisition_context,is_basic,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Retention_context,is_churn_prevented,historical_churn_prevention_context,no,yes,expanded context/history feature,main_table,Historical ever-benefited churn prevention flag; do not interpret as current-cycle outcome.
+Activation,is_cold_start_3d_fixed,onboarding_cold_start_fixed,yes,yes,fixed replacement used,main_table,Fixed cold_start feature generated from row-level first watch timing; original cold_start fields are not model features.
+Activation,is_cold_start_7d_fixed,onboarding_cold_start_fixed,yes,yes,fixed replacement used,main_table,Fixed cold_start feature generated from row-level first watch timing; original cold_start fields are not model features.
+Needs_user_review,is_female,profile_context_needs_review,no,yes,Name alone does not prove an AARRR stage; left for user review.,main_table,
+Needs_user_review,is_male,profile_context_needs_review,no,yes,Name alone does not prove an AARRR stage; left for user review.,main_table,
+Activation,is_only_w1,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,is_only_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,is_only_w3,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Acquisition_context,is_premium,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,is_standard,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Needs_user_review,is_user_verified,profile_context_needs_review,no,yes,Name alone does not prove an AARRR stage; left for user review.,main_table,
+Activation,is_w1_over_50pct,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,is_w2_over_50pct,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,is_w3_over_50pct,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,max_daily_sessions,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,max_daily_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,max_day_share,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,max_inactive_gap_days,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,max_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,median_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,movie_per_active_day,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention_context,new_movie_in_180d_ratio,content_preference_context,no,yes,Retention_context feature,main_table,
+Retention_context,new_movie_in_365d_ratio,content_preference_context,no,yes,Retention_context feature,main_table,
+Retention_context,new_movie_in_90d_ratio,content_preference_context,no,yes,Retention_context feature,main_table,
+Retention_context,old_movie_ratio_5y,content_preference_context,no,yes,Retention_context feature,main_table,Use Kwangil master value as-is; raw Movie_Master reconstruction has 9-row mismatch caveat.
+Retention_context,other_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Acquisition_context,payment_is_android,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,payment_is_ios,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,payment_is_mobile,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,payment_is_pc,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Retention,recency,usage_retention_behavior,no,yes,Retention feature,main_table,
+Acquisition_context,reg_hour_afternoon,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,reg_hour_evening,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,reg_hour_morning,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,reg_hour_night,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Acquisition_context,reg_is_weekend,membership_context,no,yes,Context feature only; not a causal acquisition measurement.,main_table,
+Retention,retention_w2_ratio,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,retention_w3_ratio,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention_context,romance_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention_context,sf_fantasy_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention,std_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention_context,thriller_crime_ratio,content_preference_context,no,yes,Retention_context feature,main_table,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+Retention,total_watch_count,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,total_watch_time_min,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,unique_movie,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,watch_days,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,watch_per_day,usage_retention_behavior,no,yes,Retention feature,main_table,
+Retention,watch_ratio_under_1m,usage_retention_behavior,no,yes,Retention feature,main_table,Official dictionary uses <= 1 minute and <= 5 minutes thresholds.
+Retention,watch_ratio_under_5m,usage_retention_behavior,no,yes,Retention feature,main_table,Official dictionary uses <= 1 minute and <= 5 minutes thresholds.
+Activation,watch_session_w1,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,watch_session_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,watch_session_w3,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Activation,watch_time_min_w1,early_week1_watch_behavior,yes,yes,Activation feature,main_table,
+Retention,watch_time_min_w2,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,watch_time_min_w3,usage_retention_behavior,yes,yes,Retention feature,main_table,
+Retention,weekend_watch_ratio,usage_retention_behavior,no,yes,Retention feature,main_table,
+Acquisition,is_promotion,acquisition_split_key,no,yes,split key and scope-conditional feature,main_table,"Allowed as a feature only for overall_with_promotion; excluded for overall_without_promotion, promotion_only, and nonpromotion_only."

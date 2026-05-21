@@ -1,0 +1,38 @@
+﻿column_name,original_role,final_role,feature_family,conservative_safe_22_included,expanded_feature_set_included,expanded_no_payment_device_included,model_feature_allowed,reason,caveat
+USER_KEY,identifier,group_key/audit_only,identifier,no,no,no,no,USER_KEY is retained as group key and audit key; not a model feature.,USER_KEY duplicates exist; do not call row count unique users.
+is_repurchase,target,target,target,no,no,no,no,Positive class is repurchase; churn_risk is derived as 1 - repurchase_score.,Do not rename target to churn.
+is_promotion,promotion split,overall_with_promotion_feature_and_scope_variable,Acquisition,no,yes,yes,yes,100원딜 context and top-level split variable.,Do not interpret promotion as causal effect.
+payment_is_mobile,derived payment context,excluded_from_expanded_no_payment_device,payment_device_proxy,no,yes,no,no,Payment-device variables are removed from no-payment runtime matrix due interpretation risk.,Payment device is not viewing device.
+payment_is_pc,derived payment context,excluded_from_expanded_no_payment_device,payment_device_proxy,no,yes,no,no,Payment-device variables are removed from no-payment runtime matrix due interpretation risk.,Payment device is not viewing device.
+payment_is_android,derived payment context,excluded_from_expanded_no_payment_device,payment_device_proxy,no,yes,no,no,Payment-device variables are removed from no-payment runtime matrix due interpretation risk.,Payment device is not viewing device.
+payment_is_ios,derived payment context,excluded_from_expanded_no_payment_device,payment_device_proxy,no,yes,no,no,Payment-device variables are removed from no-payment runtime matrix due interpretation risk.,Payment device is not viewing device.
+is_churn_prevented,feature,model_feature,historical_churn_prevention_context,no,yes,yes,yes,expanded context/history feature,Historical ever-benefited churn prevention flag; do not interpret as current-cycle outcome.
+age_group,derived demographic,expanded_feature_and_action_layer,demographic_context,no,yes,yes,yes,"Allowed in expanded feature set but final guide should use as personalization layer, not cause.",Do not claim age/gender causes churn.
+is_female,derived demographic,expanded_feature_and_action_layer,demographic_context,no,yes,yes,yes,"Allowed in expanded feature set but final guide should use as personalization layer, not cause.",Do not claim age/gender causes churn.
+is_male,derived demographic,expanded_feature_and_action_layer,demographic_context,no,yes,yes,yes,"Allowed in expanded feature set but final guide should use as personalization layer, not cause.",Do not claim age/gender causes churn.
+is_user_verified,feature,model_feature,profile_context_needs_review,no,yes,yes,yes,Name alone does not prove an AARRR stage; left for user review.,
+is_cold_start_3d_fixed,feature,model_feature,onboarding_cold_start_fixed,yes,yes,yes,yes,fixed replacement used,Fixed cold_start feature generated from row-level first watch timing; original cold_start fields are not model features.
+is_cold_start_7d_fixed,feature,model_feature,onboarding_cold_start_fixed,yes,yes,yes,yes,fixed replacement used,Fixed cold_start feature generated from row-level first watch timing; original cold_start fields are not model features.
+retention_w2_ratio,feature,model_feature,usage_retention_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+retention_w3_ratio,feature,model_feature,usage_retention_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+recency,feature,model_feature,usage_retention_behavior,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+watch_time_min_w1,feature,model_feature,early_week1_watch_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+watch_time_min_w2,feature,model_feature,usage_retention_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+watch_time_min_w3,feature,model_feature,usage_retention_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+watch_session_w1,feature,model_feature,early_week1_watch_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+watch_session_w2,feature,model_feature,usage_retention_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+watch_session_w3,feature,model_feature,usage_retention_behavior,yes,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+action_adventure_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+family_animation_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+drama_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+thriller_crime_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+sf_fantasy_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+comedy_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+romance_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+horror_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+documentary_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+historical_war_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+other_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+genre_diversity_count,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Movie_Master can have multiple category records for the same MOVIE_NUM; genre features require caveat handoff.
+new_movie_in_365d_ratio,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,
+old_movie_ratio_5y,feature,model_feature,content_preference_context,no,yes,yes,yes,Mapped in 07x AARRR feature mapping.,Use Kwangil master value as-is; raw Movie_Master reconstruction has 9-row mismatch caveat.

@@ -1,0 +1,21 @@
+﻿check_item,result,interpretation,risk_level,recommendation
+actual_rule_expression,base['flag_high_risk_top20'].eq(0) & base['flag_low_activity'].eq(0) & (base['flag_genre_focused'].eq(1) | base['flag_new_movie_oriented'].eq(1) | base['flag_old_movie_oriented'].eq(1)),17x notebook의 실제 condition이다. 고위험 top20과 저활동을 제외한 뒤 content proxy OR 조건을 적용한다.,medium,rule 자체는 유지하되 label은 약화한다.
+used_content_proxy_flags,"flag_genre_focused, flag_new_movie_oriented, flag_old_movie_oriented","세 content flag는 장르 집중도, 신작 지향, 구작 지향 proxy다.",medium,취향 확정이 아니라 content-context cue로 표현한다.
+flag_genre_focused_overall_row_count,5773,"전체 23,079행 중 25.0%에서 flag가 켜졌다.",medium,전체 prevalence가 높으면 broad marker로 해석한다.
+flag_genre_focused_inside_segment_row_count,1211,"content segment 6,195행 중 19.5%에서 flag가 켜졌다.",medium,segment 내부 구성 설명으로만 사용한다.
+flag_new_movie_oriented_overall_row_count,5988,"전체 23,079행 중 25.9%에서 flag가 켜졌다.",medium,전체 prevalence가 높으면 broad marker로 해석한다.
+flag_new_movie_oriented_inside_segment_row_count,2563,"content segment 6,195행 중 41.4%에서 flag가 켜졌다.",medium,segment 내부 구성 설명으로만 사용한다.
+flag_old_movie_oriented_overall_row_count,5775,"전체 23,079행 중 25.0%에서 flag가 켜졌다.",medium,전체 prevalence가 높으면 broad marker로 해석한다.
+flag_old_movie_oriented_inside_segment_row_count,3109,"content segment 6,195행 중 50.2%에서 flag가 켜졌다.",medium,segment 내부 구성 설명으로만 사용한다.
+any_content_proxy_overall_share,62.4%,전체에서 세 content proxy 중 하나라도 켜진 비중이다.,high_if_used_as_target,broad marker 가능성을 명시한다.
+segment_row_count_and_share,"6,195 rows, 26.8%",대표 segment 중 26.8%로 작지 않다. niche preference segment라고 말하기에는 넓다.,high_label_overstatement_risk,main target보다는 action cue layer로 낮춘다.
+flag_genre_focused_share_inside_segment,19.5%,장르 집중 flag는 content segment 내부에서도 20% 미만이다.,high,콘텐츠 취향이 모두 뚜렷하다고 말하지 않는다.
+flag_new_movie_oriented_share_inside_segment,41.4%,신작 지향 proxy는 내부 약 41%다.,medium,신작 추천 cue 후보로만 둔다.
+flag_old_movie_oriented_share_inside_segment,50.2%,구작 지향 proxy는 내부 약 50%다.,medium,구작 또는 라이브러리 추천 cue 후보로만 둔다.
+promo1_share,48.5%,promo1 비중은 전체 promo1 비중보다 약간 낮다.,low,100원딜 핵심 story segment로 과장하지 않는다.
+churn_rate,10.1%,전체 churn 28.3%보다 낮다.,high_if_called_churn_target,이탈 타겟보다 유지 또는 큐레이션 action layer로 해석한다.
+mean_churn_risk,0.095,전체 mean churn_risk 0.279보다 낮다.,high_if_called_churn_target,churn-risk 핵심군으로 쓰지 않는다.
+target_differentiation,repurchase_rate 89.9% vs overall 71.7%,target 차별성은 이탈 고위험이 아니라 재구매율이 높은 방향이다.,high_label_overstatement_risk,target_candidate 표현을 약화한다.
+similarity_to_PUBLIC_content_signal_issue,"similar caution, not identical input",PUBLIC에서 broad content signal을 강등했던 문제와 같은 방향의 label risk가 있다. 17x는 세 proxy flag OR라 완전히 동일하지 않지만 넓은 content-context marker라는 주의가 필요하다.,high,PUBLIC의 narrative 교훈만 참고하고 park 17x assignment는 유지한다.
+use_as_main_presentation_segment,not recommended as core churn target,발표에서는 핵심 이탈 방어 segment보다 추천 또는 큐레이션 action layer로 낮추는 편이 안전하다.,high,이름 약화 또는 강등을 추천한다.
+stable_overlap_inside_segment,19.2%,stable flag가 content segment보다 후순위라 일부 안정 성격 row도 content로 먼저 배정된다.,medium,priority rule 결과임을 설명한다.

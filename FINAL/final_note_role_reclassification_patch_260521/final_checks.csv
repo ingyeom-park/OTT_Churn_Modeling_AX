@@ -1,0 +1,11 @@
+﻿check_item,status,detail
+final_note updated,PASS,FINAL/final_note.md sha256 changed as expected.
+section inserted at intended location,PASS,occurrences=1
+no source CSV modified,PASS,No CSV source file was written; guarded CSV fingerprints are unchanged where included.
+no park.ingyeom artifact modified,PASS,Guarded park.ingyeom source fingerprints unchanged.
+no PUBLIC artifact modified,PASS,Guarded PUBLIC source fingerprints unchanged.
+no notebook modified,PASS,Guarded notebook fingerprint unchanged.
+no model rerun,PASS,Document-only patch; no modeling command executed.
+no SHAP rerun,PASS,Document-only patch; no SHAP command executed.
+no segmentation rerun,PASS,Document-only patch; no assignment or rule generation executed.
+review zip created,PASS,zip_size=9972
