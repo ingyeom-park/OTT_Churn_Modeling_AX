@@ -1,0 +1,24 @@
+﻿side,stage_label,found_in_note,match_count,line_number,latest_matching_line
+park,05x,True,9,1597,- review_zip: C:\Code\ott-churn-prediction\park.ingyeom\zip\05x_feature_contract_rebuild_patch_260515_review_package.zip
+park,05y,True,11,1860,"07x 검수에서 05y expanded 80개, 06x expanded dataset 80개, 07x expanded mapping 80개가 서로 일치하는 것을 확인했다.  "
+park,06x,True,54,3379,"새 16x_SHAP_candidate_interpretation_260516을 payment 제거 기준으로 재실행했다. 새 SHAP input에서는 `payment_is_mobile`, `payment_is_pc`, `payment_is_android`, `payment_is_ios` 네 개만 제거했고, 사용자 승인 없는 다른 feature 제거는 수행하지 않았다. 06x expanded dataset 원본, 07x mapping, 10x redundancy audit, 12x model comparison, 14x tuning, 15x sensitivity 산출물은 읽기 전용으로만 사용했다."
+park,07x,True,36,3436,"- 07x Needs_user_review 4개를 `age_group`, `is_female`, `is_male`, `is_user_verified`로 정정했다."
+park,08x,True,22,2486,"현재까지의 08x/09x 흐름에서 Retention은 매우 중요한 신호로 보인다. 특히 promotion × repurchase 2x2 EDA에서 재구매/미재구매 내부 차이는 3주차 사용량, 3주차 세션, recency, gap 계열에서 강하게 관찰되었다."
+park,09x,True,11,2486,"현재까지의 08x/09x 흐름에서 Retention은 매우 중요한 신호로 보인다. 특히 promotion × repurchase 2x2 EDA에서 재구매/미재구매 내부 차이는 3주차 사용량, 3주차 세션, recency, gap 계열에서 강하게 관찰되었다."
+park,10x,True,30,3379,"새 16x_SHAP_candidate_interpretation_260516을 payment 제거 기준으로 재실행했다. 새 SHAP input에서는 `payment_is_mobile`, `payment_is_pc`, `payment_is_android`, `payment_is_ios` 네 개만 제거했고, 사용자 승인 없는 다른 feature 제거는 수행하지 않았다. 06x expanded dataset 원본, 07x mapping, 10x redundancy audit, 12x model comparison, 14x tuning, 15x sensitivity 산출물은 읽기 전용으로만 사용했다."
+park,11x,True,28,3354,"- 06x, 07x, 10x, 11x, 12x, 14x, 15x 산출물은 수정하지 않았다."
+park,12x,True,28,3379,"새 16x_SHAP_candidate_interpretation_260516을 payment 제거 기준으로 재실행했다. 새 SHAP input에서는 `payment_is_mobile`, `payment_is_pc`, `payment_is_android`, `payment_is_ios` 네 개만 제거했고, 사용자 승인 없는 다른 feature 제거는 수행하지 않았다. 06x expanded dataset 원본, 07x mapping, 10x redundancy audit, 12x model comparison, 14x tuning, 15x sensitivity 산출물은 읽기 전용으로만 사용했다."
+park,14x,True,14,3439,- 14x `expanded_feature_set` Optuna 후보 결과와 15x `expanded_no_payment_device` sensitivity 결과를 분리했다.
+park,15x,True,47,3446,"- `payment_is_*` 제거 이유를 결론 수준으로 보강했다. 결제기기와 시청기기가 다르며, 결제자와 실제 시청자가 다를 수 있고, 15x sensitivity에서 성능 손실이 near-neutral 수준이었다는 점을 명시했다."
+park,16x payment-removed SHAP,True,124,3447,"- 18x safe/unsafe wording과 멘토 방어 QA를 추가했다. 기존 row 단위 반복을 늘리지 않고 score source, payment proxy, SHAP, threshold, 제언 정책화 리스크 중심으로 구성했다."
+park,17x segmentation,True,77,3445,"- score source 선택 이유를 추가했다. 17x 세그먼트 점수는 15x `expanded_no_payment_device` / `overall_with_promotion` / `LightGBM` OOF 진단 점수를 사용했고, 이는 16x SHAP 근거와 모델 기준을 맞추기 위한 선택이다."
+park,18x business storyline,True,8,3447,"- 18x safe/unsafe wording과 멘토 방어 QA를 추가했다. 기존 row 단위 반복을 늘리지 않고 score source, payment proxy, SHAP, threshold, 제언 정책화 리스크 중심으로 구성했다."
+park,project_guide_v2,True,6,3457,- `project_guide_v2.html`은 ChatGPT 또는 사람 기준 2차 검수가 필요하다.
+PUBLIC,06x/06y/06,True,74,1802,실제 입력 CSV(06_model_input_promo_0/1.csv)에는 USER_NUM 컬럼이 없고 USER_KEY가 있다. promo0 USER_KEY 중복 56건 / promo1 1건. 이 수치가 곧바로 split leakage를 의미하지는 않는다. upstream dedup 사용자 확인을 따른다. split 상태: WARN_needs_verification (FAIL 아님).
+PUBLIC,11/12 emergency model,True,191,2841,- genre_or_content_action_cue (n=11)는 main storyline에서 강등 완료
+PUBLIC,15 OOF,True,127,2836,- OOF score는 campaign threshold가 아니다
+PUBLIC,16 SHAP,True,117,2837,- SHAP은 인과가 아니다
+PUBLIC,16b family mapping,True,44,2774,- revised 5-family segment proposal을 18의 기본 뼈대로 사용했다.
+PUBLIC,17 segmentation hotfixes,True,96,2828,"- promo1 high_risk_activation: n=370, churn=0.7838, gb_risk=0.7317"
+PUBLIC,18 business storyline,True,70,2841,- genre_or_content_action_cue (n=11)는 main storyline에서 강등 완료
+PUBLIC,18 polish hotfix,True,90,2831,"- promo1 other_residual: n=6333, churn=0.1808, gb_risk=0.1941"

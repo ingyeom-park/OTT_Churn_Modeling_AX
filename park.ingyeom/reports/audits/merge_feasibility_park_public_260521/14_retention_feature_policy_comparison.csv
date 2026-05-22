@@ -1,0 +1,5 @@
+﻿feature_name,park_present_any_feature_inventory,PUBLIC_present_any_feature_inventory,park_present_in_dataset_columns,PUBLIC_present_in_dataset_columns
+log_retention_w2_ratio,False,True,False,True
+log_retention_w3_ratio,False,True,False,True
+retention_w2_ratio,True,True,True,True
+retention_w3_ratio,True,True,True,True

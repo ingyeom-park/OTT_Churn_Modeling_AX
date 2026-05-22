@@ -1,0 +1,7 @@
+scope,threshold,lr_high_risk,gb_high_risk,overlap_both,lr_only,gb_only
+promo0,0.5,4087,1840,1822,2265,18
+promo0,0.6,3051,1293,1274,1777,19
+promo0,0.7,2354,789,788,1566,1
+promo1,0.5,4969,3104,2999,1970,105
+promo1,0.6,3670,2228,2131,1539,97
+promo1,0.7,2691,1395,1356,1335,39

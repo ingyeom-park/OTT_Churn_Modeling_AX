@@ -1,0 +1,34 @@
+﻿side,relative_path,row_count,key_columns_present,USER_KEY_nunique,is_repurchase_nunique,is_promotion_nunique
+park,park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_expanded_dataset.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\reports\audits\html_claim_validation_core_sources_20260518_212100\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_expanded_dataset.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_conservative_dataset.csv,23079,USER_KEY; is_repurchase,23032,2,
+park,park.ingyeom\reports\audits\html_claim_validation_core_sources_20260518_212100\park.ingyeom\reports\audits\06x_dataset_generation_260515\06x_conservative_dataset.csv,23079,USER_KEY; is_repurchase,23032,2,
+park,park.ingyeom\_archive\pre13b_ref\reports\audits\06_common_preprocessing_and_final_cohort_260513\run_20260514_014702\06_primary_main_cohort_conservative_features.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\_archive\pre13b_ref\reports\audits\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_conservative_features.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\_archive\handoff\handoff_260515\new_chat_handoff_20260515_000508\canonical_outputs\06_common_preprocessing_and_final_cohort_260513\run_20260514_014702\06_primary_main_cohort_conservative_features.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\_archive\handoff\handoff_260515\new_chat_handoff_20260515_000956\canonical_outputs\06_common_preprocessing_and_final_cohort_260513\run_20260514_014702\06_primary_main_cohort_conservative_features.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\_archive\handoff\handoff_260515\new_chat_handoff_20260515_000508\canonical_outputs\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_conservative_features.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\_archive\handoff\handoff_260515\new_chat_handoff_20260515_000956\canonical_outputs\06_common_preprocessing_and_final_cohort_260513\06_primary_main_cohort_conservative_features.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\reports\audits\html_claim_validation_core_sources_20260518_212100\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_assignment.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+park,park.ingyeom\reports\audits\html_claim_validation_core_sources_20260518_212100\park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_assignment.csv,23079,USER_KEY; is_repurchase; is_promotion,23032,2,2
+PUBLIC,PUBLIC\results\_06x_dataset_generation_260515\06x_expanded_dataset.csv,23097,USER_KEY; is_repurchase; is_promotion,23032,2,2
+PUBLIC,PUBLIC\results\_06y_promo_split_260520\06y_expanded_dataset_promo_0.csv,11193,USER_KEY; is_repurchase; is_promotion,11137,2,1
+PUBLIC,PUBLIC\results\_06y_promo_split_260520\06y_expanded_dataset_promo_1.csv,11904,USER_KEY; is_repurchase; is_promotion,11903,2,1
+PUBLIC,PUBLIC\data\06_model_input_promo_0.csv,11193,USER_KEY; is_repurchase; is_promotion,11137,2,1
+PUBLIC,PUBLIC\data\06_model_input_promo_1.csv,11904,USER_KEY; is_repurchase; is_promotion,11903,2,1
+PUBLIC,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_long.csv,46194,USER_KEY; is_repurchase,23032,2,
+PUBLIC,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_score_long.csv,46194,USER_KEY; is_repurchase,23032,2,
+PUBLIC,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide_promo0.csv,11193,USER_KEY; is_repurchase,11137,2,
+PUBLIC,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_score_wide_promo0.csv,11193,USER_KEY; is_repurchase,11137,2,
+PUBLIC,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores_hotfix_260520\15_oof_score_wide_promo1.csv,11904,USER_KEY; is_repurchase,11903,2,
+PUBLIC,PUBLIC\results\15_oof_score_or_sensitivity_260520\four_model_oof_scores\15_oof_score_wide_promo1.csv,11904,USER_KEY; is_repurchase,11903,2,
+PUBLIC,PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_representative_segment_assignment_hotfix.csv,23097,is_repurchase,,2,
+PUBLIC,PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_representative_segment_assignment.csv,23097,is_repurchase,,2,
+PUBLIC,PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_quality_hotfix_260520\17_revised_segment_assignment_simulation.csv,23097,is_repurchase,,2,
+PUBLIC,PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments\17_segmentation_base_datamart.csv,23097,USER_KEY; is_repurchase; is_promotion,23032,2,2
+PUBLIC,PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_dashboard_handoff_datamart_hotfix.csv,10,,,,
+PUBLIC,PUBLIC\reports\business\18_business_recommendation_storyline_260520\18_dashboard_handoff_datamart.csv,10,,,,
+PUBLIC,PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_promo1_main_business_action_matrix_hotfix.csv,5,,,,
+PUBLIC,PUBLIC\reports\business\18_business_recommendation_storyline_hotfix_260520\18_promo0_comparison_reference_hotfix.csv,5,,,,

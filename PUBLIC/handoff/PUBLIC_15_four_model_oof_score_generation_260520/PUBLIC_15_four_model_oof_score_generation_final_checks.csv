@@ -1,0 +1,33 @@
+check_name,status,expected,actual,notes
+public_root_exists,PASS,PUBLIC folder exists,confirmed,Verified at task start.
+input_csv_promo0_exists,PASS,PUBLIC\data\06_model_input_promo_0.csv,11193 rows 82 cols,USER_KEY present USER_NUM absent USER_KEY dupes=56 user domain confirmed
+input_csv_promo1_exists,PASS,PUBLIC\data\06_model_input_promo_1.csv,11904 rows 82 cols,USER_KEY present USER_NUM absent USER_KEY dupes=1 user domain confirmed
+lr_promo0_final_result_exists,PASS,logistic_regression_promo0/final_result.csv,1 row 27 cols,param_C=0.1638 best_trial=84
+lr_promo1_final_result_exists,PASS,logistic_regression_promo1/final_result.csv,1 row 27 cols,param_C=0.0509 best_trial=61
+gb_promo0_final_result_exists,PASS,gradient_boosting_promo0/final_result.csv,1 row 33 cols,n_estimators=246 lr=0.0490 max_depth=2 best_trial=77
+gb_promo1_final_result_exists,PASS,gradient_boosting_promo1/final_result.csv,1 row 33 cols,n_estimators=219 lr=0.0446 max_depth=3 best_trial=76
+all_manifests_75_features,PASS,75 features used_as_feature=True in all 4 manifests,confirmed,Identical 1818-byte manifest across all 4 combos
+no_optuna_rerun,PASS,no Optuna trial creation,confirmed,Params read directly from final_result.csv
+no_raw_retention_in_features,PASS,retention_w2_ratio and retention_w3_ratio excluded,confirmed,feature_policy_check.csv status=PASS both scopes
+log_retention_in_features,PASS,log_retention_w2_ratio and log_retention_w3_ratio included,confirmed,feature_policy_check.csv status=PASS both scopes
+split_method_confirmed,WARN_WITH_USER_CONFIRMATION,StratifiedKFold n_splits=5 shuffle=True random_state=42,used,USER_NUM absent USER_KEY dupes present. User domain confirmed. Not auto-FAIL per project policy.
+oof_score_long_created,PASS,15_oof_score_long.csv exists,46194 rows,all 4 combos stacked
+oof_score_wide_promo0_rows,PASS,11193 rows,11193 rows,matches input CSV row count exactly
+oof_score_wide_promo1_rows,PASS,11904 rows,11904 rows,matches input CSV row count exactly
+no_nan_in_oof,PASS,no NaN in oof_proba,confirmed,assert in notebook passed
+metric_summary_created,PASS,15_oof_metric_summary.csv exists,4 rows,all combos present
+fold_distribution_check_created,PASS,15_oof_fold_distribution_check.csv exists,20 rows,5 folds × 4 combos
+gb_lr_overlap_created,PASS,15_gb_lr_high_risk_overlap.csv exists,12 rows,3 thresholds × 2 scopes
+readiness_all_ready,PASS,all 4 combos shap_readiness=READY,confirmed,suspicious_high_auc_flag=OK all combos
+lr_promo0_oof_roc_auc,PASS,roc_auc in valid range,0.864944,OK — not suspicious
+lr_promo1_oof_roc_auc,PASS,roc_auc in valid range,0.839502,OK — not suspicious
+gb_promo0_oof_roc_auc,PASS,roc_auc in valid range,0.880476,OK — not suspicious
+gb_promo1_oof_roc_auc,PASS,roc_auc in valid range,0.859147,OK — not suspicious
+results_readme_created,PASS,four_model_oof_scores/README.md exists,3778 bytes,created
+note_md_updated,PASS,note.md appended with PUBLIC 15 section,confirmed,Section: ## 2026-05-20 | PUBLIC 15 four-model OOF score generation completed
+source_fingerprint_created,PASS,15_source_fingerprint_before_after.csv exists,confirmed,10 source inputs + 14 outputs documented
+no_shap_performed,PASS,no SHAP values computed,confirmed,No shap library calls
+no_segmentation_performed,PASS,no segment assignment,confirmed,No segmentation logic
+no_raw_source_modified,PASS,raw source CSVs not modified,confirmed,06_model_input_promo_0/1.csv md5 unchanged
+no_park_ingyeom_modified,PASS,park.ingyeom folder not modified,confirmed,Work confined to PUBLIC folder
+semantic_review_status,PENDING_USER_REVIEW,user must review OOF metric interpretation,not yet performed,형식 검수는 PASS. 의미 검수(ROC-AUC 범위 적절성 / overlap 비율 / promo0-promo1 gap)는 사용자 검토 필요.

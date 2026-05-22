@@ -1,0 +1,14 @@
+zip_path,entry_name,file_size_bytes,notes
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,handoff/README.md,2305,handoff overview README
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,handoff/15_oof_input_validation.csv,2891,pre-flight input validation 14 rows all PASS
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,handoff/15_source_fingerprint_before_after.csv,4791,MD5 fingerprints for 10 source inputs + 14 outputs
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,handoff/PUBLIC_15_four_model_oof_score_generation_final_checks.csv,3754,31 checks — all PASS except semantic_review_status=PENDING_USER_REVIEW
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_oof_metric_summary.csv,968,OOF ROC-AUC / PR-AUC all 4 combos
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_oof_fold_distribution_check.csv,1271,per-fold metrics 20 rows
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_gb_lr_high_risk_overlap.csv,280,LR/GB high-risk overlap at thresholds 0.5/0.6/0.7
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_oof_readiness_for_shap_segmentation.csv,445,all 4 combos READY
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_model_config_extraction.csv,1703,params from final_result.csv no Optuna
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_oof_feature_policy_check.csv,927,both scopes PASS 75 features
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/15_oof_split_policy_check.csv,1257,both scopes WARN_WITH_USER_CONFIRMATION
+PUBLIC\zip\PUBLIC_15_four_model_oof_score_generation_260520_review_package.zip,results/README.md,3778,results folder README
+note,self_reference_limitation,N/A,this inventory CSV itself is not included in the zip (written after zip creation)

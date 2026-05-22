@@ -1,0 +1,6 @@
+﻿AARRR_stage,feature_count_conservative,feature_count_expanded,observed_status,representative_features,guide_interpretation,caveat,source_file
+Acquisition,0,1,observed_proxy,is_promotion,is_promotion / 100원딜 유입 맥락,"AARRR is interpretive taxonomy, not causal proof",FINAL/project_guide_v3_evidence_pack_260521/AARRR_feature_mapping_table.csv
+Activation,12,12,observed,is_cold_start_3d_fixed; is_cold_start_7d_fixed; is_only_w1; is_w1_over_50pct; watch_session_w1; watch_time_min_w1,day0-20 first watch / cold_start_fixed / W1 activation,"AARRR is interpretive taxonomy, not causal proof",FINAL/project_guide_v3_evidence_pack_260521/AARRR_feature_mapping_table.csv
+Retention,32,55,observed,avg_gap_w1_watch_days; avg_gap_w2_watch_days; avg_gap_w3_watch_days; diff_between_w2_w1; diff_between_w3_w1; diff_between_w3_w2,week1-3 usage / retention / recency / inactive gap,"AARRR is interpretive taxonomy, not causal proof",FINAL/project_guide_v3_evidence_pack_260521/AARRR_feature_mapping_table.csv
+Referral,0,0,unobserved,none,observed feature 없음,"AARRR is interpretive taxonomy, not causal proof",FINAL/project_guide_v3_evidence_pack_260521/AARRR_feature_mapping_table.csv
+Revenue,0,0,target_proxy,none,is_repurchase target proxy,"AARRR is interpretive taxonomy, not causal proof",FINAL/project_guide_v3_evidence_pack_260521/AARRR_feature_mapping_table.csv

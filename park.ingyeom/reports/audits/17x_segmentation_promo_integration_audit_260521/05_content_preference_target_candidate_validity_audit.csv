@@ -1,0 +1,11 @@
+﻿check_item,result_value,interpretation,risk_level,recommendation
+exact_rule,flag_high_risk_top20 == 0 AND flag_low_activity == 0 AND content proxy flag == 1,Park rule extracted from 17x_representative_segment_rules.csv.,medium,Keep rule as provisional evidence only.
+content_or_genre_features_used,"flag_low_activity,flag_genre_focused,flag_new_movie_oriented,flag_old_movie_oriented",Rule features are the actual columns/flags used by park 17x.,medium,Avoid adding new content features in this audit.
+row_count,6195,Rows assigned to the content candidate in park 17x.,low,Large enough for profile review.
+churn_rate,0.10072639225181601,Observed non-repurchase rate inside the assigned segment.,medium,"Use descriptively, not causally."
+mean_churn_risk,0.09450704225658951,Mean park churn_risk from the selected 17x score source.,medium,Do not treat as new model output.
+promo1_share,0.4853914447134786,Promotion share within this park segment.,medium,Use only if aligned with promo narrative.
+genre_signal_rates,flag_genre_focused=0.195; flag_new_movie_oriented=0.414; flag_old_movie_oriented=0.502,"Park content clarity is based on narrow genre/movie flags, not PUBLIC broad marker.",medium,Report the exact flags rather than a broad content label.
+mean_max_genre_ratio,0.6339146259887006,"Higher value means more concentrated genre viewing, if available.",medium,Use as profile evidence only.
+PUBLIC_broad_signal_similarity,0.9705156513832964,PUBLIC content_preference_signal was treated as broad when prevalence exceeded 70%.,high,Do not import PUBLIC broad content marker as representative park rule.
+target_name_validity,rename_or_downgrade_recommended,The current name implies an actionable target before the content signal is proven narrow enough.,high,Use content-context profile or genre cue candidate unless user approves a stronger label.

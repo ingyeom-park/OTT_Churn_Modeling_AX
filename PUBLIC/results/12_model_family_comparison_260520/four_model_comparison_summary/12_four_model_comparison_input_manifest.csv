@@ -1,0 +1,5 @@
+﻿comparison_item,model_family,scope,source_in_11_reference,has_final_result_csv,has_trials_all_csv,ready_for_metric_comparison,notes
+logistic_regression_promo0,LogisticRegression,promo0,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0,yes,yes,yes,Ready for limited saved-metric comparison only; not final selection.
+logistic_regression_promo1,LogisticRegression,promo1,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1,yes,yes,yes,Ready for limited saved-metric comparison only; not final selection.
+gradient_boosting_promo0,GradientBoosting,promo0,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0,yes,yes,yes,Ready for limited saved-metric comparison only; not final selection.
+gradient_boosting_promo1,GradientBoosting,promo1,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1,yes,yes,yes,Ready for limited saved-metric comparison only; not final selection.

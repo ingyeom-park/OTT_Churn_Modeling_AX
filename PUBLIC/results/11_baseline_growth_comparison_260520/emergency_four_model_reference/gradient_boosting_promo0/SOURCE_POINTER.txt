@@ -1,0 +1,5 @@
+original_result_dir: C:\Code\ott-churn-prediction\PUBLIC\results\12_model_family_comparison_260520\gradientboosting_promo0
+copied_to: C:\Code\ott-churn-prediction\PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0
+copied_at: 2026-05-20T17:02:28+09:00
+reason: Confirmed log-retention-only result with final_result.csv and trials_all.csv; copied into Step 11 emergency four-model reference without deleting or moving the original result folder.
+this_is_emergency_reference_not_final_canonical: yes

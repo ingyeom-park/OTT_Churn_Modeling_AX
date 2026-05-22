@@ -1,0 +1,5 @@
+﻿model_family,promo_scope,explainer_type,sample_rows,shap_values_generated,fallback_used,fallback_reason,status,notes
+LogisticRegression,promo0,shap.LinearExplainer,2000,yes,no,,PASS,"SHAP is model explanation, not causality."
+LogisticRegression,promo1,shap.LinearExplainer,2000,yes,no,,PASS,"SHAP is model explanation, not causality."
+GradientBoosting,promo0,shap.TreeExplainer,2000,yes,no,,PASS,"SHAP is model explanation, not causality."
+GradientBoosting,promo1,shap.TreeExplainer,2000,yes,no,,PASS,"SHAP is model explanation, not causality."

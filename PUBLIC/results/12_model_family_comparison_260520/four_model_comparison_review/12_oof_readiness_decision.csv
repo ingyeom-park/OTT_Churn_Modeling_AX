@@ -1,0 +1,16 @@
+﻿decision_item,status,evidence,required_user_approval,notes,final_model_selection_allowed
+four_model_results_available,yes,input_validation_all_pass=True,no,All four 11 emergency reference folders must be present.,no
+final_result_all_available,yes,four_final_result_files_found=True,no,Required for saved metric summary.,no
+trials_all_all_available,yes,four_trials_all_files_found=True,no,Required for overfit/stability review.,no
+log_retention_condition_all_pass,yes,all_condition_status_PASS=True,no,Raw retention features must be absent and log retention features must be present. log_retention_w2_ratio/log_retention_w3_ratio still require dominance/proxy review.,no
+promo0_primary_candidate_available,provisional_pending_leakage_overfit_split_review,"GB metric advantage exists, but recommendation is provisional because high AUC and leakage/split caveats require review.",yes,"Recommendation is review-only, not final approval.",no
+promo1_primary_candidate_available,provisional_pending_leakage_overfit_split_review,"GB metric advantage exists, but recommendation is provisional because high AUC and leakage/split caveats require review.",yes,"Recommendation is review-only, not final approval.",no
+lr_baseline_available_for_promo0,yes,LR promo0 reference checked,no,LR remains baseline/sensitivity candidate.,no
+lr_baseline_available_for_promo1,yes,LR promo1 reference checked,no,LR remains baseline/sensitivity candidate.,no
+overfit_stability_checked,yes,all_stability_status_PASS=True,no,Based on existing trials_all.csv columns. High AUC audit still treats these metrics as validation targets.,no
+topN_overfit_checked,yes,top10_overfit_rate_available_for_all=True,no,TopN uses mean_valid_auc descending.,no
+oof_generation_allowed_now,no,OOF remains blocked until user approval and leakage/proxy/split review.,yes,"Even if readiness signals are good, this task does not create OOF.",no
+requires_user_approval_before_oof,yes,User approval is required before OOF generation.,yes,Next step only after review.,no
+high_auc_suspicion_review_required,yes,suspicious_high_auc_flag_count=4,yes,"Because AUC appears unusually high for this project context, this step treats high performance as a validation target rather than as immediate evidence of model quality.",no
+leakage_proxy_review_required,yes,leakage_proxy_risk_statuses=FAIL,yes,Target-like or proxy feature audit must be reviewed before OOF or final wording.,no
+split_policy_review_required,yes,split_policy_check_statuses=WARN,yes,Group-aware split is not confirmed from final_result.csv.,no

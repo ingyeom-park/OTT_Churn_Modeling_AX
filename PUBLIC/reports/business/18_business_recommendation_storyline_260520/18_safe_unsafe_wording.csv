@@ -1,0 +1,12 @@
+﻿topic,safe_wording,unsafe_wording,reason
+100원딜 scope,100원딜은 진입 비용을 낮춘 초저가 체험 프로모션이다.,100원딜이 이탈을 유발했다.,"scope context is observational, not causal"
+promo1 vs promo0,100원딜 고객은 정가 고객과 유입 맥락이 다를 수 있다.,정가 고객은 100% 이용 의도가 있다.,comparison group assumptions must be cautious
+OOF score,OOF score는 정가 전환 실패 위험을 비교하기 위한 모델 산출물이다.,OOF score가 곧 캠페인 threshold다.,threshold was not finalized
+SHAP,SHAP은 model explanation이지 causality가 아니다.,SHAP이 원인을 말해준다.,SHAP explains model behavior
+segment,segment label은 provisional rule label이다.,최종 세그먼트 이름이 확정됐다.,user approval and validation remain pending
+demographic action,연령·성별은 action personalization layer다.,20대라서 이탈했다.,demographics are not causal claims
+is_churn_prevented,is_churn_prevented는 caveat가 필요한 historical context feature다.,캠페인 효과가 입증됐다.,no campaign effect test was run
+content preference,content preference는 profile/action cue로만 사용한다.,content_preference_signal이 대표 segment rule이다.,broad flag was demoted
+other residual,other_needs_review는 설명되지 않은 residual이다.,other는 그냥 중위험군이다.,residual contains mixed risk bands
+business action,business action은 candidate다.,바로 캠페인 집행하면 된다.,review and testing are needed
+week3 signal,3주차 시청 감소는 정가 전환 실패를 구분하는 강한 행동 신호로 관찰되었다.,3주차 시청 감소가 이탈의 원인이다.,behavior signal is not causal proof

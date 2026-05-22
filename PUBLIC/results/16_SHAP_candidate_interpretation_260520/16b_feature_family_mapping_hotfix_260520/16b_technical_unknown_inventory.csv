@@ -1,0 +1,17 @@
+﻿feature_name,old_feature_family,old_mapping_rule,old_final_mapping_status,appears_in_shap_global_importance,appears_in_lr_coefficient_summary,appears_in_direction_summary,importance_rank_min,max_mean_abs_shap_if_available,needs_remap,proposed_new_family,reason
+active_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,16,0.1663512513634891,True,usage_concentration,사용 활동 분산과 반복 활동 패턴을 나타낸다.
+day_count_over_3times,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,34,0.0833030448065743,True,usage_concentration,반복 사용이 발생한 날짜 수를 나타낸다.
+historical_war_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,35,0.0663889143014957,True,genre_preference,장르/콘텐츠 선호 ratio 계열이다.
+is_only_w1,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,11,0.1323119987629607,True,week_specific_usage_pattern,1주차에만 시청한 고객 패턴을 나타낸다.
+is_only_w2,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,18,0.1267834861982117,True,week_specific_usage_pattern,2주차에만 시청한 고객 패턴을 나타낸다.
+is_only_w3,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,30,0.0728140444893718,True,week_specific_usage_pattern,3주차에만 시청한 고객 패턴을 나타낸다.
+max_day_share,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,12,0.2662094958914803,True,usage_concentration,특정 일자에 활동이 몰렸는지 나타낸다.
+max_inactive_gap_days,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,5,0.4825311629015478,True,inactivity_recency,비활성 공백 길이를 나타낸다.
+other_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,29,0.0221458177962869,True,genre_preference,명확한 단일 장르는 아니지만 기타 장르 선호 비중을 나타낸다.
+recency,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,7,0.3695511937767772,True,inactivity_recency,최근 활동 여부와 마지막 활동 거리 신호다.
+reg_hour_afternoon,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,55,0.0249421263201676,True,registration_timing_context,가입 시점과 가입 시간대 맥락 변수다.
+reg_hour_evening,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,37,0.0340119162566636,True,registration_timing_context,가입 시점과 가입 시간대 맥락 변수다.
+reg_hour_morning,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,50,0.0221129850609577,True,registration_timing_context,가입 시점과 가입 시간대 맥락 변수다.
+reg_hour_night,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,56,0.0082926780599634,True,registration_timing_context,가입 시점과 가입 시간대 맥락 변수다.
+reg_is_weekend,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,49,0.0358180092953075,True,registration_timing_context,주중/주말 가입 맥락 변수다.
+sf_fantasy_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,True,True,True,20,0.1444577661459508,True,genre_preference,장르/콘텐츠 선호 ratio 계열이다.

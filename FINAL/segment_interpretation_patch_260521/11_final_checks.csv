@@ -1,0 +1,19 @@
+﻿check_item,status,detail
+notebook rule source audit created,PASS,
+general observation profile created,PASS,
+general observation decision memo created,PASS,
+content preference validity audit created,PASS,
+content preference decision memo created,PASS,
+promo-aware label mapping created,PASS,
+business action matrix created,PASS,
+safe unsafe wording created,PASS,
+PUBLIC reference branch policy created,PASS,
+FINAL final_note.md created,PASS,
+README created,PASS,
+no source CSV modified,PASS,
+no notebook modified,PASS,
+no model rerun,PASS,Only existing CSV/MD/HTML/ipynb files were read; no modeling notebook or training command was executed.
+no SHAP rerun,PASS,Only existing 16x SHAP output CSV files were read; no SHAP computation was executed.
+no segmentation rerun,PASS,Existing 17x assignment and rule CSVs were read; no representative_segment values were rewritten.
+no feature removal,PASS,No source data or feature manifest was modified; payment_device removal is interpretation policy only.
+review zip created,PASS,Zip was created before final_checks and refreshed after final_checks so the final package contains updated checks.

@@ -1,0 +1,51 @@
+﻿validation_pass,check_item,status,expected,actual,mismatch_count,severity,notes
+Pass 1. Row integrity check,base_datamart_total_rows,PASS,23097 rows expected from current base read,23097,0,info,Read from 17_segmentation_base_datamart.csv
+Pass 1. Row integrity check,promo0_base_row_count,PASS,scope row count,11193,0,info,Scope count read directly from base datamart
+Pass 1. Row integrity check,promo0_promo_scope_row_id_unique,PASS,0 duplicates,0,0,info,promo_scope + row_id uniqueness
+Pass 1. Row integrity check,promo0_original_assignment_rows_match_scope,PASS,11193,11193,0,info,original assignment row count
+Pass 1. Row integrity check,promo0_original_segment_counts_sum_to_scope,PASS,11193,11193,0,info,Segment grouped count sum
+Pass 1. Row integrity check,promo0_hotfix_assignment_rows_match_scope,PASS,11193,11193,0,info,hotfix assignment row count
+Pass 1. Row integrity check,promo0_hotfix_segment_counts_sum_to_scope,PASS,11193,11193,0,info,Segment grouped count sum
+Pass 1. Row integrity check,promo1_base_row_count,PASS,scope row count,11904,0,info,Scope count read directly from base datamart
+Pass 1. Row integrity check,promo1_promo_scope_row_id_unique,PASS,0 duplicates,0,0,info,promo_scope + row_id uniqueness
+Pass 1. Row integrity check,promo1_original_assignment_rows_match_scope,PASS,11904,11904,0,info,original assignment row count
+Pass 1. Row integrity check,promo1_original_segment_counts_sum_to_scope,PASS,11904,11904,0,info,Segment grouped count sum
+Pass 1. Row integrity check,promo1_hotfix_assignment_rows_match_scope,PASS,11904,11904,0,info,hotfix assignment row count
+Pass 1. Row integrity check,promo1_hotfix_segment_counts_sum_to_scope,PASS,11904,11904,0,info,Segment grouped count sum
+Pass 2. Score direction check,gb_risk_equals_1_minus_repurchase,PASS,max delta < 1e-9,0.000000000000,0,info,OOF direction check only; no OOF regeneration
+Pass 2. Score direction check,promo0_gb_top10_count,PASS,1120,1120,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo0_gb_top20_count,PASS,2239,2239,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo0_gb_top30_count,PASS,3358,3358,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo1_gb_top10_count,PASS,1191,1191,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo1_gb_top20_count,PASS,2381,2381,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo1_gb_top30_count,PASS,3572,3572,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,lr_risk_equals_1_minus_repurchase,PASS,max delta < 1e-9,0.000000000000,0,info,OOF direction check only; no OOF regeneration
+Pass 2. Score direction check,promo0_lr_top10_count,PASS,1120,1120,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo0_lr_top20_count,PASS,2239,2239,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo0_lr_top30_count,PASS,3358,3358,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo1_lr_top10_count,PASS,1191,1191,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo1_lr_top20_count,PASS,2381,2381,0,info,Count expected by ceil(scope_n * percentile)
+Pass 2. Score direction check,promo1_lr_top30_count,PASS,3572,3572,0,info,Count expected by ceil(scope_n * percentile)
+Pass 3. Representative assignment recomputation,original_assignment_vs_independent_recompute,PASS,0,0,0,info,Original rule recomputation from multiflag assignment
+Pass 3. Representative assignment recomputation,semantic_hotfix_assignment_vs_independent_recompute,PASS,0,0,0,info,Hotfix rule recomputation demotes content_preference_signal from representative rule
+Pass 4. Business sanity check,n_below_300_representative_segments,WARN,0 small representative segments,7,7,warn,promo0_high_risk_retention_decay; promo0_high_risk_only_w1_or_cold_start_weak; promo0_high_risk_low_activity; promo0_high_risk_genre_preference_clear; promo1_high_risk_retention_decay; promo1_high_risk_low_activity; promo1_high_risk_genre_preference_clear
+Pass 4. Business sanity check,promo0_other_needs_review_share,WARN,< 0.50 preferred for concise representative scheme,0.6249,0,warn,"Other is residual, not mid-risk"
+Pass 4. Business sanity check,promo1_other_needs_review_share,WARN,< 0.50 preferred for concise representative scheme,0.6337,0,warn,"Other is residual, not mid-risk"
+Pass 4. Business sanity check,content_preference_signal_used_in_hotfix_representative_rule,PASS,0,0,0,info,content_preference_signal remains broad marker/action cue only
+Pass 4. Business sanity check,age_gender_used_in_representative_rule,PASS,0,0,0,info,Age/gender retained only in profile/action layer
+Pass 4. Business sanity check,original_technical_or_unknown_bucket_used_in_16b_hotfix,PASS,0,0,0,info,16b mapping checked
+Pass 4. Business sanity check,16b_hotfix_family_mapping_used,PASS,> 0 mapping rows,75,0,info,16b feature family mapping file read
+Pass 4. Business sanity check,promo0_s01_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.4499,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo0_s02_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.3666,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo0_s03_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.5497,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo0_s04_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.3208,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo0_s05_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.5627,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo0_s06_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.1556,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo0_s99_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.0950,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s01_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.4246,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s02_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.3591,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s03_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.4776,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s04_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.3093,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s05_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.4933,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s06_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.1801,0,info,Descriptive separation from scope mean
+Pass 4. Business sanity check,promo1_s99_churn_rate_distinctness,PASS,absolute difference >= 0.03 preferred,0.0783,0,info,Descriptive separation from scope mean

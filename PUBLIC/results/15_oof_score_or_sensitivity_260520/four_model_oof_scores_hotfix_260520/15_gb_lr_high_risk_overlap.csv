@@ -1,0 +1,7 @@
+﻿promo_scope,threshold,threshold_type,gb_high_risk_count,lr_high_risk_count,both_high_risk_count,gb_only_high_risk_count,lr_only_high_risk_count,neither_high_risk_count,jaccard_overlap,interpretation,notes
+promo0,top10,percentile_rank,1120,1120,893,227,227,9846,0.6629547141796585,moderate_overlap_review,"Overlap is based on top10 percentile rank by churn_risk_score_oof within promo0, not fixed score cutoff."
+promo0,top20,percentile_rank,2239,2239,1837,402,402,8552,0.6955698599015524,moderate_overlap_review,"Overlap is based on top20 percentile rank by churn_risk_score_oof within promo0, not fixed score cutoff."
+promo0,top30,percentile_rank,3358,3358,2851,507,507,7328,0.7376455368693402,stable_high_risk_overlap,"Overlap is based on top30 percentile rank by churn_risk_score_oof within promo0, not fixed score cutoff."
+promo1,top10,percentile_rank,1191,1191,943,248,248,10465,0.655316191799861,moderate_overlap_review,"Overlap is based on top10 percentile rank by churn_risk_score_oof within promo1, not fixed score cutoff."
+promo1,top20,percentile_rank,2381,2381,1947,434,434,9089,0.691651865008881,moderate_overlap_review,"Overlap is based on top20 percentile rank by churn_risk_score_oof within promo1, not fixed score cutoff."
+promo1,top30,percentile_rank,3572,3572,3008,564,564,7768,0.7272727272727273,stable_high_risk_overlap,"Overlap is based on top30 percentile rank by churn_risk_score_oof within promo1, not fixed score cutoff."

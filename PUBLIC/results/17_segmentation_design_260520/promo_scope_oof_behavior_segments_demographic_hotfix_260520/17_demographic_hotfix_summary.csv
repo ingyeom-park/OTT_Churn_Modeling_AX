@@ -1,0 +1,12 @@
+﻿check_item,status,evidence,interpretation,notes
+age_group_available,PASS,17_demographic_source_column_audit.csv,age_group found in base/input sources,
+gender_columns_available,PASS,17_demographic_source_column_audit.csv,is_female/is_male found,
+gender_derivation_successful,PASS,17_gender_derivation_audit.csv,gender_derived generated from is_female/is_male,
+segment_demographic_profile_created,PASS,17_segment_demographic_profile_demographic_hotfix.csv,137 rows,
+age_behavior_profile_created,PASS,17_segment_age_behavior_profile_demographic_hotfix.csv,2030 rows,
+gender_behavior_profile_created,PASS,17_segment_gender_behavior_profile_demographic_hotfix.csv,783 rows,
+action_personalization_matrix_created,PASS,17_segment_action_personalization_matrix_demographic_hotfix.csv,60 rows,
+no_demographic_used_in_representative_rule,PASS,read-only revised assignment,No segment reassignment performed,
+demographic_action_requires_eda_evidence,PASS,action matrix final_status,Moderate/strong evidence required for candidate action variants,
+all_unknown_gender_issue_resolved_or_explained,PASS,17_gender_derivation_audit.csv,female/male counts parsed or unknown reason recorded,
+empty_age_gender_behavior_profile_issue_resolved,PASS,age/gender behavior files,not empty or reason row recorded,

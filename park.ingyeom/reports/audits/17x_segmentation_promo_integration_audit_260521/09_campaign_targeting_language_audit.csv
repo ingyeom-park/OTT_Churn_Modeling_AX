@@ -1,0 +1,11 @@
+﻿phrase_type,unsafe_phrase,safer_phrase,reason,can_use_in_presentation
+campaign target,캠페인 타겟,개입 우선순위 후보,Observed segmentation does not prove treatability or causal effect.,yes_with_caveat
+campaign target,즉시 타겟팅해야 할 고객,검증이 필요한 우선 검토 고객군,The audit package is not an execution approval.,yes
+priority,개입 우선순위 후보,개입 우선순위 후보,This is already safer than final targeting language if paired with A/B-test caveat.,yes
+experiment,A/B test 없이 캠페인 적용,A/B test 필요,Observed risk signal does not establish intervention uplift.,yes
+causal,100원딜이 이탈을 유발했다,100원딜 고객군에서 이탈 위험 신호가 더 높게 관찰되었다,"Promotion comparison is descriptive, not causal.",yes
+motivation,100원딜 고객은 이용 동기가 약하다,100원딜 고객은 이용 동기가 약할 수 있다는 가설을 검토할 수 있다,Motivation is not directly observed.,yes
+week3 causal,3주차 시청량 감소가 이탈 원인이다,3주차 시청량 감소는 이탈 위험 신호다,Temporal association and model signal do not prove cause.,yes
+week3 signal,3주차 시청량 감소는 이탈 위험 신호다,3주차 시청량 감소는 이탈 위험 신호다,This phrasing is descriptive and evidence-compatible.,yes
+score,churn_risk가 높으니 반드시 이탈한다,churn_risk가 높은 관찰군으로 우선 검토한다,Score is probabilistic and OOF-based.,yes
+segment finality,최종 세그먼트 확정,검수용 세그먼트 구조 후보,This task does not finalize segmentation.,yes

@@ -1,0 +1,13 @@
+﻿decision_item,status,evidence,user_approval_required,notes
+segment_quality_audit_completed,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+small_segment_policy_applied,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+content_preference_signal_demoted,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+other_needs_review_decomposed,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+promo1_vs_promo0_differential_analysis_created,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+revised_segment_proposal_created,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+revised_assignment_simulation_created,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+executive_rationale_memo_created,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+demographic_action_bridge_created,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+business_storyline_allowed_now,user_review_required,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+dashboard_allowed_now,user_review_required,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.
+requires_user_review_before_18,yes,quality hotfix output package,yes,07~10 remain pending validation; no final segment/campaign threshold authorized.

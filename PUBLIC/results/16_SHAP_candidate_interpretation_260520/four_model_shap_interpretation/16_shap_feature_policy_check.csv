@@ -1,0 +1,5 @@
+﻿model_family,promo_scope,feature_count,forbidden_columns_in_features,retention_w2_ratio_in_features,retention_w3_ratio_in_features,log_retention_w2_ratio_in_features,log_retention_w3_ratio_in_features,is_churn_prevented_in_features,age_group_in_features,is_female_in_features,is_male_in_features,status,notes
+LogisticRegression,promo0,75,none,False,False,True,True,True,True,True,True,PASS,is_churn_prevented is approved historical context feature with caveat
+LogisticRegression,promo1,75,none,False,False,True,True,True,True,True,True,PASS,is_churn_prevented is approved historical context feature with caveat
+GradientBoosting,promo0,75,none,False,False,True,True,True,True,True,True,PASS,is_churn_prevented is approved historical context feature with caveat
+GradientBoosting,promo1,75,none,False,False,True,True,True,True,True,True,PASS,is_churn_prevented is approved historical context feature with caveat

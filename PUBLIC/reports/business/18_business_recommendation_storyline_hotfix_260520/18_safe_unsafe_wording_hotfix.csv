@@ -1,0 +1,15 @@
+topic,safe_wording,unsafe_wording,reason
+100원딜_scope,100원딜은 진입 비용을 낮춘 초저가 체험 프로모션으로 정가 고객과 유입 맥락이 다를 수 있다.,100원딜이 이탈을 유발했다.,scope는 관찰적; 인과 아님
+초저가_체험_narrative,100원딜 고객은 정가 7900원 대비 100원으로 유입되어 지불 의향이 정가 가입자와 다를 수 있다.,100원딜 고객은 어차피 이탈할 고객이다.,지불 의향 차이는 가설 수준; 관찰 아님
+정가_전환,정가 전환 실패를 구분하는 행동 신호를 모델과 segmentation으로 탐색했다.,이 고객들은 정가 전환을 안 할 것이다.,전환 여부는 관찰; 예측이 아님
+3주차_시청_감소,3주차 시청 감소는 정가 전환 실패를 구분하는 강한 행동 신호로 관찰되었다.,3주차 시청 감소가 이탈의 원인이다.,행동 신호 ≠ 인과 원인
+intervention_timing,3주차 초반(day18~day20)은 이탈 방어 개입 후보 타이밍이다.,3주차에 개입하면 이탈을 막을 수 있다.,개입 효과는 검증되지 않음
+promo1_vs_promo0,같은 위험 행동 패턴이 100원딜 고객군에서 더 높은 이탈률과 risk score로 관찰되었다.,100원딜 고객은 일반 가입자보다 무조건 더 많이 이탈한다.,segment-level comparison; not global claim
+OOF_score,OOF score는 정가 전환 실패 위험을 비교하기 위한 모델 산출물이다.,OOF score가 곧 캠페인 threshold다.,threshold는 확정되지 않음
+SHAP,SHAP은 model explanation이지 causality가 아니다.,SHAP이 이탈 원인을 알려준다.,SHAP explains model feature importance
+segment,segment label은 provisional rule label이며 최종 확정이 아니다.,이 segment가 최종 타깃이다.,user approval and 07~10 validation pending
+demographic_action,연령/성별은 action personalization layer로 사용했다. EDA 근거가 있는 hypothesis다.,20대라서 이탈했다 / 40대가 더 위험하다.,demographics are personalization layer; not churn cause
+is_churn_prevented,is_churn_prevented는 과거 캠페인 맥락을 담은 feature이며 caveat가 필요하다.,이전 캠페인으로 이탈을 막은 고객이다.,no campaign effect test was run
+content_preference,content preference는 profile/action cue로만 사용한다.,content_preference_signal이 대표 segment rule이다.,broad flag was demoted; small-n
+other_residual,other_needs_review는 현재 rule로 설명되지 않은 잔여군이다.,other는 중위험군이다.,residual contains mixed risk bands
+business_action,business action은 provisional candidate이며 review와 testing이 필요하다.,바로 캠페인 집행하면 된다.,review and testing are needed

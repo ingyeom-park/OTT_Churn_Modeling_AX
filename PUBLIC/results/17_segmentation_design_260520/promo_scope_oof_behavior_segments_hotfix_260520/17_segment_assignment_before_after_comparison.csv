@@ -1,0 +1,16 @@
+﻿comparison_item,promo_scope,previous_segment_id,hotfix_segment_id,row_count,share_within_scope,interpretation,notes
+segment_transition,promo0,promo0_s01,promo0_s01,1736,0.15509693558474047,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo0,promo0_s02,promo0_s02,154,0.013758599124452783,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo0,promo0_s03,promo0_s03,230,0.02054855713392299,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo0,promo0_s04,promo0_s04,43,0.003841686768516037,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo0,promo0_s05,promo0_s06,2031,0.1814526936478156,changed by content signal demotion,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo0,promo0_s99,promo0_s05,5,0.0004467077637809345,changed by content signal demotion,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo0,promo0_s99,promo0_s99,6994,0.6248548199767712,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s01,promo1_s01,1700,0.14280913978494625,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s02,promo1_s02,193,0.0162130376344086,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s03,promo1_s03,329,0.0276377688172043,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s04,promo1_s04,41,0.003444220430107527,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s05,promo1_s05,11,0.0009240591397849463,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s05,promo1_s99,106,0.008904569892473119,changed by content signal demotion,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s06,promo1_s06,2086,0.17523521505376344,unchanged,hotfix removes broad content_preference_signal from representative rules
+segment_transition,promo1,promo1_s99,promo1_s99,7438,0.6248319892473119,unchanged,hotfix removes broad content_preference_signal from representative rules

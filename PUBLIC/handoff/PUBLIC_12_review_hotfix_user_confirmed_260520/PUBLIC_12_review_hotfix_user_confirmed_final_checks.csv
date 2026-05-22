@@ -1,0 +1,27 @@
+check_name,status,expected,actual,notes
+public_root_exists,PASS,C:\Code\ott-churn-prediction\PUBLIC exists,confirmed,Verified at task start.
+previous_12_review_zip_or_outputs_checked,PASS,existing 12 review CSVs read and understood,all 7 review CSVs read verbatim,Confirmed suspicious_high_auc_flag triggered by PR-AUC. Confirmed is_churn_prevented=leakage FAIL. Confirmed split WARN.
+output_folder_created,PASS,four_model_comparison_review_hotfix_user_confirmed folder exists,created,PUBLIC\results\12_model_family_comparison_260520\four_model_comparison_review_hotfix_user_confirmed\
+handoff_folder_created,PASS,PUBLIC_12_review_hotfix_user_confirmed_260520 folder exists,created,PUBLIC\handoff\PUBLIC_12_review_hotfix_user_confirmed_260520\
+metric_interpretation_correction_created,PASS,12_metric_interpretation_correction.csv exists,created (2022 bytes),4 rows — one per model/scope combination.
+is_churn_prevented_policy_correction_created,PASS,12_is_churn_prevented_policy_correction.csv exists,created (1106 bytes),corrected_status = approved_context_feature_with_interpretation_caveat
+split_policy_usernum_correction_created,PASS,12_split_policy_usernum_correction.csv exists,created (3217 bytes),6 items. USER_NUM dedup = needs_verification. Split status = WARN_needs_verification.
+oof_readiness_update_created,PASS,12_oof_readiness_user_confirmed_update.csv exists,created (2440 bytes),10 decision items recorded.
+hotfix_summary_created,PASS,12_hotfix_summary.md exists,created (3278 bytes),covers all 4 user corrections and what was not done.
+readme_created,PASS,README.md in output folder exists,created (3607 bytes),includes safe/unsafe wording sections and next action.
+note_md_append_completed,PASS,note.md appended with 2026-05-20 hotfix section,appended,Section: ## 2026-05-20 | PUBLIC 12 review user-confirmed interpretation hotfix
+roc_auc_primary_metric_recorded,PASS,primary_metric = ROC-AUC in correction CSV,confirmed in 12_metric_interpretation_correction.csv,All 4 rows have primary_metric = ROC-AUC
+pr_auc_secondary_metric_recorded,PASS,secondary_metric = PR-AUC in correction CSV,confirmed in 12_metric_interpretation_correction.csv,All 4 rows have secondary_metric = PR-AUC
+is_churn_prevented_not_auto_fail,PASS,corrected_status not leakage_FAIL,approved_context_feature_with_interpretation_caveat,Confirmed in 12_is_churn_prevented_policy_correction.csv
+usernum_split_policy_reflected,PASS,USER_NUM policy recorded,WARN_needs_verification — USER_NUM not in input CSV but user domain confirmation accepted,Confirmed in 12_split_policy_usernum_correction.csv
+seven_to_ten_pending_validation_preserved,PASS,07~10 status = pending_validation not skipped,confirmed in oof_readiness and note append,Not blocking current work per user instruction.
+no_model_execution_performed,PASS,no model training or prediction,confirmed,No sklearn fit or predict calls made in this task.
+no_notebook_execution_performed,PASS,no jupyter nbconvert or kernel execution,confirmed,No notebook execution in this task.
+no_oof_generation_performed,PASS,no OOF score table created,confirmed,oof_generation_allowed_without_user_approval = no
+no_optuna_performed,PASS,no Optuna trial creation,confirmed,No optuna.create_study or trial objects.
+no_shap_performed,PASS,no SHAP values computed,confirmed,No shap library calls.
+no_segmentation_performed,PASS,no segment assignment or rule design,confirmed,No segmentation logic.
+no_raw_source_modified,PASS,raw source CSVs not modified,confirmed,Only read 06_model_input_promo_0/1.csv for USER_KEY check.
+no_park_ingyeom_modified,PASS,park.ingyeom folder not modified,confirmed,Work confined to PUBLIC folder.
+review_zip_created,PASS,zip created at PUBLIC\zip\PUBLIC_12_review_hotfix_user_confirmed_260520_review_package.zip,created (37388 bytes — 10 entries),Zip confirmed.
+zip_inventory_created,PASS,zip inventory CSV created,created in handoff folder and added to zip,PUBLIC_12_review_hotfix_user_confirmed_zip_inventory.csv confirmed.

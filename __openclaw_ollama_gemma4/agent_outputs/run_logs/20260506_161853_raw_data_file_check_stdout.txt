@@ -1,3 +1,0 @@
-exists: True
-is_dir: True
-items: ['Description.xlsx', 'Membership.csv', 'Movie_Master.csv', 'User_Mapping.csv', 'View_History.csv', 'Wavve_movie(KOBIS).csv', 'Wavve_movie(Regex).csv']

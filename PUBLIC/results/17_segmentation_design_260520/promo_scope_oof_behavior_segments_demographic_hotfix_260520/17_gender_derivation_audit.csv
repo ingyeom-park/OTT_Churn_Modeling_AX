@@ -1,0 +1,3 @@
+﻿promo_scope,source_rows,is_female_present,is_male_present,female_count,male_count,unknown_or_unreported_count,ambiguous_conflict_count,missing_gender_columns_count,derivation_status,notes
+promo0,11193,True,True,4991,2702,3500,0,0,PASS,Derived from is_female/is_male after bool-like value normalization.
+promo1,11904,True,True,7363,4538,3,0,0,PASS,Derived from is_female/is_male after bool-like value normalization.

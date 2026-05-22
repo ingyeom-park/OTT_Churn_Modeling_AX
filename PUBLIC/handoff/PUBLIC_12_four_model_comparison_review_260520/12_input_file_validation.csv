@@ -1,0 +1,5 @@
+﻿model_family,scope,reference_folder,final_result_exists,trials_all_exists,feature_manifest_exists,source_pointer_exists,final_result_rows,trials_all_rows,validation_status,notes
+LogisticRegression,promo0,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo0,yes,yes,yes,yes,1,100,PASS,Required final_result.csv and trials_all.csv are available.
+LogisticRegression,promo1,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\logistic_regression_promo1,yes,yes,yes,yes,1,100,PASS,Required final_result.csv and trials_all.csv are available.
+GradientBoosting,promo0,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo0,yes,yes,yes,yes,1,100,PASS,Required final_result.csv and trials_all.csv are available.
+GradientBoosting,promo1,PUBLIC\results\11_baseline_growth_comparison_260520\emergency_four_model_reference\gradient_boosting_promo1,yes,yes,yes,yes,1,100,PASS,Required final_result.csv and trials_all.csv are available.

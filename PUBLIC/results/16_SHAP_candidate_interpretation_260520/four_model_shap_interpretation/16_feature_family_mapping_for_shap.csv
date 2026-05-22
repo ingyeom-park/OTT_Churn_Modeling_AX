@@ -1,0 +1,76 @@
+﻿feature_name,feature_family,mapping_rule,final_mapping_status,notes
+action_adventure_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+active_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+age_group,demographic_context,age/gender exact match,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_daily_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_gap_between_watch_days,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_gap_w1_watch_days,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_gap_w2_watch_days,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_gap_w3_watch_days,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_ott_release_year,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_rewatch_ratio,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+avg_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+comedy_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+day_count_over_3times,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+diff_between_w2_w1,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+diff_between_w3_w1,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+diff_between_w3_w2,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+documentary_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+drama_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+family_animation_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+genre_diversity_count,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+historical_war_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+horror_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_basic,membership_context,membership/subscription naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_churn_prevented,historical_churn_prevention_context,is_churn_prevented exact match,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_cold_start_3d_fixed,onboarding_activation,onboarding/activation naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_cold_start_7d_fixed,onboarding_activation,onboarding/activation naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_female,demographic_context,age/gender exact match,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_male,demographic_context,age/gender exact match,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_only_w1,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_only_w2,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_only_w3,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_premium,membership_context,membership/subscription naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_standard,membership_context,membership/subscription naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_user_verified,membership_context,membership/subscription naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_w1_over_50pct,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_w2_over_50pct,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+is_w3_over_50pct,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+log_retention_w2_ratio,retention_decay,retention naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+log_retention_w3_ratio,retention_decay,retention naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+max_daily_sessions,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+max_daily_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+max_day_share,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+max_inactive_gap_days,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+max_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+median_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+movie_per_active_day,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+new_movie_in_180d_ratio,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+new_movie_in_365d_ratio,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+new_movie_in_90d_ratio,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+old_movie_ratio_5y,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+other_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+recency,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+reg_hour_afternoon,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+reg_hour_evening,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+reg_hour_morning,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+reg_hour_night,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+reg_is_weekend,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+romance_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+sf_fantasy_ratio,technical_or_unknown,no simple rule matched,unknown_needs_review,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+std_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+thriller_crime_ratio,genre_preference,genre/content genre naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+total_watch_count,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+total_watch_time_min,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+unique_movie,content_preference,content/movie naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_days,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_per_day,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_ratio_under_1m,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_ratio_under_5m,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_session_w1,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_session_w2,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_session_w3,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_time_min_w1,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_time_min_w2,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+watch_time_min_w3,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
+weekend_watch_ratio,weekly_usage,usage/watch/session naming pattern,provisional_for_16_shap_only,07 mapping remains pending validation; this mapping is for 16 SHAP only.
