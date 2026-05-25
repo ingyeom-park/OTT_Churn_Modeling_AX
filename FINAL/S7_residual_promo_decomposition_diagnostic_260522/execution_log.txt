@@ -1,0 +1,37 @@
+2026-05-22 18:22:35 | source fingerprint before captured
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_assignment.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_rules.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_internal_multiflag_definitions.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_internal_multiflag_assignment.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segment_summary.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_score_source_selection.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\audits\15x_payment_device_sensitivity_260516\15x_model_summary_by_scope.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\audits\17x_segmentation_promo_integration_audit_260521\03_park_segment_promo_lift.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\audits\17x_segmentation_promo_integration_audit_260521\04_general_observation_decomposition_audit.csv
+2026-05-22 18:22:35 | read_csv: park.ingyeom\reports\audits\17x_segmentation_promo_integration_audit_260521\10_final_score_source_decision_audit.csv
+2026-05-22 18:22:35 | read_csv: PUBLIC\results\17_segmentation_design_260520\promo_scope_oof_behavior_segments_hotfix_260520\17_segment_summary_hotfix.csv
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\S7_park17x_basis_row_subset.csv rows=7896
+2026-05-22 18:22:36 | park17x basis rows=23079 S7 rows=7896
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\00_input_basis_resolution.csv rows=18
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\00_basis_conflict_note.md
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\01_S7_definition_and_residual_structure.md
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\01_S7_row_inventory.csv rows=1
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\02_S7_promo_outcome_4cell_summary.csv rows=4
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\03_S7_promo_gap_summary.csv rows=9
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\04_S7_existing_flag_distribution_by_promo_outcome.csv rows=60
+2026-05-22 18:22:36 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\05_S7_existing_flag_gap_ranking.csv rows=60
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\06_S7_rule_component_coverage.csv rows=52
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\07_S7_rule_near_miss_patterns.csv rows=28
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\08_S7_existing_numeric_feature_profile.csv rows=84
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\09_S7_existing_binary_categorical_profile.csv rows=67
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\10_S7_demographic_action_layer_descriptive.csv rows=39
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\11_S7_decomposition_decision_evidence_table.csv rows=5
+2026-05-22 18:22:37 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\12_S7_chart_ready_summary.csv rows=21
+2026-05-22 18:22:38 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\figure_01_S7_promo_churn_rate_comparison.png
+2026-05-22 18:22:38 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\figure_02_S7_promo_outcome_4cell_rows.png
+2026-05-22 18:22:38 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\figure_03_S7_top_existing_feature_gaps.png
+2026-05-22 18:22:39 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\figure_04_S7_existing_flag_gap_heatmap.png
+2026-05-22 18:22:39 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\figure_05_S7_rule_near_miss_summary.png
+2026-05-22 18:22:39 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\README.md
+2026-05-22 18:22:39 | wrote: FINAL\S7_residual_promo_decomposition_diagnostic_260522\source_fingerprint_before_after.csv rows=23
