@@ -1,0 +1,7 @@
+segment,total_events,w4_view_events,w4_view_rate_pct,churn_rate_w4_yes,churn_rate_w4_no,gap_pct,w4_definition,join_key
+S1,1359,408,30.02,4.66,12.3,7.65,Day 21~27 (day_offset between 21 and 27),USER_KEY via User_Mapping_v2 USER_NUM
+S2,1109,237,21.37,10.55,33.6,23.05,Day 21~27 (day_offset between 21 and 27),USER_KEY via User_Mapping_v2 USER_NUM
+S3,1054,173,16.41,7.51,50.51,43.0,Day 21~27 (day_offset between 21 and 27),USER_KEY via User_Mapping_v2 USER_NUM
+S4,1681,468,27.84,8.97,12.45,3.47,Day 21~27 (day_offset between 21 and 27),USER_KEY via User_Mapping_v2 USER_NUM
+S5,3500,764,21.83,15.97,35.27,19.3,Day 21~27 (day_offset between 21 and 27),USER_KEY via User_Mapping_v2 USER_NUM
+S6,3201,955,29.83,30.26,61.71,31.45,Day 21~27 (day_offset between 21 and 27),USER_KEY via User_Mapping_v2 USER_NUM

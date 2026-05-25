@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wavve OTT 세그먼트별 CRM 전략</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --blue: #378ADD;
+  --pink: #D4537E;
+  --green: #1D9E75;
+  --orange: #E8743B;
+  --red: #c0392b;
+  --bg: #f0f2f8;
+  --card: #ffffff;
+  --text: #1a1a2e;
+  --sub: #6b7280;
+  --border: #e5e7eb;
+  --s1: #1D9E75;
+  --s2: #378ADD;
+  --s3: #E8743B;
+  --s4: #2ecc71;
+  --s5: #D4537E;
+  --s6: #c0392b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(26,26,46,0.97); backdrop-filter: blur(8px);
+  display: flex; align-items: center; gap: 4px; padding: 0 20px;
+  height: 52px; overflow-x: auto;
+}
+nav a {
+  color: #aaa; text-decoration: none; font-size: 13px; font-weight: 500;
+  padding: 6px 14px; border-radius: 6px; white-space: nowrap;
+  transition: all 0.2s;
+}
+nav a:hover { color: #fff; background: rgba(255,255,255,0.1); }
+nav a.seg { font-weight: 700; }
+nav a.s1 { color: var(--s1); }
+nav a.s2 { color: var(--s2); }
+nav a.s3 { color: var(--s3); }
+nav a.s4 { color: var(--s4); }
+nav a.s5 { color: var(--s5); }
+nav a.s6 { color: var(--s6); }
+
+/* SECTIONS */
+section { padding: 48px 24px; max-width: 1100px; margin: 0 auto; }
+section + section { padding-top: 0; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white; padding: 60px 24px 48px; text-align: center;
+}
+.hero h1 { font-size: 28px; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.5px; }
+.hero p { font-size: 15px; color: #94a3b8; max-width: 600px; margin: 0 auto 24px; line-height: 1.7; }
+.hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-badge {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px; padding: 6px 16px; font-size: 13px; font-weight: 700;
+}
+
+/* SECTION TITLE */
+.sec-title {
+  font-size: 20px; font-weight: 900; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-title::before {
+  content: ''; width: 4px; height: 22px;
+  background: var(--blue); border-radius: 2px; display: inline-block;
+}
+
+/* CARDS */
+.card {
+  background: var(--card); border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 24px; margin-bottom: 16px;
+}
+.card-title { font-size: 14px; font-weight: 700; color: var(--sub); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* SEGMENT OVERVIEW GRID */
+.seg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 700px) { .seg-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.seg-card {
+  background: var(--card); border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 20px; border-top: 4px solid;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+}
+.seg-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.seg-card.s1 { border-color: var(--s1); }
+.seg-card.s2 { border-color: var(--s2); }
+.seg-card.s3 { border-color: var(--s3); }
+.seg-card.s4 { border-color: var(--s4); }
+.seg-card.s5 { border-color: var(--s5); }
+.seg-card.s6 { border-color: var(--s6); }
+
+.seg-label { font-size: 11px; font-weight: 700; color: var(--sub); letter-spacing: 1px; margin-bottom: 6px; }
+.seg-name { font-size: 16px; font-weight: 900; margin-bottom: 12px; }
+.seg-stats { display: flex; gap: 12px; }
+.seg-stat { flex: 1; }
+.seg-stat .val { font-size: 22px; font-weight: 900; }
+.seg-stat .lbl { font-size: 11px; color: var(--sub); }
+
+/* SEGMENT DETAIL */
+.seg-header {
+  border-radius: 16px; padding: 28px 28px 20px;
+  color: white; margin-bottom: 20px;
+  display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;
+}
+.seg-header .main { flex: 1; min-width: 200px; }
+.seg-header .tag { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 8px; }
+.seg-header h2 { font-size: 24px; font-weight: 900; margin-bottom: 8px; }
+.seg-header .def { font-size: 14px; opacity: 0.85; line-height: 1.6; }
+.seg-header .kpis { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+.kpi { text-align: center; background: rgba(255,255,255,0.15); border-radius: 12px; padding: 12px 20px; }
+.kpi .k-val { font-size: 28px; font-weight: 900; }
+.kpi .k-lbl { font-size: 11px; opacity: 0.8; }
+
+/* CHART GRID */
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .chart-grid { grid-template-columns: 1fr; } }
+.chart-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media (max-width: 800px) { .chart-grid-3 { grid-template-columns: 1fr; } }
+
+.chart-wrap { height: 240px; position: relative; }
+.chart-wrap-sm { height: 180px; position: relative; }
+
+/* TABLE */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { background: var(--bg); padding: 10px 14px; text-align: left; font-weight: 700; font-size: 12px; color: var(--sub); border-bottom: 2px solid var(--border); }
+.data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #f8f9ff; }
+
+/* W2 x W4 TABLE */
+.cross-table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: center; }
+.cross-table th, .cross-table td { padding: 10px 8px; border: 1px solid var(--border); }
+.cross-table th { background: var(--bg); font-weight: 700; font-size: 12px; color: var(--sub); }
+.cross-table .danger { background: #fff0f0; color: var(--red); font-weight: 700; }
+.cross-table .safe { background: #f0fff8; color: var(--green); font-weight: 700; }
+.cross-table .warn { background: #fff8f0; color: var(--orange); font-weight: 700; }
+.cross-table .ok { background: #f0f8ff; color: var(--blue); font-weight: 700; }
+
+/* CRM CARDS */
+.crm-section { margin-top: 20px; }
+.crm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .crm-grid { grid-template-columns: 1fr; } }
+.crm-card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.crm-card-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.crm-card-title .icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.crm-items { list-style: none; }
+.crm-items li { font-size: 13px; line-height: 1.6; color: var(--text); padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: flex-start; }
+.crm-items li:last-child { border-bottom: none; }
+.crm-items li::before { content: '▸'; color: var(--blue); flex-shrink: 0; font-size: 11px; margin-top: 3px; }
+.crm-items.danger li::before { color: var(--red); content: '✕'; }
+.crm-items.demo li::before { content: '→'; color: var(--pink); }
+
+/* BADGE */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.badge-danger { background: #fee2e2; color: var(--red); }
+.badge-warn { background: #fef3c7; color: #b45309; }
+.badge-ok { background: #d1fae5; color: var(--green); }
+.badge-blue { background: #dbeafe; color: var(--blue); }
+
+/* INSIGHT BOX */
+.insight {
+  background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
+  border-left: 4px solid var(--blue); border-radius: 0 12px 12px 0;
+  padding: 14px 18px; margin: 12px 0; font-size: 13px; line-height: 1.7;
+}
+.insight strong { color: var(--blue); }
+.insight.warn { background: linear-gradient(135deg, #fff7ed, #fef3c7); border-color: var(--orange); }
+.insight.warn strong { color: var(--orange); }
+.insight.danger { background: linear-gradient(135deg, #fff0f0, #ffe4e4); border-color: var(--red); }
+.insight.danger strong { color: var(--red); }
+.insight.green { background: linear-gradient(135deg, #f0fff8, #d1fae5); border-color: var(--green); }
+.insight.green strong { color: var(--green); }
+
+/* GENRE BARS */
+.genre-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.genre-bar .genre-name { font-size: 12px; width: 130px; flex-shrink: 0; color: var(--sub); }
+.genre-bar .bar-track { flex: 1; height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+.genre-bar .bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+.genre-bar .genre-val { font-size: 12px; font-weight: 700; width: 50px; text-align: right; flex-shrink: 0; }
+
+/* W4 THRESHOLD */
+.threshold-box {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  color: white; border-radius: 16px; padding: 20px 24px;
+  margin: 16px 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.threshold-num { font-size: 42px; font-weight: 900; color: #fbbf24; flex-shrink: 0; }
+.threshold-text h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.threshold-text p { font-size: 13px; opacity: 0.8; line-height: 1.6; }
+
+/* SUMMARY TABLE */
+.summary-wrap { overflow-x: auto; }
+.summary-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+.summary-table th { padding: 12px 16px; text-align: left; font-weight: 700; font-size: 12px; background: #1a1a2e; color: white; }
+.summary-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.summary-table tr:hover td { background: #f8f9ff; }
+
+/* FOOTER */
+footer { background: #1a1a2e; color: #64748b; text-align: center; padding: 24px; font-size: 12px; }
+
+.divider { height: 1px; background: var(--border); margin: 32px 0; }
+
+/* S6 INNER SPLIT */
+.split3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 600px) { .split3 { grid-template-columns: 1fr; } }
+.split-card { border-radius: 12px; padding: 16px; text-align: center; }
+.split-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.split-card .rate { font-size: 32px; font-weight: 900; }
+.split-card .n { font-size: 11px; color: var(--sub); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#overview">전체 개요</a>
+  <a href="#s1" class="seg s1">S1</a>
+  <a href="#s2" class="seg s2">S2</a>
+  <a href="#s3" class="seg s3">S3</a>
+  <a href="#s4" class="seg s4">S4</a>
+  <a href="#s5" class="seg s5">S5</a>
+  <a href="#s6" class="seg s6">S6</a>
+  <a href="#common">공통 원칙</a>
+  <a href="#advanced">보완 전략</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Wavve OTT 세그먼트별 CRM 전략</h1>
+  <p>프로모션(100원딜) 유입 본인인증 구독자 11,904명 대상<br>행동 기반 6개 세그먼트 분류 및 4주차 실측 데이터 기반 전략 수립</p>
+  <div class="hero-badges">
+    <span class="hero-badge">공식 모집단 23,097건</span>
+    <span class="hero-badge">프로모션 분석 11,904건</span>
+    <span class="hero-badge">w1~w4 실측 분석</span>
+    <span class="hero-badge">광일 버전 세그먼트 기준</span>
+  </div>
+</div>
+
+<!-- SECTION 0: OVERVIEW -->
+<section id="overview">
+  <div class="sec-title">세그먼트 전체 개요</div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-title">세그먼트 분류 기준</div>
+    <p style="font-size:13px;line-height:1.8;color:var(--sub);">
+      <strong style="color:var(--text);">첫 번째 질문:</strong> 1~2주차에 119분 이상 시청하였는가? (전체 분포 중앙값 기준)<br>
+      <strong style="color:var(--text);">두 번째 질문:</strong> 3주차에 이용이 살아있는가? (141분 이상=활성 / 1분~=약화 / 0분=휴면)<br>
+      <strong style="color:var(--text);">추가 조건:</strong> 1~2주차 짧은 세션 비율(watch_ratio_under_5m) ≤ 25% (광일 버전)
+    </p>
+    <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
+      <div style="padding:12px;background:var(--bg);border-radius:8px;">
+        <div style="font-size:11px;color:var(--sub);margin-bottom:4px;">초기 소비형성 기준</div>
+        <div style="font-size:20px;font-weight:900;color:var(--blue);">119분</div>
+        <div style="font-size:11px;color:var(--sub);">w1+w2 중앙값</div>
+      </div>
+      <div style="padding:12px;background:var(--bg);border-radius:8px;">
+        <div style="font-size:11px;color:var(--sub);margin-bottom:4px;">후반활성 기준</div>
+        <div style="font-size:20px;font-weight:900;color:var(--green);">141분</div>
+        <div style="font-size:11px;color:var(--sub);">w3 75% 분위수</div>
+      </div>
+      <div style="padding:12px;background:var(--bg);border-radius:8px;">
+        <div style="font-size:11px;color:var(--sub);margin-bottom:4px;">짧은세션 기준</div>
+        <div style="font-size:20px;font-weight:900;color:var(--orange);">25%</div>
+        <div style="font-size:11px;color:var(--sub);">ratio_under_5m 중앙값</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seg-grid">
+    <a class="seg-card s1" href="#s1" style="text-decoration:none;color:inherit;">
+      <div class="seg-label">SEGMENT 1</div>
+      <div class="seg-name">유지 보호군</div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">초기 소비형성 + 후반활성</p>
+      <div class="seg-stats">
+        <div class="seg-stat"><div class="val" style="color:var(--s1);">1,359</div><div class="lbl">건수</div></div>
+        <div class="seg-stat"><div class="val" style="color:var(--s1);">10.0%</div><div class="lbl">이탈률</div></div>
+      </div>
+    </a>
+    <a class="seg-card s2" href="#s2" style="text-decoration:none;color:inherit;">
+      <div class="seg-label">SEGMENT 2</div>
+      <div class="seg-name">이용 약화 회복군</div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">초기 소비형성 + 후반약화</p>
+      <div class="seg-stats">
+        <div class="seg-stat"><div class="val" style="color:var(--s2);">1,109</div><div class="lbl">건수</div></div>
+        <div class="seg-stat"><div class="val" style="color:var(--s2);">28.7%</div><div class="lbl">이탈률</div></div>
+      </div>
+    </a>
+    <a class="seg-card s3" href="#s3" style="text-decoration:none;color:inherit;">
+      <div class="seg-label">SEGMENT 3</div>
+      <div class="seg-name">초기 관심 재활성화군</div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">초기 소비형성 + 후반휴면</p>
+      <div class="seg-stats">
+        <div class="seg-stat"><div class="val" style="color:var(--s3);">1,054</div><div class="lbl">건수</div></div>
+        <div class="seg-stat"><div class="val" style="color:var(--s3);">43.5%</div><div class="lbl">이탈률</div></div>
+      </div>
+    </a>
+    <a class="seg-card s4" href="#s4" style="text-decoration:none;color:inherit;">
+      <div class="seg-label">SEGMENT 4</div>
+      <div class="seg-name">늦은 활성 유지군</div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">초기 소비미형성 + 후반활성</p>
+      <div class="seg-stats">
+        <div class="seg-stat"><div class="val" style="color:var(--s4);">1,681</div><div class="lbl">건수</div></div>
+        <div class="seg-stat"><div class="val" style="color:var(--s4);">11.5%</div><div class="lbl">이탈률</div></div>
+      </div>
+    </a>
+    <a class="seg-card s5" href="#s5" style="text-decoration:none;color:inherit;">
+      <div class="seg-label">SEGMENT 5</div>
+      <div class="seg-name">저관여 회복 실험군</div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">초기 소비미형성 + 후반약화</p>
+      <div class="seg-stats">
+        <div class="seg-stat"><div class="val" style="color:var(--s5);">3,500</div><div class="lbl">건수</div></div>
+        <div class="seg-stat"><div class="val" style="color:var(--s5);">31.1%</div><div class="lbl">이탈률</div></div>
+      </div>
+    </a>
+    <a class="seg-card s6" href="#s6" style="text-decoration:none;color:inherit;">
+      <div class="seg-label">SEGMENT 6</div>
+      <div class="seg-name">진입 미형성 휴면군</div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">초기 소비미형성 + 후반휴면</p>
+      <div class="seg-stats">
+        <div class="seg-stat"><div class="val" style="color:var(--s6);">3,201</div><div class="lbl">건수</div></div>
+        <div class="seg-stat"><div class="val" style="color:var(--s6);">52.3%</div><div class="lbl">이탈률</div></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title">세그먼트별 이탈률 비교</div>
+    <div class="chart-wrap"><canvas id="chartOverall"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w4(4주차) 시청 유무에 따른 이탈률 격차</div>
+    <div class="chart-wrap"><canvas id="chartW4Gap"></canvas></div>
+    <div class="insight">
+      <strong>핵심:</strong> 모든 세그먼트에서 w4 시청이 있는 구독자의 이탈률이 현저히 낮음. 특히 S3(43.0%p 격차)와 S6(31.4%p 격차)에서 차이가 극적. w4 시청을 유발하는 것이 CRM의 실질적 목표.
+    </div>
+  </div>
+</section>
+
+<!-- ======================== S1 ======================== -->
+<section id="s1">
+  <div class="seg-header" style="background:linear-gradient(135deg,#0f6649,#1D9E75);">
+    <div class="main">
+      <div class="tag">SEGMENT 1 · 유지 보호군</div>
+      <h2>초기 소비형성 + 후반활성</h2>
+      <p class="def">1~2주차에 119분 이상 시청하고 3주차에도 141분 이상 유지 중인 집단.<br>6개 세그먼트 중 가장 건강한 상태.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="k-val">1,359</div><div class="k-lbl">구독자 수</div></div>
+      <div class="kpi"><div class="k-val">10.0%</div><div class="k-lbl">이탈률</div></div>
+      <div class="kpi"><div class="k-val">30.0%</div><div class="k-lbl">w4 시청 비율</div></div>
+      <div class="kpi"><div class="k-val">4.7%</div><div class="k-lbl">w4 시청 시 이탈률</div></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">성별 × 연령대 이탈률</div>
+      <div class="chart-wrap"><canvas id="s1Age"></canvas></div>
+      <div class="insight" style="margin-top:12px;">
+        <strong>남성 40대(18.4%)</strong>가 S1에서 가장 위험한 소집단. 여성 30·40대(6.7~6.8%)는 가장 안정적.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">요금제별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s1Plan"></canvas></div>
+      <div class="insight" style="margin-top:12px;">
+        Basic(11.2%)이 Standard(7.5%)보다 높음. 업셀링 여지 존재.
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">콘텐츠 다양성별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s1Div"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">후반 유지율 (w3/w1+w2) 이탈률</div>
+      <div class="chart-wrap"><canvas id="s1Ret"></canvas></div>
+      <div class="insight" style="margin-top:12px;">
+        3주차 시청이 증가 중인 구독자(7.4%)와 급락(13.6%) 사이 <strong>6.2%p 격차.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w4 시청 유무 × 이탈률</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;">
+      <div class="chart-wrap-sm"><canvas id="s1W4"></canvas></div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:#f0fff8;border-radius:10px;margin-bottom:8px;">
+          <span style="font-size:13px;font-weight:700;">w4 시청 있음 (408명)</span>
+          <span style="font-size:24px;font-weight:900;color:var(--green);">4.7%</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:#fff0f0;border-radius:10px;">
+          <span style="font-size:13px;font-weight:700;">w4 시청 없음 (951명)</span>
+          <span style="font-size:24px;font-weight:900;color:var(--red);">12.3%</span>
+        </div>
+        <div class="insight" style="margin-top:12px;">격차 <strong>7.6%p</strong>. w4 이용 유지가 재구매와 직결.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">시청 장르 분포 (건당 평균 시청시간)</div>
+    <div id="s1Genre"></div>
+  </div>
+
+  <!-- CRM -->
+  <div class="crm-section">
+    <div class="sec-title" style="font-size:16px;">S1 CRM 접근 전략</div>
+    <div class="insight green"><strong>핵심 원칙:</strong> 과도한 개입 자제. 잘 오고 있는 구독자에게 불필요한 자극을 주면 오히려 이탈의 트리거가 됨.</div>
+
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#dbeafe;">📩</div>메시지 개입</div>
+        <ul class="crm-items">
+          <li>100원딜 종료 전 정상 요금 전환 안내 <strong>1회</strong> 필수 제공</li>
+          <li>시청 이력 기반 신작 알림 <strong>1회</strong>로 제한</li>
+          <li>후반 유지율 급락 구독자에게만 이어보기 단발 메시지 실험 가능</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#d1fae5;">🎬</div>콘텐츠 큐레이션</div>
+        <ul class="crm-items">
+          <li>실제 시청 이력에 있는 장르·작품 기반으로만 추천. 집계 통계 장르가 아닌 개인 시청 기록이 기준</li>
+          <li>단일 장르 집중 구독자에게 콘텐츠 종료 전 후속작 미리 노출</li>
+          <li>인접 장르로의 자연스러운 확장 시도. 단, 개인 시청 이력에서 이미 다양한 장르를 접한 경우에만 해당</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fef3c7;">💳</div>혜택 설계</div>
+        <ul class="crm-items">
+          <li>정상 요금 전환 안내 1회. 플랜 변경 권유는 하지 않음</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fce7f3;">👥</div>인구통계 차별화</div>
+        <ul class="crm-items demo">
+          <li><strong>여성·남성 20대:</strong> Referral 전략. "친구 초대 시 나도 친구도 할인" AARRR Referral 실험</li>
+          <li><strong>남성 40대(18.4%, N=87 △):</strong> 해당 구독자의 실제 시청 이력 기반 콘텐츠 메시지. 요금제 전환 안내 1회 (N<100, 경향성 참고 수준)</li>
+          <li><strong>여성 30·40대:</strong> 개입 최소화. 가장 안정적인 소집단</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="crm-card" style="margin-top:16px;border-left:4px solid var(--red);">
+      <div class="crm-card-title"><div class="icon" style="background:#fee2e2;">🚫</div>절대 보내면 안 되는 것</div>
+      <ul class="crm-items danger">
+        <li>온보딩 메시지 — 이미 잘 이용 중인 구독자에게 "처음 시작" 취급</li>
+        <li>"오랜만이에요 ㅠ" 식 재활성화 메시지</li>
+        <li>선제적 할인 쿠폰 투입 — "기다리면 할인" 학습 위험</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== S2 ======================== -->
+<section id="s2">
+  <div class="seg-header" style="background:linear-gradient(135deg,#1a56a0,#378ADD);">
+    <div class="main">
+      <div class="tag">SEGMENT 2 · 이용 약화 회복군</div>
+      <h2>초기 소비형성 + 후반약화</h2>
+      <p class="def">1~2주차에 119분 이상 봤지만 3주차에 1분~141분 미만으로 시청이 약해진 집단.<br>흐름이 꺾이기 시작한 상태.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="k-val">1,109</div><div class="k-lbl">구독자 수</div></div>
+      <div class="kpi"><div class="k-val">28.7%</div><div class="k-lbl">이탈률</div></div>
+      <div class="kpi"><div class="k-val">21.4%</div><div class="k-lbl">w4 시청 비율</div></div>
+      <div class="kpi"><div class="k-val">23.1%p</div><div class="k-lbl">w4 유무 격차</div></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">성별 × 연령대 이탈률</div>
+      <div class="chart-wrap"><canvas id="s2Age"></canvas></div>
+      <div class="insight warn" style="margin-top:12px;"><strong>남성 20대(36.9%)</strong>가 S2에서 가장 위험. 여성 30대(23.6%)는 상대적으로 낮음.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">요금제별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s2Plan"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">후반 유지율별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s2Ret"></canvas></div>
+      <div class="insight" style="margin-top:12px;">증가(19.2%) vs 급락(31.6%) — <strong>12.4%p 격차.</strong> S2에서 가장 중요한 내부 신호.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">콘텐츠 다양성별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s2Div"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w2 변화 × w4 시청 교차 분석</div>
+    <table class="cross-table">
+      <tr><th></th><th>w4 있음</th><th>w4 없음</th></tr>
+      <tr><td style="font-weight:700;">w2 증가</td><td class="safe">11.2% (107명)</td><td class="warn">26.2% (435명)</td></tr>
+      <tr><td style="font-weight:700;">w2 감소</td><td class="ok">10.0% (130명)</td><td class="danger">41.0% (437명)</td></tr>
+    </table>
+    <div class="insight danger" style="margin-top:12px;"><strong>w4 시청을 만들어내기만 하면</strong> w2 변화와 무관하게 이탈률이 10~11%대로 급락.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w4 시청량 구간별 이탈률</div>
+    <div class="chart-wrap"><canvas id="s2W4Vol"></canvas></div>
+    <div class="threshold-box">
+      <div class="threshold-num">31분</div>
+      <div class="threshold-text">
+        <h4>S2 w4 임계점</h4>
+        <p>31분 이상이 되면 이탈률이 8.3%로 급락. 1~30분(23.1%)과의 격차가 14.8%p. 영화 한 편의 3분의 1 수준을 w4에서 시청하게 만드는 것이 목표.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="crm-section">
+    <div class="sec-title" style="font-size:16px;">S2 CRM 접근 전략</div>
+    <div class="insight"><strong>핵심 원칙:</strong> 이용 흐름이 완전히 끊기기 전에 다음 시청을 만들어주는 것. 목표: w4 31분 이상.</div>
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#dbeafe;">📩</div>메시지 개입</div>
+        <ul class="crm-items">
+          <li>마지막 시청 작품·장르 기반 "이어서 보기 좋은 한 편" 단발 발송</li>
+          <li>1~2편으로 제한. 나열 금지 (선택 부담↑)</li>
+          <li>반응 없으면 발송 중단. 프로모션 전환 안내는 콘텐츠 반응 확인 후</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#d1fae5;">🎬</div>콘텐츠 큐레이션</div>
+        <ul class="crm-items">
+          <li>실제 시청한 작품에서 이어지는 다음 편 또는 유사작을 1~2편으로 제한하여 추천</li>
+          <li>단일 장르 집중형에게 공동 시청 패턴(협업 필터링) 또는 장르 유사도 기반 인접 작품 1편 추천. 거리 먼 장르로의 갑작스러운 전환 금지</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fef3c7;">💳</div>혜택 설계</div>
+        <ul class="crm-items">
+          <li>Basic(30.6%) → 콘텐츠 반응 후 업그레이드 staged 제안</li>
+          <li>Premium(24.6%)은 상대적으로 안정 — 콘텐츠 중심 접근</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fce7f3;">👥</div>인구통계 차별화</div>
+        <ul class="crm-items demo">
+          <li><strong>남성 20대(36.9%):</strong> 즉시 개입 + Referral 실험</li>
+          <li><strong>여성 30대(23.6%):</strong> 해당 구독자의 실제 시청 이력 기반 콘텐츠 메시지. 과도한 개입 자제</li>
+          <li><strong>후반 급락 구독자:</strong> 우선 개입 대상</li>
+        </ul>
+      </div>
+    </div>
+    <div class="crm-card" style="margin-top:16px;border-left:4px solid var(--red);">
+      <div class="crm-card-title"><div class="icon" style="background:#fee2e2;">🚫</div>절대 보내면 안 되는 것</div>
+      <ul class="crm-items danger">
+        <li>즉각적 할인 쿠폰 — 이용 의지 확인 전 가격만 부각</li>
+        <li>재촉형 메시지 ("아직 안 보셨나요?")</li>
+        <li>온보딩 메시지 — 초기 소비 경험이 있는 구독자에게 부적절</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== S3 ======================== -->
+<section id="s3">
+  <div class="seg-header" style="background:linear-gradient(135deg,#a0521a,#E8743B);">
+    <div class="main">
+      <div class="tag">SEGMENT 3 · 초기 관심 재활성화군</div>
+      <h2>초기 소비형성 + 후반휴면</h2>
+      <p class="def">1~2주차에 119분 이상 봤지만 3주차에 시청이 완전히 사라진(0분) 집단.<br>초반에는 분명히 봤는데 어느 순간 발길이 끊긴 상태.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="k-val">1,054</div><div class="k-lbl">구독자 수</div></div>
+      <div class="kpi"><div class="k-val">43.5%</div><div class="k-lbl">이탈률</div></div>
+      <div class="kpi"><div class="k-val">16.4%</div><div class="k-lbl">w4 시청 비율</div></div>
+      <div class="kpi"><div class="k-val">43.0%p</div><div class="k-lbl">w4 유무 격차 ★최대</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">반직관적 발견: 재구매자 vs 이탈자의 주차별 시청량</div>
+    <div class="chart-wrap"><canvas id="s3WkCompare"></canvas></div>
+    <div class="insight danger" style="margin-top:12px;">
+      <strong>이탈자가 w1에서 더 많이 봤음(230분 vs 177분).</strong> 처음에 많이 보는 것이 재구매를 보장하지 않음. 오히려 몰아보고 단물 뽑고 나간 패턴일 가능성. 재구매자는 w2에서 훨씬 더 많이 봤음(182분 vs 98분).
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">성별 × 연령대 이탈률</div>
+      <div class="chart-wrap"><canvas id="s3Age"></canvas></div>
+      <div class="insight warn" style="margin-top:12px;">전 집단 40~51%. <strong>인구통계보다 시청 이력이 더 강력한 개입 근거.</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title">요금제별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s3Plan"></canvas></div>
+      <div class="insight" style="margin-top:12px;"><strong>Standard만 37.0%</strong>로 유독 낮음. Basic·Premium은 44~45%로 동일 수준.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w2 변화 × w4 시청 교차 분석</div>
+    <table class="cross-table">
+      <tr><th></th><th>w4 있음</th><th>w4 없음</th></tr>
+      <tr><td style="font-weight:700;">w2 증가</td><td class="safe">9.0% (89명)</td><td class="warn">28.4% (341명)</td></tr>
+      <tr><td style="font-weight:700;">w2 감소</td><td class="ok">6.0% (84명)</td><td class="danger">64.4% (540명)</td></tr>
+    </table>
+    <div class="insight danger" style="margin-top:12px;">같은 S3인데 w2감소+w4없음이면 <strong>64.4%</strong>, w2증가+w4있음이면 <strong>9.0%</strong>. 55%p 차이.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w4 시청량 구간별 이탈률</div>
+    <div class="chart-wrap"><canvas id="s3W4Vol"></canvas></div>
+    <div class="threshold-box">
+      <div class="threshold-num">31분</div>
+      <div class="threshold-text">
+        <h4>S3 w4 임계점 (6개 세그먼트 중 최대 격차 43.0%p)</h4>
+        <p>31분 이상이 되면 이탈률이 4.3%로 급락. 300분 이상이면 0%. 영화 한 편의 3분의 1을 w4에서 시청하게 만드는 것이 S3 CRM의 실질적 목표.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">장르별 재구매율 (상위/하위)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px;">▲ 재구매율 높은 장르</p>
+        <div id="s3GenreHigh"></div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:8px;">▼ 재구매율 낮은 장르</p>
+        <div id="s3GenreLow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">주목할 작품별 재구매율</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px;">재구매율 상위 작품</p>
+        <table class="data-table">
+          <tr><th>작품</th><th>시청자</th><th>재구매율</th></tr>
+          <tr><td>저스트프렌드</td><td>17명</td><td style="color:var(--green);font-weight:700;">95.8%</td></tr>
+          <tr><td>더테이블</td><td>38명</td><td style="color:var(--green);font-weight:700;">85.5%</td></tr>
+          <tr><td>해피엔드 ★</td><td>25명</td><td style="color:var(--green);font-weight:700;">82.5%</td></tr>
+          <tr><td>죽여주는여자(2016) ※</td><td>68명</td><td style="color:var(--green);font-weight:700;">80.0%</td></tr>
+          <tr><td>디파이언스(2008)</td><td>46명</td><td style="color:var(--green);font-weight:700;">79.2%</td></tr>
+        </table>
+        <div class="insight warn" style="margin-top:8px;font-size:12px;">
+          <strong>※ 주의:</strong> 죽여주는여자(2016)은 윤여정 주연 아트하우스 영화(관객 20만 미만)로, 관측 기간(2021년 3~4월)이 윤여정 오스카 여우조연상 수상(2021년 4월 25일)과 겹침. 재구매율이 작품 자체보다 수상 직전 열혈 팬덤 집중 유입의 영향일 가능성 있음. 일반화 주의.
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:8px;">재구매율 하위 작품</p>
+        <table class="data-table">
+          <tr><th>작품</th><th>시청자</th><th>재구매율</th></tr>
+          <tr><td>운봉</td><td>24명</td><td style="color:var(--red);font-weight:700;">28.6%</td></tr>
+          <tr><td>뱅가드</td><td>37명</td><td style="color:var(--red);font-weight:700;">37.9%</td></tr>
+          <tr><td>사생결단</td><td>44명</td><td style="color:var(--red);font-weight:700;">41.9%</td></tr>
+          <tr><td>파커</td><td>49명</td><td style="color:var(--red);font-weight:700;">44.4%</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="insight" style="margin-top:12px;"><strong>★ 해피엔드:</strong> S3·S6 모두에서 재구매율 상위. 이탈 위험 세그먼트의 공통 재활성화 트리거 작품으로 신뢰할 수 있음.</div>
+  </div>
+
+  <div class="crm-section">
+    <div class="sec-title" style="font-size:16px;">S3 CRM 접근 전략</div>
+    <div class="insight warn"><strong>핵심 원칙:</strong> 초기에 본 콘텐츠를 기반으로 w4 시청 31분 이상을 만들어내는 것. w2감소+w4없음 집단(64.4%)은 발송 억제.</div>
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fef3c7;">📩</div>메시지 개입</div>
+        <ul class="crm-items">
+          <li>실제 시청 작품의 후속 시리즈·동일 감독·유사 장르 중 1편을 정보성 톤으로 발송</li>
+          <li>"오래 안 보셨네요" 대신 콘텐츠 자체가 메시지의 이유가 되어야 함</li>
+          <li>w2 증가 집단 우선 발송 → w4 시청 유발 시 이탈률 9%로 급락</li>
+          <li>무반응 즉시 발송 중단</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#d1fae5;">🎬</div>콘텐츠 큐레이션</div>
+        <ul class="crm-items">
+          <li>실제로 Animation/Family를 시청한 이력이 있는 구독자에 한해 해당 장르 후속작 또는 유사작 추천</li>
+          <li>해피엔드 — S3·S6 공통 검증된 재활성화 트리거 작품</li>
+          <li>재구매율 낮은 작품(운봉, 뱅가드) 시청자 → 완전히 다른 장르 추천</li>
+          <li>남성: Romance top3 — 추천에서 Romance 배제 금지</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fce7f3;">👥</div>인구통계 차별화</div>
+        <ul class="crm-items demo">
+          <li><strong>남성 40대(50.7%):</strong> Historical/War, Thriller/Crime 신작 알림</li>
+          <li><strong>여성 20대:</strong> Referral + 재활성화 동시 노리는 "친구와 함께 보기"</li>
+          <li><strong>Standard 이용자(37.0%):</strong> 콘텐츠 재활성화 먼저 시도</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fee2e2;">🚫</div>절대 보내면 안 되는 것</div>
+        <ul class="crm-items danger">
+          <li>"처음 시작해 보세요" — 초기 소비 경험 무시</li>
+          <li>첫 메시지부터 할인 쿠폰</li>
+          <li>매일 보내는 재촉형 푸시</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== S4 ======================== -->
+<section id="s4">
+  <div class="seg-header" style="background:linear-gradient(135deg,#0d6e3f,#2ecc71);">
+    <div class="main">
+      <div class="tag">SEGMENT 4 · 늦은 활성 유지군</div>
+      <h2>초기 소비미형성 + 후반활성</h2>
+      <p class="def">1~2주차 소비형성이 미흡했으나 3주차에 141분 이상으로 활성화된 집단.<br>초반에는 미적지근했는데 어느 시점부터 서비스를 자기 것으로 만든 케이스.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="k-val">1,681</div><div class="k-lbl">구독자 수</div></div>
+      <div class="kpi"><div class="k-val">11.5%</div><div class="k-lbl">이탈률</div></div>
+      <div class="kpi"><div class="k-val">27.8%</div><div class="k-lbl">w4 시청 비율</div></div>
+      <div class="kpi"><div class="k-val">3.5%p</div><div class="k-lbl">w4 유무 격차 ★최소</div></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">성별 × 연령대 이탈률</div>
+      <div class="chart-wrap"><canvas id="s4Age"></canvas></div>
+      <div class="insight" style="margin-top:12px;">S1과 반대 패턴. S4에서 <strong>남성 40대(7.5%)가 가장 낮고</strong>, 남성 30대(14.4%)가 주의 대상.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">요금제별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s4Plan"></canvas></div>
+      <div class="insight" style="margin-top:12px;"><strong>S4에서 요금제 차이가 가장 극명.</strong> Basic(14.1%) vs Standard·Premium(7~8%). 거의 두 배 차이.</div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">콘텐츠 다양성별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s4Div"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">w2 변화 × w4 교차 이탈률</div>
+      <div style="padding:8px;">
+        <table class="cross-table">
+          <tr><th></th><th>w4 있음</th><th>w4 없음</th></tr>
+          <tr><td style="font-weight:700;">w2 증가</td><td class="safe">8.9% (190명)</td><td class="ok">11.7% (470명)</td></tr>
+          <tr><td style="font-weight:700;">w2 감소</td><td class="safe">9.0% (278명)</td><td class="ok">12.9% (743명)</td></tr>
+        </table>
+        <div class="insight" style="margin-top:12px;">S4는 w4 유무와 w2 변화 모두 이탈률 차이가 작음. 이미 3주차에 잘 이용 중이므로 이전 주차 흐름의 영향이 작음.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="crm-section">
+    <div class="sec-title" style="font-size:16px;">S4 CRM 접근 전략</div>
+    <div class="insight green"><strong>핵심 원칙:</strong> 최근 활성화를 만들어낸 콘텐츠 흐름 보호. 초기 이용이 적었다고 온보딩 취급 금지.</div>
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#dbeafe;">📩</div>메시지 개입</div>
+        <ul class="crm-items">
+          <li>3주차 시청 장르·작품 기반 정보성 알림 1회</li>
+          <li>요금 전환 안내 1회 필수</li>
+          <li>S1과 마찬가지로 최소한의 흐름 유지가 목표</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#d1fae5;">🎬</div>콘텐츠 큐레이션</div>
+        <ul class="crm-items">
+          <li>남성: SF/Fantasy 1위 — SF 신작·인기작 우선 노출</li>
+          <li>단일 콘텐츠 집중형(15.3%) → 후속작·동일 장르 미리 노출</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fef3c7;">💳</div>혜택 설계</div>
+        <ul class="crm-items">
+          <li>정상 요금 전환 안내 1회. 플랜 변경 권유는 하지 않음</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fce7f3;">👥</div>인구통계 차별화</div>
+        <ul class="crm-items demo">
+          <li><strong>남성 30대(14.4%):</strong> SF/Fantasy 신작 알림 실험</li>
+          <li><strong>남성 40대(7.5%):</strong> 개입 최소화. S4에서 가장 안정적</li>
+          <li><strong>여성 20대:</strong> Referral 실험 — "나 요즘 이거 보는데 너도 해봐"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="crm-card" style="margin-top:16px;border-left:4px solid var(--red);">
+      <div class="crm-card-title"><div class="icon" style="background:#fee2e2;">🚫</div>절대 보내면 안 되는 것</div>
+      <ul class="crm-items danger">
+        <li>초기 이용량이 적었다는 이유로 보내는 온보딩 메시지</li>
+        <li>성급한 정가 전환 압박 — 지금 가장 활발하게 이용 중</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== S5 ======================== -->
+<section id="s5">
+  <div class="seg-header" style="background:linear-gradient(135deg,#8b2252,#D4537E);">
+    <div class="main">
+      <div class="tag">SEGMENT 5 · 저관여 회복 실험군</div>
+      <h2>초기 소비미형성 + 후반약화</h2>
+      <p class="def">1~2주차 소비형성 미흡, 3주차에도 1분~141분 미만으로 약하게 남아있는 집단.<br>초반부터 후반까지 전반적으로 이용이 저조.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="k-val">3,500</div><div class="k-lbl">구독자 수</div></div>
+      <div class="kpi"><div class="k-val">31.1%</div><div class="k-lbl">이탈률</div></div>
+      <div class="kpi"><div class="k-val">21.8%</div><div class="k-lbl">w4 시청 비율</div></div>
+      <div class="kpi"><div class="k-val">19.3%p</div><div class="k-lbl">w4 유무 격차</div></div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">성별 × 연령대 이탈률</div>
+      <div class="chart-wrap"><canvas id="s5Age"></canvas></div>
+      <div class="insight" style="margin-top:12px;">29~33% 범위로 <strong>전 집단이 고르게 분포.</strong> 인구통계보다 시청 이력·다양성이 더 강력한 기준.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">콘텐츠 다양성별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s5Div"></canvas></div>
+      <div class="insight" style="margin-top:12px;">단일(35.7%) vs 중간·다양(23%) — <strong>12%p 이상 격차.</strong> S5에서 가장 중요한 변수.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w2 변화 × w4 교차 이탈률</div>
+    <table class="cross-table">
+      <tr><th></th><th>w4 있음</th><th>w4 없음</th></tr>
+      <tr><td style="font-weight:700;">w2 증가</td><td class="safe">14.1% (290명)</td><td class="warn">27.2% (1,039명)</td></tr>
+      <tr><td style="font-weight:700;">w2 감소</td><td class="ok">17.1% (474명)</td><td class="danger">40.2% (1,697명)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w4 시청량 구간별 이탈률</div>
+    <div class="chart-wrap"><canvas id="s5W4Vol"></canvas></div>
+    <div class="threshold-box">
+      <div class="threshold-num">101분</div>
+      <div class="threshold-text">
+        <h4>S5 w4 임계점 (S3·S6와 다름)</h4>
+        <p>S5는 31분(19.4%)만으로는 부족. 101분 이상이 되어야 이탈률이 7.5%로 한 자리수 진입. 초기부터 이용이 적었기 때문에 더 많은 시청이 필요.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="crm-section">
+    <div class="sec-title" style="font-size:16px;">S5 CRM 접근 전략</div>
+    <div class="insight"><strong>핵심 원칙:</strong> 다음 유효한 시청을 만들어주는 것. 목표: w4 101분 이상. 선택 부담 최소화.</div>
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#dbeafe;">📩</div>메시지 개입</div>
+        <ul class="crm-items">
+          <li>시청 이력 있으면 해당 장르에서 2~3편 이내 제안</li>
+          <li>이력 없으면 인기 콘텐츠 2~3편 + 장르 태그 함께 표시</li>
+          <li>무반응 즉시 발송 중단</li>
+          <li>w2감소+w4없음(40.2%) — 발송 억제 검토</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#d1fae5;">🎬</div>콘텐츠 큐레이션</div>
+        <ul class="crm-items">
+          <li>개인 시청 이력에 Action/Adventure가 있는 경우 해당 장르 인접작 추천 가능</li>
+          <li>"이 작품을 보셨다면 이런 작품도" → 두 번째·세 번째 탐색 유도</li>
+          <li>단일 콘텐츠 종료 직후가 개입의 적기</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fef3c7;">💳</div>혜택 설계</div>
+        <ul class="crm-items">
+          <li>정상 요금 전환 안내 1회. 플랜 변경 권유는 하지 않음</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fce7f3;">👥</div>인구통계 차별화</div>
+        <ul class="crm-items demo">
+          <li><strong>여성 20대:</strong> "친구와 함께 보기" Referral 실험</li>
+          <li><strong>단일 집중형(35.7%):</strong> 우선 개입 — 두 번째 장르 탐색 유도</li>
+          <li>전 인구 집단이 고르게 위험 — 시청 이력이 1차 기준</li>
+        </ul>
+      </div>
+    </div>
+    <div class="crm-card" style="margin-top:16px;border-left:4px solid var(--red);">
+      <div class="crm-card-title"><div class="icon" style="background:#fee2e2;">🚫</div>절대 보내면 안 되는 것</div>
+      <ul class="crm-items danger">
+        <li>대량 콘텐츠 나열 — 선택 부담이 이탈을 앞당김</li>
+        <li>즉각적 정가 전환 압박</li>
+        <li>성별·연령 고정관념 기반 추천</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== S6 ======================== -->
+<section id="s6">
+  <div class="seg-header" style="background:linear-gradient(135deg,#7b1a1a,#c0392b);">
+    <div class="main">
+      <div class="tag">SEGMENT 6 · 진입 미형성 휴면군</div>
+      <h2>초기 소비미형성 + 후반휴면</h2>
+      <p class="def">1~2주차 소비형성 미흡, 3주차에 시청 완전히 없음(0분).<br>이탈률 최고. 그러나 약 30%가 4주차에 자발적으로 복귀.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="k-val">3,201</div><div class="k-lbl">구독자 수</div></div>
+      <div class="kpi"><div class="k-val">52.3%</div><div class="k-lbl">이탈률</div></div>
+      <div class="kpi"><div class="k-val">29.8%</div><div class="k-lbl">w4 자발 복귀율</div></div>
+      <div class="kpi"><div class="k-val">31.4%p</div><div class="k-lbl">w4 유무 격차</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">S6 내부 분기 — 같은 S6라도 완전히 다름</div>
+    <div class="split3">
+      <div class="split-card" style="background:#fff0f0;border:1px solid #fca5a5;">
+        <h4 style="color:var(--sub);">탐색형</h4>
+        <p style="font-size:11px;color:var(--sub);margin-bottom:8px;">초기 시청 1~30분</p>
+        <div class="rate" style="color:var(--red);">69.5%</div>
+        <div class="n">797명 · 가장 위험</div>
+        <p style="font-size:11px;color:var(--sub);margin-top:8px;">잠깐 들어와서 콘텐츠를 발견하지 못하고 떠난 패턴</p>
+      </div>
+      <div class="split-card" style="background:#fff8f0;border:1px solid #fcd34d;">
+        <h4 style="color:var(--sub);">저소비형</h4>
+        <p style="font-size:11px;color:var(--sub);margin-bottom:8px;">초기 시청 31~118분</p>
+        <div class="rate" style="color:var(--orange);">56.7%</div>
+        <div class="n">934명</div>
+        <p style="font-size:11px;color:var(--sub);margin-top:8px;">어느 정도 봤지만 충분한 소비로 이어지지 않음</p>
+      </div>
+      <div class="split-card" style="background:#f0fff8;border:1px solid #6ee7b7;">
+        <h4 style="color:var(--sub);">무시청형</h4>
+        <p style="font-size:11px;color:var(--sub);margin-bottom:8px;">초기 시청 0분</p>
+        <div class="rate" style="color:var(--green);">36.7%</div>
+        <div class="n">746명 · 상대적으로 낮음</div>
+        <p style="font-size:11px;color:var(--sub);margin-top:8px;">watch_ratio 조건으로 인해 고시청자가 포함된 케이스 혼재</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">성별 × 연령대 이탈률</div>
+      <div class="chart-wrap"><canvas id="s6Age"></canvas></div>
+      <div class="insight danger" style="margin-top:12px;"><strong>여성 40대(56.4%)</strong>가 가장 위험. Animation/Family 장르가 top3. 자녀와 함께 이용 시도했을 가능성.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">콘텐츠 다양성별 이탈률</div>
+      <div class="chart-wrap"><canvas id="s6Div"></canvas></div>
+      <div class="insight danger" style="margin-top:12px;">단일(60.3%) vs 다양(33.3%) — <strong>27%p 격차. 6개 세그먼트 중 최대.</strong> 두 번째·세 번째 콘텐츠로 이어지게 만드는 것이 핵심.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w2 변화 × w4 교차 이탈률</div>
+    <table class="cross-table">
+      <tr><th></th><th>w4 있음</th><th>w4 없음</th></tr>
+      <tr><td style="font-weight:700;">w2 증가</td><td class="safe">11.6% (121명)</td><td class="warn">44.2% (999명)</td></tr>
+      <tr><td style="font-weight:700;">w2 감소</td><td class="ok">33.0% (834명)</td><td class="danger">75.7% (1,247명)</td></tr>
+    </table>
+    <div class="insight danger" style="margin-top:12px;">w2감소+w4없음이면 <strong>75.7%</strong>, w2증가+w4있음이면 <strong>11.6%</strong>. 같은 S6인데 <strong>64%p 차이.</strong></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">w4 시청량 구간별 이탈률</div>
+    <div class="chart-wrap"><canvas id="s6W4Vol"></canvas></div>
+    <div class="threshold-box">
+      <div class="threshold-num">31분</div>
+      <div class="threshold-text">
+        <h4>S6 w4 임계점</h4>
+        <p>1~30분(55.2%)은 효과 부족. 31분 이상이 되어야 24.1%로 급락. 101분+(16.3%), 300분+(8.5%). S6에서는 "잠깐 재생"이 아니라 한 편 이상을 완주하게 만드는 구조가 필요.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">재구매율 상위/하위 작품</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px;">재구매율 상위 작품</p>
+        <table class="data-table">
+          <tr><th>작품</th><th>시청자</th><th>재구매율</th></tr>
+          <tr><td>집으로...</td><td>16명</td><td style="color:var(--green);font-weight:700;">95.5%</td></tr>
+          <tr><td>예수는역사다</td><td>17명</td><td style="color:var(--green);font-weight:700;">92.6%</td></tr>
+          <tr><td>펭귄:위대한모험2</td><td>20명</td><td style="color:var(--green);font-weight:700;">92.6%</td></tr>
+          <tr><td>천사의사랑</td><td>37명</td><td style="color:var(--green);font-weight:700;">90.2%</td></tr>
+          <tr><td>해피엔드 ★★</td><td>70명</td><td style="color:var(--green);font-weight:700;">87.9%</td></tr>
+          <tr><td>알라딘(2019)</td><td>26명</td><td style="color:var(--green);font-weight:700;">82.0%</td></tr>
+          <tr><td>겨울왕국2</td><td>100명</td><td style="color:var(--green);font-weight:700;">81.2%</td></tr>
+        </table>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:8px;">재구매율 하위 작품</p>
+        <table class="data-table">
+          <tr><th>작품</th><th>시청자</th><th>재구매율</th></tr>
+          <tr><td>오목소녀(2018)</td><td>17명</td><td style="color:var(--red);font-weight:700;">19.0%</td></tr>
+          <tr><td>분노</td><td>20명</td><td style="color:var(--red);font-weight:700;">26.5%</td></tr>
+          <tr><td>국두</td><td>15명</td><td style="color:var(--red);font-weight:700;">26.7%</td></tr>
+          <tr><td>파커</td><td>46명</td><td style="color:var(--red);font-weight:700;">30.0%</td></tr>
+          <tr><td>퍼펙트케어</td><td>42명</td><td style="color:var(--red);font-weight:700;">32.1%</td></tr>
+        </table>
+        <div class="insight danger" style="margin-top:8px;font-size:12px;">재구매율 낮은 작품 시청자 → 완전히 다른 장르 추천</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="crm-section">
+    <div class="sec-title" style="font-size:16px;">S6 CRM 접근 전략</div>
+    <div class="insight danger"><strong>핵심 원칙:</strong> 내부 분기별 차별화. w4 31분 이상 목표. 무반응 구독자 발송 억제. S6는 "이미 떠난 집단"이 아님 — 약 30%가 자발 복귀.</div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-title">내부 분기별 메시지 전략</div>
+      <table class="data-table">
+        <tr><th>유형</th><th>이탈률</th><th>접근 방향</th></tr>
+        <tr><td><strong>무시청형</strong> (746명)</td><td style="color:var(--green);">36.7%</td><td>사회적 증거 방식으로 첫 시청 진입 유도. "지금 많은 분들이 보고 있어요"</td></tr>
+        <tr><td><strong>탐색형</strong> (797명)</td><td style="color:var(--red);font-weight:700;">69.5%</td><td>마지막 클릭 콘텐츠 기반 단발 추천. 무반응 즉시 발송 억제</td></tr>
+        <tr><td><strong>저소비형</strong> (934명)</td><td style="color:var(--orange);">56.7%</td><td>해당 장르 기반 "다음에 보기 좋은 한 편" 추천</td></tr>
+      </table>
+    </div>
+
+    <div class="crm-grid">
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#d1fae5;">🎬</div>콘텐츠 큐레이션</div>
+        <ul class="crm-items">
+          <li>Animation/Family 재구매율 압도적 — 해당 장르 신작·인기작 우선 노출</li>
+          <li>겨울왕국2, 알라딘(2019), 펭귄:위대한모험2 — 공동 시청 패턴에서 재구매율이 높게 확인된 작품. 단 해당 구독자의 탐색 이력이 있는 경우에 한함</li>
+          <li>해피엔드 — S3·S6 공통 검증 재활성화 작품</li>
+          <li>재구매율 낮은 작품 시청자 → 완전히 다른 장르 추천</li>
+        </ul>
+      </div>
+      <div class="crm-card">
+        <div class="crm-card-title"><div class="icon" style="background:#fce7f3;">👥</div>인구통계 차별화</div>
+        <ul class="crm-items demo">
+          <li><strong>여성 40대(56.4%):</strong> Animation/Family 인기작 중심으로 첫 진입 유도</li>
+          <li><strong>여성 20대(48.6%):</strong> Referral + "친구와 함께 보기"</li>
+          <li><strong>남성:</strong> 해당 구독자의 실제 시청 이력 기반으로 콘텐츠 추천. 시청 이력이 없으면 현재 인기작 2~3편 제안</li>
+          <li><strong>Premium(47.2%):</strong> Premium 전용 콘텐츠·기능 소개로 이용 재개 유도</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="crm-card" style="margin-top:16px;border-left:4px solid var(--red);">
+      <div class="crm-card-title"><div class="icon" style="background:#fee2e2;">🚫</div>절대 보내면 안 되는 것</div>
+      <ul class="crm-items danger">
+        <li>모든 S6에 동일 고액 할인 쿠폰 일괄 — 가치 형성 전 가격만 부각</li>
+        <li>시청 근거 없는 이어보기 메시지 (무시청형 대상)</li>
+        <li>무반응 구독자에 반복 알림 — 앱 알림 차단으로 이어질 수 있음</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON PRINCIPLES -->
+<section id="common">
+  <div class="sec-title">공통 원칙 및 전체 요약</div>
+
+  <div class="card">
+    <div class="card-title">w4 임계점 비교 (세그먼트별)</div>
+    <div class="chart-wrap"><canvas id="chartThreshold"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">전체 세그먼트 요약</div>
+    <div class="summary-wrap">
+      <table class="summary-table">
+        <tr>
+          <th>세그먼트</th><th>건수</th><th>이탈률</th><th>핵심 전략</th><th>w4 격차</th><th>최우선 위험 집단</th>
+        </tr>
+        <tr>
+          <td><span class="badge badge-ok">S1 유지 보호군</span></td>
+          <td>1,359</td><td>10.0%</td>
+          <td>최소 개입, 정가 전환 안내</td>
+          <td>7.6%p</td>
+          <td>남성 40대(18.4%)</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">S2 이용 약화 회복군</span></td>
+          <td>1,109</td><td>28.7%</td>
+          <td>이어보기 단발 메시지, w4 31분+</td>
+          <td>23.1%p</td>
+          <td>남성 20대(36.9%)</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warn">S3 초기 관심 재활성화군</span></td>
+          <td>1,054</td><td>43.5%</td>
+          <td>시청작 기반 재활성화, w4 31분+</td>
+          <td>43.0%p ★</td>
+          <td>남성 40대(50.7%)</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-ok">S4 늦은 활성 유지군</span></td>
+          <td>1,681</td><td>11.5%</td>
+          <td>활성 흐름 보호, 최소 개입</td>
+          <td>3.5%p</td>
+          <td>남성 30대(14.4%)</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:#fce7f3;color:#8b2252;">S5 저관여 회복 실험군</span></td>
+          <td>3,500</td><td>31.1%</td>
+          <td>다음 시청 유발, w4 101분+</td>
+          <td>19.3%p</td>
+          <td>전 집단 균등(29~33%)</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-danger">S6 진입 미형성 휴면군</span></td>
+          <td>3,201</td><td>52.3%</td>
+          <td>내부 분기별 차별화, w4 31분+</td>
+          <td>31.4%p</td>
+          <td>탐색형(69.5%), 여성40대(56.4%)</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="card">
+      <div class="card-title">공통 원칙 1 — w4 시청이 재구매와 직결</div>
+      <ul class="crm-items" style="list-style:none;">
+        <li>모든 세그먼트에서 w4 시청 있는 구독자의 이탈률이 현저히 낮음</li>
+        <li>S3 임계점: 31분 (4.3%로 급락)</li>
+        <li>S5 임계점: 101분 (7.5%로 진입)</li>
+        <li>S6 임계점: 31분 (24.1%로 급락)</li>
+        <li>w4 시청을 만들어내는 것이 CRM의 실질적 목표</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">공통 원칙 2 — w2 변화가 조기 신호</div>
+      <ul class="crm-items" style="list-style:none;">
+        <li>Day 7~14(w2 기간) 시청량 변화가 재구매를 예측하는 가장 강력한 신호</li>
+        <li>w2 감소 + w4 없음 = 세그먼트 무관 이탈 가능성 최고</li>
+        <li>Day 14 시점 조기 개입이 세그먼트 확정(Day 20)보다 효과적</li>
+        <li>w2 증가 집단이 CRM 우선 타깃</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">공통 원칙 3 — 콘텐츠 다양성이 이탈을 방어</div>
+    <div class="chart-wrap"><canvas id="chartDivAll"></canvas></div>
+    <div class="insight" style="margin-top:12px;">모든 세그먼트에서 다양한 장르를 탐색한 구독자일수록 이탈률이 낮음. 두 번째·세 번째 콘텐츠 탐색을 유도하는 큐레이션이 공통 전략의 핵심.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">★ 해피엔드 — S3·S6 공통 검증된 재활성화 작품</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="text-align:center;padding:20px;background:#f0fff8;border-radius:12px;">
+        <div style="font-size:12px;color:var(--sub);margin-bottom:4px;">S3에서의 재구매율</div>
+        <div style="font-size:36px;font-weight:900;color:var(--green);">82.5%</div>
+        <div style="font-size:12px;color:var(--sub);">시청자 25명</div>
+      </div>
+      <div style="text-align:center;padding:20px;background:#f0fff8;border-radius:12px;">
+        <div style="font-size:12px;color:var(--sub);margin-bottom:4px;">S6에서의 재구매율</div>
+        <div style="font-size:36px;font-weight:900;color:var(--green);">87.9%</div>
+        <div style="font-size:12px;color:var(--sub);">시청자 70명</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================== 보완 전략 섹션 ======================== -->
+<section id="advanced">
+  <div class="sec-title">CRM 보완 전략 — 세그먼트를 살리면서 더 하는 것들</div>
+
+  <!-- 1. 대응 타이밍 레이어 -->
+  <div class="card">
+    <div class="card-title">1. 대응 타이밍 레이어 설계: 기존 세그먼트 유지 + 1~4주 전체 대응</div>
+    <div class="insight green" style="margin-bottom:16px;">
+      <strong>기존 안 폐기:</strong> 1~3주 관망 후 4주차에만 대응 → 재구매 결정 코앞(Day 27)에 너무 늦음.<br>
+      <strong>채택 안:</strong> 1~4주 전체 관찰하되, 초반에는 약하게 / 후반에는 강하게 대응. 세그먼트는 Day 20 이후 확정 유지.
+    </div>
+    <div class="split3">
+      <div class="split-card" style="background:#f0f8ff;border:1px solid #93c5fd;">
+        <h4 style="color:#1e40af;">1~2주차 (Day 0~13)</h4>
+        <p style="font-size:12px;color:var(--sub);margin:8px 0;">약한 대응</p>
+        <p style="font-size:12px;line-height:1.7;">세그먼트 미확정 상태.<br>w2 감소 신호 감지 시 콘텐츠 기반 단발 메시지 1회.<br>w2 증가 중이면 개입 자제.</p>
+      </div>
+      <div class="split-card" style="background:#fff8f0;border:1px solid #fed7aa;">
+        <h4 style="color:#92400e;">3주차 (Day 14~20)</h4>
+        <p style="font-size:12px;color:var(--sub);margin:8px 0;">강한 대응</p>
+        <p style="font-size:12px;line-height:1.7;">w3 기준 S1~S6 세그먼트 확정.<br>세그먼트별 정밀 메시지 설계 및 발송.<br>CRM 전략의 핵심 구간.</p>
+      </div>
+      <div class="split-card" style="background:#f0fff8;border:1px solid #6ee7b7;">
+        <h4 style="color:#065f46;">4주차 (Day 21~27)</h4>
+        <p style="font-size:12px;color:var(--sub);margin:8px 0;">반응 기반 마무리</p>
+        <p style="font-size:12px;line-height:1.7;">w4 시청 반응 확인.<br>시청 있으면 → 자제.<br>없으면 → 최후 단발 or 발송 억제.<br>Peak-End Rule: 말미 경험이 재구매 기억 결정.</p>
+      </div>
+    </div>
+    <div class="insight" style="margin-top:16px;">
+      <strong>세그먼트 역할:</strong> S1~S6는 Day 20 이후 확정되는 <strong>2차 정밀 전략 레이어</strong>.<br>
+      <strong>조기 개입 역할:</strong> Day 7~14의 w2 감소 감지가 세그먼트 없이도 작동하는 <strong>1차 조기 신호 레이어</strong>.
+    </div>
+  </div>
+
+  <!-- 2. 조기 개입 설명 -->
+  <div class="card">
+    <div class="card-title">2. 조기 개입 (Early Intervention) — Day 14 이전에 먼저 잡는다</div>
+    <p style="font-size:13px;line-height:1.8;margin-bottom:16px;color:var(--text);">
+      세그먼트는 Day 20 이후 확정되므로, 그 전에 아무것도 하지 않으면 개입 가능한 시간이 1주일 미만으로 줄어든다. 조기 개입은 세그먼트 확정 이전에도 w2 시청 변화를 실시간으로 감지하여 약한 신호에 먼저 반응하는 구조다.
+    </p>
+
+    <div class="chart-grid">
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">조기 개입 트리거 조건</p>
+        <table class="data-table">
+          <tr><th>시점</th><th>조건</th><th>행동</th></tr>
+          <tr><td>Day 3~7</td><td>시청 기록 없음</td><td>장르 선택 유도 or 인기작 2~3편 제안</td></tr>
+          <tr><td>Day 10~14</td><td>w2 &lt; w1 × 0.5 (급감)</td><td>시청 이력 기반 단발 메시지 1회</td></tr>
+          <tr><td>Day 14</td><td>w2 증가 중</td><td>개입 자제. 흐름 유지 중</td></tr>
+          <tr><td>Day 20</td><td>w3 = 0 (S3/S6 확정)</td><td>재활성화 메시지 + 체크포인트 보상 안내</td></tr>
+          <tr><td>Day 21~27</td><td>w4 시청 반응 확인</td><td>있으면 자제 / 없으면 최후 단발</td></tr>
+        </table>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">조기 개입이 필요한 이유 (데이터)</p>
+        <div style="padding:12px;background:#f0fff8;border-radius:10px;margin-bottom:8px;">
+          <div style="font-size:11px;color:var(--sub);">S3 재구매자 w2 평균</div>
+          <div style="font-size:24px;font-weight:900;color:var(--green);">182분</div>
+        </div>
+        <div style="padding:12px;background:#fff0f0;border-radius:10px;margin-bottom:8px;">
+          <div style="font-size:11px;color:var(--sub);">S3 이탈자 w2 평균</div>
+          <div style="font-size:24px;font-weight:900;color:var(--red);">98분</div>
+        </div>
+        <div class="insight" style="font-size:12px;">2주차 시청량이 재구매를 가장 강하게 예측. Day 14 이전이 실질적 개입 적기.</div>
+      </div>
+    </div>
+    <div class="insight warn" style="margin-top:12px;font-size:12px;">
+      <strong>역인과 주의:</strong> w2 감소가 이탈을 유발하는 것인지, 이미 이탈 의향이 있는 구독자가 결과적으로 덜 보는 것인지 우리 데이터만으로는 구분 불가. 실험 설계(A/B 테스트) 없이 인과 주장 불가.
+    </div>
+  </div>
+
+  <!-- 3. Peak-End Rule -->
+  <div class="card">
+    <div class="card-title">3. Peak-End Rule — 왜 4주차가 중요한가</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+      <div>
+        <p style="font-size:13px;line-height:1.8;color:var(--text);">
+          심리학자 다니엘 카너먼의 Peak-End Rule에 따르면, 사람은 경험 전체의 평균을 기억하지 않는다. <strong>절정(Peak)</strong>과 <strong>끝(End)</strong>의 감정만을 기억한다.<br><br>
+          구독 경험에 대입하면, 한 달 중 가장 인상 깊었던 콘텐츠 경험(Peak)과 구독 만료 직전 마지막 시청 경험(End)이 재구매 결정을 좌우한다.<br><br>
+          4주차(Day 21~27)는 End 경험에 해당한다. 이 시점에 좋은 콘텐츠 경험이 있으면, 한 달이라는 구독 전체가 긍정적으로 기억된다.
+        </p>
+      </div>
+      <div>
+        <div style="background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:16px;padding:20px;color:white;">
+          <p style="font-size:12px;opacity:0.8;margin-bottom:12px;">Peak-End Rule + 우리 데이터</p>
+          <table style="width:100%;font-size:12px;border-collapse:collapse;">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+              <td style="padding:8px 0;opacity:0.8;">S3 w4 있음</td>
+              <td style="padding:8px 0;font-weight:700;color:#4ade80;text-align:right;">이탈률 7.5%</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+              <td style="padding:8px 0;opacity:0.8;">S3 w4 없음</td>
+              <td style="padding:8px 0;font-weight:700;color:#f87171;text-align:right;">이탈률 50.5%</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+              <td style="padding:8px 0;opacity:0.8;">S6 w4 있음</td>
+              <td style="padding:8px 0;font-weight:700;color:#4ade80;text-align:right;">이탈률 30.3%</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 0;opacity:0.8;">S6 w4 없음</td>
+              <td style="padding:8px 0;font-weight:700;color:#f87171;text-align:right;">이탈률 61.7%</td>
+            </tr>
+          </table>
+          <p style="font-size:11px;opacity:0.7;margin-top:12px;">4주차 경험이 End 경험을 결정한다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 체크포인트 보상 -->
+  <div class="card">
+    <div class="card-title">4. 체크포인트 보상 — OTT 업계 미도입 신규 제안</div>
+    <div class="insight" style="margin-bottom:16px;">
+      국내외 OTT에서 시청 기반 출석체크/체크포인트 시스템 도입 사례 없음(2026년 5월 기준 확인). <strong>Starbucks Star Dash</strong>, <strong>NikePlus</strong>, <strong>Xbox Rewards</strong>의 게이미피케이션 원리를 OTT에 적용하는 신규 제안. 게이미피케이션 도입 플랫폼은 사용자 유지율 평균 <strong>42% 증가</strong>(Statista), 고객 유지율 <strong>30% 증가</strong>(업계 평균).
+    </div>
+
+    <div class="chart-grid">
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">데이터 기반 체크포인트 설계</p>
+        <table class="data-table">
+          <tr><th>체크포인트</th><th>조건</th><th>데이터 근거</th></tr>
+          <tr>
+            <td><strong>CP1</strong><br><span style="font-size:11px;color:var(--sub);">Day 10~14</span></td>
+            <td>w2 시청량이 w1 대비 유지 또는 증가</td>
+            <td style="font-size:11px;">재구매자 w2 182분<br>이탈자 w2 98분 (S3 실측)</td>
+          </tr>
+          <tr>
+            <td><strong>CP2</strong><br><span style="font-size:11px;color:var(--sub);">Day 21~24</span></td>
+            <td>w4 시청 31분 이상 달성</td>
+            <td style="font-size:11px;">S3: 31분+ 이탈 4.3%<br>S6: 31분+ 이탈 24.1% (실측)</td>
+          </tr>
+        </table>
+
+        <p style="font-size:13px;font-weight:700;margin-top:16px;margin-bottom:8px;">보상 설계 후보</p>
+        <ul class="crm-items" style="list-style:none;">
+          <li>화질 업그레이드 1주일 체험 (상위 플랜 경험 → 업셀링 연착륙)</li>
+          <li>정상 요금 전환 시 할인 쿠폰 (100원딜 종료 연착륙)</li>
+          <li>개인화 추천 리스트 (Gemini 기반, 비용 없음)</li>
+          <li>리퍼럴 링크 제공 (체크포인트 달성 = 자연스러운 공유 동기)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">벤치마킹: Starbucks Star Dash</p>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:16px;margin-bottom:12px;">
+          <p style="font-size:12px;line-height:1.7;color:var(--text);">
+            <strong>구조:</strong> 특정 기간 내 지정 행동(구매 횟수/품목) 달성 시 보너스 보상<br>
+            <strong>효과:</strong> Starbucks 미국 매출의 53%가 이 로열티 프로그램에서 발생<br>
+            <strong>핵심:</strong> 제한 시간 + 달성 가능한 목표 + 즉각 보상
+          </p>
+        </div>
+        <div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:12px;padding:16px;">
+          <p style="font-size:12px;line-height:1.7;color:var(--text);">
+            <strong>Wavve 적용 시:</strong><br>
+            "이번 달 Day 21~24 사이에 영화 한 편(31분 이상)을 완주하면 다음 달 요금 할인"<br>
+            → Peak-End Rule + 체크포인트 + 리텐션을 동시에 노리는 구조
+          </p>
+        </div>
+        <div class="insight warn" style="margin-top:12px;font-size:12px;">
+          <strong>Gen Z/밀레니얼 주의:</strong> 27%가 기존 로열티 프로그램이 "재미없다"고 응답. 체크포인트 설계는 단순하고 달성 가능해야 함. 복잡한 조건은 역효과.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 리퍼럴 전략 -->
+  <div class="card">
+    <div class="card-title">5. 리퍼럴(Referral) 전략 — Acquisition + Retention 동시 달성</div>
+    <div class="insight" style="margin-bottom:16px;">
+      리퍼럴 고객은 일반 대비 <strong>37% 높은 리텐션, 18% 낮은 이탈률, 재추천 가능성 5배</strong> (Nielsen·Deloitte·Harvard 일관). AARRR에서 단순 Referral이 아닌, Retention까지 동시에 해결하는 전략.
+    </div>
+    <div class="chart-grid">
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">핵심 원칙</p>
+        <table class="data-table">
+          <tr><th>원칙</th><th>내용</th><th>근거</th></tr>
+          <tr><td><strong>양방향 필수</strong></td><td>추천인+피추천인 모두 보상. 단방향은 한쪽만 동기 발생</td><td>Dropbox 가입 60%↑<br>Uber 12x ROI</td></tr>
+          <tr><td><strong>선물처럼</strong></td><td>"내 이득"이 아닌 "친구에게 선물" 톤. 이타적 언어가 전환율↑</td><td>Airbnb A/B 테스트 실증</td></tr>
+          <tr><td><strong>서비스 내 보상</strong></td><td>현금 대신 서비스 가치와 연결된 보상이 더 효과적</td><td>Dropbox=저장공간<br>Uber=승차권</td></tr>
+        </table>
+
+        <p style="font-size:13px;font-weight:700;margin-top:16px;margin-bottom:8px;">Wavve 적용 안</p>
+        <table class="data-table">
+          <tr><th>#</th><th>방식</th><th>타깃</th></tr>
+          <tr><td>1</td><td>기본 양방향: 친구 100원딜 가입 완료 시 나도 1개월 할인</td><td>전체</td></tr>
+          <tr><td>2</td><td>세그먼트 타이밍: w2 증가 구독자에게 리퍼럴 링크 발송</td><td>S1·S2·S4</td></tr>
+          <tr><td>3</td><td>S1·S4 우선: 안정 집단이 추천 → 신규 유입 품질↑</td><td>S1·S4</td></tr>
+          <tr><td>4</td><td>20대 여성 집중: 정보 공유 속도 빠름, 참여율 높을 것으로 예측</td><td>전 세그먼트 20대 여성</td></tr>
+          <tr><td>5</td><td>체크포인트+리퍼럴: CP1·CP2 달성 보상으로 리퍼럴 링크 제공</td><td>CP 달성자</td></tr>
+        </table>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">벤치마킹 사례</p>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:16px;margin-bottom:8px;">
+          <p style="font-size:12px;font-weight:700;color:var(--green);">Dropbox</p>
+          <p style="font-size:12px;line-height:1.7;">양방향 저장공간 보상. 18개월 280만 건. 가입 60% 증가. 전체 가입의 35%가 리퍼럴 기원.</p>
+        </div>
+        <div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:12px;padding:16px;margin-bottom:8px;">
+          <p style="font-size:12px;font-weight:700;color:var(--blue);">Airbnb</p>
+          <p style="font-size:12px;line-height:1.7;">양방향 여행 크레딧. "선물" 톤의 이타적 언어가 홍보 톤보다 전환율 높음을 A/B 테스트로 확인. 부킹 300% 증가.</p>
+        </div>
+        <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:16px;">
+          <p style="font-size:12px;font-weight:700;color:var(--orange);">Uber</p>
+          <p style="font-size:12px;line-height:1.7;">지역별 보상 금액 차등. 신규 시장 보상 높이고 성숙 시장 낮추는 유연한 설계. 12x ROI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 협업 필터링 -->
+  <div class="card">
+    <div class="card-title">6. 협업 필터링 — 장르 집계가 아닌 실제 행동 기반 추천</div>
+    <div class="insight danger" style="margin-bottom:16px;">
+      <strong>폐기된 접근:</strong> 세그먼트별 장르 집계(예: S1에서 Thriller/Crime 건당 71분 최장)를 개인 추천 근거로 사용. 이는 집계 통계를 개인에 일반화하는 오류로 로맨스 좋아하는 사람에게 스릴러를 추천하는 결과를 낳음.
+    </div>
+    <div class="chart-grid">
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">우리 데이터의 협업 필터링 근거</p>
+        <table class="data-table">
+          <tr><th>지표</th><th>수치</th></tr>
+          <tr><td>전체 유저 중 2편 이상 시청</td><td style="font-weight:700;color:var(--green);">82.8% (19,633명)</td></tr>
+          <tr><td>유저당 시청 작품 중앙값</td><td style="font-weight:700;">4편</td></tr>
+          <tr><td>공동 시청 쌍 Top1</td><td>죽여주는여자 & 궁(2013): 448명</td></tr>
+          <tr><td>공동 시청 쌍 Top2</td><td>죽여주는여자 & 무뢰한: 437명</td></tr>
+          <tr><td>공동 시청 쌍 Top3</td><td>어니스트씨프 & 뱅가드: 432명</td></tr>
+        </table>
+        <div class="insight" style="margin-top:12px;font-size:12px;">현재 데이터는 1% 샘플링. 실제 Wavve 현업 환경(500만~1000만 유저)에서는 협업 필터링이 충분히 작동 가능.</div>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;">추천 접근 방식</p>
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:16px;margin-bottom:8px;">
+          <p style="font-size:12px;font-weight:700;color:var(--green);">1순위: 협업 필터링</p>
+          <p style="font-size:12px;line-height:1.7;">"A 작품을 본 사람이 B 작품도 봤다"는 실제 행동 패턴 기반. 가장 신뢰할 수 있는 개인화 근거.</p>
+        </div>
+        <div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:12px;padding:16px;margin-bottom:8px;">
+          <p style="font-size:12px;font-weight:700;color:var(--blue);">2순위: 장르 유사도 (인접 장르)</p>
+          <p style="font-size:12px;line-height:1.7;">공동 시청 데이터 부족 시 보완. 액션→어드벤처처럼 거리 가까운 인접 장르로만 확장. 액션→다큐멘터리 같은 급전환 금지.</p>
+        </div>
+        <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:16px;">
+          <p style="font-size:12px;font-weight:700;color:var(--orange);">Gemini API 활용</p>
+          <p style="font-size:12px;line-height:1.7;">개인 시청 이력 + 공동 시청 패턴을 프롬프트에 넣어 개인화 메시지 생성. 장르 집계 평균은 참고 보조 자료로만 사용.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Wavve OTT CRM 전략 보고서 | 프로모션 유입 구독자 분석 | w1~w4 실측 기반
+</footer>
+
+<script>
+Chart.defaults.font.family = "'Noto Sans KR', sans-serif";
+Chart.defaults.font.size = 12;
+
+const C = {
+  blue: '#378ADD', pink: '#D4537E', green: '#1D9E75',
+  orange: '#E8743B', red: '#c0392b', yellow: '#f59e0b',
+  s1:'#1D9E75', s2:'#378ADD', s3:'#E8743B', s4:'#2ecc71', s5:'#D4537E', s6:'#c0392b',
+  bg:'rgba(0,0,0,0.05)', grid:'rgba(0,0,0,0.06)'
+};
+
+function barOpts(labels, data, colors, title) {
+  return {
+    type:'bar',
+    data:{labels, datasets:[{data, backgroundColor:colors||C.blue, borderRadius:6, borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.raw.toFixed(1)+'%'}}},
+      scales:{y:{beginAtZero:true,max:80,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+    }
+  };
+}
+
+// ---- OVERVIEW ----
+new Chart('chartOverall', {
+  type:'bar',
+  data:{
+    labels:['S1 유지보호군','S2 이용약화','S3 초기관심','S4 늦은활성','S5 저관여','S6 휴면군'],
+    datasets:[{
+      data:[10.0,28.7,43.5,11.5,31.1,52.3],
+      backgroundColor:[C.s1,C.s2,C.s3,C.s4,C.s5,C.s6],
+      borderRadius:8,borderSkipped:false
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.raw+'%'}}},
+    scales:{y:{beginAtZero:true,max:60,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+  }
+});
+
+new Chart('chartW4Gap', {
+  type:'bar',
+  data:{
+    labels:['S1','S2','S3','S4','S5','S6'],
+    datasets:[
+      {label:'w4 있음',data:[4.7,10.5,7.5,9.0,16.0,30.3],backgroundColor:[C.s1,C.s2,C.s3,C.s4,C.s5,C.s6].map(c=>c+'aa'),borderRadius:4,borderSkipped:false},
+      {label:'w4 없음',data:[12.3,33.6,50.5,12.4,35.3,61.7],backgroundColor:[C.s1,C.s2,C.s3,C.s4,C.s5,C.s6],borderRadius:4,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top'},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw+'%'}}},
+    scales:{y:{beginAtZero:true,max:80,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+  }
+});
+
+// ---- S1 ----
+new Chart('s1Age', {
+  type:'bar',
+  data:{
+    labels:['여성20대','여성30대','여성40대','남성20대','남성30대','남성40대'],
+    datasets:[{data:[12.0,6.8,6.7,8.2,10.2,18.4],
+      backgroundColor:['#D4537E88','#1D9E7588','#1D9E7588','#378ADD88','#378ADD88','#c0392b'],
+      borderRadius:6,borderSkipped:false}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:true,max:25,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+  }
+});
+new Chart('s1Plan', {type:'bar',data:{labels:['Basic','Standard','Premium'],datasets:[{data:[11.2,7.5,8.5],backgroundColor:[C.orange,C.green,C.blue],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:20,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s1Div', {type:'bar',data:{labels:['단일(1~4편)','중간(5~10편)','다양(11편+)'],datasets:[{data:[11.6,10.5,7.6],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:20,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s1Ret', {type:'bar',data:{labels:['급락형','유지형','증가형'],datasets:[{data:[13.6,12.6,7.4],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:20,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s1W4', {type:'doughnut',data:{labels:['w4 있음','w4 없음'],datasets:[{data:[30.0,70.0],backgroundColor:[C.green,C.bg],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
+
+// Genre bars S1
+(function(){
+  const genres=[['Thriller/Crime',71.0],['Historical/War',70.6],['SF/Fantasy',70.4],['Romance',69.0],['Drama',66.3],['Action/Adventure',61.8],['Comedy',66.7],['Animation/Family',56.3]];
+  const max=71.0, el=document.getElementById('s1Genre');
+  genres.forEach(([g,v])=>{
+    const pct=Math.round(v/max*100);
+    el.innerHTML+=`<div class="genre-bar"><div class="genre-name">${g}</div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${C.blue};"></div></div><div class="genre-val">${v}분</div></div>`;
+  });
+})();
+
+// ---- S2 ----
+new Chart('s2Age', {type:'bar',data:{labels:['여성20대','여성30대','여성40대','남성20대','남성30대','남성40대'],datasets:[{data:[30.6,23.6,30.0,36.9,31.6,30.6],backgroundColor:['#D4537E','#1D9E75','#D4537E','#c0392b','#D4537E','#D4537E'],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:50,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s2Plan', {type:'bar',data:{labels:['Basic','Standard','Premium'],datasets:[{data:[30.6,26.8,24.6],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:45,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s2Ret', {type:'bar',data:{labels:['급락형','유지형','증가형'],datasets:[{data:[31.6,25.4,19.2],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:45,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s2Div', {type:'bar',data:{labels:['단일(1~4편)','중간(5~10편)','다양(11편+)'],datasets:[{data:[28.1,30.6,19.0],backgroundColor:[C.orange,C.red,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:45,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s2W4Vol', {type:'bar',data:{labels:['1~30분','31~100분','101~300분','300분+'],datasets:[{data:[23.1,8.3,4.1,0.0],backgroundColor:[C.red,C.orange,C.green,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:35,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+
+// ---- S3 ----
+new Chart('s3WkCompare', {type:'bar',data:{labels:['w1 시청량','w2 시청량'],datasets:[{label:'재구매자',data:[177,182],backgroundColor:C.green+'cc',borderRadius:6,borderSkipped:false},{label:'이탈자',data:[230,98],backgroundColor:C.red+'cc',borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{beginAtZero:true,grid:{color:C.grid},ticks:{callback:v=>v+'분'}},x:{grid:{display:false}}}}});
+new Chart('s3Age', {type:'bar',data:{labels:['여성20대','여성30대','여성40대','남성20대','남성30대','남성40대'],datasets:[{data:[44.3,41.7,40.7,45.1,48.4,50.7],backgroundColor:[C.orange,C.orange,C.orange,C.orange,C.red,C.red],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:65,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s3Plan', {type:'bar',data:{labels:['Basic','Standard','Premium'],datasets:[{data:[44.8,37.0,44.7],backgroundColor:[C.red,C.green,C.red],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:60,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s3W4Vol', {type:'bar',data:{labels:['1~30분','31~100분','101~300분','300분+'],datasets:[{data:[19.5,4.3,4.3,0.0],backgroundColor:[C.red,C.green,C.green,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:30,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+
+(function(){
+  const high=[['Animation/Family',180],['Drama',160],['Historical/War',139]];
+  const low=[['Documentary',87],['Action/Adventure',96],['Horror',89]];
+  const eh=document.getElementById('s3GenreHigh'), el=document.getElementById('s3GenreLow');
+  const max=180;
+  high.forEach(([g,v])=>{ eh.innerHTML+=`<div class="genre-bar"><div class="genre-name">${g}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(v/max*100)}%;background:${C.green};"></div></div><div class="genre-val" style="color:${C.green};">${v}%</div></div>`; });
+  low.forEach(([g,v])=>{ el.innerHTML+=`<div class="genre-bar"><div class="genre-name">${g}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(v/max*100)}%;background:${C.red};"></div></div><div class="genre-val" style="color:${C.red};">${v}%</div></div>`; });
+})();
+
+// ---- S4 ----
+new Chart('s4Age', {type:'bar',data:{labels:['여성20대','여성30대','여성40대','남성20대','남성30대','남성40대'],datasets:[{data:[11.0,11.7,12.9,9.8,14.4,7.5],backgroundColor:[C.orange,C.orange,C.orange,C.green,C.red,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:22,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s4Plan', {type:'bar',data:{labels:['Basic','Standard','Premium'],datasets:[{data:[14.1,7.7,7.3],backgroundColor:[C.red,C.green,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:22,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s4Div', {type:'bar',data:{labels:['단일(1~4편)','중간(5~10편)','다양(11편+)'],datasets:[{data:[15.3,9.3,7.3],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:22,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+
+// ---- S5 ----
+new Chart('s5Age', {type:'bar',data:{labels:['여성20대','여성30대','여성40대','남성20대','남성30대','남성40대'],datasets:[{data:[33.0,30.5,30.1,29.3,33.3,30.1],backgroundColor:[C.pink,C.pink,C.pink,C.pink,C.pink,C.pink].map(c=>c+'cc'),borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:45,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s5Div', {type:'bar',data:{labels:['단일(1~4편)','중간(5~10편)','다양(11편+)'],datasets:[{data:[35.7,23.3,23.7],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:50,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s5W4Vol', {type:'bar',data:{labels:['1~30분','31~100분','101~300분','300분+'],datasets:[{data:[21.4,19.4,7.5,3.2],backgroundColor:[C.orange,C.yellow,C.green,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:35,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+
+// ---- S6 ----
+new Chart('s6Age', {type:'bar',data:{labels:['여성20대','여성30대','여성40대','남성20대','남성30대','남성40대'],datasets:[{data:[48.6,51.3,56.4,54.3,54.3,51.5],backgroundColor:[C.orange,C.red,C.red,C.red,C.red,C.red].map((c,i)=>i===2?C.red:c),borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:75,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s6Div', {type:'bar',data:{labels:['단일(1~4편)','중간(5~10편)','다양(11편+)'],datasets:[{data:[60.3,45.7,33.3],backgroundColor:[C.red,C.orange,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:75,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+new Chart('s6W4Vol', {type:'bar',data:{labels:['1~30분','31~100분','101~300분','300분+'],datasets:[{data:[55.2,24.1,16.3,8.5],backgroundColor:[C.red,C.orange,C.yellow,C.green],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:75,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+
+// ---- COMMON ----
+new Chart('chartW2Signal', {
+  type:'bar',
+  data:{
+    labels:['S1','S2','S3','S4','S5','S6','전체'],
+    datasets:[
+      {label:'w2 증가 이탈률',data:[7.4,19.2,24.4,8.9,14.1,40.7,23.9],
+       backgroundColor:['#1D9E75aa','#378ADDaa','#E8743Baa','#2ecc71aa','#D4537Eaa','#c0392baa','#94a3b8'],borderRadius:4,borderSkipped:false},
+      {label:'w2 감소 이탈률',data:[13.6,31.6,56.6,12.9,32.2,65.4,38.3],
+       backgroundColor:['#1D9E75','#378ADD','#E8743B','#2ecc71','#D4537E','#c0392b','#64748b'],borderRadius:4,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top'},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw+'%'}}},
+    scales:{y:{beginAtZero:true,max:80,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+  }
+});
+
+new Chart('chartThreshold', {
+  type:'bar',
+  data:{
+    labels:['S2 (31분→8.3%)','S3 (31분→4.3%)','S5 (101분→7.5%)','S6 (31분→24.1%)'],
+    datasets:[
+      {label:'w4 임계점 이후 이탈률',data:[8.3,4.3,7.5,24.1],backgroundColor:[C.s2,C.s3,C.s5,C.s6],borderRadius:6,borderSkipped:false},
+      {label:'w4 없을 때 이탈률',data:[33.6,50.5,35.3,61.7],backgroundColor:[C.s2+'44',C.s3+'44',C.s5+'44',C.s6+'44'],borderRadius:6,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top'}},
+    scales:{y:{beginAtZero:true,max:80,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+  }
+});
+
+new Chart('chartDivAll', {
+  type:'bar',
+  data:{
+    labels:['S1','S2','S3','S4','S5','S6'],
+    datasets:[
+      {label:'단일집중형',data:[11.6,28.1,43.5,15.3,35.7,60.3],backgroundColor:[C.s1,C.s2,C.s3,C.s4,C.s5,C.s6].map(c=>c+'55'),borderRadius:4,borderSkipped:false},
+      {label:'다양탐색형',data:[7.6,19.0,46.7,7.3,23.7,33.3],backgroundColor:[C.s1,C.s2,C.s3,C.s4,C.s5,C.s6],borderRadius:4,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top'}},
+    scales:{y:{beginAtZero:true,max:80,grid:{color:C.grid},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+segment,event_count,churn_count,churn_rate,segment_rule
+S1,1359,136,10.01,광일 hard gate (w1w2>=119 AND ratio<=0.25)
+S2,1109,318,28.67,광일 hard gate (w1w2>=119 AND ratio<=0.25)
+S3,1054,458,43.45,광일 hard gate (w1w2>=119 AND ratio<=0.25)
+S4,1681,193,11.48,광일 hard gate (w1w2>=119 AND ratio<=0.25)
+S5,3500,1087,31.06,광일 hard gate (w1w2>=119 AND ratio<=0.25)
+S6,3201,1675,52.33,광일 hard gate (w1w2>=119 AND ratio<=0.25)

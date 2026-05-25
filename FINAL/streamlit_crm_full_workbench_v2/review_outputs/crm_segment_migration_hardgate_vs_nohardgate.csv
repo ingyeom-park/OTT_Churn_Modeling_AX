@@ -1,0 +1,10 @@
+seg_no_hardgate,seg_hardgate,event_count,churn_rate_hardgate_seg
+S1,S1,1359,10.01
+S1,S4,647,11.13
+S2,S2,1109,28.67
+S2,S5,1058,27.6
+S3,S3,1054,43.45
+S3,S6,724,43.78
+S4,S4,1034,11.7
+S5,S5,2442,32.56
+S6,S6,2477,54.82

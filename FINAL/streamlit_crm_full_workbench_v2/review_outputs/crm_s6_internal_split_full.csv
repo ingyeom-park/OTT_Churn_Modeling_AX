@@ -1,0 +1,5 @@
+s6_type,event_count,churn_count,churn_rate,w1w2_median,w3_median,w4_view_rate,w4_churn_rate_if_view,w4_churn_rate_if_no_view,note
+A_무시청형,746,274,36.73,0.0,0.0,88.2,35.26,47.73,
+B_탐색형,797,554,69.51,5.0,0.0,8.66,20.29,74.18,
+C_저소비형,934,530,56.75,86.0,0.0,11.99,28.57,60.58,
+D_ratio탈락고시청형,724,317,43.78,223.0,0.0,16.02,9.48,50.33,w1w2=0 포함 / ratio>0.25 AND w1w2>=119 포함
