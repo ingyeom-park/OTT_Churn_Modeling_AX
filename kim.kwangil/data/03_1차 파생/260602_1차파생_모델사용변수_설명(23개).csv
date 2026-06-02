@@ -1,0 +1,24 @@
+column_order,column_name,feature_group,model_role,used_overall_model,used_groupwise_model,groupwise_note,selection_reason,reference_or_exclusion_note
+1,is_promotion,프로모션 정보,프로모션 여부 변수,TRUE,FALSE,프로모션별 모델에서는 분리 기준으로만 사용,전체 모델에서 프로모션 적용 여부가 재구매 여부에 미치는 영향을 반영,비프로모션과 프로모션을 나눈 뒤에는 입력 변수에서 제외
+2,is_churn_prevented,회원 상태 정보,이탈 방지 조치 여부,TRUE,TRUE,공통 사용,이탈 방지 조치가 재구매 여부에 미치는 영향을 반영,기본 회원 상태 변수로 유지
+3,is_user_verified,회원 상태 정보,본인 인증 여부,TRUE,TRUE,공통 사용,인증 여부에 따른 이용 신뢰도와 재구매 가능성 차이를 반영,기본 회원 상태 변수로 유지
+4,is_basic,요금제 정보,베이직 요금제 더미,TRUE,TRUE,공통 사용,요금제 수준에 따른 이용 경험 차이를 반영,is_standard를 기준 범주로 두어 더미 변수 다중공선성 방지
+5,is_premium,요금제 정보,프리미엄 요금제 더미,TRUE,TRUE,공통 사용,요금제 수준에 따른 이용 경험 차이를 반영,is_standard를 기준 범주로 두어 더미 변수 다중공선성 방지
+6,age_group,인구통계 정보,연령대 범주 변수,TRUE,TRUE,공통 사용,원본 age를 구간화해 연령대별 재구매 패턴을 반영,원본 age를 대체하는 1차 파생 변수
+7,is_female,인구통계 정보,여성 여부 더미,TRUE,TRUE,공통 사용,성별에 따른 콘텐츠 소비 및 재구매 차이를 반영,is_male을 기준 범주로 두어 더미 변수 다중공선성 방지
+8,payment_is_mobile,결제 디바이스 정보,모바일 결제 여부 더미,TRUE,TRUE,공통 사용,결제 디바이스 유형에 따른 이용 접근성과 재구매 차이를 반영,payment_device를 대체하는 1차 파생 변수
+9,payment_is_pc,결제 디바이스 정보,PC 결제 여부 더미,TRUE,TRUE,공통 사용,결제 디바이스 유형에 따른 이용 접근성과 재구매 차이를 반영,payment_device를 대체하는 1차 파생 변수
+10,payment_is_android,결제 디바이스 정보,안드로이드 결제 여부 더미,TRUE,TRUE,공통 사용,결제 디바이스 유형에 따른 이용 접근성과 재구매 차이를 반영,payment_is_ios를 기준 범주로 두어 더미 변수 다중공선성 방지
+11,reg_is_weekend,가입 시점 정보,주말 가입 여부,TRUE,TRUE,공통 사용,가입 요일에 따른 이용 목적과 초기 이용 패턴 차이를 반영,reg_date를 대체하는 1차 파생 변수
+12,reg_hour_morning,가입 시점 정보,오전 가입 여부 더미,TRUE,TRUE,공통 사용,가입 시간대에 따른 초기 이용 맥락 차이를 반영,reg_hour를 대체하는 1차 파생 변수
+13,reg_hour_evening,가입 시점 정보,저녁 가입 여부 더미,TRUE,TRUE,공통 사용,가입 시간대에 따른 초기 이용 맥락 차이를 반영,reg_hour를 대체하는 1차 파생 변수
+14,reg_hour_night,가입 시점 정보,야간 가입 여부 더미,TRUE,TRUE,공통 사용,가입 시간대에 따른 초기 이용 맥락 차이를 반영,reg_hour_afternoon을 기준 범주로 두어 더미 변수 다중공선성 방지
+15,movie_per_active_day,시청 행동 요약,활동일당 시청 콘텐츠 수,TRUE,TRUE,공통 사용,단순 시청량보다 활동일 기준의 소비 밀도를 반영,1차 파생 단계의 대표 행동 요약 변수
+16,max_day_share,시청 행동 요약,최대 시청일 집중도,TRUE,TRUE,공통 사용,시청이 특정 하루에 몰렸는지 여부를 반영,1차 파생 단계의 대표 행동 요약 변수
+17,weekend_watch_ratio,시청 행동 요약,주말 시청 비율,TRUE,TRUE,공통 사용,주말 중심 이용 성향이 재구매 여부에 미치는 영향을 반영,1차 파생 단계의 대표 행동 요약 변수
+18,watch_ratio_under_1m,시청 행동 요약,1분 미만 시청 비율,TRUE,TRUE,공통 사용,짧은 시청 비중을 통해 탐색성 이용 또는 낮은 몰입도를 반영,1차 파생 단계의 대표 행동 요약 변수
+19,day_count_over_3times,시청 행동 요약,하루 3회 이상 시청일 수,TRUE,TRUE,공통 사용,반복적 이용 빈도와 서비스 관여도를 반영,1차 파생 단계의 대표 행동 요약 변수
+20,new_movie_in_90d_ratio,콘텐츠 최신성,최근 90일 이내 콘텐츠 시청 비율,TRUE,TRUE,공통 사용,최신 콘텐츠 선호가 재구매 여부에 미치는 영향을 반영,최종 단계에서는 180일과 365일 기준으로 세분화 가능
+21,old_movie_ratio(5y),콘텐츠 최신성,5년 이상 구작 콘텐츠 시청 비율,TRUE,TRUE,공통 사용,구작 콘텐츠 선호가 재구매 여부에 미치는 영향을 반영,콘텐츠 취향을 요약하는 대표 변수
+22,avg_ott_release_year,콘텐츠 최신성,평균 OTT 공개 연도,TRUE,TRUE,공통 사용,시청 콘텐츠의 평균적인 최신성 수준을 반영,콘텐츠 최신성의 연속형 요약 변수
+23,genre_diversity_count,콘텐츠 다양성,시청 장르 다양성 수,TRUE,TRUE,공통 사용,다양한 장르를 소비하는 고객의 재구매 가능성을 반영,최종 단계에서는 장르별 비율로 세분화 가능
