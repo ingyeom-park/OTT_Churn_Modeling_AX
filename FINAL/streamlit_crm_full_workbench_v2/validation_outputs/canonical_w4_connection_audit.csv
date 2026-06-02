@@ -1,0 +1,7 @@
+﻿item,value
+promo_event_count,11904
+events_with_multiple_user_num_candidates,2
+events_with_conflicting_w4_candidate_values,0
+resolved_w4_events,11904
+w4_positive_events,3003
+w4_definition,Day 21~27 after matched reg_date; observational only

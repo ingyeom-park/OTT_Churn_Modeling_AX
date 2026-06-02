@@ -1,0 +1,116 @@
+{
+  "step00": {
+    "completed_at": "2026-05-28T15:12:10.218140",
+    "meta": {
+      "final_rows": 23345,
+      "final_cols": 91
+    }
+  },
+  "step01": {
+    "completed_at": "2026-05-28T15:12:28.730257",
+    "meta": {
+      "row_count": 23345,
+      "cohort_eligible": 23107,
+      "status": "PASS"
+    }
+  },
+  "step03": {
+    "completed_at": "2026-05-28T15:27:14.488284",
+    "meta": {
+      "cohort_rows": 23081,
+      "dup_removed": 0
+    }
+  },
+  "step06": {
+    "completed_at": "2026-05-28T13:47:23.829275",
+    "meta": {
+      "cohort_rows": 23081,
+      "cons_features": 22,
+      "exp_features": 74
+    }
+  },
+  "step08": {
+    "completed_at": "2026-05-28T13:47:38.509359",
+    "meta": {
+      "promo_rows": 11904,
+      "nonpromo_rows": 11177,
+      "rate_diff": -0.0871
+    }
+  },
+  "step09": {
+    "completed_at": "2026-05-28T13:47:55.608346",
+    "meta": {
+      "total_rows": 23081
+    }
+  },
+  "step10": {
+    "completed_at": "2026-05-28T13:48:13.609080",
+    "meta": {
+      "high_corr_pairs": 3,
+      "zero_inf_count": 33
+    }
+  },
+  "step11": {
+    "completed_at": "2026-05-28T14:17:42.428084",
+    "meta": {
+      "model_runs": 32
+    }
+  },
+  "step12": {
+    "completed_at": "2026-05-22T23:46:48.862186",
+    "meta": {
+      "candidates": {
+        "overall_without_promotion": {
+          "model": "LightGBM",
+          "oof_auc": 0.8717
+        },
+        "overall_with_promotion": {
+          "model": "LightGBM",
+          "oof_auc": 0.8771
+        },
+        "promotion_only": {
+          "model": "LightGBM",
+          "oof_auc": 0.8635
+        },
+        "nonpromotion_only": {
+          "model": "LightGBM",
+          "oof_auc": 0.8838
+        }
+      }
+    }
+  },
+  "step14": {
+    "completed_at": "2026-05-26T10:01:06.952966",
+    "meta": {
+      "scopes_tuned": 4
+    }
+  },
+  "step15": {
+    "completed_at": "2026-05-26T10:05:58.040399",
+    "meta": {
+      "scopes": 4
+    }
+  },
+  "step16": {
+    "completed_at": "2026-05-26T10:08:45.043052",
+    "meta": {
+      "scopes": [
+        "overall_with_promotion",
+        "overall_without_promotion",
+        "promotion_only",
+        "nonpromotion_only"
+      ]
+    }
+  },
+  "step17": {
+    "completed_at": "2026-05-26T16:32:46.805062",
+    "meta": {
+      "S1": 3801,
+      "S2": 4248,
+      "S3": 3525,
+      "S4": 1989,
+      "S5": 4672,
+      "S6": 4846
+    }
+  }
+}

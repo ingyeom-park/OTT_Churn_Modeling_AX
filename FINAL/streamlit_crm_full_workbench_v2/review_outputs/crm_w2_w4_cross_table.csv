@@ -1,0 +1,9 @@
+segment,w2_increased,has_w4,event_count,churn_count,churn_rate
+S3,True,True,89,8,8.99
+S3,True,False,341,97,28.45
+S3,False,True,84,5,5.95
+S3,False,False,540,348,64.44
+S6,True,True,121,14,11.57
+S6,True,False,999,442,44.24
+S6,False,True,834,275,32.97
+S6,False,False,1247,944,75.7

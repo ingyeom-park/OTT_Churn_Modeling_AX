@@ -1,0 +1,2 @@
+﻿basis_name,segment_id,rows,share_of_basis,promo0_rows,promo1_rows,promo0_share_within_S7,promo1_share_within_S7,repurchase_rate,churn_rate,mean_churn_risk,source_file,caveat
+park17x_basis,general_observation,7896,0.3421292083712466,3899,3997,0.49379432624113473,0.5062056737588653,0.8405521783181358,0.15944782168186422,0.16887259321396078,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,diagnostic residual subset only; not a new segment assignment

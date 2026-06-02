@@ -1,0 +1,27 @@
+﻿check,status,detail
+input basis resolved,PASS,park17x_basis rows 23079
+park17x assignment located,PASS,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_representative_segment_assignment.csv
+S7 residual definition verified from actual source,PASS,rule file and notebook source checked
+S7 row subset created only in new output folder,PASS,FINAL\S7_residual_promo_decomposition_diagnostic_260522\S7_park17x_basis_row_subset.csv
+S7 promo outcome 4cell summary created,PASS,
+promo gap summary created,PASS,
+existing flag distribution created,PASS,
+rule near-miss audit created,PASS,
+existing feature profile created,PASS,
+demographic action layer descriptive created,PASS,
+decision evidence table created,PASS,
+chart-ready summary created,PASS,
+figures created,PASS,
+notebook executed successfully,PASS,this cell executed
+no original CSV modified,PASS,
+no existing notebook modified,PASS,
+no existing HTML modified,PASS,
+no model rerun,PASS,no fit/training code executed
+no SHAP rerun,PASS,no SHAP package or recalculation used
+no segmentation reassignment,PASS,only read existing representative_segment
+no new feature added to canonical dataset,PASS,outputs written only under new FINAL folder
+final_note not modified,PASS,
+park.ingyeom note not modified,PASS,park.ingyeom/note.md not in write set
+PUBLIC not modified,PASS,
+review zip created,PASS,FINAL\S7_residual_promo_decomposition_diagnostic_260522_review_package.zip
+review zip inventory verified,PASS,all mandatory members exist before final zip rebuild

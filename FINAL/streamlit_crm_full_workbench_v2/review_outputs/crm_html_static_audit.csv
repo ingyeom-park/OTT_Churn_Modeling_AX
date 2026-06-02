@@ -1,0 +1,9 @@
+﻿check_item,value
+HTML SHA256,e4c9f6c4960d8d1db2af45c5a6ba0959d0d42eba4a5acde8b91da964641dd68a
+HTML file size bytes,97513
+canvas id list,"['chartOverall', 'chartW4Gap', 's1Age', 's1Plan', 's1Div', 's1Ret', 's1W4', 's2Age', 's2Plan', 's2Ret', 's2Div', 's2W4Vol', 's3WkCompare', 's3Age', 's3Plan', 's3W4Vol', 's4Age', 's4Plan', 's4Div', 's5Age', 's5Div', 's5W4Vol', 's6Age', 's6Div', 's6W4Vol', 'chartThreshold', 'chartDivAll']"
+new Chart() id list,"['chartOverall', 'chartW4Gap', 's1Age', 's1Plan', 's1Div', 's1Ret', 's1W4', 's2Age', 's2Plan', 's2Ret', 's2Div', 's2W4Vol', 's3WkCompare', 's3Age', 's3Plan', 's3W4Vol', 's4Age', 's4Plan', 's4Div', 's5Age', 's5Div', 's5W4Vol', 's6Age', 's6Div', 's6W4Vol', 'chartW2Signal', 'chartThreshold', 'chartDivAll']"
+charts without canvas (BUG),['chartW2Signal']
+external CDN dependencies,['https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap']
+offline_safe,NO - Chart.js and Google Fonts via CDN
+insuinhee_md_html_size_mismatch,"MD says 83KB, actual HTML 95.2KB (97513 bytes). MD was written before final HTML edits."

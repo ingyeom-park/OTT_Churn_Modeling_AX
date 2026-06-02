@@ -1,0 +1,3 @@
+PASS: validation outputs created
+promo events 11904 moved_by_hardgate 2429
+w4 resolved 11904 w4 positive 3003

@@ -1,0 +1,8 @@
+file_name,file_role,row_count,column_count,file_size_bytes,sha256_full,used_for_which_calculation
+06x_expanded_dataset.csv,공식 모집단·세그먼트·w4 계산,23097,82,12191995,7920fdeeefda8f956df473902d0d3b8d0041fa13f260532c50b494589dac0ab9,"crm_segment_summary, crm_w4_by_segment, S6분기, w2교차표"
+Membership_v2.csv,reg_date 제공 (w4 날짜 계산),23343,15,4628190,b73b62dd48d118508f5b93c42eb42ed5826c817e4822766d3dac95544776c351,crm_w4_by_segment
+User_Mapping_v2.csv,USER_KEY↔USER_NUM 연결,23720,2,3217128,639e7efd59e698c5bdb5a44b2c6caaf8438b5628a4257125a47f5c94c32e23f9,"crm_w4_by_segment, 협업필터링"
+View_History_v2.csv,w4 시청량·작품별 분석·협업필터링,175301,5,4498990,6b5a30232d6d815fd9b106a863a88ce5b815cf715a79494af035b8b6c822d1f7,"crm_w4_by_segment, 작품별재구매율, 협업필터링"
+Movie_Master_v2.csv,작품명·장르,14502,4,636507,a4e1449b80a690a150e7155873d9a6aaa5613a35d9308f2a036a46bb0b656d33,"작품별재구매율, 협업필터링"
+crm_strategy_segments.html,CRM 전략 HTML,N/A,N/A,97513,e4c9f6c4960d8d1db2af45c5a6ba0959d0d42eba4a5acde8b91da964641dd68a,최종 전달 파일
+NEW_CHAT_HANDOFF_260525_CRM_논의.md,인수인계 MD,N/A,N/A,9115,168a73029acca67f73344b1cec45db1044f79f15fce266dbfc8c1d8dab43a1c8,인수인계

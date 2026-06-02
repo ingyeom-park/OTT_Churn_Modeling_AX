@@ -1,0 +1,5 @@
+﻿promo_group,outcome_group,is_promotion,is_repurchase,rows,share_within_S7,share_within_promo_group_in_S7,mean_churn_risk,median_churn_risk,source_file,caveat
+promo0_non100won,churn,0,0,497,0.06294326241134751,0.12746858168761221,0.2960769346220339,0.259990730552465,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,observational split; not causal effect
+promo0_non100won,repurchase,0,1,3402,0.4308510638297872,0.8725314183123878,0.12339365712883472,0.07237212092825945,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,observational split; not causal effect
+promo1_100won,churn,1,0,762,0.09650455927051672,0.1906429822366775,0.3407357445411078,0.3626693951546496,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,observational split; not causal effect
+promo1_100won,repurchase,1,1,3235,0.4097011144883485,0.8093570177633225,0.15667446696063783,0.0977055403731346,park.ingyeom\reports\segments\17x_segmentation_design_260516\17x_segmentation_base_datamart.csv,observational split; not causal effect
